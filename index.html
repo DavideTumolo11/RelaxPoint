@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>RelaxPoint - Marketplace web per servizi di benessere a domicilio</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Modificabile da admin per logo, menu, pulsanti -->
+            <header class="site-header">
+                <!-- LOGO E MENU SINISTRA -->
+                <div class="header-left">
+                    <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
+                    <a class="site-logo" href="/">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <!-- Menu navigazione - ADMIN può aggiungere/rimuovere voci -->
+                    <nav class="main-nav">
+                        <a class="nav-link active" href="/">Home</a>
+                        <a class="nav-link" href="pages/servizi.html">Servizi</a>
+                        <a class="nav-link" href="pages/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="pages/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
+                <div class="header-right">
+                    <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
+                    <a class="last-minute-link" href="pages/last-minute.html">Last Minute</a>
+
+                    <!-- Ricerca - ADMIN può modificare placeholder -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti - ADMIN può modificare testi e link -->
+                    <div class="button-group">
+                        <a href="" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="./login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+                    <div class="content-sections">
+
+                        <!-- HERO SECTION - ADMIN può cambiare immagine, titolo, descrizione -->
+                        <div class="hero-section"
+                            style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("/assets/images/2girls.png");'>
+                            <div class="hero-content">
+                                <h1 class="hero-title">Benessere a portata di click</h1>
+                                <h2 class="hero-description">Prenota trattamenti di bellezza, fitness e benessere
+                                    direttamente a casa tua. Trova i migliori professionisti e goditi un'esperienza
+                                    personalizzata.</h2>
+                            </div>
+                            <button class="hero-cta">
+                                <span class="text-truncate">Scopri i servizi</span>
+                            </button>
+                        </div>
+
+                        <!-- SEZIONE SERVIZI - ADMIN può aggiungere card con tasto + -->
+                        <section>
+                            <h2 class="section-title">Servizi più richiesti</h2>
+
+                            <!-- Griglia servizi - OGNI CARD è identica, solo contenuto cambia -->
+                            <div class="services-grid">
+
+                                <!-- CARD SERVIZIO - ADMIN aggiunge con tasto + -->
+                                <div class="service-card" data-service="hair-makeup">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Hair\ and\ make-up.png");'>
+                                    </div>
+                                    <p class="service-title">Hair e Make-up</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="fisioterapia">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Fiosioterapia.Osteopatia.png");'>
+                                    </div>
+                                    <p class="service-title">Fisioterapia e Osteopatia</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="gravidanza">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/neoMamma.jpg");'>
+                                    </div>
+                                    <p class="service-title">Gravidanza e Neo-mamme</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="fitness">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Gym.jpg");'>
+                                    </div>
+                                    <p class="service-title">Fitness e Allenamento</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="massaggi">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/massage2.jpg");'>
+                                    </div>
+                                    <p class="service-title">Massaggi e Trattamenti</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="nutrizione">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Salute.jpg");'>
+                                    </div>
+                                    <p class="service-title">Nutrizione e Benessere</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="yoga">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/YogaEndMeditazione.jpeg");'>
+                                    </div>
+                                    <p class="service-title">Yoga e Meditazione</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO -->
+                                <div class="service-card" data-service="progress">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Beauty.jpg");'>
+                                    </div>
+                                    <p class="service-title">Beauty</p>
+                                </div>
+
+                                <div class="service-card" data-service="progress">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/NextServiceComingSoon.png");'>
+                                    </div>
+                                    <p class="service-title">Work in Progress</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- SEZIONE PROFESSIONISTI - ADMIN può aggiungere card con tasto + -->
+                        <section>
+                            <h2 class="section-title">Professionisti in evidenza</h2>
+
+                            <!-- Carousel professionisti - OGNI CARD è identica -->
+                            <div class="professionals-carousel">
+                                <div class="professionals-container">
+
+                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("/assets/images/Professionisti/pr1.png");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Giulia Rossi</p>
+                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("/assets/images/Professionisti/pr2.png");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Marco Bianchi</p>
+                                            <p class="professional-role">Massaggiatore specializzato</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/marco-bianchi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("/assets/images/Professionisti/pr3.png");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Laura Verdi</p>
+                                            <p class="professional-role">Insegnante di yoga esperta</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/laura-verdi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("/assets/images/Professionisti/pr5.png");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Sofia Moretti</p>
+                                            <p class="professional-role">Estetista professionista</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/sofia-moretti.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("/assets/images/Professionisti/pr4.png");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Giulia Rossi</p>
+                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnjkf-TtN11NkdomwX9ukAXM0pJGQUIb5XHe2j-Vc8-_Ai0h5cnpTwRZvXV-ql2jN4ZgTF4CKLLNQvurK40AV7zx_SoSecrc1UUg87dwGvIC6TlqDIeCdq66l9uJUoys8KbuTN3DoWIPM5pdmT2wuOq1J0s7z7rt3y9F7_sIZZMrsdZnztRGDHUUkwGd4T787MzlK0HHyX3EAmRdmqpbsc5i_S2YF2zod8VsKCHfuTQMQ3QQ8WHEl20zduYhUuMo7qB-4uSsOfgzLt");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Giulia Rossi</p>
+                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnjkf-TtN11NkdomwX9ukAXM0pJGQUIb5XHe2j-Vc8-_Ai0h5cnpTwRZvXV-ql2jN4ZgTF4CKLLNQvurK40AV7zx_SoSecrc1UUg87dwGvIC6TlqDIeCdq66l9uJUoys8KbuTN3DoWIPM5pdmT2wuOq1J0s7z7rt3y9F7_sIZZMrsdZnztRGDHUUkwGd4T787MzlK0HHyX3EAmRdmqpbsc5i_S2YF2zod8VsKCHfuTQMQ3QQ8WHEl20zduYhUuMo7qB-4uSsOfgzLt");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Giulia Rossi</p>
+                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <div class="professional-card">
+                                        <div class="professional-image"
+                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnjkf-TtN11NkdomwX9ukAXM0pJGQUIb5XHe2j-Vc8-_Ai0h5cnpTwRZvXV-ql2jN4ZgTF4CKLLNQvurK40AV7zx_SoSecrc1UUg87dwGvIC6TlqDIeCdq66l9uJUoys8KbuTN3DoWIPM5pdmT2wuOq1J0s7z7rt3y9F7_sIZZMrsdZnztRGDHUUkwGd4T787MzlK0HHyX3EAmRdmqpbsc5i_S2YF2zod8VsKCHfuTQMQ3QQ8WHEl20zduYhUuMo7qB-4uSsOfgzLt");'>
+                                        </div>
+                                        <div class="professional-info">
+                                            <p class="professional-name">Giulia Rossi</p>
+                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <a class="professional-link"
+                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                        </div>
+                                    </div>
+
+                                    <!-- Ripeti per altri professionisti... -->
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- SEZIONE CTA - ADMIN può modificare testo e pulsante -->
+                        <section class="cta-section">
+                            <div class="cta-content">
+                                <div class="cta-text">
+                                    <h1 class="cta-title">Diventa un professionista RelaxPoint</h1>
+                                    <p class="cta-description">Offri i tuoi servizi sulla nostra piattaforma e raggiungi
+                                        nuovi clienti. Espandi la tua attività e fai crescere la tua clientela con
+                                        RelaxPoint.</p>
+                                </div>
+                                <div class="cta-button">
+                                    <button class="cta-btn">
+                                        <span class="text-truncate">Iscriviti ora</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER - ADMIN può modificare link e copyright -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <!-- Link footer - ADMIN può aggiungere/rimuovere -->
+                        <div class="footer-links">
+                            <a class="footer-link" href="pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="pages/faq.html">FAQ</a>
+                        </div>
+                        <!-- Copyright - ADMIN può modificare -->
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

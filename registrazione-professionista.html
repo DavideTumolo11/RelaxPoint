@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Registrazione Professionista - RelaxPoint | Benessere a domicilio</title>
+    <meta name="description"
+        content="Registrati come professionista su RelaxPoint per offrire i tuoi servizi di benessere a domicilio.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+
+<body class="auth-body">
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="auth-container">
+        <!-- HEADER SEMPLIFICATO -->
+        <header class="auth-header">
+            <a class="auth-logo" href="../index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <div class="auth-header-links">
+                <a class="auth-link" href="login.html">Accedi</a>
+                <a class="auth-link" href="registrazione-privato.html">Per Privati</a>
+                <a class="auth-link" href="registrazione-professionista.html">Professionista</a>
+                <a class="auth-link active" href="registrazione-azienda-multisede.html">Azienda Multi-Sede</a>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="auth-main">
+            <div class="auth-card auth-card-wide">
+                <div class="auth-card-header">
+                    <h1 class="auth-title">Registrati come Professionista</h1>
+                    <p class="auth-subtitle">Unisciti alla nostra community di professionisti del benessere</p>
+                    <p class="auth-notice">Compila il modulo sottostante. Riceverai conferma entro 24-48 ore.</p>
+                </div>
+
+                <form class="auth-form" id="professionalRegistrationForm">
+
+                    <!-- SEZIONE DATI PERSONALI -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Dati Personali</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="nome">Nome *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="text" id="nome" name="nome"
+                                        placeholder="Mario Giuseppe" required />
+                                    <p class="form-helper">Inserisci tutti i nomi come da documento di identità</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="cognome">Cognome *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="text" id="cognome" name="cognome"
+                                        placeholder="Rossi" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="email" id="email" name="email"
+                                        placeholder="mario.rossi@example.com" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="telefono">Telefono *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="tel" id="telefono" name="telefono"
+                                        placeholder="+39 333 123 4567" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEZIONE DATI AZIENDALI -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Dati Aziendali</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="ragione_sociale">Ragione Sociale / Nome Attività
+                                    *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 7V3H2V21H22V7H12ZM6 19H4V17H6V19ZM6 15H4V13H6V15ZM6 11H4V9H6V11ZM6 7H4V5H6V7ZM10 19H8V17H10V19ZM10 15H8V13H10V15ZM10 11H8V9H10V11ZM10 7H8V5H10V7ZM20 19H12V17H20V19ZM20 15H12V13H20V15ZM20 11H12V9H20V11Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="text" id="ragione_sociale" name="ragione_sociale"
+                                        placeholder="Centro Benessere Relax S.r.l." required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="partita_iva">Partita IVA *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="text" id="partita_iva" name="partita_iva"
+                                        placeholder="12345678901" pattern="[0-9]{11}" required />
+                                </div>
+                                <p class="form-helper">Inserisci 11 cifre della Partita IVA</p>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="codice_fiscale">Codice Fiscale *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="text" id="codice_fiscale" name="codice_fiscale"
+                                        placeholder="RSSMRA80A01H501U" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="indirizzo_sede">Indirizzo Sede Legale *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5S14.5 7.62 14.5 9S13.38 11.5 12 11.5Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="text" id="indirizzo_sede" name="indirizzo_sede"
+                                        placeholder="Via Roma, 123 - 09124 Cagliari (CA)" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SEZIONE SERVIZI -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Servizi Offerti</h3>
+
+                        <div class="form-group">
+                            <label class="form-label">Seleziona le categorie di servizi che offri *</label>
+                            <div class="form-checkbox-grid">
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="hair_makeup" name="servizi[]" value="hair_makeup"
+                                        class="form-checkbox">
+                                    <label for="hair_makeup" class="form-checkbox-label">Hair & Make-up</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="fisioterapia" name="servizi[]" value="fisioterapia"
+                                        class="form-checkbox">
+                                    <label for="fisioterapia" class="form-checkbox-label">Fisioterapia &
+                                        Osteopatia</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="gravidanza" name="servizi[]" value="gravidanza"
+                                        class="form-checkbox">
+                                    <label for="gravidanza" class="form-checkbox-label">Gravidanza & Neo-mamme</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="fitness" name="servizi[]" value="fitness"
+                                        class="form-checkbox">
+                                    <label for="fitness" class="form-checkbox-label">Fitness & Allenamento</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="massaggi" name="servizi[]" value="massaggi"
+                                        class="form-checkbox">
+                                    <label for="massaggi" class="form-checkbox-label">Massaggi & Trattamenti</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="beauty" name="servizi[]" value="beauty"
+                                        class="form-checkbox">
+                                    <label for="beauty" class="form-checkbox-label">Beauty</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="yoga" name="servizi[]" value="yoga"
+                                        class="form-checkbox">
+                                    <label for="yoga" class="form-checkbox-label">Yoga & Meditazione</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="formazione" name="servizi[]" value="formazione"
+                                        class="form-checkbox">
+                                    <label for="formazione" class="form-checkbox-label">Formazione & Corsi</label>
+                                </div>
+                                <div class="form-checkbox-wrapper">
+                                    <input type="checkbox" id="chef" name="servizi[]" value="chef"
+                                        class="form-checkbox">
+                                    <label for="chef" class="form-checkbox-label">Chef & Cucina</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="descrizione_servizi">Descrizione Dettagliata Servizi
+                                *</label>
+                            <textarea class="form-textarea" id="descrizione_servizi" name="descrizione_servizi"
+                                placeholder="Descrivi i servizi che offri, le tue specializzazioni, la tua esperienza..."
+                                rows="4" required></textarea>
+                        </div>
+                    </div>
+
+                    <!-- SEZIONE DOCUMENTI -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Documenti Richiesti</h3>
+
+                        <div class="form-upload-area">
+                            <div class="form-upload-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                </svg>
+                            </div>
+                            <div class="form-upload-content">
+                                <h4>Carica i tuoi documenti</h4>
+                                <p>Trascina qui i file o clicca per selezionare</p>
+                                <p class="form-upload-formats">PNG, JPG, PDF fino a 10MB</p>
+                                <input type="file" id="documenti" name="documenti[]" multiple
+                                    accept=".png,.jpg,.jpeg,.pdf" class="form-file-input">
+                            </div>
+                        </div>
+
+                        <div class="form-upload-list">
+                            <h5>Documenti necessari:</h5>
+                            <ul>
+                                <li>• Documento di identità (fronte e retro)</li>
+                                <li>• Visura camerale (max 3 mesi)</li>
+                                <li>• Certificazioni professionali</li>
+                                <li>• Polizza assicurativa RC professionale</li>
+                                <li>• Diplomi e attestati di qualifica</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- SEZIONE PASSWORD -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">Credenziali di Accesso</h3>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="password">Password *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M18 8H17V6C17 3.24 14.76 1 12 1S7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM9 6C9 4.34 10.34 3 12 3S15 4.34 15 6V8H9V6Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="password" id="password" name="password"
+                                        placeholder="Crea una password sicura" required />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="password_confirm">Conferma Password *</label>
+                                <div class="form-input-wrapper">
+                                    <div class="form-input-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M18 8H17V6C17 3.24 14.76 1 12 1S7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM9 6C9 4.34 10.34 3 12 3S15 4.34 15 6V8H9V6Z" />
+                                        </svg>
+                                    </div>
+                                    <input class="form-input" type="password" id="password_confirm"
+                                        name="password_confirm" placeholder="Ripeti la password" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TERMINI E CONDIZIONI -->
+                    <div class="form-section">
+                        <div class="form-group">
+                            <div class="form-checkbox-wrapper">
+                                <input type="checkbox" id="terms" name="terms" class="form-checkbox" required>
+                                <label for="terms" class="form-checkbox-label">
+                                    Accetto i <a href="../pages/termini.html" target="_blank" class="form-link">Termini
+                                        di Servizio</a>,
+                                    l'<a href="../pages/privacy.html" target="_blank" class="form-link">Informativa
+                                        Privacy</a>
+                                    e le <a href="../pages/condizioni-professionisti.html" target="_blank"
+                                        class="form-link">Condizioni per Professionisti</a> *
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-checkbox-wrapper">
+                                <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox">
+                                <label for="newsletter" class="form-checkbox-label">
+                                    Desidero ricevere aggiornamenti su nuove funzionalità e opportunità business
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit" class="auth-button">
+                        <span>Invia Richiesta di Registrazione</span>
+                    </button>
+
+                    <div class="auth-notice-bottom">
+                        <p><strong>Cosa succede dopo?</strong></p>
+                        <p>La tua richiesta sarà esaminata dal nostro team entro 24-48 ore. Riceverai una email di
+                            conferma con le istruzioni per completare la registrazione.</p>
+                    </div>
+                </form>
+
+                <!-- LOGIN LINK -->
+                <div class="auth-footer">
+                    <p class="auth-footer-text">Hai già un account?
+                        <a href="login.html" class="auth-footer-link">Accedi</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="auth-footer-simple">
+            <p>© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/auth.js"></script>
+</body>
+
+</html>

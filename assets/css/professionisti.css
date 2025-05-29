@@ -1,0 +1,517 @@
+/* ===============================================
+  RELAXPOINT - CSS PROFESSIONISTI DEDICATO
+  STILE MINIMALE E PROFESSIONALE
+  =============================================== */
+
+/* LAYOUT PROFESSIONISTI SPECIFICO */
+.professionals-content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: none;
+    width: 100%;
+}
+
+/* BREADCRUMB PROFESSIONISTI */
+.professionals-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0 10px;
+    font-size: 12px;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.professionals-breadcrumb-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.professionals-breadcrumb-link:hover {
+    color: var(--color-primary);
+}
+
+.professionals-breadcrumb-separator {
+    color: var(--color-secondary);
+}
+
+.professionals-breadcrumb-current {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* HEADER PROFESSIONISTI */
+.professionals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0 40px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.professionals-title-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.professionals-back-button {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.professionals-back-button:hover {
+    background-color: var(--color-gray-light);
+}
+
+.professionals-main-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+
+/* SEZIONE RICERCA */
+.professionals-search-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.professionals-search-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 280px;
+    height: 40px;
+    max-width: 400px;
+}
+
+.professionals-search-wrapper {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    align-items: stretch;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.professionals-search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-light);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    color: var(--color-secondary);
+}
+
+.professionals-search-input {
+    flex: 1;
+    min-width: 0;
+    resize: none;
+    overflow: hidden;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid var(--color-light);
+    border-left: none;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 0 12px 0 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    outline: none;
+}
+
+.professionals-search-input:focus {
+    border-color: var(--color-primary);
+}
+
+.professionals-search-input::placeholder {
+    color: var(--color-secondary);
+}
+
+/* DROPDOWN CITTÀ PROFESSIONISTI */
+.professionals-city-selector {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    background-color: var(--color-gray-light);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease;
+}
+
+.professionals-city-selector:hover {
+    background-color: #e2e8f0;
+}
+
+.professionals-location-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.professionals-city-dropdown {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+}
+
+/* FILTRI */
+.professionals-filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: 10px;
+}
+
+.professionals-categories {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.professionals-filter-btn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.professionals-filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.professionals-filter-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.professionals-rating-filter {
+    display: flex;
+    align-items: center;
+}
+
+.professionals-rating-dropdown {
+    background-color: var(--color-gray-light);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    outline: none;
+}
+
+/* GRIGLIA PROFESSIONISTI - PIÙ COMPATTA */
+.professionals-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+}
+
+@media (min-width: 640px) {
+    .professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .professionals-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .professionals-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* CARD PROFESSIONISTA - MINIMALE E PIÙ STRETTA */
+.professional-card {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    position: relative;
+    border: 1px solid #f1f5f9;
+    max-width: 380px;
+    margin: 0 auto;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+    transition: all 0.3s ease;
+}
+
+.professional-card:hover {
+    box-shadow: 0 10px 15px -3px var(--color-light), 0 4px 6px -4px var(--color-light);
+}
+
+.professional-card.premium {
+    border-color: var(--color-primary);
+}
+
+/* IMMAGINE PROFESSIONISTA */
+.professional-image {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+/* BADGE - SOLO PREMIUM */
+.professional-badges {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 2;
+}
+
+.badge-premium,
+.badge-verified {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge-premium {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.badge-verified {
+    background-color: #64748b;
+    color: white;
+}
+
+/* LAST MINUTE BADGE - MINIMALE SENZA BACKGROUND */
+.last-minute-badge {
+    position: absolute;
+    bottom: 5px;
+    right: 12px;
+    color: var(--color-red);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: blink 1.5s infinite;
+    z-index: 2;
+    background: none;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* INFO PROFESSIONISTA */
+.professional-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.professional-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* RATING STELLE */
+.professional-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    font-size: 16px;
+    color: #e5e7eb;
+    transition: color 0.2s ease;
+}
+
+.star.filled {
+    color: #fbbf24;
+}
+
+.rating-text {
+    font-size: 14px;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+/* SPECIALIZZAZIONE */
+.professional-specialization {
+    font-size: 14px;
+    color: var(--color-secondary);
+    line-height: 1.5;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* CTA BUTTON - MINIMALE CON STRISCIA VERDE */
+.professional-cta {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.professional-cta::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.professional-cta:hover::before {
+    transform: scaleX(1);
+}
+
+.professional-cta:hover {
+    color: var(--color-primary);
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 767px) {
+    .professionals-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 16px 0 24px;
+        margin-bottom: 24px;
+    }
+
+    .professionals-title-section {
+        width: 100%;
+    }
+
+    .professionals-main-title {
+        font-size: 28px;
+    }
+
+    .professionals-search-section {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .professionals-search-container {
+        min-width: 100%;
+    }
+
+    .professionals-city-selector {
+        align-self: flex-end;
+    }
+
+    .professionals-filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .professionals-categories {
+        gap: 8px;
+    }
+
+    .professionals-filter-btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .professional-image {
+        height: 160px;
+    }
+
+    .professional-info {
+        padding: 16px;
+    }
+
+    .professional-card {
+        max-width: 100%;
+    }
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .professionals-search-container {
+        min-width: 240px;
+    }
+
+    .professional-card {
+        max-width: 100%;
+    }
+}

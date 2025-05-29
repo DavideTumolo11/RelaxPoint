@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Accedi - RelaxPoint | Benessere a domicilio</title>
+    <meta name="description" content="Accedi al tuo account RelaxPoint per prenotare servizi di benessere a domicilio.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+
+<body class="auth-body">
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="auth-container">
+        <!-- HEADER SEMPLIFICATO -->
+        <header class="auth-header">
+            <a class="auth-logo" href="../index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <div class="auth-header-links">
+                <a class="auth-link" href="registrazione-privato.html">Registrazione Per Privati</a>
+                <a class="auth-link" href="registrazione-professionista.html">Registrazione Per Professionisti</a>
+                <a class="auth-link" href="registrazione-azienda.html">Registrazione Per Aziende</a>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="auth-main">
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <h1 class="auth-title">Bentornato</h1>
+                    <p class="auth-subtitle">Accedi al tuo account RelaxPoint</p>
+                </div>
+
+                <form class="auth-form" id="loginForm">
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 6L9 17l-5-5" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="email" id="email" name="email"
+                                placeholder="mario.rossi@example.com" required />
+                        </div>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 11H5l7-7 7 7z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="password" id="password" name="password"
+                                placeholder="Inserisci la tua password" required />
+                        </div>
+                    </div>
+
+                    <!-- REMEMBER ME & FORGOT PASSWORD -->
+                    <div class="form-row">
+                        <div class="form-checkbox-wrapper">
+                            <input type="checkbox" id="remember" name="remember" class="form-checkbox">
+                            <label for="remember" class="form-checkbox-label">Ricordami</label>
+                        </div>
+                        <a href="recupera-password.html" class="form-link">Password dimenticata?</a>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit" class="auth-button">
+                        <span>Accedi</span>
+                    </button>
+                </form>
+
+                <!-- SIGNUP LINKS -->
+                <div class="auth-footer">
+                    <p class="auth-footer-text">Non hai ancora un account?</p>
+                    <div class="auth-footer-links">
+                        <a href="registrazione-privato.html" class="auth-footer-link">Registrati come Cliente</a>
+                        <span class="auth-footer-separator">•</span>
+                        <a href="registrazione-professionista.html" class="auth-footer-link">Registrati come
+                            Professionista</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="auth-footer-simple">
+            <p>© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/auth.js"></script>
+</body>
+
+</html>

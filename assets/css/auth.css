@@ -1,0 +1,737 @@
+/* ===============================================
+   RELAXPOINT - CSS AUTENTICAZIONE COMPLETO
+   Login, Registrazione Privati e Professionisti
+   =============================================== */
+
+/* ===============================================
+   BODY E LAYOUT AUTH
+   =============================================== */
+.auth-body {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ===============================================
+   HEADER SEMPLIFICATO
+   =============================================== */
+.auth-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(45, 90, 61, 0.1);
+}
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.auth-logo .logo-icon {
+    width: 32px;
+    height: 32px;
+}
+
+.auth-logo .logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.auth-header-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.auth-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.auth-link:hover,
+.auth-link.active {
+    color: var(--color-primary);
+    background-color: rgba(45, 90, 61, 0.1);
+}
+
+/* ===============================================
+   MAIN CONTENT
+   =============================================== */
+.auth-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+/* ===============================================
+   CARD PRINCIPALE
+   =============================================== */
+.auth-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(45, 90, 61, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    border: 1px solid rgba(45, 90, 61, 0.05);
+}
+
+.auth-card-wide {
+    max-width: 800px;
+}
+
+.auth-card-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.auth-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+}
+
+.auth-subtitle {
+    font-size: 16px;
+    color: var(--color-secondary);
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.auth-notice {
+    background: rgba(45, 90, 61, 0.05);
+    color: var(--color-primary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-top: 16px;
+    border-left: 4px solid var(--color-primary);
+}
+
+.auth-notice-bottom {
+    background: rgba(45, 90, 61, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 24px;
+    text-align: center;
+}
+
+.auth-notice-bottom p {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    color: var(--color-text);
+}
+
+.auth-notice-bottom p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===============================================
+   FORM SECTIONS
+   =============================================== */
+.form-section {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.form-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 20px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-primary);
+    display: inline-block;
+}
+
+/* ===============================================
+   FORM GROUPS E LAYOUT
+   =============================================== */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+.form-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+/* ===============================================
+   INPUT FIELDS
+   =============================================== */
+.form-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-input-icon {
+    position: absolute;
+    left: 12px;
+    z-index: 2;
+    color: var(--color-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 12px 12px 44px;
+    font-size: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.form-input::placeholder {
+    color: var(--color-secondary);
+}
+
+.form-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.form-helper {
+    font-size: 12px;
+    color: var(--color-secondary);
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+
+/* ===============================================
+   CHECKBOXES
+   =============================================== */
+.form-checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.form-checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--color-border);
+    border-radius: 4px;
+    background-color: var(--color-background);
+    cursor: pointer;
+    position: relative;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.form-checkbox:checked {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.form-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.form-checkbox-label {
+    font-size: 14px;
+    color: var(--color-text);
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.form-checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+    .form-checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===============================================
+   FILE UPLOAD
+   =============================================== */
+.form-upload-area {
+    border: 2px dashed var(--color-border);
+    border-radius: 12px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.form-upload-area:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(45, 90, 61, 0.02);
+}
+
+.form-upload-icon {
+    color: var(--color-secondary);
+    margin-bottom: 16px;
+}
+
+.form-upload-content h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+}
+
+.form-upload-content p {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin: 0 0 4px 0;
+}
+
+.form-upload-formats {
+    font-size: 12px !important;
+    color: var(--color-secondary) !important;
+}
+
+.form-file-input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.form-upload-list {
+    margin-top: 16px;
+    padding: 16px;
+    background-color: #f8fafc;
+    border-radius: 8px;
+}
+
+.form-upload-list h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+}
+
+.form-upload-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.form-upload-list li {
+    font-size: 13px;
+    color: var(--color-secondary);
+    margin-bottom: 4px;
+}
+
+/* ===============================================
+   BUTTONS
+   =============================================== */
+.auth-button {
+    width: 100%;
+    padding: 14px 24px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    letter-spacing: 0.015em;
+}
+
+.auth-button:hover {
+    background-color: var(--color-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(45, 90, 61, 0.2);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+.auth-button:disabled {
+    background-color: var(--color-secondary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ===============================================
+   LINKS E UTILITY
+   =============================================== */
+.form-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.form-link:hover {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.form-row .form-checkbox-wrapper {
+    margin: 0;
+}
+
+/* ===============================================
+   FOOTER AUTH
+   =============================================== */
+.auth-footer {
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.auth-footer-text {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin: 0 0 8px 0;
+}
+
+.auth-footer-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.auth-footer-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.auth-footer-link:hover {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+.auth-footer-separator {
+    color: var(--color-secondary);
+    font-size: 14px;
+}
+
+.auth-footer-simple {
+    text-align: center;
+    padding: 24px 0;
+    border-top: 1px solid rgba(45, 90, 61, 0.1);
+    margin-top: auto;
+}
+
+.auth-footer-simple p {
+    font-size: 12px;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+/* ===============================================
+   RESPONSIVE MOBILE
+   =============================================== */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 0 12px;
+    }
+
+    .auth-header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .auth-header-links {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .auth-card {
+        padding: 24px;
+        margin: 20px 0;
+    }
+
+    .auth-card-wide {
+        max-width: 100%;
+    }
+
+    .auth-main {
+        padding: 20px 0;
+        align-items: flex-start;
+    }
+
+    .auth-title {
+        font-size: 24px;
+    }
+
+    .form-section-title {
+        font-size: 16px;
+    }
+
+    .form-upload-area {
+        padding: 24px 16px;
+    }
+
+    .auth-footer-links {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .auth-footer-separator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-link {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .form-input {
+        padding: 10px 10px 10px 40px;
+    }
+
+    .form-textarea {
+        padding: 10px 12px;
+    }
+
+    .auth-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+}
+
+/* ===============================================
+   STATI E VALIDAZIONE
+   =============================================== */
+.form-input.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-input.success {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.form-error-message {
+    font-size: 12px;
+    color: #ef4444;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.form-success-message {
+    font-size: 12px;
+    color: var(--color-primary);
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ===============================================
+   LOADING STATES
+   =============================================== */
+.auth-button.loading {
+    position: relative;
+    color: transparent;
+}
+
+.auth-button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===============================================
+   ANIMAZIONI E TRANSIZIONI
+   =============================================== */
+.auth-card {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-section {
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===============================================
+   FOCUS MANAGEMENT
+   =============================================== */
+.form-input:focus,
+.form-textarea:focus,
+.form-checkbox:focus,
+.auth-button:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===============================================
+   DARK MODE SUPPORT (PREPARATO)
+   =============================================== */
+@media (prefers-color-scheme: dark) {
+    /* Mantenuto per future implementazioni */
+}
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+@media print {
+    .auth-body {
+        background: white;
+    }
+
+    .auth-card {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+
+    .auth-button {
+        background: white;
+        color: black;
+        border: 1px solid black;
+    }
+}

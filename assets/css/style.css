@@ -1,0 +1,818 @@
+/* ===============================================
+   RELAXPOINT - CSS COMPLETO PER PANNELLO ADMIN
+   Ogni classe è riutilizzabile e modificabile
+   =============================================== */
+
+/* ===============================================
+   VARIABILI CSS - Palette Verde Pino
+   =============================================== */
+:root {
+    --color-primary: #2d5a3d;
+    --color-dark: #1e3a2e;
+    --color-light: #52a373;
+    --color-background: #ffffff;
+    --color-text: #1a1a1a;
+    --color-secondary: #64748b;
+    --color-gray-light: #f1f5f9;
+    --color-border: #e2e8f0;
+    --color-red: #ef4444;
+    --color-red-dark: #dc2626;
+}
+
+/* ===============================================
+   RESET E FONT BASE
+   =============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* ===============================================
+   LAYOUT PRINCIPALE - Container e struttura
+   =============================================== */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+}
+
+.content-wrapper {
+    max-width: 2000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 8px;
+}
+
+@media (min-width: 768px) {
+    .content-wrapper {
+        padding: 0 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content-wrapper {
+        padding: 0 24px;
+    }
+}
+
+/* ===============================================
+   HEADER - Navigazione principale
+   =============================================== */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--color-light);
+    padding: 16px 40px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* LOGO - Sezione sinistra header */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--color-primary);
+}
+
+.logo-text {
+    color: var(--color-primary);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+}
+
+/* NAVIGAZIONE PRINCIPALE */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-primary);
+    text-decoration: underline;
+}
+
+/* CONTROLLI HEADER DESTRA */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* LAST MINUTE - Animazione lampeggio */
+.last-minute-link {
+    color: var(--color-red);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    animation: blink 1.5s infinite;
+}
+
+.last-minute-link:hover {
+    color: var(--color-red-dark);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+}
+
+/* BARRA DI RICERCA */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    min-width: 160px;
+    height: 40px;
+    max-width: 256px;
+}
+
+.search-wrapper {
+    display: flex;
+    width: 100%;
+    flex: 1;
+    align-items: stretch;
+    border-radius: 8px;
+    height: 100%;
+}
+
+.search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12px;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-light);
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    color: var(--color-secondary);
+}
+
+.search-input {
+    flex: 1;
+    min-width: 0;
+    resize: none;
+    overflow: hidden;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid var(--color-light);
+    border-left: none;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    padding: 0 12px 0 8px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: var(--color-primary);
+}
+
+.search-input::placeholder {
+    color: var(--color-secondary);
+}
+
+/* PULSANTI HEADER */
+.button-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-primary {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-dark);
+}
+
+.btn-secondary {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 20px;
+    background-color: var(--color-light);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+}
+
+/* ===============================================
+   MAIN CONTENT - Contenuto principale
+   =============================================== */
+.main-content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 32px 0;
+    background-color: var(--color-background);
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        padding: 48px 0;
+    }
+}
+
+.content-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+@media (min-width: 768px) {
+    .content-sections {
+        gap: 64px;
+    }
+}
+
+/* ===============================================
+   HERO SECTION - Sezione principale
+   =============================================== */
+.hero-section {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 40px 24px;
+    box-shadow: 0 10px 15px -3px var(--color-light), 0 4px 6px -4px var(--color-light);
+}
+
+@media (min-width: 768px) {
+    .hero-section {
+        min-height: 720px;
+        gap: 32px;
+        padding: 64px 48px;
+    }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    max-width: 576px;
+}
+
+.hero-title {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+}
+
+@media (min-width: 480px) {
+    .hero-title {
+        font-size: 48px;
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+    }
+}
+
+.hero-description {
+    color: #e2e8f0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+@media (min-width: 480px) {
+    .hero-description {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+}
+
+.hero-cta {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 44px;
+    padding: 0 24px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+}
+
+@media (min-width: 480px) {
+    .hero-cta {
+        height: 48px;
+        padding: 0 32px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.015em;
+    }
+}
+
+.hero-cta:hover {
+    background-color: var(--color-dark);
+}
+
+/* ===============================================
+   SEZIONI - Titoli principali
+   =============================================== */
+.section-title {
+    font-size: 24px;
+    line-height: 1.33;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    padding: 8px 16px 20px 16px;
+    color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+    .section-title {
+        font-size: 30px;
+        line-height: 1.2;
+    }
+}
+
+/* ===============================================
+   CARD SERVIZI - Per pannello admin
+   =============================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 16px;
+}
+
+@media (min-width: 640px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+}
+
+.service-image {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 16/9;
+    background-size: cover;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-image {
+    box-shadow: 0 10px 15px -3px var(--color-light), 0 4px 6px -4px var(--color-light);
+}
+
+.service-title {
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 0 4px;
+}
+
+/* ===============================================
+   CARD PROFESSIONISTI - Carousel orizzontale
+   =============================================== */
+.professionals-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 16px;
+}
+
+.professionals-container {
+    display: flex;
+    align-items: stretch;
+    padding: 16px;
+    gap: 24px;
+    flex-wrap: nowrap;
+}
+
+.professional-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 8px;
+    min-width: 200px;
+    background-color: white;
+    padding: 16px;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+    transition: box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .professional-card {
+        min-width: 240px;
+    }
+}
+
+.professional-card:hover {
+    box-shadow: 0 10px 15px -3px var(--color-light), 0 4px 6px -4px var(--color-light);
+}
+
+.professional-image {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    border-radius: 8px;
+}
+
+.professional-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.professional-name {
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.professional-role {
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.professional-link {
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    margin-top: 4px;
+    display: block;
+    transition: text-decoration 0.3s ease;
+}
+
+.professional-link:hover {
+    text-decoration: underline;
+}
+
+/* ===============================================
+   SEZIONE CTA - "Diventa professionista"
+   =============================================== */
+.cta-section {
+    background-color: var(--color-gray-light);
+    border-radius: 12px;
+    padding: 48px 16px;
+    text-align: center;
+}
+
+@media (min-width: 480px) {
+    .cta-section {
+        padding: 80px 40px;
+    }
+}
+
+.cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+    .cta-content {
+        gap: 32px;
+    }
+}
+
+.cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cta-title {
+    color: var(--color-text);
+    letter-spacing: -0.025em;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+@media (min-width: 480px) {
+    .cta-title {
+        font-size: 36px;
+        font-weight: 800;
+        line-height: 1.25;
+        letter-spacing: -0.03em;
+    }
+}
+
+.cta-description {
+    color: var(--color-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+@media (min-width: 480px) {
+    .cta-description {
+        font-size: 18px;
+    }
+}
+
+.cta-button {
+    display: flex;
+    justify-content: center;
+}
+
+.cta-btn {
+    display: flex;
+    min-width: 84px;
+    max-width: 480px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 44px;
+    padding: 0 24px;
+    background-color: var(--color-primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.015em;
+    border: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+}
+
+@media (min-width: 480px) {
+    .cta-btn {
+        height: 48px;
+        padding: 0 32px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.015em;
+    }
+}
+
+.cta-btn:hover {
+    background-color: var(--color-dark);
+}
+
+/* ===============================================
+   FOOTER - Piè di pagina
+   =============================================== */
+.site-footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid var(--color-light);
+    background-color: var(--color-gray-light);
+}
+
+.footer-container {
+    display: flex;
+    max-width: 1200px;
+    flex: 1;
+    flex-direction: column;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 40px 24px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        padding: 64px 40px;
+    }
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px 32px;
+}
+
+@media (min-width: 480px) {
+    .footer-links {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.footer-link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4;
+    min-width: 128px;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-primary);
+}
+
+.footer-copyright {
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* ===============================================
+   UTILITÀ - Classi helper
+   =============================================== */
+.text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===============================================
+   RESPONSIVE - Ottimizzazioni mobile
+   =============================================== */
+@media (max-width: 768px) {
+    .site-header {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .header-left {
+        gap: 20px;
+    }
+
+    .main-nav {
+        gap: 16px;
+    }
+
+    .search-container {
+        min-width: 120px;
+    }
+
+    .hero-section {
+        padding: 24px 16px;
+    }
+
+    .services-grid {
+        padding: 8px;
+        gap: 16px;
+    }
+
+    .professionals-container {
+        padding: 8px;
+        gap: 16px;
+    }
+}

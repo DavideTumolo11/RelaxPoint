@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Registrazione Cliente - RelaxPoint | Benessere a domicilio</title>
+    <meta name="description"
+        content="Registrati come cliente su RelaxPoint per prenotare servizi di benessere a domicilio.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/auth.css">
+</head>
+
+<body class="auth-body">
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="auth-container">
+        <!-- HEADER SEMPLIFICATO -->
+        <header class="auth-header">
+            <a class="auth-logo" href="../index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <div class="auth-header-links">
+                <a class="auth-link" href="login.html">Accedi</a>
+                <a class="auth-link" href="registrazione-privato.html">Per Privati</a>
+                <a class="auth-link" href="registrazione-professionista.html">Professionista</a>
+                <a class="auth-link active" href="registrazione-azienda-multisede.html">Azienda Multi-Sede</a>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="auth-main">
+            <div class="auth-card">
+                <div class="auth-card-header">
+                    <h1 class="auth-title">Crea il tuo account</h1>
+                    <p class="auth-subtitle">Registrati come cliente per prenotare servizi di benessere</p>
+                </div>
+
+                <form class="auth-form" id="registrationForm">
+                    <!-- NOME E COGNOME -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="nome">Nome *</label>
+                            <div class="form-input-wrapper">
+                                <div class="form-input-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L12 2L3 7V9H21ZM12 17C15.87 17 18.84 18.25 19.77 20H4.23C5.16 18.25 8.13 17 12 17Z" />
+                                    </svg>
+                                </div>
+                                <input class="form-input" type="text" id="nome" name="nome" placeholder="Mario Giuseppe"
+                                    required />
+                                <p class="form-helper">Inserisci tutti i nomi come da documento di identità</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="cognome">Cognome *</label>
+                            <div class="form-input-wrapper">
+                                <div class="form-input-icon">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L12 2L3 7V9H21ZM12 17C15.87 17 18.84 18.25 19.77 20H4.23C5.16 18.25 8.13 17 12 17Z" />
+                                    </svg>
+                                </div>
+                                <input class="form-input" type="text" id="cognome" name="cognome" placeholder="Rossi"
+                                    required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="email" id="email" name="email"
+                                placeholder="mario.rossi@example.com" required />
+                        </div>
+                    </div>
+
+                    <!-- TELEFONO -->
+                    <div class="form-group">
+                        <label class="form-label" for="telefono">Telefono *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="tel" id="telefono" name="telefono"
+                                placeholder="+39 333 123 4567" required />
+                        </div>
+                    </div>
+
+                    <!-- DATA DI NASCITA -->
+                    <div class="form-group">
+                        <label class="form-label" for="data_nascita">Data di Nascita *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M19 3H18V1H16V3H8V1H6V3H5C3.89 3 3.01 3.9 3.01 5L3 19C3 20.1 3.89 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM19 19H5V8H19V19ZM7 10H12V15H7" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="date" id="data_nascita" name="data_nascita" required />
+                        </div>
+                        <p class="form-helper">Devi essere maggiorenne per registrarti</p>
+                    </div>
+
+                    <!-- INDIRIZZO -->
+                    <div class="form-group">
+                        <label class="form-label" for="indirizzo">Indirizzo Completo *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9C5 14.25 12 22 12 22S19 14.25 19 9C19 5.13 15.87 2 12 2ZM12 11.5C10.62 11.5 9.5 10.38 9.5 9S10.62 6.5 12 6.5S14.5 7.62 14.5 9S13.38 11.5 12 11.5Z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="text" id="indirizzo" name="indirizzo"
+                                placeholder="Via Roma, 123 - 09124 Cagliari (CA)" required />
+                        </div>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18 8H17V6C17 3.24 14.76 1 12 1S7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM9 6C9 4.34 10.34 3 12 3S15 4.34 15 6V8H9V6Z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="password" id="password" name="password"
+                                placeholder="Crea una password sicura" required />
+                        </div>
+                        <p class="form-helper">Minimo 8 caratteri, almeno 1 maiuscola, 1 numero e 1 simbolo</p>
+                    </div>
+
+                    <!-- CONFERMA PASSWORD -->
+                    <div class="form-group">
+                        <label class="form-label" for="password_confirm">Conferma Password *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M18 8H17V6C17 3.24 14.76 1 12 1S7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM9 6C9 4.34 10.34 3 12 3S15 4.34 15 6V8H9V6Z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="password" id="password_confirm" name="password_confirm"
+                                placeholder="Ripeti la password" required />
+                        </div>
+                    </div>
+
+                    <!-- TERMINI E PRIVACY -->
+                    <div class="form-group">
+                        <div class="form-checkbox-wrapper">
+                            <input type="checkbox" id="terms" name="terms" class="form-checkbox" required>
+                            <label for="terms" class="form-checkbox-label">
+                                Accetto i <a href="../pages/termini.html" target="_blank" class="form-link">Termini di
+                                    Servizio</a>
+                                e l'<a href="../pages/privacy.html" target="_blank" class="form-link">Informativa
+                                    Privacy</a> *
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- NEWSLETTER -->
+                    <div class="form-group">
+                        <div class="form-checkbox-wrapper">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="form-checkbox">
+                            <label for="newsletter" class="form-checkbox-label">
+                                Desidero ricevere offerte e novità via email
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT BUTTON -->
+                    <button type="submit" class="auth-button">
+                        <span>Crea Account</span>
+                    </button>
+                </form>
+
+                <!-- LOGIN LINK -->
+                <div class="auth-footer">
+                    <p class="auth-footer-text">Hai già un account?
+                        <a href="login.html" class="auth-footer-link">Accedi</a>
+                    </p>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="auth-footer-simple">
+            <p>© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/auth.js"></script>
+</body>
+
+</html>

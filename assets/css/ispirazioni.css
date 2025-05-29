@@ -1,0 +1,711 @@
+/* ===============================================
+   RELAXPOINT - CSS ISPIRAZIONI
+   Layout griglia Instagram per foto/video professionisti
+   =============================================== */
+
+/* LAYOUT GENERALE */
+.ispirazioni-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* HEADER ISPIRAZIONI */
+.ispirazioni-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.ispirazioni-title-section h1 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+    letter-spacing: -0.02em;
+}
+
+.ispirazioni-subtitle {
+    font-size: 16px;
+    color: var(--color-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.ispirazioni-stats {
+    display: flex;
+    gap: 32px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin-top: 4px;
+}
+
+/* FILTRI */
+.ispirazioni-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.filters-categories {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-1px);
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.filter-count {
+    font-size: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.filter-btn.active .filter-count {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.filters-secondary {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-select {
+    padding: 8px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-size: 14px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+/* GRIGLIA ISPIRAZIONI */
+.ispirazioni-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+@media (min-width: 640px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* CARD ISPIRAZIONE */
+.inspiration-item {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.inspiration-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #f1f5f9;
+}
+
+.inspiration-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px var(--color-light), 0 4px 6px -4px var(--color-light);
+}
+
+/* MEDIA CONTAINER */
+.inspiration-media {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.inspiration-media img,
+.inspiration-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.inspiration-card:hover .inspiration-media img,
+.inspiration-card:hover .inspiration-media video {
+    transform: scale(1.05);
+}
+
+/* OVERLAY MEDIA */
+.media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 12px;
+}
+
+.inspiration-card:hover .media-overlay {
+    opacity: 1;
+}
+
+.media-type {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 6px 10px;
+    border-radius: 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.media-type.video {
+    background: rgba(220, 38, 38, 0.9);
+}
+
+.video-duration {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* LIKES */
+.inspiration-likes {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 6px 10px;
+    border-radius: 15px;
+    color: white;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.like-btn:hover {
+    transform: scale(1.1);
+}
+
+.like-btn[data-liked="true"] {
+    color: var(--color-primary);
+}
+
+.like-btn[data-liked="true"] svg {
+    fill: var(--color-primary);
+}
+
+.like-count {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* INFO CARD */
+.inspiration-info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.professional-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.professional-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--color-primary);
+}
+
+.professional-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.professional-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.2;
+}
+
+.professional-location {
+    font-size: 12px;
+    color: var(--color-secondary);
+    line-height: 1.2;
+}
+
+.inspiration-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: rgba(45, 90, 61, 0.1);
+    color: var(--color-primary);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* LOADING SPINNER */
+.loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px;
+    color: var(--color-secondary);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #f1f5f9;
+    border-top: 3px solid var(--color-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* EMPTY STATE */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--color-secondary);
+}
+
+.empty-icon {
+    color: var(--color-secondary);
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.empty-state p {
+    font-size: 14px;
+    margin: 0;
+    max-width: 300px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+}
+
+.modal-body {
+    padding: 20px 24px 24px;
+    text-align: center;
+}
+
+.modal-body p {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.modal-actions .btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.modal-actions .btn-primary:hover {
+    background-color: var(--color-dark);
+}
+
+.modal-actions .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.modal-actions .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 768px) {
+    .ispirazioni-content {
+        padding: 0 12px;
+    }
+
+    .ispirazioni-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px 0 16px;
+    }
+
+    .ispirazioni-title-section h1 {
+        font-size: 28px;
+    }
+
+    .ispirazioni-stats {
+        gap: 24px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+
+    .filters-categories {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .filters-secondary {
+        gap: 12px;
+    }
+
+    .filter-select {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 16px;
+    }
+
+    .inspiration-info {
+        padding: 12px;
+    }
+
+    .professional-avatar {
+        width: 36px;
+        height: 36px;
+    }
+
+    .professional-name {
+        font-size: 13px;
+    }
+
+    .professional-location {
+        font-size: 11px;
+    }
+
+    .tag {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 0 10px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn-primary,
+    .modal-actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+    }
+
+    .filters-categories {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .filters-categories::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filters-secondary {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+}
+
+/* ANIMAZIONI HOVER AVANZATE */
+@media (hover: hover) {
+    .inspiration-card {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .inspiration-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+        z-index: 1;
+    }
+
+    .inspiration-card:hover::before {
+        left: 100%;
+    }
+}
+
+/* FOCUS ACCESSIBILITY */
+.filter-btn:focus,
+.filter-select:focus,
+.like-btn:focus,
+.modal-close:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ANIMAZIONI STAGGERED */
+.inspiration-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.inspiration-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.inspiration-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.inspiration-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.inspiration-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.inspiration-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* PERFORMANCE OPTIMIZATIONS */
+.inspiration-media img,
+.inspiration-media video {
+    will-change: transform;
+}
+
+.inspiration-card {
+    will-change: transform, box-shadow;
+}
+
+/* PRINT STYLES */
+@media print {
+
+    .ispirazioni-filters,
+    .modal,
+    .loading-spinner {
+        display: none;
+    }
+
+    .ispirazioni-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .inspiration-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

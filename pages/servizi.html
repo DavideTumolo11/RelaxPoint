@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Servizi - RelaxPoint | Benessere a domicilio</title>
+    <meta name="description"
+        content="Scopri tutti i servizi di benessere RelaxPoint: massaggi, fitness, beauty, fisioterapia e molto altro direttamente a casa tua.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/servizi.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alla homepage -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="../index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="../index.html">Home</a>
+                        <a class="nav-link active" href="servizi.html">Servizi</a>
+                        <a class="nav-link" href="professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <div class="header-right">
+                    <a class="last-minute-link" href="last-minute.html">Last Minute</a>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="../login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+                    <div class="services-content-sections">
+
+                        <!-- BREADCRUMB -->
+                        <nav class="services-breadcrumb">
+                            <a href="../index.html" class="services-breadcrumb-link">HOME</a>
+                            <span class="services-breadcrumb-separator">›</span>
+                            <span class="services-breadcrumb-current">SERVIZI</span>
+                        </nav>
+
+                        <!-- HEADER SERVIZI CON DROPDOWN CITTÀ -->
+                        <div class="services-header">
+                            <div class="services-title-section">
+                                <button class="services-back-button" onclick="history.back()">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                                    </svg>
+                                </button>
+                                <h1 class="services-main-title">SERVIZI</h1>
+                            </div>
+
+                            <div class="services-city-selector">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                    class="services-location-icon">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                                <select class="services-city-dropdown" id="citySelector">
+                                    <option value="cagliari">CAGLIARI</option>
+                                    <option value="sassari">SASSARI</option>
+                                    <option value="olbia">OLBIA</option>
+                                    <option value="nuoro">NUORO</option>
+                                    <option value="oristano">ORISTANO</option>
+                                </select>
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"
+                                    class="services-dropdown-arrow">
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- SEZIONE SERVIZI -->
+                        <section>
+                            <div class="services-grid">
+
+                                <!-- CARD SERVIZIO - Hair & Make-up -->
+                                <div class="service-card" data-service="hair-makeup">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Hair\ and\ make-up.png");'>
+                                    </div>
+                                    <p class="service-title">Hair e Make-up</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Fisioterapia -->
+                                <div class="service-card" data-service="fisioterapia">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Fiosioterapia.Osteopatia.png");'>
+                                    </div>
+                                    <p class="service-title">Fisioterapia e Osteopatia</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Gravidanza -->
+                                <div class="service-card" data-service="gravidanza">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/neoMamma.jpg");'>
+                                    </div>
+                                    <p class="service-title">Gravidanza e Neo-mamme</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Fitness -->
+                                <div class="service-card" data-service="fitness">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Gym.jpg");'>
+                                    </div>
+                                    <p class="service-title">Fitness e Allenamento</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Massaggi -->
+                                <div class="service-card" data-service="massaggi">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/massage2.jpg");'>
+                                    </div>
+                                    <p class="service-title">Massaggi e Trattamenti</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Beauty -->
+                                <div class="service-card" data-service="beauty">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Salute.jpg");'>
+                                    </div>
+                                    <p class="service-title">Nutrizione e Benessere</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Yoga -->
+                                <div class="service-card" data-service="yoga">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/YogaEndMeditazione.jpeg");'>
+                                    </div>
+                                    <p class="service-title">Yoga e Meditazione</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Beauty -->
+                                <div class="service-card" data-service="progress">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/Beauty.jpg");'>
+                                    </div>
+                                    <p class="service-title">Beauty</p>
+                                </div>
+
+                                <!-- CARD SERVIZIO - Work in Progress -->
+                                <div class="service-card" data-service="progress">
+                                    <div class="service-image"
+                                        style='background-image: url("/assets/images/Servizi/NextServiceComingSoon.png");'>
+                                    </div>
+                                    <p class="service-title">Work in Progress</p>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER - Identico alla homepage -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="contatti.html">Contatti</a>
+                            <a class="footer-link" href="termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/servizi.js"></script>
+</body>
+
+</html>
