@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Manutenzione - RelaxPoint | Torneremo presto</title>
+    <meta name="description"
+        content="RelaxPoint è temporaneamente in manutenzione. Torneremo online presto con nuove funzionalità.">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/manutenzione.css">
+</head>
+
+<body class="maintenance-body">
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="maintenance-container">
+
+        <!-- BACKGROUND PATTERN -->
+        <div class="maintenance-pattern" id="pattern"></div>
+
+        <!-- HEADER MINIMAL -->
+        <header class="maintenance-header">
+            <div class="maintenance-logo">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h1 class="logo-text">RelaxPoint</h1>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="maintenance-main">
+            <div class="maintenance-card">
+
+                <!-- ICONA MANUTENZIONE ANIMATA -->
+                <div class="maintenance-icon" id="maintenanceIcon">
+                    <div class="gear gear-1">⚙️</div>
+                    <div class="gear gear-2">⚙️</div>
+                    <div class="gear gear-3">🔧</div>
+                </div>
+
+                <!-- CONTENUTO PRINCIPALE -->
+                <div class="maintenance-content">
+                    <h1 class="maintenance-title">Stiamo Migliorando per Te</h1>
+                    <p class="maintenance-subtitle">RelaxPoint è temporaneamente in manutenzione</p>
+                    <p class="maintenance-description">
+                        Stiamo lavorando per offrirti nuove fantastiche funzionalità e migliorare la tua esperienza di
+                        benessere.
+                    </p>
+
+                    <!-- COUNTDOWN TIMER -->
+                    <div class="countdown-container" id="countdownContainer">
+                        <h3 class="countdown-title">Tempo stimato di ritorno:</h3>
+                        <div class="countdown-timer">
+                            <div class="time-unit">
+                                <span class="time-value" id="days">00</span>
+                                <span class="time-label">Giorni</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-unit">
+                                <span class="time-value" id="hours">02</span>
+                                <span class="time-label">Ore</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-unit">
+                                <span class="time-value" id="minutes">30</span>
+                                <span class="time-label">Minuti</span>
+                            </div>
+                            <div class="time-separator">:</div>
+                            <div class="time-unit">
+                                <span class="time-value" id="seconds">45</span>
+                                <span class="time-label">Secondi</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PROGRESS BAR -->
+                    <div class="maintenance-progress">
+                        <div class="progress-info">
+                            <span>Progresso manutenzione</span>
+                            <span id="progressPercentage">67%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="progressBar"></div>
+                            <div class="progress-glow"></div>
+                        </div>
+                    </div>
+
+                    <!-- NOVITÀ IN ARRIVO -->
+                    <div class="coming-soon">
+                        <h3 class="coming-soon-title">🚀 Novità in Arrivo</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">💬</div>
+                                <div class="feature-text">Chat AI migliorata</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📱</div>
+                                <div class="feature-text">App mobile nativa</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎯</div>
+                                <div class="feature-text">Raccomandazioni personalizzate</div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⚡</div>
+                                <div class="feature-text">Performance ultra-rapide</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEWSLETTER SIGNUP -->
+                    <div class="newsletter-signup">
+                        <h3 class="newsletter-title">Ricevi aggiornamenti</h3>
+                        <p class="newsletter-description">Ti invieremo una notifica appena saremo di nuovo online</p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="La tua email" required
+                                    class="newsletter-input">
+                                <button type="submit" class="newsletter-button">
+                                    <span>Notificami</span>
+                                    <div class="button-loader" id="buttonLoader"></div>
+                                </button>
+                            </div>
+                            <div class="form-message" id="formMessage"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- SIDEBAR INFO -->
+        <aside class="maintenance-sidebar">
+            <div class="sidebar-card">
+                <h3>📞 Hai Urgenze?</h3>
+                <p>Per emergenze, contattaci direttamente:</p>
+                <div class="contact-methods">
+                    <a href="tel:+393331234567" class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span class="contact-text">+39 333 123 4567</span>
+                    </a>
+                    <a href="mailto:urgenze@relaxpoint.it" class="contact-item">
+                        <span class="contact-icon">✉️</span>
+                        <span class="contact-text">urgenze@relaxpoint.it</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>🌐 Seguici</h3>
+                <p>Resta aggiornato sui nostri canali social:</p>
+                <div class="social-links">
+                    <a href="#" class="social-link facebook">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="#" class="social-link instagram">
+                        <span>Instagram</span>
+                    </a>
+                    <a href="#" class="social-link linkedin">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="sidebar-card">
+                <h3>📊 Stato Sistema</h3>
+                <div class="system-status">
+                    <div class="status-item">
+                        <span class="status-indicator status-maintenance"></span>
+                        <span class="status-text">Sito Web: In Manutenzione</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-indicator status-ok"></span>
+                        <span class="status-text">Database: Operativo</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-indicator status-ok"></span>
+                        <span class="status-text">Email: Funzionanti</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-indicator status-warning"></span>
+                        <span class="status-text">App Mobile: Limitata</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- FOOTER MINIMAL -->
+        <footer class="maintenance-footer">
+            <div class="footer-content">
+                <p>© 2024 RelaxPoint. Benessere a portata di click.</p>
+                <div class="footer-links">
+                    <a href="mailto:info@relaxpoint.it">Contatti</a>
+                    <span>•</span>
+                    <a href="#" onclick="togglePrivacyInfo()">Privacy</a>
+                    <span>•</span>
+                    <span id="lastUpdate">Ultimo aggiornamento: <span id="updateTime"></span></span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- MODAL PRIVACY INFO -->
+        <div class="privacy-modal" id="privacyModal" style="display: none;">
+            <div class="privacy-content">
+                <h3>Informazioni Privacy</h3>
+                <p>Durante la manutenzione, raccogliamo solo le email per le notifiche. I dati sono trattati secondo
+                    GDPR.</p>
+                <button onclick="togglePrivacyInfo()" class="privacy-close">Chiudi</button>
+            </div>
+        </div>
+
+        <!-- FLOATING BUBBLES -->
+        <div class="floating-bubbles" id="floatingBubbles"></div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/manutenzione.js"></script>
+</body>
+
+</html>

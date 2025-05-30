@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Errore - RelaxPoint | Benessere a domicilio</title>
+    <meta name="description" content="Ops! Qualcosa è andato storto. Torna alla home di RelaxPoint.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+
+<body class="auth-body">
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="auth-container">
+        <!-- HEADER SEMPLIFICATO -->
+        <header class="auth-header">
+            <a class="auth-logo" href="index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <div class="auth-header-links">
+                <a class="auth-link" href="index.html">Home</a>
+                <a class="auth-link" href="login.html">Accedi</a>
+                <a class="auth-link" href="pages/contatti.html">Supporto</a>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="auth-main">
+            <div class="auth-card" style="max-width: 600px;">
+                <div class="auth-card-header">
+                    <!-- ICONA ERRORE DINAMICA -->
+                    <div class="error-icon" style="display: flex; justify-content: center; margin-bottom: 24px;">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor" style="color: #ef4444;"
+                            id="errorIcon">
+                            <!-- L'icona cambierà dinamicamente -->
+                        </svg>
+                    </div>
+
+                    <h1 class="auth-title" id="errorTitle">Ops! Qualcosa è andato storto</h1>
+                    <p class="auth-subtitle" id="errorSubtitle">Non riusciamo a trovare la pagina che stai cercando</p>
+                </div>
+
+                <!-- CONTENUTO PRINCIPALE -->
+                <div class="error-content" style="text-align: center;">
+                    <!-- MESSAGGIO ERRORE -->
+                    <div class="error-message"
+                        style="background: #fef2f2; padding: 20px; border-radius: 12px; margin-bottom: 32px; border-left: 4px solid #ef4444;">
+                        <h3 style="color: #dc2626; font-size: 18px; font-weight: 600; margin: 0 0 12px 0;"
+                            id="errorHeading">
+                            🚫 Errore 404 - Pagina Non Trovata
+                        </h3>
+                        <p style="color: var(--color-text); font-size: 16px; margin: 0 0 8px 0;" id="errorDescription">
+                            La pagina che stai cercando potrebbe essere stata spostata, eliminata o non esistere.
+                        </p>
+                        <p style="color: var(--color-secondary); font-size: 14px; margin: 0;" id="errorCode">
+                            Codice errore: <strong>404</strong>
+                        </p>
+                    </div>
+
+                    <!-- AZIONI PRINCIPALI -->
+                    <div class="error-actions"
+                        style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
+                        <a href="index.html" class="auth-button" style="text-decoration: none;">
+                            <span>🏠 Torna alla Home</span>
+                        </a>
+
+                        <button type="button" class="auth-button-secondary" id="goBack"
+                            style="background: transparent; color: var(--color-secondary); border: 1px solid var(--color-border); cursor: pointer; padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600; font-family: inherit; transition: all 0.3s ease;">
+                            <span>🔙 Torna Indietro</span>
+                        </button>
+
+                        <button type="button" class="auth-button-secondary" id="reloadPage"
+                            style="background: transparent; color: var(--color-secondary); border: 1px solid var(--color-border); cursor: pointer; padding: 14px 24px; border-radius: 8px; font-size: 16px; font-weight: 600; font-family: inherit; transition: all 0.3s ease;">
+                            <span>🔄 Ricarica Pagina</span>
+                        </button>
+                    </div>
+
+                    <!-- SUGGERIMENTI AIUTO -->
+                    <div class="help-suggestions"
+                        style="background: #f8fafc; padding: 20px; border-radius: 12px; text-align: left; margin-bottom: 24px; border-left: 4px solid var(--color-primary);">
+                        <h4
+                            style="color: var(--color-text); font-size: 16px; font-weight: 600; margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                style="color: var(--color-primary);">
+                                <path
+                                    d="M11,18H13V16H11V18ZM12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2ZM12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20ZM12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z" />
+                            </svg>
+                            Cosa Puoi Fare
+                        </h4>
+                        <ul
+                            style="color: var(--color-secondary); font-size: 14px; margin: 0; padding-left: 20px; line-height: 1.6;">
+                            <li>Controlla l'URL nella barra degli indirizzi</li>
+                            <li>Utilizza il menu di navigazione per trovare quello che cerchi</li>
+                            <li>Prova a cercare dalla homepage utilizzando la ricerca</li>
+                            <li>Se il problema persiste, contatta il nostro supporto</li>
+                        </ul>
+                    </div>
+
+                    <!-- LINK POPOLARI -->
+                    <div class="popular-links"
+                        style="background: #f0f9f5; padding: 20px; border-radius: 12px; margin-bottom: 24px;">
+                        <h4
+                            style="color: var(--color-primary); font-size: 16px; font-weight: 600; margin: 0 0 16px 0; text-align: center;">
+                            📌 Link Popolari
+                        </h4>
+                        <div
+                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+                            <a href="pages/servizi.html"
+                                style="color: var(--color-primary); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; background: white; border-radius: 6px; transition: all 0.3s ease; display: block; text-align: center;">
+                                💆‍♀️ Servizi
+                            </a>
+                            <a href="pages/professionisti.html"
+                                style="color: var(--color-primary); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; background: white; border-radius: 6px; transition: all 0.3s ease; display: block; text-align: center;">
+                                👥 Professionisti
+                            </a>
+                            <a href="login.html"
+                                style="color: var(--color-primary); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; background: white; border-radius: 6px; transition: all 0.3s ease; display: block; text-align: center;">
+                                🔐 Accedi
+                            </a>
+                            <a href="registrazione-privato.html"
+                                style="color: var(--color-primary); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 12px; background: white; border-radius: 6px; transition: all 0.3s ease; display: block; text-align: center;">
+                                📝 Registrati
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- INFORMAZIONI TECNICHE (NASCOSTO DI DEFAULT) -->
+                    <div class="technical-info"
+                        style="display: none; background: #f1f5f9; padding: 16px; border-radius: 8px; margin-bottom: 16px; font-family: 'Courier New', monospace; font-size: 12px; color: var(--color-secondary); text-align: left;">
+                        <strong>Informazioni Tecniche:</strong><br>
+                        URL: <span id="currentUrl"></span><br>
+                        Timestamp: <span id="timestamp"></span><br>
+                        User Agent: <span id="userAgent"></span>
+                    </div>
+
+                    <!-- TOGGLE INFO TECNICHE -->
+                    <button type="button" class="toggle-tech"
+                        style="background: none; border: none; color: var(--color-secondary); font-size: 12px; cursor: pointer; text-decoration: underline;"
+                        id="toggleTech">
+                        Mostra informazioni tecniche
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="auth-footer-simple">
+            <div style="text-align: center; margin-bottom: 16px;">
+                <p style="font-size: 14px; color: var(--color-secondary); margin: 0 0 8px 0;">
+                    Hai bisogno di aiuto?
+                </p>
+                <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <a href="pages/contatti.html"
+                        style="color: var(--color-primary); text-decoration: none; font-size: 13px; font-weight: 500;">
+                        Contatta il Supporto
+                    </a>
+                    <span style="color: var(--color-secondary); font-size: 12px;">•</span>
+                    <a href="pages/faq.html"
+                        style="color: var(--color-primary); text-decoration: none; font-size: 13px; font-weight: 500;">
+                        FAQ
+                    </a>
+                    <span style="color: var(--color-secondary); font-size: 12px;">•</span>
+                    <a href="mailto:supporto@relaxpoint.it"
+                        style="color: var(--color-primary); text-decoration: none; font-size: 13px; font-weight: 500;">
+                        supporto@relaxpoint.it
+                    </a>
+                </div>
+            </div>
+            <p style="font-size: 12px; color: var(--color-secondary); margin: 0; text-align: center;">
+                © 2024 RelaxPoint. Tutti i diritti riservati.
+            </p>
+        </footer>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/errore-404-500.js"></script>
+</body>
+
+
+
+</html>
