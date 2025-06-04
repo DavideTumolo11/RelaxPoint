@@ -653,6 +653,7 @@ body {
 .cta-button {
     display: flex;
     justify-content: center;
+
 }
 
 .cta-btn {
@@ -675,6 +676,7 @@ body {
     border: none;
     transition: background-color 0.3s ease;
     box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+    text-decoration: none;
 }
 
 @media (min-width: 480px) {
