@@ -1,0 +1,502 @@
+/* ===============================================
+   RELAXPOINT - CSS PREFERITI DEDICATO
+   Stili specifici per la gestione preferiti cliente
+   =============================================== */
+
+/* ===============================================
+   GRIGLIA PREFERITI
+   =============================================== */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+/* ===============================================
+   CARD PREFERITO
+   =============================================== */
+.favorite-card {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.favorite-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================================
+   IMMAGINE E OVERLAY
+   =============================================== */
+.favorite-image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.favorite-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.favorite-card:hover .favorite-image img {
+    transform: scale(1.05);
+}
+
+.favorite-overlay {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.favorite-card:hover .favorite-overlay {
+    opacity: 1;
+}
+
+.btn-remove-favorite {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(239, 68, 68, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+
+.btn-remove-favorite:hover {
+    background: #dc2626;
+    transform: scale(1.1);
+}
+
+/* ===============================================
+   INFORMAZIONI PROFESSIONISTA
+   =============================================== */
+.favorite-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.professional-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.professional-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.professional-category {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(45, 90, 61, 0.1);
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.professional-specialization {
+    font-size: 14px;
+    color: var(--color-secondary);
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* ===============================================
+   STATISTICHE PROFESSIONISTA
+   =============================================== */
+.professional-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.professional-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stars {
+    display: flex;
+    gap: 1px;
+}
+
+.star {
+    font-size: 14px;
+    color: #e5e7eb;
+}
+
+.star.filled {
+    color: #fbbf24;
+}
+
+.rating-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.review-count {
+    font-size: 12px;
+    color: var(--color-secondary);
+}
+
+.booking-stats,
+.price-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: var(--color-secondary);
+}
+
+.total-bookings,
+.average-price {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* ===============================================
+   AZIONI PREFERITI
+   =============================================== */
+.favorite-actions {
+    margin-top: auto;
+}
+
+.btn-action.primary {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-action.primary:hover {
+    background: var(--color-dark);
+    transform: translateY(-1px);
+}
+
+/* ===============================================
+   MODAL CONFERMA RIMOZIONE
+   =============================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+}
+
+.modal-body {
+    padding: 20px 24px 24px;
+    text-align: center;
+}
+
+.modal-body p {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin: 0 0 20px 0;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.modal-actions .btn-primary {
+    background-color: #ef4444;
+    color: white;
+}
+
+.modal-actions .btn-primary:hover {
+    background-color: #dc2626;
+}
+
+.modal-actions .btn-secondary {
+    background-color: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.modal-actions .btn-secondary:hover {
+    background-color: var(--color-gray-light);
+    color: var(--color-text);
+}
+
+/* ===============================================
+   ANIMAZIONI STAGGERED
+   =============================================== */
+.favorite-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.favorite-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.favorite-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.favorite-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.favorite-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.favorite-card:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 1024px) {
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+    }
+
+    .favorite-info {
+        padding: 16px;
+    }
+
+    .professional-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 0 10px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn-primary,
+    .modal-actions .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .favorites-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+    }
+
+    .favorite-info {
+        padding: 14px;
+        gap: 14px;
+    }
+
+    .professional-name {
+        font-size: 16px;
+    }
+
+    .professional-specialization {
+        font-size: 13px;
+    }
+
+    .stat-row {
+        gap: 3px;
+    }
+
+    .booking-stats,
+    .price-info {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .favorite-info {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .professional-header {
+        gap: 6px;
+    }
+
+    .professional-category {
+        font-size: 10px;
+        padding: 3px 6px;
+    }
+
+    .btn-action.primary {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+/* ===============================================
+   PERFORMANCE OPTIMIZATIONS
+   =============================================== */
+.favorite-image img,
+.favorite-card {
+    will-change: transform;
+}
+
+.favorite-card:hover .favorite-image img {
+    will-change: auto;
+}
+
+/* ===============================================
+   FOCUS E ACCESSIBILITÀ
+   =============================================== */
+.btn-remove-favorite:focus,
+.btn-action:focus,
+.modal-close:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+@media print {
+
+    .favorite-overlay,
+    .modal,
+    .btn-remove-favorite {
+        display: none !important;
+    }
+
+    .favorite-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .favorites-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
+    }
+}

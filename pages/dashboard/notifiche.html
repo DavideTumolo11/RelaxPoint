@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Notifiche - RelaxPoint | Centro notifiche</title>
+    <meta name="description"
+        content="Gestisci tutte le tue notifiche RelaxPoint. Personalizza le impostazioni e rimani sempre aggiornato sui tuoi servizi di benessere.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="../../assets/css/prenotazioni.css">
+    <link rel="stylesheet" href="../../assets/css/notifiche.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="../../index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link" href="../../pages/servizi.html">Servizi</a>
+                        <a class="nav-link" href="../../pages/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="../../pages/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <div class="header-right">
+                    <a class="last-minute-link" href="../../pages/last-minute.html">Last Minute</a>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca notifiche..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="#" class="btn-primary" id="nuovaPrenotazioneBtn">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="../../login.html" class="btn-secondary">
+                            <span class="text-truncate">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Notifiche</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Benessere</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="./dashboard-cliente.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+                                <a href="pagamenti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                    </svg>
+                                    <span>Pagamenti</span>
+                                </a>
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+                                <a href="preferiti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    <span>Preferiti</span>
+                                </a>
+                                <a href="profilo.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                    </svg>
+                                    <span>Profilo</span>
+                                </a>
+                                <a href="notifiche.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                    </svg>
+                                    <span>Notifiche</span>
+                                    <span class="notification-badge" id="unreadBadge">3</span>
+                                </a>
+                                <a href="impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                                <a href="../../login.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- HEADER UTENTE -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="../../assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg"
+                                            alt="Chiara Rossi" id="userAvatar">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>Le tue notifiche, <span id="userName">Chiara</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Cliente Premium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTENUTO NOTIFICHE -->
+                            <div class="dashboard-content">
+
+                                <!-- HEADER SEZIONE -->
+                                <div class="section-header">
+                                    <h2>Centro Notifiche</h2>
+                                    <p class="section-subtitle">Gestisci tutte le tue notifiche e personalizza le
+                                        impostazioni</p>
+                                </div>
+
+                                <!-- STATISTICHE NOTIFICHE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Riepilogo</h3>
+                                        <button class="btn-mark-all-read" id="markAllReadBtn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                            </svg>
+                                            Segna tutte come lette
+                                        </button>
+                                    </div>
+
+                                    <div class="stats-row">
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="totalNotifications">12</div>
+                                            <div class="stat-label">Totali</div>
+                                        </div>
+                                        <div class="stat-item unread">
+                                            <div class="stat-number" id="unreadNotifications">3</div>
+                                            <div class="stat-label">Non Lette</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="todayNotifications">5</div>
+                                            <div class="stat-label">Oggi</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FILTRI NOTIFICHE -->
+                                <div class="filters-container">
+                                    <div class="filters-left">
+                                        <div class="filter-group">
+                                            <label for="statusFilter" class="filter-label">Stato:</label>
+                                            <select id="statusFilter" class="filter-select">
+                                                <option value="all">Tutte</option>
+                                                <option value="unread">Non lette</option>
+                                                <option value="read">Lette</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="categoryFilter" class="filter-label">Categoria:</label>
+                                            <select id="categoryFilter" class="filter-select">
+                                                <option value="all">Tutte le categorie</option>
+                                                <option value="booking">Prenotazioni</option>
+                                                <option value="payment">Pagamenti</option>
+                                                <option value="lastminute">Last Minute</option>
+                                                <option value="professional">Professionisti</option>
+                                                <option value="review">Recensioni</option>
+                                                <option value="marketing">Marketing</option>
+                                                <option value="system">Sistema</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="periodFilter" class="filter-label">Periodo:</label>
+                                            <select id="periodFilter" class="filter-select">
+                                                <option value="all">Tutte</option>
+                                                <option value="today">Oggi</option>
+                                                <option value="week">Ultima settimana</option>
+                                                <option value="month">Ultimo mese</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LISTA NOTIFICHE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Notifiche Recenti</h3>
+                                        <span class="count-badge" id="filteredCount">12</span>
+                                    </div>
+
+                                    <div class="notifications-list" id="notificationsList">
+                                        <!-- NOTIFICA NON LETTA -->
+                                        <div class="notification-item unread" data-id="1" data-category="booking"
+                                            data-type="confirmation">
+                                            <div class="notification-icon booking">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                                </svg>
+                                            </div>
+
+                                            <div class="notification-content">
+                                                <div class="notification-header">
+                                                    <h4 class="notification-title">Prenotazione Confermata</h4>
+                                                    <span class="notification-time">2 ore fa</span>
+                                                </div>
+                                                <p class="notification-message">La tua prenotazione per "Massaggio
+                                                    Rilassante" con Marco Rossi è stata confermata per domani alle
+                                                    16:00.</p>
+                                                <div class="notification-meta">
+                                                    <span class="notification-category">Prenotazioni</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="notification-actions">
+                                                <button class="btn-notification-action read" title="Segna come letta"
+                                                    data-action="read">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                                    </svg>
+                                                </button>
+                                                <button class="btn-notification-action delete" title="Elimina notifica"
+                                                    data-action="delete">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- NOTIFICA MARKETING -->
+                                        <div class="notification-item read" data-id="5" data-category="marketing"
+                                            data-type="promotion">
+                                            <div class="notification-icon marketing">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z" />
+                                                </svg>
+                                            </div>
+
+                                            <div class="notification-content">
+                                                <div class="notification-header">
+                                                    <h4 class="notification-title">Offerta Speciale Estate</h4>
+                                                    <span class="notification-time">3 giorni fa</span>
+                                                </div>
+                                                <p class="notification-message">Sconto del 25% su tutti i servizi Beauty
+                                                    fino al 31 agosto. Codice: ESTATE25. Non perdere questa opportunità.
+                                                </p>
+                                                <div class="notification-meta">
+                                                    <span class="notification-category">Marketing</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="notification-actions">
+                                                <button class="btn-notification-action unread"
+                                                    title="Segna come non letta" data-action="unread">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+                                                    </svg>
+                                                </button>
+                                                <button class="btn-notification-action delete" title="Elimina notifica"
+                                                    data-action="delete">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- EMPTY STATE -->
+                                    <div class="empty-state" id="emptyState" style="display: none;">
+                                        <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor"
+                                            class="empty-icon">
+                                            <path
+                                                d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                        </svg>
+                                        <h3>Nessuna notifica</h3>
+                                        <p>Non ci sono notifiche che corrispondono ai filtri selezionati.</p>
+                                    </div>
+
+                                    <!-- LOADING STATE -->
+                                    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                                        <div class="spinner"></div>
+                                        <p>Caricamento notifiche...</p>
+                                    </div>
+
+                                    <!-- PAGINAZIONE -->
+                                    <div class="pagination" id="pagination" style="display: none;">
+                                        <button class="pagination-btn prev" id="prevPage" disabled>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                                            </svg>
+                                            Precedente
+                                        </button>
+                                        <div class="pagination-info">
+                                            <span id="pageInfo">Pagina 1 di 1</span>
+                                        </div>
+                                        <button class="pagination-btn next" id="nextPage" disabled>
+                                            Successiva
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- IMPOSTAZIONI NOTIFICHE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Impostazioni Notifiche</h3>
+                                        <p class="card-subtitle">Personalizza quali notifiche ricevere</p>
+                                    </div>
+
+                                    <div class="notification-settings">
+                                        <!-- PRENOTAZIONI -->
+                                        <div class="setting-category">
+                                            <div class="category-header">
+                                                <h4>Prenotazioni</h4>
+                                                <span class="category-count">6 tipi</span>
+                                            </div>
+                                            <div class="settings-grid">
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Conferma prenotazione</span>
+                                                        <span class="setting-description">Ricevi conferma quando una
+                                                            prenotazione viene accettata</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked
+                                                            data-setting="booking-confirmation">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Promemoria prenotazione</span>
+                                                        <span class="setting-description">Ricordati delle prenotazioni
+                                                            24h, 2h e 30min prima</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="booking-reminder">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Modifiche prenotazione</span>
+                                                        <span class="setting-description">Avvisi quando il
+                                                            professionista modifica una prenotazione</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="booking-changes">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Professionista in arrivo</span>
+                                                        <span class="setting-description">Notifica quando il
+                                                            professionista è in viaggio verso di te</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="booking-arriving">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- PAGAMENTI -->
+                                        <div class="setting-category">
+                                            <div class="category-header">
+                                                <h4>Pagamenti</h4>
+                                                <span class="category-count">6 tipi</span>
+                                            </div>
+                                            <div class="settings-grid">
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Pagamento completato</span>
+                                                        <span class="setting-description">Conferma dei pagamenti
+                                                            effettuati</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="payment-completed">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Cashback accreditato</span>
+                                                        <span class="setting-description">Avviso quando ricevi cashback
+                                                            dalle prenotazioni</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="payment-cashback">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Fattura generata</span>
+                                                        <span class="setting-description">Notifica quando una nuova
+                                                            fattura è disponibile</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" data-setting="payment-invoice">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- LAST MINUTE -->
+                                        <div class="setting-category">
+                                            <div class="category-header">
+                                                <h4>Last Minute</h4>
+                                                <span class="category-count">4 tipi</span>
+                                            </div>
+                                            <div class="settings-grid">
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Nuovi servizi Last Minute</span>
+                                                        <span class="setting-description">Avvisi per servizi immediati
+                                                            disponibili</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="lastminute-new">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Last Minute zona vicina</span>
+                                                        <span class="setting-description">Solo servizi nella tua zona
+                                                            geografica</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="lastminute-nearby">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Last Minute preferiti</span>
+                                                        <span class="setting-description">Solo dai tuoi professionisti
+                                                            preferiti</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" data-setting="lastminute-favorites">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- RECENSIONI -->
+                                        <div class="setting-category">
+                                            <div class="category-header">
+                                                <h4>Recensioni</h4>
+                                                <span class="category-count">3 tipi</span>
+                                            </div>
+                                            <div class="settings-grid">
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Richiesta recensione</span>
+                                                        <span class="setting-description">Inviti a lasciare recensioni
+                                                            dopo i servizi</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="review-request">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Risposta del professionista</span>
+                                                        <span class="setting-description">Quando un professionista
+                                                            risponde alla tua recensione</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="review-response">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- MARKETING -->
+                                        <div class="setting-category">
+                                            <div class="category-header">
+                                                <h4>Marketing</h4>
+                                                <span class="category-count">5 tipi</span>
+                                            </div>
+                                            <div class="settings-grid">
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Offerte personalizzate</span>
+                                                        <span class="setting-description">Promozioni basate sui tuoi
+                                                            interessi</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="marketing-offers">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Newsletter settimanale</span>
+                                                        <span class="setting-description">Novità e consigli sul
+                                                            benessere</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" data-setting="marketing-newsletter">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Codici sconto</span>
+                                                        <span class="setting-description">Nuovi codici sconto
+                                                            disponibili</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked
+                                                            data-setting="marketing-discounts">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- SISTEMA -->
+                                        <div class="setting-category">
+                                            <div class="category-header">
+                                                <h4>Sistema</h4>
+                                                <span class="category-count">4 tipi</span>
+                                            </div>
+                                            <div class="settings-grid">
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Aggiornamenti app</span>
+                                                        <span class="setting-description">Nuove funzionalità e
+                                                            miglioramenti</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="system-updates">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Manutenzioni programmate</span>
+                                                        <span class="setting-description">Avvisi per interruzioni del
+                                                            servizio</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked
+                                                            data-setting="system-maintenance">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                                <div class="setting-item">
+                                                    <div class="setting-info">
+                                                        <span class="setting-name">Termini e privacy</span>
+                                                        <span class="setting-description">Aggiornamenti a termini di
+                                                            servizio e privacy</span>
+                                                    </div>
+                                                    <label class="toggle-switch">
+                                                        <input type="checkbox" checked data-setting="system-legal">
+                                                        <span class="toggle-slider"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="settings-footer">
+                                        <button class="btn-save-settings" id="saveSettingsBtn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                            </svg>
+                                            Salva Impostazioni
+                                        </button>
+                                        <button class="btn-reset-settings" id="resetSettingsBtn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M12,4V1L8,5L12,9V6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12H4A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" />
+                                            </svg>
+                                            Ripristina Default
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="../../pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="../../pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="../../pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="../../pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="../../pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/notifiche.js"></script>
+</body>
