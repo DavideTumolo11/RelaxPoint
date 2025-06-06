@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Impostazioni - RelaxPoint | Configura il tuo account</title>
+    <meta name="description"
+        content="Gestisci le impostazioni del tuo account RelaxPoint. Configura privacy, sicurezza, notifiche e preferenze personali.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="../../assets/css/prenotazioni.css">
+    <link rel="stylesheet" href="../../assets/css/impostazioni.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="../../index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link" href="../../pages/servizi.html">Servizi</a>
+                        <a class="nav-link" href="../../pages/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="../../pages/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <div class="header-right">
+                    <a class="last-minute-link" href="../../pages/last-minute.html">Last Minute</a>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca impostazioni..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="#" class="btn-primary" id="nuovaPrenotazioneBtn">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="../../login.html" class="btn-secondary">
+                            <span class="text-truncate">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Impostazioni</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Benessere</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="./dashboard-cliente.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+                                <a href="pagamenti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                    </svg>
+                                    <span>Pagamenti</span>
+                                </a>
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+                                <a href="preferiti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    <span>Preferiti</span>
+                                </a>
+                                <a href="profilo.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                    </svg>
+                                    <span>Profilo</span>
+                                </a>
+                                <a href="notifiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                    </svg>
+                                    <span>Notifiche</span>
+                                </a>
+                                <a href="impostazioni.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                                <a href="../../login.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- HEADER UTENTE -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="../../assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg"
+                                            alt="Chiara Rossi" id="userAvatar">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>Impostazioni account, <span id="userName">Chiara</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Cliente Premium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTENUTO IMPOSTAZIONI -->
+                            <div class="dashboard-content">
+
+                                <!-- HEADER SEZIONE -->
+                                <div class="section-header">
+                                    <h2>Configurazione Account</h2>
+                                    <p class="section-subtitle">Gestisci le tue preferenze, privacy e sicurezza</p>
+                                </div>
+
+                                <!-- ACCOUNT E PROFILO -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Account e Profilo</h3>
+                                        <p class="card-subtitle">Informazioni principali del tuo account</p>
+                                    </div>
+
+                                    <div class="settings-section">
+                                        <div class="settings-grid">
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Modifica profilo completo</span>
+                                                    <span class="setting-description">Aggiorna dati personali, avatar e
+                                                        informazioni di contatto</span>
+                                                </div>
+                                                <a href="profilo.html" class="btn-setting-action">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87M17.81,9.94" />
+                                                    </svg>
+                                                    Modifica
+                                                </a>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Gestione notifiche</span>
+                                                    <span class="setting-description">Personalizza quali notifiche
+                                                        ricevere e come riceverle</span>
+                                                </div>
+                                                <a href="notifiche.html" class="btn-setting-action">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                                    </svg>
+                                                    Gestisci
+                                                </a>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Metodi di pagamento</span>
+                                                    <span class="setting-description">Gestisci carte, PayPal e metodi di
+                                                        pagamento</span>
+                                                </div>
+                                                <a href="pagamenti.html" class="btn-setting-action">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                                    </svg>
+                                                    Gestisci
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- DOCUMENTI DI IDENTITÀ -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Documenti di Identità</h3>
+                                        <p class="card-subtitle">Gestisci i tuoi documenti e dati fiscali</p>
+                                    </div>
+
+                                    <div class="settings-section">
+                                        <div class="settings-grid">
+                                            <div class="setting-item-document">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Codice Fiscale</span>
+                                                    <span class="setting-description">RSSCHR92C55F839X - Verificato
+                                                        ✓</span>
+                                                </div>
+                                                <a href="profilo.html" class="btn-setting-action secondary">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M3,17.25V21H6.75L17.81,9.94L14.06,6.19L3,17.25M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.13,5.12L18.88,8.87M17.81,9.94" />
+                                                    </svg>
+                                                    Modifica
+                                                </a>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Verifica identità</span>
+                                                    <span class="setting-description">Account verificato - Maggiore
+                                                        sicurezza e accesso a tutti i servizi</span>
+                                                </div>
+                                                <span class="verification-badge verified">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                                    </svg>
+                                                    Verificato
+                                                </span>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Fatturazione elettronica</span>
+                                                    <span class="setting-description">Ricevi fatture elettroniche
+                                                        all'indirizzo PEC o Codice Destinatario</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="electronic-billing">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Conservazione documenti</span>
+                                                    <span class="setting-description">Mantieni una copia digitale delle
+                                                        fatture per 10 anni</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="document-storage">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PRIVACY E SICUREZZA -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Privacy e Sicurezza</h3>
+                                        <p class="card-subtitle">Controlla la privacy e la sicurezza del tuo account</p>
+                                    </div>
+
+                                    <div class="settings-section">
+                                        <div class="settings-grid">
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Profilo pubblico</span>
+                                                    <span class="setting-description">Permetti ai professionisti di
+                                                        vedere il tuo profilo nelle ricerche</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="profile-public">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Recensioni pubbliche</span>
+                                                    <span class="setting-description">Mostra le tue recensioni
+                                                        pubblicamente sul sito</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="reviews-public">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Posizione per servizi</span>
+                                                    <span class="setting-description">Condividi automaticamente la
+                                                        posizione per i servizi a domicilio</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="location-sharing">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Autenticazione a due fattori</span>
+                                                    <span class="setting-description">Aggiungi sicurezza extra al tuo
+                                                        account</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" data-setting="two-factor">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Login da nuovi dispositivi</span>
+                                                    <span class="setting-description">Ricevi notifica quando accedi da
+                                                        un nuovo dispositivo</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="new-device-alerts">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Condivisione dati per marketing</span>
+                                                    <span class="setting-description">Permetti l'uso dei tuoi dati per
+                                                        offerte personalizzate</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" data-setting="marketing-data">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PREFERENZE GENERALI -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Preferenze Generali</h3>
+                                        <p class="card-subtitle">Personalizza la tua esperienza su RelaxPoint</p>
+                                    </div>
+
+                                    <div class="settings-section">
+                                        <div class="settings-grid">
+                                            <div class="setting-item-select">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Lingua dell'interfaccia</span>
+                                                    <span class="setting-description">Seleziona la lingua per il sito e
+                                                        le comunicazioni</span>
+                                                </div>
+                                                <select class="setting-select" data-setting="language">
+                                                    <option value="it" selected>Italiano</option>
+                                                    <option value="en">English</option>
+                                                    <option value="fr">Français</option>
+                                                    <option value="es">Español</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="setting-item-select">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Fuso orario</span>
+                                                    <span class="setting-description">Imposta il fuso orario per le
+                                                        prenotazioni</span>
+                                                </div>
+                                                <select class="setting-select" data-setting="timezone">
+                                                    <option value="Europe/Rome" selected>Europa/Roma (GMT+1)</option>
+                                                    <option value="Europe/London">Europa/Londra (GMT+0)</option>
+                                                    <option value="America/New_York">America/New York (GMT-5)</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="setting-item-select">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Valuta preferita</span>
+                                                    <span class="setting-description">Mostra i prezzi nella valuta
+                                                        selezionata</span>
+                                                </div>
+                                                <select class="setting-select" data-setting="currency">
+                                                    <option value="EUR" selected>Euro (€)</option>
+                                                    <option value="USD">Dollaro USA ($)</option>
+                                                    <option value="GBP">Sterlina (£)</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Modalità scura</span>
+                                                    <span class="setting-description">Attiva il tema scuro per
+                                                        l'interfaccia</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" data-setting="dark-mode">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Suoni di notifica</span>
+                                                    <span class="setting-description">Riproduci suoni per le notifiche
+                                                        importanti</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" checked data-setting="notification-sounds">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Animazioni ridotte</span>
+                                                    <span class="setting-description">Riduci le animazioni per
+                                                        migliorare le prestazioni</span>
+                                                </div>
+                                                <label class="toggle-switch">
+                                                    <input type="checkbox" data-setting="reduced-motion">
+                                                    <span class="toggle-slider"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ABBONAMENTO PREMIUM -->
+                                <div class="content-card premium-section">
+                                    <div class="card-header">
+                                        <h3>Abbonamento Premium</h3>
+                                        <span class="premium-badge">ATTIVO</span>
+                                    </div>
+
+                                    <div class="premium-info">
+                                        <div class="premium-details">
+                                            <div class="premium-status">
+                                                <span class="premium-type">Cliente Premium</span>
+                                                <span class="premium-renewal">Rinnovo automatico: 15 Gen 2025</span>
+                                            </div>
+                                            <div class="premium-benefits">
+                                                <h4>Benefici attivi:</h4>
+                                                <ul>
+                                                    <li>✅ Accesso anticipato Last Minute (30 min)</li>
+                                                    <li>✅ Sconti del 15% su tutti i servizi</li>
+                                                    <li>✅ Professionisti esclusivi Premium</li>
+                                                    <li>✅ Cancellazione gratuita fino a 12h prima</li>
+                                                    <li>✅ Cashback del 3% annuo</li>
+                                                    <li>✅ Supporto prioritario 24/7</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="premium-actions">
+                                            <button class="btn-setting-action primary">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                                </svg>
+                                                Gestisci Abbonamento
+                                            </button>
+                                            <button class="btn-setting-action secondary">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                                                </svg>
+                                                Info Fatturazione
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- AZIONI ACCOUNT -->
+                                <div class="content-card danger-section">
+                                    <div class="card-header">
+                                        <h3>Azioni Account</h3>
+                                        <p class="card-subtitle">Operazioni sensibili per il tuo account</p>
+                                    </div>
+
+                                    <div class="settings-section">
+                                        <div class="settings-grid">
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Cambia password</span>
+                                                    <span class="setting-description">Aggiorna la password del tuo
+                                                        account per maggiore sicurezza</span>
+                                                </div>
+                                                <button class="btn-setting-action secondary" id="changePasswordBtn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" />
+                                                    </svg>
+                                                    Cambia Password
+                                                </button>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Scarica i tuoi dati</span>
+                                                    <span class="setting-description">Richiedi una copia di tutti i tuoi
+                                                        dati personali (GDPR)</span>
+                                                </div>
+                                                <button class="btn-setting-action secondary" id="downloadDataBtn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                                    </svg>
+                                                    Scarica Dati
+                                                </button>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Disattiva account</span>
+                                                    <span class="setting-description">Disattiva temporaneamente il tuo
+                                                        account (reversibile)</span>
+                                                </div>
+                                                <button class="btn-setting-action warning" id="deactivateAccountBtn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M14.5,9L12,11.5L9.5,9L8,10.5L10.5,13L8,15.5L9.5,17L12,14.5L14.5,17L16,15.5L13.5,13L16,10.5L14.5,9Z" />
+                                                    </svg>
+                                                    Disattiva
+                                                </button>
+                                            </div>
+
+                                            <div class="setting-item">
+                                                <div class="setting-info">
+                                                    <span class="setting-name">Elimina account</span>
+                                                    <span class="setting-description">Elimina definitivamente il tuo
+                                                        account e tutti i dati (irreversibile)</span>
+                                                </div>
+                                                <button class="btn-setting-action danger" id="deleteAccountBtn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                                                    </svg>
+                                                    Elimina Account
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FOOTER IMPOSTAZIONI -->
+                                <div class="settings-footer">
+                                    <div class="footer-info">
+                                        <p class="save-status" id="saveStatus">Modifiche salvate automaticamente</p>
+                                        <p class="last-sync">Ultima sincronizzazione: oggi alle 14:23</p>
+                                    </div>
+                                    <div class="footer-actions">
+                                        <button class="btn-save-settings" id="saveSettingsBtn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
+                                            </svg>
+                                            Salva Modifiche
+                                        </button>
+                                        <button class="btn-reset-settings" id="resetSettingsBtn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M12,4V1L8,5L12,9V6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12H4A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z" />
+                                            </svg>
+                                            Ripristina Default
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="../../pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="../../pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="../../pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="../../pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="../../pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODALS -->
+    <!-- MODAL CAMBIO PASSWORD -->
+    <div class="modal" id="changePasswordModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cambia Password</h3>
+                <button class="modal-close" id="closePasswordModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="password-form">
+                    <div class="form-group">
+                        <label for="currentPassword">Password attuale</label>
+                        <input type="password" id="currentPassword" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Nuova password</label>
+                        <input type="password" id="newPassword" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Conferma nuova password</label>
+                        <input type="password" id="confirmPassword" class="form-input" required>
+                    </div>
+                </form>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="confirmPasswordChange">Cambia Password</button>
+                    <button class="btn-secondary" id="cancelPasswordChange">Annulla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONFERMA ELIMINAZIONE ACCOUNT -->
+    <div class="modal" id="deleteAccountModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Elimina Account</h3>
+                <button class="modal-close" id="closeDeleteModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="warning-message">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" class="warning-icon">
+                        <path
+                            d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2M12,17A1,1 0 0,1 13,18A1,1 0 0,1 12,19A1,1 0 0,1 11,18A1,1 0 0,1 12,17Z" />
+                    </svg>
+                    <h4>Attenzione: Azione Irreversibile</h4>
+                    <p>Eliminando il tuo account perderai definitivamente:</p>
+                    <ul>
+                        <li>Tutte le prenotazioni e lo storico</li>
+                        <li>I professionisti preferiti</li>
+                        <li>Le recensioni e i commenti</li>
+                        <li>L'abbonamento Premium attivo</li>
+                        <li>Tutti i dati personali</li>
+                    </ul>
+                    <p><strong>Questa operazione non può essere annullata.</strong></p>
+                </div>
+                <div class="confirmation-input">
+                    <label for="deleteConfirmation">Digita "ELIMINA" per confermare:</label>
+                    <input type="text" id="deleteConfirmation" class="form-input" placeholder="ELIMINA">
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-danger" id="confirmAccountDelete" disabled>Elimina Definitivamente</button>
+                    <button class="btn-secondary" id="cancelAccountDelete">Annulla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/impostazioni.js"></script>
+</body>
+
+</html>

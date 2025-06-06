@@ -39,9 +39,9 @@
 
             <div class="auth-header-links">
                 <a class="auth-link" href="login.html">Accedi</a>
-                <a class="auth-link" href="registrazione-privato.html">Per Privati</a>
+                <a class="auth-link active" href="registrazione-privato.html">Per Privati</a>
                 <a class="auth-link" href="registrazione-professionista.html">Professionista</a>
-                <a class="auth-link active" href="registrazione-azienda-multisede.html">Azienda Multi-Sede</a>
+                <a class="auth-link" href="registrazione-azienda-multisede.html">Azienda Multi-Sede</a>
             </div>
         </header>
 
@@ -51,6 +51,10 @@
                 <div class="auth-card-header">
                     <h1 class="auth-title">Crea il tuo account</h1>
                     <p class="auth-subtitle">Registrati come cliente per prenotare servizi di benessere</p>
+                    <div class="auth-notice">
+                        <strong>Sicurezza garantita:</strong> I tuoi dati sono protetti e utilizzati solo per la
+                        gestione del servizio
+                    </div>
                 </div>
 
                 <form class="auth-form" id="registrationForm">
@@ -129,6 +133,24 @@
                             <input class="form-input" type="date" id="data_nascita" name="data_nascita" required />
                         </div>
                         <p class="form-helper">Devi essere maggiorenne per registrarti</p>
+                    </div>
+
+                    <!-- CODICE FISCALE -->
+                    <div class="form-group">
+                        <label class="form-label" for="codice_fiscale">Codice Fiscale *</label>
+                        <div class="form-input-wrapper">
+                            <div class="form-input-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                </svg>
+                            </div>
+                            <input class="form-input" type="text" id="codice_fiscale" name="codice_fiscale"
+                                placeholder="RSSMRA85M01H501Z" maxlength="16"
+                                pattern="^[A-Z]{6}[0-9]{2}[A-Z][0-9]{2}[A-Z][0-9]{3}[A-Z]$"
+                                style="text-transform: uppercase;" required />
+                        </div>
+                        <p class="form-helper">16 caratteri alfanumerici - verrà verificato automaticamente</p>
                     </div>
 
                     <!-- INDIRIZZO -->

@@ -1,0 +1,1045 @@
+/* ===============================================
+   RELAXPOINT - CSS PAGAMENTI DEDICATO
+   Stili specifici per gestione pagamenti cliente
+   =============================================== */
+
+/* ===============================================
+   STATISTICHE FINANZIARIE
+   =============================================== */
+.stat-item.premium {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+    color: white;
+}
+
+/* ===============================================
+   METODI DI PAGAMENTO
+   =============================================== */
+.btn-add-payment {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-payment:hover {
+    background: var(--color-dark);
+    transform: translateY(-1px);
+}
+
+.payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+.payment-method-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-method-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.payment-method-card.primary {
+    border-color: var(--color-primary);
+    background: linear-gradient(135deg, rgba(45, 90, 61, 0.02), rgba(82, 163, 115, 0.02));
+}
+
+.payment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.card-type {
+    display: flex;
+    align-items: center;
+}
+
+.visa-logo {
+    color: #1a1f71;
+}
+
+.paypal-logo {
+    color: #003087;
+}
+
+.apple-pay-logo {
+    color: #000000;
+}
+
+.card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.primary-badge {
+    background: var(--color-primary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-card-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+.btn-card-menu:hover {
+    color: var(--color-text);
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-number {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+    font-family: 'Courier New', monospace;
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-holder {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.card-expiry {
+    font-size: 13px;
+    color: var(--color-secondary);
+    font-family: 'Courier New', monospace;
+}
+
+.card-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.card-status.verified {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.card-status.active {
+    background: rgba(45, 90, 61, 0.1);
+    color: var(--color-primary);
+}
+
+/* ===============================================
+   CASHBACK PREMIUM
+   =============================================== */
+.cashback-rate {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+    color: white;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cashback-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cashback-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cashback-balance {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.balance-amount {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.balance-label {
+    font-size: 14px;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.cashback-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-use-cashback,
+.btn-cashback-history {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-use-cashback {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-use-cashback:hover {
+    background: var(--color-dark);
+    transform: translateY(-1px);
+}
+
+.btn-cashback-history {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-cashback-history:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.cashback-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.progress-info span:first-child {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.progress-amount {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.progress-bar-container {
+    position: relative;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-light));
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    position: relative;
+}
+
+.progress-note {
+    font-size: 12px;
+    color: var(--color-secondary);
+    text-align: center;
+}
+
+/* ===============================================
+   TABELLA TRANSAZIONI
+   =============================================== */
+.transactions-table-container {
+    overflow-x: auto;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-background);
+}
+
+.transactions-table th {
+    background: var(--color-gray-light);
+    padding: 16px 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text);
+    border-bottom: 2px solid var(--color-border);
+    white-space: nowrap;
+}
+
+.transactions-table td {
+    padding: 16px 12px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+}
+
+.transaction-row.completed {
+    background: rgba(34, 197, 94, 0.02);
+}
+
+.transaction-row.cashback {
+    background: rgba(45, 90, 61, 0.02);
+}
+
+.transaction-date {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.date-main {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.time-detail {
+    font-size: 12px;
+    color: var(--color-secondary);
+}
+
+.transaction-description {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.service-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.professional-name {
+    font-size: 12px;
+    color: var(--color-secondary);
+}
+
+.payment-method-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.method-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.method-icon.visa {
+    color: #1a1f71;
+}
+
+.method-icon.paypal {
+    color: #003087;
+}
+
+.method-icon.cashback {
+    color: var(--color-primary);
+}
+
+.method-text {
+    font-size: 13px;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.transaction-amount {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: right;
+}
+
+.amount-main {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.amount-main.positive {
+    color: #22c55e;
+}
+
+.cashback-earned {
+    font-size: 11px;
+    color: var(--color-primary);
+    font-weight: 500;
+}
+
+.transaction-actions {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.btn-table-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.btn-table-action.invoice {
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-table-action.invoice:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-table-action.details {
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.btn-table-action.details:hover {
+    background: var(--color-secondary);
+    color: white;
+}
+
+/* ===============================================
+   GESTIONE PREMIUM
+   =============================================== */
+.premium-status {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.premium-status.active {
+    background: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+}
+
+.premium-management {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.premium-info {
+    display: flex;
+    gap: 40px;
+}
+
+.premium-details {
+    flex: 1;
+}
+
+.premium-plan h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 4px 0;
+}
+
+.premium-plan p {
+    font-size: 16px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin: 0 0 16px 0;
+}
+
+.premium-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.premium-benefits li {
+    font-size: 14px;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.premium-benefits li::before {
+    content: '✓';
+    color: var(--color-primary);
+    font-weight: 700;
+    width: 16px;
+    text-align: center;
+}
+
+.premium-dates {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 220px;
+}
+
+.date-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.date-label {
+    font-size: 12px;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.date-value {
+    font-size: 14px;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.premium-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-change-payment,
+.btn-cancel-subscription {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.btn-change-payment {
+    background: var(--color-primary);
+    color: white;
+}
+
+.btn-change-payment:hover {
+    background: var(--color-dark);
+    transform: translateY(-1px);
+}
+
+.btn-cancel-subscription {
+    background: transparent;
+    color: #ef4444;
+    border: 1px solid #ef4444;
+}
+
+.btn-cancel-subscription:hover {
+    background: #ef4444;
+    color: white;
+}
+
+/* ===============================================
+   MODAL PAGAMENTO
+   =============================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--color-secondary);
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--color-text);
+}
+
+.modal-body {
+    padding: 20px 24px 24px;
+}
+
+.payment-type-selection {
+    margin-bottom: 24px;
+}
+
+.payment-type-selection h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 16px 0;
+}
+
+.payment-types {
+    display: flex;
+    gap: 12px;
+}
+
+.payment-type-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    justify-content: center;
+}
+
+.payment-type-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.payment-type-btn.active {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 100px;
+    gap: 16px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 24px;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.modal-actions .btn-primary {
+    background: var(--color-primary);
+    color: white;
+}
+
+.modal-actions .btn-primary:hover {
+    background: var(--color-dark);
+}
+
+.modal-actions .btn-secondary {
+    background: transparent;
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
+}
+
+.modal-actions .btn-secondary:hover {
+    background: var(--color-gray-light);
+    color: var(--color-text);
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 1024px) {
+    .payment-methods-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .cashback-main {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .cashback-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .premium-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .premium-dates {
+        min-width: auto;
+    }
+
+    .premium-actions {
+        flex-direction: column;
+    }
+
+    .btn-change-payment,
+    .btn-cancel-subscription {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .cashback-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-use-cashback,
+    .btn-cashback-history {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .transactions-table-container {
+        font-size: 13px;
+    }
+
+    .transactions-table th,
+    .transactions-table td {
+        padding: 12px 8px;
+    }
+
+    .transaction-amount {
+        text-align: left;
+    }
+
+    .transaction-actions {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .btn-table-action {
+        width: 28px;
+        height: 28px;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 0 10px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn-primary,
+    .modal-actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .payment-types {
+        flex-direction: column;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .payment-method-card {
+        padding: 16px;
+    }
+
+    .payment-card-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .card-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .balance-amount {
+        font-size: 28px;
+    }
+
+    .premium-benefits ul {
+        gap: 6px;
+    }
+
+    .premium-benefits li {
+        font-size: 13px;
+    }
+
+    .date-info {
+        gap: 1px;
+    }
+
+    .date-label {
+        font-size: 11px;
+    }
+
+    .date-value {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .payment-method-card {
+        padding: 12px;
+    }
+
+    .card-number {
+        font-size: 14px;
+    }
+
+    .cashback-overview {
+        gap: 16px;
+    }
+
+    .balance-amount {
+        font-size: 24px;
+    }
+
+    .transactions-table {
+        font-size: 12px;
+    }
+
+    .service-name,
+    .date-main,
+    .amount-main {
+        font-size: 13px;
+    }
+
+    .professional-name,
+    .time-detail,
+    .method-text {
+        font-size: 11px;
+    }
+}
+
+/* ===============================================
+   ANIMAZIONI
+   =============================================== */
+.payment-method-card {
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.payment-method-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.payment-method-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.payment-method-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.transaction-row {
+    opacity: 0;
+    animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.transaction-row:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.transaction-row:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.transaction-row:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* ===============================================
+   FOCUS E ACCESSIBILITÀ
+   =============================================== */
+.btn-add-payment:focus,
+.btn-use-cashback:focus,
+.btn-cashback-history:focus,
+.btn-change-payment:focus,
+.btn-cancel-subscription:focus,
+.btn-table-action:focus,
+.payment-type-btn:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ===============================================
+   PRINT STYLES
+   =============================================== */
+@media print {
+
+    .btn-add-payment,
+    .cashback-actions,
+    .premium-actions,
+    .transaction-actions,
+    .modal {
+        display: none !important;
+    }
+
+    .payment-method-card,
+    .content-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+
+    .transactions-table {
+        width: 100% !important;
+        font-size: 12px !important;
+    }
+}

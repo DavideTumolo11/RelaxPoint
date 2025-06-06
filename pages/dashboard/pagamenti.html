@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Pagamenti - RelaxPoint | Gestisci pagamenti e fatture</title>
+    <meta name="description"
+        content="Gestisci i tuoi metodi di pagamento, storico transazioni, fatture e cashback Premium RelaxPoint.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="../../assets/css/prenotazioni.css">
+    <link rel="stylesheet" href="../../assets/css/pagamenti.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="../../index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link" href="../../pages/servizi.html">Servizi</a>
+                        <a class="nav-link" href="../../pages/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="../../pages/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <div class="header-right">
+                    <a class="last-minute-link" href="../../pages/last-minute.html">Last Minute</a>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca transazioni..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="#" class="btn-primary" id="nuovaPrenotazioneBtn">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="../../login.html" class="btn-secondary">
+                            <span class="text-truncate">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Pagamenti</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Benessere</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="./dashboard-cliente.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+                                <a href="pagamenti.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                    </svg>
+                                    <span>Pagamenti</span>
+                                </a>
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+                                <a href="preferiti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    <span>Preferiti</span>
+                                </a>
+                                <a href="profilo.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                    </svg>
+                                    <span>Profilo</span>
+                                </a>
+                                <a href="notifiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                    </svg>
+                                    <span>Notifiche</span>
+                                </a>
+                                <a href="impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                                <a href="../../login.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- HEADER UTENTE -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="../../assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg"
+                                            alt="Chiara Rossi" id="userAvatar">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>I tuoi pagamenti, <span id="userName">Chiara</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Cliente Premium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTENUTO PAGAMENTI -->
+                            <div class="dashboard-content">
+
+                                <!-- HEADER SEZIONE -->
+                                <div class="section-header">
+                                    <h2>Gestione Pagamenti</h2>
+                                    <p class="section-subtitle">Metodi di pagamento, transazioni e cashback Premium</p>
+                                </div>
+
+                                <!-- RIEPILOGO FINANZIARIO -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Riepilogo Finanziario</h3>
+                                    </div>
+
+                                    <div class="stats-row">
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="totalSpent">€1.250</div>
+                                            <div class="stat-label">Spesa Totale</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number premium" id="cashbackBalance">€37.50</div>
+                                            <div class="stat-label">Cashback Premium</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="thisMonth">€320</div>
+                                            <div class="stat-label">Questo Mese</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- METODI DI PAGAMENTO -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Metodi di Pagamento</h3>
+                                        <button class="btn-add-payment" id="addPaymentBtn">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                            </svg>
+                                            Aggiungi Metodo
+                                        </button>
+                                    </div>
+
+                                    <div class="payment-methods-grid">
+                                        <!-- CARTA PRINCIPALE -->
+                                        <div class="payment-method-card primary">
+                                            <div class="payment-card-header">
+                                                <div class="card-type">
+                                                    <svg width="32" height="20" viewBox="0 0 32 20" fill="currentColor"
+                                                        class="visa-logo">
+                                                        <path
+                                                            d="M11.5 4.5h2.3l-1.4 9H9.9l1.6-9zm5.8 5.8c0-.8.7-1.3 1.9-1.3.6 0 1.1.1 1.5.3l.3-1.4c-.5-.2-1.2-.3-2-.3-2.2 0-3.7 1.2-3.7 2.8 0 1.2.9 1.9 1.6 2.3.7.4 1 .7 1 1.1 0 .6-.7.9-1.4.9-.9 0-1.5-.2-2-.4l-.3 1.4c.5.2 1.4.4 2.3.4 2.3 0 3.8-1.1 3.8-2.9 0-1-.6-1.8-1.8-2.4-.7-.4-1.1-.7-1.1-1.1 0-.4.4-.8 1.3-.8.7 0 1.2.1 1.6.3l.3-1.3c-.4-.2-1-.3-1.8-.3-2.1 0-3.6 1.1-3.6 2.7zm7.4-5.8l-1.8 9h1.8l.4-2h2.5l.2 2h2l-1.7-9h-2.4zm.4 5.5l1-2.7.6 2.7h-1.6zM8.2 4.5L6 11.8 5.7 10c-.4-1.3-1.7-2.7-3.1-3.4l2.1 7.9h2.3l3.5-9.5H8.2v-.5z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-actions">
+                                                    <span class="primary-badge">Principale</span>
+                                                    <div class="card-menu">
+                                                        <button class="btn-card-menu" data-card-id="1">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-number">•••• •••• •••• 4532</div>
+                                                <div class="card-details">
+                                                    <span class="card-holder">Chiara Rossi</span>
+                                                    <span class="card-expiry">12/26</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- PAYPAL -->
+                                        <div class="payment-method-card">
+                                            <div class="payment-card-header">
+                                                <div class="card-type">
+                                                    <svg width="32" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                                        class="paypal-logo">
+                                                        <path
+                                                            d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.199-.528c-.364-.759-.915-1.35-1.665-1.827C18.633 4.04 17.8 3.717 16.79 3.717h-4.18c-.524 0-.968.382-1.05.9L10.25 11.28h2.19c4.298 0 7.664-1.747 8.647-6.797.03-.149.054-.294.077-.437.199-1.018.077-1.96-.44-2.629z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-actions">
+                                                    <div class="card-menu">
+                                                        <button class="btn-card-menu" data-card-id="2">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-number">PayPal</div>
+                                                <div class="card-details">
+                                                    <span class="card-holder">chiara.rossi@email.com</span>
+                                                    <span class="card-status verified">Verificato</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- APPLE PAY -->
+                                        <div class="payment-method-card">
+                                            <div class="payment-card-header">
+                                                <div class="card-type">
+                                                    <svg width="32" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                                        class="apple-pay-logo">
+                                                        <path
+                                                            d="M15.5 1c-.3 0-.6 0-.9.1-.7.2-1.2.6-1.6 1.1-.4.4-.6.9-.7 1.5-.1.4-.1.9 0 1.3.1.6.4 1.1.8 1.5.4.4.9.6 1.5.7h.9c.3-.1.6-.2.8-.4.4-.3.7-.7.9-1.2.2-.5.2-1 .1-1.5-.1-.5-.3-.9-.6-1.3-.3-.4-.7-.7-1.2-.8zm4.8 4.9c-.6-.1-1.3 0-1.9.3-.6.3-1.1.8-1.4 1.4-.3.6-.4 1.3-.3 1.9.1.6.4 1.2.8 1.6.4.4 1 .7 1.6.8.6.1 1.3 0 1.9-.3.6-.3 1.1-.8 1.4-1.4.3-.6.4-1.3.3-1.9-.1-.6-.4-1.2-.8-1.6-.4-.4-1-.7-1.6-.8z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="card-actions">
+                                                    <div class="card-menu">
+                                                        <button class="btn-card-menu" data-card-id="3">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-info">
+                                                <div class="card-number">Apple Pay</div>
+                                                <div class="card-details">
+                                                    <span class="card-holder">iPhone di Chiara</span>
+                                                    <span class="card-status active">Attivo</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CASHBACK PREMIUM -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Cashback Premium</h3>
+                                        <div class="cashback-rate">3% annuo</div>
+                                    </div>
+
+                                    <div class="cashback-overview">
+                                        <div class="cashback-main">
+                                            <div class="cashback-balance">
+                                                <div class="balance-amount">€37.50</div>
+                                                <div class="balance-label">Saldo Disponibile</div>
+                                            </div>
+                                            <div class="cashback-actions">
+                                                <button class="btn-use-cashback" id="useCashbackBtn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8Z" />
+                                                    </svg>
+                                                    Usa Cashback
+                                                </button>
+                                                <button class="btn-cashback-history" id="cashbackHistoryBtn">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M13,3A9,9 0 0,0 4,12H1L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z" />
+                                                    </svg>
+                                                    Storico
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="cashback-progress">
+                                            <div class="progress-info">
+                                                <span>Verso prossimo cashback</span>
+                                                <span class="progress-amount">€12.50 / €50</span>
+                                            </div>
+                                            <div class="progress-bar-container">
+                                                <div class="progress-bar" style="width: 25%"></div>
+                                            </div>
+                                            <div class="progress-note">Spendi altri €37.50 per il prossimo accredito
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FILTRI TRANSAZIONI -->
+                                <div class="filters-container">
+                                    <div class="filters-left">
+                                        <div class="filter-group">
+                                            <label for="statusFilterPay" class="filter-label">Stato:</label>
+                                            <select id="statusFilterPay" class="filter-select">
+                                                <option value="all">Tutti</option>
+                                                <option value="completed">Completati</option>
+                                                <option value="pending">In sospeso</option>
+                                                <option value="refunded">Rimborsati</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="typeFilter" class="filter-label">Tipo:</label>
+                                            <select id="typeFilter" class="filter-select">
+                                                <option value="all">Tutti</option>
+                                                <option value="service">Servizi</option>
+                                                <option value="premium">Abbonamento</option>
+                                                <option value="cashback">Cashback</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="periodFilterPay" class="filter-label">Periodo:</label>
+                                            <select id="periodFilterPay" class="filter-select">
+                                                <option value="all">Tutti</option>
+                                                <option value="this-month">Questo mese</option>
+                                                <option value="last-month">Mese scorso</option>
+                                                <option value="this-year">Quest'anno</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- STORICO TRANSAZIONI -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Storico Transazioni</h3>
+                                        <span class="count-badge" id="transactionsCount">8</span>
+                                    </div>
+
+                                    <div class="transactions-table-container">
+                                        <table class="transactions-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Data</th>
+                                                    <th>Descrizione</th>
+                                                    <th>Metodo</th>
+                                                    <th>Importo</th>
+                                                    <th>Stato</th>
+                                                    <th>Azioni</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- TRANSAZIONE SERVIZIO -->
+                                                <tr class="transaction-row completed" data-type="service">
+                                                    <td>
+                                                        <div class="transaction-date">
+                                                            <span class="date-main">22 Lug 2024</span>
+                                                            <span class="time-detail">16:45</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-description">
+                                                            <span class="service-name">Massaggio Decontratturante</span>
+                                                            <span class="professional-name">con Marco Rossi</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="payment-method-display">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor" class="method-icon visa">
+                                                                <path
+                                                                    d="M11.5 4.5h2.3l-1.4 9H9.9l1.6-9zm5.8 5.8c0-.8.7-1.3 1.9-1.3.6 0 1.1.1 1.5.3l.3-1.4c-.5-.2-1.2-.3-2-.3-2.2 0-3.7 1.2-3.7 2.8 0 1.2.9 1.9 1.6 2.3.7.4 1 .7 1 1.1 0 .6-.7.9-1.4.9-.9 0-1.5-.2-2-.4l-.3 1.4c.5.2 1.4.4 2.3.4 2.3 0 3.8-1.1 3.8-2.9 0-1-.6-1.8-1.8-2.4-.7-.4-1.1-.7-1.1-1.1 0-.4.4-.8 1.3-.8.7 0 1.2.1 1.6.3l.3-1.3c-.4-.2-1-.3-1.8-.3-2.1 0-3.6 1.1-3.6 2.7z" />
+                                                            </svg>
+                                                            <span class="method-text">•••• 4532</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-amount">
+                                                            <span class="amount-main">-€70.00</span>
+                                                            <span class="cashback-earned">+€2.10 cashback</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="status-badge completed">Completato</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-actions">
+                                                            <button class="btn-table-action invoice"
+                                                                title="Scarica fattura" data-transaction-id="1">
+                                                                <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                                                </svg>
+                                                            </button>
+                                                            <button class="btn-table-action details"
+                                                                title="Vedi dettagli" data-transaction-id="1">
+                                                                <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- TRANSAZIONE PREMIUM -->
+                                                <tr class="transaction-row completed" data-type="premium">
+                                                    <td>
+                                                        <div class="transaction-date">
+                                                            <span class="date-main">15 Giu 2024</span>
+                                                            <span class="time-detail">09:15</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-description">
+                                                            <span class="service-name">Abbonamento Premium</span>
+                                                            <span class="professional-name">Rinnovo annuale</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="payment-method-display">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor" class="method-icon paypal">
+                                                                <path
+                                                                    d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106z" />
+                                                            </svg>
+                                                            <span class="method-text">PayPal</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-amount">
+                                                            <span class="amount-main">-€99.00</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="status-badge completed">Completato</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-actions">
+                                                            <button class="btn-table-action invoice"
+                                                                title="Scarica fattura" data-transaction-id="2">
+                                                                <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                                                </svg>
+                                                            </button>
+                                                            <button class="btn-table-action details"
+                                                                title="Vedi dettagli" data-transaction-id="2">
+                                                                <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <!-- TRANSAZIONE CASHBACK -->
+                                                <tr class="transaction-row cashback" data-type="cashback">
+                                                    <td>
+                                                        <div class="transaction-date">
+                                                            <span class="date-main">01 Lug 2024</span>
+                                                            <span class="time-detail">00:00</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-description">
+                                                            <span class="service-name">Cashback Premium</span>
+                                                            <span class="professional-name">Accredito mensile</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="payment-method-display">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor" class="method-icon cashback">
+                                                                <path
+                                                                    d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M7,13H17V11H7V13Z" />
+                                                            </svg>
+                                                            <span class="method-text">Saldo RelaxPoint</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-amount cashback">
+                                                            <span class="amount-main positive">+€15.75</span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <span class="status-badge completed">Accreditato</span>
+                                                    </td>
+                                                    <td>
+                                                        <div class="transaction-actions">
+                                                            <button class="btn-table-action details"
+                                                                title="Vedi dettagli" data-transaction-id="3">
+                                                                <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                    fill="currentColor">
+                                                                    <path
+                                                                        d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
+                                                                </svg>
+                                                            </button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                    <!-- PAGINAZIONE -->
+                                    <div class="pagination">
+                                        <button class="pagination-btn prev" disabled>
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z" />
+                                            </svg>
+                                            Precedente
+                                        </button>
+                                        <div class="pagination-numbers">
+                                            <span class="pagination-info">Pagina 1 di 2</span>
+                                        </div>
+                                        <button class="pagination-btn next">
+                                            Successiva
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- GESTIONE ABBONAMENTO PREMIUM -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Abbonamento Premium</h3>
+                                        <div class="premium-status active">Attivo</div>
+                                    </div>
+
+                                    <div class="premium-management">
+                                        <div class="premium-info">
+                                            <div class="premium-details">
+                                                <div class="premium-plan">
+                                                    <h4>Cliente Premium</h4>
+                                                    <p>€99.00 / anno</p>
+                                                </div>
+                                                <div class="premium-benefits">
+                                                    <ul>
+                                                        <li>Cashback 3% su tutti i servizi</li>
+                                                        <li>Accesso anticipato Last Minute (30min)</li>
+                                                        <li>Commissioni ridotte al 10%</li>
+                                                        <li>Professionisti esclusivi Premium</li>
+                                                        <li>Supporto prioritario</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="premium-dates">
+                                                <div class="date-info">
+                                                    <span class="date-label">Attivato il:</span>
+                                                    <span class="date-value">15 Giugno 2024</span>
+                                                </div>
+                                                <div class="date-info">
+                                                    <span class="date-label">Rinnovo:</span>
+                                                    <span class="date-value">15 Giugno 2025</span>
+                                                </div>
+                                                <div class="date-info">
+                                                    <span class="date-label">Metodo di pagamento:</span>
+                                                    <span class="date-value">PayPal (Automatico)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="premium-actions">
+                                            <button class="btn-change-payment" id="changePaymentBtn">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                                </svg>
+                                                Cambia Metodo
+                                            </button>
+                                            <button class="btn-cancel-subscription" id="cancelSubscriptionBtn">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                                                </svg>
+                                                Disdici
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="../../pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="../../pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="../../pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="../../pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="../../pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODAL AGGIUNGI METODO PAGAMENTO -->
+    <div class="modal" id="addPaymentModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Aggiungi Metodo di Pagamento</h3>
+                <button class="modal-close" id="closeAddPaymentModal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-type-selection">
+                    <h4>Seleziona tipo di pagamento:</h4>
+                    <div class="payment-types">
+                        <button class="payment-type-btn active" data-type="card">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                            </svg>
+                            Carta di Credito
+                        </button>
+                        <button class="payment-type-btn" data-type="paypal">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287z" />
+                            </svg>
+                            PayPal
+                        </button>
+                    </div>
+                </div>
+                <div class="payment-form" id="cardForm">
+                    <div class="form-group">
+                        <label>Numero carta</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Scadenza</label>
+                            <input type="text" placeholder="MM/AA" maxlength="5" id="cardExpiry">
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="text" placeholder="123" maxlength="4" id="cardCvv">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nome sulla carta</label>
+                        <input type="text" placeholder="Nome Cognome" id="cardHolder">
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-primary" id="savePaymentMethod">Salva Metodo</button>
+                    <button class="btn-secondary" id="cancelAddPayment">Annulla</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/pagamenti.js"></script>
+</body>
+
+</html>
