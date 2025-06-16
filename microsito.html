@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Rossi - Wellness Coach | RelaxPoint</title>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/microsito.css">
+</head>
+
+<body>
+    <!-- HEADER - Modificabile da admin per logo, menu, pulsanti -->
+    <header class="site-header">
+        <!-- LOGO E MENU SINISTRA -->
+        <div class="header-left">
+            <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
+            <a class="site-logo" href="/">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <!-- Menu navigazione - ADMIN può aggiungere/rimuovere voci -->
+            <nav class="main-nav">
+                <a class="nav-link active" href="/">Home</a>
+                <a class="nav-link" href="pages/servizi.html">Servizi</a>
+                <a class="nav-link" href="pages/professionisti.html">Professionisti</a>
+                <a class="nav-link" href="pages/ispirazioni.html">Ispirazioni</a>
+            </nav>
+        </div>
+
+        <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
+        <a class="last-minute-link" href="pages/last-minute.html">Last Minute</a>
+
+        <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
+        <div class="header-right">
+
+            <div class="language-selector">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                    <path
+                        d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                </svg>
+                <select id="languageSelector" class="language-dropdown">
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+
+            <!-- Ricerca - ADMIN può modificare placeholder -->
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <div class="search-icon">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <input class="search-input" placeholder="Cerca servizi..." />
+                </div>
+            </div>
+
+            <!-- Pulsanti - ADMIN può modificare testi e link -->
+            <div class="button-group">
+                <a href="" class="btn-primary">
+                    <span class="text-truncate">Prenota</span>
+                </a>
+
+                <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
+                <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                    <img src="" alt="Avatar utente">
+                </a>
+
+                <a href="./login.html" class="btn-secondary">
+                    <span class="text-truncate">Accedi</span>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - Stesso stile di index.html -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Sophia Rossi</h1>
+                <p class="hero-description">Wellness Coach certificata specializzata in trasformazioni olistiche e
+                    benessere mentale</p>
+                <button class="hero-cta">Prenota Consulenza</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+        <div class="container">
+
+            <!-- BREADCRUMB -->
+            <nav class="professionals-breadcrumb">
+                <a href="../../index.html" class="professionals-breadcrumb-link">Home</a>
+                <span class="professionals-breadcrumb-separator">›</span>
+                <a href="../professionisti.html" class="professionals-breadcrumb-link">Professionisti</a>
+                <span class="professionals-breadcrumb-separator">›</span>
+                <span class="professionals-breadcrumb-current">Sophia Rossi</span>
+            </nav>
+
+            <!-- CHI SONO -->
+            <section class="chi-sono-section">
+                <h2 class="section-title">Chi Sono</h2>
+                <div class="professional-card chi-sono-card">
+                    <div class="chi-sono-image"></div>
+                    <div class="chi-sono-content">
+                        <p class="chi-sono-text">
+                            Sono un Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che
+                            desiderano trasformare la propria vita attraverso un approccio olistico al benessere. Mi
+                            sono specializzata in coaching motivazionale, gestione dello stress e creazione di abitudini
+                            sostenibili.
+                        </p>
+                        <p class="chi-sono-text">
+                            La mia missione è accompagnarti in un percorso di crescita personale che integra benessere
+                            fisico, mentale ed emotivo. Utilizzo tecniche di mindfulness, coaching nutrizionale e
+                            strategie di sviluppo personale per aiutarti a raggiungere i tuoi obiettivi di salute e
+                            felicità.
+                        </p>
+                        <p class="chi-sono-text">
+                            Credo fermamente che ogni persona abbia il potenziale per vivere una vita piena e
+                            soddisfacente. Il mio approccio è personalizzato, empatico e orientato ai risultati
+                            concreti.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CERTIFICAZIONI -->
+            <section class="certificazioni-section">
+                <h2 class="section-title">Certificazioni</h2>
+                <div class="services-grid">
+                    <div class="service-card certificazione-card">
+                        <div class="service-image certificazione-image"
+                            style="background-image: url('../../assets/images/Servizi/Gym.jpg');"></div>
+                        <p class="service-title">Certified Wellness Coach</p>
+                    </div>
+                    <div class="service-card certificazione-card">
+                        <div class="service-image certificazione-image"
+                            style="background-image: url('../../assets/images/Servizi/YogaEndMeditazione.jpeg');"></div>
+                        <p class="service-title">Mindfulness Instructor</p>
+                    </div>
+                    <div class="service-card certificazione-card">
+                        <div class="service-image certificazione-image"
+                            style="background-image: url('../../assets/images/Servizi/Salute.jpg');"></div>
+                        <p class="service-title">Consulente Nutrizionale</p>
+                    </div>
+                    <div class="service-card certificazione-card">
+                        <div class="service-image certificazione-image"
+                            style="background-image: url('../../assets/images/Servizi/Hair and make-up.png');"></div>
+                        <p class="service-title">Life Coach Certificato</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PORTFOLIO -->
+            <section class="portfolio-section">
+                <h2 class="section-title">Portfolio</h2>
+                <div class="services-grid">
+                    <div class="service-card portfolio-card">
+                        <div class="service-image portfolio-image"
+                            style="background-image: url('../../assets/images/Servizi/massage2.jpg');"></div>
+                        <p class="service-title">Sessione Mindfulness</p>
+                    </div>
+                    <div class="service-card portfolio-card">
+                        <div class="service-image portfolio-image"
+                            style="background-image: url('../../assets/images/Servizi/Beauty.jpg');"></div>
+                        <p class="service-title">Coaching Nutrizionale</p>
+                    </div>
+                    <div class="service-card portfolio-card">
+                        <div class="service-image portfolio-image"
+                            style="background-image: url('../../assets/images/Servizi/Fiosioterapia.Osteopatia.png');">
+                        </div>
+                        <p class="service-title">Percorso Trasformazione</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SERVIZI -->
+            <section class="servizi-section">
+                <h2 class="section-title">I Miei Servizi</h2>
+                <div class="services-grid">
+                    <div class="service-card servizio-card">
+                        <div class="service-image servizio-image"
+                            style="background-image: url('../../assets/images/Servizi/neoMamma.jpg');"></div>
+                        <p class="service-title">Wellness Coaching Individuale</p>
+                        <p class="service-price">€80/sessione</p>
+                    </div>
+                    <div class="service-card servizio-card">
+                        <div class="service-image servizio-image"
+                            style="background-image: url('../../assets/images/Servizi/YogaEndMeditazione.jpeg');"></div>
+                        <p class="service-title">Sessioni Mindfulness</p>
+                        <p class="service-price">€60/sessione</p>
+                    </div>
+                    <div class="service-card servizio-card">
+                        <div class="service-image servizio-image"
+                            style="background-image: url('../../assets/images/Servizi/Salute.jpg');"></div>
+                        <p class="service-title">Coaching Nutrizionale</p>
+                        <p class="service-price">€70/sessione</p>
+                    </div>
+                    <div class="service-card servizio-card">
+                        <div class="service-image servizio-image"
+                            style="background-image: url('../../assets/images/Servizi/Gym.jpg');"></div>
+                        <p class="service-title">Percorso Trasformazione (8 sessioni)</p>
+                        <p class="service-price">€500/percorso</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PREMIUM CTA -->
+            <section class="cta-section premium-cta">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h1 class="cta-title">Diventa Cliente Premium RelaxPoint</h1>
+                        <p class="cta-description">Accedi in anteprima ai servizi last minute, ottieni sconti del 15% e
+                            goditi professionisti esclusivi come Sophia.</p>
+                    </div>
+                    <a href="../premium.html" class="cta-btn">
+                        <span class="text-truncate">Scopri Premium €99/anno</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- RECENSIONI -->
+            <section class="recensioni-section">
+                <h2 class="section-title">Recensioni Clienti</h2>
+                <div class="professionals-carousel">
+                    <div class="professionals-container">
+
+                        <div class="professional-card recensione-card">
+                            <div class="recensione-header">
+                                <div class="recensione-avatar"
+                                    style="background-image: url('../../assets/images/Professionisti/pr2.png');"></div>
+                                <div class="recensione-info">
+                                    <p class="recensione-nome">Marco Bianchi</p>
+                                    <div class="recensione-rating">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="recensione-text">
+                                "Sophia mi ha aiutato a ritrovare equilibrio nella mia vita. Le sue sessioni di
+                                mindfulness sono state trasformative. Professionale e molto empatica."
+                            </p>
+                        </div>
+
+                        <div class="professional-card recensione-card">
+                            <div class="recensione-header">
+                                <div class="recensione-avatar"
+                                    style="background-image: url('../../assets/images/Professionisti/pr3.png');"></div>
+                                <div class="recensione-info">
+                                    <p class="recensione-nome">Laura Verdi</p>
+                                    <div class="recensione-rating">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="recensione-text">
+                                "Il percorso di trasformazione con Sophia mi ha cambiato la vita. Approccio olistico
+                                fantastico, risultati concreti in poche settimane."
+                            </p>
+                        </div>
+
+                        <div class="professional-card recensione-card">
+                            <div class="recensione-header">
+                                <div class="recensione-avatar"
+                                    style="background-image: url('../../assets/images/Professionisti/pr4.png');"></div>
+                                <div class="recensione-info">
+                                    <p class="recensione-nome">Alessandro Costa</p>
+                                    <div class="recensione-rating">
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star filled">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="recensione-text">
+                                "Coaching nutrizionale eccezionale. Sophia ha un approccio scientifico ma molto umano.
+                                Consigliatissima per chi vuole cambiare stile di vita."
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER - Stesso di index.html -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">RelaxPoint</h3>
+                    <p class="footer-description">Il benessere che cerchi, dove vuoi</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Link Utili</h4>
+                    <ul class="footer-links">
+                        <li><a href="../servizi.html">Servizi</a></li>
+                        <li><a href="../professionisti.html">Professionisti</a></li>
+                        <li><a href="../premium.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Seguici</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/microsito.js"></script>
+</body>
+
+</html>

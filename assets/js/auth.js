@@ -212,7 +212,9 @@ class AuthManager {
                 userAvatar.style.display = 'block';
                 const avatarImg = userAvatar.querySelector('img');
                 if (avatarImg) {
-                    avatarImg.src = this.currentUser.avatar;
+                    // Rileva se siamo in una sottocartella
+                    const basePath = window.location.pathname.includes('/pages/') ? '../../' : '';
+                    avatarImg.src = basePath + this.currentUser.avatar;
                     avatarImg.alt = `${this.currentUser.nome} ${this.currentUser.cognome}`;
                 }
             }

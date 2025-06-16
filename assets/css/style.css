@@ -56,7 +56,7 @@ body {
     max-width: 2000px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 8px;
+    padding: 0 16px;
 }
 
 @media (min-width: 768px) {
@@ -83,6 +83,7 @@ body {
     padding: 16px 40px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
+
 
 /* LOGO - Sezione sinistra header */
 .header-left {
@@ -154,9 +155,11 @@ body {
     animation: blink 1.5s infinite;
 }
 
+
 .last-minute-link:hover {
     color: var(--color-red-dark);
 }
+
 
 @keyframes blink {
 
@@ -168,6 +171,42 @@ body {
     50% {
         opacity: 0.2;
     }
+}
+
+
+/* SELETTORE LINGUA */
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-gray-light);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    padding: 8px 12px;
+    transition: all 0.3s ease;
+    margin-right: 16px;
+}
+
+.language-selector:hover {
+    background: rgba(45, 90, 61, 0.1);
+    border-color: var(--color-primary);
+}
+
+.language-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.language-dropdown {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    font-family: inherit;
 }
 
 /* BARRA DI RICERCA */
@@ -229,6 +268,7 @@ body {
 .button-group {
     display: flex;
     gap: 8px;
+    align-items: center;
 }
 
 .btn-primary {
@@ -281,6 +321,34 @@ body {
 
 .btn-secondary:hover {
     background-color: var(--color-primary);
+}
+
+/* AVATAR UTENTE HEADER */
+.user-avatar-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-primary);
+    transition: all 0.3s ease;
+    margin: 0 8px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.user-avatar-header:hover {
+    transform: scale(1.1);
+    border-color: var(--color-dark);
+    box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
+}
+
+.user-avatar-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ===============================================
@@ -783,25 +851,45 @@ body {
 }
 
 /* ===============================================
-   RESPONSIVE - Ottimizzazioni mobile
+   RESPONSIVE PROGRESSIVO HEADER - SOSTITUISCI LE MEDIA QUERIES ESISTENTI
    =============================================== */
-@media (max-width: 768px) {
-    .site-header {
-        padding: 12px 16px;
-        flex-wrap: wrap;
-        gap: 12px;
-    }
 
-    .header-left {
-        gap: 20px;
+/* FASE 1 - OTTIMIZZAZIONE */
+@media (max-width: 1300px) {
+    .site-header {
+        padding: 6px 10px;
+        gap: 1px;
     }
 
     .main-nav {
-        gap: 16px;
+        font-size: 10px;
+        gap: 25px;
+    }
+
+
+    .logo-text {
+        font-size: 20px;
+    }
+
+    .user-avatar-header {
+        width: 36px;
+        height: 36px;
+        border-width: 2px;
     }
 
     .search-container {
-        min-width: 120px;
+        max-width: 100px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        padding: 0 16px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    .last-minute-link {
+        font-size: 10px;
     }
 
     .hero-section {
@@ -821,84 +909,7 @@ body {
 
 
 
-/* ===============================================
-   SELETTORE LINGUA
-   =============================================== */
-.language-selector {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--color-gray-light);
-    border: 1px solid var(--color-border);
-    border-radius: 20px;
-    padding: 8px 12px;
-    transition: all 0.3s ease;
-    margin-right: 16px;
-}
-
-.language-selector:hover {
-    background: rgba(45, 90, 61, 0.1);
-    border-color: var(--color-primary);
-}
-
-.language-icon {
-    color: var(--color-primary);
-    flex-shrink: 0;
-}
-
-.language-dropdown {
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-text);
-    cursor: pointer;
-    outline: none;
-    text-transform: uppercase;
-    font-family: inherit;
-}
-
-/* ===============================================
-   AVATAR UTENTE HEADER
-   =============================================== */
-.user-avatar-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--color-primary);
-    transition: all 0.3s ease;
-    margin: 0 8px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.user-avatar-header:hover {
-    transform: scale(1.1);
-    border-color: var(--color-dark);
-    box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
-}
-
-.user-avatar-header img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.button-group {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-}
-
-/* ===============================================
-   RESPONSIVE PROGRESSIVO HEADER
-   =============================================== */
-
-/* FASE 1 - RIMPICCIOLIMENTO */
+/* FASE 2 - RIMPICCIOLIMENTO */
 @media (max-width: 1200px) {
     .site-header {
         padding: 12px 20px;
@@ -906,7 +917,13 @@ body {
     }
 
     .logo-text {
-        font-size: 24px;
+        font-size: 15px;
+
+    }
+
+    .main-nav {
+        font-size: 1px;
+        gap: 20px;
     }
 
     .nav-link {
@@ -914,20 +931,99 @@ body {
     }
 
     .search-container {
-        min-width: 140px;
+        max-width: 50px;
     }
 
     .language-selector {
         padding: 6px 8px;
         margin-right: 8px;
     }
+
+    .last-minute-link {
+        font-size: 14px;
+    }
+
 }
 
-/* FASE 2 - OTTIMIZZAZIONE */
+/* FASE 2 - RIMPICCIOLIMENTO */
+@media (max-width: 1024px) {
+    .site-header {
+        padding: 6px 10px;
+        gap: 5px;
+    }
+
+    .logo-text {
+        font-size: 10px;
+    }
+
+    .main-nav {
+        font-size: 1px;
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .search-container {
+        max-width: 30px;
+    }
+
+    .language-selector {
+        padding: 6px 8px;
+        margin-right: 8px;
+    }
+
+    .last-minute-link {
+        font-size: 10px;
+    }
+
+}
+
+/* FASE 2 - RIMPICCIOLIMENTO */
+@media (max-width: 892px) {
+    .site-header {
+        padding: 6px 10px;
+        gap: 5px;
+    }
+
+    .logo-text {
+        font-size: 10px;
+    }
+
+    .main-nav {
+        font-size: 1px;
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .language-selector {
+        padding: 6px 8px;
+        margin-right: 8px;
+    }
+
+    .last-minute-link {
+        font-size: 10px;
+    }
+
+}
+
+/* FASE 3 - OTTIMIZZAZIONE */
 @media (max-width: 768px) {
     .site-header {
         padding: 10px 16px;
         gap: 12px;
+    }
+
+    .logo-text {
+        font-size: 20px;
     }
 
     .main-nav {
@@ -950,13 +1046,35 @@ body {
         height: 36px;
         font-size: 14px;
     }
+
+    .last-minute-link {
+        font-size: 20px;
+    }
+
+    .hero-section {
+        padding: 24px 16px;
+    }
+
+    .services-grid {
+        padding: 8px;
+        gap: 16px;
+    }
+
+    .professionals-container {
+        padding: 8px;
+        gap: 16px;
+    }
 }
 
-/* FASE 3 - MOBILE */
+/* FASE 4 - MOBILE */
 @media (max-width: 640px) {
     .site-header {
         padding: 8px 12px;
         gap: 8px;
+    }
+
+    .logo-text {
+        font-size: 15px;
     }
 
     .search-container {
@@ -986,5 +1104,9 @@ body {
         padding: 0 12px;
         height: 32px;
         font-size: 13px;
+    }
+
+    .last-minute-link {
+        font-size: 20px;
     }
 }

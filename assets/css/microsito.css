@@ -1,0 +1,195 @@
+/* ===============================================
+   MICROSITO PROFESSIONISTI - CSS AGGIUNTIVO
+   Usa style.css come base, questo aggiunge solo specifiche
+   =============================================== */
+
+/* CHI SONO SECTION - LAYOUT SPECIFICO */
+.chi-sono-section {
+    margin-bottom: 60px;
+}
+
+.chi-sono-card {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    background-color: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
+}
+
+.chi-sono-image {
+    width: 200px;
+    height: 300px;
+    background-image: url('../../assets/images/Professionisti/pr1.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    flex-shrink: 0;
+    order: 0;
+    /* Foto sempre a sinistra */
+}
+
+.chi-sono-content {
+    flex: 1;
+    order: 1;
+    /* Contenuto sempre a destra */
+}
+
+.chi-sono-text {
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.chi-sono-text:last-child {
+    margin-bottom: 0;
+}
+
+/* SEZIONI SPECIFICHE MICROSITO */
+.certificazioni-section,
+.portfolio-section,
+.servizi-section,
+.recensioni-section {
+    margin-bottom: 60px;
+}
+
+/* CERTIFICAZIONI - USA SERVICE-CARD BASE */
+.certificazione-card {
+    cursor: default;
+}
+
+.certificazione-card:hover {
+    transform: none;
+}
+
+/* PORTFOLIO - USA SERVICE-CARD BASE */
+.portfolio-card {
+    cursor: pointer;
+}
+
+.portfolio-card:hover {
+    transform: scale(1.03);
+}
+
+/* SERVIZI - USA SERVICE-CARD BASE + PREZZI */
+.servizio-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.servizio-card:hover {
+    transform: scale(1.03);
+}
+
+.service-price {
+    color: var(--color-primary);
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* PREMIUM CTA - MODIFICA CTA-SECTION BASE */
+.premium-cta {
+    margin-bottom: 60px;
+}
+
+.premium-cta .cta-title {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* RECENSIONI - USA PROFESSIONAL-CARD BASE */
+.recensione-card {
+    min-width: 300px;
+    max-width: 350px;
+}
+
+.recensione-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.recensione-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-gray-light);
+}
+
+.recensione-info {
+    flex: 1;
+}
+
+.recensione-nome {
+    color: var(--color-text);
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+}
+
+.recensione-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    color: #ddd;
+    font-size: 16px;
+}
+
+.star.filled {
+    color: #ffd700;
+}
+
+.recensione-text {
+    color: var(--color-secondary);
+    font-size: 14px;
+    line-height: 1.5;
+    font-style: italic;
+    margin: 0;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 767px) {
+    .chi-sono-card {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .chi-sono-image {
+        width: 100%;
+        height: 250px;
+        align-self: center;
+        max-width: 300px;
+        order: 0;
+        /* Foto sempre prima anche su mobile */
+    }
+
+    .chi-sono-content {
+        order: 1;
+        /* Contenuto sempre dopo anche su mobile */
+    }
+
+    .recensione-card {
+        min-width: 280px;
+        max-width: 320px;
+    }
+}
+
+/* RESPONSIVE TABLET */
+@media (max-width: 1023px) and (min-width: 768px) {
+    .chi-sono-image {
+        width: 180px;
+        height: 270px;
+    }
+}

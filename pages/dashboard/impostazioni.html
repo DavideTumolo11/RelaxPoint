@@ -50,9 +50,26 @@
                     </nav>
                 </div>
 
-                <div class="header-right">
-                    <a class="last-minute-link" href="../../pages/last-minute.html">Last Minute</a>
+                <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
+                <a class="last-minute-link" href="pages/last-minute.html">Last Minute</a>
 
+                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
+                <div class="header-right">
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca - ADMIN può modificare placeholder -->
                     <div class="search-container">
                         <div class="search-wrapper">
                             <div class="search-icon">
@@ -63,17 +80,25 @@
                                     </path>
                                 </svg>
                             </div>
-                            <input class="search-input" placeholder="Cerca impostazioni..." />
+                            <input class="search-input" placeholder="Cerca servizi..." />
                         </div>
                     </div>
 
+                    <!-- Pulsanti - ADMIN può modificare testi e link -->
                     <div class="button-group">
-                        <a href="#" class="btn-primary" id="nuovaPrenotazioneBtn">
+                        <a href="" class="btn-primary">
                             <span class="text-truncate">Prenota</span>
                         </a>
-                        <a href="../../login.html" class="btn-secondary">
-                            <span class="text-truncate">Logout</span>
+
+                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
                         </a>
+
+                        <a href="./login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
                     </div>
                 </div>
             </header>
