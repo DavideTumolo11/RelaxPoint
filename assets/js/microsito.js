@@ -7,6 +7,41 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeMicrosite();
 });
 
+// Funzione per caricare il testo dalla pagina About
+async function loadAboutText() {
+    try {
+        // Carica la pagina About
+        const response = await fetch('/pages/professionisti/about.html');
+        const html = await response.text();
+
+        // Crea un parser per estrarre il testo
+        const parser = new DOMParser();
+        const aboutDoc = parser.parseFromString(html, 'text/html');
+
+        // Estrai il testo dalla sezione principale dell'About
+        // (dovrai adattare il selettore a come sarà strutturata la pagina About)
+        const aboutText = aboutDoc.querySelector('.about-content')?.textContent ||
+            aboutDoc.querySelector('.main-content')?.textContent ||
+            "Testo di default se About non è disponibile.";
+
+        // Inserisci il testo nella card Chi Sono
+        const chiSonoText = document.querySelector('.chi-sono-text');
+        if (chiSonoText) {
+            chiSonoText.innerHTML = `<p>${aboutText.trim()}</p>`;
+        }
+
+    } catch (error) {
+        console.log('Impossibile caricare il testo About:', error);
+        // Mantieni il testo di default
+    }
+}
+
+// Chiama la funzione quando la pagina è caricata
+document.addEventListener('DOMContentLoaded', function () {
+    // ... altre inizializzazioni esistenti ...
+    loadAboutText();
+});
+
 // Inizializzazione microsite
 function initializeMicrosite() {
     setupServiceCards();
@@ -64,14 +99,6 @@ function setupIspirationGallery() {
         });
     });
 
-    // Setup "Vedi tutte le foto" link
-    const viewAllLink = document.querySelector('.ispirazioni-view-all');
-    if (viewAllLink) {
-        viewAllLink.addEventListener('click', function (e) {
-            e.preventDefault();
-            showFullGallery();
-        });
-    }
 }
 
 // Setup CTA Buttons
