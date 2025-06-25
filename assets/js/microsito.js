@@ -1,5 +1,5 @@
 /* ===============================================
-   MICROSITO PROFESSIONISTI - JS
+   MICROSITO PROFESSIONISTI - JS COMPLETO
    =============================================== */
 
 // DOM Content Loaded
@@ -14,6 +14,7 @@ function initializeMicrosite() {
     setupCTAButtons();
     setupMobileMenu();
     setupScrollEffects();
+    injectModalStyles();
 }
 
 // Setup Service Cards
@@ -60,7 +61,8 @@ function setupCTAButtons() {
     const premiumCTA = document.querySelector('.premium-cta .cta-btn');
 
     if (heroCTA) {
-        heroCTA.addEventListener('click', function () {
+        heroCTA.addEventListener('click', function (e) {
+            e.preventDefault();
             // Scroll to servizi section
             const serviziSection = document.querySelector('.servizi-section');
             if (serviziSection) {
@@ -128,6 +130,83 @@ function setupScrollEffects() {
     });
 }
 
+// ===============================================
+// UTILITY FUNCTIONS
+// ===============================================
+
+// Ottieni data di domani per input date
+function getTomorrowDate() {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow.toISOString().split('T')[0];
+}
+
+// Mostra toast notification
+function showToast(message, type = 'info') {
+    // Rimuovi toast esistenti
+    const existingToast = document.querySelector('.toast-notification');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    // Crea nuovo toast
+    const toast = document.createElement('div');
+    toast.className = `toast-notification toast-${type}`;
+    toast.textContent = message;
+
+    // Stili inline per il toast
+    const toastStyles = {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '12px 20px',
+        borderRadius: '8px',
+        color: 'white',
+        fontWeight: '500',
+        fontSize: '14px',
+        zIndex: '10000',
+        transition: 'all 0.3s ease',
+        transform: 'translateX(100%)',
+        opacity: '0'
+    };
+
+    // Colori per tipo
+    const typeColors = {
+        info: '#3b82f6',
+        success: '#10b981',
+        error: '#ef4444',
+        warning: '#f59e0b'
+    };
+
+    // Applica stili
+    Object.assign(toast.style, toastStyles);
+    toast.style.backgroundColor = typeColors[type] || typeColors.info;
+
+    // Aggiungi al DOM
+    document.body.appendChild(toast);
+
+    // Animazione entrata
+    setTimeout(() => {
+        toast.style.transform = 'translateX(0)';
+        toast.style.opacity = '1';
+    }, 100);
+
+    // Rimozione automatica
+    setTimeout(() => {
+        toast.style.transform = 'translateX(100%)';
+        toast.style.opacity = '0';
+        setTimeout(() => {
+            if (toast.parentNode) {
+                toast.remove();
+            }
+        }, 300);
+    }, 3000);
+}
+
+// ===============================================
+// MODAL FUNCTIONS
+// ===============================================
+
 // Mostra modal prenotazione
 function showBookingModal(serviceTitle, servicePrice) {
     const modal = document.createElement('div');
@@ -193,12 +272,14 @@ function showPortfolioLightbox(portfolioTitle) {
     const lightbox = document.createElement('div');
     lightbox.className = 'portfolio-lightbox';
     lightbox.innerHTML = `
-        <div class="lightbox-overlay">
+        <div class="modal-overlay">
             <div class="lightbox-content">
-                <button class="lightbox-close">&times;</button>
-                <h3>${portfolioTitle}</h3>
-                <div class="lightbox-image"></div>
-                <p>Esempio di lavoro svolto durante le sessioni di wellness coaching con focus su risultati tangibili e benessere del cliente.</p>
+                <div class="modal-header">
+                    <h3>${portfolioTitle}</h3>
+                    <button class="lightbox-close">&times;</button>
+                </div>
+                <div class="lightbox-image" style="background-image: url('../../assets/images/Professionisti/pr1.png')"></div>
+                <p>Immagine del portfolio - ${portfolioTitle}</p>
             </div>
         </div>
     `;
@@ -211,65 +292,18 @@ function showPortfolioLightbox(portfolioTitle) {
         lightbox.remove();
     });
 
-    lightbox.querySelector('.lightbox-overlay').addEventListener('click', (e) => {
-        if (e.target === lightbox.querySelector('.lightbox-overlay')) {
+    lightbox.querySelector('.modal-overlay').addEventListener('click', (e) => {
+        if (e.target === lightbox.querySelector('.modal-overlay')) {
             lightbox.remove();
         }
     });
 }
 
-// Toast notification
-function showToast(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.textContent = message;
-
-    // Colori CSS diretti invece di variabili CSS
-    const colors = {
-        success: '#2d5a3d',
-        error: '#e53e3e',
-        info: '#4a5568'
-    };
-
-    Object.assign(toast.style, {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        padding: '12px 24px',
-        borderRadius: '8px',
-        color: 'white',
-        fontWeight: '500',
-        zIndex: '10000',
-        transform: 'translateX(100%)',
-        transition: 'transform 0.3s ease',
-        backgroundColor: colors[type] || colors.info
-    });
-
-    document.body.appendChild(toast);
-
-    // Show toast
-    setTimeout(() => {
-        toast.style.transform = 'translateX(0)';
-    }, 100);
-
-    // Hide toast
-    setTimeout(() => {
-        toast.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            toast.remove();
-        }, 300);
-    }, 3000);
-}
-
-// Utility: Get tomorrow date
-function getTomorrowDate() {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    return tomorrow.toISOString().split('T')[0];
-}
-
-// CSS per modals (iniettato dinamicamente)
-const modalStyles = `
+// ===============================================
+// INJECT MODAL STYLES
+// ===============================================
+function injectModalStyles() {
+    const modalStyles = `
     .booking-modal, .portfolio-lightbox {
         position: fixed;
         top: 0;
@@ -317,6 +351,10 @@ const modalStyles = `
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    
+    .modal-close:hover, .lightbox-close:hover {
+        color: #2d3748;
     }
     
     .modal-body {
@@ -369,7 +407,11 @@ const modalStyles = `
     }
 `;
 
-// Inietta CSS per modals
-const styleSheet = document.createElement('style');
-styleSheet.textContent = modalStyles;
-document.head.appendChild(styleSheet);
+    // Inietta CSS per modals se non esiste già
+    if (!document.querySelector('#microsito-modal-styles')) {
+        const styleSheet = document.createElement('style');
+        styleSheet.id = 'microsito-modal-styles';
+        styleSheet.textContent = modalStyles;
+        document.head.appendChild(styleSheet);
+    }
+}
