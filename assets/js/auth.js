@@ -65,6 +65,26 @@ const DEMO_USERS = {
 };
 
 // ===============================================
+// UTILITY FUNCTIONS PER PATH
+// ===============================================
+function getCorrectPath(filename) {
+    const isInPages = window.location.pathname.includes('/pages/');
+    const isInDashboard = window.location.pathname.includes('/dashboard/');
+
+    if (isInDashboard) {
+        return `../../${filename}`;
+    } else if (isInPages) {
+        return `../${filename}`;
+    } else {
+        return filename;
+    }
+}
+
+function getCurrentPageUrl() {
+    return window.location.href;
+}
+
+// ===============================================
 // CLASSE GESTIONE AUTENTICAZIONE
 // ===============================================
 class AuthManager {
@@ -157,9 +177,15 @@ class AuthManager {
                 // Successo
                 this.showMessage('Login effettuato con successo!', 'success');
 
-                // Redirect dopo breve delay
+                // Redirect alla pagina precedente o index
                 setTimeout(() => {
-                    window.location.href = '/index.html';
+                    const returnUrl = localStorage.getItem('returnUrl');
+                    if (returnUrl) {
+                        localStorage.removeItem('returnUrl');
+                        window.location.href = returnUrl;
+                    } else {
+                        window.location.href = getCorrectPath('index.html');
+                    }
                 }, 1500);
 
             } else {
@@ -212,8 +238,8 @@ class AuthManager {
                 userAvatar.style.display = 'block';
                 const avatarImg = userAvatar.querySelector('img');
                 if (avatarImg) {
-                    // Rileva se siamo in una sottocartella
-                    const basePath = window.location.pathname.includes('/pages/') ? '../../' : '';
+                    const basePath = window.location.pathname.includes('/pages/') ?
+                        (window.location.pathname.includes('/dashboard/') ? '../../' : '../') : '';
                     avatarImg.src = basePath + this.currentUser.avatar;
                     avatarImg.alt = `${this.currentUser.nome} ${this.currentUser.cognome}`;
                 }
@@ -223,8 +249,13 @@ class AuthManager {
             // STATO LOGGED OUT
             if (btnAccedi) {
                 btnAccedi.textContent = 'Accedi';
-                btnAccedi.href = 'login.html';
-                btnAccedi.onclick = null;
+                btnAccedi.href = getCorrectPath('login.html');
+                btnAccedi.onclick = (e) => {
+                    e.preventDefault();
+                    // Salva la pagina corrente per il ritorno dopo login
+                    localStorage.setItem('returnUrl', getCurrentPageUrl());
+                    window.location.href = getCorrectPath('login.html');
+                };
             }
 
             // Nascondi avatar
@@ -246,7 +277,7 @@ class AuthManager {
             this.showMessage('Logout effettuato con successo!', 'success');
 
             setTimeout(() => {
-                window.location.href = '/index.html';
+                window.location.href = getCorrectPath('index.html');
             }, 1000);
         }
     }
@@ -273,7 +304,7 @@ class AuthManager {
 
         const dashboardRoute = AUTH_CONFIG.DASHBOARD_ROUTES[this.currentUser.tipo];
         if (dashboardRoute) {
-            window.location.href = dashboardRoute;
+            window.location.href = getCorrectPath(dashboardRoute);
         } else {
             console.error('Dashboard non trovata per tipo utente:', this.currentUser.tipo);
         }
