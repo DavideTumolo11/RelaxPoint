@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - Sophia Rossi | RelaxPoint</title>
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/media.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-left">
+            <a class="site-logo" href="../index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <nav class="main-nav">
+                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="servizi.html">Servizi</a>
+                <a class="nav-link active" href="professionisti.html">Professionisti</a>
+                <a class="nav-link" href="ispirazioni.html">Ispirazioni</a>
+            </nav>
+        </div>
+
+        <a class="last-minute-link" href="last-minute.html">Last Minute</a>
+
+        <div class="header-right">
+            <div class="language-selector">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                    <path
+                        d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                </svg>
+                <select id="languageSelector" class="language-dropdown">
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <div class="search-icon">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <input class="search-input" placeholder="Cerca servizi..." />
+                </div>
+            </div>
+
+            <div class="button-group">
+                <a href="../login.html" class="btn-primary">
+                    <span class="text-truncate">Prenota</span>
+                </a>
+                <a href="../login.html" class="btn-secondary">
+                    <span class="text-truncate">Accedi</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+        <div class="content-wrapper">
+
+            <!-- BREADCRUMB -->
+            <nav class="breadcrumb">
+                <a href="../index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="professionisti.html" class="breadcrumb-link">Professionisti</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../pages/professionisti/microsito.html" class="breadcrumb-link">Sophia Rossi</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Media</span>
+            </nav>
+
+            <!-- HEADER PAGINA MEDIA -->
+            <section class="media-header">
+                <div class="media-title-section">
+                    <h1 class="media-title">Media di Sophia Rossi</h1>
+                    <p class="media-subtitle">Esplora foto e video del mio lavoro di Wellness Coach</p>
+                </div>
+
+                <!-- FILTRI MEDIA -->
+                <div class="media-filters">
+                    <button class="filter-btn active" data-filter="all">Tutti</button>
+                    <button class="filter-btn" data-filter="photo">Foto</button>
+                    <button class="filter-btn" data-filter="video">Video</button>
+                </div>
+            </section>
+
+            <!-- GRIGLIA MEDIA -->
+            <section class="media-gallery">
+                <div class="media-grid" id="mediaGrid">
+
+                    <!-- FOTO -->
+                    <div class="media-item" data-type="photo" data-title="Sessione Mindfulness">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/massage2.jpg');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Sessione Mindfulness</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Coaching Nutrizionale">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/Beauty.jpg');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Coaching Nutrizionale</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Percorso Trasformazione">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/Fiosioterapia.Osteopatia.png');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Percorso Trasformazione</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Meditazione Guidata">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/YogaEndMeditazione.jpeg');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Meditazione Guidata</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Supporto Neo-Mamme">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/neoMamma.jpg');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Supporto Neo-Mamme</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Consulenza Benessere">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/Salute.jpg');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Consulenza Benessere</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Fitness Personalizzato">
+                        <div class="media-content" style="background-image: url('../assets/images/Servizi/Gym.jpg');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Fitness Personalizzato</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="photo" data-title="Styling & Immagine">
+                        <div class="media-content"
+                            style="background-image: url('../assets/images/Servizi/Hair and make-up.png');">
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Styling & Immagine</h3>
+                                    <span class="media-type">Foto</span>
+                                </div>
+                                <button class="media-view-btn">Visualizza</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VIDEO PLACEHOLDER -->
+                    <div class="media-item" data-type="video" data-title="Introduzione al Wellness Coaching">
+                        <div class="media-content video-placeholder">
+                            <div class="video-play-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Introduzione al Wellness Coaching</h3>
+                                    <span class="media-type">Video</span>
+                                </div>
+                                <button class="media-view-btn">Riproduci</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="video" data-title="Tecniche di Respirazione">
+                        <div class="media-content video-placeholder">
+                            <div class="video-play-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Tecniche di Respirazione</h3>
+                                    <span class="media-type">Video</span>
+                                </div>
+                                <button class="media-view-btn">Riproduci</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="video" data-title="Esercizi di Mindfulness">
+                        <div class="media-content video-placeholder">
+                            <div class="video-play-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Esercizi di Mindfulness</h3>
+                                    <span class="media-type">Video</span>
+                                </div>
+                                <button class="media-view-btn">Riproduci</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="media-item" data-type="video" data-title="Consigli Nutrizionali">
+                        <div class="media-content video-placeholder">
+                            <div class="video-play-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                    <path d="M8 5v14l11-7z" />
+                                </svg>
+                            </div>
+                            <div class="media-overlay">
+                                <div class="media-info">
+                                    <h3>Consigli Nutrizionali</h3>
+                                    <span class="media-type">Video</span>
+                                </div>
+                                <button class="media-view-btn">Riproduci</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PULSANTE TORNA AL PROFILO -->
+            <section class="back-to-profile">
+                <a href="../pages/professionisti/microsito.html" class="btn-primary">
+                    Torna al Profilo di Sophia
+                </a>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a class="footer-link" href="termini.html">Termini e Condizioni</a>
+                    <a class="footer-link" href="privacy.html">Privacy Policy</a>
+                    <a class="footer-link" href="contatti.html">Contatti</a>
+                    <a class="footer-link" href="faq.html">FAQ</a>
+                </div>
+                <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/media.js"></script>
+</body>
+
+</html>

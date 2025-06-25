@@ -1,5 +1,5 @@
 /* ===============================================
-   MICROSITO PROFESSIONISTI - JS COMPLETO
+   MICROSITO PROFESSIONISTI - JS MIGLIORATO
    =============================================== */
 
 // DOM Content Loaded
@@ -10,10 +10,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Inizializzazione microsite
 function initializeMicrosite() {
     setupServiceCards();
-    setupPortfolioCards();
+    setupIspirationGallery();
     setupCTAButtons();
     setupMobileMenu();
-    setupScrollEffects();
+    setupFadeInAnimations();
     injectModalStyles();
 }
 
@@ -41,18 +41,37 @@ function setupServiceCards() {
     });
 }
 
-// Setup Portfolio Cards
-function setupPortfolioCards() {
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
+// Setup Inspiration Gallery - Stile Facebook
+function setupIspirationGallery() {
+    const inspirationImages = document.querySelectorAll('.ispirazioni-image');
 
-    portfolioCards.forEach(card => {
-        card.addEventListener('click', function () {
-            const portfolioTitle = this.querySelector('.service-title').textContent;
+    inspirationImages.forEach(image => {
+        image.addEventListener('click', function () {
+            const imageTitle = this.getAttribute('data-title');
+            const imageSrc = this.style.backgroundImage.slice(5, -2); // Rimuove url(" e ")
 
-            // Simula apertura lightbox portfolio
-            showPortfolioLightbox(portfolioTitle);
+            // Apri lightbox galleria
+            showGalleryLightbox(imageTitle, imageSrc);
+        });
+
+        // Smooth hover animation
+        image.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.02)';
+        });
+
+        image.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
         });
     });
+
+    // Setup "Vedi tutte le foto" link
+    const viewAllLink = document.querySelector('.ispirazioni-view-all');
+    if (viewAllLink) {
+        viewAllLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            showFullGallery();
+        });
+    }
 }
 
 // Setup CTA Buttons
@@ -63,10 +82,13 @@ function setupCTAButtons() {
     if (heroCTA) {
         heroCTA.addEventListener('click', function (e) {
             e.preventDefault();
-            // Scroll to servizi section
+            // Scroll smooth to servizi section
             const serviziSection = document.querySelector('.servizi-section');
             if (serviziSection) {
-                serviziSection.scrollIntoView({ behavior: 'smooth' });
+                serviziSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     }
@@ -74,15 +96,21 @@ function setupCTAButtons() {
     if (premiumCTA) {
         premiumCTA.addEventListener('click', function (e) {
             e.preventDefault();
-            showToast('Reindirizzamento a pagina Premium', 'info');
-            // In produzione: window.location.href = '../premium.html';
+            // Scroll to servizi per prenotazione
+            const serviziSection = document.querySelector('.servizi-section');
+            if (serviziSection) {
+                serviziSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                showToast('Scegli il servizio che preferisci per prenotare', 'info');
+            }
         });
     }
 }
 
 // Setup Mobile Menu (eredita da header base)
 function setupMobileMenu() {
-    // Mobile menu toggle se presente
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navbarMenu = document.querySelector('.navbar-menu');
 
@@ -93,19 +121,8 @@ function setupMobileMenu() {
     }
 }
 
-// Setup Scroll Effects
-function setupScrollEffects() {
-    // Parallax effect per hero section
-    window.addEventListener('scroll', function () {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.querySelector('.hero-section');
-
-        if (heroSection) {
-            heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
-    });
-
-    // Fade in animation per sezioni
+// Setup Fade In Animations - SENZA PARALLAX
+function setupFadeInAnimations() {
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -120,8 +137,8 @@ function setupScrollEffects() {
         });
     }, observerOptions);
 
-    // Osserva tutte le sezioni
-    const sections = document.querySelectorAll('section');
+    // Osserva solo le sezioni principali (NON HERO)
+    const sections = document.querySelectorAll('.chi-sono-section, .servizi-section, .ispirazioni-section, .certificazioni-section, .recensioni-section, .premium-cta');
     sections.forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(20px)';
@@ -167,7 +184,9 @@ function showToast(message, type = 'info') {
         zIndex: '10000',
         transition: 'all 0.3s ease',
         transform: 'translateX(100%)',
-        opacity: '0'
+        opacity: '0',
+        maxWidth: '300px',
+        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
     };
 
     // Colori per tipo
@@ -200,7 +219,7 @@ function showToast(message, type = 'info') {
                 toast.remove();
             }
         }, 300);
-    }, 3000);
+    }, 4000);
 }
 
 // ===============================================
@@ -267,19 +286,19 @@ function showBookingModal(serviceTitle, servicePrice) {
     });
 }
 
-// Mostra lightbox portfolio
-function showPortfolioLightbox(portfolioTitle) {
+// Mostra lightbox singola immagine
+function showGalleryLightbox(title, imageSrc) {
     const lightbox = document.createElement('div');
-    lightbox.className = 'portfolio-lightbox';
+    lightbox.className = 'gallery-lightbox';
     lightbox.innerHTML = `
         <div class="modal-overlay">
             <div class="lightbox-content">
                 <div class="modal-header">
-                    <h3>${portfolioTitle}</h3>
+                    <h3>${title}</h3>
                     <button class="lightbox-close">&times;</button>
                 </div>
-                <div class="lightbox-image" style="background-image: url('../../assets/images/Professionisti/pr1.png')"></div>
-                <p>Immagine del portfolio - ${portfolioTitle}</p>
+                <div class="lightbox-image" style="background-image: url('${imageSrc}')"></div>
+                <p style="text-align: center; margin: 16px 0; color: #666;">${title}</p>
             </div>
         </div>
     `;
@@ -297,6 +316,69 @@ function showPortfolioLightbox(portfolioTitle) {
             lightbox.remove();
         }
     });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', function escHandler(e) {
+        if (e.key === 'Escape') {
+            lightbox.remove();
+            document.removeEventListener('keydown', escHandler);
+        }
+    });
+}
+
+// Mostra galleria completa
+function showFullGallery() {
+    const images = document.querySelectorAll('.ispirazioni-image');
+    const imageData = Array.from(images).map(img => ({
+        title: img.getAttribute('data-title'),
+        src: img.style.backgroundImage.slice(5, -2)
+    }));
+
+    const gallery = document.createElement('div');
+    gallery.className = 'full-gallery-modal';
+    gallery.innerHTML = `
+        <div class="modal-overlay">
+            <div class="full-gallery-content">
+                <div class="modal-header">
+                    <h3>Tutte le Ispirazioni di Sophia</h3>
+                    <button class="gallery-close">&times;</button>
+                </div>
+                <div class="full-gallery-grid">
+                    ${imageData.map(img => `
+                        <div class="gallery-item" style="background-image: url('${img.src}')" data-title="${img.title}">
+                            <div class="gallery-overlay">
+                                <span>${img.title}</span>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(gallery);
+    gallery.style.display = 'flex';
+
+    // Setup gallery item clicks
+    gallery.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', () => {
+            const title = item.getAttribute('data-title');
+            const src = item.style.backgroundImage.slice(5, -2);
+            gallery.remove();
+            showGalleryLightbox(title, src);
+        });
+    });
+
+    // Close gallery handlers
+    gallery.querySelector('.gallery-close').addEventListener('click', () => {
+        gallery.remove();
+    });
+
+    gallery.querySelector('.modal-overlay').addEventListener('click', (e) => {
+        if (e.target === gallery.querySelector('.modal-overlay')) {
+            gallery.remove();
+        }
+    });
 }
 
 // ===============================================
@@ -304,7 +386,7 @@ function showPortfolioLightbox(portfolioTitle) {
 // ===============================================
 function injectModalStyles() {
     const modalStyles = `
-    .booking-modal, .portfolio-lightbox {
+    .booking-modal, .gallery-lightbox, .full-gallery-modal {
         position: fixed;
         top: 0;
         left: 0;
@@ -315,6 +397,7 @@ function injectModalStyles() {
         align-items: center;
         justify-content: center;
         z-index: 9999;
+        backdrop-filter: blur(4px);
     }
     
     .modal-content, .lightbox-content {
@@ -323,6 +406,16 @@ function injectModalStyles() {
         max-width: 500px;
         width: 90%;
         max-height: 80vh;
+        overflow-y: auto;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    .full-gallery-content {
+        background: white;
+        border-radius: 12px;
+        max-width: 900px;
+        width: 95%;
+        max-height: 90vh;
         overflow-y: auto;
     }
     
@@ -337,9 +430,11 @@ function injectModalStyles() {
     .modal-header h3 {
         margin: 0;
         color: #1a202c;
+        font-size: 18px;
+        font-weight: 600;
     }
     
-    .modal-close, .lightbox-close {
+    .modal-close, .lightbox-close, .gallery-close {
         background: none;
         border: none;
         font-size: 24px;
@@ -351,10 +446,13 @@ function injectModalStyles() {
         display: flex;
         align-items: center;
         justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
     }
     
-    .modal-close:hover, .lightbox-close:hover {
+    .modal-close:hover, .lightbox-close:hover, .gallery-close:hover {
         color: #2d3748;
+        background-color: #f7fafc;
     }
     
     .modal-body {
@@ -373,6 +471,13 @@ function injectModalStyles() {
         border: 1px solid #ddd;
         border-radius: 8px;
         font-size: 16px;
+        transition: border-color 0.3s ease;
+    }
+
+    .booking-date:focus, .booking-time:focus {
+        outline: none;
+        border-color: #2d5a3d;
+        box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
     }
     
     .booking-confirm {
@@ -404,6 +509,72 @@ function injectModalStyles() {
         background-position: center;
         border-radius: 8px;
         margin: 20px 0;
+    }
+
+    .full-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .gallery-item {
+        aspect-ratio: 1;
+        background-size: cover;
+        background-position: center;
+        border-radius: 8px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+        color: white;
+        padding: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .modal-content, .lightbox-content {
+            width: 95%;
+            max-height: 90vh;
+        }
+
+        .full-gallery-content {
+            width: 98%;
+            max-height: 95vh;
+        }
+
+        .full-gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            padding: 16px;
+        }
+
+        .modal-header {
+            padding: 16px;
+        }
+
+        .modal-header h3 {
+            font-size: 16px;
+        }
     }
 `;
 

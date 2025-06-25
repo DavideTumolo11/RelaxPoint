@@ -2,7 +2,9 @@
 <html lang="it">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia Rossi - Wellness Coach | RelaxPoint</title>
 
     <!-- FONTS GOOGLE -->
     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
@@ -10,24 +12,16 @@
         href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
         onload="this.rel='stylesheet'" rel="stylesheet" />
 
-    <!-- META -->
-    <title>RelaxPoint - Marketplace web per servizi di benessere a domicilio</title>
-    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
-
-    <!-- CSS PERSONALIZZATO -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
     <link rel="stylesheet" href="../../assets/css/microsito.css">
 </head>
 
-
-
 <body>
-    <!-- HEADER - Modificabile da admin per logo, menu, pulsanti -->
+    <!-- HEADER -->
     <header class="site-header">
-        <!-- LOGO E MENU SINISTRA -->
         <div class="header-left">
-            <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
-            <a class="site-logo" href="/">
+            <a class="site-logo" href="../../index.html">
                 <div class="logo-icon">
                     <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -38,21 +32,17 @@
                 <h2 class="logo-text">RelaxPoint</h2>
             </a>
 
-            <!-- Menu navigazione - ADMIN può aggiungere/rimuovere voci -->
             <nav class="main-nav">
-                <a class="nav-link active" href="/">Home</a>
-                <a class="nav-link" href="pages/servizi.html">Servizi</a>
-                <a class="nav-link" href="pages/professionisti.html">Professionisti</a>
-                <a class="nav-link" href="pages/ispirazioni.html">Ispirazioni</a>
+                <a class="nav-link" href="../../index.html">Home</a>
+                <a class="nav-link" href="../servizi.html">Servizi</a>
+                <a class="nav-link active" href="../professionisti.html">Professionisti</a>
+                <a class="nav-link" href="../ispirazioni.html">Ispirazioni</a>
             </nav>
         </div>
 
-        <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
-        <a class="last-minute-link" href="pages/last-minute.html">Last Minute</a>
+        <a class="last-minute-link" href="../last-minute.html">Last Minute</a>
 
-        <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
         <div class="header-right">
-
             <div class="language-selector">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
                     <path
@@ -66,7 +56,6 @@
                 </select>
             </div>
 
-            <!-- Ricerca - ADMIN può modificare placeholder -->
             <div class="search-container">
                 <div class="search-wrapper">
                     <div class="search-icon">
@@ -81,185 +70,148 @@
                 </div>
             </div>
 
-            <!-- Pulsanti - ADMIN può modificare testi e link -->
             <div class="button-group">
                 <a href="" class="btn-primary">
                     <span class="text-truncate">Prenota</span>
                 </a>
-
-                <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
-                <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
-                    <img src="" alt="Avatar utente">
-                </a>
-
-                <a href="../login.html" class="btn-secondary">
+                <a href="../../login.html" class="btn-secondary">
                     <span class="text-truncate">Accedi</span>
                 </a>
-
             </div>
         </div>
     </header>
 
-    <!-- HERO SECTION - Stesso stile di index.html -->
-    <section class="hero-section">
+    <!-- HERO SECTION - FISSO SENZA PARALLAX -->
+    <section class="hero-section" style="background-image: url('../../assets/images/hero-wellness.jpg');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">Sophia Rossi</h1>
                 <p class="hero-description">Wellness Coach certificata specializzata in trasformazioni olistiche e
                     benessere mentale</p>
-                <button class="hero-cta">Prenota Consulenza</button>
             </div>
         </div>
     </section>
 
     <!-- CONTENUTO PRINCIPALE -->
     <main class="main-content">
-        <div class="container">
+        <div class="content-wrapper">
 
             <!-- BREADCRUMB -->
-            <nav class="professionals-breadcrumb">
-                <a href="../../index.html" class="professionals-breadcrumb-link">Home</a>
-                <span class="professionals-breadcrumb-separator">›</span>
-                <a href="../professionisti.html" class="professionals-breadcrumb-link">Professionisti</a>
-                <span class="professionals-breadcrumb-separator">›</span>
-                <span class="professionals-breadcrumb-current">Sophia Rossi</span>
+            <nav class="breadcrumb">
+                <a href="../../index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../professionisti.html" class="breadcrumb-link">Professionisti</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Sophia Rossi</span>
             </nav>
 
-            <!-- CHI SONO -->
+            <!-- CHI SONO - LAYOUT AFFIANCATO -->
             <section class="chi-sono-section">
                 <h2 class="section-title">Chi Sono</h2>
-                <div class="professional-card chi-sono-card">
+                <div class="chi-sono-card">
                     <div class="chi-sono-image"></div>
                     <div class="chi-sono-content">
                         <p class="chi-sono-text">
                             Sono un Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che
-                            desiderano trasformare la propria vita attraverso un approccio olistico al benessere. Mi
-                            sono specializzata in coaching motivazionale, gestione dello stress e creazione di abitudini
-                            sostenibili.
+                            desiderano trasformare la propria vita attraverso un approccio olistico al benessere...
                         </p>
-                        <p class="chi-sono-text">
-                            La mia missione è accompagnarti in un percorso di crescita personale che integra benessere
-                            fisico, mentale ed emotivo. Utilizzo tecniche di mindfulness, coaching nutrizionale e
-                            strategie di sviluppo personale per aiutarti a raggiungere i tuoi obiettivi di salute e
-                            felicità.
-                        </p>
-                        <p class="chi-sono-text">
-                            Credo fermamente che ogni persona abbia il potenziale per vivere una vita piena e
-                            soddisfacente. Il mio approccio è personalizzato, empatico e orientato ai risultati
-                            concreti.
-                        </p>
+                        <a href="../about-professionista.html" class="scopri-di-piu-btn">Scopri di più</a>
                     </div>
                 </div>
             </section>
 
-            <!-- CERTIFICAZIONI -->
-            <section class="certificazioni-section">
-                <h2 class="section-title">Certificazioni</h2>
-                <div class="services-grid">
-                    <div class="service-card certificazione-card">
-                        <div class="service-image certificazione-image"
-                            style="background-image: url('../../assets/images/Servizi/Gym.jpg');"></div>
-                        <p class="service-title">Certified Wellness Coach</p>
-                    </div>
-                    <div class="service-card certificazione-card">
-                        <div class="service-image certificazione-image"
-                            style="background-image: url('../../assets/images/Servizi/YogaEndMeditazione.jpeg');"></div>
-                        <p class="service-title">Mindfulness Instructor</p>
-                    </div>
-                    <div class="service-card certificazione-card">
-                        <div class="service-image certificazione-image"
-                            style="background-image: url('../../assets/images/Servizi/Salute.jpg');"></div>
-                        <p class="service-title">Consulente Nutrizionale</p>
-                    </div>
-                    <div class="service-card certificazione-card">
-                        <div class="service-image certificazione-image"
-                            style="background-image: url('../../assets/images/Servizi/Hair and make-up.png');"></div>
-                        <p class="service-title">Life Coach Certificato</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- PORTFOLIO -->
-            <section class="portfolio-section">
-                <h2 class="section-title">Portfolio</h2>
-                <div class="services-grid">
-                    <div class="service-card portfolio-card">
-                        <div class="service-image portfolio-image"
-                            style="background-image: url('../../assets/images/Servizi/massage2.jpg');"></div>
-                        <p class="service-title">Sessione Mindfulness</p>
-                    </div>
-                    <div class="service-card portfolio-card">
-                        <div class="service-image portfolio-image"
-                            style="background-image: url('../../assets/images/Servizi/Beauty.jpg');"></div>
-                        <p class="service-title">Coaching Nutrizionale</p>
-                    </div>
-                    <div class="service-card portfolio-card">
-                        <div class="service-image portfolio-image"
-                            style="background-image: url('../../assets/images/Servizi/Fiosioterapia.Osteopatia.png');">
-                        </div>
-                        <p class="service-title">Percorso Trasformazione</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SERVIZI -->
+            <!-- SERVIZI - PRIORITÀ ALTA -->
             <section class="servizi-section">
                 <h2 class="section-title">I Miei Servizi</h2>
                 <div class="services-grid">
                     <div class="service-card servizio-card">
-                        <div class="service-image servizio-image"
+                        <div class="service-image"
                             style="background-image: url('../../assets/images/Servizi/neoMamma.jpg');"></div>
-                        <p class="service-title">Wellness Coaching Individuale</p>
-                        <p class="service-price">€80/sessione</p>
+                        <p class="service-title">Wellness Coaching</p>
+                        <p class="service-price">€80 / sessione</p>
                     </div>
                     <div class="service-card servizio-card">
-                        <div class="service-image servizio-image"
+                        <div class="service-image"
                             style="background-image: url('../../assets/images/Servizi/YogaEndMeditazione.jpeg');"></div>
-                        <p class="service-title">Sessioni Mindfulness</p>
-                        <p class="service-price">€60/sessione</p>
+                        <p class="service-title">Mindfulness & Meditazione</p>
+                        <p class="service-price">€60 / sessione</p>
                     </div>
                     <div class="service-card servizio-card">
-                        <div class="service-image servizio-image"
+                        <div class="service-image"
                             style="background-image: url('../../assets/images/Servizi/Salute.jpg');"></div>
                         <p class="service-title">Coaching Nutrizionale</p>
-                        <p class="service-price">€70/sessione</p>
+                        <p class="service-price">€70 / consulenza</p>
                     </div>
                     <div class="service-card servizio-card">
-                        <div class="service-image servizio-image"
-                            style="background-image: url('../../assets/images/Servizi/Gym.jpg');"></div>
-                        <p class="service-title">Percorso Trasformazione (8 sessioni)</p>
-                        <p class="service-price">€500/percorso</p>
+                        <div class="service-image"
+                            style="background-image: url('../../assets/images/Servizi/massage2.jpg');"></div>
+                        <p class="service-title">Trasformazione Olistica</p>
+                        <p class="service-price">€120 / percorso</p>
                     </div>
                 </div>
             </section>
 
-            <!-- PREMIUM CTA -->
-            <section class="cta-section premium-cta">
-                <div class="cta-content">
-                    <div class="cta-text">
-                        <h1 class="cta-title">Diventa Cliente Premium RelaxPoint</h1>
-                        <p class="cta-description">Accedi in anteprima ai servizi last minute, ottieni sconti del 15% e
-                            goditi professionisti esclusivi come Sophia.</p>
+            <!-- ISPIRAZIONI - GALLERY ORIZZONTALE FISSA -->
+            <section class="ispirazioni-section">
+                <div class="ispirazioni-header">
+                    <h2 class="section-title">Ispirazioni</h2>
+                    <a href="../media.html" class="ispirazioni-view-all">Vedi tutte le foto</a>
+                </div>
+                <div class="ispirazioni-gallery-horizontal">
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/massage2.jpg');"
+                        data-title="Sessione Mindfulness"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/Beauty.jpg');"
+                        data-title="Coaching Nutrizionale"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/Fiosioterapia.Osteopatia.png');"
+                        data-title="Percorso Trasformazione"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/YogaEndMeditazione.jpeg');"
+                        data-title="Meditazione Guidata"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/neoMamma.jpg');"
+                        data-title="Supporto Neo-Mamme"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/Salute.jpg');"
+                        data-title="Consulenza Benessere"></div>
+                    <div class="ispirazioni-image" style="background-image: url('../../assets/images/Servizi/Gym.jpg');"
+                        data-title="Fitness Personalizzato"></div>
+                </div>
+            </section>
+
+            <!-- CERTIFICAZIONI - DESIGN PAPER -->
+            <section class="certificazioni-section">
+                <h2 class="section-title">Certificazioni</h2>
+                <div class="certificazioni-paper">
+                    <div class="certificazione-item">
+                        <span>Certified Wellness Coach</span>
                     </div>
-                    <a href="../premium.html" class="cta-btn">
-                        <span class="text-truncate">Scopri Premium €99/anno</span>
-                    </a>
+                    <div class="certificazione-item">
+                        <span>Mindfulness Instructor</span>
+                    </div>
+                    <div class="certificazione-item">
+                        <span>Consulente Nutrizionale</span>
+                    </div>
+                    <div class="certificazione-item">
+                        <span>Life Coach Certificato</span>
+                    </div>
                 </div>
             </section>
 
             <!-- RECENSIONI -->
             <section class="recensioni-section">
-                <h2 class="section-title">Recensioni Clienti</h2>
+                <h2 class="section-title">Cosa Dicono i Clienti</h2>
                 <div class="professionals-carousel">
                     <div class="professionals-container">
-
                         <div class="professional-card recensione-card">
                             <div class="recensione-header">
                                 <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/Professionisti/pr2.png');"></div>
+                                    style="background-image: url('../../assets/images/users/user1.jpg');"></div>
                                 <div class="recensione-info">
-                                    <p class="recensione-nome">Marco Bianchi</p>
+                                    <h4 class="recensione-nome">Maria Bianchi</h4>
                                     <div class="recensione-rating">
                                         <span class="star filled">★</span>
                                         <span class="star filled">★</span>
@@ -269,18 +221,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="recensione-text">
-                                "Sophia mi ha aiutato a ritrovare equilibrio nella mia vita. Le sue sessioni di
-                                mindfulness sono state trasformative. Professionale e molto empatica."
-                            </p>
+                            <p class="recensione-text">"Sophia mi ha aiutato a trovare il mio equilibrio. Il suo
+                                approccio
+                                olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
                         </div>
 
                         <div class="professional-card recensione-card">
                             <div class="recensione-header">
                                 <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/Professionisti/pr3.png');"></div>
+                                    style="background-image: url('../../assets/images/users/user2.jpg');"></div>
                                 <div class="recensione-info">
-                                    <p class="recensione-nome">Laura Verdi</p>
+                                    <h4 class="recensione-nome">Luca Verdi</h4>
                                     <div class="recensione-rating">
                                         <span class="star filled">★</span>
                                         <span class="star filled">★</span>
@@ -290,18 +241,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="recensione-text">
-                                "Il percorso di trasformazione con Sophia mi ha cambiato la vita. Approccio olistico
-                                fantastico, risultati concreti in poche settimane."
-                            </p>
+                            <p class="recensione-text">"Professionale, empatica e sempre disponibile. Le sessioni di
+                                mindfulness mi hanno dato gli strumenti per gestire lo stress quotidiano."</p>
                         </div>
 
                         <div class="professional-card recensione-card">
                             <div class="recensione-header">
                                 <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/Professionisti/pr4.png');"></div>
+                                    style="background-image: url('../../assets/images/users/user3.jpg');"></div>
                                 <div class="recensione-info">
-                                    <p class="recensione-nome">Alessandro Costa</p>
+                                    <h4 class="recensione-nome">Elena Rossi</h4>
                                     <div class="recensione-rating">
                                         <span class="star filled">★</span>
                                         <span class="star filled">★</span>
@@ -311,12 +260,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="recensione-text">
-                                "Coaching nutrizionale eccezionale. Sophia ha un approccio scientifico ma molto umano.
-                                Consigliatissima per chi vuole cambiare stile di vita."
-                            </p>
+                            <p class="recensione-text">"Grazie a Sophia ho imparato a prendermi cura di me stessa. Il
+                                coaching nutrizionale ha migliorato la mia energia e il mio benessere generale."</p>
                         </div>
+                    </div>
+                </div>
+            </section>
 
+            <!-- CTA PREMIUM -->
+            <section class="cta-section premium-cta">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h2 class="cta-title">Accedi a Servizi Esclusivi</h2>
+                        <p class="cta-description">Diventa Cliente Premium per accedere a sconti esclusivi,
+                            professionisti certificati e servizi prioritari.</p>
+                    </div>
+                    <div class="cta-button">
+                        <a href="../../pages/premium.html" class="cta-btn">Diventa Cliente Premium</a>
                     </div>
                 </div>
             </section>
@@ -324,25 +284,23 @@
         </div>
     </main>
 
-    <!-- FOOTER - ADMIN può modificare link e copyright -->
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-content">
-                <!-- Link footer - ADMIN può aggiungere/rimuovere -->
                 <div class="footer-links">
-                    <a class="footer-link" href="pages/chi-siamo.html">Chi siamo</a>
-                    <a class="footer-link" href="pages/contatti.html">Contatti</a>
-                    <a class="footer-link" href="pages/termini.html">Termini e condizioni</a>
-                    <a class="footer-link" href="pages/privacy.html">Privacy Policy</a>
-                    <a class="footer-link" href="pages/faq.html">FAQ</a>
+                    <a class="footer-link" href="../../pages/termini.html">Termini e Condizioni</a>
+                    <a class="footer-link" href="../../pages/privacy.html">Privacy Policy</a>
+                    <a class="footer-link" href="../../pages/contatti.html">Contatti</a>
+                    <a class="footer-link" href="../../pages/faq.html">FAQ</a>
                 </div>
-                <!-- Copyright - ADMIN può modificare -->
                 <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
-    </div>
 
+    <!-- JAVASCRIPT -->
+    <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/microsito.js"></script>
 </body>
 
