@@ -54,13 +54,15 @@
 }
 
 .chi-sono-image {
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: auto;
+    min-height: 200px;
+    flex: 0 0 250px;
     background-image: url('../../assets/images/Professionisti/pr1.png');
     background-size: cover;
     background-position: center;
     border-radius: 12px;
-    flex-shrink: 0;
+    align-self: stretch;
 }
 
 .chi-sono-content {
@@ -68,7 +70,8 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    justify-content: center;
+    justify-content: flex-start;
+    min-height: 0;
 }
 
 .chi-sono-text {
@@ -90,6 +93,7 @@
     font-weight: 500;
     transition: all 0.3s ease;
     align-self: flex-start;
+    margin-top: auto;
 }
 
 .scopri-di-piu-btn:hover {
