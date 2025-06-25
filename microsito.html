@@ -8,6 +8,7 @@
 
     <!-- FONTS GOOGLE -->
     <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link as="style"
         href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
         onload="this.rel='stylesheet'" rel="stylesheet" />
@@ -33,14 +34,14 @@
             </a>
 
             <nav class="main-nav">
-                <a class="nav-link" href="/index.html">Home</a>
-                <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
-                <a class="nav-link active" href="/pages/professionisti/professionisti.html">Professionisti</a>
-                <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                <a class="nav-link" href="../../index.html">Home</a>
+                <a class="nav-link" href="../servizi/servizi.html">Servizi</a>
+                <a class="nav-link active" href="../professionisti/professionisti.html">Professionisti</a>
+                <a class="nav-link" href="../ispirazioni/ispirazioni.html">Ispirazioni</a>
             </nav>
         </div>
 
-        <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+        <a class="last-minute-link" href="../last-minute.html">Last Minute</a>
 
         <div class="header-right">
             <div class="language-selector">
@@ -81,8 +82,8 @@
         </div>
     </header>
 
-    <!-- HERO SECTION - SENZA PRENOTA BUTTON -->
-    <section class="hero-section" style="background-image: url('../../assets/images/hero-wellness.jpg');">
+    <!-- HERO SECTION -->
+    <section class="hero-section" style="background-image: url('/assets/images/2girls.png');">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="hero-text">
@@ -99,43 +100,114 @@
 
             <!-- BREADCRUMB -->
             <nav class="breadcrumb">
-                <a href="/index.html" class="breadcrumb-link">Home</a>
+                <a href="../../index.html" class="breadcrumb-link">Home</a>
                 <span class="breadcrumb-separator">›</span>
-                <a href="/pages/professionisti/professionisti.html" class="breadcrumb-link">Professionisti</a>
+                <a href="../professionisti/professionisti.html" class="breadcrumb-link">Professionisti</a>
                 <span class="breadcrumb-separator">›</span>
                 <span class="breadcrumb-current">Sophia Rossi</span>
             </nav>
 
-            <!-- CHI SONO CON PIU TESTO + FOTO ADATTIVA -->
+            <!-- CHI SONO + CERTIFICAZIONI - LAYOUT AFFIANCATO -->
             <section class="chi-sono-section">
                 <h2 class="section-title">Chi Sono</h2>
-                <div class="chi-sono-card">
-                    <div class="chi-sono-image"></div>
-                    <div class="chi-sono-content">
-                        <p class="chi-sono-text">
-                            Sono un Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che
-                            desiderano trasformare la propria vita attraverso un approccio olistico al benessere. Mi
-                            sono
-                            specializzata in coaching motivazionale, gestione dello stress e creazione di abitudini
-                            sostenibili.
-                        </p>
-                        <p class="chi-sono-text">
-                            La mia missione è accompagnarti in un percorso di crescita personale che integra benessere
-                            fisico, mentale ed emotivo. Utilizzo tecniche di mindfulness, coaching nutrizionale e
-                            strategie di sviluppo personale per aiutarti a raggiungere i tuoi obiettivi di salute e
-                            felicità.
-                        </p>
-                        <p class="chi-sono-text">
-                            Credo fermamente che ogni persona abbia il potenziale per vivere una vita piena e
-                            soddisfacente. Il mio approccio è personalizzato, empatico e orientato ai risultati
-                            concreti...
-                        </p>
-                        <a href="about.html" class="scopri-di-piu-btn">Scopri di più</a>
+                <div class="chi-sono-container">
+
+                    <!-- CARD CHI SONO (SINISTRA - PIÙ GRANDE) -->
+                    <div class="chi-sono-main-card">
+                        <div class="chi-sono-image"></div>
+                        <div class="chi-sono-content">
+                            <p class="chi-sono-text">
+                                Sono un Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone
+                                che
+                                desiderano trasformare la propria vita attraverso un approccio olistico al benessere. Mi
+                                sono
+                                specializzata in coaching motivazionale, gestione dello stress e creazione di abitudini
+                                sostenibili.
+
+                                Sono un Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone
+                                che
+                                desiderano trasformare la propria vita attraverso un approccio olistico al benessere. Mi
+                                sono
+                                specializzata in coaching motivazionale, gestione dello stress e creazione di abitudini
+                                sostenibili.
+
+                            </p>
+                            <p class="chi-sono-text">
+                                La mia missione è accompagnarti in un percorso di crescita personale che integra
+                                benessere
+                                fisico, mentale ed emotivo. Utilizzo tecniche di mindfulness, coaching nutrizionale e
+                                strategie di sviluppo personale per aiutarti a raggiungere i tuoi obiettivi di salute e
+                                felicità.
+
+                                La mia missione è accompagnarti in un percorso di crescita personale che integra
+                                benessere
+                                fisico, mentale ed emotivo. Utilizzo tecniche di mindfulness, coaching nutrizionale e
+                                strategie di sviluppo personale per aiutarti a raggiungere i tuoi obiettivi di salute e
+                                felicità.
+
+
+                            </p>
+                            <p class="chi-sono-text">
+                                Credo fermamente che ogni persona abbia il potenziale per vivere una vita piena e
+                                soddisfacente. Il mio approccio è personalizzato, empatico e orientato ai risultati
+                                concreti...
+                            </p>
+                            <a href="/pages/professionisti/about.html" class="scopri-di-piu-btn">Scopri di più</a>
+                        </div>
                     </div>
+
+                    <!-- CARD CERTIFICAZIONI (DESTRA) - GRID 3x3 -->
+                    <div class="certificazioni-card">
+                        <h3 class="certificazioni-title">Certificazioni</h3>
+                        <div class="certificazioni-grid">
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-certificate certificazione-icon"></i>
+                                <span class="certificazione-nome">Wellness Coach</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-award certificazione-icon"></i>
+                                <span class="certificazione-nome">Mindfulness Trainer</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-certificate certificazione-icon"></i>
+                                <span class="certificazione-nome">Coaching Nutrizionale</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-award certificazione-icon"></i>
+                                <span class="certificazione-nome">Stress Management</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-certificate certificazione-icon"></i>
+                                <span class="certificazione-nome">Life Coach</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-award certificazione-icon"></i>
+                                <span class="certificazione-nome">Benessere Olistico</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-certificate certificazione-icon"></i>
+                                <span class="certificazione-nome">Yoga Trainer</span>
+                            </div>
+
+                            <div class="certificazione-item">
+                                <i class="fas fa-award certificazione-icon"></i>
+                                <span class="certificazione-nome">Fitness Coach</span>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
-            <!-- SERVIZI SENZA PREZZI -->
+            <!-- SERVIZI -->
             <section class="servizi-section">
                 <h2 class="section-title">I Miei Servizi</h2>
                 <div class="services-grid">
@@ -172,13 +244,13 @@
                 </div>
             </section>
 
-            <!-- ISPIRAZIONI CON LINK CORRETTO -->
+            <!-- ISPIRAZIONI - GRID STATICA 1 RIGA -->
             <section class="ispirazioni-section">
                 <div class="ispirazioni-header">
                     <h2 class="section-title">Ispirazioni</h2>
-                    <a href="media.html" class="ispirazioni-view-all">Vedi tutte le foto</a>
+                    <a href="/pages/professionisti/media.html" class="ispirazioni-view-all">Tutte le ispirazioni</a>
                 </div>
-                <div class="ispirazioni-gallery-horizontal">
+                <div class="ispirazioni-gallery-static">
                     <div class="ispirazioni-image"
                         style="background-image: url('../../assets/images/Servizi/massage2.jpg');"
                         data-title="Sessione Mindfulness"></div>
@@ -199,6 +271,16 @@
                         data-title="Consulenza Benessere"></div>
                     <div class="ispirazioni-image" style="background-image: url('../../assets/images/Servizi/Gym.jpg');"
                         data-title="Fitness Personalizzato"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/Hair and make-up.png');"
+                        data-title="Hair & Make-up"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/Escursioni.jpg');"
+                        data-title="Escursioni Natura"></div>
+                    <div class="ispirazioni-image"
+                        style="background-image: url('../../assets/images/Servizi/Chef.jpg');"
+                        data-title="Chef a Domicilio"></div>
+
                 </div>
             </section>
 
@@ -223,8 +305,7 @@
                                 </div>
                             </div>
                             <p class="recensione-text">"Sophia mi ha aiutato a trovare il mio equilibrio. Il suo
-                                approccio
-                                olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
+                                approccio olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
                         </div>
 
                         <div class="professional-card recensione-card">
@@ -303,6 +384,7 @@
     <!-- JAVASCRIPT -->
     <script src="../../assets/js/main.js"></script>
     <script src="../../assets/js/microsito.js"></script>
+    <script src="../../assets/js/auth.js"></script>
 </body>
 
 </html>

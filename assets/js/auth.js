@@ -246,16 +246,16 @@ class AuthManager {
             }
 
         } else {
-            // STATO LOGGED OUT
+            // STATO LOGGED OUT - CORREZIONE QUI!
             if (btnAccedi) {
                 btnAccedi.textContent = 'Accedi';
                 btnAccedi.href = getCorrectPath('login.html');
-                btnAccedi.onclick = (e) => {
-                    e.preventDefault();
-                    // Salva la pagina corrente per il ritorno dopo login
+
+                // RIMOSSO preventDefault() - ora il link funziona normalmente
+                // Ma prima salviamo la pagina corrente
+                btnAccedi.addEventListener('click', () => {
                     localStorage.setItem('returnUrl', getCurrentPageUrl());
-                    window.location.href = getCorrectPath('login.html');
-                };
+                });
             }
 
             // Nascondi avatar
