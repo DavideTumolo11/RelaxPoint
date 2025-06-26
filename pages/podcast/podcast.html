@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast - RelaxPoint</title>
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/podcast.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-left">
+            <a class="site-logo" href="../index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <nav class="main-nav">
+                <a class="nav-link" href="../index.html">Home</a>
+                <a class="nav-link" href="servizi/servizi.html">Servizi</a>
+                <a class="nav-link" href="professionisti/professionisti.html">Professionisti</a>
+                <a class="nav-link active" href="podcast/podcast.html">Podcast</a>
+                <a class="nav-link" href="ispirazioni/ispirazioni.html">Ispirazioni</a>
+            </nav>
+        </div>
+
+        <a class="last-minute-link" href="last-minute.html">Last Minute</a>
+
+        <div class="header-right">
+            <div class="language-selector">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                    <path
+                        d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                </svg>
+                <select id="languageSelector" class="language-dropdown">
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <div class="search-icon">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <input class="search-input" placeholder="Cerca podcast..." />
+                </div>
+            </div>
+
+            <div class="button-group">
+                <a href="../login.html" class="btn-primary">
+                    <span class="text-truncate">Prenota</span>
+                </a>
+                <a href="../login.html" class="btn-secondary">
+                    <span class="text-truncate">Accedi</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+        <div class="content-wrapper">
+
+            <!-- HEADER PAGINA -->
+            <section class="podcast-header">
+                <div class="podcast-title-section">
+                    <h1 class="podcast-title">Podcast</h1>
+                    <p class="podcast-subtitle">Scopri contenuti esclusivi dai nostri professionisti del benessere</p>
+                    <div class="podcast-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">127</span>
+                            <span class="stat-label">Episodi</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">23</span>
+                            <span class="stat-label">Professionisti</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">8</span>
+                            <span class="stat-label">Categorie</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FILTRI -->
+            <section class="podcast-filters">
+                <!-- FILTRI PRINCIPALI -->
+                <div class="filters-primary">
+                    <div class="filters-categories">
+                        <button class="filter-btn active" data-category="all">Tutti</button>
+                        <button class="filter-btn" data-category="wellness">Wellness</button>
+                        <button class="filter-btn" data-category="mindfulness">Mindfulness</button>
+                        <button class="filter-btn" data-category="nutrizione">Nutrizione</button>
+                        <button class="filter-btn" data-category="fitness">Fitness</button>
+                        <button class="filter-btn" data-category="stress">Stress Management</button>
+                        <button class="filter-btn" data-category="coaching">Life Coaching</button>
+                        <button class="filter-btn" data-category="meditazione">Meditazione</button>
+                    </div>
+                </div>
+
+                <!-- FILTRI SECONDARI -->
+                <div class="filters-secondary">
+                    <select class="filter-select" id="professionalFilter">
+                        <option value="">Tutti i Professionisti</option>
+                        <option value="sophia-rossi">Sophia Rossi</option>
+                        <option value="marco-bianchi">Marco Bianchi</option>
+                        <option value="elena-verdi">Elena Verdi</option>
+                        <option value="luca-ferrari">Luca Ferrari</option>
+                    </select>
+
+                    <select class="filter-select" id="durationFilter">
+                        <option value="">Tutte le Durate</option>
+                        <option value="short">Brevi (< 15 min)</option>
+                        <option value="medium">Medi (15-45 min)</option>
+                        <option value="long">Lunghi (> 45 min)</option>
+                    </select>
+
+                    <select class="filter-select" id="sortFilter">
+                        <option value="newest">Più Recenti</option>
+                        <option value="popular">Più Popolari</option>
+                        <option value="duration-asc">Durata Crescente</option>
+                        <option value="duration-desc">Durata Decrescente</option>
+                        <option value="alphabetical">Alfabetico</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- GRIGLIA PODCAST -->
+            <section class="podcast-grid-section">
+                <div class="podcast-grid" id="podcastGrid">
+
+                    <!-- PODCAST CARD 1 -->
+                    <div class="podcast-card" data-category="wellness" data-professional="sophia-rossi"
+                        data-duration="medium">
+                        <div class="podcast-cover"
+                            style="background-image: url('../assets/images/podcast/cover-1.jpg');">
+                            <div class="podcast-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="podcast-duration">23:45</div>
+                            <div class="podcast-category">Wellness</div>
+                        </div>
+                        <div class="podcast-info">
+                            <h3 class="podcast-title">Equilibrio Mente-Corpo</h3>
+                            <p class="podcast-description">Come trovare l'armonia tra benessere fisico e mentale nella
+                                vita quotidiana</p>
+                            <div class="podcast-meta">
+                                <div class="podcast-author">
+                                    <img src="../assets/images/professionisti/sophia.jpg" alt="Sophia Rossi"
+                                        class="author-avatar">
+                                    <span class="author-name">Sophia Rossi</span>
+                                </div>
+                                <span class="podcast-date">2 giorni fa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PODCAST CARD 2 -->
+                    <div class="podcast-card" data-category="mindfulness" data-professional="marco-bianchi"
+                        data-duration="short">
+                        <div class="podcast-cover"
+                            style="background-image: url('../assets/images/podcast/cover-2.jpg');">
+                            <div class="podcast-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="podcast-duration">12:30</div>
+                            <div class="podcast-category">Mindfulness</div>
+                        </div>
+                        <div class="podcast-info">
+                            <h3 class="podcast-title">Respirazione Consapevole</h3>
+                            <p class="podcast-description">Tecniche di respirazione per gestire ansia e stress
+                                quotidiano</p>
+                            <div class="podcast-meta">
+                                <div class="podcast-author">
+                                    <img src="../assets/images/professionisti/marco.jpg" alt="Marco Bianchi"
+                                        class="author-avatar">
+                                    <span class="author-name">Marco Bianchi</span>
+                                </div>
+                                <span class="podcast-date">5 giorni fa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PODCAST CARD 3 -->
+                    <div class="podcast-card" data-category="nutrizione" data-professional="elena-verdi"
+                        data-duration="medium">
+                        <div class="podcast-cover"
+                            style="background-image: url('../assets/images/podcast/cover-3.jpg');">
+                            <div class="podcast-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="podcast-duration">31:15</div>
+                            <div class="podcast-category">Nutrizione</div>
+                        </div>
+                        <div class="podcast-info">
+                            <h3 class="podcast-title">Alimentazione Intuitiva</h3>
+                            <p class="podcast-description">Ascoltare il proprio corpo per una relazione sana con il cibo
+                            </p>
+                            <div class="podcast-meta">
+                                <div class="podcast-author">
+                                    <img src="../assets/images/professionisti/elena.jpg" alt="Elena Verdi"
+                                        class="author-avatar">
+                                    <span class="author-name">Elena Verdi</span>
+                                </div>
+                                <span class="podcast-date">1 settimana fa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PODCAST CARD 4 -->
+                    <div class="podcast-card" data-category="fitness" data-professional="luca-ferrari"
+                        data-duration="long">
+                        <div class="podcast-cover"
+                            style="background-image: url('../assets/images/podcast/cover-4.jpg');">
+                            <div class="podcast-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="podcast-duration">52:20</div>
+                            <div class="podcast-category">Fitness</div>
+                        </div>
+                        <div class="podcast-info">
+                            <h3 class="podcast-title">Allenamento Funzionale</h3>
+                            <p class="podcast-description">Principi e benefici dell'allenamento funzionale per il
+                                benessere quotidiano</p>
+                            <div class="podcast-meta">
+                                <div class="podcast-author">
+                                    <img src="../assets/images/professionisti/luca.jpg" alt="Luca Ferrari"
+                                        class="author-avatar">
+                                    <span class="author-name">Luca Ferrari</span>
+                                </div>
+                                <span class="podcast-date">2 settimane fa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PODCAST CARD 5 -->
+                    <div class="podcast-card" data-category="stress" data-professional="sophia-rossi"
+                        data-duration="medium">
+                        <div class="podcast-cover"
+                            style="background-image: url('../assets/images/podcast/cover-5.jpg');">
+                            <div class="podcast-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="podcast-duration">28:10</div>
+                            <div class="podcast-category">Stress</div>
+                        </div>
+                        <div class="podcast-info">
+                            <h3 class="podcast-title">Gestire lo Stress Lavorativo</h3>
+                            <p class="podcast-description">Strategie efficaci per mantenere il benessere nell'ambiente
+                                professionale</p>
+                            <div class="podcast-meta">
+                                <div class="podcast-author">
+                                    <img src="../assets/images/professionisti/sophia.jpg" alt="Sophia Rossi"
+                                        class="author-avatar">
+                                    <span class="author-name">Sophia Rossi</span>
+                                </div>
+                                <span class="podcast-date">3 settimane fa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PODCAST CARD 6 -->
+                    <div class="podcast-card" data-category="meditazione" data-professional="marco-bianchi"
+                        data-duration="short">
+                        <div class="podcast-cover"
+                            style="background-image: url('../assets/images/podcast/cover-6.jpg');">
+                            <div class="podcast-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <div class="podcast-duration">15:45</div>
+                            <div class="podcast-category">Meditazione</div>
+                        </div>
+                        <div class="podcast-info">
+                            <h3 class="podcast-title">Meditazione del Mattino</h3>
+                            <p class="podcast-description">Pratica guidata per iniziare la giornata con energia positiva
+                            </p>
+                            <div class="podcast-meta">
+                                <div class="podcast-author">
+                                    <img src="../assets/images/professionisti/marco.jpg" alt="Marco Bianchi"
+                                        class="author-avatar">
+                                    <span class="author-name">Marco Bianchi</span>
+                                </div>
+                                <span class="podcast-date">1 mese fa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- LOADING E PAGINAZIONE -->
+                <div class="podcast-loading" id="podcastLoading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <span>Caricamento podcast...</span>
+                </div>
+
+                <div class="podcast-pagination">
+                    <button class="pagination-btn" id="loadMore">Carica Altri Podcast</button>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- PLAYER FISSO -->
+    <div class="podcast-player" id="podcastPlayer" style="display: none;">
+        <div class="player-info">
+            <img src="../assets/images/podcast/cover-1.jpg" alt="Cover" class="player-cover">
+            <div class="player-text">
+                <h4 class="player-title">Equilibrio Mente-Corpo</h4>
+                <span class="player-author">Sophia Rossi</span>
+            </div>
+        </div>
+
+        <div class="player-controls">
+            <button class="control-btn" id="prevBtn">
+                <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="control-btn play-pause-btn" id="playPauseBtn">
+                <i class="fas fa-play"></i>
+            </button>
+            <button class="control-btn" id="nextBtn">
+                <i class="fas fa-step-forward"></i>
+            </button>
+        </div>
+
+        <div class="player-progress">
+            <span class="time-current">0:00</span>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+                <div class="progress-handle"></div>
+            </div>
+            <span class="time-total">23:45</span>
+        </div>
+
+        <div class="player-volume">
+            <button class="control-btn volume-btn">
+                <i class="fas fa-volume-up"></i>
+            </button>
+            <div class="volume-bar">
+                <div class="volume-fill"></div>
+            </div>
+        </div>
+
+        <button class="player-close" id="playerClose">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a class="footer-link" href="termini/termini.html">Termini e Condizioni</a>
+                    <a class="footer-link" href="privacy/privacy.html">Privacy Policy</a>
+                    <a class="footer-link" href="contatti/contatti.html">Contatti</a>
+                    <a class="footer-link" href="faq/faq.html">FAQ</a>
+                </div>
+                <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/podcast.js"></script>
+    <script src="/assets/js/auth.js"></script>
+</body>
+
+</html>
