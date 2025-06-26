@@ -358,6 +358,217 @@
     overflow: hidden;
 }
 
+/* ===============================================
+   PODCAST MICROSITO SECTION - DA AGGIUNGERE AL MICROSITO.CSS
+   =============================================== */
+
+.podcast-microsito-section {
+    padding: 60px 0;
+    background: #f8f9fa;
+}
+
+.podcast-microsito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+}
+
+.podcast-view-all {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.podcast-view-all:hover {
+    color: var(--color-dark);
+}
+
+.podcast-microsito-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* ===============================================
+   CARD PODCAST MICROSITO
+   =============================================== */
+.podcast-microsito-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.podcast-microsito-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.podcast-microsito-cover {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    background-color: #f8f9fa;
+    overflow: hidden;
+}
+
+.podcast-microsito-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 16px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.podcast-microsito-card:hover .podcast-microsito-play {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.podcast-microsito-play:hover {
+    background: white;
+    color: var(--color-dark);
+}
+
+.podcast-microsito-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* ===============================================
+   INFO PODCAST MICROSITO
+   =============================================== */
+.podcast-microsito-info {
+    padding: 16px;
+}
+
+.podcast-microsito-title {
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.podcast-microsito-date {
+    color: var(--color-secondary);
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* ===============================================
+   RESPONSIVE PODCAST MICROSITO
+   =============================================== */
+@media (max-width: 1024px) {
+    .podcast-microsito-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 14px;
+    }
+
+    .podcast-microsito-cover {
+        height: 120px;
+    }
+
+    .podcast-microsito-info {
+        padding: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .podcast-microsito-section {
+        padding: 40px 0;
+    }
+
+    .podcast-microsito-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .podcast-microsito-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+    }
+
+    .podcast-microsito-cover {
+        height: 100px;
+    }
+
+    .podcast-microsito-play {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .podcast-microsito-info {
+        padding: 12px;
+    }
+
+    .podcast-microsito-title {
+        font-size: 13px;
+    }
+
+    .podcast-microsito-date {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .podcast-microsito-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .podcast-microsito-cover {
+        height: 90px;
+    }
+
+    .podcast-microsito-duration {
+        font-size: 10px;
+        padding: 2px 4px;
+    }
+}
+
 
 /* RESPONSIVE GRID */
 @media (max-width: 1400px) {

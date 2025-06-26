@@ -444,6 +444,396 @@ function updateGridLayout() {
     container.style.gridTemplateRows = `repeat(${righe}, 1fr)`;
 }
 
+/**
+ * PODCAST MICROSITO FUNCTIONS - DA AGGIUNGERE AL MICROSITO-FIXED.JS
+ */
+
+/**
+ * ===============================================
+ * GESTIONE PODCAST MICROSITO
+ * =============================================== */
+function initPodcastMicrosito() {
+    const podcastCards = document.querySelectorAll('.podcast-microsito-card');
+
+    if (podcastCards.length === 0) return;
+
+    // Limita a massimo 10 podcast
+    managePodcastLimit();
+
+    // Setup event listeners per ogni card
+    podcastCards.forEach((card, index) => {
+        setupPodcastCard(card, index);
+    });
+
+    console.log('✅ Podcast microsito initialized');
+}
+
+/**
+ * Limita i podcast a massimo 10 elementi
+ */
+function managePodcastLimit() {
+    const MAX_PODCAST_MICROSITO = 10;
+    const podcastContainer = document.querySelector('.podcast-microsito-gallery');
+
+    if (!podcastContainer) return;
+
+    const podcastCards = podcastContainer.querySelectorAll('.podcast-microsito-card');
+
+    // Se ci sono più di 10 elementi, rimuovi quelli in eccesso
+    if (podcastCards.length > MAX_PODCAST_MICROSITO) {
+        for (let i = MAX_PODCAST_MICROSITO; i < podcastCards.length; i++) {
+            podcastCards[i].remove();
+        }
+    }
+
+    // Aggiorna layout grid
+    updatePodcastGridLayout();
+}
+
+/**
+ * Aggiorna il layout della grid podcast
+ */
+function updatePodcastGridLayout() {
+    const container = document.querySelector('.podcast-microsito-gallery');
+    if (!container) return;
+
+    const elementCount = container.querySelectorAll('.podcast-microsito-card').length;
+
+    // Mantieni sempre grid responsive, ma ottimizza per il numero di elementi
+    if (elementCount <= 5) {
+        container.style.gridTemplateColumns = `repeat(${elementCount}, 1fr)`;
+    } else if (elementCount <= 8) {
+        container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
+    } else {
+        container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(180px, 1fr))';
+    }
+}
+
+/**
+ * Setup eventi per singola card podcast
+ */
+function setupPodcastCard(card, index) {
+    const playBtn = card.querySelector('.podcast-microsito-play');
+    const title = card.dataset.title;
+    const duration = card.dataset.duration;
+
+    // Podcast data simulato
+    const podcastData = {
+        id: `microsito-${index}`,
+        title: title,
+        duration: duration,
+        author: 'Sophia Rossi',
+        cover: card.querySelector('.podcast-microsito-cover').style.backgroundImage,
+        description: `Episodio dedicato a ${title.toLowerCase()}. In questo podcast esploriamo tecniche e strategie per migliorare il tuo benessere quotidiano.`,
+        audioUrl: `../../assets/audio/sophia-podcast-${index + 1}.mp3`
+    };
+
+    // Click sul play button
+    playBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        playPodcastMicrosito(podcastData);
+    });
+
+    // Click sulla card per dettagli (apre modal come nella pagina principale)
+    card.addEventListener('click', () => {
+        showPodcastDetailsMicrosito(podcastData);
+    });
+
+    // Hover effects
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-2px)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+}
+
+/**
+ * Riproduce podcast dal microsito (usa stesso player della pagina principale)
+ */
+function playPodcastMicrosito(podcastData) {
+    // Crea o mostra player fisso
+    createMicrositoPlayer(podcastData);
+
+    // Simula riproduzione
+    console.log(`🎵 Playing podcast: ${podcastData.title}`);
+
+    // Feedback visivo
+    showPodcastToast(`Riproducendo: ${podcastData.title}`, 'info');
+}
+
+/**
+ * Mostra dettagli podcast in modal (versione microsito)
+ */
+function showPodcastDetailsMicrosito(podcastData) {
+    // Usa stessa logica del modal principale ma con dati microsito
+    const modal = document.createElement('div');
+    modal.className = 'podcast-modal microsito-modal';
+    modal.innerHTML = `
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">${podcastData.title}</h2>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="podcast-detail-cover">
+                    <div class="detail-cover-image" style="background-image: ${podcastData.cover}">
+                        <div class="detail-play-btn" data-podcast-id="${podcastData.id}">
+                            <i class="fas fa-play"></i>
+                        </div>
+                    </div>
+                    <div class="podcast-detail-info">
+                        <h3 class="detail-title">${podcastData.title}</h3>
+                        <p class="detail-author">di ${podcastData.author}</p>
+                        <div class="detail-meta">
+                            <span class="detail-duration">
+                                <i class="far fa-clock"></i> ${podcastData.duration}
+                            </span>
+                            <span class="detail-category">
+                                <i class="fas fa-tag"></i> Wellness
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="podcast-detail-description">
+                    <h4>Descrizione</h4>
+                    <p>${podcastData.description}</p>
+                </div>
+                
+                <div class="podcast-detail-actions">
+                    <button class="detail-action-btn follow-btn">
+                        <i class="fas fa-bell"></i>
+                        Segui ${podcastData.author}
+                    </button>
+                    <button class="detail-action-btn share-btn">
+                        <i class="fas fa-share"></i>
+                        Condividi
+                    </button>
+                    <a href="/pages/professionisti/tutti-i-podcast.html" class="detail-action-btn">
+                        <i class="fas fa-list"></i>
+                        Altri Podcast
+                    </a>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+    document.body.style.overflow = 'hidden';
+
+    // Setup modal events
+    setupMicrositoModalEvents(modal, podcastData);
+
+    // Animazione entrata
+    requestAnimationFrame(() => {
+        modal.style.opacity = '0';
+        modal.style.transition = 'opacity 0.3s ease';
+        requestAnimationFrame(() => {
+            modal.style.opacity = '1';
+        });
+    });
+}
+
+/**
+ * Setup eventi per modal microsito
+ */
+function setupMicrositoModalEvents(modal, podcastData) {
+    // Close modal
+    const closeBtn = modal.querySelector('.modal-close');
+    const overlay = modal.querySelector('.modal-overlay');
+
+    closeBtn.addEventListener('click', () => closeMicrositoModal(modal));
+    overlay.addEventListener('click', () => closeMicrositoModal(modal));
+
+    // ESC key
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            closeMicrositoModal(modal);
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
+
+    // Play button
+    const playBtn = modal.querySelector('.detail-play-btn');
+    if (playBtn) {
+        playBtn.addEventListener('click', () => {
+            playPodcastMicrosito(podcastData);
+            closeMicrositoModal(modal);
+        });
+    }
+
+    // Action buttons
+    const followBtn = modal.querySelector('.follow-btn');
+    const shareBtn = modal.querySelector('.share-btn');
+
+    if (followBtn) {
+        followBtn.addEventListener('click', () => {
+            showPodcastToast(`Ora segui ${podcastData.author}!`, 'success');
+        });
+    }
+
+    if (shareBtn) {
+        shareBtn.addEventListener('click', () => {
+            if (navigator.share) {
+                navigator.share({
+                    title: podcastData.title,
+                    text: `Ascolta "${podcastData.title}" di ${podcastData.author}`,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(window.location.href);
+                showPodcastToast('Link copiato negli appunti!', 'success');
+            }
+        });
+    }
+}
+
+/**
+ * Chiude modal microsito
+ */
+function closeMicrositoModal(modal) {
+    modal.style.opacity = '0';
+    setTimeout(() => {
+        modal.remove();
+        document.body.style.overflow = '';
+    }, 300);
+}
+
+/**
+ * Crea player per microsito (versione semplificata)
+ */
+function createMicrositoPlayer(podcastData) {
+    // Rimuovi player esistente se presente
+    const existingPlayer = document.getElementById('micrositoPlayer');
+    if (existingPlayer) {
+        existingPlayer.remove();
+    }
+
+    // Crea nuovo player
+    const player = document.createElement('div');
+    player.id = 'micrositoPlayer';
+    player.className = 'microsito-player';
+    player.innerHTML = `
+        <div class="microsito-player-info">
+            <img src="../../assets/images/professionisti/sophia.jpg" alt="Sophia" class="microsito-player-avatar">
+            <div class="microsito-player-text">
+                <h4 class="microsito-player-title">${podcastData.title}</h4>
+                <span class="microsito-player-author">${podcastData.author}</span>
+            </div>
+        </div>
+        
+        <div class="microsito-player-controls">
+            <button class="microsito-control-btn microsito-play-pause">
+                <i class="fas fa-pause"></i>
+            </button>
+        </div>
+        
+        <div class="microsito-player-progress">
+            <span class="microsito-time">0:00 / ${podcastData.duration}</span>
+        </div>
+        
+        <button class="microsito-player-close">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+
+    document.body.appendChild(player);
+
+    // Setup player events
+    setupMicrositoPlayerEvents(player, podcastData);
+
+    // Mostra player con animazione
+    setTimeout(() => {
+        player.style.transform = 'translateY(0)';
+    }, 100);
+}
+
+/**
+ * Setup eventi player microsito
+ */
+function setupMicrositoPlayerEvents(player, podcastData) {
+    const playPauseBtn = player.querySelector('.microsito-play-pause');
+    const closeBtn = player.querySelector('.microsito-player-close');
+
+    let isPlaying = true;
+
+    // Play/Pause
+    playPauseBtn.addEventListener('click', () => {
+        isPlaying = !isPlaying;
+        const icon = playPauseBtn.querySelector('i');
+        icon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+
+        console.log(`🎵 ${isPlaying ? 'Playing' : 'Paused'}: ${podcastData.title}`);
+    });
+
+    // Close
+    closeBtn.addEventListener('click', () => {
+        player.style.transform = 'translateY(100%)';
+        setTimeout(() => player.remove(), 300);
+    });
+}
+
+/**
+ * Toast notifications per podcast
+ */
+function showPodcastToast(message, type = 'info') {
+    const toast = document.createElement('div');
+    toast.className = `podcast-toast toast-${type}`;
+    toast.textContent = message;
+
+    const styles = {
+        position: 'fixed',
+        top: '20px',
+        right: '20px',
+        padding: '12px 20px',
+        borderRadius: '8px',
+        color: 'white',
+        fontWeight: '500',
+        fontSize: '14px',
+        zIndex: '10001',
+        transition: 'all 0.3s ease',
+        transform: 'translateX(100%)',
+        opacity: '0'
+    };
+
+    const colors = {
+        info: '#3b82f6',
+        success: '#10b981',
+        error: '#ef4444'
+    };
+
+    Object.assign(toast.style, styles);
+    toast.style.backgroundColor = colors[type] || colors.info;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.transform = 'translateX(0)';
+        toast.style.opacity = '1';
+    }, 100);
+
+    setTimeout(() => {
+        toast.style.transform = 'translateX(100%)';
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+/**
+ * ===============================================
+ * INIZIALIZZAZIONE - DA AGGIUNGERE ALLA FUNZIONE PRINCIPALE
+ * =============================================== */
+
+// Aggiungi questa chiamata nella funzione initMicrositoFeatures() esistente:
+// initPodcastMicrosito();
+
 // ===============================================
 // INJECT MODAL STYLES
 // ===============================================
