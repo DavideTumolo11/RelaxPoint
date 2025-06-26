@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutti i Corsi di Sophia Rossi | RelaxPoint</title>
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/corsi-professionista.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-left">
+            <a class="site-logo" href="../../index.html">
+                <div class="logo-icon">
+                    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                            fill="currentColor"></path>
+                    </svg>
+                </div>
+                <h2 class="logo-text">RelaxPoint</h2>
+            </a>
+
+            <nav class="main-nav">
+                <a class="nav-link" href="../../index.html">Home</a>
+                <a class="nav-link" href="../servizi/servizi.html">Servizi</a>
+                <a class="nav-link active" href="../professionisti/professionisti.html">Professionisti</a>
+                <a class="nav-link" href="../ispirazioni/ispirazioni.html">Ispirazioni</a>
+            </nav>
+        </div>
+
+        <a class="last-minute-link" href="../last-minute.html">Last Minute</a>
+
+        <div class="header-right">
+            <!-- PODCAST HEADER SECTION -->
+            <div class="podcast-header-section">
+                <a href="../podcast/podcast.html" class="podcast-link">
+                    <div class="podcast-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                        </svg>
+                    </div>
+                    <span class="podcast-text">Podcast</span>
+                </a>
+            </div>
+
+            <div class="language-selector">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                    <path
+                        d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                </svg>
+                <select id="languageSelector" class="language-dropdown">
+                    <option value="it">IT</option>
+                    <option value="en">EN</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                </select>
+            </div>
+
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <div class="search-icon">
+                        <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                            </path>
+                        </svg>
+                    </div>
+                    <input class="search-input" placeholder="Cerca servizi..." />
+                </div>
+            </div>
+
+            <div class="button-group">
+                <a href="../../login.html" class="btn-primary">
+                    <span class="text-truncate">Prenota</span>
+                </a>
+                <a href="../../login.html" class="btn-secondary">
+                    <span class="text-truncate">Accedi</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+        <div class="content-wrapper">
+
+            <!-- BREADCRUMB -->
+            <nav class="breadcrumb">
+                <a href="../../index.html" class="breadcrumb-link">Home</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../professionisti/professionisti.html" class="breadcrumb-link">Professionisti</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="../../microsito.html" class="breadcrumb-link">Sophia Rossi</a>
+                <span class="breadcrumb-separator">›</span>
+                <span class="breadcrumb-current">Tutti i Corsi</span>
+            </nav>
+
+            <!-- HEADER PROFESSIONISTA -->
+            <section class="professional-corsi-header">
+                <div class="professional-info">
+                    <div class="professional-avatar">
+                        <img src="../../assets/images/professionisti/sophia.jpg" alt="Sophia Rossi"
+                            class="avatar-image">
+                    </div>
+                    <div class="professional-details">
+                        <h1 class="professional-name">Sophia Rossi</h1>
+                        <p class="professional-title">Wellness Coach & Formatrice</p>
+
+                        <div class="professional-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">24</span>
+                                <span class="stat-label">Corsi Attivi</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">850+</span>
+                                <span class="stat-label">Studenti</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">4.9</span>
+                                <span class="stat-label">Rating Medio</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">156</span>
+                                <span class="stat-label">Ore Insegnamento</span>
+                            </div>
+                        </div>
+
+                        <div class="professional-actions">
+                            <button class="follow-professional-btn">
+                                <i class="fas fa-bell"></i>
+                                Segui Corsi
+                            </button>
+                            <a href="../../microsito.html" class="back-profile-btn">
+                                <i class="fas fa-user"></i>
+                                Vai al Profilo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="professional-description">
+                    <p>Esplora tutti i corsi di formazione di Sophia Rossi. Dai percorsi base per principianti ai corsi
+                        avanzati per professionisti, ogni programma è progettato per trasformare la tua vita attraverso
+                        il benessere olistico.</p>
+                </div>
+            </section>
+
+            <!-- FILTRI CORSI -->
+            <section class="professional-filters">
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <select class="filter-select" id="categoryFilter">
+                            <option value="">Tutte le Categorie</option>
+                            <option value="mindfulness">Mindfulness</option>
+                            <option value="yoga">Yoga</option>
+                            <option value="fitness">Fitness</option>
+                            <option value="nutrizione">Nutrizione</option>
+                            <option value="coaching">Life Coaching</option>
+                            <option value="breathwork">Breathwork</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select class="filter-select" id="typeFilter">
+                            <option value="">Tutti i Tipi</option>
+                            <option value="online">Online</option>
+                            <option value="presenza">In Presenza</option>
+                            <option value="ibrido">Ibrido</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select class="filter-select" id="durationFilter">
+                            <option value="">Tutte le Durate</option>
+                            <option value="brevi">Brevi (1-4 settimane)</option>
+                            <option value="medi">Medi (5-8 settimane)</option>
+                            <option value="lunghi">Lunghi (9+ settimane)</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <select class="filter-select" id="sortFilter">
+                            <option value="recent">Più Recenti</option>
+                            <option value="popular">Più Popolari</option>
+                            <option value="rating">Migliori Recensioni</option>
+                            <option value="price-low">Prezzo Crescente</option>
+                            <option value="price-high">Prezzo Decrescente</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GRIGLIA CORSI -->
+            <section class="professional-corsi-grid">
+                <div class="corsi-grid">
+
+                    <!-- CORSO 1 -->
+                    <div class="corso-card" data-category="mindfulness" data-type="online" data-duration="8">
+                        <div class="corso-cover"
+                            style="background-image: url('../../assets/images/corsi/mindfulness-base.jpg');">
+                            <div class="corso-play-button">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="corso-type-badge online">Online</div>
+                            <div class="corso-duration">8 settimane</div>
+                        </div>
+                        <div class="corso-info">
+                            <h3 class="corso-title">Mindfulness Base - Percorso Completo</h3>
+                            <p class="corso-description">Impara i fondamenti della mindfulness con un percorso
+                                strutturato di 8 settimane. Tecniche di meditazione, consapevolezza corporea e gestione
+                                dello stress per principianti.</p>
+                            <div class="corso-meta">
+                                <div class="corso-price">€199</div>
+                                <div class="corso-rating">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(127)</span>
+                                </div>
+                            </div>
+                            <div class="corso-details">
+                                <span class="corso-lessons"><i class="fas fa-video"></i> 16 lezioni</span>
+                                <span class="corso-students"><i class="fas fa-users"></i> 240 studenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORSO 2 -->
+                    <div class="corso-card" data-category="yoga" data-type="presenza" data-duration="4">
+                        <div class="corso-cover"
+                            style="background-image: url('../../assets/images/corsi/yoga-principianti.jpg');">
+                            <div class="corso-play-button">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="corso-type-badge presenza">In Presenza</div>
+                            <div class="corso-duration">4 settimane</div>
+                        </div>
+                        <div class="corso-info">
+                            <h3 class="corso-title">Yoga per Principianti</h3>
+                            <p class="corso-description">Corso introduttivo allo yoga con lezioni in presenza. Asana
+                                base, respirazione e rilassamento per iniziare il tuo percorso di benessere fisico e
+                                mentale.</p>
+                            <div class="corso-meta">
+                                <div class="corso-price">€149</div>
+                                <div class="corso-rating">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(89)</span>
+                                </div>
+                            </div>
+                            <div class="corso-details">
+                                <span class="corso-lessons"><i class="fas fa-calendar"></i> 8 lezioni live</span>
+                                <span class="corso-students"><i class="fas fa-users"></i> 156 studenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORSO 3 -->
+                    <div class="corso-card" data-category="coaching" data-type="ibrido" data-duration="6">
+                        <div class="corso-cover"
+                            style="background-image: url('../../assets/images/corsi/gestione-stress.jpg');">
+                            <div class="corso-play-button">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="corso-type-badge ibrido">Ibrido</div>
+                            <div class="corso-duration">6 settimane</div>
+                        </div>
+                        <div class="corso-info">
+                            <h3 class="corso-title">Gestione Stress e Ansia</h3>
+                            <p class="corso-description">Tecniche avanzate per gestire stress e ansia nella vita
+                                quotidiana. Modalità ibrida con sessioni online e incontri di gruppo in presenza.</p>
+                            <div class="corso-meta">
+                                <div class="corso-price">€249</div>
+                                <div class="corso-rating">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(203)</span>
+                                </div>
+                            </div>
+                            <div class="corso-details">
+                                <span class="corso-lessons"><i class="fas fa-laptop"></i> 12 moduli</span>
+                                <span class="corso-students"><i class="fas fa-users"></i> 412 studenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORSO 4 -->
+                    <div class="corso-card" data-category="nutrizione" data-type="online" data-duration="5">
+                        <div class="corso-cover"
+                            style="background-image: url('../../assets/images/corsi/alimentazione.jpg');">
+                            <div class="corso-play-button">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="corso-type-badge online">Online</div>
+                            <div class="corso-duration">5 settimane</div>
+                        </div>
+                        <div class="corso-info">
+                            <h3 class="corso-title">Alimentazione Consapevole</h3>
+                            <p class="corso-description">Impara a sviluppare una relazione sana con il cibo attraverso
+                                la mindful eating. Tecniche pratiche per l'alimentazione intuitiva e consapevole.</p>
+                            <div class="corso-meta">
+                                <div class="corso-price">€179</div>
+                                <div class="corso-rating">
+                                    <span class="rating-stars">★★★★☆</span>
+                                    <span class="rating-count">(164)</span>
+                                </div>
+                            </div>
+                            <div class="corso-details">
+                                <span class="corso-lessons"><i class="fas fa-video"></i> 15 lezioni</span>
+                                <span class="corso-students"><i class="fas fa-users"></i> 298 studenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORSO 5 -->
+                    <div class="corso-card" data-category="mindfulness" data-type="online" data-duration="12">
+                        <div class="corso-cover"
+                            style="background-image: url('../../assets/images/corsi/meditazione-avanzata.jpg');">
+                            <div class="corso-play-button">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="corso-type-badge online">Online</div>
+                            <div class="corso-duration">12 settimane</div>
+                        </div>
+                        <div class="corso-info">
+                            <h3 class="corso-title">Meditazione Avanzata</h3>
+                            <p class="corso-description">Corso avanzato per approfondire la pratica meditativa. Tecniche
+                                tradizionali e moderne per raggiungere stati profondi di consapevolezza.</p>
+                            <div class="corso-meta">
+                                <div class="corso-price">€299</div>
+                                <div class="corso-rating">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(78)</span>
+                                </div>
+                            </div>
+                            <div class="corso-details">
+                                <span class="corso-lessons"><i class="fas fa-video"></i> 24 lezioni</span>
+                                <span class="corso-students"><i class="fas fa-users"></i> 145 studenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CORSO 6 -->
+                    <div class="corso-card" data-category="fitness" data-type="presenza" data-duration="8">
+                        <div class="corso-cover"
+                            style="background-image: url('../../assets/images/corsi/fitness-funzionale.jpg');">
+                            <div class="corso-play-button">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="corso-type-badge presenza">In Presenza</div>
+                            <div class="corso-duration">8 settimane</div>
+                        </div>
+                        <div class="corso-info">
+                            <h3 class="corso-title">Fitness Funzionale</h3>
+                            <p class="corso-description">Allenamento funzionale per migliorare forza, mobilità e
+                                coordinazione. Esercizi pratici per il benessere fisico quotidiano.</p>
+                            <div class="corso-meta">
+                                <div class="corso-price">€219</div>
+                                <div class="corso-rating">
+                                    <span class="rating-stars">★★★★★</span>
+                                    <span class="rating-count">(112)</span>
+                                </div>
+                            </div>
+                            <div class="corso-details">
+                                <span class="corso-lessons"><i class="fas fa-dumbbell"></i> 16 sessioni</span>
+                                <span class="corso-students"><i class="fas fa-users"></i> 187 studenti</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PAGINAZIONE -->
+            <section class="professional-pagination">
+                <button class="pagination-btn" id="loadMoreCorsi">
+                    Carica Altri Corsi
+                </button>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a class="footer-link" href="../termini/termini.html">Termini e Condizioni</a>
+                    <a class="footer-link" href="../privacy/privacy.html">Privacy Policy</a>
+                    <a class="footer-link" href="../contatti/contatti.html">Contatti</a>
+                    <a class="footer-link" href="../faq/faq.html">FAQ</a>
+                </div>
+                <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/corsi-professionista.js"></script>
+</body>
+
+</html>

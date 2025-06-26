@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessione Live | RelaxPoint</title>
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/access-system.css">
+
+    <style>
+        body {
+            background: #000;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .live-session-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .session-unauthorized {
+            text-align: center;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .session-unauthorized h2 {
+            color: #ef4444;
+            margin-bottom: 16px;
+        }
+
+        .session-unauthorized p {
+            color: #9ca3af;
+            margin-bottom: 24px;
+        }
+
+        .back-home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--color-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-home-btn:hover {
+            background: var(--color-dark);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="live-session-wrapper">
+        <!-- LOADING STATE -->
+        <div id="loadingState" class="session-unauthorized">
+            <div class="access-loading">
+                <div class="loading-spinner"></div>
+                <span>Verificando accesso...</span>
+            </div>
+        </div>
+
+        <!-- UNAUTHORIZED STATE -->
+        <div id="unauthorizedState" class="session-unauthorized" style="display: none;">
+            <h2><i class="fas fa-lock"></i> Accesso Non Autorizzato</h2>
+            <p>Il token di sessione non è valido o è scaduto.</p>
+            <a href="index.html" class="back-home-btn">
+                <i class="fas fa-home"></i>
+                Torna alla Home
+            </a>
+        </div>
+
+        <!-- ACCESS INPUT STATE -->
+        <div id="accessInputState" class="session-unauthorized" style="display: none;">
+            <div class="access-input-container" style="margin: 0 auto;">
+                <div class="access-input-header">
+                    <h3><i class="fas fa-key"></i> Inserisci Codice Accesso</h3>
+                    <p>Inserisci il codice ricevuto via chat per accedere alla sessione</p>
+                </div>
+
+                <form class="access-input-form" id="accessForm">
+                    <input type="text" class="access-code-input" id="accessCodeInput" placeholder="RLX-XXXXX-XX"
+                        maxlength="15" autocomplete="off">
+
+                    <button type="submit" class="access-submit-btn" id="accessSubmitBtn">
+                        <i class="fas fa-unlock"></i> Accedi alla Sessione
+                    </button>
+
+                    <div id="accessError" class="access-error-message" style="display: none;"></div>
+                    <div id="accessSuccess" class="access-success-message" style="display: none;"></div>
+                </form>
+            </div>
+        </div>
+
+        <!-- LIVE SESSION STATE -->
+        <div id="liveSessionState" style="display: none;">
+            <!-- SESSION INFO -->
+            <div class="session-info-container">
+                <div class="session-info-header">
+                    <h3 id="sessionTitle">Sessione Live</h3>
+                    <div class="session-status-badge active">
+                        <i class="fas fa-circle"></i>
+                        <span>Live</span>
+                    </div>
+                </div>
+
+                <div class="session-details">
+                    <div class="session-detail-item">
+                        <span class="session-detail-label">Professionista</span>
+                        <span class="session-detail-value" id="professionalName">Sophia Rossi</span>
+                    </div>
+                    <div class="session-detail-item">
+                        <span class="session-detail-label">Tipo Sessione</span>
+                        <span class="session-detail-value" id="sessionType">Corso Online</span>
+                    </div>
+                    <div class="session-detail-item">
+                        <span class="session-detail-label">Durata</span>
+                        <span class="session-detail-value" id="sessionDuration">60 minuti</span>
+                    </div>
+                    <div class="session-detail-item">
+                        <span class="session-detail-label">Scadenza Token</span>
+                        <span class="session-detail-value" id="tokenExpiry">9 min rimanenti</span>
+                    </div>
+                </div>
+
+                <div class="sessions-remaining" id="sessionsRemaining">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>7 sessioni rimanenti</span>
+                </div>
+
+                <div class="security-status secure">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Connessione sicura verificata</span>
+                </div>
+            </div>
+
+            <!-- LIVE VIDEO PLAYER -->
+            <div class="live-session-container">
+                <div class="live-session-header">
+                    <h2 class="live-session-title" id="liveSessionTitle">Mindfulness Base - Lezione 3</h2>
+                    <div class="live-session-meta">
+                        <div class="live-badge">
+                            <span>LIVE</span>
+                        </div>
+                        <span id="viewerCount">12 partecipanti</span>
+                        <span id="sessionTime">Iniziata 15 min fa</span>
+                    </div>
+                </div>
+
+                <div class="video-player-container">
+                    <!-- VIDEO PLACEHOLDER (in produzione: vero player video) -->
+                    <div class="video-placeholder">
+                        <i class="fas fa-video"></i>
+                        <h4>Player Video Live</h4>
+                        <p>In produzione: stream video WebRTC/HLS</p>
+                    </div>
+
+                    <!-- VIDEO CONTROLS -->
+                    <div class="video-controls">
+                        <div class="progress-bar" id="progressBar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+
+                        <div class="controls-row">
+                            <button class="play-pause-btn" id="playPauseBtn">
+                                <i class="fas fa-pause"></i>
+                            </button>
+
+                            <div class="volume-control">
+                                <i class="fas fa-volume-up"></i>
+                                <div class="volume-slider" id="volumeSlider">
+                                    <div class="progress-fill" style="width: 70%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="time-display" id="timeDisplay">
+                                15:32 / LIVE
+                            </div>
+
+                            <button class="control-btn" id="fullscreenBtn"
+                                style="margin-left: auto; background: none; border: none; color: white; font-size: 16px; cursor: pointer;">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIVE CHAT (opzionale) -->
+            <div class="live-chat-container"
+                style="margin-top: 20px; background: white; border-radius: 16px; padding: 20px;">
+                <h4><i class="fas fa-comments"></i> Chat Live</h4>
+                <div class="chat-messages"
+                    style="height: 200px; overflow-y: auto; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 12px 0; background: #f8f9fa;">
+                    <div class="chat-message" style="margin-bottom: 8px; font-size: 14px;">
+                        <strong style="color: var(--color-primary);">Sophia:</strong>
+                        <span>Benvenuti alla lezione di oggi! Iniziamo con 5 minuti di respirazione.</span>
+                    </div>
+                    <div class="chat-message" style="margin-bottom: 8px; font-size: 14px;">
+                        <strong style="color: #6b7280;">Marco:</strong>
+                        <span>Grazie Sophia! Pronto per iniziare 🧘‍♂️</span>
+                    </div>
+                    <div class="chat-message" style="margin-bottom: 8px; font-size: 14px;">
+                        <strong style="color: #6b7280;">Elena:</strong>
+                        <span>Audio perfetto, si sente benissimo!</span>
+                    </div>
+                </div>
+                <div class="chat-input-container" style="display: flex; gap: 8px;">
+                    <input type="text" class="chat-input" placeholder="Scrivi un messaggio..."
+                        style="flex: 1; padding: 8px 12px; border: 1px solid #e5e7eb; border-radius: 6px;">
+                    <button class="chat-send-btn"
+                        style="padding: 8px 16px; background: var(--color-primary); color: white; border: none; border-radius: 6px; cursor: pointer;">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/js/access-system.js"></script>
+    <script>
+        /**
+         * LIVE SESSION PAGE CONTROLLER
+         */
+        class LiveSessionController {
+            constructor() {
+                this.urlParams = new URLSearchParams(window.location.search);
+                this.sessionToken = this.urlParams.get('session');
+                this.sessionType = this.urlParams.get('type');
+                this.serviceId = this.urlParams.get('id');
+                this.sessionData = null;
+                this.expiryTimer = null;
+
+                this.init();
+            }
+
+            async init() {
+                console.log('🎥 Live Session Controller initialized');
+
+                if (this.sessionToken) {
+                    await this.verifySessionToken();
+                } else {
+                    this.showAccessInput();
+                }
+
+                this.setupEventListeners();
+            }
+
+            async verifySessionToken() {
+                try {
+                    const verification = await window.RelaxPointAccess.verifySessionToken(this.sessionToken);
+
+                    if (verification.valid) {
+                        this.sessionData = verification.session;
+                        this.showLiveSession();
+                        this.startExpiryTimer();
+                    } else {
+                        this.showUnauthorized(verification.error);
+                    }
+                } catch (error) {
+                    console.error('Token verification failed:', error);
+                    this.showAccessInput();
+                }
+            }
+
+            showAccessInput() {
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('accessInputState').style.display = 'block';
+            }
+
+            showUnauthorized(error) {
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('unauthorizedState').style.display = 'block';
+
+                const errorElement = document.querySelector('#unauthorizedState p');
+                switch (error) {
+                    case 'Invalid session token':
+                        errorElement.textContent = 'Token di sessione non valido.';
+                        break;
+                    case 'Session expired':
+                        errorElement.textContent = 'La sessione è scaduta. Richiedi un nuovo accesso.';
+                        break;
+                    default:
+                        errorElement.textContent = 'Errore di accesso. Contatta il supporto.';
+                }
+            }
+
+            showLiveSession() {
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('liveSessionState').style.display = 'block';
+
+                this.populateSessionInfo();
+                this.initVideoPlayer();
+                this.initLiveChat();
+            }
+
+            populateSessionInfo() {
+                if (!this.sessionData) return;
+
+                document.getElementById('sessionTitle').textContent = this.sessionData.serviceName || 'Sessione Live';
+                document.getElementById('liveSessionTitle').textContent = this.sessionData.serviceName || 'Sessione Live';
+
+                // Aggiorna tipo sessione
+                const typeElement = document.getElementById('sessionType');
+                switch (this.sessionData.serviceType) {
+                    case 'course':
+                        typeElement.textContent = 'Corso Online';
+                        break;
+                    case 'service':
+                        typeElement.textContent = 'Servizio Individuale';
+                        break;
+                    case 'last_minute':
+                        typeElement.textContent = 'Sessione Last Minute';
+                        break;
+                }
+            }
+
+            startExpiryTimer() {
+                if (!this.sessionData) return;
+
+                const updateTimer = () => {
+                    const now = new Date();
+                    const expiry = new Date(this.sessionData.expiryTime);
+                    const remaining = Math.max(0, Math.floor((expiry - now) / 1000 / 60));
+
+                    const tokenExpiryElement = document.getElementById('tokenExpiry');
+                    if (remaining > 0) {
+                        tokenExpiryElement.textContent = `${remaining} min rimanenti`;
+                        tokenExpiryElement.style.color = remaining <= 2 ? '#ef4444' : 'inherit';
+                    } else {
+                        tokenExpiryElement.textContent = 'Scaduto';
+                        tokenExpiryElement.style.color = '#ef4444';
+                        this.handleSessionExpiry();
+                    }
+                };
+
+                updateTimer();
+                this.expiryTimer = setInterval(updateTimer, 60000); // Aggiorna ogni minuto
+            }
+
+            handleSessionExpiry() {
+                clearInterval(this.expiryTimer);
+                alert('La sessione è scaduta. Sarai reindirizzato alla home.');
+                window.location.href = 'index.html';
+            }
+
+            initVideoPlayer() {
+                // Simulazione player video
+                const playPauseBtn = document.getElementById('playPauseBtn');
+                let isPlaying = true;
+
+                playPauseBtn.addEventListener('click', () => {
+                    isPlaying = !isPlaying;
+                    const icon = playPauseBtn.querySelector('i');
+                    icon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
+                });
+
+                // Simula progress bar
+                let progress = 0;
+                const progressFill = document.getElementById('progressFill');
+                const timeDisplay = document.getElementById('timeDisplay');
+
+                setInterval(() => {
+                    if (isPlaying) {
+                        progress += 0.1;
+                        if (progress > 100) progress = 0;
+
+                        progressFill.style.width = progress + '%';
+
+                        const currentMin = Math.floor(progress * 0.6);
+                        const currentSec = Math.floor((progress * 0.6 - currentMin) * 60);
+                        timeDisplay.textContent = `${currentMin}:${currentSec.toString().padStart(2, '0')} / LIVE`;
+                    }
+                }, 100);
+            }
+
+            initLiveChat() {
+                const chatInput = document.querySelector('.chat-input');
+                const chatSendBtn = document.querySelector('.chat-send-btn');
+                const chatMessages = document.querySelector('.chat-messages');
+
+                const sendMessage = () => {
+                    const message = chatInput.value.trim();
+                    if (!message) return;
+
+                    const messageElement = document.createElement('div');
+                    messageElement.className = 'chat-message';
+                    messageElement.style.marginBottom = '8px';
+                    messageElement.style.fontSize = '14px';
+                    messageElement.innerHTML = `
+                        <strong style="color: #3b82f6;">Tu:</strong> 
+                        <span>${message}</span>
+                    `;
+
+                    chatMessages.appendChild(messageElement);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    chatInput.value = '';
+                };
+
+                chatSendBtn.addEventListener('click', sendMessage);
+                chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') sendMessage();
+                });
+            }
+
+            setupEventListeners() {
+                // Access form submission
+                const accessForm = document.getElementById('accessForm');
+                if (accessForm) {
+                    accessForm.addEventListener('submit', async (e) => {
+                        e.preventDefault();
+                        await this.handleAccessSubmit();
+                    });
+                }
+
+                // Auto-format access code input
+                const accessInput = document.getElementById('accessCodeInput');
+                if (accessInput) {
+                    accessInput.addEventListener('input', (e) => {
+                        let value = e.target.value.replace(/[^A-Z0-9-]/g, '').toUpperCase();
+                        if (value.length > 15) value = value.substring(0, 15);
+                        e.target.value = value;
+                    });
+                }
+            }
+
+            async handleAccessSubmit() {
+                const accessInput = document.getElementById('accessCodeInput');
+                const submitBtn = document.getElementById('accessSubmitBtn');
+                const errorElement = document.getElementById('accessError');
+                const successElement = document.getElementById('accessSuccess');
+
+                const code = accessInput.value.trim();
+                if (!code) {
+                    this.showAccessError('Inserisci un codice di accesso valido');
+                    return;
+                }
+
+                // Show loading
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<div class="loading-spinner"></div> Verificando...';
+                errorElement.style.display = 'none';
+                successElement.style.display = 'none';
+
+                try {
+                    // Simula validazione (usa userId fittizio)
+                    const validation = await window.RelaxPointAccess.validateAccessCode(code, 'user_123');
+
+                    if (validation.valid) {
+                        // Avvia sessione
+                        const sessionResult = await window.RelaxPointAccess.startSession(validation.accessData);
+
+                        if (sessionResult.success) {
+                            this.sessionData = sessionResult.sessionData;
+                            this.showAccessSuccess('Accesso autorizzato! Avvio sessione...');
+
+                            setTimeout(() => {
+                                this.showLiveSession();
+                                this.startExpiryTimer();
+                            }, 1500);
+                        } else {
+                            this.showAccessError('Errore nell\'avvio della sessione');
+                        }
+                    } else {
+                        this.showAccessError(validation.message);
+                    }
+                } catch (error) {
+                    console.error('Access validation error:', error);
+                    this.showAccessError('Errore di sistema. Riprova più tardi.');
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-unlock"></i> Accedi alla Sessione';
+                }
+            }
+
+            showAccessError(message) {
+                const errorElement = document.getElementById('accessError');
+                const accessInput = document.getElementById('accessCodeInput');
+
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+                accessInput.classList.add('invalid');
+
+                setTimeout(() => {
+                    accessInput.classList.remove('invalid');
+                }, 3000);
+            }
+
+            showAccessSuccess(message) {
+                const successElement = document.getElementById('accessSuccess');
+                const accessInput = document.getElementById('accessCodeInput');
+
+                successElement.textContent = message;
+                successElement.style.display = 'block';
+                accessInput.classList.add('valid');
+            }
+        }
+
+        // Inizializza controller quando DOM è pronto
+        document.addEventListener('DOMContentLoaded', () => {
+            new LiveSessionController();
+        });
+
+        // Cleanup al window unload
+        window.addEventListener('beforeunload', () => {
+            // In produzione: notifica server che utente ha lasciato sessione
+            console.log('🚪 User leaving live session');
+        });
+    </script>
+</body>
+
+</html>
