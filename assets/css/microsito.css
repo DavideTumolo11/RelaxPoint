@@ -578,6 +578,152 @@
 }
 
 /* ===============================================
+   CORSI MICROSITO - IDENTICO A ISPIRAZIONI/PODCAST
+   =============================================== */
+
+.corsi-section {
+    margin-bottom: 60px;
+}
+
+.corsi-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 16px;
+}
+
+.corsi-view-all {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.corsi-view-all:hover {
+    color: var(--color-dark);
+    text-decoration: underline;
+}
+
+/* GRID STATICA IDENTICA */
+.corsi-gallery-static {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+    padding: 0 16px;
+    overflow: visible;
+}
+
+/* CARD CORSI - IDENTICHE AD ISPIRAZIONI */
+.corsi-gallery-static .corso-image {
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 120px;
+}
+
+@media (min-width: 768px) {
+    .corsi-gallery-static .corso-image {
+        min-height: 140px;
+    }
+}
+
+.corsi-gallery-static .corso-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
+}
+
+/* ICONA PLAY/CORSO OVERLAY */
+.corsi-gallery-static .corso-image::before {
+    content: '\f19d';
+    /* Font Awesome graduation cap icon */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.corsi-gallery-static .corso-image:hover::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* DURATA OVERLAY */
+.corsi-gallery-static .corso-image::after {
+    content: attr(data-duration);
+    position: absolute;
+    bottom: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+/* BADGE TIPO CORSO */
+.corsi-gallery-static .corso-image[data-type="online"]::before {
+    background: rgba(59, 130, 246, 0.95);
+    /* Blu per online */
+}
+
+.corsi-gallery-static .corso-image[data-type="presenza"]::before {
+    background: rgba(16, 185, 129, 0.95);
+    /* Verde per presenza */
+}
+
+.corsi-gallery-static .corso-image[data-type="ibrido"]::before {
+    background: rgba(245, 158, 11, 0.95);
+    /* Arancione per ibrido */
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .corsi-gallery-static .corso-image::before {
+        width: 30px;
+        height: 30px;
+        font-size: 12px;
+    }
+
+    .corsi-gallery-static .corso-image::after {
+        font-size: 9px;
+        padding: 1px 4px;
+        bottom: 4px;
+        right: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .corsi-gallery-static .corso-image::before {
+        width: 25px;
+        height: 25px;
+        font-size: 10px;
+    }
+}
+
+/* ===============================================
    RECENSIONI - CAROUSEL
    =============================================== */
 .recensioni-section {
