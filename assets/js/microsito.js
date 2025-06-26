@@ -496,17 +496,6 @@ function managePodcastLimit() {
 function updatePodcastGridLayout() {
     const container = document.querySelector('.podcast-microsito-gallery');
     if (!container) return;
-
-    const elementCount = container.querySelectorAll('.podcast-microsito-card').length;
-
-    // Mantieni sempre grid responsive, ma ottimizza per il numero di elementi
-    if (elementCount <= 5) {
-        container.style.gridTemplateColumns = `repeat(${elementCount}, 1fr)`;
-    } else if (elementCount <= 8) {
-        container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(200px, 1fr))';
-    } else {
-        container.style.gridTemplateColumns = 'repeat(auto-fit, minmax(180px, 1fr))';
-    }
 }
 
 /**

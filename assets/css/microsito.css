@@ -355,7 +355,7 @@
     grid-auto-rows: 1fr;
     gap: 12px;
     padding: 0 16px;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* ===============================================
@@ -363,16 +363,15 @@
    =============================================== */
 
 .podcast-microsito-section {
-    padding: 60px 0;
-    background: #f8f9fa;
+    padding: 0;
+    margin-bottom: 60px;
 }
 
 .podcast-microsito-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
-    max-width: 1200px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
     padding: 0 16px;
@@ -381,8 +380,8 @@
 .podcast-view-all {
     color: var(--color-primary);
     text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     transition: color 0.3s ease;
 }
 
@@ -392,11 +391,16 @@
 
 .podcast-microsito-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-    max-width: 1200px;
+    grid-template-columns: repeat(10, 1fr);
+    /* CAMBIA DA auto-fit A QUESTO */
+    grid-auto-rows: 1fr;
+    gap: 12px;
+    /* CAMBIA DA 16px A 12px */
+    max-width: auto;
     margin: 0 auto;
     padding: 0 16px;
+    overflow: visible;
+    /* AGGIUNGI QUESTA RIGA */
 }
 
 /* ===============================================
@@ -417,10 +421,11 @@
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* MODIFICA LE CARD PER ALTEZZA RIDOTTA */
 .podcast-microsito-cover {
     position: relative;
     width: 100%;
-    height: 140px;
+    height: 180px;
     background-size: cover;
     background-position: center;
     background-color: #f8f9fa;
@@ -495,107 +500,8 @@
     font-weight: 400;
 }
 
-/* ===============================================
-   RESPONSIVE PODCAST MICROSITO
-   =============================================== */
-@media (max-width: 1024px) {
-    .podcast-microsito-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 14px;
-    }
-
-    .podcast-microsito-cover {
-        height: 120px;
-    }
-
-    .podcast-microsito-info {
-        padding: 14px;
-    }
-}
-
-@media (max-width: 768px) {
-    .podcast-microsito-section {
-        padding: 40px 0;
-    }
-
-    .podcast-microsito-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-        margin-bottom: 24px;
-    }
-
-    .podcast-microsito-gallery {
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 12px;
-    }
-
-    .podcast-microsito-cover {
-        height: 100px;
-    }
-
-    .podcast-microsito-play {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .podcast-microsito-info {
-        padding: 12px;
-    }
-
-    .podcast-microsito-title {
-        font-size: 13px;
-    }
-
-    .podcast-microsito-date {
-        font-size: 11px;
-    }
-}
-
-@media (max-width: 480px) {
-    .podcast-microsito-gallery {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .podcast-microsito-cover {
-        height: 90px;
-    }
-
-    .podcast-microsito-duration {
-        font-size: 10px;
-        padding: 2px 4px;
-    }
-}
 
 
-/* RESPONSIVE GRID */
-@media (max-width: 1400px) {
-    .ispirazioni-gallery-static {
-        grid-template-columns: repeat(8, 1fr);
-    }
-}
-
-@media (max-width: 1200px) {
-    .ispirazioni-gallery-static {
-        grid-template-columns: repeat(6, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .ispirazioni-gallery-static {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .ispirazioni-gallery-static {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-    }
-}
 
 /* CARD ISPIRAZIONI - ALTEZZA RIDOTTA PER 1 RIGA */
 .ispirazioni-gallery-static .ispirazioni-image {
@@ -611,17 +517,7 @@
     /* MOLTO RIDOTTA */
 }
 
-@media (min-width: 768px) {
-    .ispirazioni-gallery-static .ispirazioni-image {
-        min-height: 120px;
-        /* MOLTO RIDOTTA */
-    }
-}
 
-.ispirazioni-gallery-static .ispirazioni-image:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
-}
 
 /* OVERLAY EFFECTS */
 .ispirazioni-gallery-static .ispirazioni-image::before {
