@@ -50,6 +50,7 @@ function initializeMicrosite() {
     setupMobileMenu();
     setupFadeInAnimations();
     injectModalStyles();
+    manageIspirations(); // <-- AGGIUNGI QUESTA RIGA
 }
 
 // Setup Service Cards
@@ -406,6 +407,41 @@ function showFullGallery() {
             gallery.remove();
         }
     });
+}
+
+// Configurazione ispirazioni
+const MAX_ISPIRAZIONI_MICROSITO = 10; // Limite totale
+const ISPIRAZIONI_PER_RIGA = 10; // Quante per riga
+
+// Gestione dinamica delle ispirazioni (max configurabile, multi-riga)
+function manageIspirations() {
+    const ispirazioniContainer = document.querySelector('.ispirazioni-gallery-static');
+    if (!ispirazioniContainer) return;
+
+    const ispirazioniImages = ispirazioniContainer.querySelectorAll('.ispirazioni-image');
+
+    // Se ci sono più elementi del limite, rimuovi quelli in eccesso
+    if (ispirazioniImages.length > MAX_ISPIRAZIONI_MICROSITO) {
+        for (let i = MAX_ISPIRAZIONI_MICROSITO; i < ispirazioniImages.length; i++) {
+            ispirazioniImages[i].remove();
+        }
+    }
+
+    // Aggiorna la grid per supportare più righe
+    updateGridLayout();
+}
+
+// Aggiorna il layout della grid per multi-riga
+function updateGridLayout() {
+    const container = document.querySelector('.ispirazioni-gallery-static');
+    if (!container) return;
+
+    const elementCount = container.querySelectorAll('.ispirazioni-image').length;
+    const righe = Math.ceil(elementCount / ISPIRAZIONI_PER_RIGA);
+
+    // Grid con righe multiple
+    container.style.gridTemplateColumns = `repeat(${ISPIRAZIONI_PER_RIGA}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${righe}, 1fr)`;
 }
 
 // ===============================================
