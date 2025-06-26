@@ -484,6 +484,91 @@ body {
 }
 
 /* ===============================================
+   PODCAST HEADER SECTION - DA AGGIUNGERE AL STYLE.CSS
+   =============================================== */
+
+.podcast-header-section {
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+}
+
+.podcast-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: linear-gradient(135deg, rgba(45, 90, 61, 0.1) 0%, rgba(45, 90, 61, 0.05) 100%);
+    border: 1px solid rgba(45, 90, 61, 0.2);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.podcast-link:hover {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+    border-color: var(--color-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(45, 90, 61, 0.2);
+}
+
+.podcast-link:hover .podcast-icon,
+.podcast-link:hover .podcast-text {
+    color: white;
+}
+
+
+.podcast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+.podcast-text {
+    color: var(--color-text);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .podcast-header-section {
+        margin-right: 16px;
+    }
+
+    .podcast-link {
+        padding: 6px 12px;
+        gap: 6px;
+    }
+
+    .podcast-text {
+        font-size: 13px;
+    }
+
+    .podcast-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .podcast-text {
+        display: none;
+        /* Nasconde testo su mobile molto piccolo */
+    }
+
+    .podcast-link {
+        padding: 6px 10px;
+    }
+}
+
+/* ===============================================
    SEZIONI - Titoli principali
    =============================================== */
 .section-title {
