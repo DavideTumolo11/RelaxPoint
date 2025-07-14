@@ -17,10 +17,10 @@
     <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
 
     <!-- CSS PERSONALIZZATO -->
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <link rel="stylesheet" href="../../assets/css/dashboard-cliente.css">
-    <link rel="stylesheet" href="../../assets/css/prenotazioni.css">
-    <link rel="stylesheet" href="../../assets/css/profilo.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/prenotazioni.css">
+    <link rel="stylesheet" href="/assets/css/profilo.css">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
             <!-- HEADER - Identico alle altre pagine -->
             <header class="site-header">
                 <div class="header-left">
-                    <a class="site-logo" href="../../index.html">
+                    <a class="site-logo" href="/index.html">
                         <div class="logo-icon">
                             <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -43,10 +43,10 @@
                     </a>
 
                     <nav class="main-nav">
-                        <a class="nav-link" href="../../index.html">Home</a>
-                        <a class="nav-link" href="../../pages/servizi.html">Servizi</a>
-                        <a class="nav-link" href="../../pages/professionisti.html">Professionisti</a>
-                        <a class="nav-link" href="../../pages/ispirazioni.html">Ispirazioni</a>
+                        <a class="nav-link" href="./index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
                     </nav>
                 </div>
 
@@ -55,6 +55,20 @@
 
                 <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
                 <div class="header-right">
+
+                    <!-- PODCAST -->
+
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
 
                     <div class="language-selector">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
@@ -95,7 +109,7 @@
                             <img src="" alt="Avatar utente">
                         </a>
 
-                        <a href="./login.html" class="btn-secondary">
+                        <a href="/login.html" class="btn-secondary">
                             <span class="text-truncate">Accedi</span>
                         </a>
 
@@ -109,7 +123,7 @@
 
                     <!-- BREADCRUMB -->
                     <nav class="breadcrumb">
-                        <a href="dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
+                        <a href="/pages/dashboard/dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
                         <span class="breadcrumb-separator">›</span>
                         <span class="breadcrumb-current">Profilo</span>
                     </nav>
@@ -124,14 +138,14 @@
                             </div>
 
                             <nav class="sidebar-menu">
-                                <a href="./dashboard-cliente.html" class="menu-item">
+                                <a href="/pages/dashboard/dashboard-cliente.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                                     </svg>
                                     <span>Dashboard</span>
                                 </a>
-                                <a href="prenotazioni.html" class="menu-item">
+                                <a href="/pages/dashboard/prenotazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -139,7 +153,7 @@
                                     </svg>
                                     <span>Prenotazioni</span>
                                 </a>
-                                <a href="pagamenti.html" class="menu-item">
+                                <a href="/pages/dashboard/pagamenti.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -147,7 +161,7 @@
                                     </svg>
                                     <span>Pagamenti</span>
                                 </a>
-                                <a href="recensioni.html" class="menu-item">
+                                <a href="/pages/dashboard/recensioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -155,7 +169,7 @@
                                     </svg>
                                     <span>Recensioni</span>
                                 </a>
-                                <a href="preferiti.html" class="menu-item">
+                                <a href="/pages/dashboard/preferiti.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -163,7 +177,7 @@
                                     </svg>
                                     <span>Preferiti</span>
                                 </a>
-                                <a href="profilo.html" class="menu-item active">
+                                <a href="/pages/dashboard/profilo.html" class="menu-item active">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -171,7 +185,7 @@
                                     </svg>
                                     <span>Profilo</span>
                                 </a>
-                                <a href="notifiche.html" class="menu-item">
+                                <a href="/pages/dashboard/notifiche.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -179,7 +193,7 @@
                                     </svg>
                                     <span>Notifiche</span>
                                 </a>
-                                <a href="impostazioni.html" class="menu-item">
+                                <a href="/pages/dashboard/impostazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
