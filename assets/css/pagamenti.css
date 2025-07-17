@@ -596,6 +596,25 @@
     color: white;
 }
 
+.btn-danger {
+    flex: 1;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-danger {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
 /* ===============================================
    MODAL PAGAMENTO
    =============================================== */

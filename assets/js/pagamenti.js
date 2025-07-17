@@ -163,10 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
             showNotification('Metodo di pagamento aggiunto con successo', 'success');
             closeModal(addPaymentModal);
 
-            // Reset form
-            setTimeout(() => {
-                resetPaymentForm();
-            }, 300);
         });
     }
 
@@ -588,6 +584,102 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ===============================================
+    // PAGINAZIONE TRANSAZIONI
+    // ===============================================
+    const paginationState = {
+        currentPage: 1,
+        totalPages: 2
+    };
+
+    function setupPagination() {
+        // Cerca pulsanti con metodo più affidabile
+        const nextBtn = document.querySelector('.pagination-btn.next, button[data-action="next"]') ||
+            Array.from(document.querySelectorAll('a, button')).find(el =>
+                el.textContent.toLowerCase().includes('successiva'));
+
+        const prevBtn = document.querySelector('.pagination-btn.prev');
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (paginationState.currentPage < paginationState.totalPages) {
+                    paginationState.currentPage++;
+                    updatePageInfo();
+                    updateButtonStates();
+                }
+            });
+        }
+
+        if (prevBtn) {
+            // Rimuovi tutti gli event listener esistenti
+            const newPrevBtn = prevBtn.cloneNode(true);
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+
+            // Abilita il pulsante
+            newPrevBtn.disabled = false;
+            newPrevBtn.removeAttribute('disabled');
+            newPrevBtn.style.pointerEvents = 'auto';
+            newPrevBtn.style.opacity = '1';
+            newPrevBtn.style.cursor = 'pointer';
+
+            // Aggiungi event listener corretto
+            newPrevBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+
+                if (paginationState.currentPage > 1) {
+                    paginationState.currentPage--;
+                    updatePageInfo();
+                    updateButtonStates();
+                }
+            });
+        }
+
+        // Inizializza stato pulsanti
+        updateButtonStates();
+    }
+
+    function updatePageInfo() {
+        const pageInfo = document.querySelector('.pagination-info, .page-info') ||
+            Array.from(document.querySelectorAll('*')).find(el =>
+                el.textContent.includes('Pagina'));
+
+        if (pageInfo) {
+            pageInfo.textContent = `Pagina ${paginationState.currentPage} di ${paginationState.totalPages}`;
+        }
+    }
+
+    function updateButtonStates() {
+        const nextBtn = document.querySelector('.pagination-btn.next, button[data-action="next"]') ||
+            Array.from(document.querySelectorAll('a, button')).find(el =>
+                el.textContent.toLowerCase().includes('successiva'));
+
+        const prevBtn = document.querySelector('.pagination-btn.prev');
+
+        // Aggiorna stato Precedente
+        if (prevBtn) {
+            if (paginationState.currentPage <= 1) {
+                prevBtn.style.opacity = '0.5';
+                prevBtn.style.cursor = 'not-allowed';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.cursor = 'pointer';
+            }
+        }
+
+        // Aggiorna stato Successiva
+        if (nextBtn) {
+            if (paginationState.currentPage >= paginationState.totalPages) {
+                nextBtn.style.opacity = '0.5';
+                nextBtn.style.cursor = 'not-allowed';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.cursor = 'pointer';
+            }
+        }
+    }
+
+    // ===============================================
     // UTILITY FUNCTIONS
     // ===============================================
     function showNotification(message, type = 'info') {
@@ -686,13 +778,15 @@ document.addEventListener('DOMContentLoaded', function () {
         initializeFilters();
         initializeTransactionActions();
         initializeCardMenus();
+        setupPagination();
 
         console.log('✅ Pagamenti JavaScript inizializzato');
     }
 
     // Avvia inizializzazione
     init();
-});
+
+}); // CHIUSURA PRINCIPALE
 
 // ===============================================
 // CSS DINAMICO PER ELEMENTI CREATI VIA JS
