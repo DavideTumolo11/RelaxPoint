@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Recensioni - RelaxPoint | Il tuo benessere</title>
+    <meta name="description"
+        content="Gestisci le tue recensioni e valutazioni su RelaxPoint. Condividi la tua esperienza con i professionisti.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
+                <div class="header-right">
+
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca - ADMIN può modificare placeholder -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti - ADMIN può modificare testi e link -->
+                    <div class="button-group">
+                        <a href="" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="../../login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- DASHBOARD LAYOUT A DUE COLONNE -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Benessere</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="/pages/dashboard/dashboard-cliente.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                                <a href="/pages/dashboard/prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+                                <a href="/pages/dashboard/pagamenti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                    </svg>
+                                    <span>Pagamenti</span>
+                                </a>
+                                <a href="/pages/dashboard/recensioni.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+                                <a href="/pages/dashboard/preferiti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    <span>Preferiti</span>
+                                </a>
+                                <a href="/pages/dashboard/profilo.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                    </svg>
+                                    <span>Profilo</span>
+                                </a>
+                                <a href="/pages/dashboard/notifiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                    </svg>
+                                    <span>Notifiche</span>
+                                </a>
+                                <a href="/pages/dashboard/impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                                <a href="../login.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- HEADER UTENTE -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="/assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg"
+                                            alt="Chiara Rossi" id="userAvatarMain">
+                                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>Le tue <span id="userName">Recensioni</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Cliente Premium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTENUTO RECENSIONI -->
+                            <div class="dashboard-content">
+
+                                <!-- RECENSIONI DA SCRIVERE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h2>Recensioni da scrivere</h2>
+                                        <span class="pending-count">2 in sospeso</span>
+                                    </div>
+
+                                    <div class="pending-reviews">
+                                        <div class="pending-review-item">
+                                            <div class="review-service-info">
+                                                <div class="service-details">
+                                                    <h3>Massaggio Decontratturante</h3>
+                                                    <p class="service-provider">con Marco Rossi</p>
+                                                    <p class="service-date">Completato il 15 Luglio 2024</p>
+                                                </div>
+                                                <div class="service-rating">
+                                                    <div class="stars-container" data-rating="0">
+                                                        <span class="star" data-value="1">★</span>
+                                                        <span class="star" data-value="2">★</span>
+                                                        <span class="star" data-value="3">★</span>
+                                                        <span class="star" data-value="4">★</span>
+                                                        <span class="star" data-value="5">★</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-actions">
+                                                <button class="btn-action primary"
+                                                    onclick="openReviewModal('massaggio-marco')">Scrivi
+                                                    Recensione</button>
+                                                <button class="btn-action secondary">Dopo</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="pending-review-item">
+                                            <div class="review-service-info">
+                                                <div class="service-details">
+                                                    <h3>Trattamento Viso Rilassante</h3>
+                                                    <p class="service-provider">con Elena Bianchi</p>
+                                                    <p class="service-date">Completato il 10 Luglio 2024</p>
+                                                </div>
+                                                <div class="service-rating">
+                                                    <div class="stars-container" data-rating="0">
+                                                        <span class="star" data-value="1">★</span>
+                                                        <span class="star" data-value="2">★</span>
+                                                        <span class="star" data-value="3">★</span>
+                                                        <span class="star" data-value="4">★</span>
+                                                        <span class="star" data-value="5">★</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-actions">
+                                                <button class="btn-action primary"
+                                                    onclick="openReviewModal('trattamento-elena')">Scrivi
+                                                    Recensione</button>
+                                                <button class="btn-action secondary">Dopo</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- RECENSIONI SCRITTE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h2>Le tue recensioni</h2>
+                                        <div class="filter-buttons">
+                                            <button class="filter-btn active" data-filter="all">Tutte</button>
+                                            <button class="filter-btn" data-filter="5">5 stelle</button>
+                                            <button class="filter-btn" data-filter="4">4 stelle</button>
+                                            <button class="filter-btn" data-filter="3">3 stelle</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="reviews-list">
+                                        <div class="review-item" data-rating="5">
+                                            <div class="review-header">
+                                                <div class="review-service">
+                                                    <h3>Massaggio Rilassante</h3>
+                                                    <p class="provider-name">Giulia Rossi</p>
+                                                    <div class="review-stars">
+                                                        <span class="stars">★★★★★</span>
+                                                        <span class="rating-text">5.0</span>
+                                                    </div>
+                                                </div>
+                                                <div class="review-date">15 Maggio 2024</div>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>"Esperienza fantastica! Giulia è stata molto professionale e il
+                                                    massaggio è stato davvero rilassante. L'ambiente era perfetto e mi
+                                                    sono sentita completamente a mio agio. Consigliatissimo!"</p>
+                                            </div>
+                                            <div class="review-response">
+                                                <div class="response-header">
+                                                    <strong>Risposta di Giulia Rossi</strong>
+                                                    <span class="response-date">16 Maggio 2024</span>
+                                                </div>
+                                                <p>"Grazie mille Chiara! È stato un piacere lavorare con te. Spero di
+                                                    rivederti presto per il prossimo trattamento!"</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-item" data-rating="4">
+                                            <div class="review-header">
+                                                <div class="review-service">
+                                                    <h3>Lezione di Yoga</h3>
+                                                    <p class="provider-name">Marco Verdi</p>
+                                                    <div class="review-stars">
+                                                        <span class="stars">★★★★☆</span>
+                                                        <span class="rating-text">4.0</span>
+                                                    </div>
+                                                </div>
+                                                <div class="review-date">8 Gennaio 2024</div>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>"Bella lezione di yoga! Marco è preparato e sa guidare bene gli
+                                                    esercizi. L'unica nota è che avrei preferito un po' più di tempo per
+                                                    il rilassamento finale."</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-item" data-rating="5">
+                                            <div class="review-header">
+                                                <div class="review-service">
+                                                    <h3>Manicure e Pedicure</h3>
+                                                    <p class="provider-name">Sofia Neri</p>
+                                                    <div class="review-stars">
+                                                        <span class="stars">★★★★★</span>
+                                                        <span class="rating-text">5.0</span>
+                                                    </div>
+                                                </div>
+                                                <div class="review-date">20 Dicembre 2023</div>
+                                            </div>
+                                            <div class="review-content">
+                                                <p>"Servizio impeccabile! Sofia è molto attenta ai dettagli e il
+                                                    risultato è durato settimane. Prodotti di qualità e grande
+                                                    professionalità."</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="load-more">
+                                        <button class="btn-load-more">Carica altre recensioni</button>
+                                    </div>
+                                </div>
+
+                                <!-- STATISTICHE RECENSIONI -->
+                                <div class="content-card">
+                                    <h2>Le tue statistiche</h2>
+
+                                    <div class="stats-row">
+                                        <div class="stat-item">
+                                            <div class="stat-number">8</div>
+                                            <div class="stat-label">Recensioni Scritte</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">4.6</div>
+                                            <div class="stat-label">Rating Medio</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">6</div>
+                                            <div class="stat-label">Professionisti Valutati</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">2</div>
+                                            <div class="stat-label">Da Completare</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER - Identico alle altre pagine -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="../pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="../pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="../pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="../pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="../pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODAL RECENSIONE -->
+    <div id="reviewModal" class="review-modal" style="display: none;">
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Scrivi la tua recensione</h3>
+                    <button class="modal-close" onclick="closeReviewModal()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="service-info">
+                        <h4 id="modalServiceName">Nome Servizio</h4>
+                        <p id="modalProviderName">Nome Professionista</p>
+                    </div>
+
+                    <div class="rating-section">
+                        <label>La tua valutazione</label>
+                        <div class="stars-container large" data-rating="0" id="modalStars">
+                            <span class="star" data-value="1">★</span>
+                            <span class="star" data-value="2">★</span>
+                            <span class="star" data-value="3">★</span>
+                            <span class="star" data-value="4">★</span>
+                            <span class="star" data-value="5">★</span>
+                        </div>
+                    </div>
+
+                    <div class="comment-section">
+                        <label for="reviewComment">Il tuo commento (facoltativo)</label>
+                        <textarea id="reviewComment" placeholder="Condividi la tua esperienza..."
+                            maxlength="500"></textarea>
+                        <div class="char-count">0/500</div>
+                    </div>
+                </div>
+
+                <div class="modal-actions">
+                    <button class="btn-cancel" onclick="closeReviewModal()">Annulla</button>
+                    <button class="btn-submit" onclick="submitReview()">Pubblica Recensione</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/recensioni.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+</body>
+
+</html>
