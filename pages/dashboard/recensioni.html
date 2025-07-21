@@ -11,14 +11,15 @@
         onload="this.rel='stylesheet'" rel="stylesheet" />
 
     <!-- META -->
-    <title>Recensioni - RelaxPoint | Il tuo benessere</title>
+    <title>Recensioni - RelaxPoint | Le tue valutazioni</title>
     <meta name="description"
-        content="Gestisci le tue recensioni e valutazioni su RelaxPoint. Condividi la tua esperienza con i professionisti.">
+        content="Gestisci le tue recensioni e valutazioni su RelaxPoint. Lascia feedback sui servizi ricevuti e leggi le tue recensioni.">
     <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
 
     <!-- CSS PERSONALIZZATO -->
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="../../assets/css/recensioni.css">
 </head>
 
 <body>
@@ -26,10 +27,10 @@
     <div class="main-container">
         <div class="layout-container">
 
-            <!-- HEADER - Identico alle altre pagine -->
+            <!-- HEADER -->
             <header class="site-header">
                 <div class="header-left">
-                    <a class="site-logo" href="/index.html">
+                    <a class="site-logo" href="../../index.html">
                         <div class="logo-icon">
                             <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -41,22 +42,18 @@
                     </a>
 
                     <nav class="main-nav">
-                        <a class="nav-link" href="/index.html">Home</a>
-                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
-                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
-                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link" href="../../pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="../../pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="../../pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
                     </nav>
                 </div>
 
-                <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
-                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+                <a class="last-minute-link" href="../../pages/last-minute.html">Last Minute</a>
 
-                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
                 <div class="header-right">
-
-                    <!-- PODCAST -->
                     <div class="podcast-header-section">
-                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                        <a href="../../pages/podcast/podcast.html" class="podcast-link">
                             <div class="podcast-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -80,7 +77,6 @@
                         </select>
                     </div>
 
-                    <!-- Ricerca - ADMIN può modificare placeholder -->
                     <div class="search-container">
                         <div class="search-wrapper">
                             <div class="search-icon">
@@ -95,21 +91,18 @@
                         </div>
                     </div>
 
-                    <!-- Pulsanti - ADMIN può modificare testi e link -->
                     <div class="button-group">
-                        <a href="" class="btn-primary">
+                        <a href="../../pages/servizi/servizi.html" class="btn-primary">
                             <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
                         </a>
 
                         <a href="../../login.html" class="btn-secondary">
                             <span class="text-truncate">Accedi</span>
                         </a>
-
-                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
-                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
-                            <img src="" alt="Avatar utente">
-                        </a>
-
                     </div>
                 </div>
             </header>
@@ -118,7 +111,14 @@
             <main class="main-content">
                 <div class="content-wrapper">
 
-                    <!-- DASHBOARD LAYOUT A DUE COLONNE -->
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Recensioni</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
                     <div class="dashboard-layout">
 
                         <!-- SIDEBAR MENU -->
@@ -128,14 +128,14 @@
                             </div>
 
                             <nav class="sidebar-menu">
-                                <a href="/pages/dashboard/dashboard-cliente.html" class="menu-item">
+                                <a href="dashboard-cliente.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                                     </svg>
                                     <span>Dashboard</span>
                                 </a>
-                                <a href="/pages/dashboard/prenotazioni.html" class="menu-item">
+                                <a href="prenotazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -143,7 +143,7 @@
                                     </svg>
                                     <span>Prenotazioni</span>
                                 </a>
-                                <a href="/pages/dashboard/pagamenti.html" class="menu-item">
+                                <a href="pagamenti.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -151,7 +151,7 @@
                                     </svg>
                                     <span>Pagamenti</span>
                                 </a>
-                                <a href="/pages/dashboard/recensioni.html" class="menu-item active">
+                                <a href="recensioni.html" class="menu-item active">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -159,7 +159,7 @@
                                     </svg>
                                     <span>Recensioni</span>
                                 </a>
-                                <a href="/pages/dashboard/preferiti.html" class="menu-item">
+                                <a href="preferiti.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -167,7 +167,7 @@
                                     </svg>
                                     <span>Preferiti</span>
                                 </a>
-                                <a href="/pages/dashboard/profilo.html" class="menu-item">
+                                <a href="profilo.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -175,7 +175,7 @@
                                     </svg>
                                     <span>Profilo</span>
                                 </a>
-                                <a href="/pages/dashboard/notifiche.html" class="menu-item">
+                                <a href="notifiche.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -183,7 +183,7 @@
                                     </svg>
                                     <span>Notifiche</span>
                                 </a>
-                                <a href="/pages/dashboard/impostazioni.html" class="menu-item">
+                                <a href="impostazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -191,7 +191,7 @@
                                     </svg>
                                     <span>Impostazioni</span>
                                 </a>
-                                <a href="../login.html" class="menu-item logout">
+                                <a href="../../login.html" class="menu-item logout">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path
@@ -209,12 +209,11 @@
                             <div class="user-header">
                                 <div class="user-info">
                                     <div class="user-avatar">
-                                        <img src="/assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg"
+                                        <img src="../../assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg"
                                             alt="Chiara Rossi" id="userAvatarMain">
-                                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
                                     </div>
                                     <div class="user-details">
-                                        <h1>Le tue <span id="userName">Recensioni</span></h1>
+                                        <h1>Le tue recensioni, <span id="userName">Chiara</span></h1>
                                         <div class="user-status">
                                             <span class="status-badge premium">Cliente Premium</span>
                                         </div>
@@ -225,171 +224,96 @@
                             <!-- CONTENUTO RECENSIONI -->
                             <div class="dashboard-content">
 
-                                <!-- RECENSIONI DA SCRIVERE -->
+                                <!-- SEZIONE RIEPILOGO -->
                                 <div class="content-card">
                                     <div class="card-header">
-                                        <h2>Recensioni da scrivere</h2>
-                                        <span class="pending-count">2 in sospeso</span>
+                                        <h3>Riepilogo Recensioni</h3>
                                     </div>
-
-                                    <div class="pending-reviews">
-                                        <div class="pending-review-item">
-                                            <div class="review-service-info">
-                                                <div class="service-details">
-                                                    <h3>Massaggio Decontratturante</h3>
-                                                    <p class="service-provider">con Marco Rossi</p>
-                                                    <p class="service-date">Completato il 15 Luglio 2024</p>
-                                                </div>
-                                                <div class="service-rating">
-                                                    <div class="stars-container" data-rating="0">
-                                                        <span class="star" data-value="1">★</span>
-                                                        <span class="star" data-value="2">★</span>
-                                                        <span class="star" data-value="3">★</span>
-                                                        <span class="star" data-value="4">★</span>
-                                                        <span class="star" data-value="5">★</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="review-actions">
-                                                <button class="btn-action primary"
-                                                    onclick="openReviewModal('massaggio-marco')">Scrivi
-                                                    Recensione</button>
-                                                <button class="btn-action secondary">Dopo</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="pending-review-item">
-                                            <div class="review-service-info">
-                                                <div class="service-details">
-                                                    <h3>Trattamento Viso Rilassante</h3>
-                                                    <p class="service-provider">con Elena Bianchi</p>
-                                                    <p class="service-date">Completato il 10 Luglio 2024</p>
-                                                </div>
-                                                <div class="service-rating">
-                                                    <div class="stars-container" data-rating="0">
-                                                        <span class="star" data-value="1">★</span>
-                                                        <span class="star" data-value="2">★</span>
-                                                        <span class="star" data-value="3">★</span>
-                                                        <span class="star" data-value="4">★</span>
-                                                        <span class="star" data-value="5">★</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="review-actions">
-                                                <button class="btn-action primary"
-                                                    onclick="openReviewModal('trattamento-elena')">Scrivi
-                                                    Recensione</button>
-                                                <button class="btn-action secondary">Dopo</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- RECENSIONI SCRITTE -->
-                                <div class="content-card">
-                                    <div class="card-header">
-                                        <h2>Le tue recensioni</h2>
-                                        <div class="filter-buttons">
-                                            <button class="filter-btn active" data-filter="all">Tutte</button>
-                                            <button class="filter-btn" data-filter="5">5 stelle</button>
-                                            <button class="filter-btn" data-filter="4">4 stelle</button>
-                                            <button class="filter-btn" data-filter="3">3 stelle</button>
-                                        </div>
-                                    </div>
-
-                                    <div class="reviews-list">
-                                        <div class="review-item" data-rating="5">
-                                            <div class="review-header">
-                                                <div class="review-service">
-                                                    <h3>Massaggio Rilassante</h3>
-                                                    <p class="provider-name">Giulia Rossi</p>
-                                                    <div class="review-stars">
-                                                        <span class="stars">★★★★★</span>
-                                                        <span class="rating-text">5.0</span>
-                                                    </div>
-                                                </div>
-                                                <div class="review-date">15 Maggio 2024</div>
-                                            </div>
-                                            <div class="review-content">
-                                                <p>"Esperienza fantastica! Giulia è stata molto professionale e il
-                                                    massaggio è stato davvero rilassante. L'ambiente era perfetto e mi
-                                                    sono sentita completamente a mio agio. Consigliatissimo!"</p>
-                                            </div>
-                                            <div class="review-response">
-                                                <div class="response-header">
-                                                    <strong>Risposta di Giulia Rossi</strong>
-                                                    <span class="response-date">16 Maggio 2024</span>
-                                                </div>
-                                                <p>"Grazie mille Chiara! È stato un piacere lavorare con te. Spero di
-                                                    rivederti presto per il prossimo trattamento!"</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="review-item" data-rating="4">
-                                            <div class="review-header">
-                                                <div class="review-service">
-                                                    <h3>Lezione di Yoga</h3>
-                                                    <p class="provider-name">Marco Verdi</p>
-                                                    <div class="review-stars">
-                                                        <span class="stars">★★★★☆</span>
-                                                        <span class="rating-text">4.0</span>
-                                                    </div>
-                                                </div>
-                                                <div class="review-date">8 Gennaio 2024</div>
-                                            </div>
-                                            <div class="review-content">
-                                                <p>"Bella lezione di yoga! Marco è preparato e sa guidare bene gli
-                                                    esercizi. L'unica nota è che avrei preferito un po' più di tempo per
-                                                    il rilassamento finale."</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="review-item" data-rating="5">
-                                            <div class="review-header">
-                                                <div class="review-service">
-                                                    <h3>Manicure e Pedicure</h3>
-                                                    <p class="provider-name">Sofia Neri</p>
-                                                    <div class="review-stars">
-                                                        <span class="stars">★★★★★</span>
-                                                        <span class="rating-text">5.0</span>
-                                                    </div>
-                                                </div>
-                                                <div class="review-date">20 Dicembre 2023</div>
-                                            </div>
-                                            <div class="review-content">
-                                                <p>"Servizio impeccabile! Sofia è molto attenta ai dettagli e il
-                                                    risultato è durato settimane. Prodotti di qualità e grande
-                                                    professionalità."</p>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="load-more">
-                                        <button class="btn-load-more">Carica altre recensioni</button>
-                                    </div>
-                                </div>
-
-                                <!-- STATISTICHE RECENSIONI -->
-                                <div class="content-card">
-                                    <h2>Le tue statistiche</h2>
 
                                     <div class="stats-row">
                                         <div class="stat-item">
-                                            <div class="stat-number">8</div>
-                                            <div class="stat-label">Recensioni Scritte</div>
+                                            <div class="stat-number" id="totalReviews">8</div>
+                                            <div class="stat-label">Recensioni Totali</div>
                                         </div>
-                                        <div class="stat-item">
-                                            <div class="stat-number">4.6</div>
-                                            <div class="stat-label">Rating Medio</div>
-                                        </div>
-                                        <div class="stat-item">
-                                            <div class="stat-number">6</div>
-                                            <div class="stat-label">Professionisti Valutati</div>
-                                        </div>
-                                        <div class="stat-item">
-                                            <div class="stat-number">2</div>
+                                        <div class="stat-item pending">
+                                            <div class="stat-number" id="pendingReviews">3</div>
                                             <div class="stat-label">Da Completare</div>
                                         </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="averageRating">4.6</div>
+                                            <div class="stat-label">Media Assegnata</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- RECENSIONI DA COMPLETARE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Recensioni da Completare</h3>
+                                        <span class="pending-count" id="pendingCount">3</span>
+                                    </div>
+
+                                    <div class="pending-reviews" id="pendingReviewsList">
+                                        <!-- Recensioni in attesa generate dal JS -->
+                                    </div>
+                                </div>
+
+                                <!-- FILTRI RECENSIONI -->
+                                <div class="filters-container">
+                                    <div class="filters-left">
+                                        <div class="filter-group">
+                                            <label for="statusFilter" class="filter-label">Stato:</label>
+                                            <select id="statusFilter" class="filter-select">
+                                                <option value="all">Tutte</option>
+                                                <option value="completed">Completate</option>
+                                                <option value="pending">Da fare</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="ratingFilter" class="filter-label">Valutazione:</label>
+                                            <select id="ratingFilter" class="filter-select">
+                                                <option value="all">Tutte</option>
+                                                <option value="5">5 stelle</option>
+                                                <option value="4">4 stelle</option>
+                                                <option value="3">3 stelle</option>
+                                                <option value="2">2 stelle</option>
+                                                <option value="1">1 stella</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="serviceFilter" class="filter-label">Servizio:</label>
+                                            <select id="serviceFilter" class="filter-select">
+                                                <option value="all">Tutti i servizi</option>
+                                                <option value="massaggi">Massaggi</option>
+                                                <option value="beauty">Beauty</option>
+                                                <option value="fitness">Fitness</option>
+                                                <option value="fisioterapia">Fisioterapia</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="filter-group">
+                                            <label for="searchReviews" class="filter-label">Cerca:</label>
+                                            <input type="text" id="searchReviews" class="filter-select"
+                                                placeholder="Nome professionista...">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LISTA RECENSIONI COMPLETATE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h3>Le Tue Recensioni</h3>
+                                        <span class="count-badge" id="completedCount">5</span>
+                                    </div>
+
+                                    <div class="reviews-list" id="reviewsList">
+                                        <!-- Recensioni generate dal JS -->
+                                    </div>
+
+                                    <div class="load-more" style="display: none;">
+                                        <button class="btn-load-more" id="loadMoreBtn">Carica altre recensioni</button>
                                     </div>
                                 </div>
 
@@ -399,16 +323,16 @@
                 </div>
             </main>
 
-            <!-- FOOTER - Identico alle altre pagine -->
+            <!-- FOOTER -->
             <footer class="site-footer">
                 <div class="footer-container">
                     <div class="footer-content">
                         <div class="footer-links">
-                            <a class="footer-link" href="../pages/chi-siamo.html">Chi siamo</a>
-                            <a class="footer-link" href="../pages/contatti.html">Contatti</a>
-                            <a class="footer-link" href="../pages/termini.html">Termini e condizioni</a>
-                            <a class="footer-link" href="../pages/privacy.html">Privacy Policy</a>
-                            <a class="footer-link" href="../pages/faq.html">FAQ</a>
+                            <a class="footer-link" href="../../pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="../../pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="../../pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="../../pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="../../pages/faq.html">FAQ</a>
                         </div>
                         <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
                     </div>
@@ -418,56 +342,64 @@
     </div>
 
     <!-- MODAL RECENSIONE -->
-    <div id="reviewModal" class="review-modal" style="display: none;">
-        <div class="modal-overlay">
+    <div class="review-modal" id="reviewModal" style="display: none;">
+        <div class="modal-overlay" id="modalOverlay">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Scrivi la tua recensione</h3>
-                    <button class="modal-close" onclick="closeReviewModal()">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <h3>Lascia una Recensione</h3>
+                    <button class="modal-close" id="closeModal">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path
-                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
                         </svg>
                     </button>
                 </div>
 
                 <div class="modal-body">
-                    <div class="service-info">
-                        <h4 id="modalServiceName">Nome Servizio</h4>
-                        <p id="modalProviderName">Nome Professionista</p>
-                    </div>
-
-                    <div class="rating-section">
-                        <label>La tua valutazione</label>
-                        <div class="stars-container large" data-rating="0" id="modalStars">
-                            <span class="star" data-value="1">★</span>
-                            <span class="star" data-value="2">★</span>
-                            <span class="star" data-value="3">★</span>
-                            <span class="star" data-value="4">★</span>
-                            <span class="star" data-value="5">★</span>
+                    <form id="reviewForm">
+                        <div class="service-info" id="serviceInfo">
+                            <!-- Info servizio inserite dal JS -->
                         </div>
-                    </div>
 
-                    <div class="comment-section">
-                        <label for="reviewComment">Il tuo commento (facoltativo)</label>
-                        <textarea id="reviewComment" placeholder="Condividi la tua esperienza..."
-                            maxlength="500"></textarea>
-                        <div class="char-count">0/500</div>
-                    </div>
-                </div>
+                        <div class="rating-section">
+                            <h4>La tua valutazione</h4>
+                            <div class="stars-container large" id="starsContainer" data-rating="0">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <p class="rating-text" id="ratingText">Seleziona una valutazione</p>
+                        </div>
 
-                <div class="modal-actions">
-                    <button class="btn-cancel" onclick="closeReviewModal()">Annulla</button>
-                    <button class="btn-submit" onclick="submitReview()">Pubblica Recensione</button>
+                        <div class="comment-section">
+                            <h4>Il tuo commento</h4>
+                            <textarea id="reviewComment" name="comment" placeholder="Descrivi la tua esperienza..."
+                                maxlength="500"></textarea>
+                            <div class="char-counter">
+                                <span id="charCount">0/500</span>
+                            </div>
+                        </div>
+
+                        <div class="modal-actions">
+                            <button type="button" class="btn-cancel" id="cancelReview">Annulla</button>
+                            <button type="submit" class="btn-submit" id="submitReview" disabled>Pubblica
+                                Recensione</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- CONTAINER NOTIFICHE -->
+    <div id="notificationContainer"></div>
+
     <!-- JAVASCRIPT -->
-    <script src="/assets/js/main.js?v=1.2"></script>
-    <script src="/assets/js/recensioni.js?v=1.2"></script>
-    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../../assets/js/recensioni.js"></script>
 </body>
 
 </html>
