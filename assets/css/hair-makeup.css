@@ -1,0 +1,875 @@
+/* ===== HAIR & MAKE-UP - CSS LAYOUT OTTIMIZZATO ===== */
+/* Desktop: Foto grande sinistra + Info destra + Cuore basso | Mobile: Verticale */
+
+/* BREADCRUMB HAIR */
+.hair-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.hair-breadcrumb a {
+    color: #2d5a3d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hair-breadcrumb a:hover {
+    color: #52a373;
+}
+
+.hair-breadcrumb span {
+    color: #999;
+    margin: 0 4px;
+}
+
+/* HERO HAIR & MAKE-UP */
+.hair-hero {
+    background: linear-gradient(135deg, #fef7f7 0%, #f7ecef 100%);
+    border-radius: 16px;
+    padding: 48px 32px;
+    margin: 32px 0;
+}
+
+.hair-hero-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hair-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1e3a2e;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.hair-hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.hair-stats {
+    display: flex;
+    gap: 32px;
+}
+
+.hair-stat {
+    text-align: center;
+}
+
+.hair-stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #2d5a3d;
+    line-height: 1;
+}
+
+.hair-stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.hair-hero-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(45, 90, 61, 0.1);
+}
+
+.hair-hero-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* LAYOUT PRINCIPALE */
+.hair-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+/* SIDEBAR FILTRI */
+.hair-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.hair-filters {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.hair-filters h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin-bottom: 24px;
+}
+
+.hair-filter-group {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hair-filter-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.hair-filter-group h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.hair-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 6px 0;
+}
+
+.hair-filter-option input {
+    margin: 0;
+}
+
+.hair-filter-option span {
+    font-size: 14px;
+    color: #555;
+}
+
+.hair-price-range {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hair-price-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.hair-distance-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+.hair-filter-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.hair-reset-filters {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+/* MAPPA */
+.hair-map {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.hair-map h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a2e;
+    margin-bottom: 16px;
+}
+
+.hair-map-placeholder {
+    height: 200px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border: 2px dashed #ddd;
+}
+
+.hair-map-placeholder svg {
+    color: #2d5a3d;
+    margin-bottom: 8px;
+}
+
+/* CONTENUTO PRINCIPALE */
+.hair-main {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.hair-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.hair-results-info h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin-bottom: 4px;
+}
+
+.hair-results-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.hair-sort {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.hair-sort label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.hair-sort-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+/* ===== GRID PROFESSIONISTI - 3 COLONNE DESKTOP ===== */
+.hair-professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* ===== CARD PROFESSIONISTA - LAYOUT MIGLIORATO E PIÙ GRANDE ===== */
+.hair-professional-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 420px;
+}
+
+.hair-professional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.hair-professional-card.hair-premium {
+    border-color: var(--color-primary);
+    position: relative;
+}
+
+/* PREMIUM BADGE - VERDE COME PROFESSIONISTI */
+.hair-premium-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(45, 90, 61, 0.3);
+    line-height: 1;
+    z-index: 4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CUORE IN ALTO A DESTRA */
+.hair-favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.hair-favorite-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #dc2626;
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+}
+
+.hair-favorite-btn.active {
+    background: #fce7e6;
+    color: #dc2626;
+    border-color: #fce7e6;
+}
+
+/* ===== HEADER CARD - FOTO GRANDE + INFO DESTRA ===== */
+.hair-card-header {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    padding-bottom: 0;
+    align-items: flex-start;
+}
+
+/* FOTO PROFESSIONISTA - PIÙ GRANDE */
+.hair-card-image {
+    position: relative;
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.hair-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFO HEADER - DESTRA FOTO */
+.hair-header-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-top: 8px;
+    margin-left: 8px;
+}
+
+.hair-header-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin: 0;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.hair-header-info p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.hair-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hair-stars {
+    color: #fbbf24;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.hair-rating-value {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.hair-reviews-count {
+    font-size: 13px;
+    color: #666;
+}
+
+/* ===== CONTENUTO CARD - SOTTO HEADER ===== */
+.hair-card-content {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+/* SPECIALIZZAZIONI */
+.hair-specializations {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-left: 12px;
+}
+
+.hair-tag {
+    background: #fdf2f8;
+    color: #be185d;
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid #fce7f3;
+    line-height: 1.2;
+}
+
+/* DETTAGLI SERVIZIO */
+.hair-service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.hair-location,
+.hair-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hair-location span,
+.hair-pricing span {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.3;
+}
+
+.hair-pricing span {
+    color: #2d5a3d;
+    font-weight: 600;
+}
+
+.hair-transport-included {
+    color: #10b981 !important;
+    font-size: 11px !important;
+    font-style: italic;
+}
+
+.hair-packages {
+    font-size: 13px;
+    color: #2d5a3d;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* DISPONIBILITÀ */
+.hair-availability {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.hair-availability.has-last-minute {
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.hair-available,
+.hair-busy,
+.hair-weekend {
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.hair-available {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.hair-busy {
+    background: #fed7d7;
+    color: #991b1b;
+}
+
+.hair-weekend {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* LAST MINUTE BADGE - STILE HEADER */
+.hair-last-minute {
+    color: #ef4444;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    animation: blink 1.5s infinite;
+    margin-right: 8px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* DISTANZA - SOLO PER LAST MINUTE */
+.hair-distance {
+    font-size: 11px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* NASCONDI DISTANZA SE NON LAST MINUTE */
+.hair-availability:not(.has-last-minute) .hair-distance {
+    display: none;
+}
+
+/* ===== FOOTER CARD - PULSANTI ===== */
+.hair-card-footer {
+    margin-top: auto;
+    position: relative;
+}
+
+.hair-card-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 0;
+}
+
+.hair-profile-btn,
+.hair-book-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    line-height: 1.2;
+}
+
+/* LOAD MORE */
+.hair-load-more {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.hair-load-more-btn {
+    margin-bottom: 12px;
+    padding: 12px 32px;
+}
+
+.hair-load-more p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ===== RESPONSIVE PROGRESSIVO ===== */
+
+/* DESKTOP LARGE - 2 colonne ottimizzate */
+@media (min-width: 1200px) {
+    .hair-card-header {
+        padding: 24px 24px 0 24px;
+        gap: 20px;
+    }
+
+    .hair-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .hair-card-content {
+        padding: 0 24px 24px 24px;
+    }
+
+    .hair-card-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .hair-header-info h3 {
+        font-size: 22px;
+    }
+
+    .hair-header-info p {
+        font-size: 15px;
+    }
+}
+
+/* DESKTOP EXTRA LARGE - 3 colonne per schermi grandi */
+@media (min-width: 1600px) {
+    .hair-professionals-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .hair-card-header {
+        padding: 28px 28px 0 28px;
+        gap: 24px;
+    }
+
+    .hair-card-content {
+        padding: 0 28px 28px 28px;
+    }
+
+    .hair-card-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .hair-header-info h3 {
+        font-size: 24px;
+    }
+
+    .hair-header-info p {
+        font-size: 16px;
+    }
+}
+
+/* TABLET LANDSCAPE - 2 colonne */
+@media (max-width: 1199px) and (min-width: 969px) {
+    .hair-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+    }
+
+    .hair-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .hair-card-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .hair-hero-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .hair-hero h1 {
+        font-size: 40px;
+    }
+}
+
+/* TABLET PORTRAIT - Layout sidebar sopra + 2 colonne */
+@media (max-width: 968px) {
+    .hair-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .hair-sidebar {
+        order: -1;
+    }
+
+    .hair-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .hair-card-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .hair-header-info h3 {
+        font-size: 18px;
+    }
+
+    .hair-hero {
+        padding: 32px 24px;
+    }
+
+    .hair-hero h1 {
+        font-size: 32px;
+    }
+
+    .hair-stats {
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .hair-results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* MOBILE LARGE - 1 colonna + layout verticale */
+@media (max-width: 640px) {
+    .hair-professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* TRANSIZIONE A LAYOUT VERTICALE MOBILE */
+    .hair-card-header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 20px 0 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .hair-card-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+    }
+
+    .hair-header-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .hair-header-info h3 {
+        font-size: 20px;
+    }
+
+    .hair-rating {
+        justify-content: center;
+    }
+
+    .hair-favorite-btn {
+        top: 16px;
+        right: 16px;
+        bottom: auto;
+    }
+
+    .hair-card-content {
+        padding: 0 16px 16px 16px;
+        gap: 14px;
+    }
+
+    .hair-specializations {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .hair-card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hair-hero {
+        padding: 24px 16px;
+    }
+
+    .hair-hero h1 {
+        font-size: 28px;
+    }
+
+    .hair-stats {
+        gap: 16px;
+    }
+
+    .hair-stat-number {
+        font-size: 24px;
+    }
+
+    .hair-filters {
+        padding: 16px;
+    }
+
+    .hair-main {
+        padding: 16px;
+    }
+}
+
+/* MOBILE SMALL - Ottimizzazioni finali */
+@media (max-width: 480px) {
+    .hair-stats {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .hair-filter-actions {
+        flex-direction: column;
+    }
+
+    .hair-price-range {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .hair-availability {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .hair-card-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hair-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+}

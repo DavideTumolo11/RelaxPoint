@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Hair & Make-up - RelaxPoint | Professionisti certificati a domicilio</title>
+    <meta name="description"
+        content="Prenota il tuo hair stylist o make-up artist per matrimoni, eventi e servizi quotidiani. Professionisti certificati a domicilio o presso studio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS BASE + SPECIFICO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/hair-makeup.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE - USA LAYOUT ESISTENTE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - IDENTICO AL SITO -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a href="/index.html" class="nav-link">Home</a>
+                        <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
+                        <a href="/pages/professionisti/professionisti.html" class="nav-link">Professionisti</a>
+                        <a href="/pages/ispirazioni/ispirazioni.html" class="nav-link">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca hair stylist..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT - USA LAYOUT ESISTENTE -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="hair-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <span>HAIR & MAKE-UP</span>
+                    </div>
+
+                    <!-- HERO HAIR & MAKE-UP -->
+                    <section class="hair-hero">
+                        <div class="hair-hero-content">
+                            <div class="hair-hero-text">
+                                <h1>Hair & Make-up</h1>
+                                <p>Trasforma il tuo look con i migliori hair stylist e make-up artist. Servizi
+                                    professionali per matrimoni, eventi speciali e styling quotidiano, a domicilio o
+                                    presso studio.</p>
+                                <div class="hair-stats">
+                                    <div class="hair-stat">
+                                        <span class="hair-stat-number">35</span>
+                                        <span class="hair-stat-label">Professionisti</span>
+                                    </div>
+                                    <div class="hair-stat">
+                                        <span class="hair-stat-number">12</span>
+                                        <span class="hair-stat-label">Specializzazioni</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="hair-hero-image">
+                                <img src="/assets/images/Servizi/Hair and make-up.png"
+                                    alt="Hair & Make-up professionale" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LAYOUT PRINCIPALE -->
+                    <div class="hair-layout">
+
+                        <!-- SIDEBAR FILTRI -->
+                        <aside class="hair-sidebar">
+                            <div class="hair-filters">
+                                <h3>Filtra Risultati</h3>
+
+                                <!-- Modalità Servizio -->
+                                <div class="hair-filter-group">
+                                    <h4>Modalità Servizio</h4>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="modalita" value="domicilio" checked>
+                                        <span>A domicilio</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="modalita" value="studio">
+                                        <span>Presso studio</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="modalita" value="location">
+                                        <span>Location evento</span>
+                                    </label>
+                                </div>
+
+                                <!-- Categoria Servizio -->
+                                <div class="hair-filter-group">
+                                    <h4>Categoria Servizio</h4>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="categoria" value="makeup">
+                                        <span>Make-up</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="categoria" value="hair">
+                                        <span>Hair Styling</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="categoria" value="combo">
+                                        <span>Combo Hair+Make-up</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="categoria" value="uomo">
+                                        <span>Servizi Uomo</span>
+                                    </label>
+                                </div>
+
+                                <!-- Occasione -->
+                                <div class="hair-filter-group">
+                                    <h4>Occasione</h4>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="occasione" value="quotidiano">
+                                        <span>Quotidiano</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="occasione" value="eventi">
+                                        <span>Eventi</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="occasione" value="sposa">
+                                        <span>Matrimonio</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="checkbox" name="occasione" value="fashion">
+                                        <span>Fashion/Shooting</span>
+                                    </label>
+                                </div>
+
+                                <!-- Prezzo -->
+                                <div class="hair-filter-group">
+                                    <h4>Prezzo</h4>
+                                    <div class="hair-price-range">
+                                        <input type="number" class="hair-price-input" placeholder="Min €" min="25"
+                                            max="300">
+                                        <span>—</span>
+                                        <input type="number" class="hair-price-input" placeholder="Max €" min="25"
+                                            max="300">
+                                    </div>
+                                </div>
+
+                                <!-- Distanza -->
+                                <div class="hair-filter-group">
+                                    <h4>Distanza</h4>
+                                    <select class="hair-distance-select">
+                                        <option value="5">Entro 5 km</option>
+                                        <option value="10" selected>Entro 10 km</option>
+                                        <option value="15">Entro 15 km</option>
+                                        <option value="25">Entro 25 km</option>
+                                        <option value="50">Entro 50 km</option>
+                                    </select>
+                                </div>
+
+                                <!-- Valutazione -->
+                                <div class="hair-filter-group">
+                                    <h4>Valutazione</h4>
+                                    <label class="hair-filter-option">
+                                        <input type="radio" name="rating" value="4plus">
+                                        <span>4+ stelle</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="radio" name="rating" value="45plus">
+                                        <span>4.5+ stelle</span>
+                                    </label>
+                                    <label class="hair-filter-option">
+                                        <input type="radio" name="rating" value="premium">
+                                        <span>Solo Premium</span>
+                                    </label>
+                                </div>
+
+                                <!-- Pulsanti Filtri -->
+                                <div class="hair-filter-actions">
+                                    <button class="btn-secondary hair-reset-filters">Reset Filtri</button>
+                                </div>
+                            </div>
+
+                            <!-- Mappa -->
+                            <div class="hair-map">
+                                <h3>Mappa Professionisti</h3>
+                                <div class="hair-map-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <p>Mappa interattiva</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="hair-main">
+
+                            <!-- Header risultati -->
+                            <div class="hair-results-header">
+                                <div class="hair-results-info">
+                                    <h2>35 Professionisti trovati</h2>
+                                    <p>Cagliari e dintorni</p>
+                                </div>
+                                <div class="hair-sort">
+                                    <label>Ordina per:</label>
+                                    <select class="hair-sort-select">
+                                        <option value="rilevanza">Più rilevanti</option>
+                                        <option value="rating">Valutazione</option>
+                                        <option value="prezzo-asc">Prezzo crescente</option>
+                                        <option value="prezzo-desc">Prezzo decrescente</option>
+                                        <option value="distanza">Distanza</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Grid Professionisti -->
+                            <div class="hair-professionals-grid">
+
+                                <!-- Professionista Premium - Make-up Artist -->
+                                <div class="hair-professional-card hair-premium">
+                                    <div class="hair-premium-badge">PREMIUM</div>
+                                    <button class="hair-favorite-btn">♡</button>
+
+                                    <div class="hair-card-header">
+                                        <div class="hair-card-image">
+                                            <img src="/assets/images/Professionisti/pr5.png" alt="Sofia Moretti">
+                                        </div>
+                                        <div class="hair-header-info">
+                                            <h3>Sofia Moretti</h3>
+                                            <p>Make-up Artist & Hair Stylist</p>
+                                            <div class="hair-rating">
+                                                <div class="hair-stars">★★★★★</div>
+                                                <span class="hair-rating-value">4.9</span>
+                                                <span class="hair-reviews-count">(156)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hair-card-content">
+                                        <div class="hair-specializations">
+                                            <span class="hair-tag">Make-up Sposa</span>
+                                            <span class="hair-tag">Acconciature</span>
+                                            <span class="hair-tag">Fashion</span>
+                                            <span class="hair-tag">+3</span>
+                                        </div>
+
+                                        <div class="hair-service-details">
+                                            <div class="hair-location">
+                                                <span>🏠 Studio: Via Garibaldi 42</span>
+                                                <span>🚗 Domicilio: raggio 20km</span>
+                                                <span>📍 Location eventi: disponibile</span>
+                                            </div>
+                                            <div class="hair-pricing">
+                                                <span>Make-up: da €60</span>
+                                                <span>Hair Styling: da €45</span>
+                                                <span>Combo Sposa: da €150</span>
+                                            </div>
+                                            <div class="hair-packages">
+                                                ⭐ 8 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="hair-card-footer">
+                                            <div class="hair-availability has-last-minute">
+                                                <span class="hair-available">Disponibile oggi</span>
+                                                <span class="hair-last-minute">Last Minute</span>
+                                                <span class="hair-distance">1.8 km</span>
+                                            </div>
+
+                                            <div class="hair-card-actions">
+                                                <button class="btn-secondary hair-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary hair-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Hair Stylist Normale -->
+                                <div class="hair-professional-card">
+                                    <button class="hair-favorite-btn">♡</button>
+
+                                    <div class="hair-card-header">
+                                        <div class="hair-card-image">
+                                            <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi">
+                                        </div>
+                                        <div class="hair-header-info">
+                                            <h3>Marco Bianchi</h3>
+                                            <p>Hair Stylist Professionista</p>
+                                            <div class="hair-rating">
+                                                <div class="hair-stars">★★★★☆</div>
+                                                <span class="hair-rating-value">4.7</span>
+                                                <span class="hair-reviews-count">(89)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hair-card-content">
+                                        <div class="hair-specializations">
+                                            <span class="hair-tag">Taglio</span>
+                                            <span class="hair-tag">Colore</span>
+                                            <span class="hair-tag">Extension</span>
+                                        </div>
+
+                                        <div class="hair-service-details">
+                                            <div class="hair-location">
+                                                <span>🏠 Studio: Corso Italia 88</span>
+                                                <span>🚗 Domicilio: raggio 15km</span>
+                                            </div>
+                                            <div class="hair-pricing">
+                                                <span>Taglio: da €35</span>
+                                                <span>Colore: da €80</span>
+                                                <span>Piega: da €25</span>
+                                            </div>
+                                            <div class="hair-packages">
+                                                ⭐ 6 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="hair-card-footer">
+                                            <div class="hair-availability">
+                                                <span class="hair-busy">Disponibile domani</span>
+                                                <span class="hair-distance">3.2 km</span>
+                                            </div>
+
+                                            <div class="hair-card-actions">
+                                                <button class="btn-secondary hair-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary hair-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Barbiere Specializzato -->
+                                <div class="hair-professional-card">
+                                    <button class="hair-favorite-btn active">♥</button>
+
+                                    <div class="hair-card-header">
+                                        <div class="hair-card-image">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Giuseppe Conti">
+                                        </div>
+                                        <div class="hair-header-info">
+                                            <h3>Giuseppe Conti</h3>
+                                            <p>Barbiere Professionista</p>
+                                            <div class="hair-rating">
+                                                <div class="hair-stars">★★★★★</div>
+                                                <span class="hair-rating-value">4.8</span>
+                                                <span class="hair-reviews-count">(203)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hair-card-content">
+                                        <div class="hair-specializations">
+                                            <span class="hair-tag">Taglio Uomo</span>
+                                            <span class="hair-tag">Barba</span>
+                                            <span class="hair-tag">Combo</span>
+                                        </div>
+
+                                        <div class="hair-service-details">
+                                            <div class="hair-location">
+                                                <span>🏠 Studio: Via Roma 156</span>
+                                                <span>🚗 Domicilio: raggio 10km</span>
+                                            </div>
+                                            <div class="hair-pricing">
+                                                <span>Taglio: da €25</span>
+                                                <span>Barba: da €20</span>
+                                                <span>Combo: da €40</span>
+                                            </div>
+                                            <div class="hair-packages">
+                                                ⭐ 4 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="hair-card-footer">
+                                            <div class="hair-availability has-last-minute">
+                                                <span class="hair-available">Disponibile oggi</span>
+                                                <span class="hair-last-minute">Last Minute</span>
+                                                <span class="hair-distance">2.1 km</span>
+                                            </div>
+
+                                            <div class="hair-card-actions">
+                                                <button class="btn-secondary hair-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary hair-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Make-up Artist Freelance -->
+                                <div class="hair-professional-card">
+                                    <button class="hair-favorite-btn">♡</button>
+
+                                    <div class="hair-card-header">
+                                        <div class="hair-card-image">
+                                            <img src="/assets/images/Professionisti/pr3.png" alt="Laura Verdi">
+                                        </div>
+                                        <div class="hair-header-info">
+                                            <h3>Laura Verdi</h3>
+                                            <p>Make-up Artist Freelance</p>
+                                            <div class="hair-rating">
+                                                <div class="hair-stars">★★★★☆</div>
+                                                <span class="hair-rating-value">4.6</span>
+                                                <span class="hair-reviews-count">(127)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hair-card-content">
+                                        <div class="hair-specializations">
+                                            <span class="hair-tag">Make-up Eventi</span>
+                                            <span class="hair-tag">Lezioni</span>
+                                            <span class="hair-tag">Fashion</span>
+                                        </div>
+
+                                        <div class="hair-service-details">
+                                            <div class="hair-location">
+                                                <span>🚗 Solo domicilio: raggio 25km</span>
+                                                <span>📍 Location eventi: disponibile</span>
+                                            </div>
+                                            <div class="hair-pricing">
+                                                <span>Make-up Eventi: da €80</span>
+                                                <span>Lezioni: da €90</span>
+                                                <span class="hair-transport-included">Kit incluso</span>
+                                            </div>
+                                            <div class="hair-packages">
+                                                ⭐ 5 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="hair-card-footer">
+                                            <div class="hair-availability">
+                                                <span class="hair-weekend">Disponibile weekend</span>
+                                                <span class="hair-distance">5.7 km</span>
+                                            </div>
+
+                                            <div class="hair-card-actions">
+                                                <button class="btn-secondary hair-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary hair-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Hair Stylist Donna -->
+                                <div class="hair-professional-card">
+                                    <button class="hair-favorite-btn">♡</button>
+
+                                    <div class="hair-card-header">
+                                        <div class="hair-card-image">
+                                            <img src="/assets/images/Professionisti/pr6.png" alt="Elena Ferrari">
+                                        </div>
+                                        <div class="hair-header-info">
+                                            <h3>Elena Ferrari</h3>
+                                            <p>Hair Stylist & Colorist</p>
+                                            <div class="hair-rating">
+                                                <div class="hair-stars">★★★★☆</div>
+                                                <span class="hair-rating-value">4.5</span>
+                                                <span class="hair-reviews-count">(94)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hair-card-content">
+                                        <div class="hair-specializations">
+                                            <span class="hair-tag">Colore Tecnico</span>
+                                            <span class="hair-tag">Balayage</span>
+                                            <span class="hair-tag">Piega</span>
+                                        </div>
+
+                                        <div class="hair-service-details">
+                                            <div class="hair-location">
+                                                <span>🏠 Studio: Viale Europa 23</span>
+                                                <span>🚗 Domicilio: raggio 12km</span>
+                                            </div>
+                                            <div class="hair-pricing">
+                                                <span>Colore: da €90</span>
+                                                <span>Balayage: da €120</span>
+                                                <span>Piega: da €30</span>
+                                            </div>
+                                            <div class="hair-packages">
+                                                ⭐ 7 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="hair-card-footer">
+                                            <div class="hair-availability">
+                                                <span class="hair-available">Disponibile oggi</span>
+                                                <span class="hair-distance">4.3 km</span>
+                                            </div>
+
+                                            <div class="hair-card-actions">
+                                                <button class="btn-secondary hair-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary hair-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Wedding Specialist -->
+                                <div class="hair-professional-card hair-premium">
+                                    <div class="hair-premium-badge">PREMIUM</div>
+                                    <button class="hair-favorite-btn">♡</button>
+
+                                    <div class="hair-card-header">
+                                        <div class="hair-card-image">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Alessia Russo">
+                                        </div>
+                                        <div class="hair-header-info">
+                                            <h3>Alessia Russo</h3>
+                                            <p>Wedding Specialist Hair & Make-up</p>
+                                            <div class="hair-rating">
+                                                <div class="hair-stars">★★★★★</div>
+                                                <span class="hair-rating-value">4.9</span>
+                                                <span class="hair-reviews-count">(245)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hair-card-content">
+                                        <div class="hair-specializations">
+                                            <span class="hair-tag">Sposa Completa</span>
+                                            <span class="hair-tag">Trial</span>
+                                            <span class="hair-tag">Party Nuziale</span>
+                                        </div>
+
+                                        <div class="hair-service-details">
+                                            <div class="hair-location">
+                                                <span>🏠 Studio: Via Dante 67</span>
+                                                <span>📍 Location: in tutta la Sardegna</span>
+                                            </div>
+                                            <div class="hair-pricing">
+                                                <span>Sposa Completa: da €200</span>
+                                                <span>Trial: da €80</span>
+                                                <span>Party Nuziale: da €120</span>
+                                                <span class="hair-transport-included">Kit ritocco incluso</span>
+                                            </div>
+                                            <div class="hair-packages">
+                                                ⭐ 12 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="hair-card-footer">
+                                            <div class="hair-availability">
+                                                <span class="hair-busy">Prenotazione anticipata</span>
+                                                <span class="hair-distance">7.2 km</span>
+                                            </div>
+
+                                            <div class="hair-card-actions">
+                                                <button class="btn-secondary hair-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary hair-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load More -->
+                                <div class="hair-load-more">
+                                    <button class="btn-secondary hair-load-more-btn">Carica altri
+                                        professionisti</button>
+                                    <p>Mostrando 6 di 35 risultati</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- SEZIONI CORRELATE -->
+            <section class="content-sections">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Servizi Correlati</h2>
+                    <div class="services-grid">
+                        <a href="/pages/servizi/beauty-wellness.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/Beauty.jpg");'></div>
+                            <p class="service-title">Beauty & Wellness</p>
+                        </a>
+                        <a href="/pages/servizi/massaggi-e-trattamenti.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/massage2.jpg");'></div>
+                            <p class="service-title">Massaggi e Trattamenti</p>
+                        </a>
+                        <a href="/pages/servizi/gravidanza-neo-mamme.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/neoMamma.jpg");'></div>
+                            <p class="service-title">Gravidanza & Neo-mamme</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/hair-makeup.js?v=1.2"></script>
+</body>
+
+</html>
