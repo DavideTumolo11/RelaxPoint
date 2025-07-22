@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Massaggi e Trattamenti - RelaxPoint | Professionisti certificati a domicilio</title>
+    <meta name="description"
+        content="Prenota il tuo massaggio rilassante, terapeutico o orientale con i migliori professionisti. Servizio a domicilio o presso studio. Pacchetti personalizzati disponibili.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS BASE + SPECIFICO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/massaggi-e-trattamenti.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE - USA LAYOUT ESISTENTE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - IDENTICO AL SITO -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a href="/index.html" class="nav-link">Home</a>
+                        <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
+                        <a href="/pages/professionisti/professionisti.html" class="nav-link">Professionisti</a>
+                        <a href="/pages/ispirazioni/ispirazioni.html" class="nav-link">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca massaggiatori..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT - USA LAYOUT ESISTENTE -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB - Usando classi esistenti -->
+                    <div class="massaggi-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <span>MASSAGGI E TRATTAMENTI</span>
+                    </div>
+
+                    <!-- HERO MASSAGGI - Classi specifiche -->
+                    <section class="massaggi-hero">
+                        <div class="massaggi-hero-content">
+                            <div class="massaggi-hero-text">
+                                <h1>Massaggi e Trattamenti</h1>
+                                <p>Rilassati e rigenera corpo e mente con i nostri massaggiatori e terapisti
+                                    certificati. Scegli tra massaggi rilassanti, terapeutici, orientali e trattamenti
+                                    corpo personalizzati.</p>
+                                <div class="massaggi-stats">
+                                    <div class="massaggi-stat">
+                                        <span class="massaggi-stat-number">47</span>
+                                        <span class="massaggi-stat-label">Professionisti</span>
+                                    </div>
+                                    <div class="massaggi-stat">
+                                        <span class="massaggi-stat-number">15</span>
+                                        <span class="massaggi-stat-label">Specializzazioni</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="massaggi-hero-image">
+                                <img src="/assets/images/Servizi/massage2.jpg" alt="Massaggio rilassante" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LAYOUT PRINCIPALE - Grid semplice -->
+                    <div class="massaggi-layout">
+
+                        <!-- SIDEBAR FILTRI -->
+                        <aside class="massaggi-sidebar">
+                            <div class="massaggi-filters">
+                                <h3>Filtra Risultati</h3>
+
+                                <!-- Modalità Servizio -->
+                                <div class="massaggi-filter-group">
+                                    <h4>Modalità Servizio</h4>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="modalita" value="domicilio" checked>
+                                        <span>A domicilio</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="modalita" value="studio">
+                                        <span>Presso studio</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="modalita" value="entrambe">
+                                        <span>Entrambe</span>
+                                    </label>
+                                </div>
+
+                                <!-- Tipo Servizio -->
+                                <div class="massaggi-filter-group">
+                                    <h4>Tipo Servizio</h4>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="tipo" value="rilassante">
+                                        <span>Rilassante</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="tipo" value="terapeutico">
+                                        <span>Terapeutico</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="tipo" value="orientale">
+                                        <span>Orientale</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="tipo" value="estetico">
+                                        <span>Estetico/Benessere</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="checkbox" name="tipo" value="trattamenti">
+                                        <span>Trattamenti Corpo</span>
+                                    </label>
+                                </div>
+
+                                <!-- Prezzo -->
+                                <div class="massaggi-filter-group">
+                                    <h4>Prezzo</h4>
+                                    <div class="massaggi-price-range">
+                                        <input type="number" class="massaggi-price-input" placeholder="Min €" min="30"
+                                            max="200">
+                                        <span>—</span>
+                                        <input type="number" class="massaggi-price-input" placeholder="Max €" min="30"
+                                            max="200">
+                                    </div>
+                                </div>
+
+                                <!-- Distanza -->
+                                <div class="massaggi-filter-group">
+                                    <h4>Distanza</h4>
+                                    <select class="massaggi-distance-select">
+                                        <option value="5">Entro 5 km</option>
+                                        <option value="10" selected>Entro 10 km</option>
+                                        <option value="15">Entro 15 km</option>
+                                        <option value="25">Entro 25 km</option>
+                                        <option value="50">Entro 50 km</option>
+                                    </select>
+                                </div>
+
+                                <!-- Valutazione -->
+                                <div class="massaggi-filter-group">
+                                    <h4>Valutazione</h4>
+                                    <label class="massaggi-filter-option">
+                                        <input type="radio" name="rating" value="4plus">
+                                        <span>4+ stelle</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="radio" name="rating" value="45plus">
+                                        <span>4.5+ stelle</span>
+                                    </label>
+                                    <label class="massaggi-filter-option">
+                                        <input type="radio" name="rating" value="premium">
+                                        <span>Solo Premium</span>
+                                    </label>
+                                </div>
+
+                                <!-- Pulsanti Filtri -->
+                                <div class="massaggi-filter-actions">
+                                    <button class="btn-secondary massaggi-reset-filters">Reset Filtri</button>
+                                </div>
+                            </div>
+
+                            <!-- Mappa -->
+                            <div class="massaggi-map">
+                                <h3>Mappa Professionisti</h3>
+                                <div class="massaggi-map-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <p>Mappa interattiva</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="massaggi-main">
+
+                            <!-- Header risultati -->
+                            <div class="massaggi-results-header">
+                                <div class="massaggi-results-info">
+                                    <h2>47 Professionisti trovati</h2>
+                                    <p>Cagliari e dintorni</p>
+                                </div>
+                                <div class="massaggi-sort">
+                                    <label>Ordina per:</label>
+                                    <select class="massaggi-sort-select">
+                                        <option value="rilevanza">Più rilevanti</option>
+                                        <option value="rating">Valutazione</option>
+                                        <option value="prezzo-asc">Prezzo crescente</option>
+                                        <option value="prezzo-desc">Prezzo decrescente</option>
+                                        <option value="distanza">Distanza</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Grid Professionisti - STRUTTURA CORRETTA -->
+                            <div class="massaggi-professionals-grid">
+
+                                <!-- Professionista Premium - STRUTTURA CORRETTA -->
+                                <div class="massaggi-professional-card massaggi-premium">
+                                    <!-- PREMIUM BADGE FUORI FOTO -->
+                                    <div class="massaggi-premium-badge">PREMIUM</div>
+
+                                    <!-- CUORE IN ALTO A DESTRA -->
+                                    <button class="massaggi-favorite-btn">♡</button>
+
+                                    <!-- HEADER: Foto + Nome/Professione/Stelle -->
+                                    <div class="massaggi-card-header">
+                                        <div class="massaggi-card-image">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Marco Rossi">
+                                        </div>
+                                        <div class="massaggi-header-info">
+                                            <h3>Marco Rossi</h3>
+                                            <p>Massoterapista certificato</p>
+                                            <div class="massaggi-rating">
+                                                <div class="massaggi-stars">★★★★★</div>
+                                                <span class="massaggi-rating-value">4.9</span>
+                                                <span class="massaggi-reviews-count">(127)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- CONTENUTO: Tutto il resto sotto -->
+                                    <div class="massaggi-card-content">
+                                        <div class="massaggi-specializations">
+                                            <span class="massaggi-tag">Rilassante</span>
+                                            <span class="massaggi-tag">Terapeutico</span>
+                                            <span class="massaggi-tag">Hot Stone</span>
+                                            <span class="massaggi-tag">+2</span>
+                                        </div>
+
+                                        <div class="massaggi-service-details">
+                                            <div class="massaggi-location">
+                                                <span>🏠 Studio: Via Roma 15</span>
+                                                <span>🚗 Domicilio: raggio 15km</span>
+                                            </div>
+                                            <div class="massaggi-pricing">
+                                                <span>Studio: da €55</span>
+                                                <span>Domicilio: da €70</span>
+                                            </div>
+                                            <div class="massaggi-packages">
+                                                ⭐ 5 pacchetti disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="massaggi-card-footer">
+                                            <div class="massaggi-availability has-last-minute">
+                                                <span class="massaggi-available">Disponibile oggi</span>
+                                                <span class="massaggi-last-minute">Last Minute</span>
+                                                <span class="massaggi-distance">2.3 km</span>
+                                            </div>
+
+                                            <div class="massaggi-card-actions">
+                                                <button class="btn-secondary massaggi-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary massaggi-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- CUORE IN ALTO A DESTRA -->
+                                    <button class="massaggi-favorite-btn">♡</button>
+                                </div>
+
+                                <!-- Professionista Normale -->
+                                <div class="massaggi-professional-card">
+                                    <!-- CUORE IN ALTO A DESTRA -->
+                                    <button class="massaggi-favorite-btn">♡</button>
+
+                                    <div class="massaggi-card-header">
+                                        <div class="massaggi-card-image">
+                                            <img src="/assets/images/Professionisti/pr2.png" alt="Elena Bianchi">
+                                        </div>
+                                        <div class="massaggi-header-info">
+                                            <h3>Elena Bianchi</h3>
+                                            <p>Massaggiatrice olistica</p>
+                                            <div class="massaggi-rating">
+                                                <div class="massaggi-stars">★★★★☆</div>
+                                                <span class="massaggi-rating-value">4.7</span>
+                                                <span class="massaggi-reviews-count">(89)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="massaggi-card-content">
+                                        <div class="massaggi-specializations">
+                                            <span class="massaggi-tag">Ayurvedico</span>
+                                            <span class="massaggi-tag">Shiatsu</span>
+                                            <span class="massaggi-tag">Drenante</span>
+                                        </div>
+
+                                        <div class="massaggi-service-details">
+                                            <div class="massaggi-location">
+                                                <span>🚗 Solo domicilio: raggio 20km</span>
+                                            </div>
+                                            <div class="massaggi-pricing">
+                                                <span>Domicilio: da €65</span>
+                                                <span class="massaggi-transport-included">Trasporto incluso</span>
+                                            </div>
+                                            <div class="massaggi-packages">
+                                                ⭐ 3 pacchetti disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="massaggi-card-footer">
+                                            <div class="massaggi-availability">
+                                                <span class="massaggi-busy">Disponibile domani</span>
+                                                <span class="massaggi-distance">4.1 km</span>
+                                            </div>
+
+                                            <div class="massaggi-card-actions">
+                                                <button class="btn-secondary massaggi-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary massaggi-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Professionista 3 -->
+                                <div class="massaggi-professional-card">
+                                    <div class="massaggi-card-header">
+                                        <div class="massaggi-card-image">
+                                            <img src="/assets/images/Professionisti/pr3.png" alt="Giuseppe Conti">
+                                        </div>
+                                        <div class="massaggi-header-info">
+                                            <h3>Giuseppe Conti</h3>
+                                            <p>Fisioterapista - Massaggi terapeutici</p>
+                                            <div class="massaggi-rating">
+                                                <div class="massaggi-stars">★★★★★</div>
+                                                <span class="massaggi-rating-value">4.8</span>
+                                                <span class="massaggi-reviews-count">(156)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="massaggi-card-content">
+                                        <div class="massaggi-specializations">
+                                            <span class="massaggi-tag">Decontratturante</span>
+                                            <span class="massaggi-tag">Sportivo</span>
+                                            <span class="massaggi-tag">Deep Tissue</span>
+                                        </div>
+
+                                        <div class="massaggi-service-details">
+                                            <div class="massaggi-location">
+                                                <span>🏠 Studio: Viale Trieste 42</span>
+                                                <span>🚗 Domicilio: raggio 10km</span>
+                                            </div>
+                                            <div class="massaggi-pricing">
+                                                <span>Studio: da €60</span>
+                                                <span>Domicilio: da €75</span>
+                                            </div>
+                                            <div class="massaggi-packages">
+                                                ⭐ 4 pacchetti disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="massaggi-card-footer">
+                                            <div class="massaggi-availability has-last-minute">
+                                                <span class="massaggi-available">Disponibile oggi</span>
+                                                <span class="massaggi-last-minute">Last Minute</span>
+                                                <span class="massaggi-distance">1.8 km</span>
+                                            </div>
+
+                                            <div class="massaggi-card-actions">
+                                                <button class="btn-secondary massaggi-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary massaggi-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="massaggi-favorite-btn active">♥</button>
+                                </div>
+
+                                <!-- Professionista 4 -->
+                                <div class="massaggi-professional-card">
+                                    <div class="massaggi-card-header">
+                                        <div class="massaggi-card-image">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Maria Sanna">
+                                        </div>
+                                        <div class="massaggi-header-info">
+                                            <h3>Maria Sanna</h3>
+                                            <p>Estetista - Trattamenti corpo</p>
+                                            <div class="massaggi-rating">
+                                                <div class="massaggi-stars">★★★★☆</div>
+                                                <span class="massaggi-rating-value">4.2</span>
+                                                <span class="massaggi-reviews-count">(73)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="massaggi-card-content">
+                                        <div class="massaggi-specializations">
+                                            <span class="massaggi-tag">Scrub</span>
+                                            <span class="massaggi-tag">Fanghi</span>
+                                            <span class="massaggi-tag">Bendaggi</span>
+                                        </div>
+
+                                        <div class="massaggi-service-details">
+                                            <div class="massaggi-location">
+                                                <span>🏠 Solo presso studio - Via Dante 23</span>
+                                            </div>
+                                            <div class="massaggi-pricing">
+                                                <span>Studio: da €45</span>
+                                            </div>
+                                            <div class="massaggi-packages">
+                                                ⭐ 2 pacchetti disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="massaggi-card-footer">
+                                            <div class="massaggi-availability">
+                                                <span class="massaggi-weekend">Disponibile weekend</span>
+                                                <span class="massaggi-distance">6.7 km</span>
+                                            </div>
+
+                                            <div class="massaggi-card-actions">
+                                                <button class="btn-secondary massaggi-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary massaggi-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="massaggi-favorite-btn">♡</button>
+                                </div>
+
+                                <!-- Professionista 5 -->
+                                <div class="massaggi-professional-card">
+                                    <div class="massaggi-card-header">
+                                        <div class="massaggi-card-image">
+                                            <img src="/assets/images/Professionisti/pr5.png" alt="Anna Carta">
+                                        </div>
+                                        <div class="massaggi-header-info">
+                                            <h3>Anna Carta</h3>
+                                            <p>Terapista specializzata gravidanza</p>
+                                            <div class="massaggi-rating">
+                                                <div class="massaggi-stars">★★★★☆</div>
+                                                <span class="massaggi-rating-value">4.6</span>
+                                                <span class="massaggi-reviews-count">(94)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="massaggi-card-content">
+                                        <div class="massaggi-specializations">
+                                            <span class="massaggi-tag">Prenatale</span>
+                                            <span class="massaggi-tag">Post-parto</span>
+                                            <span class="massaggi-tag">Riflessologia</span>
+                                        </div>
+
+                                        <div class="massaggi-service-details">
+                                            <div class="massaggi-location">
+                                                <span>🏠 Studio: Via Cagliari 87</span>
+                                                <span>🚗 Domicilio: raggio 12km</span>
+                                            </div>
+                                            <div class="massaggi-pricing">
+                                                <span>Studio: da €50</span>
+                                                <span>Domicilio: da €65</span>
+                                            </div>
+                                            <div class="massaggi-packages">
+                                                ⭐ 6 pacchetti disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="massaggi-card-footer">
+                                            <div class="massaggi-availability">
+                                                <span class="massaggi-available">Disponibile oggi</span>
+                                                <span class="massaggi-distance">3.2 km</span>
+                                            </div>
+
+                                            <div class="massaggi-card-actions">
+                                                <button class="btn-secondary massaggi-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary massaggi-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="massaggi-favorite-btn">♡</button>
+                                </div>
+
+                                <!-- Professionista 6 -->
+                                <div class="massaggi-professional-card">
+                                    <div class="massaggi-card-header">
+                                        <div class="massaggi-card-image">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Luca Melis">
+                                        </div>
+                                        <div class="massaggi-header-info">
+                                            <h3>Luca Melis</h3>
+                                            <p>Massaggiatore orientale</p>
+                                            <div class="massaggi-rating">
+                                                <div class="massaggi-stars">★★★★★</div>
+                                                <span class="massaggi-rating-value">4.9</span>
+                                                <span class="massaggi-reviews-count">(203)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="massaggi-card-content">
+                                        <div class="massaggi-specializations">
+                                            <span class="massaggi-tag">Thai Traditional</span>
+                                            <span class="massaggi-tag">Shiatsu</span>
+                                            <span class="massaggi-tag">Tuina</span>
+                                        </div>
+
+                                        <div class="massaggi-service-details">
+                                            <div class="massaggi-location">
+                                                <span>🚗 Solo domicilio: raggio 25km</span>
+                                            </div>
+                                            <div class="massaggi-pricing">
+                                                <span>Domicilio: da €80</span>
+                                                <span class="massaggi-transport-included">+€20 trasporto oltre
+                                                    15km</span>
+                                            </div>
+                                            <div class="massaggi-packages">
+                                                ⭐ 3 pacchetti disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="massaggi-card-footer">
+                                            <div class="massaggi-availability">
+                                                <span class="massaggi-busy">Disponibile da martedì</span>
+                                                <span class="massaggi-distance">8.9 km</span>
+                                            </div>
+
+                                            <div class="massaggi-card-actions">
+                                                <button class="btn-secondary massaggi-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary massaggi-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button class="massaggi-favorite-btn">♡</button>
+                                </div>
+
+                                <!-- Load More -->
+                                <div class="massaggi-load-more">
+                                    <button class="btn-secondary massaggi-load-more-btn">Carica altri
+                                        professionisti</button>
+                                    <p>Mostrando 6 di 47 risultati</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- SEZIONI CORRELATE - USA LAYOUT ESISTENTE -->
+            <section class="content-sections">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Servizi Correlati</h2>
+                    <div class="services-grid">
+                        <a href="/pages/servizi/beauty-wellness.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/Beauty.jpg");'></div>
+                            <p class="service-title">Beauty & Wellness</p>
+                        </a>
+                        <a href="/pages/servizi/fisioterapia-osteopatia.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/Fiosioterapia.Osteopatia.png");'>
+                            </div>
+                            <p class="service-title">Fisioterapia & Osteopatia</p>
+                        </a>
+                        <a href="/pages/servizi/fitness-allenamento.html" class="service-card">
+                            <div class="service-image" style='background-image: url("/assets/images/Servizi/Gym.jpg");'>
+                            </div>
+                            <p class="service-title">Fitness & Allenamento</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER - IDENTICO AL SITO -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/massaggi-e-trattamenti.js?v=1.2"></script>
+</body>
+
+</html>

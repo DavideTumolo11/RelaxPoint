@@ -939,6 +939,27 @@ body {
    RESPONSIVE PROGRESSIVO HEADER - SOSTITUISCI LE MEDIA QUERIES ESISTENTI
    =============================================== */
 
+@media (max-width: 1600px) {
+
+    .last-minute-link {
+        font-size: 10px;
+        margin: 5px;
+    }
+
+    .podcast-header-section {
+        margin-right: 5px;
+    }
+
+    .main-nav {
+        font-size: 10px;
+        gap: 15px;
+    }
+
+    .search-container {
+        max-width: 80px;
+    }
+}
+
 /* FASE 1 - OTTIMIZZAZIONE */
 @media (max-width: 1300px) {
     .site-header {
@@ -948,7 +969,17 @@ body {
 
     .main-nav {
         font-size: 10px;
-        gap: 25px;
+        gap: 20px;
+    }
+
+    .podcast-header-section {
+        margin-right: 3px;
+        margin-left: 3px;
+    }
+
+    .language-selector {
+        padding: 6px 8px;
+        margin-right: 5px;
     }
 
 
@@ -963,7 +994,7 @@ body {
     }
 
     .search-container {
-        max-width: 100px;
+        max-width: 90px;
     }
 
     .btn-primary,

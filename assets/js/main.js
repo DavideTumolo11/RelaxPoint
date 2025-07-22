@@ -11,37 +11,26 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================================
     const lastMinuteLink = document.getElementById('lastMinuteLink');
 
-    /**
-     * Controlla se ci sono professionisti disponibili per Last Minute
-     * In futuro: sarà collegato al database tramite API
-     */
     function controllaDisponibilitaLastMinute() {
-        // Controllo se l'elemento esiste
         if (!lastMinuteLink) {
             console.warn('⚠️ Elemento lastMinuteLink non trovato nel DOM');
             return;
         }
 
-        // DEMO: cambia questo valore per testare il lampeggio
-        const ciSonoProfessionistiLastMinute = true; // true = lampeggia, false = non lampeggia
+        const ciSonoProfessionistiLastMinute = true;
 
         if (ciSonoProfessionistiLastMinute) {
-            // Se ci sono professionisti disponibili: attiva lampeggio
             lastMinuteLink.style.display = 'inline';
             lastMinuteLink.classList.add('last-minute');
             console.log('✅ Last Minute attivo - professionisti disponibili');
         } else {
-            // Se non ci sono professionisti: disattiva lampeggio
             lastMinuteLink.classList.remove('last-minute');
             lastMinuteLink.style.opacity = '0.5';
             console.log('❌ Last Minute non disponibile');
         }
     }
 
-    // Controlla all'avvio della pagina
     controllaDisponibilitaLastMinute();
-
-    // Ricontrolla ogni 30 secondi (in futuro: chiamata API al server)
     setInterval(controllaDisponibilitaLastMinute, 30000);
 
     // ===============================================
@@ -78,19 +67,8 @@ document.addEventListener('DOMContentLoaded', function () {
             this.style.transform = 'translateY(0) scale(1)';
         });
 
-        // Click sulla card servizio
-        card.addEventListener('click', function () {
-            const titleElement = this.querySelector('.service-title');
-            if (titleElement) {
-                const nomeServizio = titleElement.textContent;
-                const tipoServizio = this.getAttribute('data-service');
-
-                console.log(`🎯 Servizio cliccato: ${nomeServizio} (${tipoServizio})`);
-
-                // TODO: In futuro reindirizza alla pagina del servizio
-                alert(`Servizio "${nomeServizio}" cliccato!\n\nQui andrà la pagina del servizio.`);
-            }
-        });
+        // RIMOSSO CLICK EVENT CHE CAUSAVA L'ALERT
+        // I link <a> nell'index.html gestiscono già la navigazione
     });
 
     // ===============================================
@@ -99,18 +77,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const cardProfessionisti = document.querySelectorAll('.professional-card');
 
     cardProfessionisti.forEach(card => {
-        card.addEventListener('click', function () {
+        card.addEventListener('click', function (e) {
+            // Solo se non è già un link
+            if (e.target.closest('a')) return;
+
             const nomeElement = this.querySelector('.professional-name');
-            const ruoloElement = this.querySelector('.professional-role');
+            const linkElement = this.querySelector('.professional-link');
 
-            if (nomeElement && ruoloElement) {
-                const nomeProfessionista = nomeElement.textContent;
-                const ruoloProfessionista = ruoloElement.textContent;
-
-                console.log(`👤 Professionista cliccato: ${nomeProfessionista} - ${ruoloProfessionista}`);
-
-                // TODO: In futuro reindirizza al micro-sito del professionista
-                alert(`Professionista "${nomeProfessionista}" cliccato!\n\nQui andrà il micro-sito del professionista.`);
+            if (nomeElement && linkElement) {
+                const href = linkElement.getAttribute('href');
+                if (href) {
+                    window.location.href = href;
+                }
             }
         });
     });
@@ -122,52 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Pulsante Last Minute
     if (lastMinuteLink) {
         lastMinuteLink.addEventListener('click', function (e) {
-            e.preventDefault();
+            // Non prevenire default - lascia che il link funzioni
             console.log('🚨 Last Minute cliccato!');
-            alert('Last Minute cliccato!\n\nQui andrà la pagina Last Minute con servizi immediati.');
-        });
-    }
-
-    // Pulsante Accedi
-    const btnAccedi = document.querySelector('.btn-login');
-    if (btnAccedi) {
-        btnAccedi.addEventListener('click', function () {
-            console.log('🔐 Login cliccato');
-            alert('Login cliccato!\n\nQui andrà la pagina di accesso.');
-        });
-    }
-
-    // Pulsante Prenota
-    const btnPrenota = document.querySelector('.btn-signup');
-    if (btnPrenota) {
-        btnPrenota.addEventListener('click', function () {
-            console.log('📅 Prenota cliccato');
-            alert('Prenota cliccato!\n\nQui andrà la pagina di prenotazione rapida.');
-        });
-    }
-
-    // Pulsante Hero "Scopri i servizi"
-    const btnHero = document.querySelector('.btn-hero');
-    if (btnHero) {
-        btnHero.addEventListener('click', function () {
-            console.log('🎯 Scopri servizi cliccato');
-            // Scrolla automaticamente alla sezione servizi
-            const sezioneServizi = document.querySelector('.services-section');
-            if (sezioneServizi) {
-                sezioneServizi.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    }
-
-    // Pulsante CTA "Iscriviti ora"
-    const btnCTA = document.querySelector('.btn-cta');
-    if (btnCTA) {
-        btnCTA.addEventListener('click', function () {
-            console.log('📝 Iscriviti professionista cliccato');
-            alert('Iscriviti come professionista!\n\nQui andrà la pagina di registrazione professionisti.');
         });
     }
 
@@ -193,9 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    /**
-     * Esegue la ricerca servizi
-     */
     function eseguiRicerca() {
         if (!inputRicerca) {
             console.warn('⚠️ Input ricerca non trovato');
@@ -206,20 +137,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (termineRicerca) {
             console.log(`🔍 Ricerca eseguita: "${termineRicerca}"`);
-            alert(`Ricerca: "${termineRicerca}"\n\nQui andranno i risultati della ricerca.`);
+            // Reindirizza alla pagina servizi con query
+            window.location.href = `/pages/servizi/servizi.html?q=${encodeURIComponent(termineRicerca)}`;
         } else {
-            alert('Inserisci un termine di ricerca!');
+            // Focus sull'input invece di alert
+            inputRicerca.focus();
+            inputRicerca.placeholder = "Inserisci un termine di ricerca...";
         }
     }
 
     // ===============================================
     // EFFETTI VISIVI AGGIUNTIVI
     // ===============================================
-
-    /**
-     * Aggiunge classe "visible" agli elementi quando entrano nel viewport
-     * Utile per animazioni future
-     */
     function osservaElementi() {
         const osservatore = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -229,47 +158,22 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // Osserva le sezioni principali
         document.querySelectorAll('section').forEach(sezione => {
             osservatore.observe(sezione);
         });
     }
 
-    // Avvia osservatore per animazioni future
     osservaElementi();
 
     // ===============================================
     // UTILITY FUNCTIONS
     // ===============================================
-
-    /**
-     * Mostra notifica temporanea (per debug)
-     * @param {string} messaggio - Il messaggio da mostrare
-     * @param {string} tipo - Tipo di notifica (success, error, info)
-     */
-    function mostraNotifica(messaggio, tipo = 'info') {
-        console.log(`📢 [${tipo.toUpperCase()}] ${messaggio}`);
-
-        // TODO: In futuro sostituire con toast notification più elegante
-        // Per ora usa alert per semplicità
-        alert(messaggio);
-    }
-
-    /**
-     * Formatta numero telefono per visualizzazione
-     * @param {string} numero - Numero da formattare
-     * @returns {string} - Numero formattato
-     */
     function formattaTelefono(numero) {
-        // Rimuove tutti i caratteri non numerici
         const soloNumeri = numero.replace(/\D/g, '');
-
-        // Formatta come numero italiano
         if (soloNumeri.length === 10) {
             return `${soloNumeri.slice(0, 3)} ${soloNumeri.slice(3, 6)} ${soloNumeri.slice(6)}`;
         }
-
-        return numero; // Ritorna originale se non è formato standard
+        return numero;
     }
 
     // ===============================================
@@ -279,7 +183,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('🌐 User Agent:', navigator.userAgent);
     console.log('🚀 RelaxPoint ready!');
 
-    // Messaggio di benvenuto in console
     console.log(`
     🌿 ===============================================
        RELAXPOINT - Marketplace Benessere

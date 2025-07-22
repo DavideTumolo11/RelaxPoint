@@ -12,6 +12,9 @@
 
     <!-- META -->
     <title>RelaxPoint - Marketplace web per servizi di benessere a domicilio</title>
+    <meta name="description"
+        content="Il marketplace del benessere a domicilio. Prenota massaggi, fitness, beauty e molto altro con professionisti certificati. Servizi a domicilio o presso studio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
 
     <!-- CSS PERSONALIZZATO -->
@@ -49,15 +52,14 @@
                 </div>
 
                 <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
-                <a class="last-minute-link" href="pages/last-minute.html">Last Minute</a>
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
 
                 <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
                 <div class="header-right">
 
                     <!-- PODCAST -->
-
                     <div class="podcast-header-section">
-                        <a href="pages/podcast/podcast.html" class="podcast-link">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
                             <div class="podcast-icon">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                     <path
@@ -98,7 +100,7 @@
 
                     <!-- Pulsanti - ADMIN può modificare testi e link -->
                     <div class="button-group">
-                        <a href="" class="btn-primary">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
                             <span class="text-truncate">Prenota</span>
                         </a>
 
@@ -129,7 +131,7 @@
                                     direttamente a casa tua. Trova i migliori professionisti e goditi un'esperienza
                                     personalizzata.</h2>
                             </div>
-                            <a href="pages/registrazione-professionisti.html" class="cta-btn">
+                            <a href="/pages/registrazione-professionisti.html" class="cta-btn">
                                 <span class="text-truncate">Scopri i Vantaggi</span>
                             </a>
                         </div>
@@ -141,76 +143,75 @@
                             <!-- Griglia servizi - OGNI CARD è identica, solo contenuto cambia -->
                             <div class="services-grid">
 
-                                <!-- CARD SERVIZIO - ADMIN aggiunge con tasto + -->
-                                <div class="service-card" data-service="hair-makeup">
+                                <!-- CARD SERVIZIO - Hair & Make-up -->
+                                <a href="/pages/servizi/hair-makeup.html" class="service-card"
+                                    data-service="hair-makeup">
                                     <div class="service-image"
-                                        style='background-image: url("/assets/images/Servizi/Hair\ and\ make-up.png");'>
+                                        style='background-image: url("/assets/images/Servizi/Hair and make-up.png");'>
                                     </div>
                                     <p class="service-title">Hair e Make-up</p>
-                                </div>
+                                </a>
 
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="fisioterapia">
+                                <!-- CARD SERVIZIO - Fisioterapia -->
+                                <a href="/pages/servizi/fisioterapia-osteopatia.html" class="service-card"
+                                    data-service="fisioterapia">
                                     <div class="service-image"
                                         style='background-image: url("/assets/images/Servizi/Fiosioterapia.Osteopatia.png");'>
                                     </div>
                                     <p class="service-title">Fisioterapia e Osteopatia</p>
-                                </div>
+                                </a>
 
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="gravidanza">
-                                    <div class="service-image"
-                                        style='background-image: url("/assets/images/Servizi/neoMamma.jpg");'>
-                                    </div>
-                                    <p class="service-title">Gravidanza e Neo-mamme</p>
-                                </div>
-
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="fitness">
+                                <!-- CARD SERVIZIO - Fitness -->
+                                <a href="/pages/servizi/fitness-allenamento.html" class="service-card"
+                                    data-service="fitness">
                                     <div class="service-image"
                                         style='background-image: url("/assets/images/Servizi/Gym.jpg");'>
                                     </div>
                                     <p class="service-title">Fitness e Allenamento</p>
-                                </div>
+                                </a>
 
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="massaggi">
+                                <!-- CARD SERVIZIO - Massaggi -->
+                                <a href="/pages/servizi/massaggi-e-trattamenti.html" class="service-card"
+                                    data-service="massaggi">
                                     <div class="service-image"
                                         style='background-image: url("/assets/images/Servizi/massage2.jpg");'>
                                     </div>
                                     <p class="service-title">Massaggi e Trattamenti</p>
-                                </div>
+                                </a>
 
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="nutrizione">
+                                <!-- CARD SERVIZIO - Beauty -->
+                                <a href="/pages/servizi/beauty-wellness.html" class="service-card"
+                                    data-service="beauty">
                                     <div class="service-image"
-                                        style='background-image: url("/assets/images/Servizi/Salute.jpg");'>
+                                        style='background-image: url("/assets/images/Servizi/Beauty.jpg");'>
                                     </div>
-                                    <p class="service-title">Nutrizione e Benessere</p>
-                                </div>
+                                    <p class="service-title">Beauty & Wellness</p>
+                                </a>
 
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="yoga">
+                                <!-- CARD SERVIZIO - Yoga -->
+                                <a href="/pages/servizi/yoga-meditazione.html" class="service-card" data-service="yoga">
                                     <div class="service-image"
                                         style='background-image: url("/assets/images/Servizi/YogaEndMeditazione.jpeg");'>
                                     </div>
                                     <p class="service-title">Yoga e Meditazione</p>
-                                </div>
+                                </a>
 
-                                <!-- CARD SERVIZIO -->
-                                <div class="service-card" data-service="progress">
+                                <!-- CARD SERVIZIO - Escursioni -->
+                                <a href="/pages/servizi/escursioni-natura.html" class="service-card"
+                                    data-service="escursioni">
                                     <div class="service-image"
-                                        style='background-image: url("/assets/images/Servizi/Beauty.jpg");'>
+                                        style='background-image: url("/assets/images/Servizi/Salute.jpg");'>
                                     </div>
-                                    <p class="service-title">Beauty</p>
-                                </div>
+                                    <p class="service-title">Escursioni & Natura</p>
+                                </a>
 
-                                <div class="service-card" data-service="progress">
+                                <!-- CARD SERVIZIO - Chef -->
+                                <a href="/pages/servizi/chef-cucina.html" class="service-card" data-service="chef">
                                     <div class="service-image"
                                         style='background-image: url("/assets/images/Servizi/NextServiceComingSoon.png");'>
                                     </div>
-                                    <p class="service-title">Work in Progress</p>
-                                </div>
+                                    <p class="service-title">Chef & Cucina</p>
+                                </a>
                             </div>
                         </section>
 
@@ -231,7 +232,7 @@
                                             <p class="professional-name">Giulia Rossi</p>
                                             <p class="professional-role">Personal trainer certificata</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                                href="/pages/professionista/giulia-rossi.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
@@ -244,7 +245,7 @@
                                             <p class="professional-name">Marco Bianchi</p>
                                             <p class="professional-role">Massaggiatore specializzato</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/marco-bianchi.html">Vedi profilo</a>
+                                                href="/pages/professionista/marco-bianchi.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
@@ -257,7 +258,7 @@
                                             <p class="professional-name">Laura Verdi</p>
                                             <p class="professional-role">Insegnante di yoga esperta</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/laura-verdi.html">Vedi profilo</a>
+                                                href="/pages/professionista/laura-verdi.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
@@ -270,59 +271,59 @@
                                             <p class="professional-name">Sofia Moretti</p>
                                             <p class="professional-role">Estetista professionista</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/sofia-moretti.html">Vedi profilo</a>
+                                                href="/pages/professionista/sofia-moretti.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
-                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <!-- CARD PROFESSIONISTA -->
                                     <div class="professional-card">
                                         <div class="professional-image"
                                             style='background-image: url("/assets/images/Professionisti/pr4.png");'>
                                         </div>
                                         <div class="professional-info">
-                                            <p class="professional-name">Giulia Rossi</p>
-                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <p class="professional-name">Anna Carta</p>
+                                            <p class="professional-role">Terapista specializzata</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                                href="/pages/professionista/anna-carta.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
-                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <!-- CARD PROFESSIONISTA -->
                                     <div class="professional-card">
                                         <div class="professional-image"
-                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnjkf-TtN11NkdomwX9ukAXM0pJGQUIb5XHe2j-Vc8-_Ai0h5cnpTwRZvXV-ql2jN4ZgTF4CKLLNQvurK40AV7zx_SoSecrc1UUg87dwGvIC6TlqDIeCdq66l9uJUoys8KbuTN3DoWIPM5pdmT2wuOq1J0s7z7rt3y9F7_sIZZMrsdZnztRGDHUUkwGd4T787MzlK0HHyX3EAmRdmqpbsc5i_S2YF2zod8VsKCHfuTQMQ3QQ8WHEl20zduYhUuMo7qB-4uSsOfgzLt");'>
+                                            style='background-image: url("/assets/images/Professionisti/pr1.png");'>
                                         </div>
                                         <div class="professional-info">
-                                            <p class="professional-name">Giulia Rossi</p>
-                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <p class="professional-name">Luca Melis</p>
+                                            <p class="professional-role">Massaggiatore orientale</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                                href="/pages/professionista/luca-melis.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
-                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <!-- CARD PROFESSIONISTA -->
                                     <div class="professional-card">
                                         <div class="professional-image"
-                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnjkf-TtN11NkdomwX9ukAXM0pJGQUIb5XHe2j-Vc8-_Ai0h5cnpTwRZvXV-ql2jN4ZgTF4CKLLNQvurK40AV7zx_SoSecrc1UUg87dwGvIC6TlqDIeCdq66l9uJUoys8KbuTN3DoWIPM5pdmT2wuOq1J0s7z7rt3y9F7_sIZZMrsdZnztRGDHUUkwGd4T787MzlK0HHyX3EAmRdmqpbsc5i_S2YF2zod8VsKCHfuTQMQ3QQ8WHEl20zduYhUuMo7qB-4uSsOfgzLt");'>
+                                            style='background-image: url("/assets/images/Professionisti/pr2.png");'>
                                         </div>
                                         <div class="professional-info">
-                                            <p class="professional-name">Giulia Rossi</p>
-                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <p class="professional-name">Giuseppe Conti</p>
+                                            <p class="professional-role">Fisioterapista certificato</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                                href="/pages/professionista/giuseppe-conti.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
-                                    <!-- CARD PROFESSIONISTA - ADMIN aggiunge con tasto + -->
+                                    <!-- CARD PROFESSIONISTA -->
                                     <div class="professional-card">
                                         <div class="professional-image"
-                                            style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBnjkf-TtN11NkdomwX9ukAXM0pJGQUIb5XHe2j-Vc8-_Ai0h5cnpTwRZvXV-ql2jN4ZgTF4CKLLNQvurK40AV7zx_SoSecrc1UUg87dwGvIC6TlqDIeCdq66l9uJUoys8KbuTN3DoWIPM5pdmT2wuOq1J0s7z7rt3y9F7_sIZZMrsdZnztRGDHUUkwGd4T787MzlK0HHyX3EAmRdmqpbsc5i_S2YF2zod8VsKCHfuTQMQ3QQ8WHEl20zduYhUuMo7qB-4uSsOfgzLt");'>
+                                            style='background-image: url("/assets/images/Professionisti/pr3.png");'>
                                         </div>
                                         <div class="professional-info">
-                                            <p class="professional-name">Giulia Rossi</p>
-                                            <p class="professional-role">Personal trainer certificata</p>
+                                            <p class="professional-name">Elena Bianchi</p>
+                                            <p class="professional-role">Massaggiatrice olistica</p>
                                             <a class="professional-link"
-                                                href="pages/professionista/giulia-rossi.html">Vedi profilo</a>
+                                                href="/pages/professionista/elena-bianchi.html">Vedi profilo</a>
                                         </div>
                                     </div>
 
@@ -357,11 +358,11 @@
                     <div class="footer-content">
                         <!-- Link footer - ADMIN può aggiungere/rimuovere -->
                         <div class="footer-links">
-                            <a class="footer-link" href="pages/chi-siamo.html">Chi siamo</a>
-                            <a class="footer-link" href="pages/contatti.html">Contatti</a>
-                            <a class="footer-link" href="pages/termini.html">Termini e condizioni</a>
-                            <a class="footer-link" href="pages/privacy.html">Privacy Policy</a>
-                            <a class="footer-link" href="pages/faq.html">FAQ</a>
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
                         </div>
                         <!-- Copyright - ADMIN può modificare -->
                         <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
@@ -372,8 +373,60 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/main.js?v=1.2"></script>
     <script src="/assets/js/auth.js?v=1.2"></script>
+
+    <script>
+        // GESTIONE CLICK SERVIZI (FALLBACK SE NON FUNZIONANO I LINK)
+        document.addEventListener('DOMContentLoaded', function () {
+            // Se i link <a> non funzionano, usa questo fallback
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    // Solo se non è già un link
+                    if (this.tagName.toLowerCase() !== 'a') {
+                        const service = this.dataset.service;
+                        let url = '';
+
+                        switch (service) {
+                            case 'hair-makeup':
+                                url = '/pages/servizi/hair-makeup.html';
+                                break;
+                            case 'fisioterapia':
+                                url = '/pages/servizi/fisioterapia-osteopatia.html';
+                                break;
+                            case 'gravidanza':
+                                url = '/pages/servizi/gravidanza-neomamme.html';
+                                break;
+                            case 'fitness':
+                                url = '/pages/servizi/fitness-allenamento.html';
+                                break;
+                            case 'massaggi':
+                                url = '/pages/servizi/massaggi-e-trattamenti.html';
+                                break;
+                            case 'beauty':
+                                url = '/pages/servizi/beauty-wellness.html';
+                                break;
+                            case 'yoga':
+                                url = '/pages/servizi/yoga-meditazione.html';
+                                break;
+                            case 'escursioni':
+                                url = '/pages/servizi/escursioni-natura.html';
+                                break;
+                            case 'chef':
+                                url = '/pages/servizi/chef-cucina.html';
+                                break;
+                            default:
+                                url = '/pages/servizi/servizi.html';
+                        }
+
+                        if (url) {
+                            window.location.href = url;
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
