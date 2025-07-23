@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Gravidanza & Neo-mamme - RelaxPoint | Professionisti specializzati a domicilio</title>
+    <meta name="description"
+        content="Servizi specializzati per gravidanza e neo-mamme. Massaggi prenatali, yoga in gravidanza, baby massage, consulenze ostetriche e supporto post-parto a domicilio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS BASE + SPECIFICO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/gravidanza-neo-mamme.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a href="/index.html" class="nav-link">Home</a>
+                        <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
+                        <a href="/pages/professionisti/professionisti.html" class="nav-link">Professionisti</a>
+                        <a href="/pages/ispirazioni/ispirazioni.html" class="nav-link">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca specialisti..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="gravidanza-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <span>GRAVIDANZA & NEO-MAMME</span>
+                    </div>
+
+                    <!-- HERO SECTION -->
+                    <section class="gravidanza-hero">
+                        <div class="gravidanza-hero-content">
+                            <div class="gravidanza-hero-text">
+                                <h1>Gravidanza & Neo-mamme</h1>
+                                <p>Accompagniamo ogni momento del tuo percorso di maternità con professionisti
+                                    specializzati. Massaggi prenatali, yoga in gravidanza, baby massage, consulenze
+                                    ostetriche e supporto post-parto in totale sicurezza.</p>
+                                <div class="gravidanza-stats">
+                                    <div class="gravidanza-stat">
+                                        <span class="gravidanza-stat-number">28</span>
+                                        <span class="gravidanza-stat-label">Specialisti</span>
+                                    </div>
+                                    <div class="gravidanza-stat">
+                                        <span class="gravidanza-stat-number">12</span>
+                                        <span class="gravidanza-stat-label">Servizi dedicati</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gravidanza-hero-image">
+                                <img src="/assets/images/Servizi/neoMamma.jpg" alt="Gravidanza e Neo-mamme" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LAYOUT PRINCIPALE -->
+                    <div class="gravidanza-layout">
+
+                        <!-- SIDEBAR FILTRI -->
+                        <aside class="gravidanza-sidebar">
+                            <div class="gravidanza-filters">
+                                <h3>Filtra Risultati</h3>
+
+                                <!-- Modalità Servizio -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Modalità Servizio</h4>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="modalita" value="domicilio" checked>
+                                        <span>A domicilio</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="modalita" value="studio">
+                                        <span>Presso studio</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="modalita" value="online">
+                                        <span>Consulenza online</span>
+                                    </label>
+                                </div>
+
+                                <!-- Fase -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Fase</h4>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="fase" value="gravidanza">
+                                        <span>Gravidanza</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="fase" value="post-parto">
+                                        <span>Post-parto</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="fase" value="neonato">
+                                        <span>Neonato (0-6 mesi)</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="fase" value="famiglia">
+                                        <span>Famiglia</span>
+                                    </label>
+                                </div>
+
+                                <!-- Specializzazione -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Specializzazione</h4>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="specializzazione" value="massaggi">
+                                        <span>Massaggi</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="specializzazione" value="yoga">
+                                        <span>Yoga & Movimento</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="specializzazione" value="consulenze">
+                                        <span>Consulenze</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="specializzazione" value="corsi">
+                                        <span>Corsi & Formazione</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="specializzazione" value="baby-care">
+                                        <span>Baby Care</span>
+                                    </label>
+                                </div>
+
+                                <!-- Trimestre (solo per gravidanza) -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Trimestre</h4>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="trimestre" value="primo">
+                                        <span>1° Trimestre</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="trimestre" value="secondo">
+                                        <span>2° Trimestre</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="trimestre" value="terzo">
+                                        <span>3° Trimestre</span>
+                                    </label>
+                                </div>
+
+                                <!-- Certificazioni -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Certificazioni</h4>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="certificazioni" value="ostetrica">
+                                        <span>Ostetrica</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="certificazioni" value="doula">
+                                        <span>Doula</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="certificazioni" value="puericultura">
+                                        <span>Puericultura</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="checkbox" name="certificazioni" value="yoga-prenatale">
+                                        <span>Yoga Prenatale</span>
+                                    </label>
+                                </div>
+
+                                <!-- Prezzo -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Prezzo</h4>
+                                    <div class="gravidanza-price-range">
+                                        <input type="number" class="gravidanza-price-input" placeholder="Min €" min="35"
+                                            max="150">
+                                        <span>—</span>
+                                        <input type="number" class="gravidanza-price-input" placeholder="Max €" min="35"
+                                            max="150">
+                                    </div>
+                                </div>
+
+                                <!-- Distanza -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Distanza</h4>
+                                    <select class="gravidanza-distance-select">
+                                        <option value="5">Entro 5 km</option>
+                                        <option value="10" selected>Entro 10 km</option>
+                                        <option value="15">Entro 15 km</option>
+                                        <option value="25">Entro 25 km</option>
+                                        <option value="50">Entro 50 km</option>
+                                    </select>
+                                </div>
+
+                                <!-- Valutazione -->
+                                <div class="gravidanza-filter-group">
+                                    <h4>Valutazione</h4>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="radio" name="rating" value="4plus">
+                                        <span>4+ stelle</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="radio" name="rating" value="45plus">
+                                        <span>4.5+ stelle</span>
+                                    </label>
+                                    <label class="gravidanza-filter-option">
+                                        <input type="radio" name="rating" value="premium">
+                                        <span>Solo Premium</span>
+                                    </label>
+                                </div>
+
+                                <!-- Pulsanti Filtri -->
+                                <div class="gravidanza-filter-actions">
+                                    <button class="btn-secondary gravidanza-reset-filters">Reset Filtri</button>
+                                </div>
+                            </div>
+
+                            <!-- Mappa -->
+                            <div class="gravidanza-map">
+                                <h3>Mappa Specialisti</h3>
+                                <div class="gravidanza-map-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <p>Mappa interattiva</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="gravidanza-main">
+
+                            <!-- Header risultati -->
+                            <div class="gravidanza-results-header">
+                                <div class="gravidanza-results-info">
+                                    <h2>28 Specialisti trovati</h2>
+                                    <p>Cagliari e dintorni</p>
+                                </div>
+                                <div class="gravidanza-sort">
+                                    <label>Ordina per:</label>
+                                    <select class="gravidanza-sort-select">
+                                        <option value="rilevanza">Più rilevanti</option>
+                                        <option value="rating">Valutazione</option>
+                                        <option value="prezzo-asc">Prezzo crescente</option>
+                                        <option value="prezzo-desc">Prezzo decrescente</option>
+                                        <option value="distanza">Distanza</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Grid Professionisti -->
+                            <div class="gravidanza-professionals-grid">
+
+                                <!-- Ostetrica Premium -->
+                                <div class="gravidanza-professional-card gravidanza-premium">
+                                    <div class="gravidanza-premium-badge">PREMIUM</div>
+                                    <button class="gravidanza-favorite-btn">♡</button>
+
+                                    <div class="gravidanza-card-header">
+                                        <div class="gravidanza-card-image">
+                                            <img src="/assets/images/Professionisti/pr5.png" alt="Dott.ssa Anna Carta">
+                                        </div>
+                                        <div class="gravidanza-header-info">
+                                            <h3>Dott.ssa Anna Carta</h3>
+                                            <p>Ostetrica - Specialista Gravidanza</p>
+                                            <div class="gravidanza-rating">
+                                                <div class="gravidanza-stars">★★★★★</div>
+                                                <span class="gravidanza-rating-value">4.9</span>
+                                                <span class="gravidanza-reviews-count">(167)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gravidanza-card-content">
+                                        <div class="gravidanza-specializations">
+                                            <span class="gravidanza-tag">Prenatale</span>
+                                            <span class="gravidanza-tag">Post-parto</span>
+                                            <span class="gravidanza-tag">Allattamento</span>
+                                            <span class="gravidanza-tag">+4</span>
+                                        </div>
+
+                                        <div class="gravidanza-service-details">
+                                            <div class="gravidanza-location">
+                                                <span>🏠 Studio: Via Roma 156</span>
+                                                <span>🚗 Domicilio: raggio 25km</span>
+                                                <span>💻 Consulenze online disponibili</span>
+                                            </div>
+                                            <div class="gravidanza-pricing">
+                                                <span>Visita ostetrica: da €80</span>
+                                                <span>Consulenza allattamento: da €60</span>
+                                                <span>Corso preparazione parto: da €120</span>
+                                            </div>
+                                            <div class="gravidanza-packages">
+                                                ⭐ 15 servizi specializzati
+                                            </div>
+                                        </div>
+
+                                        <div class="gravidanza-card-footer">
+                                            <div class="gravidanza-availability has-last-minute">
+                                                <span class="gravidanza-available">Disponibile oggi</span>
+                                                <span class="gravidanza-last-minute">Last Minute</span>
+                                                <span class="gravidanza-distance">1.9 km</span>
+                                            </div>
+                                            <div class="gravidanza-card-actions">
+                                                <button class="btn-secondary gravidanza-profile-btn">Vedi
+                                                    Profilo</button>
+                                                <button class="btn-primary gravidanza-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Massaggiatrice Specializzata -->
+                                <div class="gravidanza-professional-card">
+                                    <button class="gravidanza-favorite-btn">♡</button>
+
+                                    <div class="gravidanza-card-header">
+                                        <div class="gravidanza-card-image">
+                                            <img src="/assets/images/Professionisti/pr3.png" alt="Laura Melis">
+                                        </div>
+                                        <div class="gravidanza-header-info">
+                                            <h3>Laura Melis</h3>
+                                            <p>Massaggiatrice Prenatale Certificata</p>
+                                            <div class="gravidanza-rating">
+                                                <div class="gravidanza-stars">★★★★☆</div>
+                                                <span class="gravidanza-rating-value">4.7</span>
+                                                <span class="gravidanza-reviews-count">(134)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gravidanza-card-content">
+                                        <div class="gravidanza-specializations">
+                                            <span class="gravidanza-tag">Massaggio Prenatale</span>
+                                            <span class="gravidanza-tag">Riflessologia</span>
+                                            <span class="gravidanza-tag">Post-parto</span>
+                                        </div>
+
+                                        <div class="gravidanza-service-details">
+                                            <div class="gravidanza-location">
+                                                <span>🚗 Solo domicilio: raggio 20km</span>
+                                                <span>🤱 Lettino professionale per gravidanza</span>
+                                            </div>
+                                            <div class="gravidanza-pricing">
+                                                <span>Massaggio prenatale: da €65</span>
+                                                <span>Riflessologia: da €55</span>
+                                                <span>Trattamento post-parto: da €70</span>
+                                            </div>
+                                            <div class="gravidanza-packages">
+                                                ⭐ 8 servizi disponibili
+                                            </div>
+                                        </div>
+
+                                        <div class="gravidanza-card-footer">
+                                            <div class="gravidanza-availability">
+                                                <span class="gravidanza-busy">Disponibile domani</span>
+                                                <span class="gravidanza-distance">3.4 km</span>
+                                            </div>
+                                            <div class="gravidanza-card-actions">
+                                                <button class="btn-secondary gravidanza-profile-btn">Vedi
+                                                    Profilo</button>
+                                                <button class="btn-primary gravidanza-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Yoga Teacher Prenatale -->
+                                <div class="gravidanza-professional-card">
+                                    <button class="gravidanza-favorite-btn active">♥</button>
+
+                                    <div class="gravidanza-card-header">
+                                        <div class="gravidanza-card-image">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi">
+                                        </div>
+                                        <div class="gravidanza-header-info">
+                                            <h3>Giulia Rossi</h3>
+                                            <p>Yoga Teacher - Gravidanza & Post-parto</p>
+                                            <div class="gravidanza-rating">
+                                                <div class="gravidanza-stars">★★★★★</div>
+                                                <span class="gravidanza-rating-value">4.8</span>
+                                                <span class="gravidanza-reviews-count">(189)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gravidanza-card-content">
+                                        <div class="gravidanza-specializations">
+                                            <span class="gravidanza-tag">Yoga Prenatale</span>
+                                            <span class="gravidanza-tag">Respirazione</span>
+                                            <span class="gravidanza-tag">Recupero Post-parto</span>
+                                        </div>
+
+                                        <div class="gravidanza-service-details">
+                                            <div class="gravidanza-location">
+                                                <span>🏠 Studio: Viale Europa 89</span>
+                                                <span>🚗 Domicilio: raggio 15km</span>
+                                                <span>👥 Lezioni di coppia disponibili</span>
+                                            </div>
+                                            <div class="gravidanza-pricing">
+                                                <span>Lezione yoga individuale: da €50</span>
+                                                <span>Corso preparazione parto: da €200</span>
+                                                <span>Yoga post-parto: da €45</span>
+                                            </div>
+                                            <div class="gravidanza-packages">
+                                                ⭐ 10 corsi specializzati
+                                            </div>
+                                        </div>
+
+                                        <div class="gravidanza-card-footer">
+                                            <div class="gravidanza-availability has-last-minute">
+                                                <span class="gravidanza-available">Disponibile oggi</span>
+                                                <span class="gravidanza-last-minute">Last Minute</span>
+                                                <span class="gravidanza-distance">2.7 km</span>
+                                            </div>
+                                            <div class="gravidanza-card-actions">
+                                                <button class="btn-secondary gravidanza-profile-btn">Vedi
+                                                    Profilo</button>
+                                                <button class="btn-primary gravidanza-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Doula Certificata -->
+                                <div class="gravidanza-professional-card">
+                                    <button class="gravidanza-favorite-btn">♡</button>
+
+                                    <div class="gravidanza-card-header">
+                                        <div class="gravidanza-card-image">
+                                            <img src="/assets/images/Professionisti/pr2.png" alt="Sofia Bianchi">
+                                        </div>
+                                        <div class="gravidanza-header-info">
+                                            <h3>Sofia Bianchi</h3>
+                                            <p>Doula - Supporto Emotivo e Pratico</p>
+                                            <div class="gravidanza-rating">
+                                                <div class="gravidanza-stars">★★★★☆</div>
+                                                <span class="gravidanza-rating-value">4.6</span>
+                                                <span class="gravidanza-reviews-count">(98)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gravidanza-card-content">
+                                        <div class="gravidanza-specializations">
+                                            <span class="gravidanza-tag">Supporto Parto</span>
+                                            <span class="gravidanza-tag">Babywearing</span>
+                                            <span class="gravidanza-tag">Primi Giorni</span>
+                                        </div>
+
+                                        <div class="gravidanza-service-details">
+                                            <div class="gravidanza-location">
+                                                <span>🚗 Solo domicilio: disponibilità H24</span>
+                                                <span>🤱 Supporto durante e dopo il parto</span>
+                                            </div>
+                                            <div class="gravidanza-pricing">
+                                                <span>Consulenza prenascita: da €70</span>
+                                                <span>Supporto post-parto: da €80</span>
+                                                <span>Corso babywearing: da €60</span>
+                                            </div>
+                                            <div class="gravidanza-packages">
+                                                ⭐ 6 servizi di supporto
+                                            </div>
+                                        </div>
+
+                                        <div class="gravidanza-card-footer">
+                                            <div class="gravidanza-availability">
+                                                <span class="gravidanza-weekend">Disponibile weekend</span>
+                                                <span class="gravidanza-distance">5.1 km</span>
+                                            </div>
+                                            <div class="gravidanza-card-actions">
+                                                <button class="btn-secondary gravidanza-profile-btn">Vedi
+                                                    Profilo</button>
+                                                <button class="btn-primary gravidanza-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Puericultrice Specializzata -->
+                                <div class="gravidanza-professional-card">
+                                    <button class="gravidanza-favorite-btn">♡</button>
+
+                                    <div class="gravidanza-card-header">
+                                        <div class="gravidanza-card-image">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Elena Ferrari">
+                                        </div>
+                                        <div class="gravidanza-header-info">
+                                            <h3>Elena Ferrari</h3>
+                                            <p>Puericultrice - Baby Care Specialist</p>
+                                            <div class="gravidanza-rating">
+                                                <div class="gravidanza-stars">★★★★☆</div>
+                                                <span class="gravidanza-rating-value">4.5</span>
+                                                <span class="gravidanza-reviews-count">(87)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gravidanza-card-content">
+                                        <div class="gravidanza-specializations">
+                                            <span class="gravidanza-tag">Baby Massage</span>
+                                            <span class="gravidanza-tag">Svezzamento</span>
+                                            <span class="gravidanza-tag">Primo Soccorso</span>
+                                        </div>
+
+                                        <div class="gravidanza-service-details">
+                                            <div class="gravidanza-location">
+                                                <span>🏠 Studio: Via Dante 45</span>
+                                                <span>🚗 Domicilio: raggio 18km</span>
+                                                <span>👶 Specializzata 0-12 mesi</span>
+                                            </div>
+                                            <div class="gravidanza-pricing">
+                                                <span>Baby massage (corso): da €120</span>
+                                                <span>Consulenza svezzamento: da €65</span>
+                                                <span>Primo soccorso pediatrico: da €100</span>
+                                            </div>
+                                            <div class="gravidanza-packages">
+                                                ⭐ 9 corsi baby care
+                                            </div>
+                                        </div>
+
+                                        <div class="gravidanza-card-footer">
+                                            <div class="gravidanza-availability">
+                                                <span class="gravidanza-available">Disponibile oggi</span>
+                                                <span class="gravidanza-distance">4.8 km</span>
+                                            </div>
+                                            <div class="gravidanza-card-actions">
+                                                <button class="btn-secondary gravidanza-profile-btn">Vedi
+                                                    Profilo</button>
+                                                <button class="btn-primary gravidanza-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Psicologa Perinatale Premium -->
+                                <div class="gravidanza-professional-card gravidanza-premium">
+                                    <div class="gravidanza-premium-badge">PREMIUM</div>
+                                    <button class="gravidanza-favorite-btn">♡</button>
+
+                                    <div class="gravidanza-card-header">
+                                        <div class="gravidanza-card-image">
+                                            <img src="/assets/images/Professionisti/pr6.png" alt="Dott.ssa Maria Conti">
+                                        </div>
+                                        <div class="gravidanza-header-info">
+                                            <h3>Dott.ssa Maria Conti</h3>
+                                            <p>Psicologa Perinatale</p>
+                                            <div class="gravidanza-rating">
+                                                <div class="gravidanza-stars">★★★★★</div>
+                                                <span class="gravidanza-rating-value">4.9</span>
+                                                <span class="gravidanza-reviews-count">(156)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="gravidanza-card-content">
+                                        <div class="gravidanza-specializations">
+                                            <span class="gravidanza-tag">Baby Blues</span>
+                                            <span class="gravidanza-tag">Supporto Coppia</span>
+                                            <span class="gravidanza-tag">Ansia Prenatale</span>
+                                        </div>
+
+                                        <div class="gravidanza-service-details">
+                                            <div class="gravidanza-location">
+                                                <span>🏠 Studio: Corso Italia 234</span>
+                                                <span>💻 Sedute online disponibili</span>
+                                                <span>👥 Terapia di coppia specializzata</span>
+                                            </div>
+                                            <div class="gravidanza-pricing">
+                                                <span>Seduta individuale: da €80</span>
+                                                <span>Terapia di coppia: da €120</span>
+                                                <span>Supporto baby blues: da €75</span>
+                                                <span class="gravidanza-transport-included">Prima consulenza
+                                                    gratuita</span>
+                                            </div>
+                                            <div class="gravidanza-packages">
+                                                ⭐ 12 percorsi specializzati
+                                            </div>
+                                        </div>
+
+                                        <div class="gravidanza-card-footer">
+                                            <div class="gravidanza-availability">
+                                                <span class="gravidanza-busy">Lista d'attesa aperta</span>
+                                                <span class="gravidanza-distance">6.3 km</span>
+                                            </div>
+                                            <div class="gravidanza-card-actions">
+                                                <button class="btn-secondary gravidanza-profile-btn">Vedi
+                                                    Profilo</button>
+                                                <button class="btn-primary gravidanza-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load More -->
+                                <div class="gravidanza-load-more">
+                                    <button class="btn-secondary gravidanza-load-more-btn">Carica altri
+                                        specialisti</button>
+                                    <p>Mostrando 6 di 28 risultati</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- SEZIONI CORRELATE -->
+            <section class="content-sections">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Servizi Correlati</h2>
+                    <div class="services-grid">
+                        <a href="/pages/servizi/massaggi-e-trattamenti.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/massage2.jpg");'></div>
+                            <p class="service-title">Massaggi e Trattamenti</p>
+                        </a>
+                        <a href="/pages/servizi/yoga-meditazione.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/YogaEndMeditazione.jpeg");'></div>
+                            <p class="service-title">Yoga e Meditazione</p>
+                        </a>
+                        <a href="/pages/servizi/fitness-allenamento.html" class="service-card">
+                            <div class="service-image" style='background-image: url("/assets/images/Servizi/Gym.jpg");'>
+                            </div>
+                            <p class="service-title">Fitness & Allenamento</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/gravidanza-neo-mamme.js?v=1.2"></script>
+</body>
+
+</html>
