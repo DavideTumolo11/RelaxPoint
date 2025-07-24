@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Fitness & Allenamento - RelaxPoint | Personal trainer e professionisti a domicilio</title>
+    <meta name="description"
+        content="Personal trainer certificati, pilates, functional training e nutrizionisti sportivi a domicilio. Allenamenti personalizzati per ogni livello ed età.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS BASE + SPECIFICO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/fitness-allenamento.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a href="/index.html" class="nav-link">Home</a>
+                        <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
+                        <a href="/pages/professionisti/professionisti.html" class="nav-link">Professionisti</a>
+                        <a href="/pages/ispirazioni/ispirazioni.html" class="nav-link">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca trainer..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="fitness-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <span>FITNESS & ALLENAMENTO</span>
+                    </div>
+
+                    <!-- HERO SECTION -->
+                    <section class="fitness-hero">
+                        <div class="fitness-hero-content">
+                            <div class="fitness-hero-text">
+                                <h1>Fitness & Allenamento</h1>
+                                <p>Raggiungi i tuoi obiettivi con personal trainer certificati, istruttori specializzati
+                                    e nutrizionisti sportivi. Allenamenti personalizzati per ogni livello, da casa tua o
+                                    in studio.</p>
+                                <div class="fitness-stats">
+                                    <div class="fitness-stat">
+                                        <span class="fitness-stat-number">52</span>
+                                        <span class="fitness-stat-label">Trainer</span>
+                                    </div>
+                                    <div class="fitness-stat">
+                                        <span class="fitness-stat-number">18</span>
+                                        <span class="fitness-stat-label">Discipline</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="fitness-hero-image">
+                                <img src="/assets/images/Servizi/Gym.jpg" alt="Fitness & Allenamento" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LAYOUT PRINCIPALE -->
+                    <div class="fitness-layout">
+
+                        <!-- SIDEBAR FILTRI -->
+                        <aside class="fitness-sidebar">
+                            <div class="fitness-filters">
+                                <h3>Filtra Risultati</h3>
+
+                                <!-- Modalità Servizio -->
+                                <div class="fitness-filter-group">
+                                    <h4>Modalità Servizio</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="modalita" value="domicilio" checked>
+                                        <span>A domicilio</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="modalita" value="studio">
+                                        <span>Presso studio/palestra</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="modalita" value="outdoor">
+                                        <span>Outdoor (parchi/spiaggia)</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="modalita" value="online">
+                                        <span>Coaching online</span>
+                                    </label>
+                                </div>
+
+                                <!-- Tipo Servizio -->
+                                <div class="fitness-filter-group">
+                                    <h4>Tipo Servizio</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="tipo" value="personal">
+                                        <span>Personal Training</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="tipo" value="pilates">
+                                        <span>Pilates</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="tipo" value="functional">
+                                        <span>Functional/CrossFit</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="tipo" value="calisthenics">
+                                        <span>Calisthenics</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="tipo" value="cardio">
+                                        <span>Cardio/HIIT</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="tipo" value="nutrizionista">
+                                        <span>Consulenza nutrizionale</span>
+                                    </label>
+                                </div>
+
+                                <!-- Livello -->
+                                <div class="fitness-filter-group">
+                                    <h4>Livello</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="livello" value="principiante">
+                                        <span>Principiante</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="livello" value="intermedio">
+                                        <span>Intermedio</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="livello" value="avanzato">
+                                        <span>Avanzato</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="livello" value="agonistico">
+                                        <span>Agonistico</span>
+                                    </label>
+                                </div>
+
+                                <!-- Obiettivo -->
+                                <div class="fitness-filter-group">
+                                    <h4>Obiettivo</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="dimagrimento">
+                                        <span>Dimagrimento</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="tonificazione">
+                                        <span>Tonificazione</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="forza">
+                                        <span>Forza/Massa</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="flessibilita">
+                                        <span>Flessibilità</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="sport">
+                                        <span>Preparazione sportiva</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="benessere">
+                                        <span>Benessere generale</span>
+                                    </label>
+                                </div>
+
+                                <!-- Attrezzature -->
+                                <div class="fitness-filter-group">
+                                    <h4>Attrezzature</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="attrezzature" value="corpo-libero">
+                                        <span>Solo corpo libero</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="attrezzature" value="base">
+                                        <span>Attrezzi base inclusi</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="attrezzature" value="avanzati">
+                                        <span>Attrezzi avanzati</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="attrezzature" value="reformer">
+                                        <span>Reformer Pilates</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="attrezzature" value="non-necessarie">
+                                        <span>Non necessarie</span>
+                                    </label>
+                                </div>
+
+                                <!-- Età Target -->
+                                <div class="fitness-filter-group">
+                                    <h4>Età Target</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="eta" value="giovani">
+                                        <span>Giovani (18-30)</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="eta" value="adulti">
+                                        <span>Adulti (30-50)</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="eta" value="senior">
+                                        <span>Senior (50+)</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="checkbox" name="eta" value="tutti">
+                                        <span>Tutti</span>
+                                    </label>
+                                </div>
+
+                                <!-- Prezzo -->
+                                <div class="fitness-filter-group">
+                                    <h4>Prezzo (a sessione)</h4>
+                                    <div class="fitness-price-range">
+                                        <input type="number" class="fitness-price-input" placeholder="Min €" min="30"
+                                            max="120">
+                                        <span>—</span>
+                                        <input type="number" class="fitness-price-input" placeholder="Max €" min="30"
+                                            max="120">
+                                    </div>
+                                </div>
+
+                                <!-- Distanza -->
+                                <div class="fitness-filter-group">
+                                    <h4>Distanza</h4>
+                                    <select class="fitness-distance-select">
+                                        <option value="5">Entro 5 km</option>
+                                        <option value="10" selected>Entro 10 km</option>
+                                        <option value="15">Entro 15 km</option>
+                                        <option value="25">Entro 25 km</option>
+                                        <option value="50">Entro 50 km</option>
+                                    </select>
+                                </div>
+
+                                <!-- Valutazione -->
+                                <div class="fitness-filter-group">
+                                    <h4>Valutazione</h4>
+                                    <label class="fitness-filter-option">
+                                        <input type="radio" name="rating" value="4plus">
+                                        <span>4+ stelle</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="radio" name="rating" value="45plus">
+                                        <span>4.5+ stelle</span>
+                                    </label>
+                                    <label class="fitness-filter-option">
+                                        <input type="radio" name="rating" value="premium">
+                                        <span>Solo Premium</span>
+                                    </label>
+                                </div>
+
+                                <!-- Pulsanti Filtri -->
+                                <div class="fitness-filter-actions">
+                                    <button class="btn-secondary fitness-reset-filters">Reset Filtri</button>
+                                </div>
+                            </div>
+
+                            <!-- Mappa -->
+                            <div class="fitness-map">
+                                <h3>Mappa Trainer</h3>
+                                <div class="fitness-map-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <p>Mappa interattiva</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="fitness-main">
+
+                            <!-- Header risultati -->
+                            <div class="fitness-results-header">
+                                <div class="fitness-results-info">
+                                    <h2>52 Trainer trovati</h2>
+                                    <p>Cagliari e dintorni</p>
+                                </div>
+                                <div class="fitness-sort">
+                                    <label>Ordina per:</label>
+                                    <select class="fitness-sort-select">
+                                        <option value="rilevanza">Più rilevanti</option>
+                                        <option value="rating">Valutazione</option>
+                                        <option value="prezzo-asc">Prezzo crescente</option>
+                                        <option value="prezzo-desc">Prezzo decrescente</option>
+                                        <option value="distanza">Distanza</option>
+                                        <option value="esperienza">Esperienza</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Grid Professionisti -->
+                            <div class="fitness-professionals-grid">
+
+                                <!-- Personal Trainer Premium -->
+                                <div class="fitness-professional-card fitness-premium">
+                                    <div class="fitness-premium-badge">PREMIUM</div>
+                                    <button class="fitness-favorite-btn">♡</button>
+
+                                    <div class="fitness-card-header">
+                                        <div class="fitness-card-image">
+                                            <img src="/assets/images/Professionisti/pr2.png" alt="Marco Fitness">
+                                        </div>
+                                        <div class="fitness-header-info">
+                                            <h3>Marco Fitness</h3>
+                                            <p>Personal Trainer Certificato CONI</p>
+                                            <div class="fitness-rating">
+                                                <div class="fitness-stars">★★★★★</div>
+                                                <span class="fitness-rating-value">4.9</span>
+                                                <span class="fitness-reviews-count">(243)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fitness-card-content">
+                                        <div class="fitness-specializations">
+                                            <span class="fitness-tag">Dimagrimento</span>
+                                            <span class="fitness-tag">Tonificazione</span>
+                                            <span class="fitness-tag">Forza</span>
+                                            <span class="fitness-tag">+5</span>
+                                        </div>
+
+                                        <div class="fitness-service-details">
+                                            <div class="fitness-location">
+                                                <span>🏠 Studio: Via Dante 123</span>
+                                                <span>🚗 Domicilio: raggio 20km</span>
+                                                <span>🏖️ Outdoor training disponibile</span>
+                                            </div>
+                                            <div class="fitness-pricing">
+                                                <span>Sessione individuale: da €45</span>
+                                                <span>Coppia/Small group: da €30/pers</span>
+                                                <span>Pacchetto 10 sessioni: da €400</span>
+                                            </div>
+                                            <div class="fitness-packages">
+                                                ⭐ 8 anni esperienza + certificazioni
+                                            </div>
+                                        </div>
+
+                                        <div class="fitness-card-footer">
+                                            <div class="fitness-availability has-last-minute">
+                                                <span class="fitness-available">Disponibile oggi</span>
+                                                <span class="fitness-last-minute">Last Minute</span>
+                                                <span class="fitness-distance">2.1 km</span>
+                                            </div>
+                                            <div class="fitness-card-actions">
+                                                <button class="btn-secondary fitness-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary fitness-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Istruttrice Pilates -->
+                                <div class="fitness-professional-card">
+                                    <button class="fitness-favorite-btn">♡</button>
+
+                                    <div class="fitness-card-header">
+                                        <div class="fitness-card-image">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Laura Pilates">
+                                        </div>
+                                        <div class="fitness-header-info">
+                                            <h3>Laura Pilates</h3>
+                                            <p>Istruttrice Pilates Certificata</p>
+                                            <div class="fitness-rating">
+                                                <div class="fitness-stars">★★★★☆</div>
+                                                <span class="fitness-rating-value">4.7</span>
+                                                <span class="fitness-reviews-count">(156)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fitness-card-content">
+                                        <div class="fitness-specializations">
+                                            <span class="fitness-tag">Pilates Matwork</span>
+                                            <span class="fitness-tag">Reformer</span>
+                                            <span class="fitness-tag">Postura</span>
+                                        </div>
+
+                                        <div class="fitness-service-details">
+                                            <div class="fitness-location">
+                                                <span>🚗 Solo domicilio con attrezzature</span>
+                                                <span>🧘 Specializzata core stability</span>
+                                            </div>
+                                            <div class="fitness-pricing">
+                                                <span>Pilates matwork: da €50</span>
+                                                <span>Reformer privato: da €65</span>
+                                                <span>Corso posturale: da €45</span>
+                                            </div>
+                                            <div class="fitness-packages">
+                                                ⭐ 6 anni esperienza + reformer portatile
+                                            </div>
+                                        </div>
+
+                                        <div class="fitness-card-footer">
+                                            <div class="fitness-availability">
+                                                <span class="fitness-busy">Disponibile domani</span>
+                                                <span class="fitness-distance">4.2 km</span>
+                                            </div>
+                                            <div class="fitness-card-actions">
+                                                <button class="btn-secondary fitness-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary fitness-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Functional Training Specialist -->
+                                <div class="fitness-professional-card">
+                                    <button class="fitness-favorite-btn active">♥</button>
+
+                                    <div class="fitness-card-header">
+                                        <div class="fitness-card-image">
+                                            <img src="/assets/images/Professionisti/pr3.png" alt="Alex CrossFit">
+                                        </div>
+                                        <div class="fitness-header-info">
+                                            <h3>Alex CrossFit</h3>
+                                            <p>Functional Training Specialist</p>
+                                            <div class="fitness-rating">
+                                                <div class="fitness-stars">★★★★★</div>
+                                                <span class="fitness-rating-value">4.8</span>
+                                                <span class="fitness-reviews-count">(189)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fitness-card-content">
+                                        <div class="fitness-specializations">
+                                            <span class="fitness-tag">HIIT</span>
+                                            <span class="fitness-tag">Functional</span>
+                                            <span class="fitness-tag">Calisthenics</span>
+                                        </div>
+
+                                        <div class="fitness-service-details">
+                                            <div class="fitness-location">
+                                                <span>🏠 Box: Via Sassari 67</span>
+                                                <span>🚗 Domicilio: raggio 15km</span>
+                                                <span>🏖️ Preferenza outdoor training</span>
+                                            </div>
+                                            <div class="fitness-pricing">
+                                                <span>HIIT individuale: da €40</span>
+                                                <span>Functional training: da €45</span>
+                                                <span>Outdoor group: da €25/pers</span>
+                                            </div>
+                                            <div class="fitness-packages">
+                                                ⭐ 5 anni esperienza + risultati garantiti
+                                            </div>
+                                        </div>
+
+                                        <div class="fitness-card-footer">
+                                            <div class="fitness-availability has-last-minute">
+                                                <span class="fitness-available">Disponibile oggi</span>
+                                                <span class="fitness-last-minute">Last Minute</span>
+                                                <span class="fitness-distance">3.8 km</span>
+                                            </div>
+                                            <div class="fitness-card-actions">
+                                                <button class="btn-secondary fitness-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary fitness-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Nutrizionista Sportiva -->
+                                <div class="fitness-professional-card">
+                                    <button class="fitness-favorite-btn">♡</button>
+
+                                    <div class="fitness-card-header">
+                                        <div class="fitness-card-image">
+                                            <img src="/assets/images/Professionisti/pr5.png" alt="Dott.ssa Elena Nutri">
+                                        </div>
+                                        <div class="fitness-header-info">
+                                            <h3>Dott.ssa Elena Nutri</h3>
+                                            <p>Nutrizionista Sportiva</p>
+                                            <div class="fitness-rating">
+                                                <div class="fitness-stars">★★★★☆</div>
+                                                <span class="fitness-rating-value">4.6</span>
+                                                <span class="fitness-reviews-count">(128)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fitness-card-content">
+                                        <div class="fitness-specializations">
+                                            <span class="fitness-tag">Piani Alimentari</span>
+                                            <span class="fitness-tag">Integrazione</span>
+                                            <span class="fitness-tag">Body Comp</span>
+                                        </div>
+
+                                        <div class="fitness-service-details">
+                                            <div class="fitness-location">
+                                                <span>🏠 Studio: Corso Vittorio 89</span>
+                                                <span>💻 Consulenze online disponibili</span>
+                                                <span>🚗 Visite domicilio su richiesta</span>
+                                            </div>
+                                            <div class="fitness-pricing">
+                                                <span>Prima visita + piano: da €80</span>
+                                                <span>Controllo mensile: da €50</span>
+                                                <span>Consulenza online: da €60</span>
+                                            </div>
+                                            <div class="fitness-packages">
+                                                ⭐ Biologa nutrizionista + specializzazione sport
+                                            </div>
+                                        </div>
+
+                                        <div class="fitness-card-footer">
+                                            <div class="fitness-availability">
+                                                <span class="fitness-weekend">Disponibile weekend</span>
+                                                <span class="fitness-distance">6.1 km</span>
+                                            </div>
+                                            <div class="fitness-card-actions">
+                                                <button class="btn-secondary fitness-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary fitness-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Fitness Senior Specialist -->
+                                <div class="fitness-professional-card">
+                                    <button class="fitness-favorite-btn">♡</button>
+
+                                    <div class="fitness-card-header">
+                                        <div class="fitness-card-image">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Giuseppe Senior">
+                                        </div>
+                                        <div class="fitness-header-info">
+                                            <h3>Giuseppe Senior</h3>
+                                            <p>Fitness Specializzato 50+</p>
+                                            <div class="fitness-rating">
+                                                <div class="fitness-stars">★★★★☆</div>
+                                                <span class="fitness-rating-value">4.5</span>
+                                                <span class="fitness-reviews-count">(97)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fitness-card-content">
+                                        <div class="fitness-specializations">
+                                            <span class="fitness-tag">Ginnastica Dolce</span>
+                                            <span class="fitness-tag">Mobilità</span>
+                                            <span class="fitness-tag">Equilibrio</span>
+                                        </div>
+
+                                        <div class="fitness-service-details">
+                                            <div class="fitness-location">
+                                                <span>🚗 Solo domicilio: approccio graduale</span>
+                                                <span>👴 Specializzato età senior</span>
+                                            </div>
+                                            <div class="fitness-pricing">
+                                                <span>Ginnastica dolce: da €35</span>
+                                                <span>Mobilità articolare: da €40</span>
+                                                <span>Pacchetto benessere: da €300</span>
+                                            </div>
+                                            <div class="fitness-packages">
+                                                ⭐ 10 anni esperienza geriatrica
+                                            </div>
+                                        </div>
+
+                                        <div class="fitness-card-footer">
+                                            <div class="fitness-availability">
+                                                <span class="fitness-available">Disponibile oggi</span>
+                                                <span class="fitness-distance">5.7 km</span>
+                                            </div>
+                                            <div class="fitness-card-actions">
+                                                <button class="btn-secondary fitness-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary fitness-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Team Fitness Premium -->
+                                <div class="fitness-professional-card fitness-premium">
+                                    <div class="fitness-premium-badge">PREMIUM</div>
+                                    <button class="fitness-favorite-btn">♡</button>
+
+                                    <div class="fitness-card-header">
+                                        <div class="fitness-card-image">
+                                            <img src="/assets/images/Professionisti/pr6.png" alt="Team Fitness">
+                                        </div>
+                                        <div class="fitness-header-info">
+                                            <h3>Team Fitness</h3>
+                                            <p>Centro Multidisciplinare</p>
+                                            <div class="fitness-rating">
+                                                <div class="fitness-stars">★★★★★</div>
+                                                <span class="fitness-rating-value">4.9</span>
+                                                <span class="fitness-reviews-count">(312)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="fitness-card-content">
+                                        <div class="fitness-specializations">
+                                            <span class="fitness-tag">4 Trainer</span>
+                                            <span class="fitness-tag">Tutte Discipline</span>
+                                            <span class="fitness-tag">Studio Pro</span>
+                                        </div>
+
+                                        <div class="fitness-service-details">
+                                            <div class="fitness-location">
+                                                <span>🏠 Studio: Via Roma 245 (400mq)</span>
+                                                <span>🚗 Servizio domicilio disponibile</span>
+                                                <span>👥 Corsi di gruppo + individuali</span>
+                                            </div>
+                                            <div class="fitness-pricing">
+                                                <span>Personal training: da €50</span>
+                                                <span>Pilates/Functional: da €45</span>
+                                                <span>Abbonamenti mensili: da €120</span>
+                                                <span class="fitness-transport-included">Prima prova gratuita</span>
+                                            </div>
+                                            <div class="fitness-packages">
+                                                ⭐ 15 discipline + attrezzature professionali
+                                            </div>
+                                        </div>
+
+                                        <div class="fitness-card-footer">
+                                            <div class="fitness-availability">
+                                                <span class="fitness-busy">Prenotazione richiesta</span>
+                                                <span class="fitness-distance">7.2 km</span>
+                                            </div>
+                                            <div class="fitness-card-actions">
+                                                <button class="btn-secondary fitness-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary fitness-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load More -->
+                                <div class="fitness-load-more">
+                                    <button class="btn-secondary fitness-load-more-btn">Carica altri trainer</button>
+                                    <p>Mostrando 6 di 52 risultati</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- SEZIONI CORRELATE -->
+            <section class="content-sections">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Servizi Correlati</h2>
+                    <div class="services-grid">
+                        <a href="/pages/servizi/massaggi-e-trattamenti.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/massage2.jpg");'></div>
+                            <p class="service-title">Massaggi e Trattamenti</p>
+                        </a>
+                        <a href="/pages/servizi/fisioterapia-osteopatia.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/Fiosioterapia.Osteopatia.png");'>
+                            </div>
+                            <p class="service-title">Fisioterapia & Osteopatia</p>
+                        </a>
+                        <a href="/pages/servizi/yoga-meditazione.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/YogaEndMeditazione.jpeg");'></div>
+                            <p class="service-title">Yoga e Meditazione</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/fitness-allenamento.js?v=1.2"></script>
+</body>
+
+</html>

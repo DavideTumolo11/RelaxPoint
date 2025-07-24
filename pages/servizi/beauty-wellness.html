@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Beauty & Wellness - RelaxPoint | Estetiste e trattamenti a domicilio</title>
+    <meta name="description"
+        content="Trattamenti viso, corpo, manicure e beauty professionale a domicilio. Estetiste certificate, tecnologie avanzate e consulenze skincare personalizzate.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS BASE + SPECIFICO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/beauty-wellness.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a href="/index.html" class="nav-link">Home</a>
+                        <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
+                        <a href="/pages/professionisti/professionisti.html" class="nav-link">Professionisti</a>
+                        <a href="/pages/ispirazioni/ispirazioni.html" class="nav-link">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca estetiste..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="beauty-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <span>BEAUTY & WELLNESS</span>
+                    </div>
+
+                    <!-- HERO SECTION -->
+                    <section class="beauty-hero">
+                        <div class="beauty-hero-content">
+                            <div class="beauty-hero-text">
+                                <h1>Beauty & Wellness</h1>
+                                <p>Riscopri la tua bellezza con trattamenti viso e corpo professionali. Estetiste
+                                    certificate, tecnologie avanzate e consulenze personalizzate per risultati visibili
+                                    e duraturi.</p>
+                                <div class="beauty-stats">
+                                    <div class="beauty-stat">
+                                        <span class="beauty-stat-number">43</span>
+                                        <span class="beauty-stat-label">Specialisti</span>
+                                    </div>
+                                    <div class="beauty-stat">
+                                        <span class="beauty-stat-number">25</span>
+                                        <span class="beauty-stat-label">Trattamenti</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="beauty-hero-image">
+                                <img src="/assets/images/Servizi/Beauty.jpg" alt="Beauty & Wellness" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LAYOUT PRINCIPALE -->
+                    <div class="beauty-layout">
+
+                        <!-- SIDEBAR FILTRI -->
+                        <aside class="beauty-sidebar">
+                            <div class="beauty-filters">
+                                <h3>Filtra Risultati</h3>
+
+                                <!-- Modalità Servizio -->
+                                <div class="beauty-filter-group">
+                                    <h4>Modalità Servizio</h4>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="modalita" value="domicilio" checked>
+                                        <span>A domicilio</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="modalita" value="centro">
+                                        <span>Presso centro estetico</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="modalita" value="mobile">
+                                        <span>Mobile beauty van</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="modalita" value="online">
+                                        <span>Consulenza online</span>
+                                    </label>
+                                </div>
+
+                                <!-- Tipo Trattamento -->
+                                <div class="beauty-filter-group">
+                                    <h4>Tipo Trattamento</h4>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tipo" value="viso">
+                                        <span>Viso anti-age</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tipo" value="corpo">
+                                        <span>Corpo modellante</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tipo" value="nails">
+                                        <span>Manicure/Pedicure</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tipo" value="extension">
+                                        <span>Extension/Laminazione</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tipo" value="epilazione">
+                                        <span>Epilazione</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tipo" value="skincare">
+                                        <span>Consulenza skincare</span>
+                                    </label>
+                                </div>
+
+                                <!-- Zona Trattamento -->
+                                <div class="beauty-filter-group">
+                                    <h4>Zona Trattamento</h4>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="zona" value="solo-viso">
+                                        <span>Solo viso</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="zona" value="solo-corpo">
+                                        <span>Solo corpo</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="zona" value="mani-piedi">
+                                        <span>Mani/Piedi</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="zona" value="viso-corpo">
+                                        <span>Viso + corpo</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="zona" value="completo">
+                                        <span>Trattamento completo</span>
+                                    </label>
+                                </div>
+
+                                <!-- Problema Specifico -->
+                                <div class="beauty-filter-group">
+                                    <h4>Problema Specifico</h4>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="problema" value="anti-age">
+                                        <span>Anti-age/rughe</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="problema" value="acne">
+                                        <span>Acne/imperfezioni</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="problema" value="cellulite">
+                                        <span>Cellulite/rassodamento</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="problema" value="idratazione">
+                                        <span>Idratazione/secchezza</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="problema" value="macchie">
+                                        <span>Macchie/discromie</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="problema" value="rilassamento">
+                                        <span>Rilassamento tessuti</span>
+                                    </label>
+                                </div>
+
+                                <!-- Tecnologie -->
+                                <div class="beauty-filter-group">
+                                    <h4>Tecnologie</h4>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tecnologie" value="manuale">
+                                        <span>Solo manuale</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tecnologie" value="radiofrequenza">
+                                        <span>Radiofrequenza</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tecnologie" value="cavitazione">
+                                        <span>Cavitazione</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tecnologie" value="pressoterapia">
+                                        <span>Pressoterapia</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tecnologie" value="laser">
+                                        <span>Laser/IPL</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="checkbox" name="tecnologie" value="microneedling">
+                                        <span>Microneedling</span>
+                                    </label>
+                                </div>
+
+                                <!-- Prezzo -->
+                                <div class="beauty-filter-group">
+                                    <h4>Prezzo (a trattamento)</h4>
+                                    <div class="beauty-price-range">
+                                        <input type="number" class="beauty-price-input" placeholder="Min €" min="30"
+                                            max="150">
+                                        <span>—</span>
+                                        <input type="number" class="beauty-price-input" placeholder="Max €" min="30"
+                                            max="150">
+                                    </div>
+                                </div>
+
+                                <!-- Distanza -->
+                                <div class="beauty-filter-group">
+                                    <h4>Distanza</h4>
+                                    <select class="beauty-distance-select">
+                                        <option value="5">Entro 5 km</option>
+                                        <option value="10" selected>Entro 10 km</option>
+                                        <option value="15">Entro 15 km</option>
+                                        <option value="25">Entro 25 km</option>
+                                        <option value="50">Entro 50 km</option>
+                                    </select>
+                                </div>
+
+                                <!-- Valutazione -->
+                                <div class="beauty-filter-group">
+                                    <h4>Valutazione</h4>
+                                    <label class="beauty-filter-option">
+                                        <input type="radio" name="rating" value="4plus">
+                                        <span>4+ stelle</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="radio" name="rating" value="45plus">
+                                        <span>4.5+ stelle</span>
+                                    </label>
+                                    <label class="beauty-filter-option">
+                                        <input type="radio" name="rating" value="premium">
+                                        <span>Solo Premium</span>
+                                    </label>
+                                </div>
+
+                                <!-- Pulsanti Filtri -->
+                                <div class="beauty-filter-actions">
+                                    <button class="btn-secondary beauty-reset-filters">Reset Filtri</button>
+                                </div>
+                            </div>
+
+                            <!-- Mappa -->
+                            <div class="beauty-map">
+                                <h3>Mappa Specialisti</h3>
+                                <div class="beauty-map-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <p>Mappa interattiva</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="beauty-main">
+
+                            <!-- Header risultati -->
+                            <div class="beauty-results-header">
+                                <div class="beauty-results-info">
+                                    <h2>43 Specialisti trovati</h2>
+                                    <p>Cagliari e dintorni</p>
+                                </div>
+                                <div class="beauty-sort">
+                                    <label>Ordina per:</label>
+                                    <select class="beauty-sort-select">
+                                        <option value="rilevanza">Più rilevanti</option>
+                                        <option value="rating">Valutazione</option>
+                                        <option value="prezzo-asc">Prezzo crescente</option>
+                                        <option value="prezzo-desc">Prezzo decrescente</option>
+                                        <option value="distanza">Distanza</option>
+                                        <option value="esperienza">Esperienza</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Grid Professionisti -->
+                            <div class="beauty-professionals-grid">
+
+                                <!-- Estetista Premium Multidisciplinare -->
+                                <div class="beauty-professional-card beauty-premium">
+                                    <div class="beauty-premium-badge">PREMIUM</div>
+                                    <button class="beauty-favorite-btn">♡</button>
+
+                                    <div class="beauty-card-header">
+                                        <div class="beauty-card-image">
+                                            <img src="/assets/images/Professionisti/pr5.png" alt="Valentina Beauty">
+                                        </div>
+                                        <div class="beauty-header-info">
+                                            <h3>Valentina Beauty</h3>
+                                            <p>Estetista Premium Multidisciplinare</p>
+                                            <div class="beauty-rating">
+                                                <div class="beauty-stars">★★★★★</div>
+                                                <span class="beauty-rating-value">4.9</span>
+                                                <span class="beauty-reviews-count">(287)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="beauty-card-content">
+                                        <div class="beauty-specializations">
+                                            <span class="beauty-tag">Anti-age</span>
+                                            <span class="beauty-tag">Radiofrequenza</span>
+                                            <span class="beauty-tag">Corpo</span>
+                                            <span class="beauty-tag">+8</span>
+                                        </div>
+
+                                        <div class="beauty-service-details">
+                                            <div class="beauty-location">
+                                                <span>🏠 Studio: Via Sassari 78</span>
+                                                <span>🚗 Domicilio: raggio 20km</span>
+                                                <span>🇷🇺 Tecniche russe certificate</span>
+                                            </div>
+                                            <div class="beauty-pricing">
+                                                <span>Extension classiche: da €80</span>
+                                                <span>Volume russo: da €120</span>
+                                                <span>Laminazione ciglia: da €50</span>
+                                            </div>
+                                            <div class="beauty-packages">
+                                                ⭐ Certificazioni internazionali
+                                            </div>
+                                        </div>
+
+                                        <div class="beauty-card-footer">
+                                            <div class="beauty-availability">
+                                                <span class="beauty-weekend">Disponibile weekend</span>
+                                                <span class="beauty-distance">4.5 km</span>
+                                            </div>
+                                            <div class="beauty-card-actions">
+                                                <button class="btn-secondary beauty-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary beauty-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Estetica Uomo Specializzata -->
+                                <div class="beauty-professional-card">
+                                    <button class="beauty-favorite-btn">♡</button>
+
+                                    <div class="beauty-card-header">
+                                        <div class="beauty-card-image">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Marco Men's">
+                                        </div>
+                                        <div class="beauty-header-info">
+                                            <h3>Marco Men's</h3>
+                                            <p>Estetica Uomo Specializzata</p>
+                                            <div class="beauty-rating">
+                                                <div class="beauty-stars">★★★★☆</div>
+                                                <span class="beauty-rating-value">4.6</span>
+                                                <span class="beauty-reviews-count">(89)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="beauty-card-content">
+                                        <div class="beauty-specializations">
+                                            <span class="beauty-tag">Viso Uomo</span>
+                                            <span class="beauty-tag">Epilazione</span>
+                                            <span class="beauty-tag">Barbiere</span>
+                                        </div>
+
+                                        <div class="beauty-service-details">
+                                            <div class="beauty-location">
+                                                <span>🏠 Barbershop: Corso Italia 156</span>
+                                                <span>🚗 Domicilio: su richiesta</span>
+                                                <span>👨 Approccio discreto/professionale</span>
+                                            </div>
+                                            <div class="beauty-pricing">
+                                                <span>Pulizia viso uomo: da €45</span>
+                                                <span>Epilazione laser: da €60</span>
+                                                <span>Trattamento completo: da €80</span>
+                                            </div>
+                                            <div class="beauty-packages">
+                                                ⭐ 8 anni esperienza settore maschile
+                                            </div>
+                                        </div>
+
+                                        <div class="beauty-card-footer">
+                                            <div class="beauty-availability">
+                                                <span class="beauty-available">Disponibile oggi</span>
+                                                <span class="beauty-distance">5.9 km</span>
+                                            </div>
+                                            <div class="beauty-card-actions">
+                                                <button class="btn-secondary beauty-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary beauty-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Beauty Luxury Mobile Premium -->
+                                <div class="beauty-professional-card beauty-premium">
+                                    <div class="beauty-premium-badge">PREMIUM</div>
+                                    <button class="beauty-favorite-btn">♡</button>
+
+                                    <div class="beauty-card-header">
+                                        <div class="beauty-card-image">
+                                            <img src="/assets/images/Professionisti/pr6.png" alt="Beauty Luxury">
+                                        </div>
+                                        <div class="beauty-header-info">
+                                            <h3>Beauty Luxury</h3>
+                                            <p>Centro Mobile Premium</p>
+                                            <div class="beauty-rating">
+                                                <div class="beauty-stars">★★★★★</div>
+                                                <span class="beauty-rating-value">4.9</span>
+                                                <span class="beauty-reviews-count">(145)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="beauty-card-content">
+                                        <div class="beauty-specializations">
+                                            <span class="beauty-tag">Van Attrezzato</span>
+                                            <span class="beauty-tag">Team 3</span>
+                                            <span class="beauty-tag">Eventi VIP</span>
+                                        </div>
+
+                                        <div class="beauty-service-details">
+                                            <div class="beauty-location">
+                                                <span>🚐 Van attrezzato completo</span>
+                                                <span>👥 Team 3 estetiste specializzate</span>
+                                                <span>💎 Eventi/matrimoni/VIP service</span>
+                                            </div>
+                                            <div class="beauty-pricing">
+                                                <span>Servizio base: da €150</span>
+                                                <span>Evento matrimonio: da €300</span>
+                                                <span>Giornata VIP: da €500</span>
+                                                <span class="beauty-transport-included">Trasporto incluso</span>
+                                            </div>
+                                            <div class="beauty-packages">
+                                                ⭐ Luxury mobile + attrezzature top
+                                            </div>
+                                        </div>
+
+                                        <div class="beauty-card-footer">
+                                            <div class="beauty-availability">
+                                                <span class="beauty-busy">Prenotazione anticipata</span>
+                                                <span class="beauty-distance">Tutta Sardegna</span>
+                                            </div>
+                                            <div class="beauty-card-actions">
+                                                <button class="btn-secondary beauty-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary beauty-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Load More -->
+                                <div class="beauty-load-more">
+                                    <button class="btn-secondary beauty-load-more-btn">Carica altri specialisti</button>
+                                    <p>Mostrando 6 di 43 risultati</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- SEZIONI CORRELATE -->
+            <section class="content-sections">
+                <div class="content-wrapper">
+                    <h2 class="section-title">Servizi Correlati</h2>
+                    <div class="services-grid">
+                        <a href="/pages/servizi/hair-makeup.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/Hair and make-up.png");'></div>
+                            <p class="service-title">Hair e Make-up</p>
+                        </a>
+                        <a href="/pages/servizi/massaggi-e-trattamenti.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/massage2.jpg");'></div>
+                            <p class="service-title">Massaggi e Trattamenti</p>
+                        </a>
+                        <a href="/pages/servizi/gravidanza-neo-mamme.html" class="service-card">
+                            <div class="service-image"
+                                style='background-image: url("/assets/images/Servizi/neoMamma.jpg");'></div>
+                            <p class="service-title">Gravidanza & Neo-mamme</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/beauty-wellness.js?v=1.2"></script>
+</body>
