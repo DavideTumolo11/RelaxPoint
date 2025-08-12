@@ -1,0 +1,875 @@
+/* ===== YOGA & MEDITAZIONE - CSS LAYOUT OTTIMIZZATO ===== */
+/* Desktop: Foto grande sinistra + Info destra + Cuore alto-destra | Mobile: Verticale */
+
+/* BREADCRUMB YOGA */
+.yoga-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.yoga-breadcrumb a {
+    color: #2d5a3d;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.yoga-breadcrumb a:hover {
+    color: #52a373;
+}
+
+.yoga-breadcrumb span {
+    color: #999;
+    margin: 0 4px;
+}
+
+/* HERO YOGA & MEDITAZIONE - TEMA VERDE ZEN */
+.yoga-hero {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-radius: 16px;
+    padding: 48px 32px;
+    margin: 32px 0;
+}
+
+.yoga-hero-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.yoga-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: #1e3a2e;
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.yoga-hero p {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 32px;
+    line-height: 1.5;
+}
+
+.yoga-stats {
+    display: flex;
+    gap: 32px;
+}
+
+.yoga-stat {
+    text-align: center;
+}
+
+.yoga-stat-number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #16a34a;
+    line-height: 1;
+}
+
+.yoga-stat-label {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+.yoga-hero-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(22, 163, 74, 0.1);
+}
+
+.yoga-hero-image img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* LAYOUT PRINCIPALE */
+.yoga-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+/* SIDEBAR FILTRI */
+.yoga-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.yoga-filters {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.yoga-filters h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin-bottom: 24px;
+}
+
+.yoga-filter-group {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.yoga-filter-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.yoga-filter-group h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.yoga-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    padding: 6px 0;
+}
+
+.yoga-filter-option input {
+    margin: 0;
+}
+
+.yoga-filter-option span {
+    font-size: 14px;
+    color: #555;
+}
+
+.yoga-price-range {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.yoga-price-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.yoga-distance-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+.yoga-filter-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.yoga-reset-filters {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+}
+
+/* MAPPA */
+.yoga-map {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.yoga-map h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e3a2e;
+    margin-bottom: 16px;
+}
+
+.yoga-map-placeholder {
+    height: 200px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border: 2px dashed #ddd;
+}
+
+.yoga-map-placeholder svg {
+    color: #2d5a3d;
+    margin-bottom: 8px;
+}
+
+/* CONTENUTO PRINCIPALE */
+.yoga-main {
+    background: #fff;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.yoga-results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.yoga-results-info h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin-bottom: 4px;
+}
+
+.yoga-results-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.yoga-sort {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.yoga-sort label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.yoga-sort-select {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background: white;
+}
+
+/* ===== GRID PROFESSIONISTI - 3 COLONNE DESKTOP ===== */
+.yoga-professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* ===== CARD PROFESSIONISTA - LAYOUT IDENTICO GRAVIDANZA ===== */
+.yoga-professional-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 420px;
+}
+
+.yoga-professional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.yoga-professional-card.yoga-premium {
+    border-color: var(--color-primary);
+    position: relative;
+}
+
+/* PREMIUM BADGE - VERDE STANDARD COME GRAVIDANZA */
+.yoga-premium-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(45, 90, 61, 0.3);
+    line-height: 1;
+    z-index: 4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CUORE IN ALTO A DESTRA - ROSSO COME GRAVIDANZA */
+.yoga-favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.yoga-favorite-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #dc2626;
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+}
+
+.yoga-favorite-btn.active {
+    background: #fce7e6;
+    color: #dc2626;
+    border-color: #fce7e6;
+}
+
+/* ===== HEADER CARD - FOTO GRANDE + INFO DESTRA ===== */
+.yoga-card-header {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    padding-bottom: 0;
+    align-items: flex-start;
+}
+
+/* FOTO PROFESSIONISTA - PIÙ GRANDE */
+.yoga-card-image {
+    position: relative;
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.yoga-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* INFO HEADER - DESTRA FOTO */
+.yoga-header-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-top: 8px;
+    margin-left: 8px;
+}
+
+.yoga-header-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin: 0;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.yoga-header-info p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.yoga-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.yoga-stars {
+    color: #fbbf24;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.yoga-rating-value {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.yoga-reviews-count {
+    font-size: 13px;
+    color: #666;
+}
+
+/* ===== CONTENUTO CARD - SOTTO HEADER ===== */
+.yoga-card-content {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+/* SPECIALIZZAZIONI - VERDE ZEN TEMA */
+.yoga-specializations {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-left: 12px;
+}
+
+.yoga-tag {
+    background: #dcfce7;
+    color: #16a34a;
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid #bbf7d0;
+    line-height: 1.2;
+}
+
+/* DETTAGLI SERVIZIO */
+.yoga-service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.yoga-location,
+.yoga-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.yoga-location span,
+.yoga-pricing span {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.3;
+}
+
+.yoga-pricing span {
+    color: #2d5a3d;
+    font-weight: 600;
+}
+
+.yoga-transport-included {
+    color: #10b981 !important;
+    font-size: 11px !important;
+    font-style: italic;
+}
+
+.yoga-packages {
+    font-size: 13px;
+    color: #2d5a3d;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* DISPONIBILITÀ */
+.yoga-availability {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.yoga-availability.has-last-minute {
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.yoga-available,
+.yoga-busy,
+.yoga-weekend {
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.yoga-available {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.yoga-busy {
+    background: #fed7d7;
+    color: #991b1b;
+}
+
+.yoga-weekend {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* LAST MINUTE BADGE - STILE HEADER */
+.yoga-last-minute {
+    color: #ef4444;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    animation: blink 1.5s infinite;
+    margin-right: 8px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* DISTANZA - SOLO PER LAST MINUTE */
+.yoga-distance {
+    font-size: 11px;
+    color: #666;
+    font-weight: 500;
+}
+
+/* NASCONDI DISTANZA SE NON LAST MINUTE */
+.yoga-availability:not(.has-last-minute) .yoga-distance {
+    display: none;
+}
+
+/* ===== FOOTER CARD - PULSANTI ===== */
+.yoga-card-footer {
+    margin-top: auto;
+    position: relative;
+}
+
+.yoga-card-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 0;
+}
+
+.yoga-profile-btn,
+.yoga-book-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    line-height: 1.2;
+}
+
+/* LOAD MORE */
+.yoga-load-more {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.yoga-load-more-btn {
+    margin-bottom: 12px;
+    padding: 12px 32px;
+}
+
+.yoga-load-more p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* ===== RESPONSIVE PROGRESSIVO ===== */
+
+/* DESKTOP LARGE - 2 colonne ottimizzate */
+@media (min-width: 1200px) {
+    .yoga-card-header {
+        padding: 24px 24px 0 24px;
+        gap: 20px;
+    }
+
+    .yoga-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .yoga-card-content {
+        padding: 0 24px 24px 24px;
+    }
+
+    .yoga-card-image {
+        width: 140px;
+        height: 140px;
+    }
+
+    .yoga-header-info h3 {
+        font-size: 22px;
+    }
+
+    .yoga-header-info p {
+        font-size: 15px;
+    }
+}
+
+/* DESKTOP EXTRA LARGE - 3 colonne per schermi grandi */
+@media (min-width: 1600px) {
+    .yoga-professionals-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .yoga-card-header {
+        padding: 28px 28px 0 28px;
+        gap: 24px;
+    }
+
+    .yoga-card-content {
+        padding: 0 28px 28px 28px;
+    }
+
+    .yoga-card-image {
+        width: 160px;
+        height: 160px;
+    }
+
+    .yoga-header-info h3 {
+        font-size: 24px;
+    }
+
+    .yoga-header-info p {
+        font-size: 16px;
+    }
+}
+
+/* TABLET LANDSCAPE - 2 colonne */
+@media (max-width: 1199px) and (min-width: 969px) {
+    .yoga-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+    }
+
+    .yoga-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .yoga-card-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .yoga-hero-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .yoga-hero h1 {
+        font-size: 40px;
+    }
+}
+
+/* TABLET PORTRAIT - Layout sidebar sopra + 2 colonne */
+@media (max-width: 968px) {
+    .yoga-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .yoga-sidebar {
+        order: -1;
+    }
+
+    .yoga-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .yoga-card-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .yoga-header-info h3 {
+        font-size: 18px;
+    }
+
+    .yoga-hero {
+        padding: 32px 24px;
+    }
+
+    .yoga-hero h1 {
+        font-size: 32px;
+    }
+
+    .yoga-stats {
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .yoga-results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* MOBILE LARGE - 1 colonna + layout verticale */
+@media (max-width: 640px) {
+    .yoga-professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* TRANSIZIONE A LAYOUT VERTICALE MOBILE */
+    .yoga-card-header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 20px 0 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .yoga-card-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+    }
+
+    .yoga-header-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .yoga-header-info h3 {
+        font-size: 20px;
+    }
+
+    .yoga-rating {
+        justify-content: center;
+    }
+
+    .yoga-favorite-btn {
+        top: 16px;
+        right: 16px;
+        bottom: auto;
+    }
+
+    .yoga-card-content {
+        padding: 0 16px 16px 16px;
+        gap: 14px;
+    }
+
+    .yoga-specializations {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .yoga-card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .yoga-hero {
+        padding: 24px 16px;
+    }
+
+    .yoga-hero h1 {
+        font-size: 28px;
+    }
+
+    .yoga-stats {
+        gap: 16px;
+    }
+
+    .yoga-stat-number {
+        font-size: 24px;
+    }
+
+    .yoga-filters {
+        padding: 16px;
+    }
+
+    .yoga-main {
+        padding: 16px;
+    }
+}
+
+/* MOBILE SMALL - Ottimizzazioni finali */
+@media (max-width: 480px) {
+    .yoga-stats {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .yoga-filter-actions {
+        flex-direction: column;
+    }
+
+    .yoga-price-range {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .yoga-availability {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .yoga-card-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .yoga-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+}

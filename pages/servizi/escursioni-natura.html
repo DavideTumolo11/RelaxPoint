@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Yoga & Meditazione - RelaxPoint | Insegnanti qualificati a domicilio</title>
+    <meta name="description"
+        content="Sessioni di yoga e meditazione a domicilio. Hatha, Vinyasa, Yin Yoga, mindfulness, reiki e sound healing con insegnanti certificati. Equilibrio per mente e corpo.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS BASE + SPECIFICO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/yoga-meditazione.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a href="/index.html" class="nav-link">Home</a>
+                        <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
+                        <a href="/pages/professionisti/professionisti.html" class="nav-link">Professionisti</a>
+                        <a href="/pages/ispirazioni/ispirazioni.html" class="nav-link">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca insegnanti..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="yoga-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <span>YOGA & MEDITAZIONE</span>
+                    </div>
+
+                    <!-- HERO SECTION -->
+                    <section class="yoga-hero">
+                        <div class="yoga-hero-content">
+                            <div class="yoga-hero-text">
+                                <h1>Yoga & Meditazione</h1>
+                                <p>Trova l'equilibrio tra mente e corpo con i nostri insegnanti certificati. Hatha,
+                                    Vinyasa, Yin Yoga, meditazione mindfulness, reiki e sound healing per il tuo
+                                    benessere olistico, ovunque tu sia.</p>
+                                <div class="yoga-stats">
+                                    <div class="yoga-stat">
+                                        <span class="yoga-stat-number">35</span>
+                                        <span class="yoga-stat-label">Insegnanti</span>
+                                    </div>
+                                    <div class="yoga-stat">
+                                        <span class="yoga-stat-number">15</span>
+                                        <span class="yoga-stat-label">Discipline</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yoga-hero-image">
+                                <img src="/assets/images/Servizi/YogaEndMeditazione.jpeg" alt="Yoga e Meditazione" />
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- LAYOUT PRINCIPALE -->
+                    <div class="yoga-layout">
+
+                        <!-- SIDEBAR FILTRI -->
+                        <aside class="yoga-sidebar">
+                            <div class="yoga-filters">
+                                <h3>Filtra Risultati</h3>
+
+                                <!-- Modalità Servizio -->
+                                <div class="yoga-filter-group">
+                                    <h4>Modalità Servizio</h4>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="modalita" value="domicilio" checked>
+                                        <span>A domicilio</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="modalita" value="studio">
+                                        <span>Presso studio</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="modalita" value="outdoor">
+                                        <span>Outdoor natura</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="modalita" value="online">
+                                        <span>Online virtuale</span>
+                                    </label>
+                                </div>
+
+                                <!-- Stile Yoga -->
+                                <div class="yoga-filter-group">
+                                    <h4>Stile Yoga</h4>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="stile" value="hatha">
+                                        <span>Hatha Yoga</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="stile" value="vinyasa">
+                                        <span>Vinyasa Flow</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="stile" value="yin">
+                                        <span>Yin Yoga</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="stile" value="kundalini">
+                                        <span>Kundalini</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="stile" value="restorative">
+                                        <span>Restorative</span>
+                                    </label>
+                                </div>
+
+                                <!-- Tipo Pratica -->
+                                <div class="yoga-filter-group">
+                                    <h4>Tipo Pratica</h4>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="pratica" value="solo-yoga">
+                                        <span>Solo Yoga</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="pratica" value="solo-meditazione">
+                                        <span>Solo Meditazione</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="pratica" value="combo">
+                                        <span>Yoga + Meditazione</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="pratica" value="terapie-energetiche">
+                                        <span>Terapie energetiche</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="pratica" value="sound-healing">
+                                        <span>Sound healing</span>
+                                    </label>
+                                </div>
+
+                                <!-- Livello -->
+                                <div class="yoga-filter-group">
+                                    <h4>Livello</h4>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="livello" value="principiante">
+                                        <span>Principiante</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="livello" value="base">
+                                        <span>Base</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="livello" value="intermedio">
+                                        <span>Intermedio</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="livello" value="avanzato">
+                                        <span>Avanzato</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="livello" value="esperto">
+                                        <span>Praticante esperto</span>
+                                    </label>
+                                </div>
+
+                                <!-- Obiettivo -->
+                                <div class="yoga-filter-group">
+                                    <h4>Obiettivo</h4>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="stress">
+                                        <span>Riduzione stress</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="flessibilita">
+                                        <span>Flessibilità</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="forza">
+                                        <span>Forza & equilibrio</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="rilassamento">
+                                        <span>Rilassamento profondo</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="checkbox" name="obiettivo" value="spirituale">
+                                        <span>Crescita spirituale</span>
+                                    </label>
+                                </div>
+
+                                <!-- Prezzo -->
+                                <div class="yoga-filter-group">
+                                    <h4>Prezzo</h4>
+                                    <div class="yoga-price-range">
+                                        <input type="number" class="yoga-price-input" placeholder="Min €" min="25"
+                                            max="120">
+                                        <span>—</span>
+                                        <input type="number" class="yoga-price-input" placeholder="Max €" min="25"
+                                            max="120">
+                                    </div>
+                                </div>
+
+                                <!-- Distanza -->
+                                <div class="yoga-filter-group">
+                                    <h4>Distanza</h4>
+                                    <select class="yoga-distance-select">
+                                        <option value="5">Entro 5 km</option>
+                                        <option value="10" selected>Entro 10 km</option>
+                                        <option value="15">Entro 15 km</option>
+                                        <option value="25">Entro 25 km</option>
+                                        <option value="50">Entro 50 km</option>
+                                    </select>
+                                </div>
+
+                                <!-- Valutazione -->
+                                <div class="yoga-filter-group">
+                                    <h4>Valutazione</h4>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="rating" value="4plus">
+                                        <span>4+ stelle</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="rating" value="45plus">
+                                        <span>4.5+ stelle</span>
+                                    </label>
+                                    <label class="yoga-filter-option">
+                                        <input type="radio" name="rating" value="premium">
+                                        <span>Solo Premium</span>
+                                    </label>
+                                </div>
+
+                                <!-- Pulsanti Filtri -->
+                                <div class="yoga-filter-actions">
+                                    <button class="btn-secondary yoga-reset-filters">Reset Filtri</button>
+                                </div>
+                            </div>
+
+                            <!-- Mappa -->
+                            <div class="yoga-map">
+                                <h3>Mappa Insegnanti</h3>
+                                <div class="yoga-map-placeholder">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <p>Mappa interattiva</p>
+                                </div>
+                            </div>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="yoga-main">
+
+                            <!-- Header risultati -->
+                            <div class="yoga-results-header">
+                                <div class="yoga-results-info">
+                                    <h2>35 Insegnanti trovati</h2>
+                                    <p>Cagliari e dintorni</p>
+                                </div>
+                                <div class="yoga-sort">
+                                    <label>Ordina per:</label>
+                                    <select class="yoga-sort-select">
+                                        <option value="rilevanza">Più rilevanti</option>
+                                        <option value="rating">Valutazione</option>
+                                        <option value="prezzo-asc">Prezzo crescente</option>
+                                        <option value="prezzo-desc">Prezzo decrescente</option>
+                                        <option value="distanza">Distanza</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Grid Professionisti -->
+                            <div class="yoga-professionals-grid">
+
+                                <!-- Insegnante Premium -->
+                                <div class="yoga-professional-card yoga-premium">
+                                    <div class="yoga-premium-badge">PREMIUM</div>
+                                    <button class="yoga-favorite-btn">♡</button>
+
+                                    <div class="yoga-card-header">
+                                        <div class="yoga-card-image">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Ananda Devi">
+                                        </div>
+                                        <div class="yoga-header-info">
+                                            <h3>Ananda Devi</h3>
+                                            <p>Yoga Teacher 500h - Hatha & Vinyasa</p>
+                                            <div class="yoga-rating">
+                                                <div class="yoga-stars">★★★★★</div>
+                                                <span class="yoga-rating-value">4.9</span>
+                                                <span class="yoga-reviews-count">(203)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="yoga-card-content">
+                                        <div class="yoga-specializations">
+                                            <span class="yoga-tag">Hatha Yoga</span>
+                                            <span class="yoga-tag">Vinyasa Flow</span>
+                                            <span class="yoga-tag">Meditazione</span>
+                                            <span class="yoga-tag">+3</span>
+                                        </div>
+
+                                        <div class="yoga-service-details">
+                                            <div class="yoga-location">
+                                                <span>🏠 Studio: Via Sassari 89</span>
+                                                <span>🚗 Domicilio: raggio 20km</span>
+                                                <span>🌳 Outdoor: parchi e spiagge</span>
+                                            </div>
+                                            <div class="yoga-pricing">
+                                                <span>Lezione individuale: da €55</span>
+                                                <span>Sessione meditazione: da €45</span>
+                                                <span>Pacchetto 8 lezioni: da €400</span>
+                                            </div>
+                                            <div class="yoga-packages">
+                                                ⭐ 12 pratiche specializzate
+                                            </div>
+                                        </div>
+
+                                        <div class="yoga-card-footer">
+                                            <div class="yoga-availability has-last-minute">
+                                                <span class="yoga-available">Disponibile oggi</span>
+                                                <span class="yoga-last-minute">Last Minute</span>
+                                                <span class="yoga-distance">2.3 km</span>
+                                            </div>
+                                            <div class="yoga-card-actions">
+                                                <button class="btn-secondary yoga-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary yoga-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Mindfulness Coach -->
+                                <div class="yoga-professional-card">
+                                    <button class="yoga-favorite-btn">♡</button>
+
+                                    <div class="yoga-card-header">
+                                        <div class="yoga-card-image">
+                                            <img src="/assets/images/Professionisti/pr2.png" alt="Marco Zen">
+                                        </div>
+                                        <div class="yoga-header-info">
+                                            <h3>Marco Zen</h3>
+                                            <p>Mindfulness Coach & Breathwork</p>
+                                            <div class="yoga-rating">
+                                                <div class="yoga-stars">★★★★☆</div>
+                                                <span class="yoga-rating-value">4.6</span>
+                                                <span class="yoga-reviews-count">(145)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="yoga-card-content">
+                                        <div class="yoga-specializations">
+                                            <span class="yoga-tag">Mindfulness</span>
+                                            <span class="yoga-tag">Pranayama</span>
+                                            <span class="yoga-tag">Forest bathing</span>
+                                        </div>
+
+                                        <div class="yoga-service-details">
+                                            <div class="yoga-location">
+                                                <span>🚗 Solo domicilio: raggio 15km</span>
+                                                <span>🌳 Sessioni outdoor natura</span>
+                                                <span>💻 Coaching online disponibile</span>
+                                            </div>
+                                            <div class="yoga-pricing">
+                                                <span>Sessione mindfulness: da €50</span>
+                                                <span>Breathwork intensivo: da €65</span>
+                                                <span>Forest bathing: da €40</span>
+                                            </div>
+                                            <div class="yoga-packages">
+                                                ⭐ 8 tecniche meditative
+                                            </div>
+                                        </div>
+
+                                        <div class="yoga-card-footer">
+                                            <div class="yoga-availability">
+                                                <span class="yoga-busy">Disponibile domani</span>
+                                                <span class="yoga-distance">4.1 km</span>
+                                            </div>
+                                            <div class="yoga-card-actions">
+                                                <button class="btn-secondary yoga-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary yoga-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Reiki Master -->
+                                <div class="yoga-professional-card">
+                                    <button class="yoga-favorite-btn active">♥</button>
+
+                                    <div class="yoga-card-header">
+                                        <div class="yoga-card-image">
+                                            <img src="/assets/images/Professionisti/pr3.png" alt="Luna Healing">
+                                        </div>
+                                        <div class="yoga-header-info">
+                                            <h3>Luna Healing</h3>
+                                            <p>Reiki Master - Sound Therapy</p>
+                                            <div class="yoga-rating">
+                                                <div class="yoga-stars">★★★★★</div>
+                                                <span class="yoga-rating-value">4.8</span>
+                                                <span class="yoga-reviews-count">(167)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="yoga-card-content">
+                                        <div class="yoga-specializations">
+                                            <span class="yoga-tag">Reiki</span>
+                                            <span class="yoga-tag">Cristalloterapia</span>
+                                            <span class="yoga-tag">Bagni sonori</span>
+                                        </div>
+
+                                        <div class="yoga-service-details">
+                                            <div class="yoga-location">
+                                                <span>🏠 Studio: Centro Olistico Mandala</span>
+                                                <span>🚗 Domicilio: raggio 25km</span>
+                                                <span>🎵 Attrezzature sonore incluse</span>
+                                            </div>
+                                            <div class="yoga-pricing">
+                                                <span>Sessione Reiki: da €60</span>
+                                                <span>Bagno sonoro tibetano: da €70</span>
+                                                <span>Cristalloterapia: da €55</span>
+                                            </div>
+                                            <div class="yoga-packages">
+                                                ⭐ 10 terapie energetiche
+                                            </div>
+                                        </div>
+
+                                        <div class="yoga-card-footer">
+                                            <div class="yoga-availability has-last-minute">
+                                                <span class="yoga-available">Disponibile oggi</span>
+                                                <span class="yoga-last-minute">Last Minute</span>
+                                                <span class="yoga-distance">3.7 km</span>
+                                            </div>
+                                            <div class="yoga-card-actions">
+                                                <button class="btn-secondary yoga-profile-btn">Vedi Profilo</button>
+                                                <button class="btn-primary yoga-book-btn">Prenota Ora</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Vinyasa Specialist -->
+                                <div class="yoga-professional-card">
+                                    <button class="yoga-favorite-btn">♡</button>
+
+                                    <div class="yoga-card-header">
+                                        <div class="yoga-card-image">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Bodhi Vinyasa">
+                                        </div>
+                                        <div class="yoga-header-info">
+                                            <h3>Bodhi Vinyasa</h3>
+                                            <p>Vinyasa Flow & Power Yoga</p>
+                                            <div class="yoga-rating">
+                                                <div class="yoga-stars">★★★★☆</div>
+                                                <span class="yoga-rating-value">4.5</span>
+                                                <span class="yoga-reviews-count">(112)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="yoga-card-content">
+                                        <div class="yoga-specializations">
+                                            <span class="yoga-tag">Vinyasa Flow</span>
+                                            <span class="yoga-tag">Power Yoga</span>
+                                            <span class="yoga-tag">Ashtanga</span>
+                                        </div>
+
+                                        <div class="yoga-service-details">
+                                            <div class="yoga-location">
+                                                <span>🏠 Studio: Via Cagliari 234</span>
+                                                <span>🚗 Domicilio: raggio 18km</span>
+                                                <span>💪 Allenamenti dinamici intensi</span>
+                                            </div>
+                                            <div class="yoga-pricing">
+                                                <span>Vinyasa Flow: da €50</span>
+                                                <span>Power Yoga intensivo: da €60</span
