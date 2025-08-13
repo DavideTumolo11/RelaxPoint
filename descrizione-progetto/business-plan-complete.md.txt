@@ -1,0 +1,2353 @@
+# FixNow Sardegna - Documento Completo Esaustivo
+*Piano di Sviluppo Bootstrap Zero-Budget con Espansione Alberghiera*
+
+---
+
+## 📋 Executive Summary
+
+**FixNow Sardegna** è un'applicazione mobile che rivoluziona l'assistenza tecnica urgente H24 in Sardegna, partendo con budget zero e puntando a due mercati: **domestico** e **alberghiero**. Il sistema connette clienti con problemi tecnici a professionisti qualificati attraverso un matching intelligente, sistema di pagamenti sicuro e gestione completa delle emergenze.
+
+**Obiettivo Primario**: Creare MVP funzionante senza investimenti, testare mercato sardo (domestico + hotel), generare prime entrate per autofinanziare scaling nazionale.
+
+**Strategia**: Bootstrap completo → Validazione Sardegna → Espansione settore turistico → Scaling autofinanziato
+
+**Mercati Target**: 650k famiglie sarde + 3000+ strutture ricettive + emergenze H24
+
+---
+
+## 🏝️ Analisi Mercato Sardegna
+
+### **Vantaggi Strategici Sardegna**
+- **Mercato concentrato**: 3 poli urbani principali (Cagliari 430k, Sassari 250k, Olbia 170k)
+- **Isola = mercato chiuso**: Competizione limitata, network effects più forti
+- **Stagionalità turistica**: Picchi luglio-agosto con tariffe premium
+- **Comunità coesa**: Passaparola efficace, fiducia locale importante
+- **Logistica ottimizzata**: Distanze contenute, copertura totale fattibile
+- **Test environment ideale**: Ambiente controllato per debugging e iterazioni
+
+### **Dati Mercato Dettagliati**
+
+#### **Mercato Domestico**
+- **Popolazione**: 1.611.621 abitanti (ISTAT 2023)
+- **Nuclei familiari**: ~650.000 famiglie
+- **Case di proprietà**: 78% (vs 72% media Italia)
+- **Reddito medio**: €24.500/famiglia (sotto media italiana = prezzi competitivi)
+- **Mercato assistenza tecnica stimato**: €80M/anno
+
+#### **Mercato Alberghiero & Turistico**
+- **Strutture ricettive totali**: 3.247 (dati Regione Sardegna)
+  - Hotel: 847 strutture
+  - B&B: 1.680 strutture  
+  - Residence/Villaggi: 425 strutture
+  - Agriturismo: 295 strutture
+- **Posti letto**: 238.000 totali
+- **Stagione turistica**: Aprile-Ottobre (picco Giugno-Agosto)
+- **Fatturato settore ricettivo**: €1.2B/anno
+- **Mercato manutenzione strutture**: €120M/anno stimato
+
+#### **Target Realistico Anno 1**
+- **Domestico**: 0.5% penetrazione = €400k transazioni
+- **Alberghiero**: 2% penetrazione = €240k transazioni
+- **TOTALE ADDRESSABLE**: €640k transazioni anno 1
+
+---
+
+## 🎯 Professioni Complete Multi-Settore
+
+### **Casa & Edifici (Domestico + Hotel)**
+1. **Idraulico** - Perdite, caldaie, scarichi, piscine hotel
+2. **Elettricista** - Blackout, guasti, impianti, illuminazione hotel
+3. **Muratore** - Crepe, infiltrazioni, riparazioni strutturali
+4. **Imbianchino** - Ritocchi urgenti, manutenzione camere
+5. **Piastrellista** - Bagni, cucine, aree comuni hotel
+6. **Pavimentista** - Riparazioni urgenti, lobby hotel
+7. **Cartongessista** - Pareti, controsoffitti, insonorizzazione
+8. **Riscaldamento/Climatizzazione** - Condizionatori (critico hotel!)
+9. **Spazzacamino** - Camini, canne fumarie, sistemi aspirazione
+
+### **Specialisti Tecnici**
+10. **Fabbro** - Serrature, chiavi, cancelli, porte hotel
+11. **Vetraio** - Vetri rotti, finestre, vetrate hotel
+12. **Serramentista** - Persiane, infissi, porte automatiche hotel
+13. **Antennista** - TV, internet, sistemi hotel (WiFi, satellitare)
+14. **Elettrodomestici** - Lavatrici, frigoriferi, frigo-bar hotel
+15. **Informatico** - PC, reti, POS, sistemi hotel booking
+16. **Fotovoltaico** - Pannelli solari, inverter (molto diffuso Sardegna)
+17. **Impermeabilizzazioni** - Terrazze, tetti, infiltrazioni
+18. **Coperture/Tetti** - Tegole, grondaie, riparazioni urgenti
+
+### **Servizi & Outdoor (Cruciali per Hotel)**
+19. **Giardiniere** - Potature, manutenzione verde hotel
+20. **Potature specializzate** - Alberi ad alto fusto
+21. **Disinfestazione** - Urgenze insetti/roditori (critico hotel)
+22. **Pulizie urgenti** - Allagamenti, emergenze, camere
+23. **Traslochi express** - Mobili, attrezzature
+24. **Piscine** - Manutenzione, riparazioni (essenziale hotel)
+
+### **Specialità Sardegna**
+25. **Pozzi artesiani** - Riparazione pompe, sistemi irrigazione
+26. **Impianti desalinizzazione** - Acqua marina per hotel
+27. **Sistemi eolici** - Piccoli impianti domestici/hotel
+
+### **Automotive & Emergenze**
+28. **Fabbro auto** - Chiavi in macchina, serrature
+29. **Gommista mobile** - Forature, emergenze stradali
+30. **Veterinario** - Emergenze animali domestici
+31. **Babysitter last-minute** - Servizio per famiglie/hotel guests
+
+---
+
+## 🏨 Settore Alberghiero - Business Model Dedicato
+
+### **Tipologie Clienti Hotel**
+
+#### **Micro Hotels (1-10 camere)**
+- **B&B familiari**: 1.680 strutture
+- **Agriturismo**: 295 strutture  
+- **Budget**: €50-200/intervento
+- **Pagamento**: Immediato, stesso modello domestico
+
+#### **Hotel Medi (11-50 camere)**
+- **Hotel 3 stelle**: ~400 strutture
+- **Residence**: 425 strutture
+- **Budget**: €100-500/intervento
+- **Contratti**: Possibili accordi stagionali
+
+#### **Hotel Grandi (50+ camere)**
+- **Hotel 4-5 stelle**: ~200 strutture  
+- **Resort/Villaggi**: ~150 strutture
+- **Budget**: €200-1000/intervento
+- **Contratti**: Annual maintenance contracts
+
+### **Problemi Specifici Hotel che Risolviamo**
+
+#### **Emergenze Stagione Alta (Giugno-Agosto)**
+```
+🔥 CRITICITÀ MASSIMA:
+- Condizionatori guasti (camere ospiti)
+- Perdite acqua (danni mobili/pavimenti) 
+- Blackout elettrici (sistema hotel)
+- Ascensori bloccati
+- Piscine fuori uso
+- WiFi/internet down
+- Frigoriferi cucina/bar
+- Sistemi sicurezza/allarmi
+
+⏰ SLA RICHIESTI:
+- Emergenze: 1-2 ore max
+- Urgenti: 4 ore max  
+- Standard: 24 ore max
+```
+
+#### **Manutenzioni Ordinarie**
+- Ritocchi pittura camere
+- Riparazioni bagni/docce
+- Manutenzione giardini
+- Pulizia straordinaria
+- Sistemazione aree comuni
+- Aggiornamenti impianti
+
+### **Tariffario Hotel Premium**
+
+#### **Maggiorazioni Settore Alberghiero**
+- **Base alberghiera**: +30% vs domestico
+- **Stagione alta** (Giu-Ago): +50% addizionale
+- **Emergenze ospiti**: +100% (perdita camera = €200+ al giorno)
+- **Interventi notturni**: +75%
+- **Weekend/festivi**: +40%
+
+#### **Esempi Tariffe Hotel**
+```
+Condizionatore camera guasto (Agosto):
+- Tariffa base: €120
+- Maggiorazione hotel: +30% = €156  
+- Stagione alta: +50% = €234
+- Emergenza: +100% = €468
+- TOTALE: €468 (vs €120 domestico)
+
+Perdita acqua lobby (normale):
+- Tariffa base: €100
+- Maggiorazione hotel: +30% = €130
+- TOTALE: €130
+```
+
+### **Sistema Contratti Annuali Hotel**
+
+#### **Pacchetti Manutenzione**
+```
+🥇 BASIC HOTEL (€99/mese):
+- 2 interventi inclusi/mese
+- Sconto 15% su extra
+- Risposta garantita <4h
+- Supporto 7/7
+
+🥈 PREMIUM HOTEL (€299/mese):  
+- 5 interventi inclusi/mese
+- Sconto 25% su extra
+- Risposta garantita <2h
+- Manutenzione preventiva mensile
+- Supporto H24
+
+🥉 RESORT/5 STELLE (€599/mese):
+- 10 interventi inclusi/mese
+- Sconto 35% su extra  
+- Risposta garantita <1h
+- Account manager dedicato
+- Manutenzione preventiva bisettimanale
+- Supporto H24 prioritario
+```
+
+---
+
+## ⚙️ Funzionamento Sistema Completo
+
+### **1. Richiesta Cliente Multi-Canale**
+
+#### **App Cliente Domestico**
+```
+🏠 FLOW DOMESTICO:
+1. Tipo problema [Dropdown 30+ categorie]
+2. Descrizione dettagliata [Wizard guidato]
+3. Urgenza [Normale/Urgente/EMERGENZA]
+4. Foto/video problema [Upload opzionale]
+5. Indirizzo [GPS + conferma manuale]
+6. Orario preferito [ASAP/Programmato]
+7. Budget massimo [Slider €50-500]
+```
+
+#### **App Hotel Manager**
+```
+🏨 FLOW ALBERGHIERO:
+1. Area hotel [Camera X / Lobby / Piscina / Cucina]
+2. Tipo problema [Dropdown specializzato hotel]
+3. Impatto ospiti [Sì/No - determina priorità]
+4. Urgenza [Standard/Urgente/CRITICA]
+5. Dettagli [Descrizione + foto]
+6. Budget approvato [Fino a €X senza conferma]
+7. Contatto responsabile [Manager di turno]
+```
+
+#### **Sistema Emergenze SOS**
+```
+🆘 BOTTONE EMERGENZA:
+- Attivazione con doppio tap
+- GPS automatico preciso  
+- Chiamata simultanea a 5 tecnici più vicini
+- Tariffa emergenza pre-approvata
+- Notifica ogni 30 secondi fino accettazione
+- Escalation automatica se no risposta in 5 minuti
+```
+
+### **2. Matching Intelligente Multi-Livello**
+
+#### **Algoritmo Priorità**
+```javascript
+const calcolaPrioritaMatching = (richiesta) => {
+  let score = 0;
+  
+  // Tipo cliente
+  if (richiesta.tipo_cliente === 'hotel') score += 20;
+  if (richiesta.tipo_cliente === 'emergenza') score += 50;
+  
+  // Stagionalità (hotel)
+  if (isAltaStagione() && richiesta.settore === 'hotel') score += 30;
+  
+  // Urgenza dichiarata
+  score += richiesta.urgenza * 10; // 1-10
+  
+  // Valore transazione
+  score += (richiesta.budget / 10);
+  
+  return score;
+}
+
+const matchTecnici = (richiesta) => {
+  return tecnici
+    .filter(t => t.specializzazioni.includes(richiesta.categoria))
+    .filter(t => t.disponibile === true)
+    .filter(t => distanza(t.posizione, richiesta.posizione) < t.raggio_azione)
+    .filter(t => t.rating >= richiesta.rating_minimo)
+    .sort((a,b) => {
+      return (
+        (richiesta.priorita * 0.4) +
+        (distanza(a.pos, richiesta.pos) * -0.3) + 
+        (a.rating * 0.2) +
+        (a.prezzo_competitivo * -0.1)
+      );
+    })
+    .slice(0, 5); // Max 5 tecnici contattati
+}
+```
+
+### **3. Sistema Comunicazione Avanzato**
+
+#### **Chat Multi-Livello**
+```
+📱 CHAT CLIENTE-TECNICO:
+- Messaggi real-time (Supabase)
+- Invio foto/video high-res
+- Template veloci ("Sto arrivando", "Completato")
+- Traduzione automatica (tecnici stranieri)
+- Cronologia completa interventi
+
+🏨 CHAT HOTEL DEDICATA:
+- Chat di gruppo hotel (manager + tecnico + nostro support)
+- Escalation automatica a supervisore
+- Integrazione PMS hotel se richiesto
+- Report intervento automatico
+```
+
+#### **Sistema Notifiche Intelligenti**
+```javascript
+const sistemaNotifiche = {
+  // Notifiche tecnici per matching
+  nuovaRichiesta: (richiesta) => {
+    const tecnici = findTecniciCompatibili(richiesta);
+    tecnici.forEach(tecnico => {
+      sendPushNotification(tecnico.device_token, {
+        title: `Nuova richiesta ${richiesta.categoria}`,
+        body: `${richiesta.descrizione} - €${richiesta.budget}`,
+        data: { richiesta_id: richiesta.id },
+        priority: richiesta.urgenza > 7 ? 'high' : 'normal'
+      });
+    });
+  },
+  
+  // Escalation automatica emergenze
+  emergenzaNonAccettata: (richiesta_id) => {
+    setTimeout(() => {
+      if (!richiesta.accettata) {
+        // Aumenta budget +20%
+        // Espandi raggio ricerca +10km  
+        // Notifica tecnici di backup
+        escalateEmergenza(richiesta_id);
+      }
+    }, 5 * 60 * 1000); // 5 minuti
+  }
+};
+```
+
+---
+
+## 💰 Sistema Tariffario Dinamico Completo
+
+### **Tariffe Base per Settore**
+
+#### **Domestico Sardegna**
+```
+Idraulico: €70-100
+Elettricista: €80-110  
+Fabbro: €90-130
+Muratore: €70-110
+Condizionatori: €90-140
+Informatico: €60-90
+Tuttofare: €50-80
+Specialisti: €80-120
+```
+
+#### **Alberghiero (Base + 30%)**
+```
+Idraulico Hotel: €90-130
+Elettricista Hotel: €105-145
+Fabbro Hotel: €115-170
+Condizionatori Hotel: €115-180 (critico!)
+Piscine Hotel: €120-200
+Specialisti Hotel: €105-155
+```
+
+### **Sistema Maggiorazioni Automatiche**
+
+#### **Temporali**
+```javascript
+const calcolaMaggiorazioni = (richiesta, orario) => {
+  let moltiplicatore = 1.0;
+  
+  // Orario
+  if (isNotturno(orario)) moltiplicatore *= 1.4; // +40%
+  if (isDomenica(orario)) moltiplicatore *= 1.25; // +25%
+  if (isFestivo(orario)) moltiplicatore *= 1.3; // +30%
+  
+  // Stagionalità (solo hotel)
+  if (richiesta.settore === 'hotel') {
+    if (isAltaStagione()) moltiplicatore *= 1.5; // +50%
+    if (isFerragosto()) moltiplicatore *= 1.8; // +80%
+  }
+  
+  // Urgenza
+  if (richiesta.urgenza >= 8) moltiplicatore *= 1.6; // +60%
+  if (richiesta.emergenza) moltiplicatore *= 2.0; // +100%
+  
+  // Condizioni meteo
+  if (isMaltempo()) moltiplicatore *= 1.2; // +20%
+  
+  return moltiplicatore;
+}
+```
+
+#### **Distanza e Logistica**
+```
+Entro 5km: Incluso
+5-15km: +€10
+15-25km: +€20
+25-40km: +€35
+Zone remote/montagna: +€50
+Traghetti Maddalena/Asinara: +€100
+```
+
+### **Pricing Dinamico Intelligente**
+
+#### **Demand-Based Pricing**
+```javascript
+const pricingDinamico = (categoria, zona, orario) => {
+  const domandaAttuale = calcolaDomanda(categoria, zona, orario);
+  const offertaDisponibile = contaTecniciDisponibili(categoria, zona);
+  
+  const fattoreDomandaOfferta = domandaAttuale / offertaDisponibile;
+  
+  let aggiustamento = 1.0;
+  if (fattoreDomandaOfferta > 2.0) aggiustamento = 1.3; // +30%
+  if (fattoreDomandaOfferta > 3.0) aggiustamento = 1.5; // +50%
+  if (fattoreDomandaOfferta < 0.5) aggiustamento = 0.9; // -10%
+  
+  return tariffeBase[categoria] * aggiustamento;
+}
+```
+
+---
+
+## 🔒 Sistema Pagamenti e Fatturazione Completo
+
+### **Architettura Pagamenti Multi-Settore**
+
+#### **Flusso Domestico Standard**
+```
+1. Cliente paga €100 → Stripe escrow
+2. FixNow commissione: €8 (8%)
+3. Tecnico riceve: €92 (rilascio post-conferma arrivo)
+4. Tecnico emette fattura cliente: €100
+5. FixNow emette fattura tecnico: €8 + €1.76 IVA = €9.76
+```
+
+#### **Flusso Hotel con Contratto**
+```
+1. Hotel paga €200 → Stripe
+2. FixNow commissione: €12 (6% ridotta per volume)
+3. Tecnico riceve: €188
+4. Fatturazione automatica mensile hotel
+5. Report dettagliato spese per hotel accounting
+```
+
+### **Sistema Fatturazione Automatica**
+
+#### **Database Schema Fiscale**
+```sql
+-- Tabella principale transazioni
+CREATE TABLE transazioni (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  cliente_id uuid REFERENCES profili(id),
+  tecnico_id uuid REFERENCES profili(id),
+  tipo_cliente VARCHAR(20) CHECK (tipo_cliente IN ('domestico', 'hotel', 'azienda')),
+  categoria_servizio VARCHAR(50),
+  descrizione_problema TEXT,
+  importo_totale DECIMAL(10,2),
+  commissione_fixnow DECIMAL(10,2),
+  importo_tecnico DECIMAL(10,2),
+  maggiorazioni JSONB, -- dettaglio maggiorazioni applicate
+  stato VARCHAR(20) DEFAULT 'pending',
+  data_richiesta TIMESTAMP DEFAULT NOW(),
+  data_completamento TIMESTAMP,
+  metodo_pagamento VARCHAR(20),
+  stripe_payment_intent_id VARCHAR(100),
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella fatture emesse
+CREATE TABLE fatture (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  transazione_id uuid REFERENCES transazioni(id),
+  tipo_fattura VARCHAR(20) CHECK (tipo_fattura IN ('commissione_tecnico', 'servizio_cliente')),
+  numero_interventi_completati INTEGER DEFAULT 0,
+  
+  -- Dati specifici hotel
+  nome_struttura VARCHAR(200),
+  tipologia_struttura VARCHAR(50), -- hotel, b&b, resort, etc.
+  numero_camere INTEGER,
+  stelle INTEGER CHECK (stelle BETWEEN 1 AND 5),
+  codice_struttura VARCHAR(20), -- codice regionale
+  responsabile_manutenzione VARCHAR(100),
+  
+  -- Metadata
+  verified BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW(),
+  
+  CONSTRAINT check_user_type_data CHECK (
+    (tipo_utente = 'tecnico' AND specializzazioni IS NOT NULL) OR
+    (tipo_utente = 'hotel' AND nome_struttura IS NOT NULL) OR
+    (tipo_utente IN ('cliente', 'admin'))
+  )
+);
+
+-- Tabella categorie servizi
+CREATE TABLE categorie_servizi (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) UNIQUE NOT NULL,
+  descrizione TEXT,
+  settore sector_type NOT NULL,
+  tariffa_base_min DECIMAL(8,2),
+  tariffa_base_max DECIMAL(8,2),
+  maggiorazione_hotel DECIMAL(5,2) DEFAULT 30.00, -- %
+  icona VARCHAR(50),
+  attiva BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Insert categorie predefinite
+INSERT INTO categorie_servizi (nome, descrizione, settore, tariffa_base_min, tariffa_base_max, maggiorazione_hotel) VALUES
+('Idraulico', 'Riparazioni impianti idraulici, perdite, caldaie', 'domestico', 70, 100, 30),
+('Elettricista', 'Impianti elettrici, blackout, quadri elettrici', 'domestico', 80, 110, 30),
+('Fabbro', 'Serrature, chiavi, cancelli, porte blindate', 'domestico', 90, 130, 30),
+('Muratore', 'Riparazioni murature, crepe, infiltrazioni', 'domestico', 70, 110, 30),
+('Condizionatori', 'Climatizzazione, condizionatori, riscaldamento', 'domestico', 90, 140, 50),
+('Informatico', 'PC, reti, sistemi digitali, emergenze tech', 'domestico', 60, 90, 40),
+('Vetraio', 'Vetri, finestre, specchi, vetrate', 'domestico', 80, 120, 30),
+('Antennista', 'TV, parabole, internet, sistemi audio/video', 'domestico', 70, 110, 35),
+('Elettrodomestici', 'Lavatrici, frigoriferi, forni, piccoli elettrodomestici', 'domestico', 60, 100, 30),
+('Giardiniere', 'Potature, manutenzione verde, emergenze giardini', 'domestico', 50, 90, 40),
+('Piscine', 'Manutenzione piscine, impianti, pulizia', 'alberghiero', 100, 200, 25),
+('Disinfestazione', 'Emergenze insetti, roditori, sanificazione', 'alberghiero', 80, 150, 35),
+('Pulizie urgenti', 'Allagamenti, emergenze pulizia, sanificazione', 'alberghiero', 60, 120, 40),
+('Pozzi artesiani', 'Pompe, sistemi irrigazione, pozzi', 'domestico', 100, 180, 20),
+('Fotovoltaico', 'Pannelli solari, inverter, sistemi energia', 'domestico', 90, 160, 25);
+
+-- Tabella prenotazioni estesa
+CREATE TABLE prenotazioni (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  cliente_id uuid REFERENCES profili(id) NOT NULL,
+  tecnico_id uuid REFERENCES profili(id),
+  categoria_id INTEGER REFERENCES categorie_servizi(id) NOT NULL,
+  
+  -- Dettagli problema
+  titolo VARCHAR(200) NOT NULL,
+  descrizione TEXT NOT NULL,
+  urgenza urgency_level DEFAULT 'normale',
+  settore sector_type DEFAULT 'domestico',
+  
+  -- Localizzazione
+  indirizzo_intervento TEXT NOT NULL,
+  coordinate_intervento POINT NOT NULL,
+  note_accesso TEXT, -- citofono, piano, etc.
+  
+  -- Multimedia
+  foto_problema TEXT[], -- array URLs Cloudinary
+  video_problema TEXT,
+  
+  -- Timing
+  data_richiesta TIMESTAMP DEFAULT NOW(),
+  data_accettazione TIMESTAMP,
+  tempo_arrivo_stimato INTEGER, -- minuti
+  data_arrivo_effettiva TIMESTAMP,
+  data_completamento TIMESTAMP,
+  finestra_oraria_inizio TIME,
+  finestra_oraria_fine TIME,
+  
+  -- Economico
+  budget_massimo DECIMAL(8,2),
+  preventivo_iniziale DECIMAL(8,2),
+  costo_finale DECIMAL(8,2),
+  maggiorazioni_applicate JSONB,
+  commissione_fixnow DECIMAL(8,2),
+  
+  -- Stato e gestione
+  stato booking_status DEFAULT 'pending',
+  codice_prenotazione VARCHAR(10) UNIQUE, -- per customer service
+  note_tecnico TEXT,
+  note_completamento TEXT,
+  
+  -- Soddisfazione
+  rating_cliente INTEGER CHECK (rating_cliente BETWEEN 1 AND 5),
+  recensione_cliente TEXT,
+  rating_tecnico INTEGER CHECK (rating_tecnico BETWEEN 1 AND 5),
+  recensione_tecnico TEXT,
+  
+  -- Metadata
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Funzione per generare codice prenotazione
+CREATE OR REPLACE FUNCTION genera_codice_prenotazione()
+RETURNS TEXT AS $
+BEGIN
+  RETURN 'FN' || LPAD(FLOOR(RANDOM() * 100000)::TEXT, 5, '0');
+END;
+$ LANGUAGE plpgsql;
+
+-- Trigger per codice automatico
+CREATE OR REPLACE FUNCTION set_codice_prenotazione()
+RETURNS TRIGGER AS $
+BEGIN
+  IF NEW.codice_prenotazione IS NULL THEN
+    NEW.codice_prenotazione := genera_codice_prenotazione();
+  END IF;
+  NEW.updated_at := NOW();
+  RETURN NEW;
+END;
+$ LANGUAGE plpgsql;
+
+CREATE TRIGGER trigger_codice_prenotazione
+  BEFORE INSERT OR UPDATE ON prenotazioni
+  FOR EACH ROW
+  EXECUTE FUNCTION set_codice_prenotazione();
+
+-- Tabella chat messaggi
+CREATE TABLE chat_messaggi (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  prenotazione_id uuid REFERENCES prenotazioni(id) NOT NULL,
+  mittente_id uuid REFERENCES profili(id) NOT NULL,
+  destinatario_id uuid REFERENCES profili(id) NOT NULL,
+  contenuto TEXT,
+  tipo_messaggio VARCHAR(20) DEFAULT 'testo', -- testo, foto, video, posizione, template
+  media_url TEXT,
+  template_type VARCHAR(50), -- "sto_arrivando", "completato", etc.
+  letto BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella recensioni dettagliate
+CREATE TABLE recensioni (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  prenotazione_id uuid REFERENCES prenotazioni(id) NOT NULL,
+  recensore_id uuid REFERENCES profili(id) NOT NULL, -- chi scrive
+  recensito_id uuid REFERENCES profili(id) NOT NULL, -- chi riceve
+  rating INTEGER CHECK (rating BETWEEN 1 AND 5) NOT NULL,
+  titolo VARCHAR(200),
+  contenuto TEXT,
+  aspetti_valutati JSONB, -- {"puntualita": 5, "professionalita": 4, "prezzo": 3}
+  verificata BOOLEAN DEFAULT FALSE,
+  risposta_recensito TEXT, -- risposta del tecnico
+  data_risposta TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella gestione emergenze
+CREATE TABLE emergenze (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  prenotazione_id uuid REFERENCES prenotazioni(id) NOT NULL,
+  livello_emergenza INTEGER CHECK (livello_emergenza BETWEEN 1 AND 10) NOT NULL,
+  descrizione_emergenza TEXT NOT NULL,
+  tecnici_contattati uuid[], -- array IDs tecnici
+  tempo_risposta_max INTEGER DEFAULT 10, -- minuti
+  escalation_automatica BOOLEAN DEFAULT TRUE,
+  risolto BOOLEAN DEFAULT FALSE,
+  data_risoluzione TIMESTAMP,
+  note_gestione TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella dispute e reclami
+CREATE TABLE dispute (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  prenotazione_id uuid REFERENCES prenotazioni(id) NOT NULL,
+  richiedente_id uuid REFERENCES profili(id) NOT NULL,
+  contro_id uuid REFERENCES profili(id) NOT NULL,
+  tipologia VARCHAR(50) NOT NULL, -- rimborso, qualita_lavoro, no_show, altro
+  descrizione TEXT NOT NULL,
+  importo_contestato DECIMAL(8,2),
+  prove_allegate TEXT[], -- URLs documenti/foto
+  stato VARCHAR(20) DEFAULT 'aperta', -- aperta, in_gestione, risolta, respinta
+  risoluzione TEXT,
+  rimborso_approvato DECIMAL(8,2),
+  gestita_da uuid REFERENCES profili(id), -- admin che gestisce
+  data_risoluzione TIMESTAMP,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella contratti hotel
+CREATE TABLE contratti_hotel (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  hotel_id uuid REFERENCES profili(id) NOT NULL,
+  tipologia VARCHAR(20) CHECK (tipologia IN ('basic', 'premium', 'resort')) NOT NULL,
+  canone_mensile DECIMAL(8,2) NOT NULL,
+  interventi_inclusi INTEGER NOT NULL,
+  sconto_extra DECIMAL(5,2) NOT NULL, -- %
+  sla_risposta_ore INTEGER NOT NULL,
+  data_inizio DATE NOT NULL,
+  data_fine DATE NOT NULL,
+  auto_rinnovo BOOLEAN DEFAULT TRUE,
+  fatturazione_mensile BOOLEAN DEFAULT TRUE,
+  account_manager_id uuid REFERENCES profili(id),
+  stato VARCHAR(20) DEFAULT 'attivo',
+  note TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella notifiche sistema
+CREATE TABLE notifiche (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  destinatario_id uuid REFERENCES profili(id) NOT NULL,
+  titolo VARCHAR(200) NOT NULL,
+  contenuto TEXT NOT NULL,
+  tipo VARCHAR(50) NOT NULL, -- richiesta, accettazione, completamento, etc.
+  dati_extra JSONB, -- payload aggiuntivo
+  letta BOOLEAN DEFAULT FALSE,
+  push_inviata BOOLEAN DEFAULT FALSE,
+  email_inviata BOOLEAN DEFAULT FALSE,
+  push_token TEXT,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella analytics tracking
+CREATE TABLE eventi_analytics (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  utente_id uuid REFERENCES profili(id),
+  sessione_id VARCHAR(100),
+  evento VARCHAR(100) NOT NULL,
+  parametri JSONB,
+  dispositivo VARCHAR(100),
+  sistema_operativo VARCHAR(50),
+  versione_app VARCHAR(20),
+  timestamp_evento TIMESTAMP DEFAULT NOW()
+);
+
+-- Indici per performance
+CREATE INDEX idx_profili_tipo_disponibile ON profili(tipo_utente, disponibile) WHERE tipo_utente = 'tecnico';
+CREATE INDEX idx_profili_coordinate ON profili USING GIST(coordinate) WHERE coordinate IS NOT NULL;
+CREATE INDEX idx_prenotazioni_stato_data ON prenotazioni(stato, created_at);
+CREATE INDEX idx_prenotazioni_tecnico_stato ON prenotazioni(tecnico_id, stato);
+CREATE INDEX idx_prenotazioni_coordinate ON prenotazioni USING GIST(coordinate_intervento);
+CREATE INDEX idx_chat_prenotazione_data ON chat_messaggi(prenotazione_id, created_at);
+CREATE INDEX idx_notifiche_destinatario_letta ON notifiche(destinatario_id, letta);
+
+-- Row Level Security policies
+ALTER TABLE profili ENABLE ROW LEVEL SECURITY;
+ALTER TABLE prenotazioni ENABLE ROW LEVEL SECURITY;
+ALTER TABLE chat_messaggi ENABLE ROW LEVEL SECURITY;
+ALTER TABLE recensioni ENABLE ROW LEVEL SECURITY;
+ALTER TABLE notifiche ENABLE ROW LEVEL SECURITY;
+
+-- Policy esempi (da completare in base alle necessità)
+CREATE POLICY "Profili visibili a tutti gli utenti autenticati" ON profili
+  FOR SELECT USING (auth.role() = 'authenticated');
+
+CREATE POLICY "Utenti possono aggiornare il proprio profilo" ON profili
+  FOR UPDATE USING (auth.uid() = id);
+```
+
+### **Edge Functions Supabase**
+
+#### **Funzione Matching Tecnici**
+```typescript
+// supabase/functions/match-technicians/index.ts
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+
+interface MatchRequest {
+  categoria_id: number;
+  coordinate: [number, number]; // [lat, lng]
+  urgenza: 'normale' | 'urgente' | 'emergenza';
+  budget_max: number;
+  raggio_km?: number;
+}
+
+serve(async (req) => {
+  try {
+    const { categoria_id, coordinate, urgenza, budget_max, raggio_km = 30 }: MatchRequest = await req.json()
+    
+    const supabase = createClient(
+      Denv.get('SUPABASE_URL') ?? '',
+      Denv.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+    )
+
+    // Query tecnici disponibili con PostGIS
+    const { data: tecnici, error } = await supabase
+      .from('profili')
+      .select(`
+        id, nome, cognome, rating_medio, numero_interventi_completati,
+        tariffe, coordinate, raggio_azione_km
+      `)
+      .eq('tipo_utente', 'tecnico')
+      .eq('disponibile', true)
+      .contains('specializzazioni', [categoria_id])
+      .gte('rating_medio', 3.0) // rating minimo
+      .lte('raggio_azione_km', raggio_km)
+
+    if (error) throw error
+
+    // Calcolo distanze e scoring
+    const tecniciConScore = tecnici.map(tecnico => {
+      const [lat1, lng1] = coordinate
+      const [lat2, lng2] = [tecnico.coordinate.y, tecnico.coordinate.x]
+      
+      const distanza = calcolaDistanza(lat1, lng1, lat2, lng2)
+      
+      // Algoritmo scoring
+      const score = (
+        (30 - distanza) * 0.4 + // peso distanza  
+        (tecnico.rating_medio - 3) * 25 * 0.3 + // peso rating
+        (Math.min(tecnico.numero_interventi_completati, 100) / 10) * 0.2 + // peso esperienza
+        (urgenza === 'emergenza' ? 20 : 0) * 0.1 // bonus emergenza
+      )
+
+      return {
+        ...tecnico,
+        distanza: Math.round(distanza * 10) / 10,
+        score: Math.round(score * 100) / 100,
+        tariffa_stimata: calcolaTariffaStimata(tecnico.tariffe, categoria_id, urgenza)
+      }
+    })
+    .filter(t => t.distanza <= raggio_km)
+    .filter(t => t.tariffa_stimata <= budget_max)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 5) // Top 5
+
+    return new Response(
+      JSON.stringify({ tecnici: tecniciConScore }),
+      { headers: { "Content-Type": "application/json" } }
+    )
+
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: error.message }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
+    )
+  }
+})
+
+function calcolaDistanza(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371 // Raggio Terra in km
+  const dLat = (lat2 - lat1) * Math.PI / 180
+  const dLng = (lng2 - lng1) * Math.PI / 180
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng/2) * Math.sin(dLng/2)
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+  return R * c
+}
+
+function calcolaTariffaStimata(tariffe: any, categoria_id: number, urgenza: string): number {
+  const base = tariffe[categoria_id] || 80
+  const maggiorazione = urgenza === 'emergenza' ? 1.6 : urgenza === 'urgente' ? 1.3 : 1.0
+  return base * maggiorazione
+}
+```
+
+#### **Funzione Gestione Pagamenti**
+```typescript
+// supabase/functions/handle-payment/index.ts
+import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
+import Stripe from 'https://esm.sh/stripe@14.21.0'
+
+const stripe = new Stripe(Denv.get('STRIPE_SECRET_KEY') ?? '', {
+  apiVersion: '2023-10-16',
+})
+
+serve(async (req) => {
+  try {
+    const { 
+      prenotazione_id, 
+      importo, 
+      cliente_id,
+      tecnico_id,
+      azione 
+    } = await req.json()
+
+    const supabase = createClient(
+      Denv.get('SUPABASE_URL') ?? '',
+      Denv.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+    )
+
+    switch (azione) {
+      case 'create_payment_intent':
+        // Crea payment intent per bloccare pagamento
+        const paymentIntent = await stripe.paymentIntents.create({
+          amount: Math.round(importo * 100), // centesimi
+          currency: 'eur',
+          metadata: {
+            prenotazione_id,
+            cliente_id,
+            tecnico_id
+          },
+          capture_method: 'manual' // Autorizza ma non addebita
+        })
+
+        return new Response(
+          JSON.stringify({ 
+            client_secret: paymentIntent.client_secret,
+            payment_intent_id: paymentIntent.id 
+          }),
+          { headers: { "Content-Type": "application/json" } }
+        )
+
+      case 'release_payment':
+        // Rilascia pagamento al tecnico dopo conferma arrivo
+        const { data: prenotazione } = await supabase
+          .from('prenotazioni')
+          .select('*')
+          .eq('id', prenotazione_id)
+          .single()
+
+        if (!prenotazione.stripe_payment_intent_id) {
+          throw new Error('Payment intent non trovato')
+        }
+
+        // Cattura il pagamento
+        await stripe.paymentIntents.capture(prenotazione.stripe_payment_intent_id)
+
+        // Calcola commissione (8% domestico, 6% hotel)
+        const commissione = prenotazione.settore === 'alberghiero' ? 0.06 : 0.08
+        const importo_commissione = importo * commissione
+        const importo_tecnico = importo - importo_commissione
+
+        // Transfer al tecnico (se ha Stripe Connect account)
+        const { data: tecnico } = await supabase
+          .from('profili')
+          .select('stripe_account_id')
+          .eq('id', tecnico_id)
+          .single()
+
+        if (tecnico.stripe_account_id) {
+          await stripe.transfers.create({
+            amount: Math.round(importo_tecnico * 100),
+            currency: 'eur',
+            destination: tecnico.stripe_account_id,
+            metadata: {
+              prenotazione_id,
+              tipo: 'pagamento_servizio'
+            }
+          })
+        }
+
+        // Aggiorna database
+        await supabase
+          .from('prenotazioni')
+          .update({
+            costo_finale: importo,
+            commissione_fixnow: importo_commissione,
+            stato: 'completed'
+          })
+          .eq('id', prenotazione_id)
+
+        // Genera fattura commissione automatica
+        await generaFatturaCommissione(prenotazione_id, importo_commissione, tecnico_id)
+
+        return new Response(
+          JSON.stringify({ success: true, importo_rilasciato: importo_tecnico }),
+          { headers: { "Content-Type": "application/json" } }
+        )
+
+      case 'refund_payment':
+        // Rimborsa pagamento in caso di cancellazione
+        const { data: refundPrenotazione } = await supabase
+          .from('prenotazioni')
+          .select('stripe_payment_intent_id, costo_finale')
+          .eq('id', prenotazione_id)
+          .single()
+
+        if (refundPrenotazione.stripe_payment_intent_id) {
+          await stripe.refunds.create({
+            payment_intent: refundPrenotazione.stripe_payment_intent_id,
+            amount: Math.round(refundPrenotazione.costo_finale * 100),
+            reason: 'requested_by_customer',
+            metadata: {
+              prenotazione_id,
+              motivo: 'cancellazione_cliente'
+            }
+          })
+
+          await supabase
+            .from('prenotazioni')
+            .update({ stato: 'cancelled' })
+            .eq('id', prenotazione_id)
+        }
+
+        return new Response(
+          JSON.stringify({ success: true, rimborso_effettuato: true }),
+          { headers: { "Content-Type": "application/json" } }
+        )
+
+      default:
+        throw new Error('Azione non riconosciuta')
+    }
+
+  } catch (error) {
+    return new Response(
+      JSON.stringify({ error: error.message }),
+      { status: 400, headers: { "Content-Type": "application/json" } }
+    )
+  }
+})
+
+async function generaFatturaCommissione(prenotazione_id: string, importo: number, tecnico_id: string) {
+  // Implementazione generazione fattura automatica
+  // (da completare con logica fatturazione elettronica)
+}
+```
+
+### **App Mobile - Componenti Chiave**
+
+#### **Hook per Geolocalizzazione**
+```typescript
+// lib/hooks/useLocation.ts
+import { useState, useEffect } from 'react';
+import * as Location from 'expo-location';
+
+export interface LocationData {
+  latitude: number;
+  longitude: number;
+  address?: string;
+}
+
+export const useLocation = () => {
+  const [location, setLocation] = useState<LocationData | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const getCurrentLocation = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Controlla permessi
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        throw new Error('Permesso di localizzazione negato');
+      }
+
+      // Ottieni posizione
+      const position = await Location.getCurrentPositionAsync({
+        accuracy: Location.Accuracy.High,
+      });
+
+      // Reverse geocoding per indirizzo
+      const address = await Location.reverseGeocodeAsync({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+
+      const locationData: LocationData = {
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        address: address[0] ? 
+          `${address[0].street} ${address[0].streetNumber}, ${address[0].city}` : 
+          undefined
+      };
+
+      setLocation(locationData);
+      return locationData;
+
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'Errore sconosciuto';
+      setError(errorMessage);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getCurrentLocation();
+  }, []);
+
+  return {
+    location,
+    loading,
+    error,
+    refreshLocation: getCurrentLocation
+  };
+};
+```
+
+#### **Componente Mappa Tecnici**
+```typescript
+// components/Maps/TechniciansMap.tsx
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import MapView, { Marker, Circle } from 'react-native-maps';
+import { supabase } from '../../lib/supabase';
+
+interface Technician {
+  id: string;
+  nome: string;
+  cognome: string;
+  coordinate: [number, number];
+  rating_medio: number;
+  categoria: string;
+  disponibile: boolean;
+  distanza?: number;
+}
+
+interface Props {
+  userLocation: [number, number];
+  categoria?: string;
+  raggio: number;
+  onTechnicianSelect: (technician: Technician) => void;
+}
+
+export const TechniciansMap: React.FC<Props> = ({
+  userLocation,
+  categoria,
+  raggio,
+  onTechnicianSelect
+}) => {
+  const [technicians, setTechnicians] = useState<Technician[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadTechnicians();
+  }, [userLocation, categoria, raggio]);
+
+  const loadTechnicians = async () => {
+    setLoading(true);
+    try {
+      let query = supabase
+        .from('profili')
+        .select(`
+          id, nome, cognome, coordinate, rating_medio,
+          specializzazioni, disponibile
+        `)
+        .eq('tipo_utente', 'tecnico')
+        .eq('disponibile', true);
+
+      if (categoria) {
+        query = query.contains('specializzazioni', [categoria]);
+      }
+
+      const { data, error } = await query;
+      
+      if (error) throw error;
+
+      // Calcola distanze e filtra per raggio
+      const techniciansWithDistance = data
+        .map(tech => {
+          const distance = calculateDistance(
+            userLocation[0], userLocation[1],
+            tech.coordinate.y, tech.coordinate.x
+          );
+          
+          return {
+            ...tech,
+            coordinate: [tech.coordinate.y, tech.coordinate.x] as [number, number],
+            distanza: distance
+          };
+        })
+        .filter(tech => tech.distanza <= raggio)
+        .sort((a, b) => a.distanza - b.distanza);
+
+      setTechnicians(techniciansWithDistance);
+    } catch (error) {
+      console.error('Errore caricamento tecnici:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const calculateDistance = (lat1: number, lng1: number, lat2: number, lng2: number): number => {
+    const R = 6371; // Raggio Terra in km
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLng/2) * Math.sin(dLng/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    return R * c;
+  };
+
+  const getMarkerColor = (rating: number): string => {
+    if (rating >= 4.5) return '#10B981'; // Verde
+    if (rating >= 4.0) return '#F59E0B'; // Giallo
+    return '#EF4444'; // Rosso
+  };
+
+  return (
+    <View style={styles.container}>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          latitude: userLocation[0],
+          longitude: userLocation[1],
+          latitudeDelta: 0.1,
+          longitudeDelta: 0.1,
+        }}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
+      >
+        {/* Cerchio raggio ricerca */}
+        <Circle
+          center={{
+            latitude: userLocation[0],
+            longitude: userLocation[1],
+          }}
+          radius={raggio * 1000} // metri
+          strokeColor="rgba(59, 130, 246, 0.5)"
+          fillColor="rgba(59, 130, 246, 0.1)"
+          strokeWidth={2}
+        />
+
+        {/* Marker tecnici */}
+        {technicians.map((tech) => (
+          <Marker
+            key={tech.id}
+            coordinate={{
+              latitude: tech.coordinate[0],
+              longitude: tech.coordinate[1],
+            }}
+            title={`${tech.nome} ${tech.cognome}`}
+            description={`Rating: ${tech.rating_medio}/5 - ${tech.distanza?.toFixed(1)}km`}
+            pinColor={getMarkerColor(tech.rating_medio)}
+            onCalloutPress={() => onTechnicianSelect(tech)}
+          />
+        ))}
+      </MapView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  map: {
+    flex: 1,
+  },
+});
+```
+
+---
+
+## 🎯 Sistema Recensioni e Rating Completo
+
+### **Algoritmo Rating Ponderato**
+```typescript
+// lib/utils/rating.ts
+interface ReviewMetrics {
+  puntualita: number;
+  professionalita: number;
+  qualita_lavoro: number;
+  rapporto_qualita_prezzo: number;
+  cortesia: number;
+}
+
+export const calcolaRatingPonderato = (
+  recensioni: Array<{
+    rating: number;
+    aspetti_valutati: ReviewMetrics;
+    data_creazione: Date;
+    verificata: boolean;
+  }>
+): number => {
+  
+  if (recensioni.length === 0) return 5.0;
+  
+  let sommaPonderata = 0;
+  let pesoTotale = 0;
+  
+  recensioni.forEach(recensione => {
+    // Peso base
+    let peso = 1.0;
+    
+    // Maggior peso per recensioni verificate
+    if (recensione.verificata) peso *= 1.5;
+    
+    // Peso temporale (recensioni recenti pesano di più)
+    const giorniDaCreazione = (Date.now() - recensione.data_creazione.getTime()) / (1000 * 60 * 60 * 24);
+    const pesoTemporale = Math.max(0.3, 1 - (giorniDaCreazione / 365)); // Decade in un anno
+    peso *= pesoTemporale;
+    
+    // Calcolo rating complessivo da aspetti
+    const aspetti = recensione.aspetti_valutati;
+    const ratingDettagliato = (
+      aspetti.puntualita * 0.25 +
+      aspetti.professionalita * 0.20 +
+      aspetti.qualita_lavoro * 0.30 +
+      aspetti.rapporto_qualita_prezzo * 0.15 +
+      aspetti.cortesia * 0.10
+    );
+    
+    sommaPonderata += ratingDettagliato * peso;
+    pesoTotale += peso;
+  });
+  
+  return Math.round((sommaPonderata / pesoTotale) * 100) / 100;
+};
+
+// Sistema badge per tecnici
+export const calcolaBadgeTecnico = (
+  rating: number,
+  numeroInterventi: number,
+  anniEsperienza: number,
+  specializzazioni: string[]
+): string[] => {
+  const badges: string[] = [];
+  
+  // Badge rating
+  if (rating >= 4.8) badges.push('⭐ Eccellenza');
+  else if (rating >= 4.5) badges.push('🌟 Top Rated');
+  else if (rating >= 4.0) badges.push('✅ Affidabile');
+  
+  // Badge esperienza
+  if (numeroInterventi >= 500) badges.push('🏆 Veterano');
+  else if (numeroInterventi >= 200) badges.push('💪 Esperto');
+  else if (numeroInterventi >= 50) badges.push('👍 Consolidato');
+  
+  // Badge anni
+  if (anniEsperienza >= 10) badges.push('🎯 Master');
+  else if (anniEsperienza >= 5) badges.push('📈 Professionale');
+  
+  // Badge specializzazioni
+  if (specializzazioni.length >= 5) badges.push('🔧 Tuttofare');
+  
+  return badges;
+};
+```
+
+---
+
+## 🆘 Sistema Emergenze SOS Avanzato
+
+### **Componente Bottone SOS**
+```typescript
+// components/Emergency/SOSButton.tsx
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, Alert, Vibration } from 'react-native';
+import { useLocation } from '../../lib/hooks/useLocation';
+import { supabase } from '../../lib/supabase';
+
+interface Props {
+  onEmergencyCreated: (emergencyId: string) => void;
+}
+
+export const SOSButton: React.FC<Props> = ({ onEmergencyCreated }) => {
+  const [isPressed, setIsPressed] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+  const { location } = useLocation();
+
+  const handleSOSPress = () => {
+    if (countdown > 0) return;
+    
+    // Doppio tap per sicurezza
+    if (!isPressed) {
+      setIsPressed(true);
+      setCountdown(3);
+      
+      // Countdown 3 secondi
+      const timer = setInterval(() => {
+        setCountdown(prev => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            createEmergency();
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      
+      // Reset se non confermato
+      setTimeout(() => {
+        setIsPressed(false);
+        setCountdown(0);
+      }, 3000);
+      
+    } else {
+      // Secondo tap - conferma immediata
+      setCountdown(0);
+      createEmergency();
+    }
+    
+    // Vibrazione per feedback
+    Vibration.vibrate([0, 500, 100, 500]);
+  };
+
+  const createEmergency = async () => {
+    try {
+      if (!location) {
+        Alert.alert('Errore', 'Impossibile determinare la posizione');
+        return;
+      }
+
+      // Crea prenotazione emergenza
+      const { data: prenotazione, error: prenotazioneError } = await supabase
+        .from('prenotazioni')
+        .insert({
+          categoria_id: 1, // Categoria generica emergenza
+          titolo: 'EMERGENZA - Intervento urgente richiesto',
+          descrizione: 'Richiesta di emergenza tramite bottone SOS',
+          urgenza: 'emergenza',
+          indirizzo_intervento: location.address || 'Posizione GPS',
+          coordinate_intervento: `POINT(${location.longitude} ${location.latitude})`,
+          budget_massimo: 500, // Budget alto per emergenza
+          settore: 'domestico'
+        })
+        .select()
+        .single();
+
+      if (prenotazioneError) throw prenotazioneError;
+
+      // Crea record emergenza
+      const { data: emergenza, error: emergenzaError } = await supabase
+        .from('emergenze')
+        .insert({
+          prenotazione_id: prenotazione.id,
+          livello_emergenza: 10,
+          descrizione_emergenza: 'Emergenza attivata tramite bottone SOS',
+          tempo_risposta_max: 10 // 10 minuti max
+        })
+        .select()
+        .single();
+
+      if (emergenzaError) throw emergenzaError;
+
+      // Notifica tecnici nel raggio di 50km
+      await notificaTecniciEmergenza(prenotazione.id, location);
+
+      onEmergencyCreated(emergenza.id);
+      
+    } catch (error) {
+      console.error('Errore creazione emergenza:', error);
+      Alert.alert('Errore', 'Impossibile creare emergenza');
+    }
+  };
+
+  const notificaTecniciEmergenza = async (prenotazioneId: string, userLocation: any) => {
+    // Trova tutti i tecnici in un raggio di 50km
+    const { data: tecnici } = await supabase
+      .from('profili')
+      .select('id, push_token, coordinate')
+      .eq('tipo_utente', 'tecnico')
+      .eq('disponibile', true);
+
+    const tecniciVicini = tecnici?.filter(tecnico => {
+      if (!tecnico.coordinate) return false;
+      
+      const distanza = calculateDistance(
+        userLocation.latitude, userLocation.longitude,
+        tecnico.coordinate.y, tecnico.coordinate.x
+      );
+      
+      return distanza <= 50; // 50km per emergenze
+    });
+
+    // Invia notifiche push massive
+    tecniciVicini?.forEach(async (tecnico) => {
+      if (tecnico.push_token) {
+        await fetch('https://exp.host/--/api/v2/push/send', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            to: tecnico.push_token,
+            title: '🆘 EMERGENZA TECNICA',
+            body: 'Richiesta emergenza nella tua zona. Tariffa maggiorata +100%',
+            data: { 
+              type: 'emergency',
+              prenotazione_id: prenotazioneId,
+              urgenza: 'emergenza' 
+            },
+            priority: 'high',
+            sound: 'default'
+          })
+        });
+      }
+    });
+  };
+
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={[
+          styles.sosButton,
+          isPressed && styles.sosButtonPressed,
+          countdown > 0 && styles.sosButtonCountdown
+        ]}
+        onPress={handleSOSPress}
+        activeOpacity={0.8}
+      >
+        {countdown > 0 ? (
+          <Text style={styles.countdownText}>{countdown}</Text>
+        ) : (
+          <>
+            <Text style={styles.sosText}>SOS</Text>
+            <Text style={styles.emergencyText}>EMERGENZA</Text>
+            {isPressed && (
+              <Text style={styles.instructionText}>Premi di nuovo per confermare</Text>
+            )}
+          </>
+        )}
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  sosButton: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    backgroundColor: '#DC2626',
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  sosButtonPressed: {
+    backgroundColor: '#B91C1C',
+    transform: [{ scale: 1.1 }],
+  },
+  sosButtonCountdown: {
+    backgroundColor: '#F59E0B',
+  },
+  sosText: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  emergencyText: {
+    fontSize: 12,
+    color: 'white',
+    marginTop: 4,
+  },
+  countdownText: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  instructionText: {
+    fontSize: 10,
+    color: 'white',
+    textAlign: 'center',
+    marginTop: 8,
+  },
+});
+
+function calculateDistance(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const R = 6371;
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLng = (lng2 - lng1) * Math.PI / 180;
+  const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+    Math.sin(dLng/2) * Math.sin(dLng/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  return R * c;
+}
+```
+
+---
+
+## 🏨 Dashboard Hotel Dedicata
+
+### **Componente Dashboard Hotel**
+```typescript
+// components/Hotel/HotelDashboard.tsx
+import React, { useState, useEffect } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, RefreshControl } from 'react-native';
+import { supabase } from '../../lib/supabase';
+
+interface HotelStats {
+  interventioMese: number;
+  costoMedio: number;
+  tempoRispostaMedio: number;
+  soddisfazione: number;
+  interventoAttivi: number;
+}
+
+interface ContrattoDati {
+  tipologia: 'basic' | 'premium' | 'resort';
+  interventuInclusi: number;
+  interventoUsati: number;
+  scontoCorrente: number;
+  scadenza: Date;
+}
+
+export const HotelDashboard: React.FC = () => {
+  const [stats, setStats] = useState<HotelStats | null>(null);
+  const [contratto, setContratto] = useState<ContrattoDati | null>(null);
+  const [interventiRecenti, setInterventiRecenti] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadHotelData();
+  }, []);
+
+  const loadHotelData = async () => {
+    setLoading(true);
+    try {
+      // Carica statistiche hotel
+      const { data: statsData } = await supabase
+        .from('hotel_stats_view') // Vista materializzata per performance
+        .select('*')
+        .single();
+
+      setStats(statsData);
+
+      // Carica dati contratto
+      const { data: contrattoData } = await supabase
+        .from('contratti_hotel')
+        .select('*')
+        .eq('stato', 'attivo')
+        .single();
+
+      setContratto(contrattoData);
+
+      // Carica interventi recenti
+      const { data: interventi } = await supabase
+        .from('prenotazioni')
+        .select(`
+          id, titolo, stato, data_richiesta, costo_finale,
+          profili!tecnico_id(nome, cognome)
+        `)
+        .eq('settore', 'alberghiero')
+        .order('data_richiesta', { ascending: false })
+        .limit(10);
+
+      setInterventiRecenti(interventi || []);
+
+    } catch (error) {
+      console.error('Errore caricamento dati hotel:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const creaInterventoRapido = (categoria: string) => {
+    // Navigazione alla creazione intervento con categoria preselezionata
+    // router.push(`/booking/create?categoria=${categoria}&settore=alberghiero`);
+  };
+
+  const getContrattoColor = (tipologia: string) => {
+    switch (tipologia) {
+      case 'resort': return '#10B981';
+      case 'premium': return '#F59E0B'; 
+      case 'basic': return '#6B7280';
+      default: return '#6B7280';
+    }
+  };
+
+  const getCategorieRapide = () => [
+    { id: 'condizionatori', nome: 'Condizionatori', icona: '❄️', urgente: true },
+    { id: 'idraulico', nome: 'Idraulico', icona: '🔧', urgente: true },
+    { id: 'elettricista', nome: 'Elettricista', icona: '⚡', urgente: true },
+    { id: 'piscina', nome: 'Piscina', icona: '🏊', urgente: false },
+    { id: 'pulizie', nome: 'Pulizie', icona: '🧹', urgente: false },
+    { id: 'giardiniere', nome: 'Giardino', icona: '🌱', urgente: false },
+  ];
+
+  return (
+    <ScrollView 
+      style={styles.container}
+      refreshControl={
+        <RefreshControl refreshing={loading} onRefresh={loadHotelData} />
+      }
+    >
+      {/* Header Hotel */}
+      <View style={styles.header}>
+        <Text style={styles.hotelName}>Grand Hotel Paradise</Text>
+        <View style={[styles.contractBadge, { backgroundColor: getContrattoColor(contratto?.tipologia || 'basic') }]}>
+          <Text style={styles.contractText}>
+            {contratto?.tipologia?.toUpperCase() || 'BASIC'}
+          </Text>
+        </View>
+      </View>
+
+      {/* Statistiche Rapide */}
+      <View style={styles.statsContainer}>
+        <View style={styles.statCard}>
+          <Text style={styles.statNumber}>{stats?.interventioMese || 0}</Text>
+          <Text style={styles.statLabel}>Interventi/mese</Text>
+        </View>
+        <View style={styles.statCard}>
+          <Text style={styles.statNumber}>€{stats?.costoMedio || 0}</Text>
+          <Text style={styles.statLabel}>Costo medio</Text>
+        </View>
+        <View style={styles.statCard}>
+          <Text style={styles.statNumber}>{stats?.tempoRispostaMedio || 0}min</Text>
+          <Text style={styles.statLabel}>Tempo risposta</Text>
+        </View>
+        <View style={styles.statCard}>
+          <Text style={styles.statNumber}>{stats?.soddisfazione || 5.0}/5</Text>
+          <Text style={styles.statLabel}>Soddisfazione</Text>
+        </View>
+      </View>
+
+      {/* Contratto Info */}
+      {contratto && (
+        <View style={styles.contractInfo}>
+          <Text style={styles.sectionTitle}>Il tuo contratto</Text>
+          <View style={styles.contractDetails}>
+            <Text style={styles.contractStat}>
+              Interventi inclusi: {contratto.interventoUsati}/{contratto.interventuInclusi}
+            </Text>
+            <Text style={styles.contractStat}>
+              Sconto extra: {contratto.scontoCorrente}%
+            </Text>
+            <View style={styles.progressBar}>
+              <View 
+                style={[
+                  styles.progressFill, 
+                  { width: `${(contratto.interventoUsati / contratto.interventuInclusi) * 100}%` }
+                ]} 
+              />
+            </View>
+          </View>
+        </View>
+      )}
+
+      {/* Richieste Rapide */}
+      <View style={styles.quickActions}>
+        <Text style={styles.sectionTitle}>Richieste Rapide</Text>
+        <View style={styles.categoriesGrid}>
+          {getCategorieRapide().map((categoria) => (
+            <TouchableOpacity
+              key={categoria.id}
+              style={[
+                styles.categoryCard,
+                categoria.urgente && styles.categoryCardUrgent
+              ]}
+              onPress={() => creaInterventoRapido(categoria.id)}
+            >
+              <Text style={styles.categoryIcon}>{categoria.icona}</Text>
+              <Text style={styles.categoryName}>{categoria.nome}</Text>
+              {categoria.urgente && (
+                <View style={styles.urgentBadge}>
+                  <Text style={styles.urgentText}>URGENTE</Text>
+                </View>
+              )}
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+
+      {/* Interventi Attivi */}
+      {stats?.interventoAttivi > 0 && (
+        <View style={styles.activeBookings}>
+          <Text style={styles.sectionTitle}>
+            Interventi Attivi ({stats.interventoAttivi})
+          </Text>
+          {/* Lista interventi attivi */}
+        </View>
+      )}
+
+      {/* Storico Recente */}
+      <View style={styles.recentHistory}>
+        <Text style={styles.sectionTitle}>Interventi Recenti</Text>
+        {interventiRecenti.slice(0, 5).map((intervento: any) => (
+          <View key={intervento.id} style={styles.historyItem}>
+            <View style={styles.historyInfo}>
+              <Text style={styles.historyTitle}>{intervento.titolo}</Text>
+              <Text style={styles.historyTechnician}>
+                {intervento.profili?.nome} {intervento.profili?.cognome}
+              </Text>
+              <Text style={styles.historyDate}>
+                {new Date(intervento.data_richiesta).toLocaleDateString('it-IT')}
+              </Text>
+            </View>
+            <View style={styles.historyCost}>
+              <Text style={styles.costText}>€{intervento.costo_finale}</Text>
+              <View style={[styles.statusBadge, styles[`status${intervento.stato}`]]}>
+                <Text style={styles.statusText}>{intervento.stato}</Text>
+              </View>
+            </View>
+          </View>
+        ))}
+      </View>
+
+      {/* Bottone Emergenza Hotel */}
+      <TouchableOpacity style={styles.emergencyButton}>
+        <Text style={styles.emergencyIcon}>🆘</Text>
+        <Text style={styles.emergencyText}>EMERGENZA HOTEL</Text>
+        <Text style={styles.emergencySubtext}>Per problemi che impattano gli ospiti</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F9FAFB',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: 'white',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
+  },
+  hotelName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#111827',
+  },
+  contractBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+  contractText: {
+    color: 'white',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  statsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+    backgroundColor: 'white',
+    marginTop: 10,
+  },
+  statCard: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  statNumber: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#059669',
+  },
+  statLabel: {
+    fontSize: 12,
+    color: '#6B7280',
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  contractInfo: {
+    backgroundColor: 'white',
+    margin: 20,
+    padding: 16,
+    borderRadius: 12,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#111827',
+    marginBottom: 12,
+  },
+  contractDetails: {
+    marginTop: 8,
+  },
+  contractStat: {
+    fontSize: 14,
+    color: '#4B5563',
+    marginBottom: 4,
+  },
+  progressBar: {
+    height: 8,
+    backgroundColor: '#E5E7EB',
+    borderRadius: 4,
+    marginTop: 8,
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#10B981',
+    borderRadius: 4,
+  },
+  quickActions: {
+    backgroundColor: 'white',
+    margin: 20,
+    padding: 16,
+    borderRadius: 12,
+  },
+  categoriesGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  categoryCard: {
+    width: '48%',
+    backgroundColor: '#F3F4F6',
+    padding: 16,
+    borderRadius: 12,
+    alignItems: 'center',
+    marginBottom: 12,
+    position: 'relative',
+  },
+  categoryCardUrgent: {
+    borderWidth: 2,
+    borderColor: '#DC2626',
+  },
+  categoryIcon: {
+    fontSize: 32,
+    marginBottom: 8,
+  },
+  categoryName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#374151',
+  },
+  urgentBadge: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    backgroundColor: '#DC2626',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+  },
+  urgentText: {
+    color: 'white',
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
+  activeBookings: {
+    backgroundColor: 'white',
+    margin: 20,
+    padding: 16,
+    borderRadius: 12,
+  },
+  recentHistory: {
+    backgroundColor: 'white',
+    margin: 20,
+    padding: 16,
+    borderRadius: 12,
+  },
+  historyItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#F3F4F6',
+  },
+  historyInfo: {
+    flex: 1,
+  },
+  historyTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#111827',
+  },
+  historyTechnician: {
+    fontSize: 12,
+    color: '#6B7280',
+    marginTop: 2,
+  },
+  historyDate: {
+    fontSize: 12,
+    color: '#9CA3AF',
+    marginTop: 2,
+  },
+  historyCost: {
+    alignItems: 'flex-end',
+  },
+  costText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#059669',
+  },
+  statusBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 12,
+    marginTop: 4,
+  },
+  statusText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  statuscompleted: {
+    backgroundColor: '#10B981',
+  },
+  statuspending: {
+    backgroundColor: '#F59E0B',
+  },
+  statusin_progress: {
+    backgroundColor: '#3B82F6',
+  },
+  emergencyButton: {
+    backgroundColor: '#DC2626',
+    margin: 20,
+    padding: 20,
+    borderRadius: 16,
+    alignItems: 'center',
+  },
+  emergencyIcon: {
+    fontSize: 40,
+    marginBottom: 8,
+  },
+  emergencyText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'white',
+  },
+  emergencySubtext: {
+    fontSize: 12,
+    color: 'white',
+    marginTop: 4,
+    textAlign: 'center',
+  },
+});
+```
+
+---
+
+## 💸 Budget Completo e Timeline Sviluppo
+
+### **Costi Operativi Dettagliati**
+
+#### **Fase 1 - Bootstrap MVP (Mesi 1-3): €0-75 totali**
+```
+Sviluppo:
+- React Native + Expo: €0 (gratis)
+- Supabase Free Tier: €0 (500MB DB)
+- Vercel hosting: €0 (gratis)
+- GitHub repository: €0 (gratis)
+- Google Play Store: €25 (one-time)
+
+Marketing iniziale:
+- Volantini locali: €50
+- Facebook Ads basic: €0 (crediti gratis)
+
+TOTALE MESE: €25 setup + €25/mese operativo = €75 primi 3 mesi
+```
+
+#### **Fase 2 - Scaling Sardegna (Mesi 4-8): €50-150/mese**
+```
+Operativo:
+- Supabase Pro: €25/mese (database scaling)
+- Stripe commissioni: 2.9% su transazioni
+- Marketing locale: €50/mese
+- Telefono business: €15/mese
+- Commercialista online: €50/mese
+
+Con 200 transazioni/mese × €80 medio = €16k
+Commissioni FixNow 8% = €1.280/mese
+Costi operativi: €140/mese
+MARGINE NETTO: €1.140/mese
+```
+
+#### **Fase 3 - Autofinanziato (Mesi 9-12): €200-500/mese**
+```
+Team expansion:
+- Customer support part-time: €800/mese
+- Marketing specialist: €1.200/mese
+- Legal compliance: €300/mese
+
+Con 800 transazioni/mese × €85 medio = €68k
+Commissioni FixNow: €5.440/mese  
+Costi operativi: €2.300/mese
+MARGINE NETTO: €3.140/mese
+```
+
+### **Timeline Sviluppo Dettagliata**
+
+#### **Sprint 1-2 (Settimane 1-4): Foundation**
+```
+Week 1-2: Setup & Core
+- ✅ Expo project setup + TypeScript
+- ✅ Supabase database + auth
+- ✅ Navigation structure (Expo Router)
+- ✅ Basic UI components library
+
+Week 3-4: Authentication  
+- ✅ Login/Register screens
+- ✅ Onboarding flow
+- ✅ Profile creation (cliente/tecnico)
+- ✅ Email verification
+```
+
+#### **Sprint 3-4 (Settimane 5-8): Core Features**
+```
+Week 5-6: Booking System
+- ✅ Create booking flow
+- ✅ Category selection (30+ professioni)
+- ✅ Photo upload (Cloudinary)
+- ✅ Location selection + maps
+- ✅ Pricing estimation
+
+Week 7-8: Matching & Payments
+- ✅ Technician matching algorithm
+- ✅ Stripe payment integration
+- ✅ Escrow payment system
+- ✅ Basic chat functionality
+```
+
+#### **Sprint 5-6 (Settimane 9-12): Advanced Features**  
+```
+Week 9-10: Professional Features
+- ✅ Technician dashboard
+- ✅ Availability management
+- ✅ Earnings tracking
+- ✅ Review system
+- ✅ Rating algorithm
+
+Week 11-12: Hotel Features
+- ✅ Hotel-specific dashboard
+- ✅ Contract management
+- ✅ Bulk pricing
+- ✅ Advanced analytics
+```
+
+#### **Sprint 7-8 (Settimane 13-16): Polish & Launch**
+```
+Week 13-14: Emergency & Safety
+- ✅ SOS button implementation
+- ✅ Emergency escalation system
+- ✅ Dispute management
+- ✅ Customer support tools
+
+Week 15-16: Testing & Launch
+- ✅ Beta testing (50 utenti)
+- ✅ Bug fixes & optimization
+- ✅ App Store_fattura VARCHAR(20) UNIQUE,
+  data_emissione DATE DEFAULT CURRENT_DATE,
+  intestatario_id uuid REFERENCES profili(id),
+  importo_netto DECIMAL(10,2),
+  aliquota_iva DECIMAL(5,2) DEFAULT 22.00,
+  importo_iva DECIMAL(10,2),
+  ritenuta_acconto DECIMAL(5,2) DEFAULT 0,
+  importo_ritenuta DECIMAL(10,2) DEFAULT 0,
+  importo_totale DECIMAL(10,2),
+  codice_ateco VARCHAR(10),
+  descrizione_prestazione TEXT,
+  stato_fattura VARCHAR(20) DEFAULT 'emessa',
+  xml_fattura_pa TEXT, -- per fatturazione elettronica
+  created_at TIMESTAMP DEFAULT NOW()
+);
+
+-- Tabella specifici hotel contracts
+CREATE TABLE contratti_hotel (
+  id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
+  hotel_id uuid REFERENCES profili(id),
+  tipologia_contratto VARCHAR(20) CHECK (tipologia_contratto IN ('basic', 'premium', 'resort')),
+  canone_mensile DECIMAL(8,2),
+  interventi_inclusi INTEGER,
+  sconto_extra_interventi DECIMAL(5,2),
+  sla_risposta_ore INTEGER,
+  data_inizio DATE,
+  data_fine DATE,
+  stato VARCHAR(20) DEFAULT 'attivo',
+  fatturazione_mensile BOOLEAN DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT NOW()
+);
+```
+
+#### **Generazione Automatica Fatture**
+```javascript
+const generaFatturaCommissione = async (transazione) => {
+  const numeroFattura = await generateNumeroFattura();
+  
+  const fattura = {
+    transazione_id: transazione.id,
+    tipo_fattura: 'commissione_tecnico',
+    numero_fattura: numeroFattura,
+    intestatario_id: transazione.tecnico_id,
+    importo_netto: transazione.commissione_fixnow,
+    aliquota_iva: 22.00,
+    importo_iva: transazione.commissione_fixnow * 0.22,
+    importo_totale: transazione.commissione_fixnow * 1.22,
+    codice_ateco: '63.99.10', // Altri servizi di informazione
+    descrizione_prestazione: `Commissione piattaforma FixNow per intervento ${transazione.categoria_servizio} del ${transazione.data_completamento.toISOString().split('T')[0]}`
+  };
+  
+  // Inserimento database
+  const fatturaCreata = await supabase
+    .from('fatture')
+    .insert(fattura)
+    .select()
+    .single();
+  
+  // Generazione PDF
+  const pdfBuffer = await generaPDFFattura(fatturaCreata);
+  
+  // Upload su Cloudinary
+  const pdfUrl = await uploadPDFCloudinary(pdfBuffer, numeroFattura);
+  
+  // Invio email al tecnico
+  await sendEmailFattura(transazione.tecnico.email, {
+    numero_fattura: numeroFattura,
+    importo: fattura.importo_totale,
+    pdf_url: pdfUrl
+  });
+  
+  return fatturaCreata;
+};
+```
+
+### **Compliance Fiscale Automatica**
+
+#### **Codici ATECO per Settori**
+```javascript
+const codiciATECO = {
+  // FixNow come piattaforma
+  'piattaforma_commissioni': '63.99.10', // Altri servizi informazione
+  'intermediazione_digitale': '82.99.99', // Altri servizi supporto
+  
+  // Tecnici per tipologia
+  'idraulico': '43.22.01',
+  'elettricista': '43.21.01', 
+  'muratore': '43.99.01',
+  'fabbro': '25.50.00',
+  'giardiniere': '81.30.00',
+  'informatico': '62.09.09',
+  'pulizie': '81.22.00',
+  'manutenzione_hotel': '43.99.09'
+};
+```
+
+#### **Regime Fiscale FixNow**
+```javascript
+const configurazioneFiscale = {
+  // Regime forfettario primi 5 anni
+  regime: 'forfettario',
+  aliquota_imposte: 5, // %
+  soglia_fatturato_annuale: 85000, // €
+  
+  // IVA su commissioni
+  aliquota_iva: 22, // %
+  periodicita_liquidazione: 'trimestrale',
+  
+  // Ritenute d'acconto (se superiamo soglie)
+  soglia_ritenute: 5000, // € annui per tecnico
+  aliquota_ritenuta: 20, // %
+  
+  // Gestione automatica adempimenti
+  invio_fatture_sdi: true,
+  conservazione_digitale: true,
+  dichiarazioni_automatiche: true
+};
+```
+
+---
+
+## 📱 Specifiche Tecniche Complete
+
+### **Stack Tecnologico Frontend**
+
+#### **React Native + Expo Setup**
+```javascript
+// Package.json dependencies
+{
+  "dependencies": {
+    "expo": "~50.0.0",
+    "react": "18.2.0",
+    "react-native": "0.73.0",
+    "@expo/vector-icons": "^14.0.0",
+    "expo-router": "~3.4.0",
+    "expo-status-bar": "~1.11.0",
+    "expo-location": "~16.5.0",
+    "expo-notifications": "~0.27.0",
+    "expo-image-picker": "~14.7.0",
+    "expo-camera": "~14.1.0",
+    "@react-native-async-storage/async-storage": "1.21.0",
+    "react-native-maps": "1.10.0",
+    "@stripe/stripe-react-native": "0.37.0",
+    "@supabase/supabase-js": "^2.39.0",
+    "react-native-url-polyfill": "^2.0.0"
+  }
+}
+
+// Expo app config
+export default {
+  expo: {
+    name: "FixNow Sardegna",
+    slug: "fixnow-sardegna",
+    version: "1.0.0",
+    orientation: "portrait",
+    icon: "./assets/icon.png",
+    userInterfaceStyle: "light",
+    plugins: [
+      "expo-router",
+      [
+        "expo-location",
+        {
+          locationAlwaysAndWhenInUsePermission: "FixNow needs location to find nearby technicians."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          icon: "./assets/notification-icon.png"
+        }
+      ]
+    ],
+    extra: {
+      supabaseUrl: process.env.EXPO_PUBLIC_SUPABASE_URL,
+      supabaseAnonKey: process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY,
+      stripePublishableKey: process.env.EXPO_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    }
+  }
+};
+```
+
+#### **Architettura App Structure**
+```
+FixNowSardegna/
+├── app/                  # Expo Router pages
+│   ├── (tabs)/           # Tab navigation
+│   │   ├── index.tsx     # Home page
+│   │   ├── search.tsx    # Search technicians
+│   │   ├── bookings.tsx  # My bookings
+│   │   └── profile.tsx   # User profile
+│   ├── auth/
+│   │   ├── login.tsx
+│   │   ├── register.tsx
+│   │   └── onboarding.tsx
+│   ├── booking/
+│   │   ├── create.tsx    # Create new booking
+│   │   ├── [id].tsx      # Booking details
+│   │   └── chat.tsx      # Chat with technician
+│   └── technician/
+│       ├── dashboard.tsx # Technician dashboard
+│       ├── requests.tsx  # Incoming requests
+│       └── earnings.tsx  # Earnings tracking
+├── components/           # Reusable components
+│   ├── UI/              # Base UI components
+│   ├── Forms/           # Form components
+│   ├── Maps/            # Map-related components
+│   └── Chat/            # Chat components
+├── lib/                 # Utilities and configs
+│   ├── supabase.ts      # Supabase client
+│   ├── stripe.ts        # Stripe configuration
+│   ├── notifications.ts # Push notifications
+│   └── utils.ts         # Helper functions
+├── types/               # TypeScript definitions
+└── constants/           # App constants
+```
+
+### **Backend Supabase Configuration**
+
+#### **Database Schema Completo**
+```sql
+-- Enums
+CREATE TYPE user_type AS ENUM ('cliente', 'tecnico', 'hotel', 'admin');
+CREATE TYPE booking_status AS ENUM ('pending', 'accepted', 'in_progress', 'completed', 'cancelled', 'disputed');
+CREATE TYPE urgency_level AS ENUM ('normale', 'urgente', 'emergenza');
+CREATE TYPE sector_type AS ENUM ('domestico', 'alberghiero', 'aziendale');
+
+-- Tabella profili utenti estesa
+CREATE TABLE profili (
+  id uuid REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
+  tipo_utente user_type NOT NULL,
+  nome VARCHAR(100) NOT NULL,
+  cognome VARCHAR(100) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  telefono VARCHAR(20),
+  avatar_url TEXT,
+  indirizzo TEXT,
+  citta VARCHAR(100) DEFAULT 'Cagliari',
+  cap VARCHAR(10),
+  coordinate POINT, -- PostGIS per geolocalizzazione
+  
+  -- Dati specifici tecnici
+  specializzazioni TEXT[], -- array categorie
+  descrizione_servizi TEXT,
+  partita_iva VARCHAR(20),
+  codice_ateco VARCHAR(10),
+  assicurazione_rc_numero VARCHAR(50),
+  assicurazione_rc_scadenza DATE,
+  raggio_azione_km INTEGER DEFAULT 30,
+  disponibile BOOLEAN DEFAULT FALSE,
+  tariffe JSONB, -- tariffe per categoria
+  rating_medio DECIMAL(3,2) DEFAULT 5.00,
+  numero

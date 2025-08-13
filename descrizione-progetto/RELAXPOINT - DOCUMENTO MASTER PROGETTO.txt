@@ -1,0 +1,278 @@
+# 🌲 RELAXPOINT - DOCUMENTO MASTER PROGETTO
+**Marketplace Benessere a Domicilio | Palette: Verde Pino (#2d5a3d) | Partenza: Sardegna → Multi-regionale**
+
+---
+
+## 🎯 VISION E CONCEPT
+
+**RelaxPoint** è un marketplace innovativo per servizi di benessere a domicilio che combina:
+- **Micro-siti professionisti**: Ogni professionista ha la sua pagina web completa
+- **Sistema Last Minute**: Servizi immediati con prezzi dinamici  
+- **Chat AI integrata**: Supporto clienti 24/7 con sistema RAG
+- **Premium multi-tier**: Cliente (€99), Business (€299), Enterprise (€599)
+
+**Modello Business**: Marketplace puro - Professionista fattura cliente, RelaxPoint commissione 12% (10% Premium)
+
+---
+
+## 📋 FUNZIONALITÀ COMPLETE
+
+### 1. SISTEMA UTENTI
+**1.1 Clienti Privati**
+- Registrazione: Nome, email, telefono, indirizzo + verifica 2FA email
+- Dashboard: Prenotazioni, recensioni, pagamenti, referral
+- Premium €99/anno: Accesso anticipato last minute, sconti 15%, professionisti esclusivi
+
+**1.2 Professionisti/Aziende**
+- Registrazione: P.IVA, documenti, certificazioni + verifica manuale 24-72h
+- Micro-sito: URL relaxpoint.it/professionista/nome-cognome-specializzazione
+- Dashboard: Gestione prenotazioni, analytics, fatturazione automatica
+- Premium €299/anno: Badge dorato, posizionamento prioritario, commissioni 10%
+
+**1.3 Enterprise €599/anno**
+- Multi-location, staff management, account manager dedicato
+- Fatturazione consolidata, API access, white label
+
+### 2. MICRO-SITI PROFESSIONISTI (INNOVATIVO)
+**Struttura Completa**:
+- Header: Foto, nome, specializzazione, rating, badge
+- "Chi Sono": Storytelling professionale (max 500 parole)
+- Servizi: Sistema a tendine (Categoria → Specializzazione → Dettaglio)
+- Portfolio: Gallery organizzata per categoria + Prima/Dopo
+- Certificazioni: Upload diplomi/attestati
+- Recensioni: Sistema completo con risposte
+- Prenotazione: CTA sempre visibile
+
+**Sistema Tendine Specializzazioni**:
+```
+MASSAGGI
+├── Rilassante
+│   ├── Svedese Classico (€60)
+│   ├── Hot Stone (€80)
+│   └── Aromaterapia (€70)
+├── Terapeutico
+│   ├── Decontratturante (€70)
+│   └── Sportivo (€75)
+```
+
+### 3. CATEGORIE SERVIZI (9 COMPLETE)
+1. **Hair & Make-up**: Parrucchiere, trucco, styling eventi
+2. **Gravidanza & Neo-mamme**: Massaggi prenatali, consulenze, baby massage
+3. **Fitness & Allenamento**: Personal training, pilates, yoga, outdoor
+4. **Fisioterapia & Osteopatia**: Riabilitazione, terapie manuali, tecar
+5. **Beauty & Wellness**: Manicure, trattamenti viso, estetica avanzata
+6. **Massaggi & Relax**: Rilassanti, terapeutici, orientali, coppia
+7. **Escursioni & Natura**: Trekking, forest bathing, mindfulness outdoor
+8. **Formazione & Corsi**: Automassaggio, sviluppo personale, fitness base
+9. **Chef & Cucina**: Chef domicilio, corsi cucina, meal prep, catering
+
+### 4. SISTEMA PRENOTAZIONI
+**Standard**: Selezione → Data/Ora → Blocco pagamento → Conferma professionista → Chat attiva
+**Last Minute**: Pagamento immediato → Conferma max 10min → Coordinamento chat
+
+**Politiche Cancellazione**: Personalizzabili per professionista
+- Gratuita: 48h prima (Premium: 12h)
+- Parziale: 24h-2h prima  
+- Nessun rimborso: <2h o no-show
+
+### 5. SISTEMA PAGAMENTI
+**Metodi**: Apple Pay, Google Pay, PayPal, Carte, Bancomat
+**Gateway**: Stripe primario + PayPal backup
+**Commissioni**:
+- Standard: 12% + cashback 2% annuo (>30 servizi)
+- Premium: 10% + cashback 3% annuo
+- Enterprise: 8% + cashback 4% annuo
+
+**Fatturazione**: Automatica SOLO dopo servizio completato
+- Professionista → Cliente: Fattura generata automaticamente
+- RelaxPoint → Professionista: Fattura commissione automatica
+
+### 6. CHAT E COMUNICAZIONI
+**Chat Integrata**: Attiva solo dopo pagamento confermato
+- Messaggi testo (max 500 caratteri)
+- Condivisione foto/posizione
+- Template rapidi professionisti
+- Moderazione AI automatica
+
+**Email AI**: Sistema RAG per email automatiche personalizzate
+**No SMS/WhatsApp**: Solo per 2FA registrazione (opzionale, preferibile email)
+
+### 7. SISTEMA LAST MINUTE
+**Professionisti**: Toggle rapido disponibilità + zona geografica + prezzi
+**Clienti Premium**: Accesso 30 minuti anticipato
+**Politiche**: 5 minuti cancellazione gratuita, poi penali
+
+### 8. RECENSIONI E RATING
+**Bidirezionale**: Cliente valuta professionista, professionista valuta cliente
+**Componenti**: 5 stelle per categoria + commento opzionale + tag predefiniti
+**Moderazione**: AI + controllo manuale per contenuti inappropriati
+
+### 9. SISTEMA REFERRAL
+**Clienti**: €10 registrazione amico + €20 primo servizio completato
+**Professionisti**: Revenue sharing 1% primi 12 mesi per professionisti portati
+**Premium**: Bonus maggiorati per tutti i referral
+
+### 10. GEOLOCALIZZAZIONE
+**GPS**: Rilevamento automatico + calcolo distanze intelligente
+**Mappe**: Google Maps integrato + definizione zone servizio
+**Privacy**: Controlli granulari + conformità GDPR
+
+---
+
+## 🎨 DESIGN E TECH STACK
+
+### Design System
+**Palette Verde Pino**:
+- Primario: #2d5a3d
+- Scuro: #1e3a2e  
+- Chiaro: #52a373
+- Font: Plus Jakarta Sans + Noto Sans
+
+### Stack Tecnologico
+**Backend**: Laravel 11 + PHP 8.3 + PostgreSQL
+**Frontend**: Vue.js 3 + Tailwind CSS + Alpine.js
+**Mobile**: PWA (Progressive Web App) installabile
+**Database**: PostgreSQL + Redis (cache)
+**Hosting**: Railway.app (€0-5/mese iniziale)
+
+### Servizi Integrati (Gratuiti iniziali)
+- **Email**: Resend (3k email/mese)
+- **AI**: OpenAI API (€5 credito iniziale)
+- **Pagamenti**: Stripe (2.9% commissione)
+- **CDN**: Cloudflare (gratuito)
+- **Analytics**: Plausible (piano gratuito)
+
+---
+
+## 🏗️ HOMEPAGE E NAVIGAZIONE
+
+### Header Navigation
+**Menu**: Home | Servizi | Professionisti | **Last Minute** (lampeggiante) | Gallery | Premium | Login
+
+### Homepage Struttura
+1. **Hero Section**: "Il Benessere che Cerchi, Dove Vuoi" + CTA "Prenota Ora"
+2. **Come Funziona**: 3 step (Scegli → Prenota → Rilassati)
+3. **Servizi in Evidenza**: Grid 3x3 categorie principali
+4. **Last Minute**: Sezione speciale con contatore live
+5. **Professionisti Certificati**: Carousel con badge qualità
+6. **Gallery Link**: Accesso al feed foto/video professionisti
+
+### Sezione Gallery
+**Layout**: Griglia Pinterest responsive con lazy loading
+**Contenuti**: Foto/video professionisti organizzati per categoria
+**Interazioni**: "Mi piace" (solo registrati) + link profilo professionista
+
+---
+
+## 🔐 SICUREZZA E COMPLIANCE
+
+### GDPR Compliance
+- Consensi granulari e revocabili
+- Diritto cancellazione e portabilità dati
+- Crittografia AES-256 + TLS 1.3
+- Data Protection Officer designato
+
+### Moderazione AI
+- Controllo automatico contenuti inappropriati
+- Filtri spam e linguaggio offensivo
+- Escalation manuale per casi complessi
+- Sistema segnalazioni con review 24/7
+
+### Assicurazioni
+**Piattaforma**: €5M responsabilità civile + €2M cyber liability
+**Professionisti**: €500k responsabilità civile obbligatoria
+
+---
+
+## 📊 DASHBOARD UTENTI
+
+### Dashboard Cliente
+- Overview: Prossimi servizi + notifiche + suggerimenti AI
+- Prenotazioni: Gestione completa + calendario + cronologia
+- Profilo: Dati personali + metodi pagamento + preferenze
+- Recensioni: Da completare + storico + risposte ricevute
+- Referral: Codice personale + tracking + crediti
+
+### Dashboard Professionista
+- Business Overview: Revenue + KPI + calendario + obiettivi
+- Micro-sito: Editor completo + analytics visite + SEO
+- Prenotazioni: Richieste + agenda + last minute toggle
+- Clienti: Database + segmentazione + comunicazioni
+- Fatturazione: Automatica + storico + export fiscale
+
+### Dashboard Admin
+- Platform Health: Metriche sistema + utenti attivi + transazioni
+- User Management: Verifica professionisti + sospensioni + support
+- Content Moderation: Coda review + segnalazioni + policy
+- Financial: Revenue tracking + commissioni + pagamenti
+- Analytics: Growth metrics + retention + market analysis
+
+---
+
+## 🚀 PIANO DI SVILUPPO
+
+### Fase 1: Foundation (Settimane 1-2)
+- Setup Laravel + Vue + PostgreSQL
+- Sistema autenticazione multi-ruolo
+- Database structure complete
+- Homepage base con palette Verde Pino
+
+### Fase 2: Core Features (Settimane 3-4)
+- Registrazione clienti e professionisti
+- Micro-siti base professionisti
+- Sistema prenotazioni standard
+- Integrazione pagamenti Stripe
+
+### Fase 3: Advanced Features (Settimane 5-6)
+- Sistema last minute completo
+- Chat integrata + moderazione AI
+- Sistema recensioni bidirezionale
+- Dashboard complete per tutti i ruoli
+
+### Fase 4: Premium & Launch (Settimane 7-8)
+- Funzionalità Premium complete
+- PWA mobile implementation
+- Sistema referral e cashback
+- Testing completo + deployment
+
+---
+
+## 💰 BUSINESS MODEL E PROIEZIONI
+
+### Revenue Streams
+1. **Commissioni**: 12% standard, 10% Premium, 8% Enterprise
+2. **Abbonamenti Premium**: €99 Cliente, €299 Business, €599 Enterprise  
+3. **Cashback**: 2-4% volume annuo (reinvestimento nella piattaforma)
+
+### Proiezione Sardegna (Anno 1)
+- **50 Professionisti** × 40 servizi/anno × €150 medio = €300k volume
+- **Commissioni**: €36k lordi - €6k cashback = **€30k netti**
+- **Premium**: ~15 abbonamenti = **€4.5k aggiuntivi**
+- **Totale Anno 1**: ~€35k netti
+
+### Scaling Plan
+- **Anno 1**: Sardegna (Cagliari → Sassari → Costa Smeralda)
+- **Anno 2**: Sicilia + Corsica + Baleari  
+- **Anno 3-5**: Italia continentale + Spagna Sud + Francia Sud
+
+---
+
+## 🎯 NEXT STEPS
+
+### Immediate Actions
+1. **Setup Repository**: GitHub + ambiente sviluppo Laravel
+2. **Design System**: Implementazione palette Verde Pino + componenti base
+3. **Database Schema**: Creazione migrations complete
+4. **Homepage**: Implementazione layout responsive
+
+### Key Differentiators
+✅ **Micro-siti professionisti**: Unici nel mercato
+✅ **Last minute intelligente**: Con accesso anticipato Premium  
+✅ **Chat AI integrata**: Supporto 24/7 senza costi SMS
+✅ **Fatturazione automatica**: Post-servizio per compliance
+✅ **Sistema Premium scalabile**: Tre livelli ben differenziati
+
+---
+
+**🌲 RelaxPoint - Il benessere che cerchi, dove vuoi**
+*Documento versione 1.0 - Completo e definitivo*
