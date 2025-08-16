@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Prenota - RelaxPoint | Sistema di prenotazione professionale</title>
+    <meta name="description"
+        content="Prenota il tuo servizio di benessere con professionisti certificati. Sistema di prenotazione sicuro e semplice.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/prenota.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Modificabile da admin per logo, menu, pulsanti -->
+            <header class="site-header">
+                <!-- LOGO E MENU SINISTRA -->
+                <div class="header-left">
+                    <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
+                    <a class="site-logo" href="../../index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <!-- Menu navigazione - ADMIN può aggiungere/rimuovere voci -->
+                    <nav class="main-nav">
+                        <a class="nav-link" href="../../index.html">Home</a>
+                        <a class="nav-link" href="../servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="../professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="../ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
+                <a class="last-minute-link" href="../last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
+                <div class="header-right">
+
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="../podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca - ADMIN può modificare placeholder -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti - ADMIN può modificare testi e link -->
+                    <div class="button-group">
+                        <a href="../prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="prenota-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <span>PRENOTA</span>
+                    </div>
+
+                    <!-- STEP INDICATOR -->
+                    <div class="step-indicator">
+                        <div class="step active" data-step="1">
+                            <div class="step-circle">1</div>
+                            <span class="step-label">Servizio</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="2">
+                            <div class="step-circle">2</div>
+                            <span class="step-label">Data & Ora</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="3">
+                            <div class="step-circle">3</div>
+                            <span class="step-label">Zona & Modalità</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="4">
+                            <div class="step-circle">4</div>
+                            <span class="step-label">Professionisti</span>
+                        </div>
+                        <div class="step-line"></div>
+                        <div class="step" data-step="5">
+                            <div class="step-circle">5</div>
+                            <span class="step-label">Pagamento</span>
+                        </div>
+                    </div>
+
+                    <!-- PRENOTAZIONE CONTENT -->
+                    <div class="prenota-content">
+
+                        <!-- STEP 1: SELEZIONE SERVIZIO -->
+                        <div class="step-content active" id="step1">
+                            <div class="step-header">
+                                <h2>Che servizio desideri?</h2>
+                                <p>Scegli la categoria e il tipo di trattamento</p>
+                            </div>
+
+                            <div class="service-selection">
+                                <!-- Selezione Categoria -->
+                                <div class="service-categories">
+                                    <h3>Categoria servizio</h3>
+                                    <div class="services-grid">
+                                        <div class="service-card" data-category="massaggi">
+                                            <div class="service-image"
+                                                style='background-image: url("/assets/images/Servizi/massage2.jpg");'>
+                                            </div>
+                                            <p class="service-title">Massaggi & Trattamenti</p>
+                                        </div>
+                                        <div class="service-card" data-category="fitness">
+                                            <div class="service-image"
+                                                style='background-image: url("/assets/images/Servizi/Gym.jpg");'></div>
+                                            <p class="service-title">Fitness & Allenamento</p>
+                                        </div>
+                                        <div class="service-card" data-category="beauty">
+                                            <div class="service-image"
+                                                style='background-image: url("/assets/images/Servizi/Hair and make-up.png");'>
+                                            </div>
+                                            <p class="service-title">Hair & Make-up</p>
+                                        </div>
+                                        <div class="service-card" data-category="fisioterapia">
+                                            <div class="service-image"
+                                                style='background-image: url("/assets/images/Servizi/Fiosioterapia.Osteopatia.png");'>
+                                            </div>
+                                            <p class="service-title">Fisioterapia & Osteopatia</p>
+                                        </div>
+                                        <div class="service-card" data-category="chef">
+                                            <div class="service-image"
+                                                style='background-image: url("/assets/images/Servizi/chef-cucina.png");'>
+                                            </div>
+                                            <p class="service-title">Chef & Cucina</p>
+                                        </div>
+                                        <div class="service-card" data-category="yoga">
+                                            <div class="service-image"
+                                                style='background-image: url("/assets/images/Servizi/YogaEndMeditazione.jpeg");'>
+                                            </div>
+                                            <p class="service-title">Yoga & Meditazione</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Selezione Tipo Servizio -->
+                                <div class="service-types" id="serviceTypes" style="display: none;">
+                                    <h3 id="serviceTypesTitle">Scegli il trattamento</h3>
+                                    <div class="services-grid" id="serviceCards">
+                                        <!-- Popolato dinamicamente con card identiche -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="btn-primary" id="continueStep2" disabled>Continua</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 2: DATA E ORA -->
+                        <div class="step-content" id="step2">
+                            <div class="step-header">
+                                <h2>Quando vuoi ricevere il servizio?</h2>
+                                <p>Seleziona data e orario preferiti</p>
+                            </div>
+
+                            <div class="datetime-selection">
+                                <div class="calendar-section">
+                                    <div class="calendar-header">
+                                        <button class="calendar-nav" id="prevMonth">‹</button>
+                                        <h3 class="calendar-month" id="currentMonth">Gennaio 2025</h3>
+                                        <button class="calendar-nav" id="nextMonth">›</button>
+                                    </div>
+                                    <div class="calendar-grid" id="calendarGrid">
+                                        <!-- Generato dinamicamente -->
+                                    </div>
+                                </div>
+
+                                <div class="time-section">
+                                    <h3>Orari disponibili</h3>
+                                    <div class="selected-date-info" id="selectedDateInfo">
+                                        <span>Seleziona una data</span>
+                                    </div>
+                                    <div class="time-grid" id="timeGrid">
+                                        <!-- Orari caricati dinamicamente -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="btn-secondary" id="backStep1">Indietro</button>
+                                <button class="btn-primary" id="continueStep3" disabled>Continua</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 3: ZONA E MODALITÀ -->
+                        <div class="step-content" id="step3">
+                            <div class="step-header">
+                                <h2>Dove vuoi ricevere il servizio?</h2>
+                                <p>Indica la zona e la modalità preferita</p>
+                            </div>
+
+                            <div class="location-selection">
+                                <!-- Localizzazione -->
+                                <div class="location-section">
+                                    <h3>Zona di ricerca</h3>
+                                    <div class="location-input-group">
+                                        <input type="text" id="locationInput"
+                                            placeholder="Inserisci città, CAP o indirizzo" class="location-input">
+                                        <button class="detect-location-btn" id="detectLocation">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                            </svg>
+                                            Rileva posizione
+                                        </button>
+                                    </div>
+
+                                    <!-- Raggio ricerca -->
+                                    <div class="radius-section">
+                                        <label for="radiusRange">Raggio di ricerca: <span id="radiusValue">10</span>
+                                            km</label>
+                                        <input type="range" id="radiusRange" min="5" max="50" value="10" step="5"
+                                            class="radius-slider">
+                                        <div class="radius-marks">
+                                            <span>5km</span>
+                                            <span>15km</span>
+                                            <span>25km</span>
+                                            <span>50km</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modalità servizio -->
+                                <div class="service-modes-section">
+                                    <h3>Modalità di servizio</h3>
+                                    <div class="service-modes">
+                                        <label class="mode-option">
+                                            <input type="radio" name="serviceMode" value="domicilio" checked>
+                                            <div class="mode-card">
+                                                <div class="mode-icon">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="mode-info">
+                                                    <h4>A domicilio</h4>
+                                                    <p>Il professionista viene da te</p>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="mode-option">
+                                            <input type="radio" name="serviceMode" value="studio">
+                                            <div class="mode-card">
+                                                <div class="mode-icon">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="mode-info">
+                                                    <h4>Presso studio</h4>
+                                                    <p>Vai dal professionista</p>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        <label class="mode-option">
+                                            <input type="radio" name="serviceMode" value="online">
+                                            <div class="mode-card">
+                                                <div class="mode-icon">
+                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M20 3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h3l-1 1v2h12v-2l-1-1h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 13H4V5h16v11z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="mode-info">
+                                                    <h4>Online</h4>
+                                                    <p>Servizio a distanza</p>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Indirizzo specifico (solo se domicilio) -->
+                                <div class="address-section" id="addressSection">
+                                    <h3>Indirizzo specifico</h3>
+                                    <input type="text" id="specificAddress" placeholder="Via, numero civico (opzionale)"
+                                        class="address-input">
+                                    <p class="address-note">Se non specificato, ti chiederemo l'indirizzo dopo la
+                                        conferma</p>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="btn-secondary" id="backStep2">Indietro</button>
+                                <button class="btn-primary" id="continueStep4">Cerca Professionisti</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 4: PROFESSIONISTI DISPONIBILI -->
+                        <div class="step-content" id="step4">
+                            <div class="step-header">
+                                <h2>Professionisti disponibili</h2>
+                                <p id="availabilityInfo">Professionisti liberi per la tua richiesta</p>
+                            </div>
+
+                            <div class="professionals-section">
+                                <!-- Filtri rapidi -->
+                                <div class="quick-filters">
+                                    <div class="filter-group">
+                                        <label>Ordina per:</label>
+                                        <select id="sortProfessionals" class="sort-select">
+                                            <option value="distance">Distanza</option>
+                                            <option value="rating">Valutazione</option>
+                                            <option value="price-asc">Prezzo crescente</option>
+                                            <option value="price-desc">Prezzo decrescente</option>
+                                        </select>
+                                    </div>
+                                    <div class="filter-group">
+                                        <label>
+                                            <input type="checkbox" id="onlyAvailable"> Solo disponibili ora
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Griglia professionisti -->
+                                <div class="professionals-grid" id="professionalsGrid">
+                                    <!-- Card identiche a quelle delle pagine servizi -->
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="btn-secondary" id="backStep3">Indietro</button>
+                            </div>
+                        </div>
+
+                        <!-- STEP 5: PAGAMENTO -->
+                        <div class="step-content" id="step5">
+                            <div class="step-header">
+                                <h2>Conferma e pagamento</h2>
+                                <p>Riepilogo della tua prenotazione</p>
+                            </div>
+
+                            <div class="payment-section">
+                                <div class="booking-summary">
+                                    <h3>Riepilogo prenotazione</h3>
+                                    <div class="summary-details">
+                                        <div class="summary-item">
+                                            <span class="label">Servizio:</span>
+                                            <span class="value" id="summaryService">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="label">Professionista:</span>
+                                            <span class="value" id="summaryProfessional">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="label">Data e ora:</span>
+                                            <span class="value" id="summaryDateTime">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="label">Modalità:</span>
+                                            <span class="value" id="summaryMode">-</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <span class="label">Durata:</span>
+                                            <span class="value" id="summaryDuration">-</span>
+                                        </div>
+                                        <div class="summary-item total">
+                                            <span class="label">Totale:</span>
+                                            <span class="value" id="summaryTotal">€0,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="payment-form">
+                                    <h3>Metodo di pagamento</h3>
+
+                                    <div class="payment-methods">
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="card" checked>
+                                            <div class="method-card">
+                                                <span>Carta di credito/debito</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="paypal">
+                                            <div class="method-card">
+                                                <span>PayPal</span>
+                                            </div>
+                                        </label>
+                                    </div>
+
+                                    <div class="card-form" id="cardForm">
+                                        <div class="form-row">
+                                            <input type="text" placeholder="Numero carta" id="cardNumber"
+                                                maxlength="19">
+                                        </div>
+                                        <div class="form-row-split">
+                                            <input type="text" placeholder="MM/AA" id="cardExpiry" maxlength="5">
+                                            <input type="text" placeholder="CVC" id="cardCvc" maxlength="4">
+                                        </div>
+                                        <div class="form-row">
+                                            <input type="text" placeholder="Nome intestatario" id="cardName">
+                                        </div>
+                                    </div>
+
+                                    <div class="payment-notice">
+                                        <div class="notice-box">
+                                            <div class="notice-text">
+                                                <strong>Autorizzazione, non addebito</strong><br>
+                                                Blocchiamo l'importo ma addebiteremo solo dopo la conferma del
+                                                professionista (max 2 ore).
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="step-actions">
+                                <button class="btn-secondary" id="backStep4">Indietro</button>
+                                <button class="btn-primary" id="confirmBooking">
+                                    <span class="btn-text">Conferma Prenotazione</span>
+                                    <span class="btn-loading" style="display: none;">Elaborazione...</span>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER IDENTICO A INDEX.HTML -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <!-- Link footer - ADMIN può aggiungere/rimuovere -->
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <!-- Copyright - ADMIN può modificare -->
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODAL CONFERMA -->
+    <div class="modal" id="confirmationModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Prenotazione inviata!</h3>
+            </div>
+            <div class="modal-body">
+                <p>La tua prenotazione è stata inviata al professionista.</p>
+                <p><strong>Riceverai conferma entro 2 ore</strong></p>
+                <div class="booking-code">
+                    <strong>Codice: <span id="bookingCode">RP-2025-001</span></strong>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-primary" id="viewBookings">Le mie prenotazioni</button>
+                <button class="btn-secondary" id="closeModal">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/prenota.js?v=1.2"></script>
+
+</body>
+
+</html>

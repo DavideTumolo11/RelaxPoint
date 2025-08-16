@@ -1,0 +1,1449 @@
+/* ===== PRENOTA - CSS LAYOUT OTTIMIZZATO ===== */
+/* Nuovo flusso: Servizio → Data/Ora → Zona/Modalità → Professionisti → Pagamento */
+
+/* BREADCRUMB PRENOTA */
+.prenota-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+    font-size: 14px;
+}
+
+.prenota-breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.prenota-breadcrumb a:hover {
+    color: #2E7D32;
+}
+
+.prenota-breadcrumb span {
+    color: #999;
+}
+
+/* STEP INDICATOR */
+.step-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    padding: 0 20px;
+    overflow-x: auto;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    min-width: 80px;
+}
+
+.step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #E0E0E0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.step.active .step-circle {
+    background: #2E7D32;
+    color: white;
+}
+
+.step-label {
+    font-size: 12px;
+    color: #666;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.step.active .step-label {
+    color: #2E7D32;
+    font-weight: 600;
+}
+
+.step-line {
+    width: 60px;
+    height: 2px;
+    background: #E0E0E0;
+    margin: 0 8px;
+    flex-shrink: 0;
+}
+
+.step.active+.step-line,
+.step-line.completed {
+    background: #2E7D32;
+}
+
+/* CONTENUTO PRENOTA */
+.prenota-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.step-content {
+    display: none;
+    padding: 40px;
+}
+
+.step-content.active {
+    display: block;
+}
+
+.step-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.step-header h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.step-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* ===== STEP 1: SELEZIONE SERVIZIO ===== */
+.service-categories h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.service-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+}
+
+.service-card.selected {
+    outline: 3px solid #2E7D32;
+    outline-offset: 2px;
+}
+
+.service-image {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.service-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+}
+
+.service-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2E7D32;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.service-duration {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* ===== STEP 2: DATA E ORA ===== */
+.datetime-selection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.calendar-section,
+.time-section {
+    background: #F8F9FA;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.calendar-nav {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: #2E7D32;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.calendar-nav:hover {
+    background: #1B5E20;
+}
+
+.calendar-month {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.calendar-day.header {
+    font-weight: 600;
+    color: #666;
+    cursor: default;
+}
+
+.calendar-day.disabled {
+    color: #CCC;
+    cursor: not-allowed;
+}
+
+.calendar-day.available {
+    background: white;
+    color: #333;
+    border: 1px solid #E0E0E0;
+}
+
+.calendar-day.available:hover {
+    border-color: #2E7D32;
+    color: #2E7D32;
+}
+
+.calendar-day.selected {
+    background: #2E7D32;
+    color: white;
+    border-color: #2E7D32;
+}
+
+.calendar-day.few-slots {
+    background: #FFF3E0;
+    color: #F57C00;
+    border-color: #FFB74D;
+}
+
+.calendar-day.few-slots::after {
+    content: '!';
+    position: absolute;
+    top: 2px;
+    right: 3px;
+    font-size: 10px;
+    color: #F57C00;
+}
+
+/* Slot orari */
+.time-section h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.selected-date-info {
+    padding: 12px 16px;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 600;
+    color: #2E7D32;
+}
+
+.time-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 8px;
+}
+
+.time-slot {
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.time-slot.available {
+    background: white;
+    color: #333;
+    border: 1px solid #E0E0E0;
+}
+
+.time-slot.available:hover {
+    border-color: #2E7D32;
+    color: #2E7D32;
+}
+
+.time-slot.selected {
+    background: #2E7D32;
+    color: white;
+    border-color: #2E7D32;
+}
+
+.time-slot.busy {
+    background: #F5F5F5;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* ===== STEP 3: ZONA E MODALITÀ ===== */
+.location-selection {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.location-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.location-input-group {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.location-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.location-input:focus {
+    outline: none;
+    border-color: #2E7D32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.detect-location-btn {
+    padding: 12px 16px;
+    background: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+}
+
+.detect-location-btn:hover {
+    background: #1B5E20;
+}
+
+/* Raggio ricerca */
+.radius-section {
+    background: #F8F9FA;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.radius-section label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+#radiusValue {
+    color: #2E7D32;
+    font-weight: 700;
+}
+
+.radius-slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #E0E0E0;
+    outline: none;
+    margin-bottom: 12px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.radius-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2E7D32;
+    cursor: pointer;
+}
+
+.radius-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2E7D32;
+    cursor: pointer;
+    border: none;
+}
+
+.radius-marks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Modalità servizio */
+.service-modes-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.service-modes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.mode-option {
+    cursor: pointer;
+}
+
+.mode-option input[type="radio"] {
+    display: none;
+}
+
+.mode-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border: 2px solid #E0E0E0;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.mode-option input[type="radio"]:checked+.mode-card {
+    border-color: #2E7D32;
+    background: #F8FDF8;
+}
+
+.mode-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2E7D32;
+}
+
+.mode-info h4 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.mode-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Indirizzo specifico */
+.address-section {
+    background: #F8F9FA;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.address-section h3 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.address-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.address-input:focus {
+    outline: none;
+    border-color: #2E7D32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.address-note {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+
+/* ===== STEP 4: PROFESSIONISTI ===== */
+.professionals-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Filtri rapidi */
+.quick-filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #F8F9FA;
+    border-radius: 12px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    color: #666;
+    white-space: nowrap;
+}
+
+.sort-select {
+    padding: 8px 12px;
+    border: 1px solid #DDD;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.sort-select:focus {
+    outline: none;
+    border-color: #2E7D32;
+}
+
+/* Griglia professionisti - 3 COLONNE IDENTICHE AI SERVIZI */
+.professionals-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+/* Card professionista - IDENTICHE ALLE PAGINE SERVIZI */
+.professional-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 420px;
+}
+
+.professional-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.professional-card.selected {
+    border-color: #2E7D32;
+    background: #F8FDF8;
+}
+
+.professional-card.premium {
+    border-color: var(--color-primary);
+}
+
+/* Premium badge */
+.premium-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(45, 90, 61, 0.3);
+    line-height: 1;
+    z-index: 4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Cuore preferiti */
+.favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.favorite-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    color: #dc2626;
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
+}
+
+.favorite-btn.active {
+    background: #fce7e6;
+    color: #dc2626;
+    border-color: #fce7e6;
+}
+
+/* Header card - foto + info */
+.professional-header {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    padding-bottom: 0;
+    align-items: flex-start;
+}
+
+/* Foto professionista */
+.professional-image {
+    position: relative;
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.professional-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Info header */
+.professional-header-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-top: 8px;
+    margin-left: 8px;
+}
+
+.professional-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1e3a2e;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.professional-header p {
+    font-size: 15px;
+    color: #666;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.professional-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating-stars {
+    color: #fbbf24;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.rating-value {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.rating-count {
+    font-size: 13px;
+    color: #666;
+}
+
+/* Contenuto card */
+.professional-info {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+/* Specializzazioni */
+.specializations {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    margin-left: 12px;
+}
+
+.specialization-tag {
+    background: #E8F5E8;
+    color: #2E7D32;
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid #C8E6C9;
+    line-height: 1.2;
+}
+
+/* Dettagli servizio */
+.service-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.service-details span {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.4;
+}
+
+.price-highlight {
+    font-weight: 600;
+    color: #2E7D32;
+    font-size: 16px;
+}
+
+/* Disponibilità */
+.availability {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.available {
+    color: #2E7D32;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.busy {
+    color: #F57C00;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.distance {
+    font-size: 13px;
+    color: #666;
+}
+
+.last-minute {
+    background: #FF5722;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Azioni professionista */
+.professional-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.btn-select {
+    flex: 1;
+    padding: 12px 20px;
+    background: #2E7D32;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-select:hover {
+    background: #1B5E20;
+}
+
+.btn-select:disabled {
+    background: #CCC;
+    cursor: not-allowed;
+}
+
+.btn-profile {
+    padding: 12px 20px;
+    background: white;
+    color: #2E7D32;
+    border: 1px solid #2E7D32;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-profile:hover {
+    background: #F8FDF8;
+}
+
+/* ===== STEP 5: PAGAMENTO ===== */
+.payment-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+/* Riepilogo prenotazione */
+.booking-summary {
+    background: #F8F9FA;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.booking-summary h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.summary-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.summary-item .label {
+    color: #666;
+    font-size: 14px;
+}
+
+.summary-item .value {
+    color: #333;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.summary-item.total {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2E7D32;
+    border-top: 2px solid #E0E0E0;
+    margin-top: 8px;
+    padding-top: 16px;
+}
+
+/* Form pagamento */
+.payment-form {
+    background: white;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.payment-form h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.payment-method {
+    cursor: pointer;
+}
+
+.payment-method input[type="radio"] {
+    display: none;
+}
+
+.method-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    border: 2px solid #E0E0E0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.payment-method input[type="radio"]:checked+.method-card {
+    border-color: #2E7D32;
+    background: #F8FDF8;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-row {
+    display: flex;
+    gap: 12px;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #DDD;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.form-row input:focus {
+    outline: none;
+    border-color: #2E7D32;
+    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+}
+
+.form-row-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+/* Notice pagamento */
+.payment-notice {
+    margin-top: 24px;
+}
+
+.notice-box {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: #E3F2FD;
+    border-radius: 8px;
+    border-left: 4px solid #1976D2;
+}
+
+.notice-text {
+    color: #1565C0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* STEP ACTIONS */
+.step-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid #E0E0E0;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+
+.btn-loading {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal-header h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+.modal-body p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.booking-code {
+    padding: 12px 16px;
+    background: #F8F9FA;
+    border-radius: 8px;
+    margin: 16px 0;
+    font-family: monospace;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.modal-actions .btn-primary,
+.modal-actions .btn-secondary {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 14px;
+    min-width: auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .step-indicator {
+        padding: 0 10px;
+        gap: 4px;
+    }
+
+    .step-line {
+        width: 30px;
+        margin: 0 4px;
+    }
+
+    .step-label {
+        font-size: 10px;
+    }
+
+    .step-content {
+        padding: 24px 20px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .datetime-selection {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-modes {
+        grid-template-columns: 1fr;
+    }
+
+    .payment-section {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .location-input-group {
+        flex-direction: column;
+    }
+
+    .quick-filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .professional-card {
+        min-height: auto;
+    }
+
+    .professional-header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .professional-image {
+        width: 120px;
+        height: 120px;
+        align-self: center;
+    }
+
+    .professional-header-info {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .specializations {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .professional-actions {
+        flex-direction: column;
+    }
+
+    .step-actions {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-content {
+        padding: 20px 16px;
+    }
+
+    .step-header h2 {
+        font-size: 24px;
+    }
+
+    .modal-content {
+        padding: 24px 20px;
+    }
+
+    .time-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .detect-location-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .radius-section {
+        padding: 16px;
+    }
+
+    .booking-summary,
+    .payment-form {
+        padding: 20px;
+    }
+
+    .professional-card {
+        padding: 16px;
+    }
+
+    .professional-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* ANIMAZIONI */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.step-content.active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.professional-card {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* LOADING STATES */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #E0E0E0;
+    border-top: 4px solid #2E7D32;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-primary.loading,
+.btn-secondary.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-primary.loading::after,
+.btn-secondary.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.btn-secondary.loading::after {
+    border-top-color: #2E7D32;
+}
+
+/* TOAST NOTIFICATIONS */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 16px 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    max-width: 300px;
+    border-left: 4px solid #2E7D32;
+}
+
+.toast.toast-error {
+    border-left-color: #D32F2F;
+}
+
+.toast.toast-success {
+    border-left-color: #2E7D32;
+}
+
+.toast.show {
+    transform: translateX(0);
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-message {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+}
+
+/* ACCESSIBILITY */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* FOCUS STYLES */
+.service-card:focus,
+.professional-card:focus,
+.calendar-day:focus,
+.time-slot:focus {
+    outline: 2px solid #2E7D32;
+    outline-offset: 2px;
+}
+
+/* STATI SPECIALI */
+.step-content.has-error .step-header h2 {
+    color: #D32F2F;
+}
+
+.error-message {
+    background: #FFEBEE;
+    color: #C62828;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid #D32F2F;
+}
+
+.success-message {
+    background: #F8FDF8;
+    color: #2E7D32;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid #2E7D32;
+}
+
+/* EMPTY STATES */
+.no-professionals {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.no-professionals h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.no-professionals p {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.no-professionals .btn-secondary {
+    margin: 0 auto;
+}
