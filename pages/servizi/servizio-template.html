@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Massaggio Svedese - Giulia Rossi | RelaxPoint</title>
+    <meta name="description"
+        content="Prenota un massaggio svedese con Giulia Rossi. Trattamento rilassante professionale a domicilio o in studio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/servizio-template.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - IDENTICO A TUTTE LE PAGINE -->
+            <header class="site-header">
+                <!-- LOGO E MENU SINISTRA -->
+                <div class="header-left">
+                    <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <!-- Menu navigazione - ADMIN può aggiungere/rimuovere voci -->
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
+                <div class="header-right">
+
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca - ADMIN può modificare placeholder -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti - ADMIN può modificare testi e link -->
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <div class="service-breadcrumb">
+                        <a href="/index.html">HOME</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/servizi.html">SERVIZI</a>
+                        <span>›</span>
+                        <a href="/pages/servizi/massaggi-e-trattamenti.html">MASSAGGI</a>
+                        <span>›</span>
+                        <span>MASSAGGIO SVEDESE</span>
+                    </div>
+
+                    <!-- SEZIONE 1: HEADER PROFESSIONISTA -->
+                    <section class="professional-header-section">
+                        <div class="professional-header-content">
+                            <div class="professional-avatar">
+                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                    id="professionalAvatar">
+                                <div class="professional-badge">
+                                    <span class="badge-premium">PREMIUM</span>
+                                </div>
+                            </div>
+                            <div class="professional-info">
+                                <h1 id="professionalName">Giulia Rossi</h1>
+                                <p id="professionalTitle">Massaggiatrice Certificata - 10 anni di esperienza</p>
+                                <div class="professional-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="reviews-count">(127 recensioni)</span>
+                                </div>
+                                <div class="professional-location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <span id="professionalLocation">Cagliari, Sardegna</span>
+                                </div>
+                            </div>
+                            <div class="professional-actions">
+                                <button class="btn-favorite">
+                                    <span class="heart">♡</span>
+                                    Preferiti
+                                </button>
+                                <button class="btn-share">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                                    </svg>
+                                    Condividi
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SEZIONE 2: DETTAGLI TRATTAMENTO -->
+                    <section class="treatment-details-section">
+                        <div class="treatment-content">
+                            <!-- FOTO TRATTAMENTO (modificabile) -->
+                            <div class="treatment-image">
+                                <img src="/assets/images/Servizi/massage2.jpg" alt="Massaggio Svedese"
+                                    id="treatmentImage">
+                                <div class="image-gallery">
+                                    <button class="gallery-btn" onclick="openGallery()">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                                            <path
+                                                d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z" />
+                                        </svg>
+                                        Vedi altre foto
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- DESCRIZIONE TRATTAMENTO (modificabile) -->
+                            <div class="treatment-description">
+                                <h2 id="treatmentName">Massaggio Svedese</h2>
+                                <p id="treatmentShortDesc">
+                                    Il massaggio svedese è una tecnica di massaggio occidentale che utilizza movimenti
+                                    lunghi e fluidi per rilassare i muscoli superficiali e migliorare la circolazione
+                                    sanguigna.
+                                </p>
+
+                                <div class="treatment-benefits">
+                                    <h3>Benefici del trattamento</h3>
+                                    <ul id="treatmentBenefits">
+                                        <li>Riduzione dello stress e dell'ansia</li>
+                                        <li>Miglioramento della circolazione</li>
+                                        <li>Rilassamento muscolare profondo</li>
+                                        <li>Aumento della flessibilità</li>
+                                        <li>Miglioramento della qualità del sonno</li>
+                                    </ul>
+                                </div>
+
+                                <div class="treatment-process">
+                                    <h3>Come viene svolto</h3>
+                                    <p id="treatmentProcess">
+                                        Il trattamento inizia con un breve colloquio per comprendere le tue esigenze.
+                                        Utilizzo oli essenziali naturali e tecniche di massaggio tradizionali svedesi,
+                                        alternando movimenti di effleurage, petrissage e tapotement per un rilassamento
+                                        completo.
+                                    </p>
+                                </div>
+
+                                <div class="treatment-tags">
+                                    <span class="tag">Rilassante</span>
+                                    <span class="tag">Anti-stress</span>
+                                    <span class="tag">Circolazione</span>
+                                    <span class="tag">Benessere</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SEZIONE 3: CONFIGURAZIONE SERVIZIO -->
+                    <section class="service-configuration">
+                        <h2>Personalizza il tuo trattamento</h2>
+
+                        <div class="config-grid">
+                            <!-- DURATA -->
+                            <div class="config-item">
+                                <label for="duration">Durata</label>
+                                <select id="duration" class="config-select">
+                                    <option value="30" data-price="45">30 minuti - €45</option>
+                                    <option value="60" data-price="70" selected>60 minuti - €70</option>
+                                    <option value="90" data-price="95">90 minuti - €95</option>
+                                    <option value="120" data-price="120">120 minuti - €120</option>
+                                </select>
+                            </div>
+
+                            <!-- MODALITÀ -->
+                            <div class="config-item">
+                                <label for="serviceMode">Modalità</label>
+                                <select id="serviceMode" class="config-select">
+                                    <option value="domicilio">A domicilio (+€10)</option>
+                                    <option value="studio">Presso studio</option>
+                                </select>
+                            </div>
+
+                            <!-- PACCHETTI COMBO -->
+                            <div class="config-item full-width">
+                                <label>Pacchetti disponibili</label>
+                                <div class="combo-packages">
+                                    <div class="combo-card">
+                                        <input type="radio" name="package" id="package-single" value="single" checked>
+                                        <label for="package-single">
+                                            <h4>Trattamento singolo</h4>
+                                            <p>Massaggio svedese standard</p>
+                                            <span class="combo-price">€70</span>
+                                        </label>
+                                    </div>
+                                    <div class="combo-card">
+                                        <input type="radio" name="package" id="package-relax" value="relax">
+                                        <label for="package-relax">
+                                            <h4>Pacchetto Relax</h4>
+                                            <p>Massaggio + Aromaterapia</p>
+                                            <span class="combo-price">€90</span>
+                                        </label>
+                                    </div>
+                                    <div class="combo-card">
+                                        <input type="radio" name="package" id="package-complete" value="complete">
+                                        <label for="package-complete">
+                                            <h4>Pacchetto Completo</h4>
+                                            <p>Massaggio + Aromaterapia + Hot Stone</p>
+                                            <span class="combo-price">€120</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SERVIZI EXTRA -->
+                            <div class="config-item full-width">
+                                <label>Servizi aggiuntivi</label>
+                                <div class="extra-services">
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extra" value="music">
+                                        <span>Musica personalizzata (+€5)</span>
+                                    </label>
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extra" value="candles">
+                                        <span>Candele aromatiche (+€10)</span>
+                                    </label>
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extra" value="oils">
+                                        <span>Oli essenziali premium (+€15)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIEPILOGO PREZZO -->
+                        <div class="price-summary">
+                            <div class="price-details">
+                                <span class="price-label">Totale stimato:</span>
+                                <span class="price-value" id="totalPrice">€70</span>
+                                <span class="price-note">*Il prezzo finale verrà confermato dal professionista</span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SEZIONE 4: ISTRUZIONI CLIENTE -->
+                    <section class="client-instructions">
+                        <h2>Informazioni importanti</h2>
+                        <div class="instructions-grid">
+                            <div class="instruction-card">
+                                <h3>Prima del trattamento</h3>
+                                <ul id="beforeInstructions">
+                                    <li>Fai una doccia calda per rilassare i muscoli</li>
+                                    <li>Evita pasti pesanti 2 ore prima</li>
+                                    <li>Comunica eventuali problemi di salute</li>
+                                    <li>Rimuovi gioielli e accessori</li>
+                                </ul>
+                            </div>
+                            <div class="instruction-card">
+                                <h3>Cosa fornisce il professionista</h3>
+                                <ul id="professionalProvides">
+                                    <li>Lettino da massaggio professionale</li>
+                                    <li>Oli e creme per massaggio</li>
+                                    <li>Asciugamani puliti</li>
+                                    <li>Musica rilassante</li>
+                                </ul>
+                            </div>
+                            <div class="instruction-card">
+                                <h3>Dopo il trattamento</h3>
+                                <ul id="afterInstructions">
+                                    <li>Bevi molta acqua per idratare</li>
+                                    <li>Evita sforzi fisici intensi</li>
+                                    <li>Concediti del tempo per rilassarti</li>
+                                    <li>Possibili lievi dolori muscolari sono normali</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SEZIONE 7: AZIONI FINALI -->
+                    <section class="booking-actions">
+                        <div class="action-buttons">
+                            <button class="btn-primary btn-book" onclick="bookService()">
+                                PRENOTA ORA
+                            </button>
+                        </div>
+                        <div class="action-info">
+                            <p>Cancellazione gratuita fino a 24 ore prima</p>
+                        </div>
+                    </section>
+
+                    <!-- SEZIONE 5: DISPONIBILITÀ -->
+                    <section class="availability-section">
+                        <h2>Disponibilità</h2>
+                        <div class="availability-calendar">
+                            <div class="calendar-preview">
+                                <div class="available-slots">
+                                    <h3>Prossimi slot disponibili</h3>
+                                    <div class="slots-list">
+                                        <div class="slot-item">
+                                            <span class="slot-date">Oggi</span>
+                                            <span class="slot-times">15:00, 17:00, 19:00</span>
+                                        </div>
+                                        <div class="slot-item">
+                                            <span class="slot-date">Domani</span>
+                                            <span class="slot-times">10:00, 14:00, 16:00, 18:00</span>
+                                        </div>
+                                        <div class="slot-item">
+                                            <span class="slot-date">Mercoledì</span>
+                                            <span class="slot-times">09:00, 11:00, 15:00, 17:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="calendar-note">
+                                    <p>Per vedere tutte le disponibilità, clicca su "Prenota Ora"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SEZIONE 6: RECENSIONI -->
+                    <section class="reviews-section">
+                        <h2>Recensioni clienti</h2>
+                        <div class="reviews-summary">
+                            <div class="rating-overview">
+                                <div class="rating-big">4.9</div>
+                                <div class="stars">★★★★★</div>
+                                <div class="total-reviews">127 recensioni</div>
+                            </div>
+                            <div class="rating-bars">
+                                <div class="rating-bar">
+                                    <span>5★</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 85%"></div>
+                                    </div>
+                                    <span>108</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>4★</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 10%"></div>
+                                    </div>
+                                    <span>13</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>3★</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 3%"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>2★</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 1%"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                                <div class="rating-bar">
+                                    <span>1★</span>
+                                    <div class="bar">
+                                        <div class="fill" style="width: 1%"></div>
+                                    </div>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">MC</div>
+                                        <div>
+                                            <div class="reviewer-name">Maria C.</div>
+                                            <div class="review-date">2 giorni fa</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                                <p class="review-text">
+                                    Esperienza fantastica! Giulia è molto professionale e attenta alle esigenze del
+                                    cliente.
+                                    Il massaggio è stato rilassante e rigenerante. Consigliatissima!
+                                </p>
+                            </div>
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">LB</div>
+                                        <div>
+                                            <div class="reviewer-name">Luca B.</div>
+                                            <div class="review-date">1 settimana fa</div>
+                                        </div>
+                                    </div>
+                                    <div class="review-rating">★★★★★</div>
+                                </div>
+                                <p class="review-text">
+                                    Ottimo servizio a domicilio. Puntuale, preparata e molto cortese.
+                                    L'ambiente che ha creato era perfetto per il relax totale.
+                                </p>
+                            </div>
+                        </div>
+
+                        <button class="btn-secondary">Vedi tutte le recensioni</button>
+                    </section>
+                </div>
+            </main>
+
+            <!-- FOOTER - IDENTICO A TUTTE LE PAGINE -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <!-- Link footer - ADMIN può aggiungere/rimuovere -->
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <!-- Copyright - ADMIN può modificare -->
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/servizio-template.js?v=1.2"></script>
+
+</body>
+
+</html>
