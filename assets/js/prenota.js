@@ -1,5 +1,5 @@
 // ===== PRENOTA - JS COMPLETO NUOVO FLUSSO =====
-// Servizio -> Data/Ora -> Zona/Modalità -> Professionisti -> Pagamento
+// Servizio -> Data/Ora -> Zona/Modalità -> Professionisti -> PAGAMENTO ESTERNO
 
 document.addEventListener('DOMContentLoaded', function () {
     console.log('Prenota - Nuovo flusso caricato');
@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
         serviceMode: 'domicilio',
         specificAddress: '',
         selectedProfessional: null,
-        paymentMethod: 'card',
         totalPrice: 0
     };
 
@@ -62,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeStep2();
     initializeStep3();
     initializeStep4();
-    initializeStep5();
 
     // ===== INIZIALIZZAZIONE =====
     function initializePage() {
@@ -86,7 +84,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const backStep1 = document.getElementById('backStep1');
         const backStep2 = document.getElementById('backStep2');
         const backStep3 = document.getElementById('backStep3');
-        const backStep4 = document.getElementById('backStep4');
 
         if (continueStep2) continueStep2.addEventListener('click', function () { goToStep(2); });
         if (continueStep3) continueStep3.addEventListener('click', function () { goToStep(3); });
@@ -95,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (backStep1) backStep1.addEventListener('click', function () { goToStep(1); });
         if (backStep2) backStep2.addEventListener('click', function () { goToStep(2); });
         if (backStep3) backStep3.addEventListener('click', function () { goToStep(3); });
-        if (backStep4) backStep4.addEventListener('click', function () { goToStep(4); });
     }
 
     function goToStep(stepNumber) {
@@ -117,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Azioni specifiche per step
         if (stepNumber === 2) generateCalendar();
-        if (stepNumber === 5) updateBookingSummary();
 
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -181,8 +176,6 @@ document.addEventListener('DOMContentLoaded', function () {
             cardsHTML += '<div class="service-card" data-service-id="' + service.id + '">';
             cardsHTML += '<div class="service-image" style="background-image: url(\'/assets/images/Servizi/' + getServiceImage(service.id) + '\');"></div>';
             cardsHTML += '<p class="service-title">' + service.name + '</p>';
-            cardsHTML += '<div class="service-price">€' + service.price + '</div>';
-            cardsHTML += '<div class="service-duration">' + service.duration + ' min</div>';
             cardsHTML += '</div>';
         }
 
@@ -555,13 +548,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // Checkbox solo disponibili
-        const onlyAvailableCheck = document.getElementById('onlyAvailable');
-        if (onlyAvailableCheck) {
-            onlyAvailableCheck.addEventListener('change', function () {
-                filterProfessionals();
-            });
-        }
+        // RIMUOVO "Solo disponibili ora" - non serve più
+        // const onlyAvailableCheck = document.getElementById('onlyAvailable');
     }
 
     function searchProfessionals() {
@@ -660,65 +648,84 @@ document.addEventListener('DOMContentLoaded', function () {
         const grid = document.getElementById('professionalsGrid');
         if (!grid) return;
 
-        if (professionals.length === 0) {
-            grid.innerHTML = '<div class="no-professionals"><h3>Nessun professionista trovato</h3><p>Prova ad ampliare il raggio di ricerca o cambiare i filtri</p><button class="btn-secondary" onclick="goToStep(3)">Modifica Ricerca</button></div>';
+        const availableProfessionals = professionals.filter(prof => prof.available);
+
+        if (availableProfessionals.length === 0) {
+            grid.innerHTML = '<div class="no-professionals"><h3>Nessun professionista disponibile</h3><p>Prova a modificare data/ora o ampliare il raggio di ricerca</p><button class="btn-secondary" onclick="goToStep(2)">Modifica Data/Ora</button></div>';
             return;
         }
 
         let professionalsHTML = '';
 
-        for (let i = 0; i < professionals.length; i++) {
-            const prof = professionals[i];
-            const premiumBadge = prof.premium ? '<div class="premium-badge">PREMIUM</div>' : '';
+        for (let i = 0; i < availableProfessionals.length; i++) {
+            const prof = availableProfessionals[i];
+            const premiumBadge = prof.premium ? '<div class="prenota-premium-badge">PREMIUM</div>' : '';
+            const lastMinuteHTML = prof.lastMinute ? '<span class="last-minute">Last Minute</span>' : '';
 
             let specializationsHTML = '';
             for (let j = 0; j < prof.specializations.length; j++) {
-                specializationsHTML += '<span class="specialization-tag">' + prof.specializations[j] + '</span>';
+                specializationsHTML += '<span class="prenota-tag">' + prof.specializations[j] + '</span>';
             }
 
-            const availabilityHTML = prof.available ?
-                '<span class="available">Disponibile</span>' :
-                '<span class="busy">Occupato</span>';
-            const lastMinuteHTML = prof.lastMinute ? '<span class="last-minute">Last Minute</span>' : '';
-            const buttonText = prof.available ? 'Prenota' : 'Non Disponibile';
-            const buttonDisabled = prof.available ? '' : 'disabled';
-            const buttonClass = prof.available ? 'btn-select' : 'btn-select';
-
-            professionalsHTML += '<div class="professional-card' + (prof.premium ? ' premium' : '') + '" data-prof-id="' + prof.id + '">';
+            // ===== LAYOUT CORRETTO: FOTO SINISTRA + INFO DESTRA =====
+            professionalsHTML += '<div class="prenota-professional-card' + (prof.premium ? ' prenota-premium' : '') + '" data-prof-id="' + prof.id + '">';
             professionalsHTML += premiumBadge;
-            professionalsHTML += '<button class="favorite-btn" data-prof-id="' + prof.id + '">♡</button>';
+            professionalsHTML += '<button class="prenota-favorite-btn" data-prof-id="' + prof.id + '">♡</button>';
 
-            professionalsHTML += '<div class="professional-header">';
-            professionalsHTML += '<div class="professional-image">';
+            // HEADER: FOTO SINISTRA + INFO DESTRA
+            professionalsHTML += '<div class="prenota-card-header">';
+            professionalsHTML += '<div class="prenota-card-image">';
             professionalsHTML += '<img src="' + prof.avatar + '" alt="' + prof.name + '" onerror="this.style.display=\'none\'">';
             professionalsHTML += '</div>';
-            professionalsHTML += '<div class="professional-header-info">';
+            professionalsHTML += '<div class="prenota-header-info">';
             professionalsHTML += '<h3>' + prof.name + '</h3>';
             professionalsHTML += '<p>' + prof.specialization + '</p>';
-            professionalsHTML += '<div class="professional-rating">';
-            professionalsHTML += '<span class="rating-stars">★★★★★</span>';
-            professionalsHTML += '<span class="rating-value">' + prof.rating + '</span>';
-            professionalsHTML += '<span class="rating-count">(' + prof.reviews + ')</span>';
+            professionalsHTML += '<div class="prenota-rating">';
+            professionalsHTML += '<div class="prenota-stars">★★★★★</div>';
+            professionalsHTML += '<span class="prenota-rating-value">' + prof.rating + '</span>';
+            professionalsHTML += '<span class="prenota-reviews-count">(' + prof.reviews + ')</span>';
             professionalsHTML += '</div></div></div>';
 
-            professionalsHTML += '<div class="professional-info">';
-            professionalsHTML += '<div class="specializations">' + specializationsHTML + '</div>';
-            professionalsHTML += '<div class="service-details">';
-            professionalsHTML += '<span class="price-highlight">€' + prof.price + ' - ' + bookingState.selectedService.duration + ' min</span>';
-            professionalsHTML += '<span>' + prof.distance + ' km da te</span>';
-            professionalsHTML += '<span>' + (bookingState.serviceMode === 'domicilio' ? 'Servizio a domicilio' : 'Presso studio') + '</span>';
+            // CONTENUTO SOTTO
+            professionalsHTML += '<div class="prenota-card-content">';
+            professionalsHTML += '<div class="prenota-specializations">' + specializationsHTML + '</div>';
+
+            professionalsHTML += '<div class="prenota-service-details">';
+            professionalsHTML += '<div class="prenota-location">';
+            professionalsHTML += '<span>🏠 Studio: Via Roma ' + (Math.floor(Math.random() * 200) + 1) + '</span>';
+            if (bookingState.serviceMode === 'domicilio') {
+                professionalsHTML += '<span>🚗 Domicilio: raggio ' + Math.floor(Math.random() * 20 + 10) + 'km</span>';
+            }
             professionalsHTML += '</div>';
-            professionalsHTML += '<div class="availability">' + availabilityHTML + lastMinuteHTML + '</div>';
-            professionalsHTML += '<div class="professional-actions">';
-            professionalsHTML += '<button class="btn-profile" onclick="viewProfessionalProfile(\'' + prof.id + '\')">Vedi Profilo</button>';
-            professionalsHTML += '<button class="' + buttonClass + '" onclick="selectProfessionalAndBook(\'' + prof.id + '\')" ' + buttonDisabled + '>' + buttonText + '</button>';
+            professionalsHTML += '<div class="prenota-pricing">';
+            professionalsHTML += '<span>€' + prof.price + ' - ' + bookingState.selectedService.duration + ' min</span>';
+            if (bookingState.serviceMode === 'domicilio') {
+                professionalsHTML += '<span>Domicilio: +€10</span>';
+            }
+            professionalsHTML += '</div>';
+            professionalsHTML += '<div class="prenota-packages">⭐ ' + Math.floor(Math.random() * 8 + 3) + ' servizi disponibili</div>';
+            professionalsHTML += '</div>';
+
+            // FOOTER CON DISPONIBILITÀ E BOTTONI
+            professionalsHTML += '<div class="prenota-card-footer">';
+            professionalsHTML += '<div class="prenota-availability' + (prof.lastMinute ? ' has-last-minute' : '') + '">';
+            professionalsHTML += '<span class="prenota-available">Disponibile</span>';
+            professionalsHTML += lastMinuteHTML;
+            professionalsHTML += '<span class="prenota-distance">' + prof.distance + ' km</span>';
+            professionalsHTML += '</div>';
+
+            // BOTTONI ORIZZONTALI
+            professionalsHTML += '<div class="prenota-card-actions">';
+            professionalsHTML += '<button class="btn-secondary prenota-profile-btn" onclick="viewProfessionalProfile(\'' + prof.id + '\')">Vedi Profilo</button>';
+            professionalsHTML += '<button class="btn-primary prenota-book-btn" onclick="selectProfessionalAndGoToPayment(\'' + prof.id + '\')">Prenota Ora</button>';
+            professionalsHTML += '</div>';
             professionalsHTML += '</div></div></div>';
         }
 
         grid.innerHTML = professionalsHTML;
 
         // Event listeners per preferiti
-        const favoriteButtons = document.querySelectorAll('.favorite-btn');
+        const favoriteButtons = document.querySelectorAll('.prenota-favorite-btn');
         favoriteButtons.forEach(function (btn) {
             btn.addEventListener('click', function (e) {
                 e.stopPropagation();
@@ -727,7 +734,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        console.log(professionals.length + ' professionisti caricati');
+        console.log(availableProfessionals.length + ' professionisti disponibili caricati');
     }
 
     function updateAvailabilityInfo(professionals) {
@@ -749,7 +756,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function sortProfessionals(sortBy) {
-        const cards = document.querySelectorAll('.professional-card');
+        const cards = document.querySelectorAll('.prenota-professional-card');
         const grid = document.getElementById('professionalsGrid');
         if (!grid) return;
 
@@ -808,13 +815,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const card = document.querySelector('[data-prof-id="' + profId + '"]');
         if (!card) return null;
 
-        const ratingElement = card.querySelector('.rating-value');
-        const priceElement = card.querySelector('.price-highlight');
-        const distanceElement = card.querySelector('.service-details span:nth-child(2)');
-        const selectButton = card.querySelector('.btn-select');
+        const ratingElement = card.querySelector('.prenota-rating-value');
+        const pricingElement = card.querySelector('.prenota-pricing span:first-child');
+        const distanceElement = card.querySelector('.prenota-distance');
+        const selectButton = card.querySelector('.prenota-book-btn');
 
         const rating = ratingElement ? parseFloat(ratingElement.textContent) : 0;
-        const priceMatch = priceElement ? priceElement.textContent.match(/\d+/) : null;
+        const priceMatch = pricingElement ? pricingElement.textContent.match(/\d+/) : null;
         const price = priceMatch ? parseInt(priceMatch[0]) : 0;
         const distanceMatch = distanceElement ? distanceElement.textContent.match(/[\d.]+/) : null;
         const distance = distanceMatch ? parseFloat(distanceMatch[0]) : 0;
@@ -829,37 +836,61 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     }
 
-    // FUNZIONE MODIFICATA - CLICK PRENOTA VA DIRETTO AL PAGAMENTO
-    window.selectProfessionalAndBook = function (profId) {
+    // ===== FUNZIONE PRINCIPALE - CLICK PRENOTA VA ALLA PAGINA SERVIZIO-TEMPLATE =====
+    window.selectProfessionalAndGoToPayment = function (profId) {
         try {
             if (!profId) return;
+
+            // Valida che tutti i dati necessari siano presenti
+            if (!bookingState.selectedService) {
+                showToast('Errore: servizio non selezionato', 'error');
+                return;
+            }
+
+            if (!bookingState.selectedDate || !bookingState.selectedTime) {
+                showToast('Errore: data/ora non selezionate', 'error');
+                return;
+            }
 
             // Seleziona automaticamente il professionista
             const card = document.querySelector('[data-prof-id="' + profId + '"]');
             if (!card) return;
 
             const nameElement = card.querySelector('h3');
-            const priceElement = card.querySelector('.price-highlight');
             const specializationElement = card.querySelector('p');
 
             const profData = {
                 id: profId,
                 name: nameElement ? nameElement.textContent : 'Professionista',
-                price: priceElement ? parseInt(priceElement.textContent.match(/\d+/)[0]) : 0,
-                specialization: specializationElement ? specializationElement.textContent : ''
+                specialization: specializationElement ? specializationElement.textContent : 'Specialista'
             };
 
             bookingState.selectedProfessional = profData;
-            bookingState.totalPrice = profData.price;
 
-            // SALTA DIRETTAMENTE AL PAGAMENTO (STEP 5)
-            goToStep(5);
-            updateBookingSummary();
+            // Prepara dati per sessione (data/ora selezionate + servizio)
+            const prenotationData = {
+                selectedDate: bookingState.selectedDate,
+                selectedTime: bookingState.selectedTime,
+                selectedService: bookingState.selectedService,
+                serviceMode: bookingState.serviceMode,
+                location: bookingState.location
+            };
 
-            console.log('Professionista selezionato, vai al pagamento:', profData);
+            // Salva dati prenotazione in sessionStorage
+            sessionStorage.setItem('prenotationData', JSON.stringify(prenotationData));
+
+            // REINDIRIZZA ALLA PAGINA SERVIZIO-TEMPLATE CON PERCORSO CORRETTO
+            const serviceUrl = '/pages/servizi/servizio-template.html?prof=' + profId +
+                '&service=' + bookingState.selectedService.id +
+                '&category=' + bookingState.selectedCategory;
+
+            window.location.href = serviceUrl;
+
+            console.log('Reindirizzamento a servizio-template:', serviceUrl);
+
         } catch (error) {
             console.error('Errore selezione professionista:', error);
-            showToast('Errore nella selezione', 'error');
+            showToast('Errore nella selezione del professionista', 'error');
         }
     };
 
@@ -875,6 +906,12 @@ document.addEventListener('DOMContentLoaded', function () {
         try {
             btn.classList.toggle('active');
             btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
+
+            // Animazione come fisioterapia
+            btn.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+            }, 150);
 
             // Salva nei preferiti (localStorage)
             let favorites = [];
@@ -895,260 +932,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             localStorage.setItem('relaxpoint_favorites', JSON.stringify(favorites));
+
+            console.log('Preferito toggled per professionista:', profId);
         } catch (error) {
             console.error('Errore toggle preferiti:', error);
         }
-    }
-
-    // ===== STEP 5: PAGAMENTO =====
-    function initializeStep5() {
-        // Metodi pagamento
-        const paymentMethods = document.querySelectorAll('input[name="paymentMethod"]');
-        paymentMethods.forEach(function (radio) {
-            radio.addEventListener('change', function () {
-                bookingState.paymentMethod = this.value;
-                togglePaymentForm();
-            });
-        });
-
-        // Formattazione carta
-        initializeCardFormatting();
-
-        // Conferma prenotazione
-        const confirmBtn = document.getElementById('confirmBooking');
-        if (confirmBtn) {
-            confirmBtn.addEventListener('click', confirmBooking);
-        }
-    }
-
-    function updateBookingSummary() {
-        const service = bookingState.selectedService;
-        const prof = bookingState.selectedProfessional;
-        const date = bookingState.selectedDate;
-        const time = bookingState.selectedTime;
-
-        const summaryService = document.getElementById('summaryService');
-        const summaryProfessional = document.getElementById('summaryProfessional');
-        const summaryDateTime = document.getElementById('summaryDateTime');
-        const summaryMode = document.getElementById('summaryMode');
-        const summaryDuration = document.getElementById('summaryDuration');
-        const summaryTotal = document.getElementById('summaryTotal');
-
-        if (summaryService) summaryService.textContent = service ? service.name : '-';
-        if (summaryProfessional) summaryProfessional.textContent = prof ? prof.name : '-';
-
-        if (summaryDateTime && date && time) {
-            const dateStr = date.toLocaleDateString('it-IT');
-            summaryDateTime.textContent = dateStr + ' alle ' + time;
-        }
-
-        if (summaryMode) {
-            const modeLabels = {
-                'domicilio': 'A domicilio',
-                'studio': 'Presso studio',
-                'online': 'Online'
-            };
-            summaryMode.textContent = modeLabels[bookingState.serviceMode] || '-';
-        }
-
-        if (summaryDuration) summaryDuration.textContent = service ? service.duration + ' minuti' : '-';
-        if (summaryTotal) summaryTotal.textContent = '€' + bookingState.totalPrice + ',00';
-    }
-
-    function togglePaymentForm() {
-        const cardForm = document.getElementById('cardForm');
-        if (!cardForm) return;
-
-        if (bookingState.paymentMethod === 'card') {
-            cardForm.style.display = 'flex';
-        } else {
-            cardForm.style.display = 'none';
-        }
-    }
-
-    function initializeCardFormatting() {
-        // Numero carta
-        const cardNumber = document.getElementById('cardNumber');
-        if (cardNumber) {
-            cardNumber.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-                let formattedValue = '';
-
-                for (let i = 0; i < value.length; i += 4) {
-                    if (i > 0) formattedValue += ' ';
-                    formattedValue += value.substr(i, 4);
-                }
-
-                if (formattedValue.length > 19) formattedValue = formattedValue.substring(0, 19);
-                this.value = formattedValue;
-            });
-        }
-
-        // Scadenza
-        const cardExpiry = document.getElementById('cardExpiry');
-        if (cardExpiry) {
-            cardExpiry.addEventListener('input', function (e) {
-                let value = e.target.value.replace(/\D/g, '');
-                if (value.length >= 2) {
-                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
-                }
-                this.value = value;
-            });
-        }
-
-        // CVC
-        const cardCvc = document.getElementById('cardCvc');
-        if (cardCvc) {
-            cardCvc.addEventListener('input', function (e) {
-                this.value = this.value.replace(/\D/g, '').substring(0, 4);
-            });
-        }
-    }
-
-    function confirmBooking() {
-        if (!validateBookingForm()) return;
-
-        const confirmBtn = document.getElementById('confirmBooking');
-        if (!confirmBtn) return;
-
-        const btnText = confirmBtn.querySelector('.btn-text');
-        const btnLoading = confirmBtn.querySelector('.btn-loading');
-
-        // Mostra loading
-        confirmBtn.disabled = true;
-        if (btnText) btnText.style.display = 'none';
-        if (btnLoading) btnLoading.style.display = 'flex';
-
-        // Simula autorizzazione pagamento
-        setTimeout(function () {
-            try {
-                // Genera codice prenotazione
-                const bookingCode = generateBookingCode();
-
-                // Mostra modal conferma
-                showBookingConfirmation(bookingCode);
-
-                console.log('Prenotazione confermata:', bookingState);
-
-            } catch (error) {
-                console.error('Errore prenotazione:', error);
-                showToast('Errore nella prenotazione. Riprova.', 'error');
-            }
-
-            // Reset button
-            confirmBtn.disabled = false;
-            if (btnText) btnText.style.display = 'inline';
-            if (btnLoading) btnLoading.style.display = 'none';
-        }, 2000);
-    }
-
-    function validateBookingForm() {
-        if (!bookingState.selectedService) {
-            showToast('Seleziona un servizio', 'error');
-            goToStep(1);
-            return false;
-        }
-
-        if (!bookingState.selectedDate || !bookingState.selectedTime) {
-            showToast('Seleziona data e orario', 'error');
-            goToStep(2);
-            return false;
-        }
-
-        if (!bookingState.location) {
-            showToast('Inserisci la località', 'error');
-            goToStep(3);
-            return false;
-        }
-
-        if (!bookingState.selectedProfessional) {
-            showToast('Seleziona un professionista', 'error');
-            goToStep(4);
-            return false;
-        }
-
-        // Validazione form pagamento
-        if (bookingState.paymentMethod === 'card') {
-            const cardNumberEl = document.getElementById('cardNumber');
-            const cardExpiryEl = document.getElementById('cardExpiry');
-            const cardCvcEl = document.getElementById('cardCvc');
-            const cardNameEl = document.getElementById('cardName');
-
-            const cardNumber = cardNumberEl ? cardNumberEl.value : '';
-            const cardExpiry = cardExpiryEl ? cardExpiryEl.value : '';
-            const cardCvc = cardCvcEl ? cardCvcEl.value : '';
-            const cardName = cardNameEl ? cardNameEl.value : '';
-
-            if (!cardNumber || cardNumber.replace(/\s/g, '').length < 13) {
-                showToast('Inserisci un numero di carta valido', 'error');
-                return false;
-            }
-
-            if (!cardExpiry || !cardExpiry.match(/^\d{2}\/\d{2}$/)) {
-                showToast('Inserisci una data di scadenza valida (MM/AA)', 'error');
-                return false;
-            }
-
-            if (!cardCvc || cardCvc.length < 3) {
-                showToast('Inserisci un CVC valido', 'error');
-                return false;
-            }
-
-            if (!cardName.trim()) {
-                showToast('Inserisci il nome dell\'intestatario', 'error');
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    function generateBookingCode() {
-        const year = new Date().getFullYear();
-        const random = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
-        return 'RP-' + year + '-' + random;
-    }
-
-    function showBookingConfirmation(bookingCode) {
-        const modal = document.getElementById('confirmationModal');
-        const codeElement = document.getElementById('bookingCode');
-
-        if (codeElement) codeElement.textContent = bookingCode;
-        if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-
-        // Event listeners modal
-        const viewBookingsBtn = document.getElementById('viewBookings');
-        const closeModalBtn = document.getElementById('closeModal');
-
-        if (viewBookingsBtn) {
-            viewBookingsBtn.onclick = function () {
-                window.location.href = '/pages/dashboard/prenotazioni.html';
-            };
-        }
-
-        if (closeModalBtn) {
-            closeModalBtn.onclick = closeConfirmationModal;
-        }
-
-        // Click fuori per chiudere
-        if (modal) {
-            modal.onclick = function (e) {
-                if (e.target === modal) closeConfirmationModal();
-            };
-        }
-    }
-
-    function closeConfirmationModal() {
-        const modal = document.getElementById('confirmationModal');
-        if (modal) modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-
-        setTimeout(function () {
-            window.location.href = '/index.html';
-        }, 1000);
     }
 
     // ===== UTILITY FUNCTIONS =====
@@ -1181,6 +969,35 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Pre-selezione servizio da URL:', serviceParam);
     }
 
+    // ===== GESTIONE URL PARAMS PER DEBUG =====
+    function checkUrlParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Debug: salta direttamente a uno step specifico
+        const stepParam = urlParams.get('step');
+        if (stepParam && parseInt(stepParam) >= 1 && parseInt(stepParam) <= 4) {
+            const targetStep = parseInt(stepParam);
+
+            // Popola dati mock per test
+            if (targetStep >= 2) {
+                bookingState.selectedCategory = 'massaggi';
+                bookingState.selectedService = servicesByCategory.massaggi[0];
+            }
+            if (targetStep >= 3) {
+                bookingState.selectedDate = new Date();
+                bookingState.selectedTime = '14:00';
+            }
+            if (targetStep >= 4) {
+                bookingState.location = 'Cagliari';
+            }
+
+            setTimeout(() => goToStep(targetStep), 500);
+        }
+    }
+
+    // Esegui check URL params per debug
+    checkUrlParams();
+
     // Debug utilities
     window.bookingDebug = {
         state: bookingState,
@@ -1189,10 +1006,12 @@ document.addEventListener('DOMContentLoaded', function () {
         selectService: selectService,
         selectDate: selectDate,
         selectTimeSlot: selectTimeSlot,
-        searchProfessionals: searchProfessionals
+        searchProfessionals: searchProfessionals,
+        selectProfessionalAndGoToPayment: selectProfessionalAndGoToPayment
     };
 
     console.log('Prenota JS - Inizializzazione completata');
     console.log('Debug disponibile: window.bookingDebug');
+    console.log('Test URL: ?step=4 per saltare agli step');
 
 });

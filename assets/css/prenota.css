@@ -89,7 +89,7 @@
 
 /* CONTENUTO PRENOTA */
 .prenota-content {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     background: white;
     border-radius: 12px;
@@ -104,6 +104,13 @@
 
 .step-content.active {
     display: block;
+}
+
+/* STEP 4 - ALLARGATO PER CARD FISIO */
+#step4 .step-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 24px;
 }
 
 .step-header {
@@ -166,21 +173,6 @@
     font-weight: 600;
     color: #333;
     text-align: center;
-}
-
-.service-price {
-    font-size: 18px;
-    font-weight: 700;
-    color: #2E7D32;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.service-duration {
-    font-size: 14px;
-    color: #666;
-    text-align: center;
-    margin-top: 4px;
 }
 
 /* ===== STEP 2: DATA E ORA ===== */
@@ -543,14 +535,14 @@
     font-style: italic;
 }
 
-/* ===== STEP 4: PROFESSIONISTI ===== */
+/* ===== STEP 4: PROFESSIONISTI - LAYOUT PRENOTA SPECIFICO ===== */
 .professionals-section {
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
-/* Filtri rapidi */
+/* Filtri rapidi - RIMUOVO "Solo disponibili ora" */
 .quick-filters {
     display: flex;
     justify-content: space-between;
@@ -586,15 +578,16 @@
     border-color: #2E7D32;
 }
 
-/* Griglia professionisti - 3 COLONNE IDENTICHE AI SERVIZI */
+/* GRIGLIA PROFESSIONISTI - 3 COLONNE IDENTICHE FISIOTERAPIA */
 .professionals-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
+    margin-top: 24px;
 }
 
-/* Card professionista - IDENTICHE ALLE PAGINE SERVIZI */
-.professional-card {
+/* ===== CARDS PROFESSIONISTI - TAG PRENOTA-* SPECIFICI ===== */
+.professionals-grid .prenota-professional-card {
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
@@ -608,26 +601,21 @@
     min-height: 420px;
 }
 
-.professional-card:hover {
+.professionals-grid .prenota-professional-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-.professional-card.selected {
-    border-color: #2E7D32;
-    background: #F8FDF8;
-}
-
-.professional-card.premium {
-    border-color: var(--color-primary);
+.professionals-grid .prenota-professional-card.prenota-premium {
+    border-color: var(--color-primary, #2d5a3d);
 }
 
 /* Premium badge */
-.premium-badge {
+.professionals-grid .prenota-premium-badge {
     position: absolute;
     top: 12px;
     left: 12px;
-    background: var(--color-primary);
+    background: var(--color-primary, #2d5a3d);
     color: white;
     font-size: 11px;
     font-weight: 700;
@@ -641,7 +629,25 @@
 }
 
 /* Cuore preferiti */
-.favorite-btn {
+.professionals-grid .prenota-premium-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-primary, #2d5a3d);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(45, 90, 61, 0.3);
+    line-height: 1;
+    z-index: 4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* CUORE PREFERITI */
+.professionals-grid .prenota-favorite-btn {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -663,30 +669,31 @@
     border: 2px solid rgba(255, 255, 255, 0.8);
 }
 
-.favorite-btn:hover {
+.professionals-grid .prenota-favorite-btn:hover {
     background: rgba(255, 255, 255, 1);
     color: #dc2626;
     transform: scale(1.1);
     box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
 }
 
-.favorite-btn.active {
+.professionals-grid .prenota-favorite-btn.active {
     background: #fce7e6;
     color: #dc2626;
     border-color: #fce7e6;
 }
 
 /* Header card - foto + info */
-.professional-header {
+.professionals-grid .prenota-card-header {
     display: flex;
     gap: 20px;
     padding: 24px;
     padding-bottom: 0;
     align-items: flex-start;
+    flex-shrink: 0;
 }
 
-/* Foto professionista */
-.professional-image {
+/* FOTO GRANDE SINISTRA */
+.professionals-grid .prenota-card-image {
     position: relative;
     flex-shrink: 0;
     width: 140px;
@@ -695,14 +702,14 @@
     overflow: hidden;
 }
 
-.professional-image img {
+.professionals-grid .prenota-card-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 /* Info header */
-.professional-header-info {
+.professionals-grid .prenota-header-info {
     flex: 1;
     min-width: 0;
     display: flex;
@@ -713,46 +720,48 @@
     margin-left: 8px;
 }
 
-.professional-header h3 {
+.professionals-grid .prenota-header-info h3 {
     font-size: 20px;
     font-weight: 700;
     color: #1e3a2e;
     margin: 0;
     line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
-.professional-header p {
+.professionals-grid .prenota-header-info p {
     font-size: 15px;
     color: #666;
     margin: 0;
     line-height: 1.3;
 }
 
-.professional-rating {
+.professionals-grid .prenota-rating {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.rating-stars {
+.professionals-grid .prenota-stars {
     color: #fbbf24;
     font-size: 16px;
     line-height: 1;
 }
 
-.rating-value {
+.professionals-grid .prenota-rating-value {
     font-weight: 600;
     color: #333;
     font-size: 15px;
 }
 
-.rating-count {
+.professionals-grid .prenota-reviews-count {
     font-size: 13px;
     color: #666;
 }
 
 /* Contenuto card */
-.professional-info {
+.professionals-grid .prenota-card-content {
     padding: 0 20px 20px 20px;
     display: flex;
     flex-direction: column;
@@ -760,8 +769,8 @@
     flex: 1;
 }
 
-/* Specializzazioni */
-.specializations {
+/* Specializzazioni - VERDE COME SERVIZI */
+.professionals-grid .prenota-specializations {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
@@ -769,7 +778,7 @@
     margin-left: 12px;
 }
 
-.specialization-tag {
+.professionals-grid .prenota-tag {
     background: #E8F5E8;
     color: #2E7D32;
     padding: 5px 12px;
@@ -781,252 +790,198 @@
 }
 
 /* Dettagli servizio */
-.service-details {
+.professionals-grid .prenota-service-details {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.service-details span {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
+.professionals-grid .prenota-location,
+.professionals-grid .prenota-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
-.price-highlight {
+.professionals-grid .prenota-location span,
+.professionals-grid .prenota-pricing span {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.3;
+}
+
+.professionals-grid .prenota-pricing span {
+    color: #2d5a3d;
     font-weight: 600;
-    color: #2E7D32;
-    font-size: 16px;
+}
+
+.professionals-grid .prenota-packages {
+    font-size: 13px;
+    color: #2d5a3d;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* ===== FOOTER CARD ===== */
+.professionals-grid .prenota-card-footer {
+    margin-top: auto;
+    position: relative;
 }
 
 /* Disponibilità */
-.availability {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-top: 12px;
-    flex-wrap: wrap;
-}
-
-.available {
-    color: #2E7D32;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.busy {
-    color: #F57C00;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.distance {
-    font-size: 13px;
-    color: #666;
-}
-
-.last-minute {
-    background: #FF5722;
-    color: white;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-/* Azioni professionista */
-.professional-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 16px;
-}
-
-.btn-select {
-    flex: 1;
-    padding: 12px 20px;
-    background: #2E7D32;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.2s ease;
-}
-
-.btn-select:hover {
-    background: #1B5E20;
-}
-
-.btn-select:disabled {
-    background: #CCC;
-    cursor: not-allowed;
-}
-
-.btn-profile {
-    padding: 12px 20px;
-    background: white;
-    color: #2E7D32;
-    border: 1px solid #2E7D32;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.btn-profile:hover {
-    background: #F8FDF8;
-}
-
-/* ===== STEP 5: PAGAMENTO ===== */
-.payment-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-}
-
-/* Riepilogo prenotazione */
-.booking-summary {
-    background: #F8F9FA;
-    border-radius: 12px;
-    padding: 24px;
-}
-
-.booking-summary h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.summary-details {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.summary-item {
+.professionals-grid .prenota-availability {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    margin-bottom: 16px;
+    position: relative;
 }
 
-.summary-item .label {
-    color: #666;
-    font-size: 14px;
+.professionals-grid .prenota-availability.has-last-minute {
+    justify-content: flex-start;
+    gap: 12px;
 }
 
-.summary-item .value {
-    color: #333;
+.professionals-grid .prenota-available {
+    padding: 5px 12px;
+    border-radius: 16px;
+    font-size: 11px;
     font-weight: 500;
-    font-size: 14px;
+    line-height: 1.2;
+    background: #d1fae5;
+    color: #065f46;
 }
 
-.summary-item.total {
-    font-size: 18px;
+/* LAST MINUTE - TAG STANDARD */
+.professionals-grid .last-minute {
+    color: #ef4444;
+    font-size: 11px;
     font-weight: 600;
-    color: #2E7D32;
-    border-top: 2px solid #E0E0E0;
-    margin-top: 8px;
-    padding-top: 16px;
+    text-transform: uppercase;
+    animation: blink 1.5s infinite;
+    margin-right: 8px;
 }
 
-/* Form pagamento */
-.payment-form {
-    background: white;
-    border: 1px solid #E0E0E0;
-    border-radius: 12px;
-    padding: 24px;
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
 }
 
-.payment-form h3 {
-    font-size: 20px;
-    color: #333;
-    margin-bottom: 20px;
+.professionals-grid .prenota-distance {
+    font-size: 11px;
+    color: #666;
+    font-weight: 500;
 }
 
-.payment-methods {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 24px;
-}
-
-.payment-method {
-    cursor: pointer;
-}
-
-.payment-method input[type="radio"] {
-    display: none;
-}
-
-.method-card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px;
-    border: 2px solid #E0E0E0;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-}
-
-.payment-method input[type="radio"]:checked+.method-card {
-    border-color: #2E7D32;
-    background: #F8FDF8;
-}
-
-.card-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.form-row {
+/* ===== BOTTONI ORIZZONTALI ===== */
+.professionals-grid .prenota-card-actions {
     display: flex;
     gap: 12px;
+    margin-bottom: 0;
 }
 
-.form-row input {
+.professionals-grid .prenota-profile-btn,
+.professionals-grid .prenota-book-btn {
     flex: 1;
     padding: 12px 16px;
-    border: 1px solid #DDD;
     border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
     font-size: 14px;
+    transition: all 0.2s ease;
+    line-height: 1.2;
+    text-align: center;
 }
 
-.form-row input:focus {
-    outline: none;
-    border-color: #2E7D32;
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+.professionals-grid .prenota-profile-btn {
+    background: white;
+    color: #2d5a3d;
+    border: 1px solid #2d5a3d;
 }
 
-.form-row-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+.professionals-grid .prenota-profile-btn:hover {
+    background: #f8fdf8;
 }
 
-/* Notice pagamento */
-.payment-notice {
-    margin-top: 24px;
+.professionals-grid .prenota-book-btn {
+    background: #2d5a3d;
+    color: white;
 }
 
-.notice-box {
-    display: flex;
-    gap: 12px;
-    padding: 16px;
-    background: #E3F2FD;
-    border-radius: 8px;
-    border-left: 4px solid #1976D2;
+.professionals-grid .prenota-book-btn:hover {
+    background: #1e3a2e;
 }
 
-.notice-text {
-    color: #1565C0;
-    font-size: 14px;
-    line-height: 1.4;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1200px) {
+    .professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
 }
+
+@media (max-width: 768px) {
+    .professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* MOBILE: TRANSIZIONE A LAYOUT VERTICALE */
+    .professionals-grid .prenota-card-header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .professionals-grid .prenota-card-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+    }
+
+    .professionals-grid .prenota-header-info {
+        text-align: center;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .professionals-grid .prenota-rating {
+        justify-content: center;
+    }
+
+    .professionals-grid .prenota-specializations {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .professionals-grid .prenota-card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .professionals-grid .prenota-card-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .professionals-grid .prenota-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+}
+
+
 
 /* STEP ACTIONS */
 .step-actions {
@@ -1039,249 +994,25 @@
     margin-top: 32px;
 }
 
-
-.btn-loading {
-    display: none;
-    align-items: center;
-    gap: 8px;
-}
-
-/* MODAL */
-.modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-}
-
-.modal-content {
-    background: white;
-    border-radius: 12px;
-    padding: 32px;
-    max-width: 400px;
-    width: 90%;
+/* EMPTY STATES */
+.no-professionals {
     text-align: center;
+    padding: 40px 20px;
+    color: #666;
 }
 
-.modal-header h3 {
-    font-size: 24px;
-    color: #333;
+.no-professionals h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.no-professionals p {
+    font-size: 16px;
     margin-bottom: 16px;
 }
 
-.modal-body p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 12px;
-}
-
-.booking-code {
-    padding: 12px 16px;
-    background: #F8F9FA;
-    border-radius: 8px;
-    margin: 16px 0;
-    font-family: monospace;
-}
-
-.modal-actions {
-    display: flex;
-    gap: 12px;
-    margin-top: 24px;
-}
-
-.modal-actions .btn-primary,
-.modal-actions .btn-secondary {
-    flex: 1;
-    padding: 12px 16px;
-    font-size: 14px;
-    min-width: auto;
-}
-
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-    .professionals-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-}
-
-@media (max-width: 768px) {
-    .step-indicator {
-        padding: 0 10px;
-        gap: 4px;
-    }
-
-    .step-line {
-        width: 30px;
-        margin: 0 4px;
-    }
-
-    .step-label {
-        font-size: 10px;
-    }
-
-    .step-content {
-        padding: 24px 20px;
-    }
-
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
-    .datetime-selection {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .service-modes {
-        grid-template-columns: 1fr;
-    }
-
-    .payment-section {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .location-input-group {
-        flex-direction: column;
-    }
-
-    .quick-filters {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-    }
-
-    .professionals-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .professional-card {
-        min-height: auto;
-    }
-
-    .professional-header {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-    }
-
-    .professional-image {
-        width: 120px;
-        height: 120px;
-        align-self: center;
-    }
-
-    .professional-header-info {
-        margin-left: 0;
-        text-align: center;
-    }
-
-    .specializations {
-        justify-content: center;
-        margin-left: 0;
-    }
-
-    .professional-actions {
-        flex-direction: column;
-    }
-
-    .step-actions {
-        flex-direction: column-reverse;
-        gap: 12px;
-    }
-
-    .btn-primary,
-    .btn-secondary {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .step-content {
-        padding: 20px 16px;
-    }
-
-    .step-header h2 {
-        font-size: 24px;
-    }
-
-    .modal-content {
-        padding: 24px 20px;
-    }
-
-    .time-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .detect-location-btn {
-        padding: 10px 12px;
-        font-size: 13px;
-    }
-
-    .radius-section {
-        padding: 16px;
-    }
-
-    .booking-summary,
-    .payment-form {
-        padding: 20px;
-    }
-
-    .professional-card {
-        padding: 16px;
-    }
-
-    .professional-image {
-        width: 100px;
-        height: 100px;
-    }
-}
-
-/* ANIMAZIONI */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-20px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.step-content.active {
-    animation: fadeIn 0.3s ease-out;
-}
-
-.professional-card {
-    animation: slideIn 0.3s ease-out;
+.no-professionals .btn-secondary {
+    margin: 0 auto;
 }
 
 /* LOADING STATES */
@@ -1315,31 +1046,6 @@
     100% {
         transform: rotate(360deg);
     }
-}
-
-.btn-primary.loading,
-.btn-secondary.loading {
-    position: relative;
-    color: transparent;
-}
-
-.btn-primary.loading::after,
-.btn-secondary.loading::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 20px;
-    height: 20px;
-    margin: -10px 0 0 -10px;
-    border: 2px solid transparent;
-    border-top: 2px solid white;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-}
-
-.btn-secondary.loading::after {
-    border-top-color: #2E7D32;
 }
 
 /* TOAST NOTIFICATIONS */
@@ -1382,6 +1088,187 @@
     line-height: 1.4;
 }
 
+/* ANIMAZIONI */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.step-content.active {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.professionals-grid .fisio-professional-card {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    #step4 .step-content {
+        max-width: 1200px;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .step-indicator {
+        padding: 0 10px;
+        gap: 4px;
+    }
+
+    .step-line {
+        width: 30px;
+        margin: 0 4px;
+    }
+
+    .step-label {
+        font-size: 10px;
+    }
+
+    .step-content {
+        padding: 24px 20px;
+    }
+
+    #step4 .step-content {
+        padding: 24px 16px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .datetime-selection {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .service-modes {
+        grid-template-columns: 1fr;
+    }
+
+    .location-input-group {
+        flex-direction: column;
+    }
+
+    .quick-filters {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Layout verticale mobile per fisio cards */
+    .professionals-grid .fisio-card-header {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .professionals-grid .fisio-card-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+    }
+
+    .professionals-grid .fisio-header-info {
+        text-align: center;
+        align-items: center;
+        margin-left: 0;
+    }
+
+    .professionals-grid .fisio-rating {
+        justify-content: center;
+    }
+
+    .professionals-grid .fisio-specializations {
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .professionals-grid .fisio-card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .step-actions {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .step-content {
+        padding: 20px 16px;
+    }
+
+    .step-header h2 {
+        font-size: 24px;
+    }
+
+    .time-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .detect-location-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+
+    .radius-section {
+        padding: 16px;
+    }
+
+    .professionals-grid .fisio-card-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .professionals-grid .fisio-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+}
+
 /* ACCESSIBILITY */
 .visually-hidden {
     position: absolute;
@@ -1397,7 +1284,7 @@
 
 /* FOCUS STYLES */
 .service-card:focus,
-.professional-card:focus,
+.professionals-grid .fisio-professional-card:focus,
 .calendar-day:focus,
 .time-slot:focus {
     outline: 2px solid #2E7D32;
@@ -1425,25 +1312,4 @@
     border-radius: 8px;
     margin: 16px 0;
     border-left: 4px solid #2E7D32;
-}
-
-/* EMPTY STATES */
-.no-professionals {
-    text-align: center;
-    padding: 40px 20px;
-    color: #666;
-}
-
-.no-professionals h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-}
-
-.no-professionals p {
-    font-size: 16px;
-    margin-bottom: 16px;
-}
-
-.no-professionals .btn-secondary {
-    margin: 0 auto;
 }

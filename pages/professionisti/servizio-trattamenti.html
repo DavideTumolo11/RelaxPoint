@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META DINAMICO -->
+    <title id="pageTitle">Wellness Coaching - Sophia Rossi | RelaxPoint</title>
+    <meta name="description" id="pageDescription"
+        content="Tutti i trattamenti di Wellness Coaching di Sophia Rossi. Coaching personalizzato, trasformazione olistica e consulenze specializzate.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/servizio-trattamenti.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - IDENTICO A TUTTE LE PAGINE -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link active" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB DINAMICO -->
+                    <nav class="breadcrumb">
+                        <a href="/index.html" class="breadcrumb-link">Home</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <a href="/pages/professionisti/professionisti.html" class="breadcrumb-link">Professionisti</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <a href="/microsito.html" class="breadcrumb-link" id="professionalBreadcrumb">Sophia Rossi</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current" id="serviceBreadcrumb">Wellness Coaching</span>
+                    </nav>
+
+                    <!-- HEADER SERVIZIO -->
+                    <section class="service-treatments-header">
+                        <div class="service-header-content">
+                            <div class="service-icon" id="serviceIcon">
+                                <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                </svg>
+                            </div>
+                            <div class="service-info">
+                                <h1 id="serviceTitle">Wellness Coaching</h1>
+                                <p id="serviceDescription">Tutti i trattamenti di Wellness Coaching di <span
+                                        id="professionalName">Sophia Rossi</span></p>
+                                <div class="service-stats">
+                                    <span id="treatmentCount">6 trattamenti disponibili</span>
+                                    <span class="separator">•</span>
+                                    <span>A partire da <strong id="priceFrom">€70</strong></span>
+                                </div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="/microsito.html" class="btn-back">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                                    </svg>
+                                    Torna al Profilo
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- GRIGLIA TRATTAMENTI -->
+                    <section class="treatments-grid-section">
+                        <div class="treatments-container">
+
+                            <!-- FILTRI TRATTAMENTI -->
+                            <div class="treatments-filters">
+                                <div class="filter-group">
+                                    <label>Ordina per:</label>
+                                    <select id="sortTreatments" class="filter-select">
+                                        <option value="name">Nome</option>
+                                        <option value="price-asc">Prezzo crescente</option>
+                                        <option value="price-desc">Prezzo decrescente</option>
+                                        <option value="duration-asc">Durata crescente</option>
+                                        <option value="duration-desc">Durata decrescente</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Prezzo:</label>
+                                    <select id="filterPrice" class="filter-select">
+                                        <option value="">Tutti</option>
+                                        <option value="0-50">€0 - €50</option>
+                                        <option value="51-100">€51 - €100</option>
+                                        <option value="101-150">€101 - €150</option>
+                                        <option value="151+">€151+</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <label>Durata:</label>
+                                    <select id="filterDuration" class="filter-select">
+                                        <option value="">Tutte</option>
+                                        <option value="30">30 minuti</option>
+                                        <option value="60">60 minuti</option>
+                                        <option value="90">90 minuti</option>
+                                        <option value="120">120+ minuti</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- GRIGLIA CARD TRATTAMENTI -->
+                            <div class="treatments-grid" id="treatmentsGrid">
+
+                                <!-- CARD TRATTAMENTO 1 -->
+                                <div class="treatment-card" data-treatment="coaching-trasformazione" data-price="120"
+                                    data-duration="90">
+                                    <div class="treatment-image">
+                                        <img src="/assets/images/Servizi/neoMamma.jpg"
+                                            alt="Coaching Trasformazione Olistica" />
+                                        <div class="treatment-overlay">
+                                            <span class="treatment-duration">90 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="treatment-info">
+                                        <h3 class="treatment-name">Coaching Trasformazione Olistica</h3>
+                                        <p class="treatment-description">Percorso completo di trasformazione personale
+                                            attraverso tecniche olistiche integrate per corpo, mente e spirito.</p>
+                                        <div class="treatment-features">
+                                            <span class="feature-tag">Personalizzato</span>
+                                            <span class="feature-tag">Olistico</span>
+                                            <span class="feature-tag">Trasformativo</span>
+                                        </div>
+                                        <div class="treatment-footer">
+                                            <div class="treatment-price">
+                                                <span class="price-from">da</span>
+                                                <span class="price-value">€120</span>
+                                            </div>
+                                            <button class="btn-book-treatment"
+                                                onclick="bookTreatment('coaching-trasformazione', 'sophia-rossi')">
+                                                Prenota Ora
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD TRATTAMENTO 2 -->
+                                <div class="treatment-card" data-treatment="mindfulness-base" data-price="80"
+                                    data-duration="60">
+                                    <div class="treatment-image">
+                                        <img src="/assets/images/Servizi/YogaEndMeditazione.jpeg"
+                                            alt="Sessione Mindfulness Base" />
+                                        <div class="treatment-overlay">
+                                            <span class="treatment-duration">60 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="treatment-info">
+                                        <h3 class="treatment-name">Sessione Mindfulness Base</h3>
+                                        <p class="treatment-description">Introduzione alle tecniche di mindfulness per
+                                            gestire stress e ansia nella vita quotidiana.</p>
+                                        <div class="treatment-features">
+                                            <span class="feature-tag">Rilassante</span>
+                                            <span class="feature-tag">Anti-stress</span>
+                                            <span class="feature-tag">Principianti</span>
+                                        </div>
+                                        <div class="treatment-footer">
+                                            <div class="treatment-price">
+                                                <span class="price-from">da</span>
+                                                <span class="price-value">€80</span>
+                                            </div>
+                                            <button class="btn-book-treatment"
+                                                onclick="bookTreatment('mindfulness-base', 'sophia-rossi')">
+                                                Prenota Ora
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD TRATTAMENTO 3 -->
+                                <div class="treatment-card" data-treatment="coaching-nutrizionale" data-price="90"
+                                    data-duration="75">
+                                    <div class="treatment-image">
+                                        <img src="/assets/images/Servizi/Salute.jpg" alt="Coaching Nutrizionale" />
+                                        <div class="treatment-overlay">
+                                            <span class="treatment-duration">75 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="treatment-info">
+                                        <h3 class="treatment-name">Coaching Nutrizionale</h3>
+                                        <p class="treatment-description">Consulenza personalizzata per sviluppare una
+                                            relazione sana e consapevole con il cibo.</p>
+                                        <div class="treatment-features">
+                                            <span class="feature-tag">Nutrizione</span>
+                                            <span class="feature-tag">Benessere</span>
+                                            <span class="feature-tag">Lifestyle</span>
+                                        </div>
+                                        <div class="treatment-footer">
+                                            <div class="treatment-price">
+                                                <span class="price-from">da</span>
+                                                <span class="price-value">€90</span>
+                                            </div>
+                                            <button class="btn-book-treatment"
+                                                onclick="bookTreatment('coaching-nutrizionale', 'sophia-rossi')">
+                                                Prenota Ora
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD TRATTAMENTO 4 -->
+                                <div class="treatment-card" data-treatment="consulenza-benessere" data-price="70"
+                                    data-duration="60">
+                                    <div class="treatment-image">
+                                        <img src="/assets/images/Servizi/massage2.jpg" alt="Consulenza Benessere" />
+                                        <div class="treatment-overlay">
+                                            <span class="treatment-duration">60 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="treatment-info">
+                                        <h3 class="treatment-name">Consulenza Benessere</h3>
+                                        <p class="treatment-description">Sessione iniziale per valutare il tuo stato di
+                                            benessere e creare un percorso personalizzato.</p>
+                                        <div class="treatment-features">
+                                            <span class="feature-tag">Valutazione</span>
+                                            <span class="feature-tag">Personalizzato</span>
+                                            <span class="feature-tag">Primo incontro</span>
+                                        </div>
+                                        <div class="treatment-footer">
+                                            <div class="treatment-price">
+                                                <span class="price-from">da</span>
+                                                <span class="price-value">€70</span>
+                                            </div>
+                                            <button class="btn-book-treatment"
+                                                onclick="bookTreatment('consulenza-benessere', 'sophia-rossi')">
+                                                Prenota Ora
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD TRATTAMENTO 5 -->
+                                <div class="treatment-card" data-treatment="fitness-personalizzato" data-price="100"
+                                    data-duration="90">
+                                    <div class="treatment-image">
+                                        <img src="/assets/images/Servizi/Gym.jpg" alt="Fitness Personalizzato" />
+                                        <div class="treatment-overlay">
+                                            <span class="treatment-duration">90 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="treatment-info">
+                                        <h3 class="treatment-name">Fitness Personalizzato</h3>
+                                        <p class="treatment-description">Allenamento funzionale personalizzato per
+                                            migliorare forza, mobilità e benessere generale.</p>
+                                        <div class="treatment-features">
+                                            <span class="feature-tag">Allenamento</span>
+                                            <span class="feature-tag">Personalizzato</span>
+                                            <span class="feature-tag">Funzionale</span>
+                                        </div>
+                                        <div class="treatment-footer">
+                                            <div class="treatment-price">
+                                                <span class="price-from">da</span>
+                                                <span class="price-value">€100</span>
+                                            </div>
+                                            <button class="btn-book-treatment"
+                                                onclick="bookTreatment('fitness-personalizzato', 'sophia-rossi')">
+                                                Prenota Ora
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CARD TRATTAMENTO 6 -->
+                                <div class="treatment-card" data-treatment="beauty-consulenza" data-price="85"
+                                    data-duration="60">
+                                    <div class="treatment-image">
+                                        <img src="/assets/images/Servizi/Beauty.jpg" alt="Beauty & Immagine" />
+                                        <div class="treatment-overlay">
+                                            <span class="treatment-duration">60 min</span>
+                                        </div>
+                                    </div>
+                                    <div class="treatment-info">
+                                        <h3 class="treatment-name">Beauty & Immagine</h3>
+                                        <p class="treatment-description">Consulenza per migliorare la tua immagine e
+                                            sviluppare sicurezza e autostima attraverso il benessere.</p>
+                                        <div class="treatment-features">
+                                            <span class="feature-tag">Immagine</span>
+                                            <span class="feature-tag">Autostima</span>
+                                            <span class="feature-tag">Consulenza</span>
+                                        </div>
+                                        <div class="treatment-footer">
+                                            <div class="treatment-price">
+                                                <span class="price-from">da</span>
+                                                <span class="price-value">€85</span>
+                                            </div>
+                                            <button class="btn-book-treatment"
+                                                onclick="bookTreatment('beauty-consulenza', 'sophia-rossi')">
+                                                Prenota Ora
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CTA TORNA AL PROFILO -->
+                    <section class="back-to-profile-section">
+                        <div class="back-cta-content">
+                            <h3>Vuoi scoprire tutti i servizi di Sophia?</h3>
+                            <p>Esplora il profilo completo, leggi le recensioni e scopri tutti gli altri servizi
+                                disponibili.</p>
+                            <a href="/microsito.html" class="btn-primary btn-back-profile">
+                                Torna al Profilo Completo
+                            </a>
+                        </div>
+                    </section>
+
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/servizio-trattamenti.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+</body>
+
+</html>

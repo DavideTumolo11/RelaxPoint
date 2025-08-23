@@ -27,11 +27,9 @@
     <div class="main-container">
         <div class="layout-container">
 
-            <!-- HEADER - Modificabile da admin per logo, menu, pulsanti -->
+            <!-- HEADER -->
             <header class="site-header">
-                <!-- LOGO E MENU SINISTRA -->
                 <div class="header-left">
-                    <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
                     <a class="site-logo" href="../../index.html">
                         <div class="logo-icon">
                             <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +41,6 @@
                         <h2 class="logo-text">RelaxPoint</h2>
                     </a>
 
-                    <!-- Menu navigazione - ADMIN può aggiungere/rimuovere voci -->
                     <nav class="main-nav">
                         <a class="nav-link" href="../../index.html">Home</a>
                         <a class="nav-link" href="../servizi/servizi.html">Servizi</a>
@@ -52,13 +49,9 @@
                     </nav>
                 </div>
 
-                <!-- LAST MINUTE - ADMIN può attivare/disattivare -->
                 <a class="last-minute-link" href="../last-minute.html">Last Minute</a>
 
-                <!-- CONTROLLI DESTRA - ADMIN può modificare pulsanti -->
                 <div class="header-right">
-
-                    <!-- PODCAST -->
                     <div class="podcast-header-section">
                         <a href="../podcast/podcast.html" class="podcast-link">
                             <div class="podcast-icon">
@@ -84,7 +77,6 @@
                         </select>
                     </div>
 
-                    <!-- Ricerca - ADMIN può modificare placeholder -->
                     <div class="search-container">
                         <div class="search-wrapper">
                             <div class="search-icon">
@@ -99,21 +91,13 @@
                         </div>
                     </div>
 
-                    <!-- Pulsanti - ADMIN può modificare testi e link -->
                     <div class="button-group">
                         <a href="../prenotazione/prenota.html" class="btn-primary">
                             <span class="text-truncate">Prenota</span>
                         </a>
-
                         <a href="/login.html" class="btn-secondary">
                             <span class="text-truncate">Accedi</span>
                         </a>
-
-                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
-                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
-                            <img src="" alt="Avatar utente">
-                        </a>
-
                     </div>
                 </div>
             </header>
@@ -129,7 +113,7 @@
                         <span>PRENOTA</span>
                     </div>
 
-                    <!-- STEP INDICATOR -->
+                    <!-- STEP INDICATOR - SOLO 4 STEP -->
                     <div class="step-indicator">
                         <div class="step active" data-step="1">
                             <div class="step-circle">1</div>
@@ -149,11 +133,6 @@
                         <div class="step" data-step="4">
                             <div class="step-circle">4</div>
                             <span class="step-label">Professionisti</span>
-                        </div>
-                        <div class="step-line"></div>
-                        <div class="step" data-step="5">
-                            <div class="step-circle">5</div>
-                            <span class="step-label">Pagamento</span>
                         </div>
                     </div>
 
@@ -214,7 +193,7 @@
                                 <div class="service-types" id="serviceTypes" style="display: none;">
                                     <h3 id="serviceTypesTitle">Scegli il trattamento</h3>
                                     <div class="services-grid" id="serviceCards">
-                                        <!-- Popolato dinamicamente con card identiche -->
+                                        <!-- Popolato dinamicamente -->
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +328,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Indirizzo specifico (solo se domicilio) -->
+                                <!-- Indirizzo specifico -->
                                 <div class="address-section" id="addressSection">
                                     <h3>Indirizzo specifico</h3>
                                     <input type="text" id="specificAddress" placeholder="Via, numero civico (opzionale)"
@@ -384,16 +363,11 @@
                                             <option value="price-desc">Prezzo decrescente</option>
                                         </select>
                                     </div>
-                                    <div class="filter-group">
-                                        <label>
-                                            <input type="checkbox" id="onlyAvailable"> Solo disponibili ora
-                                        </label>
-                                    </div>
                                 </div>
 
                                 <!-- Griglia professionisti -->
                                 <div class="professionals-grid" id="professionalsGrid">
-                                    <!-- Card identiche a quelle delle pagine servizi -->
+                                    <!-- Card identiche fisioterapia -->
                                 </div>
                             </div>
 
@@ -402,106 +376,14 @@
                             </div>
                         </div>
 
-                        <!-- STEP 5: PAGAMENTO -->
-                        <div class="step-content" id="step5">
-                            <div class="step-header">
-                                <h2>Conferma e pagamento</h2>
-                                <p>Riepilogo della tua prenotazione</p>
-                            </div>
-
-                            <div class="payment-section">
-                                <div class="booking-summary">
-                                    <h3>Riepilogo prenotazione</h3>
-                                    <div class="summary-details">
-                                        <div class="summary-item">
-                                            <span class="label">Servizio:</span>
-                                            <span class="value" id="summaryService">-</span>
-                                        </div>
-                                        <div class="summary-item">
-                                            <span class="label">Professionista:</span>
-                                            <span class="value" id="summaryProfessional">-</span>
-                                        </div>
-                                        <div class="summary-item">
-                                            <span class="label">Data e ora:</span>
-                                            <span class="value" id="summaryDateTime">-</span>
-                                        </div>
-                                        <div class="summary-item">
-                                            <span class="label">Modalità:</span>
-                                            <span class="value" id="summaryMode">-</span>
-                                        </div>
-                                        <div class="summary-item">
-                                            <span class="label">Durata:</span>
-                                            <span class="value" id="summaryDuration">-</span>
-                                        </div>
-                                        <div class="summary-item total">
-                                            <span class="label">Totale:</span>
-                                            <span class="value" id="summaryTotal">€0,00</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="payment-form">
-                                    <h3>Metodo di pagamento</h3>
-
-                                    <div class="payment-methods">
-                                        <label class="payment-method">
-                                            <input type="radio" name="paymentMethod" value="card" checked>
-                                            <div class="method-card">
-                                                <span>Carta di credito/debito</span>
-                                            </div>
-                                        </label>
-                                        <label class="payment-method">
-                                            <input type="radio" name="paymentMethod" value="paypal">
-                                            <div class="method-card">
-                                                <span>PayPal</span>
-                                            </div>
-                                        </label>
-                                    </div>
-
-                                    <div class="card-form" id="cardForm">
-                                        <div class="form-row">
-                                            <input type="text" placeholder="Numero carta" id="cardNumber"
-                                                maxlength="19">
-                                        </div>
-                                        <div class="form-row-split">
-                                            <input type="text" placeholder="MM/AA" id="cardExpiry" maxlength="5">
-                                            <input type="text" placeholder="CVC" id="cardCvc" maxlength="4">
-                                        </div>
-                                        <div class="form-row">
-                                            <input type="text" placeholder="Nome intestatario" id="cardName">
-                                        </div>
-                                    </div>
-
-                                    <div class="payment-notice">
-                                        <div class="notice-box">
-                                            <div class="notice-text">
-                                                <strong>Autorizzazione, non addebito</strong><br>
-                                                Blocchiamo l'importo ma addebiteremo solo dopo la conferma del
-                                                professionista (max 2 ore).
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="step-actions">
-                                <button class="btn-secondary" id="backStep4">Indietro</button>
-                                <button class="btn-primary" id="confirmBooking">
-                                    <span class="btn-text">Conferma Prenotazione</span>
-                                    <span class="btn-loading" style="display: none;">Elaborazione...</span>
-                                </button>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </main>
 
-            <!-- FOOTER IDENTICO A INDEX.HTML -->
+            <!-- FOOTER -->
             <footer class="site-footer">
                 <div class="footer-container">
                     <div class="footer-content">
-                        <!-- Link footer - ADMIN può aggiungere/rimuovere -->
                         <div class="footer-links">
                             <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
                             <a class="footer-link" href="/pages/contatti.html">Contatti</a>
@@ -509,31 +391,10 @@
                             <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
                             <a class="footer-link" href="/pages/faq.html">FAQ</a>
                         </div>
-                        <!-- Copyright - ADMIN può modificare -->
                         <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
                     </div>
                 </div>
             </footer>
-        </div>
-    </div>
-
-    <!-- MODAL CONFERMA -->
-    <div class="modal" id="confirmationModal" style="display: none;">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Prenotazione inviata!</h3>
-            </div>
-            <div class="modal-body">
-                <p>La tua prenotazione è stata inviata al professionista.</p>
-                <p><strong>Riceverai conferma entro 2 ore</strong></p>
-                <div class="booking-code">
-                    <strong>Codice: <span id="bookingCode">RP-2025-001</span></strong>
-                </div>
-            </div>
-            <div class="modal-actions">
-                <button class="btn-primary" id="viewBookings">Le mie prenotazioni</button>
-                <button class="btn-secondary" id="closeModal">Chiudi</button>
-            </div>
         </div>
     </div>
 

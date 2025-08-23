@@ -65,12 +65,24 @@ const DEMO_USERS = {
 };
 
 // ===============================================
-// UTILITY FUNCTIONS PER PATH
+// UTILITY FUNCTIONS PER PATH - CORRETTE
 // ===============================================
 function getCorrectPath(filename) {
     const isInPages = window.location.pathname.includes('/pages/');
     const isInDashboard = window.location.pathname.includes('/dashboard/');
 
+    // ✅ FIX UNIVERSALE PER TUTTI I FILE ROOT
+    if (filename === 'login.html' || filename === 'index.html') {
+        if (isInDashboard) {
+            return `../../${filename}`;
+        } else if (isInPages) {
+            return `../../${filename}`;  // ← FIX: Due livelli per tornare alla root
+        } else {
+            return filename;
+        }
+    }
+
+    // Per altri file mantieni logica originale
     if (isInDashboard) {
         return `../../${filename}`;
     } else if (isInPages) {
@@ -94,13 +106,22 @@ class AuthManager {
         this.initializeAuth();
     }
 
-    // INIZIALIZZAZIONE
+    // ===============================================
+    // INIZIALIZZAZIONE - CORRETTA
+    // ===============================================
     initializeAuth() {
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('🔧 Inizializzazione AuthManager...');
+
             this.setupLoginForm();
             this.updateHeaderState();
             this.setupLanguageSelector();
             this.setupHeaderEvents();
+
+            // ✅ FIX: Chiamata diretta degli eventi lingua
+            this.setupLanguageEvents();
+
+            console.log('✅ AuthManager inizializzato completamente');
         });
     }
 
@@ -220,7 +241,6 @@ class AuthManager {
         const btnAccedi = document.querySelector('.btn-secondary');
         const btnPrenota = document.querySelector('.btn-primary');
         const userAvatar = document.getElementById('userAvatar');
-        const languageSelector = document.getElementById('languageSelector');
 
         if (isLoggedIn && this.currentUser) {
             // STATO LOGGED IN
@@ -246,13 +266,12 @@ class AuthManager {
             }
 
         } else {
-            // STATO LOGGED OUT - CORREZIONE QUI!
+            // STATO LOGGED OUT
             if (btnAccedi) {
                 btnAccedi.textContent = 'Accedi';
                 btnAccedi.href = getCorrectPath('login.html');
 
-                // RIMOSSO preventDefault() - ora il link funziona normalmente
-                // Ma prima salviamo la pagina corrente
+                // Salva pagina corrente per return URL
                 btnAccedi.addEventListener('click', () => {
                     localStorage.setItem('returnUrl', getCurrentPageUrl());
                 });
@@ -294,9 +313,6 @@ class AuthManager {
                 this.goToDashboard();
             });
         }
-
-        // Setup altre interazioni header
-        this.setupLanguageEvents();
     }
 
     goToDashboard() {
@@ -311,41 +327,54 @@ class AuthManager {
     }
 
     // ===============================================
-    // GESTIONE LINGUA
+    // GESTIONE LINGUA - CORRETTA
     // ===============================================
     setupLanguageSelector() {
         const languageSelector = document.getElementById('languageSelector');
-        if (!languageSelector) return;
+        if (!languageSelector) {
+            console.warn('⚠️ Language selector non trovato');
+            return;
+        }
 
-        // Crea dropdown lingue
-        languageSelector.innerHTML = this.generateLanguageOptions();
+        // ✅ FIX: Non sovrascrivere HTML esistente - mantieni le option dall'HTML
         languageSelector.value = this.currentLanguage;
-    }
-
-    generateLanguageOptions() {
-        return Object.entries(AUTH_CONFIG.LANGUAGES)
-            .map(([code, name]) => `<option value="${code}">${code.toUpperCase()}</option>`)
-            .join('');
+        console.log('✅ Language selector inizializzato:', this.currentLanguage);
     }
 
     setupLanguageEvents() {
         const languageSelector = document.getElementById('languageSelector');
-        if (!languageSelector) return;
+        if (!languageSelector) {
+            console.warn('⚠️ Language selector non trovato per events');
+            return;
+        }
 
+        // ✅ FIX: Usa arrow function per mantenere contesto 'this'
         languageSelector.addEventListener('change', (e) => {
-            this.changeLanguage(e.target.value);
+            const newLanguage = e.target.value;
+            console.log(`🌍 Cambio lingua: ${this.currentLanguage} → ${newLanguage}`);
+            this.changeLanguage(newLanguage);
         });
+
+        console.log('✅ Language events configurati correttamente');
     }
 
     changeLanguage(newLanguage) {
+        console.log(`🌍 Processo cambio lingua: ${this.currentLanguage} → ${newLanguage}`);
+
         if (AUTH_CONFIG.LANGUAGES[newLanguage]) {
             this.saveLanguage(newLanguage);
+            this.currentLanguage = newLanguage; // ✅ Aggiorna subito la variabile
+
             this.showMessage(`Lingua cambiata in ${AUTH_CONFIG.LANGUAGES[newLanguage]}`, 'success');
 
             // Ricarica pagina per applicare nuova lingua
             setTimeout(() => {
+                console.log('🔄 Ricaricamento pagina per applicare lingua...');
                 window.location.reload();
-            }, 1000);
+            }, 1500);
+        } else {
+            console.error('❌ Lingua non supportata:', newLanguage);
+            this.showMessage('Lingua non supportata', 'error');
         }
     }
 
