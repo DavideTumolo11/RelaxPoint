@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Last Minute - Dashboard Professionista | RelaxPoint</title>
+    <meta name="description" content="Gestisci le tue disponibilità Last Minute per guadagni extra immediati.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/lastminute.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-professionista.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Last Minute</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Business</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="dashboard-professionista.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+
+                                <a href="lastminute.html" class="menu-item active lastminute-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                    </svg>
+                                    <span>Last Minute</span>
+                                </a>
+
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+
+                                <a href="chat.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                                    </svg>
+                                    <span>Chat</span>
+                                </a>
+
+                                <a href="servizi.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                    <span>I Miei Servizi</span>
+                                </a>
+
+                                <a href="microsito.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Microsito</span>
+                                </a>
+
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+
+                                <a href="calendario.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                                    </svg>
+                                    <span>Calendario</span>
+                                </a>
+
+                                <a href="fatturazione.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                                    </svg>
+                                    <span>Fatturazione</span>
+                                </a>
+
+                                <a href="statistiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                    </svg>
+                                    <span>Statistiche</span>
+                                </a>
+
+                                <a href="impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+
+                                <a href="/index.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- HEADER PROFESSIONISTA -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>Last Minute - <span>Guadagni Extra</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Sistema Attivazione Rapida</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTENUTO LAST MINUTE -->
+                            <div class="dashboard-content">
+
+                                <!-- TOGGLE PRINCIPALE LAST MINUTE -->
+                                <div class="content-card lastminute-main-card">
+                                    <div class="card-header">
+                                        <h2>Disponibilità Immediata</h2>
+                                        <div class="lastminute-status-main">
+                                            <span id="lastMinuteMainStatus" class="status-offline-main">OFFLINE</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="lastminute-hero">
+                                        <div class="hero-content">
+                                            <h3>Renderti Disponibile Subito</h3>
+                                            <p>Attiva il Last Minute per ricevere prenotazioni immediate nei prossimi
+                                                slot liberi.
+                                                Sistema perfetto per monetizzare il tempo libero improvviso.</p>
+                                            <div class="hero-benefits">
+                                                <div class="benefit-item">
+                                                    <span class="benefit-icon">💰</span>
+                                                    <span>+180 EUR/settimana media</span>
+                                                </div>
+                                                <div class="benefit-item">
+                                                    <span class="benefit-icon">⚡</span>
+                                                    <span>Prenotazioni immediate</span>
+                                                </div>
+                                                <div class="benefit-item">
+                                                    <span class="benefit-icon">🎯</span>
+                                                    <span>Controllo totale orari e zone</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="hero-toggle">
+                                            <button class="btn-lastminute-giant" id="mainLastMinuteToggle"
+                                                onclick="toggleLastMinuteMode()">
+                                                <div class="toggle-icon">⚡</div>
+                                                <div class="toggle-text">ATTIVA LAST MINUTE</div>
+                                                <div class="toggle-subtitle">Configurazione rapida in 2 minuti</div>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CONFIGURAZIONE LAST MINUTE (nascosta inizialmente) -->
+                                <div class="content-card lastminute-config-card" id="lastMinuteConfigCard"
+                                    style="display: none;">
+                                    <div class="card-header">
+                                        <h2>Configurazione Last Minute</h2>
+                                        <div class="config-steps">
+                                            <span class="step active" data-step="1">1</span>
+                                            <span class="step" data-step="2">2</span>
+                                            <span class="step" data-step="3">3</span>
+                                            <span class="step" data-step="4">4</span>
+                                            <span class="step" data-step="5">5</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- STEP 1: ORARI -->
+                                    <div class="config-step active" id="step1">
+                                        <h3>1. Imposta Orari Disponibilità</h3>
+                                        <div class="step-content">
+                                            <div class="time-selector">
+                                                <div class="time-group">
+                                                    <label>Dalle ore:</label>
+                                                    <select id="startTime" class="time-select">
+                                                        <option value="now+30">Ora + 30 min (15:30)</option>
+                                                        <option value="16:00">16:00</option>
+                                                        <option value="17:00">17:00</option>
+                                                        <option value="18:00">18:00</option>
+                                                        <option value="19:00">19:00</option>
+                                                    </select>
+                                                </div>
+                                                <div class="time-group">
+                                                    <label>Fino alle ore:</label>
+                                                    <select id="endTime" class="time-select">
+                                                        <option value="18:00">18:00 (2h 30m)</option>
+                                                        <option value="20:00">20:00 (4h 30m)</option>
+                                                        <option value="22:00">22:00 (6h 30m)</option>
+                                                        <option value="23:30">23:30 (8h max)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="time-preview">
+                                                <div class="preview-box">
+                                                    <strong>Finestra temporale: <span id="timePreview">2h
+                                                            30m</span></strong>
+                                                    <p>I clienti potranno prenotarti in questo intervallo</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="step-actions">
+                                            <button class="btn-next" onclick="nextStep(2)">Avanti: Zona</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- STEP 2: ZONA GEOGRAFICA -->
+                                    <div class="config-step" id="step2" style="display: none;">
+                                        <h3>2. Definisci Zona di Servizio</h3>
+                                        <div class="step-content">
+                                            <div class="zone-selector">
+                                                <div class="zone-quick-buttons">
+                                                    <button class="zone-btn" onclick="setZone(10)">10 km</button>
+                                                    <button class="zone-btn" onclick="setZone(20)">20 km</button>
+                                                    <button class="zone-btn active" onclick="setZone(30)">30 km</button>
+                                                    <button class="zone-btn" onclick="setZone(50)">50 km</button>
+                                                </div>
+                                                <div class="zone-display">
+                                                    <div class="zone-info">
+                                                        <div class="zone-icon">📍</div>
+                                                        <div class="zone-text">
+                                                            <strong>Cagliari centro, raggio 30km</strong>
+                                                            <p>Include: Quartucciu, Assemini, Monserrato, Pirri,
+                                                                Selargius</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="zone-map-placeholder">
+                                                        <div class="map-preview">
+                                                            <div class="map-center"></div>
+                                                            <div class="map-radius"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="step-actions">
+                                            <button class="btn-prev" onclick="prevStep(1)">Indietro</button>
+                                            <button class="btn-next" onclick="nextStep(3)">Avanti: Servizi</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- STEP 3: SERVIZI -->
+                                    <div class="config-step" id="step3" style="display: none;">
+                                        <h3>3. Seleziona Servizi Disponibili</h3>
+                                        <div class="step-content">
+                                            <div class="services-selection">
+                                                <div class="service-checkbox-group">
+                                                    <label class="service-checkbox">
+                                                        <input type="checkbox" checked>
+                                                        <div class="service-info">
+                                                            <strong>Massaggio Svedese</strong>
+                                                            <span>60 min - €70</span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="service-checkbox">
+                                                        <input type="checkbox" checked>
+                                                        <div class="service-info">
+                                                            <strong>Massaggio Decontratturante</strong>
+                                                            <span>90 min - €90</span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="service-checkbox">
+                                                        <input type="checkbox">
+                                                        <div class="service-info">
+                                                            <strong>Massaggio Hot Stone</strong>
+                                                            <span>120 min - €120</span>
+                                                        </div>
+                                                    </label>
+                                                    <label class="service-checkbox">
+                                                        <input type="checkbox">
+                                                        <div class="service-info">
+                                                            <strong>Massaggio Aromaterapia</strong>
+                                                            <span>75 min - €85</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                                <div class="services-note">
+                                                    <p>Seleziona solo i servizi che puoi garantire con la qualità
+                                                        abituale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="step-actions">
+                                            <button class="btn-prev" onclick="prevStep(2)">Indietro</button>
+                                            <button class="btn-next" onclick="nextStep(4)">Avanti: Modalità</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- STEP 4: MODALITÀ SERVIZIO (VINCOLANTE) -->
+                                    <div class="config-step" id="step4" style="display: none;">
+                                        <h3>4. Dove Offri il Servizio? (VINCOLANTE)</h3>
+                                        <div class="step-content">
+                                            <div class="mode-selection">
+                                                <div class="mode-warning">
+                                                    <div class="warning-icon">⚠️</div>
+                                                    <div class="warning-text">
+                                                        <strong>IMPORTANTE:</strong> Il cliente vedrà SOLO l'opzione che
+                                                        scegli.
+                                                        Non potrai cambiarla dopo l'attivazione.
+                                                    </div>
+                                                </div>
+
+                                                <div class="mode-options">
+                                                    <label class="mode-option">
+                                                        <input type="radio" name="serviceMode" value="domicilio"
+                                                            checked>
+                                                        <div class="mode-card">
+                                                            <div class="mode-icon">🏠</div>
+                                                            <h4>A Domicilio Cliente</h4>
+                                                            <p>Ti sposti dal cliente</p>
+                                                            <div class="mode-price">€70 + €10 trasferta</div>
+                                                            <div class="mode-benefits">
+                                                                <span>✓ Prezzo più alto</span>
+                                                                <span>✓ Cliente più comodo</span>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+
+                                                    <label class="mode-option">
+                                                        <input type="radio" name="serviceMode" value="studio">
+                                                        <div class="mode-card">
+                                                            <div class="mode-icon">🏢</div>
+                                                            <h4>Nel Mio Studio</h4>
+                                                            <p>Cliente viene da te</p>
+                                                            <div class="mode-price">€70 fisso</div>
+                                                            <div class="mode-benefits">
+                                                                <span>✓ Nessuno spostamento</span>
+                                                                <span>✓ Ambiente controllato</span>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="step-actions">
+                                            <button class="btn-prev" onclick="prevStep(3)">Indietro</button>
+                                            <button class="btn-next" onclick="nextStep(5)">Avanti: Riepilogo</button>
+                                        </div>
+                                    </div>
+
+                                    <!-- STEP 5: RIEPILOGO E ATTIVAZIONE -->
+                                    <div class="config-step" id="step5" style="display: none;">
+                                        <h3>5. Riepilogo e Attivazione</h3>
+                                        <div class="step-content">
+                                            <div class="summary-card">
+                                                <h4>Configurazione Last Minute</h4>
+                                                <div class="summary-items">
+                                                    <div class="summary-item">
+                                                        <span class="summary-label">⏰ Orari:</span>
+                                                        <span id="summaryTime">Dalle 15:30 alle 20:00 (4h 30m)</span>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <span class="summary-label">🗺️ Zona:</span>
+                                                        <span id="summaryZone">Cagliari centro, raggio 30km</span>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <span class="summary-label">💆 Servizi:</span>
+                                                        <span id="summaryServices">2 servizi selezionati</span>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <span class="summary-label">📍 Modalità:</span>
+                                                        <span id="summaryMode">Solo a domicilio</span>
+                                                    </div>
+                                                    <div class="summary-item">
+                                                        <span class="summary-label">💰 Da:</span>
+                                                        <span id="summaryPrice">€70 + trasferta</span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="client-preview">
+                                                    <h5>Anteprima Cliente:</h5>
+                                                    <div class="preview-card">
+                                                        <div class="preview-header">
+                                                            <span class="preview-name">Marco B.</span>
+                                                            <span class="preview-badge">DISPONIBILE ORA</span>
+                                                        </div>
+                                                        <div class="preview-info">
+                                                            Massaggio Svedese • A domicilio • Da €70
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="step-actions">
+                                            <button class="btn-prev" onclick="prevStep(4)">Indietro</button>
+                                            <button class="btn-activate-final" onclick="activateLastMinute()">
+                                                🚀 ATTIVA SUBITO
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- DASHBOARD ATTIVO (quando Last Minute è ON) -->
+                                <div class="content-card lastminute-active-card" id="lastMinuteActiveCard"
+                                    style="display: none;">
+                                    <div class="card-header">
+                                        <h2>🟢 LAST MINUTE ATTIVO</h2>
+                                        <div class="active-controls">
+                                            <button class="btn-deactivate" onclick="deactivateLastMinute()">
+                                                DISATTIVA
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="active-dashboard">
+                                        <!-- STATISTICHE LIVE -->
+                                        <div class="active-stats">
+                                            <div class="stat-card live">
+                                                <div class="stat-icon">👀</div>
+                                                <div class="stat-data">
+                                                    <div class="stat-number" id="liveViews">24</div>
+                                                    <div class="stat-label">Visualizzazioni</div>
+                                                </div>
+                                            </div>
+                                            <div class="stat-card live">
+                                                <div class="stat-icon">📞</div>
+                                                <div class="stat-data">
+                                                    <div class="stat-number" id="liveRequests">3</div>
+                                                    <div class="stat-label">Richieste</div>
+                                                </div>
+                                            </div>
+                                            <div class="stat-card live">
+                                                <div class="stat-icon">⏰</div>
+                                                <div class="stat-data">
+                                                    <div class="stat-number" id="timeRemaining">4:15</div>
+                                                    <div class="stat-label">Tempo rimasto</div>
+                                                </div>
+                                            </div>
+                                            <div class="stat-card live">
+                                                <div class="stat-icon">💰</div>
+                                                <div class="stat-data">
+                                                    <div class="stat-number" id="potentialEarnings">280</div>
+                                                    <div class="stat-label">Potenziale EUR</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- RICHIESTE LIVE -->
+                                        <div class="live-requests">
+                                            <h4>📱 Richieste Last Minute Live</h4>
+                                            <div class="requests-container" id="requestsContainer">
+                                                <div class="request-item">
+                                                    <div class="request-info">
+                                                        <div class="client-name">Maria R.</div>
+                                                        <div class="request-service">Massaggio Svedese</div>
+                                                        <div class="request-time">Richiesto 2 minuti fa</div>
+                                                        <div class="request-details">A domicilio • €80 totale</div>
+                                                    </div>
+                                                    <div class="request-actions">
+                                                        <button class="btn-accept" onclick="acceptRequest('req1')">
+                                                            ✅ ACCETTA
+                                                        </button>
+                                                        <button class="btn-decline" onclick="declineRequest('req1')">
+                                                            ❌ RIFIUTA
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="request-item">
+                                                    <div class="request-info">
+                                                        <div class="client-name">Luca M.</div>
+                                                        <div class="request-service">Massaggio Decontratturante</div>
+                                                        <div class="request-time">Richiesto 5 minuti fa</div>
+                                                        <div class="request-details">A domicilio • €100 totale</div>
+                                                    </div>
+                                                    <div class="request-actions">
+                                                        <button class="btn-accept" onclick="acceptRequest('req2')">
+                                                            ✅ ACCETTA
+                                                        </button>
+                                                        <button class="btn-decline" onclick="declineRequest('req2')">
+                                                            ❌ RIFIUTA
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- GUADAGNI PREVISTI -->
+                                        <div class="earnings-projection">
+                                            <div class="projection-card">
+                                                <h4>💰 Proiezione Guadagni</h4>
+                                                <div class="projection-data">
+                                                    <div class="projection-item">
+                                                        <span>Se accetti tutte le richieste:</span>
+                                                        <strong>+180 EUR oggi</strong>
+                                                    </div>
+                                                    <div class="projection-item">
+                                                        <span>Media settimanale Last Minute:</span>
+                                                        <strong>+450 EUR/settimana</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/dashboard-professionista/dashboard-professionista.js?v=1.2"></script>
+    <script src="/assets/js/dashboard-professionista/lastminute.js?v=1.2"></script>
+
+</body>
+
+</html>

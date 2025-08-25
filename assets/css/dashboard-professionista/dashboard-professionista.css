@@ -1,0 +1,427 @@
+/* ===============================================
+   RELAXPOINT - CSS DASHBOARD PROFESSIONISTA
+   Stili specifici per elementi business - Estende dashboard-cliente.css
+   =============================================== */
+
+/* IMPORTANTE: Questo file estende dashboard-cliente.css
+   Mantiene layout identico ma aggiunge elementi business-specific */
+
+/* ===============================================
+   LAST MINUTE HIGHLIGHT - MENU SIDEBAR
+   =============================================== */
+.menu-item.lastminute-highlight {
+    position: relative;
+    border: 2px solid var(--color-primary);
+    background: linear-gradient(135deg, rgba(45, 90, 61, 0.05) 0%, rgba(45, 90, 61, 0.1) 100%);
+    animation: pulse-border 2s infinite;
+}
+
+.menu-item.lastminute-highlight:hover {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+    color: white;
+    transform: translateX(4px);
+}
+
+@keyframes pulse-border {
+
+    0%,
+    100% {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 0 rgba(45, 90, 61, 0.4);
+    }
+
+    50% {
+        border-color: var(--color-light);
+        box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.1);
+    }
+}
+
+/* ===============================================
+   BUSINESS STATS - ELEMENTI PROFESSIONALI  
+   =============================================== */
+.stat-currency {
+    font-size: 12px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.stat-trend {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.stat-trend.positive {
+    color: #10b981;
+}
+
+.stat-trend.negative {
+    color: #ef4444;
+}
+
+.stat-stars {
+    font-size: 14px;
+    color: #fbbf24;
+    margin-top: 2px;
+}
+
+/* ===============================================
+   LAST MINUTE CARD - COMPONENTE BUSINESS CRITICO
+   =============================================== */
+.lastminute-card {
+    border: 2px solid var(--color-primary);
+    background: linear-gradient(135deg, rgba(45, 90, 61, 0.02) 0%, rgba(45, 90, 61, 0.05) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.lastminute-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-light), var(--color-primary));
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.lastminute-status {
+    display: flex;
+    align-items: center;
+}
+
+.status-offline {
+    background: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-online {
+    background: #10b981;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: pulse-online 2s infinite;
+}
+
+@keyframes pulse-online {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* ===============================================
+   LAST MINUTE QUICK TOGGLE
+   =============================================== */
+.lastminute-quick-toggle {
+    margin-top: 20px;
+}
+
+.toggle-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+}
+
+.toggle-info h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+}
+
+.toggle-info p {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin: 0 0 12px 0;
+    line-height: 1.5;
+}
+
+.quick-stats {
+    font-size: 13px;
+    color: var(--color-primary);
+}
+
+.toggle-actions {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.btn-lastminute-main {
+    display: inline-block;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-dark) 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-lastminute-main:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(45, 90, 61, 0.4);
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-primary) 100%);
+}
+
+.toggle-note {
+    font-size: 12px;
+    color: var(--color-secondary);
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* ===============================================
+   BOOKING CARDS - STATUS SPECIFICI PROFESSIONISTA
+   =============================================== */
+.booking-card.urgent {
+    border-left: 4px solid #f59e0b;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.02) 0%, rgba(245, 158, 11, 0.05) 100%);
+    animation: urgent-pulse 3s ease-in-out infinite;
+}
+
+@keyframes urgent-pulse {
+
+    0%,
+    100% {
+        border-left-color: #f59e0b;
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.2);
+    }
+
+    50% {
+        border-left-color: #d97706;
+        box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+    }
+}
+
+.service-client {
+    font-size: 14px;
+    color: var(--color-text);
+    font-weight: 500;
+    margin: 0 0 12px 0;
+}
+
+.status-badge.pending {
+    background-color: #f59e0b;
+    color: white;
+    animation: blink-pending 2s infinite;
+}
+
+@keyframes blink-pending {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* ===============================================
+   COUNTDOWN TIMER - BUSINESS CRITICAL
+   =============================================== */
+.countdown-time {
+    font-family: 'Courier New', monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f59e0b;
+    text-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+}
+
+.countdown-container {
+    text-align: center;
+    padding: 12px;
+    background: rgba(245, 158, 11, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+/* ===============================================
+   AZIONI RAPIDE - BUSINESS FOCUSED
+   =============================================== */
+.lastminute-action {
+    border: 2px solid var(--color-primary);
+    background: linear-gradient(135deg, rgba(45, 90, 61, 0.05) 0%, rgba(45, 90, 61, 0.1) 100%);
+    position: relative;
+}
+
+.lastminute-action::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--color-primary), var(--color-light));
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.lastminute-action:hover::before {
+    opacity: 1;
+}
+
+.lastminute-action:hover {
+    color: white;
+    transform: translateY(-4px);
+}
+
+/* ===============================================
+   PERFORMANCE GRID - ANALYTICS PROFESSIONALI
+   =============================================== */
+.performance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.performance-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.performance-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 90, 61, 0.1);
+    border-color: var(--color-primary);
+}
+
+.performance-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-light) 100%);
+    color: white;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.performance-data {
+    flex: 1;
+}
+
+.performance-number {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.performance-label {
+    font-size: 13px;
+    color: var(--color-secondary);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.performance-trend {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.performance-trend.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+}
+
+.performance-trend.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN - MOBILE BUSINESS
+   =============================================== */
+@media (max-width: 768px) {
+    .toggle-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .btn-lastminute-main {
+        padding: 14px 24px;
+        font-size: 14px;
+    }
+
+    .performance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .performance-item {
+        padding: 16px;
+    }
+
+    .performance-number {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .lastminute-card {
+        margin: 0 -4px;
+    }
+
+    .toggle-card {
+        padding: 16px;
+    }
+
+    .countdown-time {
+        font-size: 20px;
+    }
+}

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Dashboard Professionista - RelaxPoint | Gestisci il tuo business</title>
+    <meta name="description"
+        content="Gestisci prenotazioni, microsito, servizi e Last Minute dalla tua dashboard professionista RelaxPoint.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE -->
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA -->
+                <div class="header-right">
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti -->
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- DASHBOARD LAYOUT A DUE COLONNE -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU PROFESSIONISTA -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Business</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="dashboard-professionista.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+
+                                <a href="lastminute.html" class="menu-item lastminute-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                    </svg>
+                                    <span>Last Minute</span>
+                                </a>
+
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+
+                                <a href="chat.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                                    </svg>
+                                    <span>Chat</span>
+                                </a>
+
+                                <a href="servizi.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                    <span>I Miei Servizi</span>
+                                </a>
+
+                                <a href="microsito.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Microsito</span>
+                                </a>
+
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+
+                                <a href="calendario.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                                    </svg>
+                                    <span>Calendario</span>
+                                </a>
+
+                                <a href="fatturazione.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                                    </svg>
+                                    <span>Fatturazione</span>
+                                </a>
+
+                                <a href="statistiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                    </svg>
+                                    <span>Statistiche</span>
+                                </a>
+
+                                <a href="impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+
+                                <a href="/index.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- HEADER PROFESSIONISTA -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                            id="professionalAvatar">
+                                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>Ciao, <span id="professionalName">Marco</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Professionista Premium</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CONTENUTO DASHBOARD -->
+                            <div class="dashboard-content">
+
+                                <!-- OVERVIEW BUSINESS -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h2>Panoramica Business</h2>
+                                    </div>
+
+                                    <!-- STATISTICHE BUSINESS -->
+                                    <div class="stats-row">
+                                        <div class="stat-item">
+                                            <div class="stat-number">1,250</div>
+                                            <div class="stat-label">Revenue Questo Mese</div>
+                                            <div class="stat-currency">EUR</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">23</div>
+                                            <div class="stat-label">Prenotazioni Totali</div>
+                                            <div class="stat-trend">+12%</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">4.8</div>
+                                            <div class="stat-label">Rating Medio</div>
+                                            <div class="stat-stars">★★★★★</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LAST MINUTE QUICK ACCESS -->
+                                <div class="content-card lastminute-card">
+                                    <div class="card-header">
+                                        <h2>Last Minute - Guadagni Extra</h2>
+                                        <div class="lastminute-status">
+                                            <span id="lastMinuteStatus" class="status-offline">OFFLINE</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="lastminute-quick-toggle">
+                                        <div class="toggle-card">
+                                            <div class="toggle-info">
+                                                <h3>Renderti Disponibile Ora</h3>
+                                                <p>Attiva il Last Minute per ricevere prenotazioni immediate nei
+                                                    prossimi slot liberi</p>
+                                                <div class="quick-stats">
+                                                    <span>Guadagno medio: <strong>+180 EUR/settimana</strong></span>
+                                                </div>
+                                            </div>
+                                            <div class="toggle-actions">
+                                                <a href="lastminute.html" class="btn-lastminute-main">
+                                                    ATTIVA LAST MINUTE
+                                                </a>
+                                                <div class="toggle-note">
+                                                    Configurazione rapida in 2 minuti
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PRENOTAZIONI IN ARRIVO -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h2>Prenotazioni in Arrivo</h2>
+                                        <a href="prenotazioni.html" class="view-all-btn">Gestisci tutte</a>
+                                    </div>
+
+                                    <div class="bookings-grid">
+                                        <!-- PRENOTAZIONE DA CONFERMARE -->
+                                        <div class="booking-card urgent">
+                                            <div class="booking-service">
+                                                <h3>Massaggio Svedese</h3>
+                                                <p class="service-client">Richiesto da: Maria R.</p>
+                                                <div class="booking-date">
+                                                    <span class="date-label">Oggi, 24 Agosto 2025 - 16:00</span>
+                                                    <span class="status-badge pending">Da Confermare</span>
+                                                </div>
+                                            </div>
+                                            <div class="booking-countdown">
+                                                <div class="countdown-container">
+                                                    <span class="countdown-label">Tempo rimasto per conferma:</span>
+                                                    <span class="countdown-time"
+                                                        id="confirmationCountdown">1:47:23</span>
+                                                    <span class="countdown-note">Limite: 2 ore dalla prenotazione</span>
+                                                </div>
+                                            </div>
+                                            <div class="booking-actions">
+                                                <button class="btn-action primary"
+                                                    onclick="confirmBooking('booking123')">Conferma</button>
+                                                <button class="btn-action secondary"
+                                                    onclick="rejectBooking('booking123')">Rifiuta</button>
+                                            </div>
+                                        </div>
+
+                                        <!-- PROSSIMA PRENOTAZIONE CONFERMATA -->
+                                        <div class="booking-card">
+                                            <div class="booking-service">
+                                                <h3>Massaggio Decontratturante</h3>
+                                                <p class="service-client">con: Laura V.</p>
+                                                <div class="booking-date">
+                                                    <span class="date-label">Domani, 25 Agosto 2025 - 10:00</span>
+                                                    <span class="status-badge confirmed">Confermata</span>
+                                                </div>
+                                            </div>
+                                            <div class="booking-countdown">
+                                                <div class="countdown-container">
+                                                    <span class="countdown-label">Prossimo appuntamento:</span>
+                                                    <span class="countdown-time">16:30:12</span>
+                                                    <span class="countdown-note">Preparati per il servizio</span>
+                                                </div>
+                                            </div>
+                                            <div class="booking-actions">
+                                                <button class="btn-action primary">Contatta</button>
+                                                <button class="btn-action secondary">Dettagli</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PERFORMANCE MENSILE -->
+                                <div class="content-card">
+                                    <div class="card-header">
+                                        <h2>Performance Mensile</h2>
+                                    </div>
+
+                                    <div class="performance-grid">
+                                        <div class="performance-item">
+                                            <div class="performance-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M7 18c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                                                </svg>
+                                            </div>
+                                            <div class="performance-data">
+                                                <div class="performance-number">23</div>
+                                                <div class="performance-label">Servizi Completati</div>
+                                                <div class="performance-trend positive">+15%</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="performance-item">
+                                            <div class="performance-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
+                                            <div class="performance-data">
+                                                <div class="performance-number">4.8</div>
+                                                <div class="performance-label">Rating Medio</div>
+                                                <div class="performance-trend positive">+0.2</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="performance-item">
+                                            <div class="performance-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                                </svg>
+                                            </div>
+                                            <div class="performance-data">
+                                                <div class="performance-number">14min</div>
+                                                <div class="performance-label">Tempo Medio Risposta</div>
+                                                <div class="performance-trend positive">-5min</div>
+                                            </div>
+                                        </div>
+
+                                        <div class="performance-item">
+                                            <div class="performance-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.5 6L12 10.5 8.5 8 12 5.5 15.5 8zM12 19c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" />
+                                                </svg>
+                                            </div>
+                                            <div class="performance-data">
+                                                <div class="performance-number">89%</div>
+                                                <div class="performance-label">Tasso di Conferma</div>
+                                                <div class="performance-trend positive">+7%</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/dashboard-professionista/dashboard-professionista.js?v=1.2"></script>
+
+</body>
+
+</html>
