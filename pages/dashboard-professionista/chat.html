@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Chat - Dashboard Professionista | RelaxPoint</title>
+    <meta name="description" content="Gestisci le comunicazioni con i clienti dalla tua dashboard chat.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/chat.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE -->
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA -->
+                <div class="header-right">
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti -->
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-professionista.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Chat</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Business</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="dashboard-professionista.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+
+                                <a href="lastminute.html" class="menu-item lastminute-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                    </svg>
+                                    <span>Last Minute</span>
+                                </a>
+
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+
+                                <a href="chat.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                                    </svg>
+                                    <span>Chat</span>
+                                </a>
+
+                                <a href="servizi.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                    <span>I Miei Servizi</span>
+                                </a>
+
+                                <a href="microsito.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Microsito</span>
+                                </a>
+
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+
+                                <a href="calendario.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                                    </svg>
+                                    <span>Calendario</span>
+                                </a>
+
+                                <a href="fatturazione.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                                    </svg>
+                                    <span>Fatturazione</span>
+                                </a>
+
+                                <a href="statistiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+                                    </svg>
+                                    <span>Statistiche</span>
+                                </a>
+
+                                <a href="impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CHAT LAYOUT FULL-WIDTH -->
+                        <div class="chat-container">
+
+                            <!-- CHAT SIDEBAR - Lista conversazioni -->
+                            <div class="chat-sidebar">
+                                <div class="chat-sidebar-header">
+                                    <div class="sidebar-title">
+                                        <h2>Messaggi</h2>
+                                        <span class="chat-count" id="activeChatCount">3 attive</span>
+                                    </div>
+                                    <div class="sidebar-search">
+                                        <input type="text" placeholder="Cerca chat..." id="chatSearch"
+                                            class="chat-search-input">
+                                    </div>
+                                </div>
+
+                                <div class="chat-list" id="chatList">
+                                    <!-- Chat attiva -->
+                                    <div class="chat-item active" data-chat-id="chat-001">
+                                        <div class="chat-avatar">
+                                            <img src="/assets/images/Professionisti/pr4.png" alt="Maria Rossi">
+                                            <span class="status-indicator online"></span>
+                                        </div>
+                                        <div class="chat-info">
+                                            <div class="chat-header">
+                                                <h4 class="client-name">Maria Rossi</h4>
+                                                <span class="chat-time">14:30</span>
+                                            </div>
+                                            <div class="chat-preview">
+                                                <p class="last-message">Confermo per domani alle 15:30, grazie!</p>
+                                                <span class="unread-badge">2</span>
+                                            </div>
+                                            <div class="chat-service">
+                                                <span class="service-tag">Massaggio Svedese - Domani 15:30</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chat normale -->
+                                    <div class="chat-item" data-chat-id="chat-002">
+                                        <div class="chat-avatar">
+                                            <img src="/assets/images/avatar-placeholder.jpg" alt="Luca Bianchi">
+                                            <span class="status-indicator offline"></span>
+                                        </div>
+                                        <div class="chat-info">
+                                            <div class="chat-header">
+                                                <h4 class="client-name">Luca Bianchi</h4>
+                                                <span class="chat-time">Ieri</span>
+                                            </div>
+                                            <div class="chat-preview">
+                                                <p class="last-message">Perfetto, ci vediamo lunedì</p>
+                                            </div>
+                                            <div class="chat-service">
+                                                <span class="service-tag">Riflessologia - Lunedì 18:00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Chat con notifica -->
+                                    <div class="chat-item" data-chat-id="chat-003">
+                                        <div class="chat-avatar">
+                                            <img src="/assets/images/avatar-placeholder.jpg" alt="Anna Verdi">
+                                            <span class="status-indicator online"></span>
+                                        </div>
+                                        <div class="chat-info">
+                                            <div class="chat-header">
+                                                <h4 class="client-name">Anna Verdi</h4>
+                                                <span class="chat-time">12:15</span>
+                                            </div>
+                                            <div class="chat-preview">
+                                                <p class="last-message">Hai qualche slot disponibile per...</p>
+                                                <span class="unread-badge">1</span>
+                                            </div>
+                                            <div class="chat-service">
+                                                <span class="service-tag">Hot Stone Therapy - Da programmare</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Template messaggi rapidi -->
+                                <div class="quick-templates">
+                                    <h5>Risposte Rapide</h5>
+                                    <div class="template-buttons">
+                                        <button class="template-btn" data-template="arrivo">Sto arrivando</button>
+                                        <button class="template-btn" data-template="ritardo">Ritardo 10 min</button>
+                                        <button class="template-btn" data-template="conferma">Confermato</button>
+                                        <button class="template-btn" data-template="completato">Servizio
+                                            completato</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CHAT MAIN - Area conversazione -->
+                            <div class="chat-main" id="chatMain">
+
+                                <!-- Chat header -->
+                                <div class="chat-main-header">
+                                    <div class="client-info-header">
+                                        <div class="client-avatar-large">
+                                            <img src="/assets/images/avatar-placeholder.jpg" alt="Maria Rossi"
+                                                id="activeClientAvatar">
+                                            <span class="status-indicator online" id="activeClientStatus"></span>
+                                        </div>
+                                        <div class="client-details">
+                                            <h3 id="activeClientName">Maria Rossi</h3>
+                                            <div class="client-meta">
+                                                <span class="client-type" id="activeClientType">Cliente Premium</span>
+                                                <span class="separator">•</span>
+                                                <span class="service-info" id="activeServiceInfo">Massaggio Svedese -
+                                                    Domani 15:30</span>
+                                            </div>
+                                            <div class="client-status">
+                                                <span class="status-text" id="activeClientStatusText">Online ora</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chat-actions">
+                                        <button class="action-btn" onclick="openBookingDetails()"
+                                            title="Dettagli prenotazione">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn" onclick="openClientProfile()"
+                                            title="Profilo cliente">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                            </svg>
+                                        </button>
+                                        <button class="action-btn" onclick="archiveChat()" title="Archivia chat">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12l.94 1H5.12z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Messages area -->
+                                <div class="chat-messages" id="chatMessages">
+                                    <div class="messages-container">
+
+                                        <!-- Messaggio automatico sistema -->
+                                        <div class="message system-message">
+                                            <div class="message-content">
+                                                <p>Chat attivata dopo il pagamento confermato</p>
+                                                <span class="message-time">Oggi 14:20</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Messaggio cliente -->
+                                        <div class="message client-message">
+                                            <div class="message-avatar">
+                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Maria">
+                                            </div>
+                                            <div class="message-content">
+                                                <p>Ciao! Confermo la prenotazione per domani alle 15:30. Devo preparare
+                                                    qualcosa in particolare?</p>
+                                                <span class="message-time">14:25</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Messaggio professionista -->
+                                        <div class="message professional-message">
+                                            <div class="message-content">
+                                                <p>Ciao Maria! Perfetto, tutto confermato per domani. Prepara solo un
+                                                    asciugamano e assicurati di avere uno spazio tranquillo di circa 2x2
+                                                    metri.</p>
+                                                <span class="message-time">14:27</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Messaggio cliente -->
+                                        <div class="message client-message">
+                                            <div class="message-avatar">
+                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Maria">
+                                            </div>
+                                            <div class="message-content">
+                                                <p>Perfetto, grazie! A che ora arrivi circa?</p>
+                                                <span class="message-time">14:28</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Messaggio professionista -->
+                                        <div class="message professional-message">
+                                            <div class="message-content">
+                                                <p>Sarò da te verso le 15:25, ti avviso quando sono in arrivo!</p>
+                                                <span class="message-time">14:29</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Messaggio cliente più recente -->
+                                        <div class="message client-message">
+                                            <div class="message-avatar">
+                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Maria">
+                                            </div>
+                                            <div class="message-content">
+                                                <p>Confermo per domani alle 15:30, grazie!</p>
+                                                <span class="message-time">14:30</span>
+                                                <span class="message-status">Consegnato</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Indicatore digitazione -->
+                                        <div class="typing-indicator" id="typingIndicator" style="display: none;">
+                                            <div class="message-avatar">
+                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Cliente">
+                                            </div>
+                                            <div class="typing-content">
+                                                <div class="typing-dots">
+                                                    <span></span>
+                                                    <span></span>
+                                                    <span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Input area -->
+                                <div class="chat-input-area">
+                                    <div class="input-container">
+                                        <div class="input-wrapper">
+                                            <textarea id="messageInput" placeholder="Scrivi un messaggio..." rows="1"
+                                                maxlength="500"></textarea>
+                                            <div class="input-actions">
+                                                <button class="input-action" onclick="attachFile()" title="Allega file">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5c0-1.38 1.12-2.5 2.5-2.5s2.5 1.12 2.5 2.5v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z" />
+                                                    </svg>
+                                                </button>
+                                                <button class="send-btn" onclick="sendMessage()" id="sendButton"
+                                                    disabled>
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="input-info">
+                                            <span class="char-count" id="charCount">0/500</span>
+                                            <span class="input-note">Premi Invio per inviare, Shift+Invio per andare a
+                                                capo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CHAT INFO PANEL - Dettagli cliente -->
+                            <div class="chat-info-panel" id="chatInfoPanel">
+                                <div class="info-panel-header">
+                                    <h4>Informazioni</h4>
+                                    <button class="close-panel-btn" onclick="toggleInfoPanel()">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                            <path
+                                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <div class="info-panel-content">
+                                    <!-- Informazioni cliente -->
+                                    <div class="info-section">
+                                        <h5>Cliente</h5>
+                                        <div class="client-card">
+                                            <div class="client-avatar-info">
+                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Maria Rossi">
+                                            </div>
+                                            <div class="client-info-details">
+                                                <h6>Maria Rossi</h6>
+                                                <p>Cliente Premium</p>
+                                                <div class="client-stats">
+                                                    <span class="stat-item">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                                        </svg>
+                                                        4.9 (12 recensioni)
+                                                    </span>
+                                                    <span class="stat-item">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                                        </svg>
+                                                        8 servizi completati
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Dettagli prenotazione corrente -->
+                                    <div class="info-section">
+                                        <h5>Prenotazione</h5>
+                                        <div class="booking-info-card">
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Servizio:</span>
+                                                <span class="detail-value">Massaggio Svedese</span>
+                                            </div>
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Data:</span>
+                                                <span class="detail-value">Domani, 26 Gennaio 2025</span>
+                                            </div>
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Orario:</span>
+                                                <span class="detail-value">15:30 - 17:00 (90 min)</span>
+                                            </div>
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Modalità:</span>
+                                                <span class="detail-value">A domicilio</span>
+                                            </div>
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Indirizzo:</span>
+                                                <span class="detail-value">Via Roma 123, Cagliari</span>
+                                            </div>
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Prezzo:</span>
+                                                <span class="detail-value">€80.00</span>
+                                            </div>
+                                            <div class="booking-detail">
+                                                <span class="detail-label">Pagamento:</span>
+                                                <span class="detail-value status-paid">Confermato</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Azioni rapide -->
+                                    <div class="info-section">
+                                        <h5>Azioni</h5>
+                                        <div class="action-buttons">
+                                            <button class="action-button primary" onclick="confirmBooking()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
+                                                </svg>
+                                                Conferma Prenotazione
+                                            </button>
+                                            <button class="action-button secondary" onclick="rescheduleBooking()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                                                </svg>
+                                                Riprogramma
+                                            </button>
+                                            <button class="action-button secondary" onclick="openMaps()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                                </svg>
+                                                Apri Mappa
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Storico conversazioni -->
+                                    <div class="info-section">
+                                        <h5>Storico</h5>
+                                        <div class="history-list">
+                                            <div class="history-item">
+                                                <span class="history-service">Massaggio Decontratturante</span>
+                                                <span class="history-date">15 Gen 2025</span>
+                                                <span class="history-status completed">Completato</span>
+                                            </div>
+                                            <div class="history-item">
+                                                <span class="history-service">Riflessologia Plantare</span>
+                                                <span class="history-date">02 Gen 2025</span>
+                                                <span class="history-status completed">Completato</span>
+                                            </div>
+                                            <div class="history-item">
+                                                <span class="history-service">Hot Stone Therapy</span>
+                                                <span class="history-date">18 Dic 2024</span>
+                                                <span class="history-status completed">Completato</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/dashboard-professionista/dashboard-professionista.js?v=1.2"></script>
+    <script src="/assets/js/dashboard-professionista/chat.js?v=1.2"></script>
+
+</body>
+
+</html>
