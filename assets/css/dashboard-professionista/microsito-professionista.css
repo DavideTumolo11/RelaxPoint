@@ -1192,3 +1192,533 @@
         margin: 20px;
     }
 }
+
+/* ===============================================
+   SISTEMA ALBUM MODAL - AGGIUNGERE ALLA FINE DEL CSS
+   =============================================== */
+
+/* Album Modal Base */
+.album-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+}
+
+.album-modal {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.album-modal.large {
+    max-width: 800px;
+}
+
+.album-modal .modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.album-modal .modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.album-modal .btn-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.album-modal .btn-close:hover {
+    background: #f1f5f9;
+    color: var(--color-primary);
+}
+
+.album-modal .modal-body {
+    padding: 20px 24px;
+}
+
+.album-modal .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 24px 20px;
+    border-top: 1px solid #f1f5f9;
+}
+
+/* Form Elements */
+.album-modal .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.album-modal .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+}
+
+.album-modal .form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.album-modal .form-group input,
+.album-modal .form-group textarea,
+.album-modal .form-group select {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.album-modal .form-group input:focus,
+.album-modal .form-group textarea:focus,
+.album-modal .form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.album-modal .form-group small {
+    font-size: 12px;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+/* Cover Upload Area */
+.cover-upload-area {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    border: 2px dashed #cbd5e1;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.cover-upload-area:hover {
+    border-color: var(--color-primary);
+    background: rgba(45, 90, 61, 0.02);
+}
+
+.cover-preview {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #64748b;
+}
+
+.upload-placeholder svg {
+    color: #94a3b8;
+}
+
+.upload-placeholder span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Gallery Album Grid */
+.album-upload-area {
+    margin-top: 8px;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 12px;
+}
+
+.photo-item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-item:hover .photo-overlay {
+    opacity: 1;
+}
+
+.btn-remove-photo {
+    background: #ef4444;
+    color: white;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-photo-btn {
+    aspect-ratio: 1;
+    border: 2px dashed #cbd5e1;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #64748b;
+}
+
+.add-photo-btn:hover {
+    border-color: var(--color-primary);
+    background: rgba(45, 90, 61, 0.02);
+    color: var(--color-primary);
+}
+
+.add-photo-btn span {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Episodes & Lessons Sections */
+.series-info {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f1f5f9;
+    margin-bottom: 20px;
+}
+
+.episodes-section,
+.lessons-section {
+    margin-top: 20px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.section-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.btn-add-episode,
+.btn-add-lesson {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-add-episode:hover,
+.btn-add-lesson:hover {
+    background: var(--color-dark);
+    transform: translateY(-1px);
+}
+
+/* Episode & Lesson Items */
+.episode-item,
+.lesson-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+.episode-item:hover,
+.lesson-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 2px 8px rgba(45, 90, 61, 0.1);
+}
+
+.episode-number,
+.lesson-number {
+    width: 32px;
+    height: 32px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 4px;
+}
+
+.episode-content,
+.lesson-content {
+    flex: 1;
+}
+
+.episode-content .form-group,
+.lesson-content .form-group {
+    margin-bottom: 12px;
+}
+
+.episode-content .form-row,
+.lesson-content .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.episode-title,
+.lesson-title {
+    font-weight: 500;
+}
+
+.lesson-description {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.audio-upload-btn,
+.material-upload-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+    color: var(--color-text);
+    margin-top: 4px;
+}
+
+.audio-upload-btn:hover,
+.material-upload-btn:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.album-item {
+    position: relative;
+}
+
+.album-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 5;
+}
+
+.btn-edit-album {
+    position: absolute;
+    top: 8px;
+    right: 40px;
+    background: rgba(45, 90, 61, 0.9);
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.album-item:hover .btn-edit-album {
+    opacity: 1;
+}
+
+.btn-edit-album:hover {
+    background: var(--color-dark);
+    transform: scale(1.1);
+}
+
+.btn-remove-episode,
+.btn-remove-lesson {
+    background: #ef4444;
+    color: white;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+    transition: all 0.3s ease;
+}
+
+.btn-remove-episode:hover,
+.btn-remove-lesson:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+/* Modal Footer Buttons */
+.btn-cancel {
+    padding: 10px 20px;
+    background: #f8fafc;
+    color: var(--color-text);
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.btn-save {
+    padding: 10px 20px;
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background: var(--color-dark);
+    transform: translateY(-1px);
+}
+
+/* Upload Notes */
+.upload-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .album-modal {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .album-modal.large {
+        max-width: 95%;
+    }
+
+    .album-modal .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+    }
+
+    .episode-content .form-row,
+    .lesson-content .form-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}

@@ -1,5 +1,5 @@
 /* ===============================================
-   MICROSITO PROFESSIONISTI - JS INTEGRATO CON AUTH
+   MICROSITO PROFESSIONISTI - JS INTEGRATO CON ALBUM SYSTEM
    =============================================== */
 
 // DOM Content Loaded
@@ -10,48 +10,363 @@ document.addEventListener('DOMContentLoaded', function () {
 // Inizializzazione microsite
 function initializeMicrosite() {
     setupServiceCards();
-    setupIspirationGallery();
     setupCTAButtons();
     setupMobileMenu();
     setupFadeInAnimations();
     injectModalStyles();
-    manageIspirations();
 
-    // ✅ INTEGRAZIONE: Caricamento contenuto About + Setup link dinamici
+    // NUOVO: Caricamento album dinamici
+    loadDynamicAlbums();
     loadAboutText();
     setupDynamicLinks();
 
-    console.log('🏠 Microsito inizializzato con integrazione auth completa');
+    console.log('Microsito inizializzato con sistema album');
 }
 
 // ===============================================
-// INTEGRAZIONE CON AUTH.JS - FUNZIONI UNIFICATE
+// CARICAMENTO ALBUM DINAMICI
 // ===============================================
 
-/**
- * ✅ USA AUTH.JS - Controllo autenticazione integrato
- * Rimuove la funzione duplicata e usa window.auth.isLoggedIn
- */
+function loadDynamicAlbums() {
+    // Simula caricamento da API/Database
+    setTimeout(() => {
+        loadGalleryAlbums();
+        loadPodcastSeries();
+        loadCorsiSeries();
+    }, 500);
+}
+
+// Carica album Gallery/Ispirazioni
+function loadGalleryAlbums() {
+    const container = document.getElementById('ispirazioniAlbumsContainer');
+    if (!container) return;
+
+    // Dati di esempio - in produzione verrebbero da API
+    const galleryAlbums = [
+        {
+            id: 'album1',
+            title: 'Sessioni Mindfulness',
+            photos: [
+                '../../assets/images/Servizi/massage2.jpg',
+                '../../assets/images/Servizi/YogaEndMeditazione.jpeg',
+                '../../assets/images/Servizi/Beauty.jpg'
+            ]
+        },
+        {
+            id: 'album2',
+            title: 'Coaching Nutrizionale',
+            photos: [
+                '../../assets/images/Servizi/Salute.jpg',
+                '../../assets/images/Servizi/neoMamma.jpg',
+                '../../assets/images/Servizi/Chef.jpg'
+            ]
+        },
+        {
+            id: 'album3',
+            title: 'Trasformazioni Cliente',
+            photos: [
+                '../../assets/images/Servizi/Gym.jpg',
+                '../../assets/images/Servizi/Fiosioterapia.Osteopatia.png',
+                '../../assets/images/Servizi/Escursioni.jpg'
+            ]
+        }
+    ];
+
+    let albumsHTML = '<div class="ispirazioni-gallery-static">';
+
+    galleryAlbums.forEach(album => {
+        albumsHTML += `
+            <div class="gallery-album-item" data-album-id="${album.id}" onclick="openGalleryAlbum('${album.id}')">
+                <div class="album-preview" style="background-image: url('${album.photos[0]}');">
+                    <div class="album-badge">
+                        <i class="fas fa-images"></i>
+                        <span>${album.photos.length}</span>
+                    </div>
+                    <div class="album-overlay">
+                        <span class="album-title">${album.title}</span>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+
+    albumsHTML += '</div>';
+    container.innerHTML = albumsHTML;
+
+    // Setup hover effects
+    setupGalleryAlbumHovers();
+}
+
+// Carica serie Podcast
+function loadPodcastSeries() {
+    const container = document.getElementById('podcastSeriesContainer');
+    if (!container) return;
+
+    // Dati di esempio - in produzione da API
+    const podcastSeries = [
+        {
+            id: 'series1',
+            title: 'Mindfulness Quotidiana',
+            cover: '../../assets/images/podcast/sophia-cover-1.jpg',
+            episodes: [
+                { title: 'Inizia la giornata', duration: '12:30' },
+                { title: 'Pausa pranzo mindful', duration: '8:45' },
+                { title: 'Rilassamento serale', duration: '15:20' }
+            ]
+        },
+        {
+            id: 'series2',
+            title: 'Benessere Olistico',
+            cover: '../../assets/images/podcast/sophia-cover-2.jpg',
+            episodes: [
+                { title: 'Corpo e mente', duration: '18:15' },
+                { title: 'Alimentazione consapevole', duration: '22:10' },
+                { title: 'Movimento naturale', duration: '16:45' }
+            ]
+        }
+    ];
+
+    let seriesHTML = '<div class="podcast-microsito-gallery">';
+
+    podcastSeries.forEach(series => {
+        seriesHTML += `
+            <div class="podcast-series-item" data-series-id="${series.id}" onclick="openPodcastSeries('${series.id}')">
+                <div class="podcast-microsito-cover" style="background-image: url('${series.cover}');">
+                    <div class="podcast-microsito-play">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="series-badge">
+                        <i class="fas fa-list"></i>
+                        <span>${series.episodes.length} ep.</span>
+                    </div>
+                </div>
+                <div class="series-info">
+                    <h4 class="series-title">${series.title}</h4>
+                    <p class="series-episodes">${series.episodes.length} episodi</p>
+                </div>
+            </div>
+        `;
+    });
+
+    seriesHTML += '</div>';
+    container.innerHTML = seriesHTML;
+
+    // Setup hover effects
+    setupPodcastSeriesHovers();
+}
+
+// Carica serie Corsi
+function loadCorsiSeries() {
+    const container = document.getElementById('corsiSeriesContainer');
+    if (!container) return;
+
+    // Dati di esempio - in produzione da API
+    const corsiSeries = [
+        {
+            id: 'corso1',
+            title: 'Yoga Base',
+            cover: '../../assets/images/corsi/yoga-principianti.jpg',
+            type: 'presenza',
+            lessons: [
+                { title: 'Saluto al sole', duration: '45 min', type: 'pratica' },
+                { title: 'Posizioni base', duration: '60 min', type: 'pratica' },
+                { title: 'Respirazione yoga', duration: '30 min', type: 'teoria' }
+            ]
+        },
+        {
+            id: 'corso2',
+            title: 'Mindfulness Avanzata',
+            cover: '../../assets/images/corsi/mindfulness-base.jpg',
+            type: 'online',
+            lessons: [
+                { title: 'Introduzione', duration: '20 min', type: 'video' },
+                { title: 'Meditazione guidata', duration: '35 min', type: 'pratica' },
+                { title: 'Integrazione quotidiana', duration: '25 min', type: 'teoria' }
+            ]
+        }
+    ];
+
+    let corsiHTML = '<div class="corsi-gallery-static">';
+
+    corsiSeries.forEach(corso => {
+        const typeClass = `corso-type-${corso.type}`;
+        corsiHTML += `
+            <div class="corso-series-item ${typeClass}" data-corso-id="${corso.id}" onclick="openCorsoSeries('${corso.id}')">
+                <div class="corso-image" style="background-image: url('${corso.cover}');">
+                    <div class="corso-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>${corso.lessons.length}</span>
+                    </div>
+                    <div class="corso-type-badge">${corso.type}</div>
+                </div>
+                <div class="corso-info">
+                    <h4 class="corso-title">${corso.title}</h4>
+                    <p class="corso-lessons">${corso.lessons.length} lezioni</p>
+                </div>
+            </div>
+        `;
+    });
+
+    corsiHTML += '</div>';
+    container.innerHTML = corsiHTML;
+
+    // Setup hover effects  
+    setupCorsiSeriesHovers();
+}
+
+// ===============================================
+// MODAL APERTURA ALBUM
+// ===============================================
+
+function openGalleryAlbum(albumId) {
+    // Dati album - in produzione da API
+    const albums = {
+        'album1': {
+            title: 'Sessioni Mindfulness',
+            photos: [
+                '../../assets/images/Servizi/massage2.jpg',
+                '../../assets/images/Servizi/YogaEndMeditazione.jpeg',
+                '../../assets/images/Servizi/Beauty.jpg'
+            ]
+        }
+        // Altri album...
+    };
+
+    const album = albums[albumId];
+    if (!album) return;
+
+    const modal = document.createElement('div');
+    modal.className = 'album-modal-overlay';
+    modal.innerHTML = `
+        <div class="album-modal">
+            <div class="album-modal-header">
+                <h3>${album.title}</h3>
+                <button class="album-modal-close">&times;</button>
+            </div>
+            <div class="album-modal-body">
+                <div class="album-carousel">
+                    ${album.photos.map((photo, index) => `
+                        <div class="album-slide ${index === 0 ? 'active' : ''}" data-index="${index}">
+                            <img src="${photo}" alt="${album.title} - Foto ${index + 1}">
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="album-navigation">
+                    <button class="album-prev" onclick="changeAlbumSlide(-1)">❮</button>
+                    <span class="album-counter">1 / ${album.photos.length}</span>
+                    <button class="album-next" onclick="changeAlbumSlide(1)">❯</button>
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Setup close handlers
+    modal.querySelector('.album-modal-close').onclick = () => modal.remove();
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+
+    // Setup carousel
+    window.currentAlbumSlide = 0;
+    window.totalAlbumSlides = album.photos.length;
+}
+
+function openPodcastSeries(seriesId) {
+    // Implementazione apertura serie podcast con lista episodi
+    console.log('Apertura serie podcast:', seriesId);
+    // Modal con lista episodi, copertina fissa, player
+}
+
+function openCorsoSeries(corsoId) {
+    // Implementazione apertura serie corso con lista lezioni  
+    console.log('Apertura serie corso:', corsoId);
+    // Modal con lista lezioni, copertina fissa, info corso
+}
+
+// ===============================================
+// HOVER EFFECTS ALBUM
+// ===============================================
+
+function setupGalleryAlbumHovers() {
+    const albums = document.querySelectorAll('.gallery-album-item');
+    albums.forEach(album => {
+        album.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.05)';
+        });
+        album.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
+        });
+    });
+}
+
+function setupPodcastSeriesHovers() {
+    const series = document.querySelectorAll('.podcast-series-item');
+    series.forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            this.style.transform = 'translateY(-4px)';
+        });
+        item.addEventListener('mouseleave', function () {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+}
+
+function setupCorsiSeriesHovers() {
+    const corsi = document.querySelectorAll('.corso-series-item');
+    corsi.forEach(item => {
+        item.addEventListener('mouseenter', function () {
+            this.style.transform = 'scale(1.05)';
+        });
+        item.addEventListener('mouseleave', function () {
+            this.style.transform = 'scale(1)';
+        });
+    });
+}
+
+// ===============================================
+// CAROUSEL NAVIGATION (per modal album)
+// ===============================================
+
+function changeAlbumSlide(direction) {
+    const slides = document.querySelectorAll('.album-slide');
+    const counter = document.querySelector('.album-counter');
+
+    if (!slides.length) return;
+
+    slides[window.currentAlbumSlide].classList.remove('active');
+
+    window.currentAlbumSlide += direction;
+
+    if (window.currentAlbumSlide >= window.totalAlbumSlides) {
+        window.currentAlbumSlide = 0;
+    }
+    if (window.currentAlbumSlide < 0) {
+        window.currentAlbumSlide = window.totalAlbumSlides - 1;
+    }
+
+    slides[window.currentAlbumSlide].classList.add('active');
+    counter.textContent = `${window.currentAlbumSlide + 1} / ${window.totalAlbumSlides}`;
+}
+
+// ===============================================
+// INTEGRAZIONE CON AUTH.JS - FUNZIONI INVARIATE
+// ===============================================
+
 function checkUserAuthenticationForBooking(callback) {
-    // ✅ USA L'AUTH.JS ESISTENTE
     if (window.auth && window.auth.isLoggedIn) {
-        console.log('✅ Utente autenticato (via auth.js), procedi con prenotazione');
+        console.log('Utente autenticato, procedi con prenotazione');
         if (callback) callback();
         return true;
     }
 
-    console.log('🔒 Utente non loggato, redirect a login (via auth.js)');
-
-    // ✅ USA LE FUNZIONI AUTH.JS per gestire il returnUrl
+    console.log('Utente non loggato, redirect a login');
     localStorage.setItem('returnUrl', window.location.href);
-
-    // Mostra toast informativo
     showToast('Accedi per prenotare i servizi', 'info');
 
-    // ✅ USA getCorrectPath dell'auth.js
     const loginUrl = window.getCorrectPath ? window.getCorrectPath('login.html') : '/login.html';
 
-    // Redirect a login dopo breve delay
     setTimeout(() => {
         window.location.href = loginUrl;
     }, 1500);
@@ -59,15 +374,11 @@ function checkUserAuthenticationForBooking(callback) {
     return false;
 }
 
-/**
- * ✅ UNICA FUNZIONE setupCTAButtons - Integrata con auth
- */
 function setupCTAButtons() {
     const heroCTA = document.querySelector('.hero-cta');
     const premiumCTA = document.querySelector('.premium-cta .cta-btn');
     const bookButtons = document.querySelectorAll('[onclick*="bookService"], .btn-book, .prenota-btn');
 
-    // Hero CTA - Scroll to servizi
     if (heroCTA) {
         heroCTA.addEventListener('click', function (e) {
             e.preventDefault();
@@ -81,13 +392,10 @@ function setupCTAButtons() {
         });
     }
 
-    // Premium CTA - ✅ INTEGRATO: Controllo autenticazione con auth.js
     if (premiumCTA) {
         premiumCTA.addEventListener('click', function (e) {
             e.preventDefault();
-
             checkUserAuthenticationForBooking(() => {
-                // Se loggato, scroll to servizi
                 const serviziSection = document.querySelector('.servizi-section');
                 if (serviziSection) {
                     serviziSection.scrollIntoView({
@@ -100,13 +408,10 @@ function setupCTAButtons() {
         });
     }
 
-    // ✅ INTEGRATO: Altri pulsanti prenota con controllo auth
     bookButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
-
             checkUserAuthenticationForBooking(() => {
-                // Se loggato, procedi con prenotazione originale
                 const originalOnclick = this.getAttribute('onclick');
                 if (originalOnclick) {
                     eval(originalOnclick);
@@ -116,33 +421,24 @@ function setupCTAButtons() {
     });
 }
 
-// ===============================================
-// SETUP SERVICE CARDS - INTEGRATO
-// ===============================================
-
 function setupServiceCards() {
     const serviceCards = document.querySelectorAll('.servizio-card');
 
     serviceCards.forEach(card => {
         card.addEventListener('click', function () {
             const serviceTitle = this.querySelector('.service-title')?.textContent;
-
             if (!serviceTitle) return;
 
-            // ✅ INTEGRATO: Controllo auth prima di navigare
             checkUserAuthenticationForBooking(() => {
-                // Se loggato, vai alla pagina trattamenti
                 const serviceSlug = getServiceSlug(serviceTitle);
                 const professionalId = getCurrentProfessionalId();
-
                 const treatmentsUrl = `/pages/professionisti/servizio-trattamenti.html?servizio=${serviceSlug}&prof=${professionalId}`;
 
-                console.log(`🔗 Navigazione autorizzata a trattamenti: ${serviceSlug}`);
+                console.log(`Navigazione autorizzata a trattamenti: ${serviceSlug}`);
                 window.location.href = treatmentsUrl;
             });
         });
 
-        // Hover effects
         card.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.03)';
         });
@@ -154,12 +450,9 @@ function setupServiceCards() {
 }
 
 // ===============================================
-// FUNZIONI DI SUPPORTO
+// FUNZIONI DI SUPPORTO INVARIATE
 // ===============================================
 
-/**
- * Converte titolo servizio in slug per URL
- */
 function getServiceSlug(serviceTitle) {
     const slugMap = {
         'Wellness Coaching': 'wellness-coaching',
@@ -173,9 +466,6 @@ function getServiceSlug(serviceTitle) {
     return slugMap[serviceTitle] || serviceTitle.toLowerCase().replace(/[^a-z0-9]/g, '-');
 }
 
-/**
- * Estrae ID professionista dall'URL o usa default
- */
 function getCurrentProfessionalId() {
     const pathSegments = window.location.pathname.split('/');
     const profIndex = pathSegments.indexOf('professionisti');
@@ -184,17 +474,12 @@ function getCurrentProfessionalId() {
         return pathSegments[profIndex + 1];
     }
 
-    // Default per microsito Sophia Rossi
     return 'sophia-rossi';
 }
 
-/**
- * Setup collegamenti dinamici per tutte le sezioni
- */
 function setupDynamicLinks() {
     const professionalId = getCurrentProfessionalId();
 
-    // Aggiorna tutti i link dinamici
     const linkMappings = {
         '.corsi-view-all': `/pages/professionisti/tutti-i-corsi.html?prof=${professionalId}`,
         '.podcast-view-all': `/pages/professionisti/tutti-i-podcast.html?prof=${professionalId}`,
@@ -209,12 +494,9 @@ function setupDynamicLinks() {
         }
     });
 
-    console.log('🔗 Collegamenti dinamici aggiornati per:', professionalId);
+    console.log('Collegamenti dinamici aggiornati per:', professionalId);
 }
 
-/**
- * ✅ INTEGRATO: Caricamento automatico contenuto About → Chi Sono
- */
 async function loadAboutText() {
     try {
         const response = await fetch('/pages/professionisti/about.html');
@@ -223,55 +505,26 @@ async function loadAboutText() {
         const parser = new DOMParser();
         const aboutDoc = parser.parseFromString(html, 'text/html');
 
-        // Cerca specificamente la sezione "La Mia Storia"
         const myStorySection = aboutDoc.querySelector('.chi-sono-text, .about-text, .my-story-text');
 
         let aboutText = "Sono una Wellness Coach certificata con anni di esperienza nel guidare persone verso il loro benessere ottimale.";
 
         if (myStorySection) {
             aboutText = myStorySection.textContent.trim();
-            // Limita il testo per il microsito (primi 500 caratteri)
             if (aboutText.length > 500) {
                 aboutText = aboutText.substring(0, 500) + '...';
             }
         }
 
-        // Inserisci il testo nella card Chi Sono del microsito
         const chiSonoTextElement = document.querySelector('.chi-sono-text');
         if (chiSonoTextElement) {
             chiSonoTextElement.innerHTML = `<p>${aboutText}</p>`;
-            console.log('✅ Testo About caricato nel microsito');
+            console.log('Testo About caricato nel microsito');
         }
 
     } catch (error) {
-        console.log('⚠️ Impossibile caricare testo About:', error);
-        // Mantieni testo di default nel microsito
+        console.log('Impossibile caricare testo About:', error);
     }
-}
-
-// ===============================================
-// GALLERY E MODALS - INVARIATE
-// ===============================================
-
-function setupIspirationGallery() {
-    const inspirationImages = document.querySelectorAll('.ispirazioni-image');
-
-    inspirationImages.forEach(image => {
-        image.addEventListener('click', function () {
-            const imageTitle = this.getAttribute('data-title');
-            const imageSrc = this.style.backgroundImage.slice(5, -2);
-            showGalleryLightbox(imageTitle, imageSrc);
-        });
-
-        // Hover animation
-        image.addEventListener('mouseenter', function () {
-            this.style.transform = 'scale(1.02)';
-        });
-
-        image.addEventListener('mouseleave', function () {
-            this.style.transform = 'scale(1)';
-        });
-    });
 }
 
 function setupMobileMenu() {
@@ -309,60 +562,18 @@ function setupFadeInAnimations() {
     });
 }
 
-// ===============================================
-// GESTIONE ISPIRAZIONI
-// ===============================================
-
-const MAX_ISPIRAZIONI_MICROSITO = 10;
-const ISPIRAZIONI_PER_RIGA = 10;
-
-function manageIspirations() {
-    const ispirazioniContainer = document.querySelector('.ispirazioni-gallery-static');
-    if (!ispirazioniContainer) return;
-
-    const ispirazioniImages = ispirazioniContainer.querySelectorAll('.ispirazioni-image');
-
-    if (ispirazioniImages.length > MAX_ISPIRAZIONI_MICROSITO) {
-        for (let i = MAX_ISPIRAZIONI_MICROSITO; i < ispirazioniImages.length; i++) {
-            ispirazioniImages[i].remove();
-        }
-    }
-
-    updateGridLayout();
-}
-
-function updateGridLayout() {
-    const container = document.querySelector('.ispirazioni-gallery-static');
-    if (!container) return;
-
-    const elementCount = container.querySelectorAll('.ispirazioni-image').length;
-    const righe = Math.ceil(elementCount / ISPIRAZIONI_PER_RIGA);
-
-    container.style.gridTemplateColumns = `repeat(${ISPIRAZIONI_PER_RIGA}, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${righe}, 1fr)`;
-}
-
-// ===============================================
-// UTILITY FUNCTIONS
-// ===============================================
-
 function getTomorrowDate() {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
     return tomorrow.toISOString().split('T')[0];
 }
 
-/**
- * ✅ INTEGRATO: Toast notifications che non conflittano con auth.js
- */
 function showToast(message, type = 'info') {
-    // ✅ USA LA FUNZIONE AUTH.JS SE DISPONIBILE
     if (window.auth && window.auth.showMessage) {
         window.auth.showMessage(message, type);
         return;
     }
 
-    // Fallback se auth.js non è disponibile
     const existingToast = document.querySelector('.toast-notification');
     if (existingToast) {
         existingToast.remove();
@@ -417,54 +628,11 @@ function showToast(message, type = 'info') {
     }, 4000);
 }
 
-// ===============================================
-// MODAL FUNCTIONS - SEMPLIFICATE
-// ===============================================
-
-function showGalleryLightbox(title, imageSrc) {
-    const lightbox = document.createElement('div');
-    lightbox.className = 'gallery-lightbox';
-    lightbox.innerHTML = `
-        <div class="modal-overlay">
-            <div class="lightbox-content">
-                <div class="modal-header">
-                    <h3>${title}</h3>
-                    <button class="lightbox-close">&times;</button>
-                </div>
-                <div class="lightbox-image" style="background-image: url('${imageSrc}')"></div>
-                <p style="text-align: center; margin: 16px 0; color: #666;">${title}</p>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(lightbox);
-    lightbox.style.display = 'flex';
-
-    // Close handlers
-    lightbox.querySelector('.lightbox-close').addEventListener('click', () => {
-        lightbox.remove();
-    });
-
-    lightbox.querySelector('.modal-overlay').addEventListener('click', (e) => {
-        if (e.target === lightbox.querySelector('.modal-overlay')) {
-            lightbox.remove();
-        }
-    });
-
-    // ESC key
-    document.addEventListener('keydown', function escHandler(e) {
-        if (e.key === 'Escape') {
-            lightbox.remove();
-            document.removeEventListener('keydown', escHandler);
-        }
-    });
-}
-
 function injectModalStyles() {
     if (document.querySelector('#microsito-modal-styles')) return;
 
     const modalStyles = `
-    .gallery-lightbox {
+    .album-modal-overlay {
         position: fixed;
         top: 0;
         left: 0;
@@ -478,17 +646,17 @@ function injectModalStyles() {
         backdrop-filter: blur(4px);
     }
     
-    .lightbox-content {
+    .album-modal {
         background: white;
         border-radius: 12px;
-        max-width: 500px;
+        max-width: 800px;
         width: 90%;
         max-height: 80vh;
-        overflow-y: auto;
+        overflow: hidden;
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
     }
     
-    .modal-header {
+    .album-modal-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -496,14 +664,14 @@ function injectModalStyles() {
         border-bottom: 1px solid #eee;
     }
     
-    .modal-header h3 {
+    .album-modal-header h3 {
         margin: 0;
         color: #1a202c;
         font-size: 18px;
         font-weight: 600;
     }
     
-    .lightbox-close {
+    .album-modal-close {
         background: none;
         border: none;
         font-size: 24px;
@@ -519,35 +687,68 @@ function injectModalStyles() {
         transition: all 0.3s ease;
     }
     
-    .lightbox-close:hover {
+    .album-modal-close:hover {
         color: #2d3748;
         background-color: #f7fafc;
     }
     
-    .lightbox-image {
-        width: 100%;
-        height: 300px;
-        background-color: #f7fafc;
-        background-size: cover;
-        background-position: center;
-        border-radius: 8px;
-        margin: 20px;
-        width: calc(100% - 40px);
+    .album-carousel {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
     }
-
-    @media (max-width: 768px) {
-        .lightbox-content {
-            width: 95%;
-            max-height: 90vh;
-        }
-        
-        .modal-header {
-            padding: 16px;
-        }
-        
-        .modal-header h3 {
-            font-size: 16px;
-        }
+    
+    .album-slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .album-slide.active {
+        opacity: 1;
+    }
+    
+    .album-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .album-navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f8f9fa;
+    }
+    
+    .album-prev, .album-next {
+        background: var(--color-primary);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+    
+    .album-prev:hover, .album-next:hover {
+        background: var(--color-dark);
+        transform: scale(1.1);
+    }
+    
+    .album-counter {
+        font-weight: 600;
+        color: #4a5568;
     }`;
 
     const styleSheet = document.createElement('style');
@@ -556,10 +757,9 @@ function injectModalStyles() {
     document.head.appendChild(styleSheet);
 }
 
-// ===============================================
-// ✅ ESPORTAZIONE FUNZIONI GLOBALI NECESSARIE
-// ===============================================
+// Esportazione funzioni globali
 window.getCurrentProfessionalId = getCurrentProfessionalId;
 window.getServiceSlug = getServiceSlug;
+window.changeAlbumSlide = changeAlbumSlide;
 
-console.log('🔧 Microsito JS integrato con auth.js - Sistema unificato attivo');
+console.log('Microsito JS con sistema album attivo');

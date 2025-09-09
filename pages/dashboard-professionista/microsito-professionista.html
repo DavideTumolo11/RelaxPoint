@@ -283,844 +283,218 @@
                                                 <label for="heroName">Nome Professionista</label>
                                                 <input type="text" id="heroName" value="Sophia Rossi" maxlength="50">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="heroRole">Ruolo/Specializzazione</label>
-                                                <input type="text" id="heroRole" value="Wellness Coach certificata"
-                                                    maxlength="100">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Immagine Hero</label>
-                                            <div class="upload-area" onclick="uploadHeroImage()">
-                                                <div class="upload-preview">
-                                                    <img src="/assets/images/vecteezy_girl-on-the-beach-in-yoga-asana_2153866.jpg"
-                                                        alt="Hero image" id="heroImagePreview">
-                                                </div>
-                                                <div class="upload-overlay">
-                                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-                                                    </svg>
-                                                    <p>Clicca per cambiare immagine</p>
-                                                </div>
-                                                <input type="file" id="heroImageInput" accept="image/*"
-                                                    style="display: none;">
-                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- SEZIONE CHI SONO - COLLEGATA AD ABOUT.HTML -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>Chi Sono</h2>
-                                        <button class="btn-edit" onclick="editSection('chi-sono')">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path
-                                                    d="M17.66 7.93L12 2.27 6.34 7.93c-.78.78-.78 2.05 0 2.83L12 16.42l5.66-5.66c.78-.78.78-2.05 0-2.83zM12 13.54L7.76 9.3c-.39-.39-.39-1.02 0-1.41L12 3.65l4.24 4.24c.39.39.39 1.02 0 1.41L12 13.54z" />
-                                            </svg>
-                                            Salva Modifiche
-                                        </button>
+                                    <!-- SEZIONE SERVIZI (AUTO-GENERATA) -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>I Miei Servizi</h2>
+                                            <div class="section-note">
+                                                <span>Collegati automaticamente dai tuoi servizi attivi</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="servizi-preview-grid">
+                                            <div class="servizio-preview-card">
+                                                <div class="servizio-preview-image"
+                                                    style="background-image: url('/assets/images/Servizi/neoMamma.jpg');">
+                                                </div>
+                                                <div class="servizio-preview-content">
+                                                    <h3>Wellness Coaching</h3>
+                                                    <p>3 trattamenti disponibili</p>
+                                                    <div class="servizio-status active">Attivo</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="servizio-preview-card">
+                                                <div class="servizio-preview-image"
+                                                    style="background-image: url('/assets/images/Servizi/YogaEndMeditazione.jpeg');">
+                                                </div>
+                                                <div class="servizio-preview-content">
+                                                    <h3>Mindfulness & Meditazione</h3>
+                                                    <p>2 trattamenti disponibili</p>
+                                                    <div class="servizio-status active">Attivo</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="servizio-preview-card">
+                                                <div class="servizio-preview-image"
+                                                    style="background-image: url('/assets/images/Servizi/Salute.jpg');">
+                                                </div>
+                                                <div class="servizio-preview-content">
+                                                    <h3>Coaching Nutrizionale</h3>
+                                                    <p>1 trattamento disponibile</p>
+                                                    <div class="servizio-status active">Attivo</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="manage-servizi-link">
+                                            <a href="servizi-professionista.html" class="btn-manage">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                </svg>
+                                                Gestisci Servizi
+                                            </a>
+                                        </div>
                                     </div>
 
-                                    <div class="chi-sono-editor" id="chiSonoEditor">
-                                        <!-- HEADER CHI SONO -->
-                                        <div class="form-group">
-                                            <label for="chiSonoTitolo">Titolo Sezione</label>
-                                            <input type="text" id="chiSonoTitolo" value="Chi Sono" maxlength="50">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="chiSonoSottotitolo">Sottotitolo</label>
-                                            <input type="text" id="chiSonoSottotitolo"
-                                                value="La mia storia, i miei valori e il percorso che mi ha portato a diventare Wellness Coach"
-                                                maxlength="150">
+                                    <!-- SEZIONE VIDEO PRESENTAZIONE -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>Video Presentazione</h2>
+                                            <button class="btn-toggle" onclick="toggleVideoSection()" id="videoToggle">
+                                                <span>Attivo</span>
+                                            </button>
                                         </div>
 
-                                        <!-- LA MIA STORIA -->
-                                        <div class="storia-section">
-                                            <h3>La Mia Storia</h3>
-                                            <div class="storia-content">
-                                                <div class="storia-text-container">
-                                                    <div class="form-group">
-                                                        <label for="storiaText">Testo Storia</label>
-                                                        <textarea id="storiaText" maxlength="2000" rows="12"
-                                                            placeholder="Racconta la tua storia professionale...">Sono Sophia Rossi, una Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che desiderano trasformare la propria vita attraverso un approccio olistico al benessere...</textarea>
-                                                        <div class="char-count">
-                                                            <span id="storiaCharCount">0</span>/2000 caratteri
+                                        <div class="video-section" id="videoSection">
+                                            <div class="video-upload-area">
+                                                <div class="video-preview">
+                                                    <div class="video-thumbnail"
+                                                        style="background-image: url('/assets/images/Gemini_Generated_Image_1521g81521g81521.png');">
+                                                        <div class="video-play-button">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M8 5v14l11-7z" />
+                                                            </svg>
                                                         </div>
+                                                        <div class="video-duration">0:30</div>
                                                     </div>
                                                 </div>
-                                                <div class="storia-image-container">
-                                                    <img src="/assets/images/Professionisti/pr1.png" alt="La mia storia"
-                                                        id="storiaImagePreview">
-                                                    <button class="btn-change-image" onclick="changeStoriaImage()">
+                                                <div class="video-actions">
+                                                    <button class="btn-upload" onclick="uploadVideo()">
                                                         <svg width="16" height="16" viewBox="0 0 24 24"
                                                             fill="currentColor">
                                                             <path
-                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                                d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
                                                         </svg>
+                                                        Carica Video
                                                     </button>
-                                                    <input type="file" id="storiaImageInput" accept="image/*"
-                                                        style="display: none;">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- LA MIA FILOSOFIA -->
-                                        <div class="filosofia-section">
-                                            <h3>La Mia Filosofia</h3>
-                                            <div class="filosofia-content">
-                                                <div class="filosofia-image-container">
-                                                    <img src="/assets/images/Professionisti/pr3.png"
-                                                        alt="La mia filosofia" id="filosofiaImagePreview">
-                                                    <button class="btn-change-image" onclick="changeFilosofiaImage()">
+                                                    <button class="btn-remove" onclick="removeVideo()">
                                                         <svg width="16" height="16" viewBox="0 0 24 24"
                                                             fill="currentColor">
                                                             <path
-                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                                                         </svg>
+                                                        Rimuovi
                                                     </button>
-                                                    <input type="file" id="filosofiaImageInput" accept="image/*"
+                                                    <input type="file" id="videoInput" accept="video/*"
                                                         style="display: none;">
                                                 </div>
-                                                <div class="filosofia-text-container">
-                                                    <div class="form-group">
-                                                        <label for="filosofiaText">Testo Filosofia</label>
-                                                        <textarea id="filosofiaText" maxlength="1500" rows="10"
-                                                            placeholder="Descrivi la tua filosofia lavorativa...">La mia filosofia si basa sulla convinzione che il benessere autentico nasca dall'armonia tra corpo, mente e spirito...</textarea>
-                                                        <div class="char-count">
-                                                            <span id="filosofiaCharCount">0</span>/1500 caratteri
-                                                        </div>
-                                                    </div>
+                                                <div class="form-group">
+                                                    <label for="videoDescription">Descrizione Video</label>
+                                                    <input type="text" id="videoDescription"
+                                                        value="Scopri chi sono e come posso aiutarti" maxlength="100">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- SEZIONE SERVIZI (AUTO-GENERATA) -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>I Miei Servizi</h2>
-                                        <div class="section-note">
-                                            <span>Collegati automaticamente dai tuoi servizi attivi</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="servizi-preview-grid">
-                                        <div class="servizio-preview-card">
-                                            <div class="servizio-preview-image"
-                                                style="background-image: url('/assets/images/Servizi/neoMamma.jpg');">
-                                            </div>
-                                            <div class="servizio-preview-content">
-                                                <h3>Wellness Coaching</h3>
-                                                <p>3 trattamenti disponibili</p>
-                                                <div class="servizio-status active">Attivo</div>
+                                    <!-- SEZIONE CERTIFICAZIONI -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>Certificazioni</h2>
+                                            <div class="section-actions">
+                                                <button class="btn-add" onclick="addCertificazione()">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                    </svg>
+                                                    Aggiungi
+                                                </button>
+                                                <span class="count-limit" data-type="certificazioni">6/10</span>
                                             </div>
                                         </div>
 
-                                        <div class="servizio-preview-card">
-                                            <div class="servizio-preview-image"
-                                                style="background-image: url('/assets/images/Servizi/YogaEndMeditazione.jpeg');">
-                                            </div>
-                                            <div class="servizio-preview-content">
-                                                <h3>Mindfulness & Meditazione</h3>
-                                                <p>2 trattamenti disponibili</p>
-                                                <div class="servizio-status active">Attivo</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="servizio-preview-card">
-                                            <div class="servizio-preview-image"
-                                                style="background-image: url('/assets/images/Servizi/Salute.jpg');">
-                                            </div>
-                                            <div class="servizio-preview-content">
-                                                <h3>Coaching Nutrizionale</h3>
-                                                <p>1 trattamento disponibile</p>
-                                                <div class="servizio-status active">Attivo</div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="manage-servizi-link">
-                                        <a href="servizi-professionista.html" class="btn-manage">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path
-                                                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                            </svg>
-                                            Gestisci Servizi
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- SEZIONE VIDEO PRESENTAZIONE -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>Video Presentazione</h2>
-                                        <button class="btn-toggle" onclick="toggleVideoSection()" id="videoToggle">
-                                            <span>Attivo</span>
-                                        </button>
-                                    </div>
-
-                                    <div class="video-section" id="videoSection">
-                                        <div class="video-upload-area">
-                                            <div class="video-preview">
-                                                <div class="video-thumbnail"
-                                                    style="background-image: url('/assets/images/Gemini_Generated_Image_1521g81521g81521.png');">
-                                                    <div class="video-play-button">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
+                                        <div class="certificazioni-grid" id="certificazioniGrid">
+                                            <!-- Certificazioni esempio -->
+                                            <div class="certificazione-item" data-id="cert1">
+                                                <div class="certificazione-content">
+                                                    <div class="certificazione-icon">
+                                                        <svg width="20" height="20" viewBox="0 0 24 24"
                                                             fill="currentColor">
-                                                            <path d="M8 5v14l11-7z" />
+                                                            <path
+                                                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                                                         </svg>
                                                     </div>
-                                                    <div class="video-duration">0:30</div>
+                                                    <span class="certificazione-nome">Wellness Coach</span>
                                                 </div>
-                                            </div>
-                                            <div class="video-actions">
-                                                <button class="btn-upload" onclick="uploadVideo()">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
-                                                    </svg>
-                                                    Carica Video
-                                                </button>
-                                                <button class="btn-remove" onclick="removeVideo()">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <button class="btn-remove-cert"
+                                                    onclick="window.micrositoProfessionista.removeCertificazione('cert1')">
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                                                         <path
                                                             d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                                                     </svg>
-                                                    Rimuovi
-                                                </button>
-                                                <input type="file" id="videoInput" accept="video/*"
-                                                    style="display: none;">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="videoDescription">Descrizione Video</label>
-                                                <input type="text" id="videoDescription"
-                                                    value="Scopri chi sono e come posso aiutarti" maxlength="100">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- SEZIONE CERTIFICAZIONI -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>Certificazioni</h2>
-                                        <div class="section-actions">
-                                            <button class="btn-add" onclick="addCertificazione()">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                </svg>
-                                                Aggiungi
-                                            </button>
-                                            <span class="count-limit">6/10</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="certificazioni-grid" id="certificazioniGrid">
-                                        <div class="certificazione-item" data-id="cert1">
-                                            <div class="certificazione-content">
-                                                <div class="certificazione-icon">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                                    </svg>
-                                                </div>
-                                                <span class="certificazione-nome">Wellness Coach</span>
-                                            </div>
-                                            <button class="btn-remove-cert" onclick="removeCertificazione('cert1')">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div class="certificazione-item" data-id="cert2">
-                                            <div class="certificazione-content">
-                                                <div class="certificazione-icon">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
-                                                    </svg>
-                                                </div>
-                                                <span class="certificazione-nome">Mindfulness Trainer</span>
-                                            </div>
-                                            <button class="btn-remove-cert" onclick="removeCertificazione('cert2')">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div class="certificazione-item" data-id="cert3">
-                                            <div class="certificazione-content">
-                                                <div class="certificazione-icon">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                                    </svg>
-                                                </div>
-                                                <span class="certificazione-nome">Coaching Nutrizionale</span>
-                                            </div>
-                                            <button class="btn-remove-cert" onclick="removeCertificazione('cert3')">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div class="certificazione-item" data-id="cert4">
-                                            <div class="certificazione-content">
-                                                <div class="certificazione-icon">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
-                                                    </svg>
-                                                </div>
-                                                <span class="certificazione-nome">Stress Management</span>
-                                            </div>
-                                            <button class="btn-remove-cert" onclick="removeCertificazione('cert4')">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div class="certificazione-item" data-id="cert5">
-                                            <div class="certificazione-content">
-                                                <div class="certificazione-icon">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                                    </svg>
-                                                </div>
-                                                <span class="certificazione-nome">Life Coach</span>
-                                            </div>
-                                            <button class="btn-remove-cert" onclick="removeCertificazione('cert5')">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-
-                                        <div class="certificazione-item" data-id="cert6">
-                                            <div class="certificazione-content">
-                                                <div class="certificazione-icon">
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
-                                                    </svg>
-                                                </div>
-                                                <span class="certificazione-nome">Benessere Olistico</span>
-                                            </div>
-                                            <button class="btn-remove-cert" onclick="removeCertificazione('cert6')">
-                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- SEZIONE CORSI -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>I Miei Corsi</h2>
-                                        <div class="section-actions">
-                                            <button class="btn-add" onclick="addCorso()">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                </svg>
-                                                Aggiungi
-                                            </button>
-                                            <span class="count-limit">4/8</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="corsi-grid" id="corsiGrid">
-                                        <div class="corso-card" data-id="corso1">
-                                            <div class="corso-image"
-                                                style="background-image: url('/assets/images/corsi/mindfulness-base.jpg');">
-                                                <button class="btn-change-corso-image"
-                                                    onclick="changeCorsoImage('corso1')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <div class="corso-badges">
-                                                    <span class="corso-type">Online</span>
-                                                    <span class="corso-duration">8 settimane</span>
-                                                </div>
-                                            </div>
-                                            <div class="corso-content">
-                                                <input type="text" class="corso-title" value="Mindfulness Base"
-                                                    maxlength="50">
-                                                <textarea class="corso-description" maxlength="150"
-                                                    rows="2">Corso introduttivo alla pratica mindfulness per principianti</textarea>
-                                                <div class="corso-meta">
-                                                    <select class="corso-type-select">
-                                                        <option value="online" selected>Online</option>
-                                                        <option value="presenza">In presenza</option>
-                                                        <option value="ibrido">Ibrido</option>
-                                                    </select>
-
-                                                </div>
-                                                <button class="btn-remove-corso" onclick="removeCorso('corso1')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="corso-card" data-id="corso2">
-                                            <div class="corso-image"
-                                                style="background-image: url('/assets/images/corsi/yoga-principianti.jpg');">
-                                                <button class="btn-change-corso-image"
-                                                    onclick="changeCorsoImage('corso2')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <div class="corso-badges">
-                                                    <span class="corso-type">Presenza</span>
-                                                    <span class="corso-duration">4 settimane</span>
-                                                </div>
-                                            </div>
-                                            <div class="corso-content">
-                                                <input type="text" class="corso-title" value="Yoga per Principianti"
-                                                    maxlength="50">
-                                                <textarea class="corso-description" maxlength="150"
-                                                    rows="2">Introduzione alle basi dello yoga con posture semplici ed efficaci</textarea>
-                                                <div class="corso-meta">
-                                                    <select class="corso-type-select">
-                                                        <option value="online">Online</option>
-                                                        <option value="presenza" selected>In presenza</option>
-                                                        <option value="ibrido">Ibrido</option>
-                                                    </select>
-
-                                                </div>
-                                                <button class="btn-remove-corso" onclick="removeCorso('corso2')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="corso-card" data-id="corso3">
-                                            <div class="corso-image"
-                                                style="background-image: url('/assets/images/corsi/gestione-stress.jpg');">
-                                                <button class="btn-change-corso-image"
-                                                    onclick="changeCorsoImage('corso3')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <div class="corso-badges">
-                                                    <span class="corso-type">Ibrido</span>
-                                                    <span class="corso-duration">6 settimane</span>
-                                                </div>
-                                            </div>
-                                            <div class="corso-content">
-                                                <input type="text" class="corso-title" value="Gestione Stress"
-                                                    maxlength="50">
-                                                <textarea class="corso-description" maxlength="150"
-                                                    rows="2">Tecniche avanzate per gestire stress e ansia nel quotidiano</textarea>
-                                                <div class="corso-meta">
-                                                    <select class="corso-type-select">
-                                                        <option value="online">Online</option>
-                                                        <option value="presenza">In presenza</option>
-                                                        <option value="ibrido" selected>Ibrido</option>
-                                                    </select>
-
-                                                </div>
-                                                <button class="btn-remove-corso" onclick="removeCorso('corso3')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="corso-card" data-id="corso4">
-                                            <div class="corso-image"
-                                                style="background-image: url('/assets/images/corsi/alimentazione.jpg');">
-                                                <button class="btn-change-corso-image"
-                                                    onclick="changeCorsoImage('corso4')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <div class="corso-badges">
-                                                    <span class="corso-type">Online</span>
-                                                    <span class="corso-duration">5 settimane</span>
-                                                </div>
-                                            </div>
-                                            <div class="corso-content">
-                                                <input type="text" class="corso-title" value="Alimentazione Consapevole"
-                                                    maxlength="50">
-                                                <textarea class="corso-description" maxlength="150"
-                                                    rows="2">Impara a sviluppare un rapporto sano e consapevole con il cibo</textarea>
-                                                <div class="corso-meta">
-                                                    <select class="corso-type-select">
-                                                        <option value="online" selected>Online</option>
-                                                        <option value="presenza">In presenza</option>
-                                                        <option value="ibrido">Ibrido</option>
-                                                    </select>
-
-                                                </div>
-                                                <button class="btn-remove-corso" onclick="removeCorso('corso4')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- SEZIONE PODCAST -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>I Miei Podcast</h2>
-                                        <div class="section-actions">
-                                            <button class="btn-add" onclick="addPodcast()">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                </svg>
-                                                Aggiungi
-                                            </button>
-                                            <span class="count-limit">3/6</span>
+                                    <!-- SEZIONE CORSI -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>I Miei Corsi</h2>
+                                            <div class="section-actions">
+                                                <button class="btn-add" onclick="addCorso()">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                    </svg>
+                                                    Aggiungi Serie
+                                                </button>
+                                                <span class="count-limit" data-type="corsi">0/8</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="corsi-grid" id="corsiGrid">
+                                            <!-- I corsi saranno aggiunti dinamicamente -->
                                         </div>
                                     </div>
 
-                                    <div class="podcast-grid" id="podcastGrid">
-                                        <div class="podcast-card" data-id="podcast1">
-                                            <div class="podcast-cover"
-                                                style="background-image: url('/assets/images/podcast/sophia-cover-1.jpg');">
-                                                <button class="btn-change-podcast-cover"
-                                                    onclick="changePodcastCover('podcast1')">
+                                    <!-- SEZIONE PODCAST -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>I Miei Podcast</h2>
+                                            <div class="section-actions">
+                                                <button class="btn-add" onclick="addPodcast()">
                                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                                     </svg>
+                                                    Aggiungi Serie
                                                 </button>
-                                                <div class="podcast-play">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M8 5v14l11-7z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="podcast-duration">
-                                                    <input type="text" class="duration-input" value="23:45"
-                                                        maxlength="8">
-                                                </div>
-                                            </div>
-                                            <div class="podcast-content">
-                                                <input type="text" class="podcast-title" value="Equilibrio Mente-Corpo"
-                                                    maxlength="50">
-                                                <textarea class="podcast-description" maxlength="150"
-                                                    rows="2">Scopri come trovare l'equilibrio perfetto tra mente e corpo</textarea>
-
-                                                <button class="btn-remove-podcast" onclick="removePodcast('podcast1')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
-                                                </button>
+                                                <span class="count-limit" data-type="podcast">0/6</span>
                                             </div>
                                         </div>
 
-                                        <div class="podcast-card" data-id="podcast2">
-                                            <div class="podcast-cover"
-                                                style="background-image: url('/assets/images/podcast/sophia-cover-2.jpg');">
-                                                <button class="btn-change-podcast-cover"
-                                                    onclick="changePodcastCover('podcast2')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <div class="podcast-play">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M8 5v14l11-7z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="podcast-duration">
-                                                    <input type="text" class="duration-input" value="12:30"
-                                                        maxlength="8">
-                                                </div>
-                                            </div>
-                                            <div class="podcast-content">
-                                                <input type="text" class="podcast-title"
-                                                    value="Respirazione Consapevole" maxlength="50">
-                                                <textarea class="podcast-description" maxlength="150"
-                                                    rows="2">Tecniche di respirazione per il benessere quotidiano</textarea>
-
-                                                <button class="btn-remove-podcast" onclick="removePodcast('podcast2')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="podcast-card" data-id="podcast3">
-                                            <div class="podcast-cover"
-                                                style="background-image: url('/assets/images/podcast/sophia-cover-3.jpg');">
-                                                <button class="btn-change-podcast-cover"
-                                                    onclick="changePodcastCover('podcast3')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <div class="podcast-play">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M8 5v14l11-7z" />
-                                                    </svg>
-                                                </div>
-                                                <div class="podcast-duration">
-                                                    <input type="text" class="duration-input" value="28:10"
-                                                        maxlength="8">
-                                                </div>
-                                            </div>
-                                            <div class="podcast-content">
-                                                <input type="text" class="podcast-title"
-                                                    value="Gestire lo Stress Lavorativo" maxlength="50">
-                                                <textarea class="podcast-description" maxlength="150"
-                                                    rows="2">Strategie pratiche per affrontare lo stress nel mondo del lavoro</textarea>
-
-                                                <button class="btn-remove-podcast" onclick="removePodcast('podcast3')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                    Rimuovi
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- SEZIONE ISPIRAZIONI/GALLERY -->
-                                <div class="content-card microsito-section">
-                                    <div class="section-header">
-                                        <h2>Ispirazioni & Gallery</h2>
-                                        <div class="section-actions">
-                                            <button class="btn-add" onclick="addIspirazione()">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                </svg>
-                                                Aggiungi
-                                            </button>
-                                            <span class="count-limit">8/15</span>
+                                        <div class="podcast-grid" id="podcastGrid">
+                                            <!-- I podcast saranno aggiunti dinamicamente -->
                                         </div>
                                     </div>
 
-                                    <div class="gallery-grid" id="galleryGrid">
-                                        <div class="gallery-item" data-id="gallery1">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/massage2.jpg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery1')">
+                                    <!-- SEZIONE ISPIRAZIONI/GALLERY -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>Ispirazioni & Gallery</h2>
+                                            <div class="section-actions">
+                                                <button class="btn-add" onclick="addIspirazione()">
                                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                                     </svg>
+                                                    Aggiungi Album
                                                 </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery1')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
+                                                <span class="count-limit" data-type="gallery">0/15</span>
                                             </div>
-                                            <input type="text" class="gallery-title" value="Sessione Mindfulness"
-                                                maxlength="30">
                                         </div>
 
-                                        <div class="gallery-item" data-id="gallery2">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/Beauty.jpg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery2')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery2')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Coaching Nutrizionale"
-                                                maxlength="30">
-                                        </div>
-
-                                        <div class="gallery-item" data-id="gallery3">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/YogaEndMeditazione.jpeg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery3')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery3')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Meditazione Guidata"
-                                                maxlength="30">
-                                        </div>
-
-                                        <div class="gallery-item" data-id="gallery4">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/neoMamma.jpg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery4')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery4')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Supporto Neo-Mamme"
-                                                maxlength="30">
-                                        </div>
-
-                                        <div class="gallery-item" data-id="gallery5">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/Salute.jpg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery5')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery5')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Consulenza Benessere"
-                                                maxlength="30">
-                                        </div>
-
-                                        <div class="gallery-item" data-id="gallery6">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/Gym.jpg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery6')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery6')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Fitness Personalizzato"
-                                                maxlength="30">
-                                        </div>
-
-                                        <div class="gallery-item" data-id="gallery7">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/Hair and make-up.png');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery7')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery7')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Hair & Make-up"
-                                                maxlength="30">
-                                        </div>
-
-                                        <div class="gallery-item" data-id="gallery8">
-                                            <div class="gallery-image"
-                                                style="background-image: url('/assets/images/Servizi/Escursioni.jpg');">
-                                                <button class="btn-change-gallery-image"
-                                                    onclick="changeGalleryImage('gallery8')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                </button>
-                                                <button class="btn-remove-gallery"
-                                                    onclick="removeGalleryItem('gallery8')">
-                                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <input type="text" class="gallery-title" value="Escursioni Natura"
-                                                maxlength="30">
+                                        <div class="gallery-grid" id="galleryGrid">
+                                            <!-- Le ispirazioni saranno aggiunte dinamicamente -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </main>
 
             <!-- FOOTER IDENTICO AL SITO -->
@@ -1191,3 +565,103 @@
 </body>
 
 </html>
+<div class="form-group">
+    <label for="heroRole">Ruolo/Specializzazione</label>
+    <input type="text" id="heroRole" value="Wellness Coach certificata" maxlength="100">
+</div>
+</div>
+<div class="form-group">
+    <label>Immagine Hero</label>
+    <div class="upload-area" onclick="uploadHeroImage()">
+        <div class="upload-preview">
+            <img src="/assets/images/vecteezy_girl-on-the-beach-in-yoga-asana_2153866.jpg" alt="Hero image"
+                id="heroImagePreview">
+        </div>
+        <div class="upload-overlay">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+            </svg>
+            <p>Clicca per cambiare immagine</p>
+        </div>
+        <input type="file" id="heroImageInput" accept="image/*" style="display: none;">
+    </div>
+</div>
+</div>
+</div>
+
+<!-- SEZIONE CHI SONO - COLLEGATA AD ABOUT.HTML -->
+<div class="content-card microsito-section">
+    <div class="section-header">
+        <h2>Chi Sono</h2>
+        <button class="btn-edit" onclick="editSection('chi-sono')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M17.66 7.93L12 2.27 6.34 7.93c-.78.78-.78 2.05 0 2.83L12 16.42l5.66-5.66c.78-.78.78-2.05 0-2.83zM12 13.54L7.76 9.3c-.39-.39-.39-1.02 0-1.41L12 3.65l4.24 4.24c.39.39.39 1.02 0 1.41L12 13.54z" />
+            </svg>
+            Salva Modifiche
+        </button>
+    </div>
+
+    <div class="chi-sono-editor" id="chiSonoEditor">
+        <div class="form-group">
+            <label for="chiSonoTitolo">Titolo Sezione</label>
+            <input type="text" id="chiSonoTitolo" value="Chi Sono" maxlength="50">
+        </div>
+        <div class="form-group">
+            <label for="chiSonoSottotitolo">Sottotitolo</label>
+            <input type="text" id="chiSonoSottotitolo"
+                value="La mia storia, i miei valori e il percorso che mi ha portato a diventare Wellness Coach"
+                maxlength="150">
+        </div>
+
+        <div class="storia-section">
+            <h3>La Mia Storia</h3>
+            <div class="storia-content">
+                <div class="storia-text-container">
+                    <div class="form-group">
+                        <label for="storiaText">Testo Storia</label>
+                        <textarea id="storiaText" maxlength="2000" rows="12"
+                            placeholder="Racconta la tua storia professionale...">Sono Sophia Rossi, una Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che desiderano trasformare la propria vita attraverso un approccio olistico al benessere...</textarea>
+                        <div class="char-count">
+                            <span id="storiaCharCount">0</span>/2000 caratteri
+                        </div>
+                    </div>
+                </div>
+                <div class="storia-image-container">
+                    <img src="/assets/images/Professionisti/pr1.png" alt="La mia storia" id="storiaImagePreview">
+                    <button class="btn-change-image" onclick="changeStoriaImage()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                        </svg>
+                    </button>
+                    <input type="file" id="storiaImageInput" accept="image/*" style="display: none;">
+                </div>
+            </div>
+        </div>
+
+        <div class="filosofia-section">
+            <h3>La Mia Filosofia</h3>
+            <div class="filosofia-content">
+                <div class="filosofia-image-container">
+                    <img src="/assets/images/Professionisti/pr3.png" alt="La mia filosofia" id="filosofiaImagePreview">
+                    <button class="btn-change-image" onclick="changeFilosofiaImage()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                        </svg>
+                    </button>
+                    <input type="file" id="filosofiaImageInput" accept="image/*" style="display: none;">
+                </div>
+                <div class="filosofia-text-container">
+                    <div class="form-group">
+                        <label for="filosofiaText">Testo Filosofia</label>
+                        <textarea id="filosofiaText" maxlength="1500" rows="10"
+                            placeholder="Descrivi la tua filosofia lavorativa...">La mia filosofia si basa sulla convinzione che il benessere autentico nasca dall'armonia tra corpo, mente e spirito...</textarea>
+                        <div class="char-count">
+                            <span id="filosofiaCharCount">0</span>/1500 caratteri
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

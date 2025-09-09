@@ -1,5 +1,5 @@
 /* ===============================================
-   MICROSITO PROFESSIONISTI - CSS COMPLETO RISISCRITTO
+   MICROSITO PROFESSIONISTI - CSS COMPLETO CON ALBUM SYSTEM
    Usa style.css come base, questo aggiunge solo specifiche
    =============================================== */
 
@@ -38,7 +38,6 @@
 
 .video-presentazione-card {
     flex: 0 0 20%;
-    /* Stessa larghezza delle altre */
     background-color: white;
     padding: 16px;
     border-radius: 12px;
@@ -106,7 +105,6 @@
     display: flex;
     gap: 24px;
     align-items: flex-start;
-    /* STESSA ALTEZZA */
 }
 
 /* ===============================================
@@ -122,9 +120,7 @@
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
     height: 400px;
-    /* <-- ALTEZZA FISSA */
     overflow: hidden;
-    /* <-- AGGIUNGI ANCHE QUESTO */
 }
 
 /* ===============================================
@@ -137,7 +133,6 @@
     border-radius: 12px;
     box-shadow: 0 4px 6px -1px var(--color-light), 0 2px 4px -2px var(--color-light);
     height: 400px;
-    /* STESSA ALTEZZA */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -160,7 +155,6 @@
     flex: 1;
     height: 100%;
     width: 100%;
-    /* OCCUPA TUTTO LO SPAZIO RIMANENTE */
 }
 
 .certificazione-item {
@@ -177,7 +171,6 @@
     cursor: pointer;
     text-align: center;
     aspect-ratio: 1;
-    /* QUADRATE */
 }
 
 .certificazione-item:hover {
@@ -223,9 +216,7 @@
     gap: 16px;
     justify-content: flex-start;
     height: 100%;
-    /* OCCUPA TUTTA L'ALTEZZA DISPONIBILE */
     overflow: hidden;
-    /* NASCONDE IL TESTO CHE DEBORDA */
 }
 
 .chi-sono-text {
@@ -234,9 +225,7 @@
     line-height: 1.6;
     margin: 0;
     flex: 1;
-    /* PRENDE TUTTO LO SPAZIO DISPONIBILE */
     overflow: hidden;
-    /* NASCONDE IL TESTO CHE DEBORDA */
     position: relative;
 }
 
@@ -271,57 +260,7 @@
 }
 
 /* ===============================================
-   RESPONSIVE DESIGN
-   =============================================== */
-@media (max-width: 1024px) {
-
-    .chi-sono-container {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .certificazioni-card {
-        flex: none;
-        width: 100%;
-        min-height: auto;
-    }
-
-    .chi-sono-main-card {
-        min-height: auto;
-    }
-
-    .certificazioni-grid {
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .chi-sono-main-card {
-        flex-direction: column;
-        gap: 20px;
-        padding: 24px;
-    }
-
-    .chi-sono-image {
-        width: 100%;
-        height: 300px;
-        align-self: center;
-        max-width: 00px;
-    }
-
-    .certificazioni-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-    }
-
-    .certificazione-nome {
-        font-size: 12px;
-    }
-}
-
-/* ===============================================
-   ISPIRAZIONI - GRID STATICA (1 RIGA)
+   ISPIRAZIONI - GALLERY ALBUM SYSTEM
    =============================================== */
 .ispirazioni-section {
     margin-bottom: 60px;
@@ -348,7 +287,17 @@
     text-decoration: underline;
 }
 
-/* GRID STATICA - 1 RIGA, ALTEZZA RIDOTTA */
+/* LOADING PLACEHOLDER */
+.loading-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 16px;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+/* GRID STATICA INVARIATA */
 .ispirazioni-gallery-static {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -358,8 +307,64 @@
     overflow: visible;
 }
 
+/* NUOVO: ALBUM GALLERY ITEMS */
+.gallery-album-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.album-preview {
+    aspect-ratio: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100px;
+}
+
+.album-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 5;
+}
+
+.album-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    padding: 12px 8px 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.album-title {
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.gallery-album-item:hover .album-overlay {
+    opacity: 1;
+}
+
 /* ===============================================
-   PODCAST MICROSITO SECTION - DA AGGIUNGERE AL MICROSITO.CSS
+   PODCAST MICROSITO SECTION - SERIE SYSTEM  
    =============================================== */
 
 .podcast-microsito-section {
@@ -392,21 +397,16 @@
 .podcast-microsito-gallery {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    /* CAMBIA DA auto-fit A QUESTO */
     grid-auto-rows: 1fr;
     gap: 12px;
-    /* CAMBIA DA 16px A 12px */
     max-width: auto;
     margin: 0 auto;
     padding: 0 16px;
     overflow: visible;
-    /* AGGIUNGI QUESTA RIGA */
 }
 
-/* ===============================================
-   CARD PODCAST MICROSITO
-   =============================================== */
-.podcast-microsito-card {
+/* NUOVO: PODCAST SERIES ITEMS */
+.podcast-series-item {
     background: white;
     border-radius: 12px;
     overflow: hidden;
@@ -416,12 +416,11 @@
     cursor: pointer;
 }
 
-.podcast-microsito-card:hover {
+.podcast-series-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* MODIFICA LE CARD PER ALTEZZA RIDOTTA */
 .podcast-microsito-cover {
     position: relative;
     width: 100%;
@@ -452,7 +451,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-.podcast-microsito-card:hover .podcast-microsito-play {
+.podcast-series-item:hover .podcast-microsito-play {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.1);
 }
@@ -462,123 +461,45 @@
     color: var(--color-dark);
 }
 
-.podcast-microsito-duration {
+/* NUOVO: SERIES BADGE */
+.series-badge {
     position: absolute;
-    bottom: 8px;
+    top: 8px;
     right: 8px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    padding: 3px 6px;
-    border-radius: 8px;
+    padding: 4px 8px;
+    border-radius: 12px;
     font-size: 11px;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 5;
 }
 
-/* ===============================================
-   INFO PODCAST MICROSITO
-   =============================================== */
-.podcast-microsito-info {
-    padding: 16px;
+/* NUOVO: SERIES INFO */
+.series-info {
+    padding: 12px;
 }
 
-.podcast-microsito-title {
+.series-title {
     color: var(--color-text);
     font-size: 14px;
     font-weight: 600;
     line-height: 1.3;
-    margin: 0 0 8px 0;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    line-clamp: 2;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 0 0 4px 0;
 }
 
-.podcast-microsito-date {
+.series-episodes {
     color: var(--color-secondary);
     font-size: 12px;
     font-weight: 400;
-}
-
-
-
-
-/* CARD ISPIRAZIONI - ALTEZZA RIDOTTA PER 1 RIGA */
-.ispirazioni-gallery-static .ispirazioni-image {
-    aspect-ratio: 1;
-    background-size: cover;
-    background-position: center;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    min-height: 100px;
-    /* MOLTO RIDOTTA */
-}
-
-
-
-/* OVERLAY EFFECTS */
-.ispirazioni-gallery-static .ispirazioni-image::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.ispirazioni-gallery-static .ispirazioni-image:hover::before {
-    opacity: 1;
-}
-
-.ispirazioni-gallery-static .ispirazioni-image::after {
-    content: attr(data-title);
-    position: absolute;
-    bottom: 8px;
-    left: 8px;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.ispirazioni-gallery-static .ispirazioni-image:hover::after {
-    opacity: 1;
+    margin: 0;
 }
 
 /* ===============================================
-   SERVIZI - PRIORITÀ ALTA
-   =============================================== */
-.servizi-section {
-    margin-bottom: 60px;
-}
-
-.servizio-card {
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.servizio-card:hover {
-    transform: scale(1.03);
-}
-
-.service-price {
-    color: var(--color-primary);
-    font-size: 18px;
-    font-weight: 600;
-    margin-top: 8px;
-    text-align: center;
-}
-
-/* ===============================================
-   CORSI MICROSITO - IDENTICO A ISPIRAZIONI/PODCAST
+   CORSI MICROSITO - SERIE SYSTEM
    =============================================== */
 
 .corsi-section {
@@ -606,121 +527,131 @@
     text-decoration: underline;
 }
 
-/* GRID STATICA IDENTICA */
+/* GRID IDENTICO A ISPIRAZIONI/PODCAST - 10 COLONNE */
 .corsi-gallery-static {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(10, 1fr);
+    grid-auto-rows: 1fr;
     gap: 12px;
     padding: 0 16px;
     overflow: visible;
 }
 
-/* CARD CORSI - IDENTICHE AD ISPIRAZIONI */
-.corsi-gallery-static .corso-image {
+/* NUOVO: CORSO SERIES ITEMS */
+.corso-series-item {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.corso-series-item .corso-image {
     aspect-ratio: 1;
     background-size: cover;
     background-position: center;
     border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     min-height: 120px;
 }
 
 @media (min-width: 768px) {
-    .corsi-gallery-static .corso-image {
+    .corso-series-item .corso-image {
         min-height: 140px;
     }
 }
 
-.corsi-gallery-static .corso-image:hover {
+.corso-series-item:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(45, 90, 61, 0.2);
 }
 
-/* ICONA PLAY/CORSO OVERLAY */
-.corsi-gallery-static .corso-image::before {
-    content: '\f19d';
-    /* Font Awesome graduation cap icon */
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
+/* NUOVO: CORSO BADGE */
+.corso-badge {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.95);
-    border-radius: 50%;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: var(--color-primary);
-    font-size: 14px;
-    opacity: 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    gap: 4px;
+    z-index: 5;
 }
 
-.corsi-gallery-static .corso-image:hover::before {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-/* DURATA OVERLAY */
-.corsi-gallery-static .corso-image::after {
-    content: attr(data-duration);
+/* NUOVO: CORSO TYPE BADGE */
+.corso-type-badge {
     position: absolute;
     bottom: 6px;
-    right: 6px;
+    left: 6px;
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 2px 6px;
     border-radius: 6px;
     font-size: 10px;
     font-weight: 600;
-    opacity: 0.9;
+    text-transform: capitalize;
 }
 
-/* BADGE TIPO CORSO */
-.corsi-gallery-static .corso-image[data-type="online"]::before {
-    background: rgba(59, 130, 246, 0.95);
-    /* Blu per online */
+.corso-type-online .corso-type-badge {
+    background: rgba(59, 130, 246, 0.9);
 }
 
-.corsi-gallery-static .corso-image[data-type="presenza"]::before {
-    background: rgba(16, 185, 129, 0.95);
-    /* Verde per presenza */
+.corso-type-presenza .corso-type-badge {
+    background: rgba(16, 185, 129, 0.9);
 }
 
-.corsi-gallery-static .corso-image[data-type="ibrido"]::before {
-    background: rgba(245, 158, 11, 0.95);
-    /* Arancione per ibrido */
+.corso-type-ibrido .corso-type-badge {
+    background: rgba(245, 158, 11, 0.9);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .corsi-gallery-static .corso-image::before {
-        width: 30px;
-        height: 30px;
-        font-size: 12px;
-    }
-
-    .corsi-gallery-static .corso-image::after {
-        font-size: 9px;
-        padding: 1px 4px;
-        bottom: 4px;
-        right: 4px;
-    }
+/* NUOVO: CORSO INFO */
+.corso-info {
+    margin-top: 8px;
+    text-align: center;
 }
 
-@media (max-width: 480px) {
-    .corsi-gallery-static .corso-image::before {
-        width: 25px;
-        height: 25px;
-        font-size: 10px;
-    }
+.corso-title {
+    color: var(--color-text);
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.corso-lessons {
+    color: var(--color-secondary);
+    font-size: 11px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ===============================================
+   SERVIZI - PRIORITÀ ALTA
+   =============================================== */
+.servizi-section {
+    margin-bottom: 60px;
+}
+
+.servizio-card {
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.servizio-card:hover {
+    transform: scale(1.03);
+}
+
+.service-price {
+    color: var(--color-primary);
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 8px;
+    text-align: center;
 }
 
 /* ===============================================
@@ -810,12 +741,16 @@
     .certificazioni-card {
         flex: none;
         width: 100%;
+        min-height: auto;
+    }
+
+    .chi-sono-main-card {
+        min-height: auto;
     }
 
     .certificazioni-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
     }
 }
 
@@ -828,21 +763,18 @@
 
     .chi-sono-image {
         width: 100%;
-        height: 200px;
+        height: 300px;
         align-self: center;
         max-width: 300px;
     }
 
     .certificazioni-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .certificazione-item {
-        padding: 10px 14px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
     }
 
     .certificazione-nome {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .recensione-card {

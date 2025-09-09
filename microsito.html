@@ -44,9 +44,6 @@
         <a class="last-minute-link" href="../last-minute.html">Last Minute</a>
 
         <div class="header-right">
-
-            <!-- SEZIONE DA AGGIUNGERE NELL'HEADER - PRIMA DEL LANGUAGE SELECTOR -->
-
             <div class="podcast-header-section">
                 <a href="pages/podcast/podcast.html" class="podcast-link">
                     <div class="podcast-icon">
@@ -128,7 +125,7 @@
                 <h2 class="section-title">Chi Sono</h2>
                 <div class="chi-sono-container">
 
-                    <!-- CARD CHI SONO (SINISTRA - PIÙ GRANDE) -->
+                    <!-- CARD CHI SONO (SINISTRA) -->
                     <div class="chi-sono-main-card">
                         <div class="chi-sono-image"></div>
                         <div class="chi-sono-content">
@@ -154,54 +151,44 @@
                         <p class="video-description">Scopri chi sono e come posso aiutarti</p>
                     </div>
 
-                    <!-- CARD CERTIFICAZIONI (DESTRA) - GRID 3x3 -->
+                    <!-- CARD CERTIFICAZIONI (DESTRA) -->
                     <div class="certificazioni-card">
                         <h3 class="certificazioni-title">Certificazioni</h3>
                         <div class="certificazioni-grid">
-
                             <div class="certificazione-item">
                                 <i class="fas fa-certificate certificazione-icon"></i>
                                 <span class="certificazione-nome">Wellness Coach</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-award certificazione-icon"></i>
                                 <span class="certificazione-nome">Mindfulness Trainer</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-certificate certificazione-icon"></i>
                                 <span class="certificazione-nome">Coaching Nutrizionale</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-award certificazione-icon"></i>
                                 <span class="certificazione-nome">Stress Management</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-certificate certificazione-icon"></i>
                                 <span class="certificazione-nome">Life Coach</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-award certificazione-icon"></i>
                                 <span class="certificazione-nome">Benessere Olistico</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-certificate certificazione-icon"></i>
                                 <span class="certificazione-nome">Yoga Trainer</span>
                             </div>
-
                             <div class="certificazione-item">
                                 <i class="fas fa-award certificazione-icon"></i>
                                 <span class="certificazione-nome">Fitness Coach</span>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </section>
 
@@ -242,219 +229,45 @@
                 </div>
             </section>
 
-            <!-- ISPIRAZIONI - GRID STATICA 1 RIGA -->
+            <!-- ISPIRAZIONI - CONTENITORE PER ALBUM -->
             <section class="ispirazioni-section">
                 <div class="ispirazioni-header">
                     <h2 class="section-title">Ispirazioni</h2>
                     <a href="/pages/professionisti/media.html" class="ispirazioni-view-all">Tutte le ispirazioni</a>
                 </div>
-                <div class="ispirazioni-gallery-static">
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/massage2.jpg');"
-                        data-title="Sessione Mindfulness"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Beauty.jpg');"
-                        data-title="Coaching Nutrizionale"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Fiosioterapia.Osteopatia.png');"
-                        data-title="Percorso Trasformazione"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/YogaEndMeditazione.jpeg');"
-                        data-title="Meditazione Guidata"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/neoMamma.jpg');"
-                        data-title="Supporto Neo-Mamme"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Salute.jpg');"
-                        data-title="Consulenza Benessere"></div>
-                    <div class="ispirazioni-image" style="background-image: url('../../assets/images/Servizi/Gym.jpg');"
-                        data-title="Fitness Personalizzato"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Hair and make-up.png');"
-                        data-title="Hair & Make-up"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Escursioni.jpg');"
-                        data-title="Escursioni Natura"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Chef.jpg');"
-                        data-title="Chef a Domicilio"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/massage2.jpg');"
-                        data-title="Sessione Mindfulness"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Beauty.jpg');"
-                        data-title="Coaching Nutrizionale"></div>
-                    <div class="ispirazioni-image"
-                        style="background-image: url('../../assets/images/Servizi/Fiosioterapia.Osteopatia.png');"
-                        data-title="Percorso Trasformazione"></div>
-
+                <div class="ispirazioni-albums-container" id="ispirazioniAlbumsContainer">
+                    <!-- Gli album saranno caricati dinamicamente dal JavaScript -->
+                    <div class="loading-placeholder">
+                        <p>Caricamento album ispirazioni...</p>
+                    </div>
                 </div>
             </section>
 
-            <!-- PODCAST SECTION - DA AGGIUNGERE DOPO ISPIRAZIONI NEL MICROSITO -->
+            <!-- PODCAST - CONTENITORE PER SERIE -->
             <section class="podcast-microsito-section">
                 <div class="podcast-microsito-header">
                     <h2 class="section-title">I Miei Podcast</h2>
                     <a href="/pages/professionisti/tutti-i-podcast.html" class="podcast-view-all">Tutti i miei
                         podcast</a>
                 </div>
-
-                <div class="podcast-microsito-gallery">
-                    <div class="podcast-microsito-card" data-title="Equilibrio Mente-Corpo" data-duration="23:45">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-1.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">23:45</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Respirazione Consapevole" data-duration="12:30">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-2.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">12:30</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Gestire lo Stress Lavorativo" data-duration="28:10">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-3.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">28:10</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Meditazione del Mattino" data-duration="15:45">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-4.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">15:45</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Alimentazione Intuitiva" data-duration="31:15">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-5.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">31:15</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Mindfulness Quotidiana" data-duration="18:20">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-6.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">18:20</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Tecniche di Rilassamento" data-duration="25:30">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-7.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">25:30</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Benessere in Ufficio" data-duration="22:45">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-8.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">22:45</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Energia Positiva" data-duration="16:15">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-9.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">16:15</div>
-                        </div>
-                    </div>
-
-                    <div class="podcast-microsito-card" data-title="Dormire Meglio" data-duration="19:00">
-                        <div class="podcast-microsito-cover"
-                            style="background-image: url('../../assets/images/podcast/sophia-cover-10.jpg');">
-                            <div class="podcast-microsito-play">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-microsito-duration">19:00</div>
-                        </div>
+                <div class="podcast-series-container" id="podcastSeriesContainer">
+                    <!-- Le serie podcast saranno caricate dinamicamente dal JavaScript -->
+                    <div class="loading-placeholder">
+                        <p>Caricamento serie podcast...</p>
                     </div>
                 </div>
             </section>
 
-            <!-- CORSI SECTION -->
+            <!-- CORSI - CONTENITORE PER SERIE -->
             <section class="corsi-section">
                 <div class="corsi-header">
                     <h2 class="section-title">I Miei Corsi</h2>
                     <a href="/pages/professionisti/tutti-i-corsi.html" class="corsi-view-all">Tutti i miei corsi</a>
                 </div>
-
-
-                <div class="corsi-gallery-static">
-                    <div class="corso-image" data-title="Mindfulness Base" data-duration="8 settimane"
-                        data-type="online"
-                        style="background-image: url('../../assets/images/corsi/mindfulness-base.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Yoga per Principianti" data-duration="4 settimane"
-                        data-type="presenza"
-                        style="background-image: url('../../assets/images/corsi/yoga-principianti.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Gestione Stress" data-duration="6 settimane" data-type="ibrido"
-                        style="background-image: url('../../assets/images/corsi/gestione-stress.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Alimentazione Consapevole" data-duration="5 settimane"
-                        data-type="online"
-                        style="background-image: url('../../assets/images/corsi/alimentazione.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Meditazione Avanzata" data-duration="12 settimane"
-                        data-type="online"
-                        style="background-image: url('../../assets/images/corsi/meditazione-avanzata.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Fitness Funzionale" data-duration="8 settimane"
-                        data-type="presenza"
-                        style="background-image: url('../../assets/images/corsi/fitness-funzionale.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Breathwork" data-duration="3 settimane" data-type="online"
-                        style="background-image: url('../../assets/images/corsi/breathwork.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Pilates Terapeutico" data-duration="10 settimane"
-                        data-type="presenza" style="background-image: url('../../assets/images/corsi/pilates.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Life Coaching" data-duration="16 settimane" data-type="ibrido"
-                        style="background-image: url('../../assets/images/corsi/life-coaching.jpg');">
-                    </div>
-
-                    <div class="corso-image" data-title="Wellness Workshop" data-duration="1 giorno"
-                        data-type="presenza"
-                        style="background-image: url('../../assets/images/corsi/wellness-workshop.jpg');">
+                <div class="corsi-series-container" id="corsiSeriesContainer">
+                    <!-- Le serie corsi saranno caricate dinamicamente dal JavaScript -->
+                    <div class="loading-placeholder">
+                        <p>Caricamento corsi...</p>
                     </div>
                 </div>
             </section>
@@ -519,84 +332,6 @@
                             </div>
                             <p class="recensione-text">"Grazie a Sophia ho imparato a prendermi cura di me stessa. Il
                                 coaching nutrizionale ha migliorato la mia energia e il mio benessere generale."</p>
-                        </div>
-
-                        <div class="professional-card recensione-card">
-                            <div class="recensione-header">
-                                <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/users/user1.jpg');"></div>
-                                <div class="recensione-info">
-                                    <h4 class="recensione-nome">Maria Bianchi</h4>
-                                    <div class="recensione-rating">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="recensione-text">"Sophia mi ha aiutato a trovare il mio equilibrio. Il suo
-                                approccio olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
-                        </div>
-
-
-
-                        <div class="professional-card recensione-card">
-                            <div class="recensione-header">
-                                <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/users/user1.jpg');"></div>
-                                <div class="recensione-info">
-                                    <h4 class="recensione-nome">Maria Bianchi</h4>
-                                    <div class="recensione-rating">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="recensione-text">"Sophia mi ha aiutato a trovare il mio equilibrio. Il suo
-                                approccio olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
-                        </div>
-
-                        <div class="professional-card recensione-card">
-                            <div class="recensione-header">
-                                <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/users/user1.jpg');"></div>
-                                <div class="recensione-info">
-                                    <h4 class="recensione-nome">Maria Bianchi</h4>
-                                    <div class="recensione-rating">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="recensione-text">"Sophia mi ha aiutato a trovare il mio equilibrio. Il suo
-                                approccio olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
-                        </div>
-
-                        <div class="professional-card recensione-card">
-                            <div class="recensione-header">
-                                <div class="recensione-avatar"
-                                    style="background-image: url('../../assets/images/users/user1.jpg');"></div>
-                                <div class="recensione-info">
-                                    <h4 class="recensione-nome">Maria Bianchi</h4>
-                                    <div class="recensione-rating">
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                        <span class="star filled">★</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="recensione-text">"Sophia mi ha aiutato a trovare il mio equilibrio. Il suo
-                                approccio olistico ha trasformato completamente la mia vita. Consigliatissima!"</p>
                         </div>
                     </div>
                 </div>
