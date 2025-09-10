@@ -94,16 +94,16 @@
                     <p class="podcast-subtitle">Scopri contenuti esclusivi dai nostri professionisti del benessere</p>
                     <div class="podcast-stats">
                         <div class="stat-item">
-                            <span class="stat-number">127</span>
+                            <span class="stat-number" id="totalEpisodes">127</span>
                             <span class="stat-label">Episodi</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="totalSeries">8</span>
+                            <span class="stat-label">Serie</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">23</span>
                             <span class="stat-label">Professionisti</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">8</span>
-                            <span class="stat-label">Categorie</span>
                         </div>
                     </div>
                 </div>
@@ -145,173 +145,20 @@
                     <select class="filter-select" id="sortFilter">
                         <option value="newest">Più Recenti</option>
                         <option value="popular">Più Popolari</option>
-                        <option value="duration-asc">Durata Crescente</option>
-                        <option value="duration-desc">Durata Decrescente</option>
+                        <option value="episodes-desc">Più Episodi</option>
+                        <option value="episodes-asc">Meno Episodi</option>
                         <option value="alphabetical">Alfabetico</option>
                     </select>
                 </div>
             </section>
 
-            <!-- GRIGLIA PODCAST -->
+            <!-- GRIGLIA PODCAST SERIE -->
             <section class="podcast-grid-section">
                 <div class="podcast-grid" id="podcastGrid">
-
-                    <!-- PODCAST CARD 1 -->
-                    <div class="podcast-card" data-category="wellness" data-professional="sophia-rossi"
-                        data-duration="medium">
-                        <div class="podcast-cover"
-                            style="background-image: url('../assets/images/podcast/cover-1.jpg');">
-                            <div class="podcast-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-duration">23:45</div>
-                            <div class="podcast-category">Wellness</div>
-                        </div>
-                        <div class="podcast-info">
-                            <h3 class="podcast-title">Equilibrio Mente-Corpo</h3>
-                            <p class="podcast-description">Come trovare l'armonia tra benessere fisico e mentale nella
-                                vita quotidiana</p>
-                            <div class="podcast-meta">
-                                <div class="podcast-author">
-                                    <img src="../assets/images/professionisti/sophia.jpg" alt="Sophia Rossi"
-                                        class="author-avatar">
-                                    <span class="author-name">Sophia Rossi</span>
-                                </div>
-                                <span class="podcast-date">2 giorni fa</span>
-                            </div>
-                        </div>
+                    <!-- Le serie podcast verranno caricate dinamicamente -->
+                    <div class="loading-placeholder">
+                        <p>Caricamento serie podcast in corso...</p>
                     </div>
-
-                    <!-- PODCAST CARD 2 -->
-                    <div class="podcast-card" data-category="mindfulness" data-professional="marco-bianchi"
-                        data-duration="short">
-                        <div class="podcast-cover"
-                            style="background-image: url('../assets/images/podcast/cover-2.jpg');">
-                            <div class="podcast-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-duration">12:30</div>
-                            <div class="podcast-category">Mindfulness</div>
-                        </div>
-                        <div class="podcast-info">
-                            <h3 class="podcast-title">Respirazione Consapevole</h3>
-                            <p class="podcast-description">Tecniche di respirazione per gestire ansia e stress
-                                quotidiano</p>
-                            <div class="podcast-meta">
-                                <div class="podcast-author">
-                                    <img src="../assets/images/professionisti/marco.jpg" alt="Marco Bianchi"
-                                        class="author-avatar">
-                                    <span class="author-name">Marco Bianchi</span>
-                                </div>
-                                <span class="podcast-date">5 giorni fa</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PODCAST CARD 3 -->
-                    <div class="podcast-card" data-category="nutrizione" data-professional="elena-verdi"
-                        data-duration="medium">
-                        <div class="podcast-cover"
-                            style="background-image: url('../assets/images/podcast/cover-3.jpg');">
-                            <div class="podcast-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-duration">31:15</div>
-                            <div class="podcast-category">Nutrizione</div>
-                        </div>
-                        <div class="podcast-info">
-                            <h3 class="podcast-title">Alimentazione Intuitiva</h3>
-                            <p class="podcast-description">Ascoltare il proprio corpo per una relazione sana con il cibo
-                            </p>
-                            <div class="podcast-meta">
-                                <div class="podcast-author">
-                                    <img src="../assets/images/professionisti/elena.jpg" alt="Elena Verdi"
-                                        class="author-avatar">
-                                    <span class="author-name">Elena Verdi</span>
-                                </div>
-                                <span class="podcast-date">1 settimana fa</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PODCAST CARD 4 -->
-                    <div class="podcast-card" data-category="fitness" data-professional="luca-ferrari"
-                        data-duration="long">
-                        <div class="podcast-cover"
-                            style="background-image: url('../assets/images/podcast/cover-4.jpg');">
-                            <div class="podcast-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-duration">52:20</div>
-                            <div class="podcast-category">Fitness</div>
-                        </div>
-                        <div class="podcast-info">
-                            <h3 class="podcast-title">Allenamento Funzionale</h3>
-                            <p class="podcast-description">Principi e benefici dell'allenamento funzionale per il
-                                benessere quotidiano</p>
-                            <div class="podcast-meta">
-                                <div class="podcast-author">
-                                    <img src="../assets/images/professionisti/luca.jpg" alt="Luca Ferrari"
-                                        class="author-avatar">
-                                    <span class="author-name">Luca Ferrari</span>
-                                </div>
-                                <span class="podcast-date">2 settimane fa</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PODCAST CARD 5 -->
-                    <div class="podcast-card" data-category="stress" data-professional="sophia-rossi"
-                        data-duration="medium">
-                        <div class="podcast-cover"
-                            style="background-image: url('../assets/images/podcast/cover-5.jpg');">
-                            <div class="podcast-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-duration">28:10</div>
-                            <div class="podcast-category">Stress</div>
-                        </div>
-                        <div class="podcast-info">
-                            <h3 class="podcast-title">Gestire lo Stress Lavorativo</h3>
-                            <p class="podcast-description">Strategie efficaci per mantenere il benessere nell'ambiente
-                                professionale</p>
-                            <div class="podcast-meta">
-                                <div class="podcast-author">
-                                    <img src="../assets/images/professionisti/sophia.jpg" alt="Sophia Rossi"
-                                        class="author-avatar">
-                                    <span class="author-name">Sophia Rossi</span>
-                                </div>
-                                <span class="podcast-date">3 settimane fa</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- PODCAST CARD 6 -->
-                    <div class="podcast-card" data-category="meditazione" data-professional="marco-bianchi"
-                        data-duration="short">
-                        <div class="podcast-cover"
-                            style="background-image: url('../assets/images/podcast/cover-6.jpg');">
-                            <div class="podcast-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="podcast-duration">15:45</div>
-                            <div class="podcast-category">Meditazione</div>
-                        </div>
-                        <div class="podcast-info">
-                            <h3 class="podcast-title">Meditazione del Mattino</h3>
-                            <p class="podcast-description">Pratica guidata per iniziare la giornata con energia positiva
-                            </p>
-                            <div class="podcast-meta">
-                                <div class="podcast-author">
-                                    <img src="../assets/images/professionisti/marco.jpg" alt="Marco Bianchi"
-                                        class="author-avatar">
-                                    <span class="author-name">Marco Bianchi</span>
-                                </div>
-                                <span class="podcast-date">1 mese fa</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
 
                 <!-- LOADING E PAGINAZIONE -->
@@ -321,7 +168,7 @@
                 </div>
 
                 <div class="podcast-pagination">
-                    <button class="pagination-btn" id="loadMore">Carica Altri Podcast</button>
+                    <button class="pagination-btn" id="loadMore">Carica Altre Serie</button>
                 </div>
             </section>
 
@@ -371,6 +218,36 @@
         <button class="player-close" id="playerClose">
             <i class="fas fa-times"></i>
         </button>
+    </div>
+
+    <!-- MODAL SERIE PODCAST -->
+    <div class="series-modal-overlay" id="seriesModal" style="display: none;">
+        <div class="series-modal-content">
+            <div class="series-modal-header">
+                <h3 id="seriesModalTitle"></h3>
+                <button class="series-modal-close" onclick="closeSeriesModal()">&times;</button>
+            </div>
+            <div class="series-modal-body">
+                <div class="series-info">
+                    <div class="series-cover-large" id="seriesCoverLarge"></div>
+                    <div class="series-details">
+                        <h4 id="seriesDetailTitle"></h4>
+                        <p id="seriesDetailAuthor"></p>
+                        <p id="seriesDetailDescription"></p>
+                        <div class="series-meta">
+                            <span id="seriesDetailEpisodes"></span>
+                            <span id="seriesDetailCategory"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="episodes-list">
+                    <h4>Episodi</h4>
+                    <div class="episodes-container" id="episodesContainer">
+                        <!-- Episodi verranno inseriti qui -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- FOOTER -->

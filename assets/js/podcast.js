@@ -1,848 +1,710 @@
 /**
- * PODCAST PAGE JAVASCRIPT
- * Gestisce player, filtri e interazioni
+ * PODCAST PAGE JAVASCRIPT - SERIE SYSTEM
+ * Gestisce serie podcast con episodi multipli
  */
-
-// Stato globale del player
-let currentPodcast = null;
-let isPlaying = false;
-let currentTime = 0;
-let totalDuration = 0;
-let volume = 0.7;
-
-// Array di tutti i podcast (simulato)
-let allPodcasts = [];
-let filteredPodcasts = [];
-
-// Elementi DOM
-let podcastGrid;
-let podcastPlayer;
-let playPauseBtn;
-let progressBar;
-let progressFill;
-let timeCurrentSpan;
-let timeTotalSpan;
-let volumeBar;
-let volumeFill;
 
 document.addEventListener('DOMContentLoaded', function () {
-    initializePodcastPage();
+    window.podcastManager = new PodcastSeriesManager();
 });
 
-/**
- * ===============================================
- * INIZIALIZZAZIONE
- * ===============================================
- */
-function initializePodcastPage() {
-    // Ottieni elementi DOM
-    podcastGrid = document.getElementById('podcastGrid');
-    podcastPlayer = document.getElementById('podcastPlayer');
-    playPauseBtn = document.getElementById('playPauseBtn');
-    progressBar = document.querySelector('.progress-bar');
-    progressFill = document.querySelector('.progress-fill');
-    timeCurrentSpan = document.querySelector('.time-current');
-    timeTotalSpan = document.querySelector('.time-total');
-    volumeBar = document.querySelector('.volume-bar');
-    volumeFill = document.querySelector('.volume-fill');
+class PodcastSeriesManager {
+    constructor() {
+        this.currentEpisode = null;
+        this.isPlaying = false;
+        this.currentTime = 0;
+        this.totalDuration = 0;
+        this.volume = 0.7;
+        this.allSeries = [];
+        this.filteredSeries = [];
+        this.init();
+    }
 
-    // Inizializza componenti
-    loadPodcastData();
-    setupEventListeners();
-    setupFilters();
-    setupPlayer();
+    init() {
+        this.loadSeriesData();
+        this.setupEventListeners();
+        this.setupFilters();
+        this.setupPlayer();
+        this.renderSeries();
+        console.log('Podcast Series Manager inizializzato');
+    }
 
-    console.log('✅ Podcast page initialized');
-}
+    loadSeriesData() {
+        // Simula dati serie podcast caricati dal microsito-professionista
+        this.allSeries = [
+            {
+                id: 'series_1',
+                title: 'Benessere Quotidiano',
+                description: 'Una serie dedicata al benessere nella vita di tutti i giorni',
+                author: 'Sophia Rossi',
+                category: 'wellness',
+                professional: 'sophia-rossi',
+                cover: '../assets/images/podcast/cover-1.jpg',
+                createdAt: '2024-01-15',
+                episodes: [
+                    {
+                        number: 1,
+                        title: 'Equilibrio Mente-Corpo',
+                        description: 'Come trovare l\'armonia tra benessere fisico e mentale',
+                        duration: '23:45',
+                        audioUrl: '../assets/audio/episode-1-1.mp3'
+                    },
+                    {
+                        number: 2,
+                        title: 'Routine Mattutina',
+                        description: 'Creare una routine che energizza la giornata',
+                        duration: '18:30',
+                        audioUrl: '../assets/audio/episode-1-2.mp3'
+                    },
+                    {
+                        number: 3,
+                        title: 'Gestione dello Stress',
+                        description: 'Tecniche pratiche per affrontare lo stress quotidiano',
+                        duration: '26:15',
+                        audioUrl: '../assets/audio/episode-1-3.mp3'
+                    }
+                ]
+            },
+            {
+                id: 'series_2',
+                title: 'Mindfulness in Pratica',
+                description: 'Esercizi guidati di mindfulness per principianti',
+                author: 'Marco Bianchi',
+                category: 'mindfulness',
+                professional: 'marco-bianchi',
+                cover: '../assets/images/podcast/cover-2.jpg',
+                createdAt: '2024-01-10',
+                episodes: [
+                    {
+                        number: 1,
+                        title: 'Respirazione Consapevole',
+                        description: 'Le basi della respirazione mindful',
+                        duration: '12:30',
+                        audioUrl: '../assets/audio/episode-2-1.mp3'
+                    },
+                    {
+                        number: 2,
+                        title: 'Attenzione al Presente',
+                        description: 'Come rimanere focalizzati sul momento presente',
+                        duration: '15:45',
+                        audioUrl: '../assets/audio/episode-2-2.mp3'
+                    }
+                ]
+            },
+            {
+                id: 'series_3',
+                title: 'Alimentazione Consapevole',
+                description: 'Nutrire corpo e mente attraverso scelte alimentari consapevoli',
+                author: 'Elena Verdi',
+                category: 'nutrizione',
+                professional: 'elena-verdi',
+                cover: '../assets/images/podcast/cover-3.jpg',
+                createdAt: '2024-01-08',
+                episodes: [
+                    {
+                        number: 1,
+                        title: 'Alimentazione Intuitiva',
+                        description: 'Ascoltare i segnali del proprio corpo',
+                        duration: '31:15',
+                        audioUrl: '../assets/audio/episode-3-1.mp3'
+                    },
+                    {
+                        number: 2,
+                        title: 'Mindful Eating',
+                        description: 'Mangiare con consapevolezza e gratitudine',
+                        duration: '24:50',
+                        audioUrl: '../assets/audio/episode-3-2.mp3'
+                    },
+                    {
+                        number: 3,
+                        title: 'Superfoods Naturali',
+                        description: 'Alimenti che nutrono corpo e mente',
+                        duration: '28:40',
+                        audioUrl: '../assets/audio/episode-3-3.mp3'
+                    }
+                ]
+            },
+            {
+                id: 'series_4',
+                title: 'Fitness Funzionale',
+                description: 'Allenamento che migliora la qualità di vita quotidiana',
+                author: 'Luca Ferrari',
+                category: 'fitness',
+                professional: 'luca-ferrari',
+                cover: '../assets/images/podcast/cover-4.jpg',
+                createdAt: '2024-01-05',
+                episodes: [
+                    {
+                        number: 1,
+                        title: 'Allenamento Funzionale',
+                        description: 'Principi e benefici dell\'allenamento funzionale',
+                        duration: '52:20',
+                        audioUrl: '../assets/audio/episode-4-1.mp3'
+                    }
+                ]
+            },
+            {
+                id: 'series_5',
+                title: 'Stress Management',
+                description: 'Strategie efficaci per gestire lo stress nella vita moderna',
+                author: 'Sophia Rossi',
+                category: 'stress',
+                professional: 'sophia-rossi',
+                cover: '../assets/images/podcast/cover-5.jpg',
+                createdAt: '2024-01-01',
+                episodes: [
+                    {
+                        number: 1,
+                        title: 'Gestire lo Stress Lavorativo',
+                        description: 'Mantenere il benessere nell\'ambiente professionale',
+                        duration: '28:10',
+                        audioUrl: '../assets/audio/episode-5-1.mp3'
+                    },
+                    {
+                        number: 2,
+                        title: 'Rilassamento Progressivo',
+                        description: 'Tecniche di rilassamento per corpo e mente',
+                        duration: '35:20',
+                        audioUrl: '../assets/audio/episode-5-2.mp3'
+                    }
+                ]
+            }
+        ];
 
-/**
- * ===============================================
- * CARICAMENTO DATI PODCAST
- * ===============================================
- */
-function loadPodcastData() {
-    // Simula caricamento dal server
-    allPodcasts = Array.from(document.querySelectorAll('.podcast-card')).map((card, index) => {
-        return {
-            id: index + 1,
-            title: card.querySelector('.podcast-title').textContent,
-            description: card.querySelector('.podcast-description').textContent,
-            author: card.querySelector('.author-name').textContent,
-            duration: card.querySelector('.podcast-duration').textContent,
-            category: card.dataset.category,
-            professional: card.dataset.professional,
-            durationGroup: card.dataset.duration,
-            cover: card.querySelector('.podcast-cover').style.backgroundImage,
-            audioUrl: `../assets/audio/podcast-${index + 1}.mp3`, // URL audio simulato
-            date: card.querySelector('.podcast-date').textContent,
-            element: card
-        };
-    });
+        this.filteredSeries = [...this.allSeries];
+        this.updateStats();
+    }
 
-    filteredPodcasts = [...allPodcasts];
-    setupPodcastCards();
-}
-
-/**
- * ===============================================
- * SETUP CARD PODCAST
- * ===============================================
- */
-function setupPodcastCards() {
-    allPodcasts.forEach(podcast => {
-        const playBtn = podcast.element.querySelector('.podcast-play-btn');
-
-        playBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            playPodcast(podcast);
+    setupEventListeners() {
+        // Filtri serie
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                this.filterByCategory(e.target.dataset.category);
+                this.updateActiveFilter(e.target);
+            });
         });
 
-        // Click sulla card per dettagli
-        podcast.element.addEventListener('click', () => {
-            showPodcastDetails(podcast);
+        // Gestione tasti per player
+        document.addEventListener('keydown', (e) => {
+            if (this.currentEpisode) {
+                this.handleKeyboardShortcuts(e);
+            }
         });
-    });
-}
 
-/**
- * ===============================================
- * PLAYER AUDIO
- * ===============================================
- */
-function playPodcast(podcast) {
-    if (currentPodcast && currentPodcast.id === podcast.id) {
-        // Toggle play/pause dello stesso podcast
-        togglePlayPause();
-    } else {
-        // Nuovo podcast
-        currentPodcast = podcast;
-        loadPodcastInPlayer(podcast);
-        startPlayback();
+        // Click fuori dal modal per chiudere
+        document.getElementById('seriesModal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('series-modal-overlay')) {
+                this.closeSeriesModal();
+            }
+        });
+
+        // Load more
+        document.getElementById('loadMore').addEventListener('click', () => {
+            this.loadMoreSeries();
+        });
+
+        // Search
+        document.querySelector('.search-input').addEventListener('input', (e) => {
+            this.handleSearch(e.target.value);
+        });
     }
-}
 
-function loadPodcastInPlayer(podcast) {
-    // Aggiorna UI del player
-    document.querySelector('.player-cover').src = podcast.cover.slice(5, -2);
-    document.querySelector('.player-title').textContent = podcast.title;
-    document.querySelector('.player-author').textContent = podcast.author;
-    document.querySelector('.time-total').textContent = podcast.duration;
-
-    // Mostra player
-    podcastPlayer.style.display = 'flex';
-
-    // Simula caricamento audio
-    totalDuration = parseDuration(podcast.duration);
-    currentTime = 0;
-    updateProgressBar();
-}
-
-function startPlayback() {
-    isPlaying = true;
-    updatePlayButton();
-
-    // Simula riproduzione (in produzione useresti HTMLAudioElement)
-    simulateAudioPlayback();
-}
-
-function togglePlayPause() {
-    isPlaying = !isPlaying;
-    updatePlayButton();
-
-    if (isPlaying) {
-        simulateAudioPlayback();
+    setupFilters() {
+        // Filtri dropdown
+        document.getElementById('professionalFilter').addEventListener('change', () => this.applyFilters());
+        document.getElementById('durationFilter').addEventListener('change', () => this.applyFilters());
+        document.getElementById('sortFilter').addEventListener('change', () => this.applyFilters());
     }
-}
 
-function updatePlayButton() {
-    const icon = playPauseBtn.querySelector('i');
-    icon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
-}
+    setupPlayer() {
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const progressBar = document.querySelector('.progress-bar');
+        const volumeBar = document.querySelector('.volume-bar');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const closeBtn = document.getElementById('playerClose');
 
-function simulateAudioPlayback() {
-    if (!isPlaying) return;
+        playPauseBtn.addEventListener('click', () => this.togglePlayPause());
+        progressBar.addEventListener('click', (e) => this.seekTo(e));
+        volumeBar.addEventListener('click', (e) => this.adjustVolume(e));
+        prevBtn.addEventListener('click', () => this.playPrevious());
+        nextBtn.addEventListener('click', () => this.playNext());
+        closeBtn.addEventListener('click', () => this.closePlayer());
+    }
 
-    // Simula avanzamento tempo (ogni secondo)
-    const interval = setInterval(() => {
-        if (!isPlaying) {
-            clearInterval(interval);
+    renderSeries() {
+        const podcastGrid = document.getElementById('podcastGrid');
+
+        if (this.filteredSeries.length === 0) {
+            podcastGrid.innerHTML = '<div class="loading-placeholder"><p>Nessuna serie podcast disponibile</p></div>';
             return;
         }
 
-        currentTime += 1;
-        updateProgressBar();
-        updateTimeDisplay();
+        let seriesHTML = '';
 
-        // Fine podcast
-        if (currentTime >= totalDuration) {
-            clearInterval(interval);
-            endPodcast();
-        }
-    }, 1000);
-}
+        this.filteredSeries.forEach(series => {
+            const totalEpisodes = series.episodes.length;
+            const categoryName = this.getCategoryName(series.category);
 
-function updateProgressBar() {
-    const percentage = totalDuration > 0 ? (currentTime / totalDuration) * 100 : 0;
-    progressFill.style.width = `${percentage}%`;
-
-    const handle = document.querySelector('.progress-handle');
-    if (handle) {
-        handle.style.left = `${percentage}%`;
-    }
-}
-
-function updateTimeDisplay() {
-    timeCurrentSpan.textContent = formatTime(currentTime);
-}
-
-function endPodcast() {
-    isPlaying = false;
-    currentTime = 0;
-    updatePlayButton();
-    updateProgressBar();
-    updateTimeDisplay();
-}
-
-/**
- * ===============================================
- * CONTROLLI PLAYER
- * ===============================================
- */
-function setupPlayer() {
-    // Play/Pause
-    playPauseBtn.addEventListener('click', togglePlayPause);
-
-    // Progress bar click
-    progressBar.addEventListener('click', (e) => {
-        const rect = progressBar.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const percentage = clickX / rect.width;
-        currentTime = Math.floor(totalDuration * percentage);
-        updateProgressBar();
-        updateTimeDisplay();
-    });
-
-    // Volume control
-    volumeBar.addEventListener('click', (e) => {
-        const rect = volumeBar.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        volume = clickX / rect.width;
-        volumeFill.style.width = `${volume * 100}%`;
-        updateVolumeIcon();
-    });
-
-    // Previous/Next (da implementare)
-    document.getElementById('prevBtn').addEventListener('click', playPrevious);
-    document.getElementById('nextBtn').addEventListener('click', playNext);
-
-    // Close player
-    document.getElementById('playerClose').addEventListener('click', closePlayer);
-}
-
-function playPrevious() {
-    if (!currentPodcast) return;
-
-    const currentIndex = allPodcasts.findIndex(p => p.id === currentPodcast.id);
-    const prevIndex = currentIndex > 0 ? currentIndex - 1 : allPodcasts.length - 1;
-    playPodcast(allPodcasts[prevIndex]);
-}
-
-function playNext() {
-    if (!currentPodcast) return;
-
-    const currentIndex = allPodcasts.findIndex(p => p.id === currentPodcast.id);
-    const nextIndex = currentIndex < allPodcasts.length - 1 ? currentIndex + 1 : 0;
-    playPodcast(allPodcasts[nextIndex]);
-}
-
-function closePlayer() {
-    isPlaying = false;
-    currentPodcast = null;
-    podcastPlayer.style.display = 'none';
-}
-
-function updateVolumeIcon() {
-    const volumeBtn = document.querySelector('.volume-btn i');
-    if (volume === 0) {
-        volumeBtn.className = 'fas fa-volume-mute';
-    } else if (volume < 0.5) {
-        volumeBtn.className = 'fas fa-volume-down';
-    } else {
-        volumeBtn.className = 'fas fa-volume-up';
-    }
-}
-
-/**
- * ===============================================
- * FILTRI
- * =============================================== */
-function setupFilters() {
-    // Filtri categoria
-    const categoryBtns = document.querySelectorAll('.filter-btn');
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            // Apply filter
-            const category = btn.dataset.category;
-            filterByCategory(category);
-        });
-    });
-
-    // Filtri dropdown
-    document.getElementById('professionalFilter').addEventListener('change', applyFilters);
-    document.getElementById('durationFilter').addEventListener('change', applyFilters);
-    document.getElementById('sortFilter').addEventListener('change', applyFilters);
-
-    // Search
-    document.querySelector('.search-input').addEventListener('input', handleSearch);
-}
-
-function filterByCategory(category) {
-    filteredPodcasts = category === 'all'
-        ? [...allPodcasts]
-        : allPodcasts.filter(p => p.category === category);
-
-    applyAdditionalFilters();
-    renderFilteredPodcasts();
-}
-
-function applyFilters() {
-    const professional = document.getElementById('professionalFilter').value;
-    const duration = document.getElementById('durationFilter').value;
-    const sort = document.getElementById('sortFilter').value;
-
-    // Riapplica filtro categoria attivo
-    const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
-    filterByCategory(activeCategory);
-
-    applyAdditionalFilters();
-}
-
-function applyAdditionalFilters() {
-    const professional = document.getElementById('professionalFilter').value;
-    const duration = document.getElementById('durationFilter').value;
-    const sort = document.getElementById('sortFilter').value;
-
-    // Filtra per professionista
-    if (professional) {
-        filteredPodcasts = filteredPodcasts.filter(p => p.professional === professional);
-    }
-
-    // Filtra per durata
-    if (duration) {
-        filteredPodcasts = filteredPodcasts.filter(p => p.durationGroup === duration);
-    }
-
-    // Ordina
-    sortPodcasts(sort);
-    renderFilteredPodcasts();
-}
-
-function sortPodcasts(sortType) {
-    switch (sortType) {
-        case 'popular':
-            // Ordina per popolarità (simulato)
-            filteredPodcasts.sort((a, b) => Math.random() - 0.5);
-            break;
-        case 'duration-asc':
-            filteredPodcasts.sort((a, b) => parseDuration(a.duration) - parseDuration(b.duration));
-            break;
-        case 'duration-desc':
-            filteredPodcasts.sort((a, b) => parseDuration(b.duration) - parseDuration(a.duration));
-            break;
-        case 'alphabetical':
-            filteredPodcasts.sort((a, b) => a.title.localeCompare(b.title));
-            break;
-        default: // newest
-            filteredPodcasts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    }
-}
-
-function handleSearch(e) {
-    const searchTerm = e.target.value.toLowerCase().trim();
-
-    if (searchTerm.length === 0) {
-        applyFilters();
-        return;
-    }
-
-    filteredPodcasts = allPodcasts.filter(podcast =>
-        podcast.title.toLowerCase().includes(searchTerm) ||
-        podcast.description.toLowerCase().includes(searchTerm) ||
-        podcast.author.toLowerCase().includes(searchTerm)
-    );
-
-    renderFilteredPodcasts();
-}
-
-function renderFilteredPodcasts() {
-    // Nascondi tutte le card
-    allPodcasts.forEach(podcast => {
-        podcast.element.style.display = 'none';
-    });
-
-    // Mostra solo quelle filtrate
-    filteredPodcasts.forEach(podcast => {
-        podcast.element.style.display = 'block';
-    });
-
-    // Update stats
-    updatePodcastStats();
-}
-
-function updatePodcastStats() {
-    const totalSpan = document.querySelector('.stat-number');
-    if (totalSpan) {
-        totalSpan.textContent = filteredPodcasts.length;
-    }
-}
-
-/**
- * ===============================================
- * EVENTI
- * =============================================== */
-function setupEventListeners() {
-    // Load more button
-    document.getElementById('loadMore').addEventListener('click', loadMorePodcasts);
-
-    // Keyboard shortcuts
-    document.addEventListener('keydown', handleKeyboardShortcuts);
-}
-
-function loadMorePodcasts() {
-    // Simula caricamento di più podcast
-    const loadingDiv = document.getElementById('podcastLoading');
-    loadingDiv.style.display = 'flex';
-
-    setTimeout(() => {
-        loadingDiv.style.display = 'none';
-        // In produzione: aggiungi nuovi podcast al DOM
-        console.log('Caricati più podcast...');
-    }, 1500);
-}
-
-function handleKeyboardShortcuts(e) {
-    if (!currentPodcast) return;
-
-    switch (e.code) {
-        case 'Space':
-            e.preventDefault();
-            togglePlayPause();
-            break;
-        case 'ArrowLeft':
-            currentTime = Math.max(0, currentTime - 10);
-            updateProgressBar();
-            updateTimeDisplay();
-            break;
-        case 'ArrowRight':
-            currentTime = Math.min(totalDuration, currentTime + 10);
-            updateProgressBar();
-            updateTimeDisplay();
-            break;
-        case 'ArrowUp':
-            e.preventDefault();
-            volume = Math.min(1, volume + 0.1);
-            volumeFill.style.width = `${volume * 100}%`;
-            updateVolumeIcon();
-            break;
-        case 'ArrowDown':
-            e.preventDefault();
-            volume = Math.max(0, volume - 0.1);
-            volumeFill.style.width = `${volume * 100}%`;
-            updateVolumeIcon();
-            break;
-    }
-}
-
-/**
- * ===============================================
- * UTILITY FUNCTIONS
- * =============================================== */
-function parseDuration(durationStr) {
-    // Converte "23:45" in secondi
-    const parts = durationStr.split(':');
-    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
-}
-
-function formatTime(seconds) {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-}
-
-function showPodcastDetails(podcast) {
-    // Crea modal dettagli
-    const modal = document.createElement('div');
-    modal.className = 'podcast-modal';
-    modal.innerHTML = `
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">${podcast.title}</h2>
-                <button class="modal-close">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="podcast-detail-cover">
-                    <div class="detail-cover-image" style="background-image: ${podcast.cover}">
-                        <div class="detail-play-btn" data-podcast-id="${podcast.id}">
+            seriesHTML += `
+                <div class="podcast-card" data-series-id="${series.id}" onclick="openSeriesModal('${series.id}')">
+                    <div class="podcast-cover" style="background-image: url('${series.cover}');">
+                        <div class="podcast-play-btn" onclick="event.stopPropagation(); playFirstEpisode('${series.id}')">
                             <i class="fas fa-play"></i>
                         </div>
+                        <div class="episodes-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span>${totalEpisodes} episodi</span>
+                        </div>
+                        <div class="podcast-category">${categoryName}</div>
                     </div>
-                    <div class="podcast-detail-info">
-                        <h3 class="detail-title">${podcast.title}</h3>
-                        <p class="detail-author">di ${podcast.author}</p>
-                        <div class="detail-meta">
-                            <span class="detail-duration">
-                                <i class="far fa-clock"></i> ${podcast.duration}
-                            </span>
-                            <span class="detail-category">
-                                <i class="fas fa-tag"></i> ${getCategoryName(podcast.category)}
-                            </span>
-                            <span class="detail-date">
-                                <i class="far fa-calendar"></i> ${podcast.date}
-                            </span>
+                    <div class="podcast-info">
+                        <h3 class="podcast-title">${series.title}</h3>
+                        <p class="podcast-description">${series.description}</p>
+                        <div class="podcast-meta">
+                            <div class="podcast-author">
+                                <img src="../assets/images/professionisti/${series.professional}.jpg" alt="${series.author}" class="author-avatar">
+                                <span class="author-name">${series.author}</span>
+                            </div>
+                            <span class="podcast-date">${this.formatDate(series.createdAt)}</span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="podcast-detail-description">
-                    <h4>Descrizione</h4>
-                    <p>${podcast.description}</p>
-                    <p>In questo episodio esploriamo in dettaglio i temi del benessere e della crescita personale. Scoprirai tecniche pratiche e consigli esperti per migliorare la tua qualità di vita quotidiana.</p>
-                </div>
-                
-                <div class="podcast-detail-player">
-                    <div class="detail-player-controls">
-                        <button class="detail-control-btn" id="detailPrevBtn">
-                            <i class="fas fa-step-backward"></i>
-                        </button>
-                        <button class="detail-control-btn detail-play-pause" data-podcast-id="${podcast.id}">
-                            <i class="fas fa-play"></i>
-                        </button>
-                        <button class="detail-control-btn" id="detailNextBtn">
-                            <i class="fas fa-step-forward"></i>
-                        </button>
-                    </div>
-                    
-                    <div class="detail-progress-container">
-                        <span class="detail-time-current">0:00</span>
-                        <div class="detail-progress-bar">
-                            <div class="detail-progress-fill"></div>
-                            <div class="detail-progress-handle"></div>
-                        </div>
-                        <span class="detail-time-total">${podcast.duration}</span>
-                    </div>
-                    
-                    <div class="detail-volume-container">
-                        <button class="detail-control-btn detail-volume-btn">
-                            <i class="fas fa-volume-up"></i>
-                        </button>
-                        <div class="detail-volume-bar">
-                            <div class="detail-volume-fill" style="width: 70%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="podcast-detail-actions">
-                    <button class="detail-action-btn follow-btn">
-                        <i class="fas fa-bell"></i>
-                        Segui ${podcast.author}
-                    </button>
-                    <button class="detail-action-btn share-btn">
-                        <i class="fas fa-share"></i>
-                        Condividi
-                    </button>
-                    <button class="detail-action-btn download-btn">
-                        <i class="fas fa-download"></i>
-                        Download
-                    </button>
-                </div>
-                
-                <div class="podcast-detail-author">
-                    <div class="author-info">
-                        <img src="../assets/images/professionisti/${podcast.professional}.jpg" alt="${podcast.author}" class="author-large-avatar">
-                        <div class="author-details">
-                            <h4>${podcast.author}</h4>
-                            <p>Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone nel loro percorso di benessere.</p>
-                            <a href="../professionisti/${podcast.professional}.html" class="author-profile-btn">Vedi Profilo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(modal);
-    document.body.style.overflow = 'hidden';
-
-    // Setup modal events
-    setupModalEvents(modal, podcast);
-
-    // Animazione entrata
-    requestAnimationFrame(() => {
-        modal.style.opacity = '0';
-        modal.style.transition = 'opacity 0.3s ease';
-        requestAnimationFrame(() => {
-            modal.style.opacity = '1';
+            `;
         });
-    });
-}
 
-function setupModalEvents(modal, podcast) {
-    // Close modal
-    const closeBtn = modal.querySelector('.modal-close');
-    const overlay = modal.querySelector('.modal-overlay');
+        podcastGrid.innerHTML = seriesHTML;
+    }
 
-    closeBtn.addEventListener('click', () => closeModal(modal));
-    overlay.addEventListener('click', () => closeModal(modal));
+    openSeriesModal(seriesId) {
+        const series = this.allSeries.find(s => s.id === seriesId);
+        if (!series) return;
 
-    // ESC key
-    const escHandler = (e) => {
-        if (e.key === 'Escape') {
-            closeModal(modal);
-            document.removeEventListener('keydown', escHandler);
-        }
-    };
-    document.addEventListener('keydown', escHandler);
+        // Aggiorna contenuto modal
+        document.getElementById('seriesModalTitle').textContent = series.title;
+        document.getElementById('seriesCoverLarge').style.backgroundImage = `url('${series.cover}')`;
+        document.getElementById('seriesDetailTitle').textContent = series.title;
+        document.getElementById('seriesDetailAuthor').textContent = `di ${series.author}`;
+        document.getElementById('seriesDetailDescription').textContent = series.description;
+        document.getElementById('seriesDetailEpisodes').innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+            ${series.episodes.length} episodi
+        `;
+        document.getElementById('seriesDetailCategory').innerHTML = `
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2l-3.37.84z"/>
+            </svg>
+            ${this.getCategoryName(series.category)}
+        `;
 
-    // Play buttons
-    const playBtns = modal.querySelectorAll('[data-podcast-id]');
-    playBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            playPodcastInModal(podcast, modal);
+        // Genera lista episodi
+        const episodesContainer = document.getElementById('episodesContainer');
+        let episodesHTML = '';
+
+        series.episodes.forEach(episode => {
+            episodesHTML += `
+                <div class="episode-item" onclick="playEpisode('${series.id}', ${episode.number})">
+                    <div class="episode-number">${episode.number}</div>
+                    <div class="episode-content">
+                        <h5 class="episode-title">${episode.title}</h5>
+                        <p class="episode-description">${episode.description}</p>
+                    </div>
+                    <div class="episode-duration">${episode.duration}</div>
+                    <button class="episode-play-btn" onclick="event.stopPropagation(); playEpisode('${series.id}', ${episode.number})">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+            `;
         });
-    });
 
-    // Progress bar nel modal
-    const progressBar = modal.querySelector('.detail-progress-bar');
-    progressBar.addEventListener('click', (e) => {
-        const rect = progressBar.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const percentage = clickX / rect.width;
-        updateModalProgress(percentage, modal);
-    });
+        episodesContainer.innerHTML = episodesHTML;
 
-    // Volume nel modal
-    const volumeBar = modal.querySelector('.detail-volume-bar');
-    volumeBar.addEventListener('click', (e) => {
-        const rect = volumeBar.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const volumePercentage = clickX / rect.width;
-        updateModalVolume(volumePercentage, modal);
-    });
+        // Mostra modal
+        document.getElementById('seriesModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
 
-    // Action buttons
-    modal.querySelector('.follow-btn').addEventListener('click', () => followAuthor(podcast.author));
-    modal.querySelector('.share-btn').addEventListener('click', () => sharePodcast(podcast));
-    modal.querySelector('.download-btn').addEventListener('click', () => downloadPodcast(podcast));
-}
-
-function closeModal(modal) {
-    modal.style.opacity = '0';
-    setTimeout(() => {
-        modal.remove();
+    closeSeriesModal() {
+        document.getElementById('seriesModal').style.display = 'none';
         document.body.style.overflow = '';
-    }, 300);
-}
-
-function playPodcastInModal(podcast, modal) {
-    // Avvia anche il player fisso
-    playPodcast(podcast);
-
-    // Update modal UI
-    const playBtn = modal.querySelector('.detail-play-pause i');
-    playBtn.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
-
-    // Simula progress nel modal
-    if (isPlaying) {
-        simulateModalProgress(modal);
     }
-}
 
-function simulateModalProgress(modal) {
-    const progressFill = modal.querySelector('.detail-progress-fill');
-    const timeSpan = modal.querySelector('.detail-time-current');
+    playFirstEpisode(seriesId) {
+        const series = this.allSeries.find(s => s.id === seriesId);
+        if (series && series.episodes.length > 0) {
+            this.playEpisode(seriesId, 1);
+        }
+    }
 
-    const interval = setInterval(() => {
-        if (!isPlaying || !document.body.contains(modal)) {
-            clearInterval(interval);
+    playEpisode(seriesId, episodeNumber) {
+        const series = this.allSeries.find(s => s.id === seriesId);
+        if (!series) return;
+
+        const episode = series.episodes.find(ep => ep.number === episodeNumber);
+        if (!episode) return;
+
+        this.currentEpisode = {
+            series,
+            episode,
+            seriesId,
+            episodeNumber
+        };
+
+        this.loadEpisodeInPlayer();
+        this.startPlayback();
+    }
+
+    loadEpisodeInPlayer() {
+        const { series, episode } = this.currentEpisode;
+
+        // Aggiorna UI del player
+        document.querySelector('.player-cover').src = series.cover;
+        document.querySelector('.player-title').textContent = `${episode.title} - Ep. ${episode.number}`;
+        document.querySelector('.player-author').textContent = series.author;
+        document.querySelector('.time-total').textContent = episode.duration;
+
+        // Mostra player
+        document.getElementById('podcastPlayer').style.display = 'flex';
+
+        // Simula caricamento audio
+        this.totalDuration = this.parseDuration(episode.duration);
+        this.currentTime = 0;
+        this.updateProgressBar();
+        this.updateTimeDisplay();
+    }
+
+    startPlayback() {
+        this.isPlaying = true;
+        this.updatePlayButton();
+        this.simulateAudioPlayback();
+    }
+
+    togglePlayPause() {
+        this.isPlaying = !this.isPlaying;
+        this.updatePlayButton();
+
+        if (this.isPlaying) {
+            this.simulateAudioPlayback();
+        }
+    }
+
+    updatePlayButton() {
+        const icon = document.querySelector('#playPauseBtn i');
+        icon.className = this.isPlaying ? 'fas fa-pause' : 'fas fa-play';
+    }
+
+    simulateAudioPlayback() {
+        if (!this.isPlaying) return;
+
+        const interval = setInterval(() => {
+            if (!this.isPlaying) {
+                clearInterval(interval);
+                return;
+            }
+
+            this.currentTime += 1;
+            this.updateProgressBar();
+            this.updateTimeDisplay();
+
+            if (this.currentTime >= this.totalDuration) {
+                clearInterval(interval);
+                this.endEpisode();
+            }
+        }, 1000);
+    }
+
+    updateProgressBar() {
+        const percentage = this.totalDuration > 0 ? (this.currentTime / this.totalDuration) * 100 : 0;
+        document.querySelector('.progress-fill').style.width = `${percentage}%`;
+
+        const handle = document.querySelector('.progress-handle');
+        if (handle) {
+            handle.style.left = `${percentage}%`;
+        }
+    }
+
+    updateTimeDisplay() {
+        document.querySelector('.time-current').textContent = this.formatTime(this.currentTime);
+    }
+
+    endEpisode() {
+        this.isPlaying = false;
+        this.updatePlayButton();
+
+        // Auto-play next episode
+        this.playNext();
+    }
+
+    playPrevious() {
+        if (!this.currentEpisode) return;
+
+        const { series, episodeNumber } = this.currentEpisode;
+
+        if (episodeNumber > 1) {
+            this.playEpisode(series.id, episodeNumber - 1);
+        }
+    }
+
+    playNext() {
+        if (!this.currentEpisode) return;
+
+        const { series, episodeNumber } = this.currentEpisode;
+
+        if (episodeNumber < series.episodes.length) {
+            this.playEpisode(series.id, episodeNumber + 1);
+        }
+    }
+
+    closePlayer() {
+        this.isPlaying = false;
+        this.currentEpisode = null;
+        document.getElementById('podcastPlayer').style.display = 'none';
+    }
+
+    seekTo(e) {
+        const rect = e.target.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const percentage = clickX / rect.width;
+        this.currentTime = Math.floor(this.totalDuration * percentage);
+        this.updateProgressBar();
+        this.updateTimeDisplay();
+    }
+
+    adjustVolume(e) {
+        const rect = e.target.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        this.volume = clickX / rect.width;
+        document.querySelector('.volume-fill').style.width = `${this.volume * 100}%`;
+    }
+
+    filterByCategory(category) {
+        this.filteredSeries = category === 'all'
+            ? [...this.allSeries]
+            : this.allSeries.filter(s => s.category === category);
+
+        this.applyAdditionalFilters();
+        this.renderSeries();
+    }
+
+    updateActiveFilter(activeBtn) {
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        activeBtn.classList.add('active');
+    }
+
+    applyFilters() {
+        const activeCategory = document.querySelector('.filter-btn.active').dataset.category;
+        this.filterByCategory(activeCategory);
+    }
+
+    applyAdditionalFilters() {
+        const professional = document.getElementById('professionalFilter').value;
+        const duration = document.getElementById('durationFilter').value;
+        const sort = document.getElementById('sortFilter').value;
+
+        // Filtra per professionista
+        if (professional) {
+            this.filteredSeries = this.filteredSeries.filter(s => s.professional === professional);
+        }
+
+        // Filtra per durata media episodi
+        if (duration) {
+            this.filteredSeries = this.filteredSeries.filter(series => {
+                const avgDuration = this.calculateAverageDuration(series.episodes);
+                return this.matchesDurationFilter(avgDuration, duration);
+            });
+        }
+
+        // Ordina
+        this.sortSeries(sort);
+    }
+
+    calculateAverageDuration(episodes) {
+        if (episodes.length === 0) return 0;
+
+        const totalSeconds = episodes.reduce((sum, episode) => {
+            return sum + this.parseDuration(episode.duration);
+        }, 0);
+
+        return Math.floor(totalSeconds / episodes.length);
+    }
+
+    matchesDurationFilter(avgDuration, filter) {
+        switch (filter) {
+            case 'short':
+                return avgDuration < 15 * 60; // meno di 15 minuti
+            case 'medium':
+                return avgDuration >= 15 * 60 && avgDuration <= 45 * 60; // 15-45 minuti
+            case 'long':
+                return avgDuration > 45 * 60; // più di 45 minuti
+            default:
+                return true;
+        }
+    }
+
+    sortSeries(sortType) {
+        switch (sortType) {
+            case 'popular':
+                this.filteredSeries.sort((a, b) => Math.random() - 0.5);
+                break;
+            case 'episodes-desc':
+                this.filteredSeries.sort((a, b) => b.episodes.length - a.episodes.length);
+                break;
+            case 'episodes-asc':
+                this.filteredSeries.sort((a, b) => a.episodes.length - b.episodes.length);
+                break;
+            case 'alphabetical':
+                this.filteredSeries.sort((a, b) => a.title.localeCompare(b.title));
+                break;
+            default: // newest
+                this.filteredSeries.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        }
+    }
+
+    handleSearch(searchTerm) {
+        const term = searchTerm.toLowerCase().trim();
+
+        if (term.length === 0) {
+            this.applyFilters();
             return;
         }
 
-        const percentage = totalDuration > 0 ? (currentTime / totalDuration) * 100 : 0;
-        progressFill.style.width = `${percentage}%`;
-        timeSpan.textContent = formatTime(currentTime);
-    }, 1000);
-}
+        this.filteredSeries = this.allSeries.filter(series =>
+            series.title.toLowerCase().includes(term) ||
+            series.description.toLowerCase().includes(term) ||
+            series.author.toLowerCase().includes(term) ||
+            series.episodes.some(episode =>
+                episode.title.toLowerCase().includes(term) ||
+                episode.description.toLowerCase().includes(term)
+            )
+        );
 
-function updateModalProgress(percentage, modal) {
-    currentTime = Math.floor(totalDuration * percentage);
-    const progressFill = modal.querySelector('.detail-progress-fill');
-    const timeSpan = modal.querySelector('.detail-time-current');
-
-    progressFill.style.width = `${percentage * 100}%`;
-    timeSpan.textContent = formatTime(currentTime);
-}
-
-function updateModalVolume(percentage, modal) {
-    volume = percentage;
-    const volumeFill = modal.querySelector('.detail-volume-fill');
-    volumeFill.style.width = `${percentage * 100}%`;
-
-    // Update anche il player fisso
-    if (volumeFill) {
-        document.querySelector('.volume-fill').style.width = `${percentage * 100}%`;
+        this.renderSeries();
+        this.updateStats();
     }
-}
 
-function getCategoryName(category) {
-    const categories = {
-        'wellness': 'Wellness',
-        'mindfulness': 'Mindfulness',
-        'nutrizione': 'Nutrizione',
-        'fitness': 'Fitness',
-        'stress': 'Stress Management',
-        'coaching': 'Life Coaching',
-        'meditazione': 'Meditazione'
-    };
-    return categories[category] || category;
-}
+    loadMoreSeries() {
+        const loadingDiv = document.getElementById('podcastLoading');
+        loadingDiv.style.display = 'flex';
 
-function followAuthor(authorName) {
-    // Simula follow
-    console.log(`Seguendo ${authorName}...`);
-    // Mostra toast di conferma
-    showToast(`Ora segui ${authorName}! Riceverai notifiche sui nuovi podcast.`, 'success');
-}
-
-function sharePodcast(podcast) {
-    // Simula condivisione
-    if (navigator.share) {
-        navigator.share({
-            title: podcast.title,
-            text: `Ascolta "${podcast.title}" di ${podcast.author}`,
-            url: window.location.href
-        });
-    } else {
-        // Fallback: copia link
-        navigator.clipboard.writeText(window.location.href);
-        showToast('Link copiato negli appunti!', 'success');
+        setTimeout(() => {
+            loadingDiv.style.display = 'none';
+            console.log('Caricate altre serie podcast...');
+        }, 1500);
     }
-}
 
-function downloadPodcast(podcast) {
-    // Simula download
-    console.log(`Scaricando ${podcast.title}...`);
-    showToast('Download avviato!', 'info');
-}
+    handleKeyboardShortcuts(e) {
+        if (!this.currentEpisode) return;
 
-function showToast(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `toast-notification toast-${type}`;
-    toast.textContent = message;
+        switch (e.code) {
+            case 'Space':
+                e.preventDefault();
+                this.togglePlayPause();
+                break;
+            case 'ArrowLeft':
+                this.currentTime = Math.max(0, this.currentTime - 10);
+                this.updateProgressBar();
+                this.updateTimeDisplay();
+                break;
+            case 'ArrowRight':
+                this.currentTime = Math.min(this.totalDuration, this.currentTime + 10);
+                this.updateProgressBar();
+                this.updateTimeDisplay();
+                break;
+            case 'ArrowUp':
+                e.preventDefault();
+                this.volume = Math.min(1, this.volume + 0.1);
+                document.querySelector('.volume-fill').style.width = `${this.volume * 100}%`;
+                break;
+            case 'ArrowDown':
+                e.preventDefault();
+                this.volume = Math.max(0, this.volume - 0.1);
+                document.querySelector('.volume-fill').style.width = `${this.volume * 100}%`;
+                break;
+        }
+    }
 
-    const styles = {
-        position: 'fixed',
-        top: '20px',
-        right: '20px',
-        padding: '12px 20px',
-        borderRadius: '8px',
-        color: 'white',
-        fontWeight: '500',
-        fontSize: '14px',
-        zIndex: '10001',
-        transition: 'all 0.3s ease',
-        transform: 'translateX(100%)',
-        opacity: '0'
-    };
+    updateStats() {
+        const totalEpisodes = this.allSeries.reduce((sum, series) => sum + series.episodes.length, 0);
+        const totalSeries = this.allSeries.length;
 
-    const colors = {
-        info: '#3b82f6',
-        success: '#10b981',
-        error: '#ef4444'
-    };
+        document.getElementById('totalEpisodes').textContent = totalEpisodes;
+        document.getElementById('totalSeries').textContent = totalSeries;
+    }
 
-    Object.assign(toast.style, styles);
-    toast.style.backgroundColor = colors[type] || colors.info;
+    // Utility Functions
+    parseDuration(durationStr) {
+        const parts = durationStr.split(':');
+        return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+    }
 
-    document.body.appendChild(toast);
+    formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
 
-    setTimeout(() => {
-        toast.style.transform = 'translateX(0)';
-        toast.style.opacity = '1';
-    }, 100);
+    formatDate(dateStr) {
+        const date = new Date(dateStr);
+        const now = new Date();
+        const diffTime = Math.abs(now - date);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    setTimeout(() => {
-        toast.style.transform = 'translateX(100%)';
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300);
-    }, 4000);
-}
+        if (diffDays === 1) return '1 giorno fa';
+        if (diffDays <= 7) return `${diffDays} giorni fa`;
+        if (diffDays <= 30) return `${Math.ceil(diffDays / 7)} settimane fa`;
+        if (diffDays <= 365) return `${Math.ceil(diffDays / 30)} mesi fa`;
+        return `${Math.ceil(diffDays / 365)} anni fa`;
+    }
 
-/**
- * ===============================================
- * PERFORMANCE OPTIMIZATION
- * =============================================== */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
+    getCategoryName(category) {
+        const categories = {
+            'wellness': 'Wellness',
+            'mindfulness': 'Mindfulness',
+            'nutrizione': 'Nutrizione',
+            'fitness': 'Fitness',
+            'stress': 'Stress Management',
+            'coaching': 'Life Coaching',
+            'meditazione': 'Meditazione'
         };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+        return categories[category] || category;
+    }
 }
 
-// Debounce search for better performance
-const debouncedSearch = debounce(handleSearch, 300);
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', debouncedSearch);
-    }
-});
+// ===============================================
+// FUNZIONI GLOBALI
+// ===============================================
 
-/**
- * ===============================================
- * GESTIONE ERRORI
- * =============================================== */
+function openSeriesModal(seriesId) {
+    window.podcastManager.openSeriesModal(seriesId);
+}
+
+function closeSeriesModal() {
+    window.podcastManager.closeSeriesModal();
+}
+
+function playFirstEpisode(seriesId) {
+    window.podcastManager.playFirstEpisode(seriesId);
+}
+
+function playEpisode(seriesId, episodeNumber) {
+    window.podcastManager.playEpisode(seriesId, episodeNumber);
+}
+
+// ===============================================
+// GESTIONE ERRORI
+// ===============================================
 window.addEventListener('error', (e) => {
-    console.error('Errore podcast player:', e.error);
+    console.error('Errore podcast series manager:', e.error);
 
-    // Fallback: nascondi player in caso di errore
-    if (podcastPlayer) {
-        podcastPlayer.style.display = 'none';
+    if (document.getElementById('podcastPlayer')) {
+        document.getElementById('podcastPlayer').style.display = 'none';
     }
 });
 
-/**
- * ===============================================
- * ANALYTICS (SIMULATO)
- * =============================================== */
-function trackPodcastPlay(podcast) {
-    // Simula tracking analytics
-    console.log('📊 Podcast played:', {
-        id: podcast.id,
-        title: podcast.title,
-        author: podcast.author,
-        timestamp: new Date().toISOString()
-    });
-}
-
-function trackPodcastComplete(podcast) {
-    // Simula tracking completamento
-    console.log('📊 Podcast completed:', {
-        id: podcast.id,
-        title: podcast.title,
-        duration: podcast.duration,
-        timestamp: new Date().toISOString()
-    });
-}
+console.log('Podcast Series System JS caricato');
