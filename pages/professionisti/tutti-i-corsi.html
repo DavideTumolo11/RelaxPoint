@@ -124,8 +124,12 @@
 
                         <div class="professional-stats">
                             <div class="stat-item">
-                                <span class="stat-number">24</span>
-                                <span class="stat-label">Corsi Attivi</span>
+                                <span class="stat-number" id="totalSeries">8</span>
+                                <span class="stat-label">Serie Corsi</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" id="totalLessons">156</span>
+                                <span class="stat-label">Lezioni</span>
                             </div>
                             <div class="stat-item">
                                 <span class="stat-number">850+</span>
@@ -134,10 +138,6 @@
                             <div class="stat-item">
                                 <span class="stat-number">4.9</span>
                                 <span class="stat-label">Rating Medio</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">156</span>
-                                <span class="stat-label">Ore Insegnamento</span>
                             </div>
                         </div>
 
@@ -155,9 +155,8 @@
                 </div>
 
                 <div class="professional-description">
-                    <p>Esplora tutti i corsi di formazione di Sophia Rossi. Dai percorsi base per principianti ai corsi
-                        avanzati per professionisti, ogni programma è progettato per trasformare la tua vita attraverso
-                        il benessere olistico.</p>
+                    <p>Esplora tutte le serie di corsi di Sophia Rossi. Ogni serie è composta da lezioni progressive che
+                        ti guidano passo dopo passo nel tuo percorso di crescita personale e benessere.</p>
                 </div>
             </section>
 
@@ -198,7 +197,8 @@
                         <select class="filter-select" id="sortFilter">
                             <option value="recent">Più Recenti</option>
                             <option value="popular">Più Popolari</option>
-                            <option value="rating">Migliori Recensioni</option>
+                            <option value="lessons-desc">Più Lezioni</option>
+                            <option value="lessons-asc">Meno Lezioni</option>
                             <option value="price-low">Prezzo Crescente</option>
                             <option value="price-high">Prezzo Decrescente</option>
                         </select>
@@ -206,192 +206,60 @@
                 </div>
             </section>
 
-            <!-- GRIGLIA CORSI -->
+            <!-- GRIGLIA SERIE CORSI -->
             <section class="professional-corsi-grid">
-                <div class="corsi-grid">
-
-                    <!-- CORSO 1 -->
-                    <div class="corso-card" data-category="mindfulness" data-type="online" data-duration="8">
-                        <div class="corso-cover"
-                            style="background-image: url('../../assets/images/corsi/mindfulness-base.jpg');">
-                            <div class="corso-play-button">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="corso-type-badge online">Online</div>
-                            <div class="corso-duration">8 settimane</div>
-                        </div>
-                        <div class="corso-info">
-                            <h3 class="corso-title">Mindfulness Base - Percorso Completo</h3>
-                            <p class="corso-description">Impara i fondamenti della mindfulness con un percorso
-                                strutturato di 8 settimane. Tecniche di meditazione, consapevolezza corporea e gestione
-                                dello stress per principianti.</p>
-                            <div class="corso-meta">
-                                <div class="corso-price">€199</div>
-                                <div class="corso-rating">
-                                    <span class="rating-stars">★★★★★</span>
-                                    <span class="rating-count">(127)</span>
-                                </div>
-                            </div>
-                            <div class="corso-details">
-                                <span class="corso-lessons"><i class="fas fa-video"></i> 16 lezioni</span>
-                                <span class="corso-students"><i class="fas fa-users"></i> 240 studenti</span>
-                            </div>
-                        </div>
+                <div class="corsi-grid" id="corsiGrid">
+                    <!-- Le serie corsi verranno caricate dinamicamente -->
+                    <div class="loading-placeholder">
+                        <p>Caricamento serie corsi in corso...</p>
                     </div>
-
-                    <!-- CORSO 2 -->
-                    <div class="corso-card" data-category="yoga" data-type="presenza" data-duration="4">
-                        <div class="corso-cover"
-                            style="background-image: url('../../assets/images/corsi/yoga-principianti.jpg');">
-                            <div class="corso-play-button">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="corso-type-badge presenza">In Presenza</div>
-                            <div class="corso-duration">4 settimane</div>
-                        </div>
-                        <div class="corso-info">
-                            <h3 class="corso-title">Yoga per Principianti</h3>
-                            <p class="corso-description">Corso introduttivo allo yoga con lezioni in presenza. Asana
-                                base, respirazione e rilassamento per iniziare il tuo percorso di benessere fisico e
-                                mentale.</p>
-                            <div class="corso-meta">
-                                <div class="corso-price">€149</div>
-                                <div class="corso-rating">
-                                    <span class="rating-stars">★★★★★</span>
-                                    <span class="rating-count">(89)</span>
-                                </div>
-                            </div>
-                            <div class="corso-details">
-                                <span class="corso-lessons"><i class="fas fa-calendar"></i> 8 lezioni live</span>
-                                <span class="corso-students"><i class="fas fa-users"></i> 156 studenti</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CORSO 3 -->
-                    <div class="corso-card" data-category="coaching" data-type="ibrido" data-duration="6">
-                        <div class="corso-cover"
-                            style="background-image: url('../../assets/images/corsi/gestione-stress.jpg');">
-                            <div class="corso-play-button">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="corso-type-badge ibrido">Ibrido</div>
-                            <div class="corso-duration">6 settimane</div>
-                        </div>
-                        <div class="corso-info">
-                            <h3 class="corso-title">Gestione Stress e Ansia</h3>
-                            <p class="corso-description">Tecniche avanzate per gestire stress e ansia nella vita
-                                quotidiana. Modalità ibrida con sessioni online e incontri di gruppo in presenza.</p>
-                            <div class="corso-meta">
-                                <div class="corso-price">€249</div>
-                                <div class="corso-rating">
-                                    <span class="rating-stars">★★★★★</span>
-                                    <span class="rating-count">(203)</span>
-                                </div>
-                            </div>
-                            <div class="corso-details">
-                                <span class="corso-lessons"><i class="fas fa-laptop"></i> 12 moduli</span>
-                                <span class="corso-students"><i class="fas fa-users"></i> 412 studenti</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CORSO 4 -->
-                    <div class="corso-card" data-category="nutrizione" data-type="online" data-duration="5">
-                        <div class="corso-cover"
-                            style="background-image: url('../../assets/images/corsi/alimentazione.jpg');">
-                            <div class="corso-play-button">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="corso-type-badge online">Online</div>
-                            <div class="corso-duration">5 settimane</div>
-                        </div>
-                        <div class="corso-info">
-                            <h3 class="corso-title">Alimentazione Consapevole</h3>
-                            <p class="corso-description">Impara a sviluppare una relazione sana con il cibo attraverso
-                                la mindful eating. Tecniche pratiche per l'alimentazione intuitiva e consapevole.</p>
-                            <div class="corso-meta">
-                                <div class="corso-price">€179</div>
-                                <div class="corso-rating">
-                                    <span class="rating-stars">★★★★☆</span>
-                                    <span class="rating-count">(164)</span>
-                                </div>
-                            </div>
-                            <div class="corso-details">
-                                <span class="corso-lessons"><i class="fas fa-video"></i> 15 lezioni</span>
-                                <span class="corso-students"><i class="fas fa-users"></i> 298 studenti</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CORSO 5 -->
-                    <div class="corso-card" data-category="mindfulness" data-type="online" data-duration="12">
-                        <div class="corso-cover"
-                            style="background-image: url('../../assets/images/corsi/meditazione-avanzata.jpg');">
-                            <div class="corso-play-button">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="corso-type-badge online">Online</div>
-                            <div class="corso-duration">12 settimane</div>
-                        </div>
-                        <div class="corso-info">
-                            <h3 class="corso-title">Meditazione Avanzata</h3>
-                            <p class="corso-description">Corso avanzato per approfondire la pratica meditativa. Tecniche
-                                tradizionali e moderne per raggiungere stati profondi di consapevolezza.</p>
-                            <div class="corso-meta">
-                                <div class="corso-price">€299</div>
-                                <div class="corso-rating">
-                                    <span class="rating-stars">★★★★★</span>
-                                    <span class="rating-count">(78)</span>
-                                </div>
-                            </div>
-                            <div class="corso-details">
-                                <span class="corso-lessons"><i class="fas fa-video"></i> 24 lezioni</span>
-                                <span class="corso-students"><i class="fas fa-users"></i> 145 studenti</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CORSO 6 -->
-                    <div class="corso-card" data-category="fitness" data-type="presenza" data-duration="8">
-                        <div class="corso-cover"
-                            style="background-image: url('../../assets/images/corsi/fitness-funzionale.jpg');">
-                            <div class="corso-play-button">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div class="corso-type-badge presenza">In Presenza</div>
-                            <div class="corso-duration">8 settimane</div>
-                        </div>
-                        <div class="corso-info">
-                            <h3 class="corso-title">Fitness Funzionale</h3>
-                            <p class="corso-description">Allenamento funzionale per migliorare forza, mobilità e
-                                coordinazione. Esercizi pratici per il benessere fisico quotidiano.</p>
-                            <div class="corso-meta">
-                                <div class="corso-price">€219</div>
-                                <div class="corso-rating">
-                                    <span class="rating-stars">★★★★★</span>
-                                    <span class="rating-count">(112)</span>
-                                </div>
-                            </div>
-                            <div class="corso-details">
-                                <span class="corso-lessons"><i class="fas fa-dumbbell"></i> 16 sessioni</span>
-                                <span class="corso-students"><i class="fas fa-users"></i> 187 studenti</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </section>
 
             <!-- PAGINAZIONE -->
             <section class="professional-pagination">
                 <button class="pagination-btn" id="loadMoreCorsi">
-                    Carica Altri Corsi
+                    Carica Altre Serie
                 </button>
             </section>
 
         </div>
     </main>
+
+    <!-- MODAL SERIE CORSO -->
+    <div class="course-series-modal-overlay" id="courseSeriesModal" style="display: none;">
+        <div class="course-series-modal-content">
+            <div class="course-series-modal-header">
+                <h3 id="courseSeriesModalTitle"></h3>
+                <button class="course-series-modal-close" onclick="closeCourseSeriesModal()">&times;</button>
+            </div>
+            <div class="course-series-modal-body">
+                <div class="course-series-info">
+                    <div class="course-series-cover-large" id="courseSeriesCoverLarge"></div>
+                    <div class="course-series-details">
+                        <h4 id="courseSeriesDetailTitle"></h4>
+                        <p id="courseSeriesDetailAuthor"></p>
+                        <p id="courseSeriesDetailDescription"></p>
+                        <div class="course-series-meta">
+                            <span id="courseSeriesDetailLessons"></span>
+                            <span id="courseSeriesDetailDuration"></span>
+                            <span id="courseSeriesDetailPrice"></span>
+                        </div>
+                        <button class="course-enroll-btn" id="courseEnrollBtn">
+                            <i class="fas fa-graduation-cap"></i>
+                            Iscriviti al Corso
+                        </button>
+                    </div>
+                </div>
+                <div class="lessons-list">
+                    <h4>Programma del Corso</h4>
+                    <div class="lessons-container" id="lessonsContainer">
+                        <!-- Lezioni verranno inserite qui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="site-footer">
