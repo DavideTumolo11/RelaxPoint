@@ -121,7 +121,7 @@
                 <!-- FILTRI MEDIA -->
                 <div class="media-filters">
                     <button class="filter-btn active" data-filter="all">Tutti</button>
-                    <button class="filter-btn" data-filter="photo">Foto</button>
+                    <button class="filter-btn" data-filter="album">Album</button>
                     <button class="filter-btn" data-filter="video">Video</button>
                 </div>
             </section>
@@ -129,180 +129,10 @@
             <!-- GRIGLIA MEDIA -->
             <section class="media-gallery">
                 <div class="media-grid" id="mediaGrid">
-
-                    <!-- FOTO -->
-                    <div class="media-item" data-type="photo" data-title="Sessione Mindfulness">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/massage2.jpg');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Sessione Mindfulness</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
+                    <!-- Gli album verranno caricati dinamicamente -->
+                    <div class="loading-placeholder">
+                        <p>Caricamento album in corso...</p>
                     </div>
-
-                    <div class="media-item" data-type="photo" data-title="Coaching Nutrizionale">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/Beauty.jpg');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Coaching Nutrizionale</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="photo" data-title="Percorso Trasformazione">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/Fiosioterapia.Osteopatia.png');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Percorso Trasformazione</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="photo" data-title="Meditazione Guidata">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/YogaEndMeditazione.jpeg');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Meditazione Guidata</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="photo" data-title="Supporto Neo-Mamme">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/neoMamma.jpg');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Supporto Neo-Mamme</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="photo" data-title="Consulenza Benessere">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/Salute.jpg');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Consulenza Benessere</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="photo" data-title="Fitness Personalizzato">
-                        <div class="media-content" style="background-image: url('../assets/images/Servizi/Gym.jpg');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Fitness Personalizzato</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="photo" data-title="Styling & Immagine">
-                        <div class="media-content"
-                            style="background-image: url('../assets/images/Servizi/Hair and make-up.png');">
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Styling & Immagine</h3>
-                                    <span class="media-type">Foto</span>
-                                </div>
-                                <button class="media-view-btn">Visualizza</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- VIDEO PLACEHOLDER -->
-                    <div class="media-item" data-type="video" data-title="Introduzione al Wellness Coaching">
-                        <div class="media-content video-placeholder">
-                            <div class="video-play-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                            </div>
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Introduzione al Wellness Coaching</h3>
-                                    <span class="media-type">Video</span>
-                                </div>
-                                <button class="media-view-btn">Riproduci</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="video" data-title="Tecniche di Respirazione">
-                        <div class="media-content video-placeholder">
-                            <div class="video-play-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                            </div>
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Tecniche di Respirazione</h3>
-                                    <span class="media-type">Video</span>
-                                </div>
-                                <button class="media-view-btn">Riproduci</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="video" data-title="Esercizi di Mindfulness">
-                        <div class="media-content video-placeholder">
-                            <div class="video-play-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                            </div>
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Esercizi di Mindfulness</h3>
-                                    <span class="media-type">Video</span>
-                                </div>
-                                <button class="media-view-btn">Riproduci</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="media-item" data-type="video" data-title="Consigli Nutrizionali">
-                        <div class="media-content video-placeholder">
-                            <div class="video-play-icon">
-                                <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
-                                    <path d="M8 5v14l11-7z" />
-                                </svg>
-                            </div>
-                            <div class="media-overlay">
-                                <div class="media-info">
-                                    <h3>Consigli Nutrizionali</h3>
-                                    <span class="media-type">Video</span>
-                                </div>
-                                <button class="media-view-btn">Riproduci</button>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </section>
 
@@ -315,6 +145,34 @@
 
         </div>
     </main>
+
+    <!-- MODAL ALBUM CAROUSEL -->
+    <div class="album-modal-overlay" id="albumModal" style="display: none;">
+        <div class="album-modal-content">
+            <div class="album-modal-header">
+                <h3 id="albumModalTitle"></h3>
+                <button class="album-modal-close" onclick="closeAlbumModal()">&times;</button>
+            </div>
+            <div class="album-carousel">
+                <div class="album-carousel-container" id="albumCarouselContainer">
+                    <!-- Foto dell'album verranno inserite qui -->
+                </div>
+                <button class="album-nav-btn prev" onclick="changeAlbumSlide(-1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                    </svg>
+                </button>
+                <button class="album-nav-btn next" onclick="changeAlbumSlide(1)">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="album-indicators" id="albumIndicators">
+                <!-- Indicatori verranno generati dinamicamente -->
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="site-footer">

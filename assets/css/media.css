@@ -1,5 +1,5 @@
 /* ===============================================
-   MEDIA PAGE - CSS SPECIFICO
+   MEDIA PAGE - CSS SPECIFICO CON ALBUM SYSTEM
    =============================================== */
 
 /* ===============================================
@@ -164,6 +164,166 @@
 }
 
 /* ===============================================
+   ALBUM SYSTEM - NUOVI STILI
+   =============================================== */
+
+/* Album Badge */
+.album-badge {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 3;
+}
+
+/* Loading Placeholder */
+.loading-placeholder {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: var(--color-secondary);
+    font-size: 16px;
+}
+
+/* ===============================================
+   ALBUM MODAL CAROUSEL
+   =============================================== */
+.album-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.album-modal-content {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    max-width: 90vw;
+    max-height: 90vh;
+    width: 800px;
+    overflow: hidden;
+}
+
+.album-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.album-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.album-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.album-modal-close:hover {
+    background: #f1f5f9;
+    color: var(--color-primary);
+}
+
+/* Carousel */
+.album-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.album-carousel-container {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.album-slide {
+    flex: 0 0 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.album-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.album-nav-btn:hover {
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.album-nav-btn.prev {
+    left: 16px;
+}
+
+.album-nav-btn.next {
+    right: 16px;
+}
+
+/* Indicators */
+.album-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: white;
+}
+
+.album-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.album-indicator.active {
+    background: var(--color-primary);
+    transform: scale(1.2);
+}
+
+/* ===============================================
    OVERLAY MEDIA
    =============================================== */
 .media-overlay {
@@ -242,7 +402,7 @@
 }
 
 /* ===============================================
-   LIGHTBOX MEDIA
+   LIGHTBOX MEDIA (MANTIENI ESISTENTE)
    =============================================== */
 .media-lightbox {
     position: fixed;
@@ -334,6 +494,10 @@
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 16px;
     }
+
+    .album-modal-content {
+        width: 95%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -365,6 +529,25 @@
         font-size: 14px;
     }
 
-    .lightbox-content {
-        max-width: 95vw;
-        max
+    .album-modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .album-slide {
+        height: 300px;
+    }
+
+    .album-nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .album-nav-btn.prev {
+        left: 12px;
+    }
+
+    .album-nav-btn.next {
+        right: 12px;
+    }
+}
