@@ -1,0 +1,910 @@
+/* ===============================================
+   RELAXPOINT - CSS CALENDARIO PROFESSIONISTA
+   Stili specifici per calendario ibrido - Estende dashboard-professionista.css
+   =============================================== */
+
+/* ===============================================
+   HEADER SEZIONE E CONTROLLI
+   =============================================== */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 24px;
+    gap: 16px;
+}
+
+.header-content h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+}
+
+.header-content p {
+    font-size: 14px;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    color: var(--color-secondary);
+}
+
+.breadcrumb a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-dark);
+}
+
+.breadcrumb-separator {
+    color: var(--color-border);
+}
+
+.breadcrumb-current {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* ===============================================
+   CONTROLLI CALENDARIO
+   =============================================== */
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.view-switcher {
+    display: flex;
+    gap: 4px;
+    background: var(--color-gray-light);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.view-btn {
+    padding: 8px 16px;
+    border: none;
+    background: transparent;
+    color: var(--color-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.view-btn.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 2px 4px rgba(45, 90, 61, 0.2);
+}
+
+.view-btn:hover:not(.active) {
+    background: rgba(45, 90, 61, 0.1);
+    color: var(--color-primary);
+}
+
+.calendar-navigation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--color-border);
+    background: white;
+    border-radius: 6px;
+    color: var(--color-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background: rgba(45, 90, 61, 0.05);
+}
+
+#currentPeriod {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+    min-width: 200px;
+    text-align: center;
+}
+
+.today-btn button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ===============================================
+   LEGENDA COLORI
+   =============================================== */
+.calendar-legend {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding: 12px 20px;
+    background: rgba(45, 90, 61, 0.02);
+    border: 1px solid rgba(45, 90, 61, 0.1);
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--color-text);
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.legend-color.available {
+    background: #10b981;
+}
+
+.legend-color.booking {
+    background: #3b82f6;
+}
+
+.legend-color.lastminute {
+    background: #f59e0b;
+}
+
+.legend-color.unavailable {
+    background: #ef4444;
+}
+
+/* ===============================================
+   CALENDARIO PRINCIPALE
+   =============================================== */
+.calendar-container {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 24px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 80px repeat(7, 1fr);
+    min-height: 600px;
+    width: 100%;
+}
+
+.calendar-grid.month-view {
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto repeat(6, 1fr);
+}
+
+.calendar-grid.day-view {
+    grid-template-columns: 80px 1fr;
+}
+
+/* HEADER CALENDARIO */
+.calendar-header {
+    display: contents;
+}
+
+.time-slot-header {
+    background: var(--color-gray-light);
+    border-bottom: 2px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    padding: 12px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-secondary);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.day-header {
+    background: var(--color-gray-light);
+    border-bottom: 2px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    padding: 12px 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.day-header.today {
+    background: var(--color-primary);
+    color: white;
+}
+
+.day-header.weekend {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-red);
+}
+
+/* CORPO CALENDARIO */
+.calendar-body {
+    display: contents;
+}
+
+.time-slot {
+    background: var(--color-gray-light);
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-secondary);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-cell {
+    border-bottom: 1px solid var(--color-border);
+    border-right: 1px solid var(--color-border);
+    min-height: 60px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* STATI SLOT */
+.calendar-cell.available {
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 3px solid #10b981;
+}
+
+.calendar-cell.available:hover {
+    background: rgba(16, 185, 129, 0.2);
+}
+
+.calendar-cell.booking {
+    background: rgba(59, 130, 246, 0.1);
+    border-left: 3px solid #3b82f6;
+}
+
+.calendar-cell.booking:hover {
+    background: rgba(59, 130, 246, 0.2);
+}
+
+.calendar-cell.lastminute {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 3px solid #f59e0b;
+}
+
+.calendar-cell.lastminute:hover {
+    background: rgba(245, 158, 11, 0.2);
+}
+
+.calendar-cell.unavailable {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 3px solid #ef4444;
+    cursor: not-allowed;
+}
+
+/* CONTENUTO EVENTI */
+.event-content {
+    padding: 4px 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.event-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.event-client {
+    font-size: 10px;
+    color: var(--color-secondary);
+    font-weight: 500;
+}
+
+.lastminute-badge {
+    background: #f59e0b;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ===============================================
+   VISTA MENSILE
+   =============================================== */
+.month-header {
+    display: contents;
+}
+
+.month-body {
+    display: contents;
+}
+
+.month-cell {
+    border: 1px solid var(--color-border);
+    min-height: 120px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.month-cell:hover {
+    background: var(--color-gray-light);
+}
+
+.month-cell.today {
+    background: rgba(45, 90, 61, 0.1);
+    border-color: var(--color-primary);
+}
+
+.month-cell.other-month {
+    background: #fafafa;
+    color: var(--color-secondary);
+}
+
+.cell-date {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cell-events {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+}
+
+.event-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-bottom: 2px;
+}
+
+.event-dot.booking {
+    background: #3b82f6;
+}
+
+.event-dot.personal {
+    background: #8b5cf6;
+}
+
+.event-dot.lastminute {
+    background: #f59e0b;
+}
+
+/* ===============================================
+   VISTA GIORNALIERA 
+   =============================================== */
+.calendar-grid.day-view .calendar-cell {
+    min-width: 0;
+}
+
+/* NASCONDERE/MOSTRARE VISTE */
+.calendar-grid.week-view .month-content,
+.calendar-grid.week-view .day-content {
+    display: none;
+}
+
+.calendar-grid.month-view .week-content,
+.calendar-grid.month-view .day-content {
+    display: none;
+}
+
+.calendar-grid.month-view .time-slot {
+    display: none;
+}
+
+.calendar-grid.day-view .week-content,
+.calendar-grid.day-view .month-content {
+    display: none;
+}
+
+/* Layout dashboard a due colonne */
+.dashboard-main {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 24px;
+    align-items: start;
+}
+
+.calendar-section {
+    min-width: 0;
+}
+
+/* ===============================================
+   AGENDA GIORNALIERA SIDEBAR
+   =============================================== */
+.daily-agenda {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+    position: sticky;
+    top: 24px;
+}
+
+.agenda-header {
+    background: var(--color-primary);
+    color: white;
+    padding: 16px 20px;
+}
+
+.agenda-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.agenda-content {
+    padding: 16px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.agenda-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--color-border);
+    transition: background 0.3s ease;
+}
+
+.agenda-item:last-child {
+    border-bottom: none;
+}
+
+.agenda-item:hover {
+    background: var(--color-gray-light);
+}
+
+.agenda-time {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-primary);
+    min-width: 50px;
+    flex-shrink: 0;
+}
+
+.agenda-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.agenda-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.agenda-client,
+.agenda-note {
+    font-size: 12px;
+    color: var(--color-secondary);
+    margin-bottom: 2px;
+}
+
+.agenda-location {
+    font-size: 11px;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+.agenda-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.btn-small {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--color-primary);
+    background: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-small:hover {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+}
+
+.btn-small.secondary {
+    background: transparent;
+    color: var(--color-primary);
+}
+
+.btn-small.secondary:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+/* ===============================================
+   MODAL STILI
+   =============================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px 16px 24px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--color-secondary);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background: var(--color-gray-light);
+    color: var(--color-text);
+}
+
+.modal-body {
+    padding: 20px 24px;
+}
+
+.modal-footer {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    padding: 16px 24px 20px 24px;
+    border-top: 1px solid var(--color-border);
+}
+
+/* FORM STILI NEI MODAL */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    background: white;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.slot-info {
+    text-align: center;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--color-gray-light);
+    border-radius: 8px;
+}
+
+.slot-info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+/* OPZIONI DISPONIBILITÀ */
+.availability-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.availability-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.availability-btn:hover {
+    background: var(--color-gray-light);
+}
+
+.availability-btn.available {
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.availability-btn.available:hover,
+.availability-btn.available.selected {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: #059669;
+}
+
+.availability-btn.unavailable {
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.availability-btn.unavailable:hover,
+.availability-btn.unavailable.selected {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: #dc2626;
+}
+
+.availability-btn.personal {
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+}
+
+.availability-btn.personal:hover,
+.availability-btn.personal.selected {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: #7c3aed;
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+@media (max-width: 1200px) {
+    .dashboard-main {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .daily-agenda {
+        position: static;
+        order: -1;
+    }
+
+    .calendar-controls {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .calendar-navigation {
+        justify-content: center;
+    }
+
+    .calendar-legend {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: 60px repeat(7, 1fr);
+        font-size: 12px;
+    }
+
+    .calendar-grid.day-view {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .time-slot-header,
+    .day-header {
+        padding: 8px 4px;
+        font-size: 11px;
+    }
+
+    .time-slot {
+        padding: 4px;
+        font-size: 10px;
+    }
+
+    .calendar-cell {
+        min-height: 40px;
+    }
+
+    .event-title {
+        font-size: 10px;
+    }
+
+    .event-client {
+        font-size: 9px;
+    }
+
+    .view-switcher {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .calendar-legend {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .legend-item {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .modal-content {
+        margin: 10px;
+        max-width: none;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .availability-options {
+        gap: 8px;
+    }
+
+    .availability-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .calendar-controls {
+        padding: 12px 16px;
+    }
+
+    .calendar-navigation {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    #currentPeriod {
+        font-size: 16px;
+    }
+
+    .agenda-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .agenda-actions {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

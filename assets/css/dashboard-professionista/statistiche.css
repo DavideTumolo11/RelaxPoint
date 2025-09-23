@@ -1,0 +1,586 @@
+/* ===============================================
+   RELAXPOINT - CSS STATISTICHE PROFESSIONISTA
+   Stili specifici per dashboard statistiche - Estende dashboard-professionista.css
+   =============================================== */
+
+/* BREADCRUMB */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 0;
+    font-size: 14px;
+    color: var(--color-secondary);
+}
+
+.breadcrumb-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    color: var(--color-dark);
+}
+
+.breadcrumb-separator {
+    color: var(--color-border);
+}
+
+.breadcrumb-current {
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+/* HEADER SEZIONE */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 32px;
+    gap: 16px;
+}
+
+.header-content h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+}
+
+.header-content p {
+    font-size: 16px;
+    color: var(--color-secondary);
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.period-filter {
+    padding: 8px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background: white;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.period-filter:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
+}
+
+/* KPI SECTION */
+.kpi-section {
+    margin-bottom: 32px;
+}
+
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.kpi-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.kpi-card:hover::before {
+    opacity: 1;
+}
+
+.kpi-card.revenue::before {
+    background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.kpi-card.bookings::before {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+}
+
+.kpi-card.rating::before {
+    background: linear-gradient(90deg, #f59e0b, #d97706);
+}
+
+.kpi-card.completion::before {
+    background: linear-gradient(90deg, var(--color-primary), var(--color-dark));
+}
+
+.kpi-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.revenue .kpi-icon {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.bookings .kpi-icon {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.rating .kpi-icon {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.completion .kpi-icon {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+}
+
+.kpi-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-value {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.kpi-trend {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.kpi-trend.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.kpi-trend.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+/* CHARTS SECTION */
+.charts-section {
+    margin-bottom: 32px;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.chart-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chart-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.chart-info {
+    text-align: right;
+}
+
+.chart-period,
+.chart-subtitle {
+    font-size: 13px;
+    color: var(--color-secondary);
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* INSIGHTS SECTION */
+.insights-section {
+    margin-bottom: 32px;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.insight-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.insight-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-gray-light);
+}
+
+.insight-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.insight-subtitle {
+    font-size: 13px;
+    color: var(--color-secondary);
+}
+
+.insight-content {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+/* TOP SERVICES */
+.top-services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-gray-light);
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-info {
+    flex: 1;
+}
+
+.service-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.service-stats {
+    font-size: 13px;
+    color: var(--color-secondary);
+}
+
+.service-revenue {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* TIME SLOTS */
+.time-slots-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.time-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.time-info {
+    min-width: 140px;
+}
+
+.time-slot {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+
+.time-stats {
+    font-size: 13px;
+    color: var(--color-secondary);
+}
+
+.time-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--color-gray-light);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.time-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-dark));
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+/* SUMMARY SECTION */
+.summary-section {
+    margin-bottom: 32px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--color-gray-light);
+}
+
+.summary-header h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.summary-item {
+    text-align: center;
+    padding: 16px;
+    border-radius: 12px;
+    background: var(--color-gray-light);
+    transition: all 0.3s ease;
+}
+
+.summary-item:hover {
+    background: var(--color-border);
+    transform: translateY(-2px);
+}
+
+.summary-label {
+    font-size: 13px;
+    color: var(--color-secondary);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.summary-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1200px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .period-filter {
+        flex: 1;
+    }
+
+    .kpi-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .kpi-card {
+        padding: 20px;
+    }
+
+    .kpi-value {
+        font-size: 28px;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .chart-card {
+        padding: 20px;
+    }
+
+    .chart-container {
+        height: 250px;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .insight-card {
+        padding: 20px;
+    }
+
+    .summary-card {
+        padding: 24px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .time-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+    }
+
+    .time-info {
+        min-width: auto;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 24px;
+    }
+
+    .kpi-card {
+        padding: 16px;
+    }
+
+    .kpi-header {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+
+    .kpi-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .kpi-value {
+        font-size: 24px;
+    }
+
+    .chart-card,
+    .insight-card {
+        padding: 16px;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+
+    .summary-card {
+        padding: 20px;
+    }
+
+    .summary-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .service-revenue {
+        align-self: flex-end;
+    }
+}

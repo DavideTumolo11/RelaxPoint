@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Impostazioni - Dashboard Professionista RelaxPoint</title>
+    <meta name="description"
+        content="Configura account, sicurezza, notifiche e integrazioni nella dashboard professionista RelaxPoint.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/impostazioni.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER - Identico alle altre pagine -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE -->
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA -->
+                <div class="header-right">
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti -->
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- DASHBOARD LAYOUT A DUE COLONNE -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU PROFESSIONISTA -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Business</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="dashboard-professionista.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+
+                                <a href="lastminute.html" class="menu-item lastminute-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                    </svg>
+                                    <span>Last Minute</span>
+                                </a>
+
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+
+                                <a href="chat.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                                    </svg>
+                                    <span>Chat</span>
+                                </a>
+
+                                <a href="i-miei-servizi.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                    <span>I Miei Servizi</span>
+                                </a>
+
+                                <a href="microsito-professionista.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Microsito</span>
+                                </a>
+
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+
+                                <a href="calendario.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                                    </svg>
+                                    <span>Calendario</span>
+                                </a>
+
+                                <a href="fatturazione.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                                    </svg>
+                                    <span>Fatturazione</span>
+                                </a>
+
+                                <a href="statistiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                    </svg>
+                                    <span>Statistiche</span>
+                                </a>
+
+                                <a href="impostazioni.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+
+                                <a href="/index.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+
+                            <!-- BREADCRUMB -->
+                            <div class="breadcrumb">
+                                <a href="dashboard-professionista.html">Dashboard</a>
+                                <span class="breadcrumb-separator">/</span>
+                                <span class="breadcrumb-current">Impostazioni</span>
+                            </div>
+
+                            <!-- HEADER SEZIONE -->
+                            <div class="section-header">
+                                <div class="header-content">
+                                    <h1>Impostazioni Account</h1>
+                                    <p>Configura sicurezza, notifiche e integrazioni del tuo account business</p>
+                                </div>
+                            </div>
+
+                            <!-- CONFIGURAZIONE TECNICA -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Configurazione Tecnica</h2>
+                                    <p class="card-subtitle">Impostazioni sistema e localizzazione</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Fuso orario operativo</span>
+                                            <span class="setting-description">Fuso orario per calendario e
+                                                prenotazioni</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <select class="setting-select" id="timezoneSelect">
+                                                <option value="Europe/Rome" selected>Europa/Roma (GMT+1)</option>
+                                                <option value="Europe/London">Europa/Londra (GMT+0)</option>
+                                                <option value="Europe/Berlin">Europa/Berlino (GMT+1)</option>
+                                                <option value="Europe/Paris">Europa/Parigi (GMT+1)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Lingua interfaccia</span>
+                                            <span class="setting-description">Lingua principale per dashboard e
+                                                comunicazioni</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <select class="setting-select" id="languageSelect">
+                                                <option value="it" selected>Italiano</option>
+                                                <option value="en">English</option>
+                                                <option value="fr">Français</option>
+                                                <option value="es">Español</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Formato data e ora</span>
+                                            <span class="setting-description">Formato visualizzazione date nel
+                                                sistema</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <select class="setting-select" id="dateFormatSelect">
+                                                <option value="dd/mm/yyyy" selected>DD/MM/AAAA - 24h</option>
+                                                <option value="mm/dd/yyyy">MM/DD/AAAA - 12h</option>
+                                                <option value="yyyy-mm-dd">AAAA-MM-DD - 24h</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Backup automatico dati</span>
+                                            <span class="setting-description">Esporta automaticamente i tuoi dati ogni
+                                                settimana</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked id="autoBackup">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NOTIFICHE BUSINESS -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Notifiche Business</h2>
+                                    <p class="card-subtitle">Gestisci come e quando ricevere notifiche importanti</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="notification-category">
+                                        <h3>Prenotazioni</h3>
+
+                                        <div class="setting-row">
+                                            <div class="setting-info">
+                                                <span class="setting-label">Nuove prenotazioni</span>
+                                                <span class="setting-description">Notifica immediata per ogni nuova
+                                                    richiesta</span>
+                                            </div>
+                                            <div class="setting-control">
+                                                <div class="notification-channels">
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>Email</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>SMS</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox">
+                                                        <span>Push</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="setting-row">
+                                            <div class="setting-info">
+                                                <span class="setting-label">Conferme urgenti</span>
+                                                <span class="setting-description">Alert per conferme da dare entro 2
+                                                    ore</span>
+                                            </div>
+                                            <div class="setting-control">
+                                                <div class="notification-channels">
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>Email</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>SMS</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>Push</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification-category">
+                                        <h3>Pagamenti</h3>
+
+                                        <div class="setting-row">
+                                            <div class="setting-info">
+                                                <span class="setting-label">Pagamenti ricevuti</span>
+                                                <span class="setting-description">Conferma pagamento dai clienti</span>
+                                            </div>
+                                            <div class="setting-control">
+                                                <div class="notification-channels">
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>Email</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox">
+                                                        <span>SMS</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox">
+                                                        <span>Push</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification-category">
+                                        <h3>Recensioni</h3>
+
+                                        <div class="setting-row">
+                                            <div class="setting-info">
+                                                <span class="setting-label">Nuove recensioni</span>
+                                                <span class="setting-description">Notifica per recensioni ricevute dai
+                                                    clienti</span>
+                                            </div>
+                                            <div class="setting-control">
+                                                <div class="notification-channels">
+                                                    <label class="channel-option">
+                                                        <input type="checkbox" checked>
+                                                        <span>Email</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox">
+                                                        <span>SMS</span>
+                                                    </label>
+                                                    <label class="channel-option">
+                                                        <input type="checkbox">
+                                                        <span>Push</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="notification-timing">
+                                        <h3>Orari notifiche</h3>
+
+                                        <div class="setting-row">
+                                            <div class="setting-info">
+                                                <span class="setting-label">Non disturbare</span>
+                                                <span class="setting-description">Blocca notifiche non urgenti in questi
+                                                    orari</span>
+                                            </div>
+                                            <div class="setting-control">
+                                                <div class="time-range">
+                                                    <input type="time" id="quietStart" value="22:00" class="time-input">
+                                                    <span>-</span>
+                                                    <input type="time" id="quietEnd" value="08:00" class="time-input">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SICUREZZA ACCOUNT -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Sicurezza Account</h2>
+                                    <p class="card-subtitle">Proteggi il tuo account e controlla l'accesso</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Cambio password</span>
+                                            <span class="setting-description">Aggiorna la password del tuo
+                                                account</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="openPasswordModal()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M18,8H17V6A5,5 0 0,0 12,1A5,5 0 0,0 7,6V8H6A2,2 0 0,0 4,10V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V10A2,2 0 0,0 18,8Z" />
+                                                </svg>
+                                                Cambia Password
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Autenticazione a due fattori</span>
+                                            <span class="setting-description">Aggiungi sicurezza extra con verifica
+                                                email</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" id="twoFactorAuth">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Sessioni attive</span>
+                                            <span class="setting-description">Visualizza e gestisci i dispositivi
+                                                connessi</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="showActiveSessions()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M4,6H20V16H4M20,18A2,2 0 0,0 22,16V6C22,4.89 21.1,4 20,4H4C2.89,4 2,4.89 2,6V16A2,2 0 0,0 4,18H0V20H24V18H20Z" />
+                                                </svg>
+                                                Gestisci Sessioni
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Log accessi</span>
+                                            <span class="setting-description">Cronologia degli ultimi accessi al
+                                                account</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="viewAccessLog()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M6,20H15L18,20V9H13V2H6V20Z" />
+                                                </svg>
+                                                Visualizza Log
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- INTEGRAZIONI SISTEMA -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Integrazioni Sistema</h2>
+                                    <p class="card-subtitle">Connetti servizi esterni e automatizza i processi</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Google Calendar</span>
+                                            <span class="setting-description">Sincronizza calendario con Google
+                                                Calendar</span>
+                                        </div>
+                                        <div class="setting-control integration-control">
+                                            <div class="integration-status disconnected" id="googleCalendarStatus">
+                                                <span class="status-text">Non connesso</span>
+                                            </div>
+                                            <button class="btn-setting" onclick="connectGoogleCalendar()">
+                                                Connetti
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Export automatico dati</span>
+                                            <span class="setting-description">Export settimanale in formato CSV</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" id="autoExport">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Webhook notifiche</span>
+                                            <span class="setting-description">URL endpoint per notifiche
+                                                automatiche</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="configureWebhook()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M10.59,13.41C11,13.8 11,14.4 10.59,14.81C10.2,15.2 9.6,15.2 9.19,14.81L7.78,13.4L6.37,14.81C5.96,15.2 5.34,15.2 4.93,14.81C4.52,14.4 4.52,13.8 4.93,13.39L6.34,12L4.93,10.6C4.52,10.2 4.52,9.6 4.93,9.19C5.34,8.78 5.96,8.78 6.37,9.19L7.78,10.6L9.19,9.19C9.6,8.78 10.2,8.78 10.59,9.19C11,9.6 11,10.2 10.59,10.61L9.18,12L10.59,13.41M13.41,9.19C13.8,8.78 14.4,8.78 14.81,9.19C15.2,9.6 15.2,10.2 14.81,10.61L13.4,12L14.81,13.41C15.2,13.8 15.2,14.4 14.81,14.81C14.4,15.2 13.8,15.2 13.39,14.81L12,13.4L10.61,14.81C10.2,15.2 9.6,15.2 9.19,14.81C8.78,14.4 8.78,13.8 9.19,13.39L10.6,12L9.19,10.6C8.78,10.2 8.78,9.6 9.19,9.19C9.6,8.78 10.2,8.78 10.61,9.19L12,10.6L13.41,9.19M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2Z" />
+                                                </svg>
+                                                Configura
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PRIVACY E GDPR -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Privacy e GDPR</h2>
+                                    <p class="card-subtitle">Gestisci i tuoi dati personali e privacy</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Scarica i tuoi dati</span>
+                                            <span class="setting-description">Export completo di tutti i dati personali
+                                                (GDPR)</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="requestDataExport()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" />
+                                                </svg>
+                                                Richiedi Export
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Condivisione dati analytics</span>
+                                            <span class="setting-description">Permetti uso dati anonimi per migliorare
+                                                il servizio</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked id="analyticsSharing">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Marketing e promozioni</span>
+                                            <span class="setting-description">Ricevi comunicazioni promozionali
+                                                personalizzate</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked id="marketingConsent">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ABBONAMENTO E PIANO -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Abbonamento e Piano</h2>
+                                    <p class="card-subtitle">Gestisci il tuo piano e fatturazione</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="plan-status">
+                                        <div class="current-plan">
+                                            <div class="plan-badge premium">Premium</div>
+                                            <div class="plan-details">
+                                                <h3>Piano Premium</h3>
+                                                <p>Commissioni ridotte al 10% + funzionalità avanzate</p>
+                                                <div class="plan-renewal">Rinnovo: 15 gennaio 2025</div>
+                                            </div>
+                                        </div>
+                                        <div class="plan-actions">
+                                            <button class="btn-setting" onclick="managePlan()">
+                                                Gestisci Piano
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Cronologia pagamenti</span>
+                                            <span class="setting-description">Visualizza fatture e transazioni
+                                                abbonamento</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="viewBillingHistory()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M13,3.5L18.5,9H13V3.5Z" />
+                                                </svg>
+                                                Visualizza Cronologia
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="setting-row">
+                                        <div class="setting-info">
+                                            <span class="setting-label">Metodo di pagamento</span>
+                                            <span class="setting-description">Aggiorna carta di credito per addebiti
+                                                automatici</span>
+                                        </div>
+                                        <div class="setting-control">
+                                            <button class="btn-setting" onclick="updatePaymentMethod()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M21,4H3C1.89,4 1,4.89 1,6V18A2,2 0 0,0 3,20H21A2,2 0 0,0 23,18V6C23,4.89 22.11,4 21,4M3,18V8H21V18H3Z" />
+                                                </svg>
+                                                Aggiorna Metodo
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- SUPPORTO E HELP -->
+                            <div class="content-card">
+                                <div class="card-header">
+                                    <h2>Supporto e Assistenza</h2>
+                                    <p class="card-subtitle">Ottieni aiuto e supporto tecnico</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="support-grid">
+                                        <div class="support-item">
+                                            <div class="support-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="support-content">
+                                                <h3>Centro Assistenza</h3>
+                                                <p>Guide, FAQ e documentazione completa</p>
+                                                <button class="btn-support" onclick="openHelpCenter()">Esplora</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="support-item">
+                                            <div class="support-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M20,2H4A2,2 0 0,0 2,4V16A2,2 0 0,0 4,18H18L22,22V4A2,2 0 0,0 20,2M6,9H18V11H6M6,6H18V8H6M6,12H15V14H6" />
+                                                </svg>
+                                            </div>
+                                            <div class="support-content">
+                                                <h3>Chat dal vivo</h3>
+                                                <p>Supporto tecnico in tempo reale</p>
+                                                <button class="btn-support" onclick="startLiveChat()">Inizia
+                                                    Chat</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="support-item">
+                                            <div class="support-icon">
+                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+                                                </svg>
+                                            </div>
+                                            <div class="support-content">
+                                                <h3>Ticket Supporto</h3>
+                                                <p>Segnala problemi e richiedi assistenza</p>
+                                                <button class="btn-support" onclick="createTicket()">Nuovo
+                                                    Ticket</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ZONA PERICOLOSA -->
+                            <div class="content-card danger-zone">
+                                <div class="card-header">
+                                    <h2>Zona Pericolosa</h2>
+                                    <p class="card-subtitle">Azioni irreversibili per il tuo account</p>
+                                </div>
+
+                                <div class="settings-section">
+                                    <div class="danger-actions">
+                                        <div class="danger-item">
+                                            <div class="danger-info">
+                                                <h3>Elimina Account</h3>
+                                                <p>Elimina permanentemente il tuo account e tutti i dati associati.
+                                                    Questa azione è irreversibile.</p>
+                                            </div>
+                                            <button class="btn-danger" onclick="confirmDeleteAccount()">
+                                                Elimina Account
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- MODAL CAMBIO PASSWORD -->
+            <div id="passwordModal" class="modal" style="display: none;">
+                <div class="modal-overlay" onclick="closeModal('passwordModal')"></div>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Cambia Password</h3>
+                        <button class="modal-close" onclick="closeModal('passwordModal')">×</button>
+                    </div>
+
+                    <form class="modal-body" id="passwordForm">
+                        <div class="form-group">
+                            <label for="currentPassword">Password attuale</label>
+                            <input type="password" id="currentPassword" name="currentPassword" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newPassword">Nuova password</label>
+                            <input type="password" id="newPassword" name="newPassword" required>
+                            <div class="password-strength" id="passwordStrength"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Conferma nuova password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        </div>
+                    </form>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn-secondary"
+                            onclick="closeModal('passwordModal')">Annulla</button>
+                        <button type="submit" class="btn-primary" onclick="changePassword()">Cambia Password</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/dashboard-professionista/impostazioni.js?v=1.2"></script>
+
+</body>
+
+</html>

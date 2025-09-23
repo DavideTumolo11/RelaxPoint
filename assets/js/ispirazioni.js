@@ -1,535 +1,717 @@
-/* ===============================================
-   RELAXPOINT - JS ISPIRAZIONI
-   Gestione griglia Instagram, filtri e interazioni
-   =============================================== */
+/**
+ * ISPIRAZIONI PAGE JAVASCRIPT - ALBUM SYSTEM
+ * Gestisce album foto con carousel interno
+ */
 
-// Stato globale applicazione
-let appState = {
-    currentFilter: 'all',
-    currentSort: 'recent',
-    currentType: 'all',
-    currentLocation: 'all',
-    isLoggedIn: false, // Simula stato login
-    likedItems: new Set(),
-    loadedItems: 0,
-    totalItems: 1247,
-    isLoading: false
-};
-
-// Dati mock ispirazioni (in produzione verrebbero da API)
-const mockInspirations = [
-    {
-        id: 1,
-        category: 'hair-makeup',
-        type: 'photo',
-        location: 'cagliari',
-        professionalName: 'Giulia Rossi',
-        professionalAvatar: '/assets/images/Professionisti/pr1.png',
-        mediaUrl: '/assets/images/Professionisti/pr1.png',
-        tags: ['Hair Styling', 'Sposa'],
-        likes: 24,
-        timestamp: Date.now() - 3600000
-    },
-    {
-        id: 2,
-        category: 'massaggi',
-        type: 'video',
-        location: 'sassari',
-        professionalName: 'Marco Bianchi',
-        professionalAvatar: '/assets/images/Professionisti/pr2.png',
-        mediaUrl: '/assets/videos/massaggio-demo.mp4',
-        videoDuration: '0:28',
-        tags: ['Massaggio', 'Rilassante'],
-        likes: 18,
-        timestamp: Date.now() - 7200000
-    },
-    {
-        id: 3,
-        category: 'fitness',
-        type: 'photo',
-        location: 'olbia',
-        professionalName: 'Laura Verdi',
-        professionalAvatar: '/assets/images/Professionisti/pr3.png',
-        mediaUrl: '/assets/images/Professionisti/pr3.png',
-        tags: ['Personal Training', 'Outdoor'],
-        likes: 32,
-        timestamp: Date.now() - 10800000
-    },
-    // Aggiungere più dati mock...
-];
-
-// Inizializzazione app
 document.addEventListener('DOMContentLoaded', function () {
-    initializeApp();
+    window.ispirazioniManager = new IspirazioniAlbumManager();
 });
 
-function initializeApp() {
-    setupEventListeners();
-    loadInitialContent();
-    setupInfiniteScroll();
-    checkLoginStatus();
-}
-
-// Setup event listeners
-function setupEventListeners() {
-    // Filtri categoria
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', handleCategoryFilter);
-    });
-
-    // Filtri secondari
-    document.getElementById('orderFilter').addEventListener('change', handleSortChange);
-    document.getElementById('typeFilter').addEventListener('change', handleTypeFilter);
-    document.getElementById('locationFilter').addEventListener('change', handleLocationFilter);
-
-    // Ricerca
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-        searchInput.addEventListener('input', debounce(handleSearch, 300));
+class IspirazioniAlbumManager {
+    constructor() {
+        this.allAlbums = [];
+        this.filteredAlbums = [];
+        this.currentPage = 1;
+        this.ALBUMS_PER_PAGE = 20;
+        this.currentAlbum = null;
+        this.currentSlide = 0;
+        this.init();
     }
 
-    // Modal login
-    document.getElementById('closeModal').addEventListener('click', closeLoginModal);
-
-    // Click fuori modal per chiudere
-    document.getElementById('loginModal').addEventListener('click', function (e) {
-        if (e.target === this) {
-            closeLoginModal();
-        }
-    });
-
-    // Event delegation per card dinamiche
-    document.getElementById('inspirationGrid').addEventListener('click', handleCardClick);
-    document.getElementById('inspirationGrid').addEventListener('dblclick', handleDoubleClick);
-}
-
-// Gestione filtro categoria
-function handleCategoryFilter(e) {
-    const filterBtn = e.currentTarget;
-    const category = filterBtn.dataset.filter;
-
-    // Update UI attiva
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    filterBtn.classList.add('active');
-
-    // Update stato
-    appState.currentFilter = category;
-
-    // Ricarica contenuto
-    loadFilteredContent();
-}
-
-// Gestione ordinamento
-function handleSortChange(e) {
-    appState.currentSort = e.target.value;
-    loadFilteredContent();
-}
-
-// Gestione filtro tipo
-function handleTypeFilter(e) {
-    appState.currentType = e.target.value;
-    loadFilteredContent();
-}
-
-// Gestione filtro location
-function handleLocationFilter(e) {
-    appState.currentLocation = e.target.value;
-    loadFilteredContent();
-}
-
-// Gestione ricerca
-function handleSearch(e) {
-    const searchTerm = e.target.value.toLowerCase().trim();
-
-    if (searchTerm.length === 0) {
-        loadFilteredContent();
-        return;
+    init() {
+        this.loadAlbumsData();
+        this.setupEventListeners();
+        this.setupFilters();
+        this.renderAlbums();
+        this.setupPagination();
+        console.log('Ispirazioni Album Manager inizializzato');
     }
 
-    // Filtra in base al termine di ricerca
-    const filteredItems = mockInspirations.filter(item => {
-        return item.professionalName.toLowerCase().includes(searchTerm) ||
-            item.tags.some(tag => tag.toLowerCase().includes(searchTerm));
-    });
-
-    renderInspirations(filteredItems);
-}
-
-// Click singolo su card
-function handleCardClick(e) {
-    const card = e.target.closest('.inspiration-card');
-    if (!card) return;
-
-    // Evita doppio trigger se si clicca su like button
-    if (e.target.closest('.like-btn')) return;
-
-    const inspirationId = card.dataset.inspirationId;
-
-    // Simula navigazione al portfolio professionista
-    console.log(`Navigating to professional portfolio, inspiration ID: ${inspirationId}`);
-
-    // In produzione:
-    // window.location.href = `/professionista/${professionalSlug}/portfolio/${inspirationId}`;
-
-    // Per ora mostra un alert
-    showToast('Navigazione al portfolio del professionista (da implementare)', 'info');
-}
-
-// Doppio click per like
-function handleDoubleClick(e) {
-    e.preventDefault();
-
-    const card = e.target.closest('.inspiration-card');
-    if (!card) return;
-
-    const inspirationId = card.dataset.inspirationId;
-
-    if (!appState.isLoggedIn) {
-        showLoginModal();
-        return;
-    }
-
-    toggleLike(inspirationId, card);
-}
-
-// Toggle like
-function toggleLike(inspirationId, cardElement) {
-    const likeBtn = cardElement.querySelector('.like-btn');
-    const likeCount = cardElement.querySelector('.like-count');
-    const isLiked = appState.likedItems.has(inspirationId);
-
-    if (isLiked) {
-        // Remove like
-        appState.likedItems.delete(inspirationId);
-        likeBtn.setAttribute('data-liked', 'false');
-        likeCount.textContent = parseInt(likeCount.textContent) - 1;
-        showToast('Mi piace rimosso', 'success');
-    } else {
-        // Add like
-        appState.likedItems.add(inspirationId);
-        likeBtn.setAttribute('data-liked', 'true');
-        likeCount.textContent = parseInt(likeCount.textContent) + 1;
-
-        // Animazione cuore
-        animateHeart(likeBtn);
-        showToast('Mi piace aggiunto', 'success');
-    }
-}
-
-// Animazione cuore like
-function animateHeart(likeBtn) {
-    likeBtn.style.transform = 'scale(1.3)';
-    likeBtn.style.transition = 'transform 0.2s ease';
-
-    setTimeout(() => {
-        likeBtn.style.transform = 'scale(1)';
-    }, 200);
-}
-
-// Carica contenuto iniziale
-function loadInitialContent() {
-    showLoading();
-
-    // Simula caricamento API
-    setTimeout(() => {
-        const initialItems = mockInspirations.slice(0, 12);
-        renderInspirations(initialItems);
-        appState.loadedItems = initialItems.length;
-        hideLoading();
-    }, 1000);
-}
-
-// Carica contenuto filtrato
-function loadFilteredContent() {
-    showLoading();
-
-    setTimeout(() => {
-        let filteredItems = [...mockInspirations];
-
-        // Applica filtri
-        if (appState.currentFilter !== 'all') {
-            filteredItems = filteredItems.filter(item => item.category === appState.currentFilter);
-        }
-
-        if (appState.currentType !== 'all') {
-            filteredItems = filteredItems.filter(item => item.type === appState.currentType);
-        }
-
-        if (appState.currentLocation !== 'all') {
-            filteredItems = filteredItems.filter(item => item.location === appState.currentLocation);
-        }
-
-        // Applica ordinamento
-        switch (appState.currentSort) {
-            case 'popular':
-                filteredItems.sort((a, b) => b.likes - a.likes);
-                break;
-            case 'liked':
-                filteredItems.sort((a, b) => {
-                    const aLiked = appState.likedItems.has(a.id.toString());
-                    const bLiked = appState.likedItems.has(b.id.toString());
-                    return bLiked - aLiked;
-                });
-                break;
-            case 'recent':
-            default:
-                filteredItems.sort((a, b) => b.timestamp - a.timestamp);
-                break;
-        }
-
-        renderInspirations(filteredItems);
-        updateFilterCounts();
-        hideLoading();
-    }, 500);
-}
-
-// Renderizza ispirazioni
-function renderInspirations(items) {
-    const grid = document.getElementById('inspirationGrid');
-
-    if (items.length === 0) {
-        showEmptyState();
-        return;
-    }
-
-    hideEmptyState();
-
-    const html = items.map((item, index) => {
-        const isLiked = appState.likedItems.has(item.id.toString());
-        const isVideo = item.type === 'video';
-
-        return `
-            <div class="inspiration-item" data-category="${item.category}" data-type="${item.type}" data-location="${item.location}" style="animation-delay: ${index * 0.1}s">
-                <div class="inspiration-card" data-inspiration-id="${item.id}">
-                    <div class="inspiration-media">
-                        ${isVideo ?
-                `<video poster="${item.mediaUrl}" preload="none">
-                                <source src="${item.mediaUrl}" type="video/mp4">
-                            </video>` :
-                `<img src="${item.mediaUrl}" alt="${item.tags[0]}" loading="lazy">`
+    loadAlbumsData() {
+        // Simula dati album caricati dai professionisti
+        this.allAlbums = [
+            {
+                id: 'album_1',
+                title: 'Sessione Yoga Mattutina',
+                description: 'Una serie di pose yoga per iniziare la giornata con energia e serenità',
+                category: 'fitness',
+                professional: 'sophia-rossi',
+                professionalName: 'Sophia Rossi',
+                createdAt: '2024-01-15',
+                likes: 156,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/yoga-1.jpg',
+                        alt: 'Yoga pose sunrise'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/yoga-2.jpg',
+                        alt: 'Meditation in nature'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/yoga-3.jpg',
+                        alt: 'Warrior pose'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/yoga-4.jpg',
+                        alt: 'Relaxation pose'
+                    }
+                ]
+            },
+            {
+                id: 'album_2',
+                title: 'Trattamento Viso Rilassante',
+                description: 'Una sequenza completa di trattamenti beauty per il benessere del viso',
+                category: 'beauty',
+                professional: 'elena-verdi',
+                professionalName: 'Elena Verdi',
+                createdAt: '2024-01-14',
+                likes: 203,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/beauty-1.jpg',
+                        alt: 'Facial treatment setup'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/beauty-2.jpg',
+                        alt: 'Skincare products'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/beauty-3.jpg',
+                        alt: 'Relaxing facial massage'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/beauty-4.jpg',
+                        alt: 'Final glow result'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/beauty-5.jpg',
+                        alt: 'Natural skincare'
+                    }
+                ]
+            },
+            {
+                id: 'album_3',
+                title: 'Massaggio Hot Stone',
+                description: 'Il rilassamento profondo attraverso la terapia con pietre calde',
+                category: 'massage',
+                professional: 'marco-bianchi',
+                professionalName: 'Marco Bianchi',
+                createdAt: '2024-01-13',
+                likes: 89,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/massage-1.jpg',
+                        alt: 'Hot stones preparation'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/massage-2.jpg',
+                        alt: 'Massage therapy room'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/massage-3.jpg',
+                        alt: 'Stone placement technique'
+                    }
+                ]
+            },
+            {
+                id: 'album_4',
+                title: 'Workout Funzionale',
+                description: 'Allenamento completo per forza, resistenza e flessibilità',
+                category: 'fitness',
+                professional: 'luca-neri',
+                professionalName: 'Luca Neri',
+                createdAt: '2024-01-12',
+                likes: 142,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/fitness-1.jpg',
+                        alt: 'Functional training setup'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/fitness-2.jpg',
+                        alt: 'Exercise demonstration'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/fitness-3.jpg',
+                        alt: 'Strength training'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/fitness-4.jpg',
+                        alt: 'Cool down stretching'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/fitness-5.jpg',
+                        alt: 'Post workout recovery'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/fitness-6.jpg',
+                        alt: 'Healthy nutrition'
+                    }
+                ]
+            },
+            {
+                id: 'album_5',
+                title: 'Meditazione in Natura',
+                description: 'Pratiche di mindfulness immersi nella bellezza naturale',
+                category: 'wellness',
+                professional: 'sophia-rossi',
+                professionalName: 'Sophia Rossi',
+                createdAt: '2024-01-11',
+                likes: 267,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-1.jpg',
+                        alt: 'Meditation in forest'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-2.jpg',
+                        alt: 'Breathing exercise'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-3.jpg',
+                        alt: 'Nature connection'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-4.jpg',
+                        alt: 'Peaceful moment'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-5.jpg',
+                        alt: 'Sunset meditation'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-6.jpg',
+                        alt: 'Gratitude practice'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/wellness-7.jpg',
+                        alt: 'Walking meditation'
+                    }
+                ]
+            },
+            {
+                id: 'album_6',
+                title: 'Trattamento Anti-Age',
+                description: 'Protocollo completo per contrastare i segni del tempo',
+                category: 'beauty',
+                professional: 'elena-verdi',
+                professionalName: 'Elena Verdi',
+                createdAt: '2024-01-10',
+                likes: 178,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-1.jpg',
+                        alt: 'Anti-aging consultation'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-2.jpg',
+                        alt: 'Professional skincare'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-3.jpg',
+                        alt: 'Treatment application'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-4.jpg',
+                        alt: 'Facial massage technique'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-5.jpg',
+                        alt: 'Visible results'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-6.jpg',
+                        alt: 'Maintenance routine'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-7.jpg',
+                        alt: 'Product recommendations'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/antiage-8.jpg',
+                        alt: 'Happy client'
+                    }
+                ]
+            },
+            {
+                id: 'album_7',
+                title: 'Massaggio Decontratturante',
+                description: 'Tecniche specializzate per sciogliere tensioni muscolari',
+                category: 'massage',
+                professional: 'marco-bianchi',
+                professionalName: 'Marco Bianchi',
+                createdAt: '2024-01-09',
+                likes: 134,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/decontract-1.jpg',
+                        alt: 'Muscle assessment'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/decontract-2.jpg',
+                        alt: 'Deep tissue technique'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/decontract-3.jpg',
+                        alt: 'Trigger point therapy'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/decontract-4.jpg',
+                        alt: 'Stretching integration'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/decontract-5.jpg',
+                        alt: 'Recovery advice'
+                    }
+                ]
+            },
+            {
+                id: 'album_8',
+                title: 'HIIT Training Session',
+                description: 'Allenamento ad alta intensità per massimi risultati',
+                category: 'fitness',
+                professional: 'luca-neri',
+                professionalName: 'Luca Neri',
+                createdAt: '2024-01-08',
+                likes: 198,
+                photos: [
+                    {
+                        url: '../../assets/images/ispirazioni/hiit-1.jpg',
+                        alt: 'HIIT warm up'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/hiit-2.jpg',
+                        alt: 'High intensity exercises'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/hiit-3.jpg',
+                        alt: 'Rest intervals'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/hiit-4.jpg',
+                        alt: 'Final push'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/hiit-5.jpg',
+                        alt: 'Cool down'
+                    },
+                    {
+                        url: '../../assets/images/ispirazioni/hiit-6.jpg',
+                        alt: 'Achievement celebration'
+                    }
+                ]
             }
-                        <div class="media-overlay">
-                            <div class="media-type${isVideo ? ' video' : ''}">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="${isVideo ? 'M8,5.14V19.14L19,12.14L8,5.14Z' : 'M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z'}" />
+        ];
+
+        this.filteredAlbums = [...this.allAlbums];
+        this.updateStats();
+    }
+
+    setupEventListeners() {
+        // Click fuori dal modal per chiudere
+        document.getElementById('albumModal').addEventListener('click', (e) => {
+            if (e.target.classList.contains('album-modal-overlay')) {
+                this.closeAlbumModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (this.currentAlbum) {
+                switch (e.key) {
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        this.previousSlide();
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        this.nextSlide();
+                        break;
+                    case 'Escape':
+                        e.preventDefault();
+                        this.closeAlbumModal();
+                        break;
+                }
+            }
+        });
+
+        // Search
+        const searchInput = document.querySelector('.search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                this.handleSearch(e.target.value);
+            });
+        }
+    }
+
+    setupFilters() {
+        // Filtri categoria
+        const categoryBtns = document.querySelectorAll('[data-category]');
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                this.filterByCategory(btn.dataset.category);
+            });
+        });
+
+        // Filtri dropdown
+        const sortFilter = document.getElementById('sortFilter');
+        const professionalFilter = document.getElementById('professionalFilter');
+        const photoCountFilter = document.getElementById('photoCountFilter');
+
+        if (sortFilter) sortFilter.addEventListener('change', () => this.applyFilters());
+        if (professionalFilter) professionalFilter.addEventListener('change', () => this.applyFilters());
+        if (photoCountFilter) photoCountFilter.addEventListener('change', () => this.applyFilters());
+    }
+
+    setupPagination() {
+        const loadMoreBtn = document.getElementById('loadMoreAlbums');
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                this.currentPage++;
+                this.renderAlbums();
+            });
+        }
+    }
+
+    renderAlbums() {
+        const ispirazioniGrid = document.getElementById('ispirazioniGrid');
+
+        if (this.filteredAlbums.length === 0) {
+            ispirazioniGrid.innerHTML = '<div class="loading-placeholder"><p>Nessun album disponibile</p></div>';
+            return;
+        }
+
+        const startIndex = 0;
+        const endIndex = this.currentPage * this.ALBUMS_PER_PAGE;
+        const albumsToShow = this.filteredAlbums.slice(startIndex, endIndex);
+
+        let albumsHTML = '';
+
+        albumsToShow.forEach((album, index) => {
+            const photoCount = album.photos.length;
+            const coverPhoto = album.photos[0];
+
+            albumsHTML += `
+                <div class="inspiration-item" data-album-id="${album.id}" onclick="openAlbum('${album.id}')" style="animation-delay: ${index * 0.1}s">
+                    <div class="inspiration-card">
+                        <div class="inspiration-media" style="background-image: url('${coverPhoto.url}');">
+                            <div class="album-overlay">
+                                <div class="album-info">
+                                    <h4 class="album-title">${album.title}</h4>
+                                    <p class="album-author">di ${album.professionalName}</p>
+                                </div>
+                            </div>
+                            <div class="album-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/>
                                 </svg>
-                                ${isVideo ? `<span class="video-duration">${item.videoDuration}</span>` : ''}
+                                <span>${photoCount}</span>
                             </div>
-                            <div class="inspiration-likes">
-                                <button class="like-btn" data-liked="${isLiked}">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
-                                    </svg>
-                                </button>
-                                <span class="like-count">${item.likes}</span>
-                            </div>
+                            <div class="category-badge ${album.category}">${this.getCategoryName(album.category)}</div>
                         </div>
-                    </div>
-                    <div class="inspiration-info">
-                        <div class="professional-info">
-                            <img src="${item.professionalAvatar}" alt="${item.professionalName}" class="professional-avatar">
-                            <div class="professional-details">
-                                <span class="professional-name">${item.professionalName}</span>
-                                <span class="professional-location">${capitalizeFirst(item.location)}</span>
-                            </div>
-                        </div>
-                        <div class="inspiration-tags">
-                            ${item.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        <div class="inspiration-actions">
+                            <button class="like-btn ${Math.random() > 0.7 ? 'liked' : ''}" onclick="event.stopPropagation(); toggleLike('${album.id}')">
+                                <i class="fas fa-heart"></i>
+                                <span>${album.likes}</span>
+                            </button>
+                            <span class="inspiration-date">${this.formatDate(album.createdAt)}</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
-    }).join('');
+            `;
+        });
 
-    grid.innerHTML = html;
-}
+        ispirazioniGrid.innerHTML = albumsHTML;
 
-// Aggiorna contatori filtri
-function updateFilterCounts() {
-    // Simula aggiornamento contatori
-    // In produzione verrebbero da API
-    document.getElementById('totalItems').textContent = appState.totalItems.toLocaleString();
-}
+        // Aggiorna paginazione
+        this.updatePaginationButton();
+    }
 
-// Infinite scroll
-function setupInfiniteScroll() {
-    const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !appState.isLoading && appState.loadedItems < appState.totalItems) {
-            loadMoreContent();
+    openAlbum(albumId) {
+        const album = this.allAlbums.find(a => a.id === albumId);
+        if (!album) return;
+
+        this.currentAlbum = album;
+        this.currentSlide = 0;
+
+        // Aggiorna modal header
+        document.getElementById('albumModalTitle').textContent = album.title;
+        document.getElementById('albumModalAuthor').textContent = `di ${album.professionalName}`;
+        document.getElementById('albumDescription').textContent = album.description;
+
+        // Genera carousel
+        this.generateCarousel();
+        this.generateIndicators();
+        this.updateCarouselPosition();
+
+        // Mostra modal
+        document.getElementById('albumModal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    generateCarousel() {
+        const carousel = document.getElementById('albumCarousel');
+        let carouselHTML = '';
+
+        this.currentAlbum.photos.forEach((photo, index) => {
+            carouselHTML += `
+                <div class="carousel-slide ${index === 0 ? 'active' : ''}">
+                    <img src="${photo.url}" alt="${photo.alt}" loading="lazy">
+                </div>
+            `;
+        });
+
+        carousel.innerHTML = carouselHTML;
+    }
+
+    generateIndicators() {
+        const indicators = document.getElementById('carouselIndicators');
+        let indicatorsHTML = '';
+
+        this.currentAlbum.photos.forEach((_, index) => {
+            indicatorsHTML += `
+                <button class="carousel-indicator ${index === 0 ? 'active' : ''}" onclick="goToSlide(${index})"></button>
+            `;
+        });
+
+        indicators.innerHTML = indicatorsHTML;
+    }
+
+    updateCarouselPosition() {
+        const carousel = document.getElementById('albumCarousel');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.carousel-indicator');
+
+        // Aggiorna slides
+        slides.forEach((slide, index) => {
+            slide.classList.toggle('active', index === this.currentSlide);
+        });
+
+        // Aggiorna indicatori
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentSlide);
+        });
+
+        // Anima carousel
+        const offset = -this.currentSlide * 100;
+        carousel.style.transform = `translateX(${offset}%)`;
+    }
+
+    nextSlide() {
+        if (!this.currentAlbum) return;
+
+        this.currentSlide = (this.currentSlide + 1) % this.currentAlbum.photos.length;
+        this.updateCarouselPosition();
+    }
+
+    previousSlide() {
+        if (!this.currentAlbum) return;
+
+        this.currentSlide = this.currentSlide === 0
+            ? this.currentAlbum.photos.length - 1
+            : this.currentSlide - 1;
+        this.updateCarouselPosition();
+    }
+
+    goToSlide(slideIndex) {
+        if (!this.currentAlbum) return;
+
+        this.currentSlide = slideIndex;
+        this.updateCarouselPosition();
+    }
+
+    closeAlbumModal() {
+        document.getElementById('albumModal').style.display = 'none';
+        document.body.style.overflow = '';
+        this.currentAlbum = null;
+        this.currentSlide = 0;
+    }
+
+    filterByCategory(category) {
+        this.filteredAlbums = category === 'all'
+            ? [...this.allAlbums]
+            : this.allAlbums.filter(album => album.category === category);
+
+        this.applyAdditionalFilters();
+        this.renderAlbums();
+    }
+
+    applyFilters() {
+        this.applyAdditionalFilters();
+        this.renderAlbums();
+    }
+
+    applyAdditionalFilters() {
+        const sortFilter = document.getElementById('sortFilter')?.value || 'recent';
+        const professionalFilter = document.getElementById('professionalFilter')?.value || '';
+        const photoCountFilter = document.getElementById('photoCountFilter')?.value || '';
+
+        // Filtra per professionista
+        if (professionalFilter) {
+            this.filteredAlbums = this.filteredAlbums.filter(album =>
+                album.professional === professionalFilter
+            );
         }
-    }, {
-        rootMargin: '100px'
-    });
 
-    const sentinel = document.createElement('div');
-    sentinel.id = 'scroll-sentinel';
-    sentinel.style.height = '1px';
-    document.querySelector('.ispirazioni-content').appendChild(sentinel);
+        // Filtra per numero foto
+        if (photoCountFilter) {
+            this.filteredAlbums = this.filteredAlbums.filter(album => {
+                const photoCount = album.photos.length;
+                switch (photoCountFilter) {
+                    case 'small': return photoCount >= 1 && photoCount <= 3;
+                    case 'medium': return photoCount >= 4 && photoCount <= 7;
+                    case 'large': return photoCount >= 8 && photoCount <= 10;
+                    default: return true;
+                }
+            });
+        }
 
-    observer.observe(sentinel);
-}
+        // Ordina
+        this.sortAlbums(sortFilter);
 
-// Carica più contenuto
-function loadMoreContent() {
-    if (appState.isLoading) return;
+        // Reset paginazione
+        this.currentPage = 1;
+    }
 
-    appState.isLoading = true;
-    showLoading();
+    sortAlbums(sortType) {
+        switch (sortType) {
+            case 'popular':
+                this.filteredAlbums.sort((a, b) => b.likes - a.likes);
+                break;
+            case 'photos-desc':
+                this.filteredAlbums.sort((a, b) => b.photos.length - a.photos.length);
+                break;
+            case 'photos-asc':
+                this.filteredAlbums.sort((a, b) => a.photos.length - b.photos.length);
+                break;
+            default: // recent
+                this.filteredAlbums.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        }
+    }
 
-    setTimeout(() => {
-        // Simula caricamento più elementi
-        const moreItems = mockInspirations.slice(appState.loadedItems, appState.loadedItems + 6);
-        appendInspirations(moreItems);
-        appState.loadedItems += moreItems.length;
-        appState.isLoading = false;
-        hideLoading();
-    }, 1000);
-}
+    handleSearch(searchTerm) {
+        const term = searchTerm.toLowerCase().trim();
 
-// Appendi ispirazioni esistenti
-function appendInspirations(items) {
-    const grid = document.getElementById('inspirationGrid');
-    const existingItems = grid.querySelectorAll('.inspiration-item').length;
+        if (term.length === 0) {
+            this.applyFilters();
+            return;
+        }
 
-    const html = items.map((item, index) => {
-        const isLiked = appState.likedItems.has(item.id.toString());
-        const isVideo = item.type === 'video';
+        this.filteredAlbums = this.allAlbums.filter(album =>
+            album.title.toLowerCase().includes(term) ||
+            album.description.toLowerCase().includes(term) ||
+            album.professionalName.toLowerCase().includes(term) ||
+            this.getCategoryName(album.category).toLowerCase().includes(term)
+        );
 
-        return `
-            <div class="inspiration-item" data-category="${item.category}" data-type="${item.type}" data-location="${item.location}" style="animation-delay: ${(existingItems + index) * 0.1}s">
-                <!-- HTML identico al renderInspirations -->
-            </div>
-        `;
-    }).join('');
+        this.currentPage = 1;
+        this.renderAlbums();
+    }
 
-    grid.insertAdjacentHTML('beforeend', html);
-}
+    updatePaginationButton() {
+        const loadMoreBtn = document.getElementById('loadMoreAlbums');
+        if (!loadMoreBtn) return;
 
-// Mostra loading
-function showLoading() {
-    document.getElementById('loadingSpinner').style.display = 'flex';
-}
+        const totalShown = this.currentPage * this.ALBUMS_PER_PAGE;
+        const hasMore = totalShown < this.filteredAlbums.length;
 
-// Nascondi loading
-function hideLoading() {
-    document.getElementById('loadingSpinner').style.display = 'none';
-}
+        if (hasMore) {
+            loadMoreBtn.style.display = 'block';
+            loadMoreBtn.textContent = `Carica Altri Album (${this.filteredAlbums.length - totalShown} rimanenti)`;
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
 
-// Mostra empty state
-function showEmptyState() {
-    document.getElementById('emptyState').style.display = 'flex';
-    document.getElementById('inspirationGrid').style.display = 'none';
-}
+    updateStats() {
+        const totalAlbums = this.allAlbums.length;
+        const totalPhotos = this.allAlbums.reduce((sum, album) => sum + album.photos.length, 0);
 
-// Nascondi empty state
-function hideEmptyState() {
-    document.getElementById('emptyState').style.display = 'none';
-    document.getElementById('inspirationGrid').style.display = 'grid';
-}
+        const totalAlbumsEl = document.getElementById('totalAlbums');
+        const totalPhotosEl = document.getElementById('totalPhotos');
 
-// Mostra modal login
-function showLoginModal() {
-    document.getElementById('loginModal').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
+        if (totalAlbumsEl) totalAlbumsEl.textContent = totalAlbums;
+        if (totalPhotosEl) totalPhotosEl.textContent = totalPhotos.toLocaleString();
+    }
 
-// Chiudi modal login
-function closeLoginModal() {
-    document.getElementById('loginModal').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+    toggleLike(albumId) {
+        const album = this.allAlbums.find(a => a.id === albumId);
+        if (!album) return;
 
-// Controlla stato login
-function checkLoginStatus() {
-    // Simula controllo login
-    // In produzione verificherebbe token/session
-    appState.isLoggedIn = false; // Cambia per testare
-}
+        // Toggle like (simulazione)
+        const likeBtn = document.querySelector(`[onclick*="${albumId}"] .like-btn`);
+        const isLiked = likeBtn.classList.contains('liked');
 
-// Toast notifications
-function showToast(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `toast toast-${type}`;
-    toast.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? 'var(--color-primary)' : 'var(--color-secondary)'};
-        color: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 500;
-        z-index: 1001;
-        opacity: 0;
-        transform: translateX(100%);
-        transition: all 0.3s ease;
-        max-width: 300px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    `;
+        if (isLiked) {
+            album.likes--;
+            likeBtn.classList.remove('liked');
+        } else {
+            album.likes++;
+            likeBtn.classList.add('liked');
+        }
 
-    toast.textContent = message;
-    document.body.appendChild(toast);
+        likeBtn.querySelector('span').textContent = album.likes;
+    }
 
-    // Animazione entrata
-    setTimeout(() => {
-        toast.style.opacity = '1';
-        toast.style.transform = 'translateX(0)';
-    }, 100);
-
-    // Rimozione automatica
-    setTimeout(() => {
-        toast.style.opacity = '0';
-        toast.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            if (toast.parentNode) {
-                toast.remove();
-            }
-        }, 300);
-    }, 3000);
-}
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
+    getCategoryName(category) {
+        const categories = {
+            'beauty': 'Beauty',
+            'fitness': 'Fitness',
+            'massage': 'Massaggi',
+            'wellness': 'Wellness'
         };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+        return categories[category] || category;
+    }
+
+    formatDate(dateString) {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
+
+        if (diffDays === 0) return 'Oggi';
+        if (diffDays === 1) return 'Ieri';
+        if (diffDays < 7) return `${diffDays} giorni fa`;
+        if (diffDays < 30) return `${Math.floor(diffDays / 7)} settimane fa`;
+        return `${Math.floor(diffDays / 30)} mesi fa`;
+    }
 }
 
-function capitalizeFirst(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+// ===============================================
+// FUNZIONI GLOBALI
+// ===============================================
+
+function openAlbum(albumId) {
+    window.ispirazioniManager.openAlbum(albumId);
 }
 
-// Gestione errori globali
-window.addEventListener('error', function (e) {
-    console.error('Errore JavaScript:', e.error);
-    showToast('Si è verificato un errore. Riprova più tardi.', 'error');
+function closeAlbumModal() {
+    window.ispirazioniManager.closeAlbumModal();
+}
+
+function nextSlide() {
+    window.ispirazioniManager.nextSlide();
+}
+
+function previousSlide() {
+    window.ispirazioniManager.previousSlide();
+}
+
+function goToSlide(slideIndex) {
+    window.ispirazioniManager.goToSlide(slideIndex);
+}
+
+function toggleLike(albumId) {
+    window.ispirazioniManager.toggleLike(albumId);
+}
+
+// ===============================================
+// GESTIONE ERRORI
+// ===============================================
+window.addEventListener('error', (e) => {
+    console.error('Errore ispirazioni album manager:', e.error);
 });
 
-// Prevenzione context menu su immagini (opzionale)
-document.addEventListener('contextmenu', function (e) {
-    if (e.target.tagName === 'IMG' && e.target.closest('.inspiration-media')) {
-        e.preventDefault();
-    }
-});
-
-// Gestione lazy loading video
-document.addEventListener('click', function (e) {
-    const video = e.target.closest('video');
-    if (video && !video.src) {
-        const source = video.querySelector('source');
-        if (source) {
-            video.src = source.src;
-            video.load();
-        }
-    }
-});
+console.log('Ispirazioni Album System JS caricato');
