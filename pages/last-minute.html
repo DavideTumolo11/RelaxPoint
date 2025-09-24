@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Last Minute - RelaxPoint | Servizi Immediati</title>
+    <meta name="description"
+        content="Trova professionisti disponibili subito. Prenotazioni immediate con professionisti certificati RelaxPoint.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/last-minute.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER IDENTICO -->
+            <header class="site-header">
+                <div class="header-left">
+                    <a class="site-logo" href="/index.html">
+                        <div class="logo-icon">
+                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
+                                    fill="currentColor"></path>
+                            </svg>
+                        </div>
+                        <h2 class="logo-text">RelaxPoint</h2>
+                    </a>
+
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE ATTIVO -->
+                <a class="last-minute-link active-page" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- HERO LAST MINUTE -->
+                    <section class="lastminute-hero">
+                        <div class="hero-content">
+                            <div class="hero-badge">
+                                <span class="badge-live">LIVE</span>
+                                <span class="badge-text">Aggiornamenti ogni 30 secondi</span>
+                            </div>
+                            <h1 class="hero-title">Servizi Immediati</h1>
+                            <p class="hero-description">Professionisti disponibili ora nella tua zona. Prenota e paga
+                                subito per servizi entro le prossime ore.</p>
+                        </div>
+                    </section>
+
+                    <!-- FILTRI RAPIDI PROMINENTI -->
+                    <section class="lastminute-filters">
+                        <div class="filters-card">
+                            <div class="filters-header">
+                                <h2>Trova Subito</h2>
+                                <div class="location-status" id="locationStatus">
+                                    <span class="location-icon icon-svg icon-svg-medium">
+                                        <svg viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                        </svg>
+                                    </span>
+                                    <span class="location-text">Rilevamento posizione...</span>
+                                </div>
+                            </div>
+
+                            <div class="filters-grid">
+                                <!-- SERVIZIO -->
+                                <div class="filter-group">
+                                    <label class="filter-label">Servizio</label>
+                                    <select class="filter-select" id="serviceFilter">
+                                        <option value="">Tutti i servizi</option>
+                                        <option value="massaggi">Massaggi</option>
+                                        <option value="fitness">Fitness</option>
+                                        <option value="beauty">Beauty</option>
+                                        <option value="yoga">Yoga</option>
+                                        <option value="fisioterapia">Fisioterapia</option>
+                                        <option value="hair-makeup">Hair & Make-up</option>
+                                        <option value="chef">Chef & Cucina</option>
+                                        <option value="escursioni">Escursioni</option>
+                                    </select>
+                                </div>
+
+                                <!-- ORARIO -->
+                                <div class="filter-group">
+                                    <label class="filter-label">Quando</label>
+                                    <select class="filter-select" id="timeFilter">
+                                        <option value="now">Ora</option>
+                                        <option value="2h">Prossime 2 ore</option>
+                                        <option value="today">Oggi</option>
+                                        <option value="custom">Personalizzato</option>
+                                    </select>
+                                </div>
+
+                                <!-- DISTANZA -->
+                                <div class="filter-group">
+                                    <label class="filter-label">Distanza (km)</label>
+                                    <div class="distance-slider">
+                                        <input type="range" id="distanceFilter" min="5" max="50" value="25"
+                                            class="slider">
+                                        <span class="distance-value" id="distanceValue">25 km</span>
+                                    </div>
+                                </div>
+
+                                <!-- PREZZO -->
+                                <div class="filter-group">
+                                    <label class="filter-label">Budget Max</label>
+                                    <select class="filter-select" id="priceFilter">
+                                        <option value="">Qualsiasi</option>
+                                        <option value="50">Fino €50</option>
+                                        <option value="100">Fino €100</option>
+                                        <option value="150">Fino €150</option>
+                                        <option value="200">Fino €200</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="filters-actions">
+                                <button class="btn-clear" onclick="clearFilters()">Reset</button>
+                                <button class="btn-apply" onclick="applyFilters()">
+                                    <span class="results-count" id="resultsCount">12</span>
+                                    <span>professionisti disponibili</span>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- RISULTATI PROFESSIONISTI -->
+                    <section class="lastminute-results">
+                        <div class="results-header">
+                            <h2>Disponibili Ora</h2>
+                            <div class="results-info">
+                                <span class="update-time">Ultimo aggiornamento: <strong>ora</strong></span>
+                                <div class="auto-refresh">
+                                    <div class="refresh-dot"></div>
+                                    <span>Auto-aggiornamento attivo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- GRIGLIA PROFESSIONISTI -->
+                        <div class="professionals-grid" id="professionalsGrid">
+
+                            <!-- PROFESSIONISTA 1 - DISPONIBILE ORA -->
+                            <div class="professional-lastminute-card" data-professional-id="1">
+                                <div class="card-header">
+                                    <div class="professional-image"
+                                        style="background-image: url('/assets/images/Professionisti/pr1.png');"></div>
+                                    <div class="professional-info">
+                                        <h3 class="professional-name">Giulia Rossi</h3>
+                                        <div class="professional-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating-value">4.9</span>
+                                            <span class="reviews-count">(127)</span>
+                                        </div>
+                                        <div class="specializations">
+                                            <span class="spec-tag">Massaggio Svedese</span>
+                                            <span class="spec-tag">Rilassante</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="availability-status">
+                                        <div class="status-indicator available">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">Disponibile ora</span>
+                                        </div>
+                                        <div class="distance-info">
+                                            <span class="distance">2.3 km</span>
+                                            <span class="eta">Arrivo in ~15 min</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-details">
+                                        <div class="service-info">
+                                            <div class="location">
+                                                <span class="location-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>A domicilio</span>
+                                            </div>
+                                            <div class="duration">
+                                                <span class="duration-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>60 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing">
+                                            <span class="price">€85</span>
+                                            <span class="price-note">Prezzo fisso</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn-profile" onclick="viewProfile(1)">Profilo</button>
+                                    <button class="btn-book-now" onclick="bookNow(1)">Prenota Subito</button>
+                                </div>
+                            </div>
+
+                            <!-- PROFESSIONISTA 2 - DISPONIBILE DALLE 15:30 -->
+                            <div class="professional-lastminute-card" data-professional-id="2">
+                                <div class="card-header">
+                                    <div class="professional-image"
+                                        style="background-image: url('/assets/images/Professionisti/pr2.png');"></div>
+                                    <div class="professional-info">
+                                        <h3 class="professional-name">Marco Bianchi</h3>
+                                        <div class="professional-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating-value">4.8</span>
+                                            <span class="reviews-count">(89)</span>
+                                        </div>
+                                        <div class="specializations">
+                                            <span class="spec-tag">Personal Training</span>
+                                            <span class="spec-tag">HIIT</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="availability-status">
+                                        <div class="status-indicator scheduled">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">Disponibile dalle 15:30</span>
+                                        </div>
+                                        <div class="distance-info">
+                                            <span class="distance">1.8 km</span>
+                                            <span class="eta">Arrivo in ~12 min</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-details">
+                                        <div class="service-info">
+                                            <div class="location">
+                                                <span class="location-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>A domicilio</span>
+                                            </div>
+                                            <div class="duration">
+                                                <span class="duration-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>90 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing">
+                                            <span class="price">€120</span>
+                                            <span class="price-note">Prezzo fisso</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn-profile" onclick="viewProfile(2)">Profilo</button>
+                                    <button class="btn-book-now" onclick="bookNow(2)">Prenota Subito</button>
+                                </div>
+                            </div>
+
+                            <!-- PROFESSIONISTA 3 - BEAUTY -->
+                            <div class="professional-lastminute-card" data-professional-id="3">
+                                <div class="card-header">
+                                    <div class="professional-image"
+                                        style="background-image: url('/assets/images/Professionisti/pr3.png');"></div>
+                                    <div class="professional-info">
+                                        <h3 class="professional-name">Sofia Moretti</h3>
+                                        <div class="professional-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating-value">4.9</span>
+                                            <span class="reviews-count">(156)</span>
+                                        </div>
+                                        <div class="specializations">
+                                            <span class="spec-tag">Trattamento Viso</span>
+                                            <span class="spec-tag">Anti-Age</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="availability-status">
+                                        <div class="status-indicator available">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">Disponibile ora</span>
+                                        </div>
+                                        <div class="distance-info">
+                                            <span class="distance">4.1 km</span>
+                                            <span class="eta">Arrivo in ~20 min</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-details">
+                                        <div class="service-info">
+                                            <div class="location">
+                                                <span class="location-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>A domicilio</span>
+                                            </div>
+                                            <div class="duration">
+                                                <span class="duration-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>75 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing">
+                                            <span class="price">€95</span>
+                                            <span class="price-note">Prezzo fisso</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn-profile" onclick="viewProfile(3)">Profilo</button>
+                                    <button class="btn-book-now" onclick="bookNow(3)">Prenota Subito</button>
+                                </div>
+                            </div>
+
+                            <!-- PROFESSIONISTA 4 - YOGA -->
+                            <div class="professional-lastminute-card" data-professional-id="4">
+                                <div class="card-header">
+                                    <div class="professional-image"
+                                        style="background-image: url('/assets/images/Professionisti/pr4.png');"></div>
+                                    <div class="professional-info">
+                                        <h3 class="professional-name">Laura Verdi</h3>
+                                        <div class="professional-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating-value">5.0</span>
+                                            <span class="reviews-count">(73)</span>
+                                        </div>
+                                        <div class="specializations">
+                                            <span class="spec-tag">Hatha Yoga</span>
+                                            <span class="spec-tag">Mindfulness</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="availability-status">
+                                        <div class="status-indicator scheduled">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">Disponibile dalle 16:00</span>
+                                        </div>
+                                        <div class="distance-info">
+                                            <span class="distance">3.7 km</span>
+                                            <span class="eta">Arrivo in ~18 min</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-details">
+                                        <div class="service-info">
+                                            <div class="location">
+                                                <span class="location-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>A domicilio</span>
+                                            </div>
+                                            <div class="duration">
+                                                <span class="duration-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>60 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing">
+                                            <span class="price">€70</span>
+                                            <span class="price-note">Prezzo fisso</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn-profile" onclick="viewProfile(4)">Profilo</button>
+                                    <button class="btn-book-now" onclick="bookNow(4)">Prenota Subito</button>
+                                </div>
+                            </div>
+
+                            <!-- PROFESSIONISTA 5 - CHEF -->
+                            <div class="professional-lastminute-card" data-professional-id="5">
+                                <div class="card-header">
+                                    <div class="professional-image"
+                                        style="background-image: url('/assets/images/Professionisti/pr5.png');"></div>
+                                    <div class="professional-info">
+                                        <h3 class="professional-name">Luca Melis</h3>
+                                        <div class="professional-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating-value">4.7</span>
+                                            <span class="reviews-count">(94)</span>
+                                        </div>
+                                        <div class="specializations">
+                                            <span class="spec-tag">Cucina Italiana</span>
+                                            <span class="spec-tag">Cena a Domicilio</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="availability-status">
+                                        <div class="status-indicator scheduled">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">Disponibile dalle 19:00</span>
+                                        </div>
+                                        <div class="distance-info">
+                                            <span class="distance">5.2 km</span>
+                                            <span class="eta">Arrivo in ~25 min</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-details">
+                                        <div class="service-info">
+                                            <div class="location">
+                                                <span class="location-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>A domicilio</span>
+                                            </div>
+                                            <div class="duration">
+                                                <span class="duration-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>180 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing">
+                                            <span class="price">€180</span>
+                                            <span class="price-note">Prezzo fisso</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn-profile" onclick="viewProfile(5)">Profilo</button>
+                                    <button class="btn-book-now" onclick="bookNow(5)">Prenota Subito</button>
+                                </div>
+                            </div>
+
+                            <!-- PROFESSIONISTA 6 - FISIOTERAPIA -->
+                            <div class="professional-lastminute-card" data-professional-id="6">
+                                <div class="card-header">
+                                    <div class="professional-image"
+                                        style="background-image: url('/assets/images/Professionisti/pr1.png');"></div>
+                                    <div class="professional-info">
+                                        <h3 class="professional-name">Giuseppe Conti</h3>
+                                        <div class="professional-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="rating-value">4.8</span>
+                                            <span class="reviews-count">(112)</span>
+                                        </div>
+                                        <div class="specializations">
+                                            <span class="spec-tag">Fisioterapia</span>
+                                            <span class="spec-tag">Riabilitazione</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="availability-status">
+                                        <div class="status-indicator available">
+                                            <span class="status-dot"></span>
+                                            <span class="status-text">Disponibile ora</span>
+                                        </div>
+                                        <div class="distance-info">
+                                            <span class="distance">3.1 km</span>
+                                            <span class="eta">Arrivo in ~16 min</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="service-details">
+                                        <div class="service-info">
+                                            <div class="location">
+                                                <span class="location-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>A domicilio</span>
+                                            </div>
+                                            <div class="duration">
+                                                <span class="duration-icon icon-svg icon-svg-small">
+                                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.9L16.2,16.2Z"/>
+                                                    </svg>
+                                                </span>
+                                                <span>50 min</span>
+                                            </div>
+                                        </div>
+                                        <div class="pricing">
+                                            <span class="price">€75</span>
+                                            <span class="price-note">Prezzo fisso</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card-footer">
+                                    <button class="btn-profile" onclick="viewProfile(6)">Profilo</button>
+                                    <button class="btn-book-now" onclick="bookNow(6)">Prenota Subito</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- LOAD MORE -->
+                        <div class="load-more-section">
+                            <button class="btn-load-more" onclick="loadMore()">
+                                Carica altri professionisti
+                            </button>
+                            <p class="load-more-info">Mostrando 6 di 23 professionisti disponibili</p>
+                        </div>
+                    </section>
+
+                    <!-- COME FUNZIONA -->
+                    <section class="how-it-works">
+                        <h2 class="section-title">Come Funziona Last Minute</h2>
+                        <div class="steps-grid">
+                            <div class="step-card">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h3>Scegli</h3>
+                                    <p>Seleziona il professionista disponibile che preferisci dalla lista</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h3>Paga</h3>
+                                    <p>Pagamento immediato sicuro con prezzo fisso, nessuna negoziazione</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h3>Conferma</h3>
+                                    <p>Il professionista ha 10 minuti per accettare la prenotazione</p>
+                                </div>
+                            </div>
+                            <div class="step-card">
+                                <div class="step-number">4</div>
+                                <div class="step-content">
+                                    <h3>Goditi</h3>
+                                    <p>Chat attiva per coordinarsi, poi rilassati e goditi il servizio</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+            </main>
+
+            <!-- FOOTER IDENTICO -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODALE PRENOTAZIONE RAPIDA -->
+    <div class="modal-overlay" id="bookingModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Prenotazione Last Minute</h3>
+                <button class="modal-close" onclick="closeBookingModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <!-- STEP 1: DETTAGLI SERVIZIO -->
+                <div class="booking-step active" id="step1">
+                    <div class="professional-summary">
+                        <div class="summary-image" id="modalProfessionalImage"></div>
+                        <div class="summary-info">
+                            <h4 id="modalProfessionalName">Nome Professionista</h4>
+                            <div class="summary-rating">
+                                <span class="stars" id="modalStars">★★★★★</span>
+                                <span class="rating-value" id="modalRating">4.9</span>
+                            </div>
+                            <div class="summary-service" id="modalService">Servizio Selezionato</div>
+                        </div>
+                        <div class="summary-price">
+                            <span class="price" id="modalPrice">€85</span>
+                            <span class="price-note">Prezzo fisso</span>
+                        </div>
+                    </div>
+
+                    <div class="booking-details">
+                        <div class="detail-group">
+                            <label>Orario Servizio</label>
+                            <select id="timeSlotSelect" class="detail-select">
+                                <option value="now">Il prima possibile</option>
+                                <option value="15:30">Alle 15:30</option>
+                                <option value="16:00">Alle 16:00</option>
+                                <option value="16:30">Alle 16:30</option>
+                            </select>
+                        </div>
+
+                        <div class="detail-group">
+                            <label>Indirizzo Servizio</label>
+                            <div class="address-input">
+                                <input type="text" id="addressInput" placeholder="Inserisci il tuo indirizzo">
+                                <button class="btn-location" onclick="useCurrentLocation()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    Usa posizione attuale
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="detail-group">
+                            <label>Note aggiuntive (opzionale)</label>
+                            <textarea id="notesInput" placeholder="Citofono, piano, richieste speciali..."></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 2: PAGAMENTO -->
+                <div class="booking-step" id="step2" style="display: none;">
+                    <div class="payment-summary">
+                        <h4>Riepilogo Prenotazione</h4>
+                        <div class="summary-row">
+                            <span>Servizio:</span>
+                            <span id="paymentService">Massaggio Svedese</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Professionista:</span>
+                            <span id="paymentProfessional">Giulia Rossi</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Orario:</span>
+                            <span id="paymentTime">Il prima possibile</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Durata:</span>
+                            <span id="paymentDuration">60 minuti</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Totale:</span>
+                            <span id="paymentTotal">€85</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h4>Metodo di Pagamento</h4>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="card" checked>
+                                <div class="payment-icon card-icons">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/visa-2.svg" alt="Visa" width="32"
+                                        height="20">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/mastercard-6.svg" alt="Mastercard"
+                                        width="32" height="20">
+                                </div>
+                                <span>Carta di Credito/Debito</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="paypal">
+                                <div class="payment-icon">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/paypal-2.svg" alt="PayPal"
+                                        width="80" height="20">
+                                </div>
+                                <span>PayPal</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="googlepay">
+                                <div class="payment-icon">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/google-pay-2.svg" alt="Google Pay"
+                                        width="60" height="24">
+                                </div>
+                                <span>Google Pay</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="applepay">
+                                <div class="payment-icon">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/apple-pay-2.svg" alt="Apple Pay"
+                                        width="60" height="24">
+                                </div>
+                                <span>Apple Pay</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="satispay">
+                                <div class="payment-icon">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/satispay.svg" alt="Satispay"
+                                        width="80" height="24">
+                                </div>
+                                <span>Satispay</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="postepay">
+                                <div class="payment-icon">
+                                    <img src="https://www.poste.it/resources/jcr:content/contentbody/twocolumnsection_c/left-par/pdfresource_1374846593.img.png/1535527509870.png"
+                                        alt="PostePay" width="70" height="24">
+                                </div>
+                                <span>PostePay</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="klarna">
+                                <div class="payment-icon">
+                                    <img src="https://cdn.worldvectorlogo.com/logos/klarna-2.svg" alt="Klarna"
+                                        width="60" height="24">
+                                </div>
+                                <span>Klarna - Paga dopo</span>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="scalapay">
+                                <div class="payment-icon">
+                                    <img src="https://media.scalapay.com/image/upload/v1647429231/logos/scalapay-logo.svg"
+                                        alt="Scalapay" width="70" height="24">
+                                </div>
+                                <span>Scalapay - 3 rate</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="payment-notice">
+                        <div class="notice-icon icon-svg icon-svg-large">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7,2V13H10V22L17,10H14L17,2H7Z"/>
+                            </svg>
+                        </div>
+                        <div class="notice-text">
+                            <strong>Pagamento Immediato</strong><br>
+                            Il pagamento verrà addebitato subito. Il professionista ha 10 minuti per accettare la
+                            prenotazione.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STEP 3: CONFERMA -->
+                <div class="booking-step" id="step3" style="display: none;">
+                    <div class="confirmation-content">
+                        <div class="confirmation-icon">✅</div>
+                        <h4>Prenotazione Inviata!</h4>
+                        <p>Abbiamo notificato <strong id="confirmedProfessional">Giulia Rossi</strong> della tua
+                            prenotazione.</p>
+
+                        <div class="waiting-status">
+                            <div class="waiting-timer">
+                                <span class="timer-label">Tempo rimanente per la conferma:</span>
+                                <div class="timer-display" id="confirmationTimer">09:45</div>
+                            </div>
+                            <div class="waiting-message">
+                                Il professionista riceverà una notifica immediata e ha 10 minuti per accettare.
+                            </div>
+                        </div>
+
+                        <div class="next-steps">
+                            <h5>Cosa succede ora:</h5>
+                            <ul>
+                                <li>Riceverai una notifica appena il professionista accetta</li>
+                                <li>Si aprirà una chat per coordinarvi sui dettagli</li>
+                                <li>Potrai seguire l'arrivo del professionista</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="step-buttons" id="step1Buttons">
+                    <button class="btn-cancel" onclick="closeBookingModal()">Annulla</button>
+                    <button class="btn-continue" onclick="goToPayment()">Continua</button>
+                </div>
+                <div class="step-buttons" id="step2Buttons" style="display: none;">
+                    <button class="btn-back" onclick="goBackToDetails()">Indietro</button>
+                    <button class="btn-pay" onclick="confirmPayment()">Paga Subito</button>
+                </div>
+                <div class="step-buttons" id="step3Buttons" style="display: none;">
+                    <button class="btn-close" onclick="closeBookingModal()">Chiudi</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/last-minute.js?v=1.2"></script>
+
+</body>
+
+</html>

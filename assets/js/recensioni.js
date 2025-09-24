@@ -723,6 +723,6 @@ document.addEventListener('DOMContentLoaded', function () {
             showNotification,
             elements
         };
-        console.log('🔧 Debug recensioni disponibile: window.ReviewsDebug');
+        console.log('[SETUP] Debug recensioni disponibile: window.ReviewsDebug');
     }
 });

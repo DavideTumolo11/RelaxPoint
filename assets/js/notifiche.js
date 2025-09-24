@@ -4,7 +4,7 @@
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🔔 Notifiche Cliente - JS caricato');
+    console.log('[INIT] Notifiche Cliente - JS caricato');
 
     // ===============================================
     // STATO GLOBALE APPLICAZIONE
@@ -240,25 +240,25 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================================
     function handleStatusFilter(e) {
         appState.filters.status = e.target.value;
-        console.log(`🔍 Filtro stato: ${appState.filters.status}`);
+        console.log(`[SEARCH] Filtro stato: ${appState.filters.status}`);
         applyFilters();
     }
 
     function handleCategoryFilter(e) {
         appState.filters.category = e.target.value;
-        console.log(`🔍 Filtro categoria: ${appState.filters.category}`);
+        console.log(`[SEARCH] Filtro categoria: ${appState.filters.category}`);
         applyFilters();
     }
 
     function handlePeriodFilter(e) {
         appState.filters.period = e.target.value;
-        console.log(`🔍 Filtro periodo: ${appState.filters.period}`);
+        console.log(`[SEARCH] Filtro periodo: ${appState.filters.period}`);
         applyFilters();
     }
 
     function handleSearch(e) {
         appState.filters.search = e.target.value.toLowerCase().trim();
-        console.log(`🔍 Ricerca: "${appState.filters.search}"`);
+        console.log(`[SEARCH] Ricerca: "${appState.filters.search}"`);
         applyFilters();
     }
 
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateStatistics();
 
                 showToast('Notifica eliminata', 'success');
-                console.log(`🗑️ Notifica ${notificationId} eliminata`);
+                console.log(`[ACTION] Notifica ${notificationId} eliminata`);
             }, 300);
         }
     }
@@ -520,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         appState.settings[settingKey] = isEnabled;
 
-        console.log(`⚙️ Impostazione ${settingKey}: ${isEnabled ? 'ON' : 'OFF'}`);
+        console.log(`[CONFIG] Impostazione ${settingKey}: ${isEnabled ? 'ON' : 'OFF'}`);
     }
 
     function loadSettings() {
@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        console.log('⚙️ Impostazioni caricate');
+        console.log('[CONFIG] Impostazioni caricate');
     }
 
     function saveSettings() {
@@ -981,7 +981,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initAdvancedFeatures();
         cleanup();
 
-        console.log('🚀 Dashboard Notifiche completamente inizializzata');
+        console.log('[SUCCESS] Dashboard Notifiche completamente inizializzata');
 
         setTimeout(() => {
             showToast('Centro notifiche caricato', 'success');

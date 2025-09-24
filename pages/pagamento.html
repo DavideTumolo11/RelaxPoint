@@ -26,11 +26,9 @@
     <div class="main-container">
         <div class="layout-container">
 
-            <!-- HEADER IDENTICO ALLE ALTRE PAGINE -->
+            <!-- HEADER IDENTICO -->
             <header class="site-header">
-                <!-- LOGO E MENU SINISTRA -->
                 <div class="header-left">
-                    <!-- Logo RelaxPoint -->
                     <a class="site-logo" href="/index.html">
                         <div class="logo-icon">
                             <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -42,7 +40,6 @@
                         <h2 class="logo-text">RelaxPoint</h2>
                     </a>
 
-                    <!-- Menu navigazione -->
                     <nav class="main-nav">
                         <a class="nav-link" href="/index.html">Home</a>
                         <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
@@ -51,12 +48,9 @@
                     </nav>
                 </div>
 
-                <!-- LAST MINUTE -->
                 <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
 
-                <!-- CONTROLLI DESTRA -->
                 <div class="header-right">
-                    <!-- PODCAST -->
                     <div class="podcast-header-section">
                         <a href="/pages/podcast/podcast.html" class="podcast-link">
                             <div class="podcast-icon">
@@ -82,7 +76,6 @@
                         </select>
                     </div>
 
-                    <!-- Ricerca -->
                     <div class="search-container">
                         <div class="search-wrapper">
                             <div class="search-icon">
@@ -97,7 +90,6 @@
                         </div>
                     </div>
 
-                    <!-- Pulsanti -->
                     <div class="button-group">
                         <a href="/pages/prenotazione/prenota.html" class="btn-primary">
                             <span class="text-truncate">Prenota</span>
@@ -107,7 +99,6 @@
                             <span class="text-truncate">Accedi</span>
                         </a>
 
-                        <!-- AVATAR UTENTE - NASCOSTO DI DEFAULT -->
                         <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
                             <img src="" alt="Avatar utente">
                         </a>
@@ -146,8 +137,8 @@
                                     <!-- PROFESSIONISTA -->
                                     <div class="professional-summary">
                                         <div class="professional-info">
-                                            <h3 id="summaryProfessionalName">Professionista</h3>
-                                            <p id="summaryProfessionalTitle">Specializzazione</p>
+                                            <h3 id="summaryProfessionalName">Giulia Rossi</h3>
+                                            <p id="summaryProfessionalTitle">Massaggiatrice Specializzata</p>
                                             <div class="professional-rating">
                                                 <span class="stars">★★★★★</span>
                                                 <span id="summaryProfessionalRating">4.9</span>
@@ -163,7 +154,7 @@
                                         <div class="service-details">
                                             <div class="service-item">
                                                 <span class="label">Trattamento:</span>
-                                                <span class="value" id="summaryServiceName">Servizio</span>
+                                                <span class="value" id="summaryServiceName">Massaggio Svedese</span>
                                             </div>
                                             <div class="service-item">
                                                 <span class="label">Durata:</span>
@@ -175,16 +166,23 @@
                                             </div>
                                             <div class="service-item">
                                                 <span class="label">Pacchetto:</span>
-                                                <span class="value" id="summaryServicePackage">Standard</span>
+                                                <span class="value" id="summaryServicePackage">Premium</span>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- EXTRA -->
-                                    <div class="extras-summary" id="extrasSummary" style="display: none;">
+                                    <div class="extras-summary" id="extrasSummary">
                                         <h4>Servizi aggiuntivi</h4>
                                         <div class="extras-list" id="extrasList">
-                                            <!-- Popolato dinamicamente -->
+                                            <div class="extra-item">
+                                                <span>Oli essenziali premium</span>
+                                                <span>+€15</span>
+                                            </div>
+                                            <div class="extra-item">
+                                                <span>Candele aromatiche</span>
+                                                <span>+€10</span>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -193,20 +191,20 @@
                                         <div class="price-breakdown">
                                             <div class="price-item">
                                                 <span>Servizio base:</span>
-                                                <span id="basePrice">€70</span>
+                                                <span id="basePrice">€85</span>
                                             </div>
-                                            <div class="price-item" id="modePrice" style="display: none;">
+                                            <div class="price-item" id="modePrice">
                                                 <span>Domicilio:</span>
                                                 <span>+€10</span>
                                             </div>
-                                            <div class="price-item" id="extrasPrice" style="display: none;">
+                                            <div class="price-item" id="extrasPrice">
                                                 <span>Extra:</span>
-                                                <span id="extrasPriceAmount">+€0</span>
+                                                <span id="extrasPriceAmount">+€25</span>
                                             </div>
                                         </div>
                                         <div class="total-price">
                                             <span>Totale:</span>
-                                            <span id="totalPrice">€70</span>
+                                            <span id="totalPrice">€120</span>
                                         </div>
                                     </div>
                                 </div>
@@ -217,30 +215,88 @@
                                 <div class="payment-card">
                                     <h2>Metodo di pagamento</h2>
 
-                                    <!-- METODI PAGAMENTO -->
+                                    <!-- METODI PAGAMENTO AGGIORNATI -->
                                     <div class="payment-methods">
                                         <label class="payment-method">
                                             <input type="radio" name="paymentMethod" value="card" checked>
                                             <div class="method-card">
-                                                <div class="method-icon">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M20 4H4C2.89 4 2 4.89 2 6V18C2 19.11 2.89 20 4 20H20C21.11 20 22 19.11 22 18V6C22 4.89 21.11 4 20 4M20 18H4V12H20V18M20 8H4V6H20V8Z" />
-                                                    </svg>
+                                                <div class="payment-icon card-icons">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/visa-2.svg"
+                                                        alt="Visa" width="32" height="20">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/mastercard-6.svg"
+                                                        alt="Mastercard" width="32" height="20">
                                                 </div>
-                                                <span>Carta di credito/debito</span>
+                                                <span>Carta di Credito/Debito</span>
                                             </div>
                                         </label>
                                         <label class="payment-method">
                                             <input type="radio" name="paymentMethod" value="paypal">
                                             <div class="method-card">
-                                                <div class="method-icon">
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M8.32 21.97A.96.96 0 0 1 7.27 21H4.74C4.26 21 3.88 20.63 3.88 20.16C3.88 20.1 3.88 20.04 3.9 19.98L6.75 4.03C6.84 3.52 7.28 3.13 7.8 3.13H14.27C17.77 3.13 19.86 5.06 19.86 7.93C19.86 11.39 17.11 13.75 13.58 13.75H11.27L10.43 18.36C10.34 18.87 9.9 19.26 9.38 19.26H9.32L8.67 21.63C8.59 21.87 8.47 21.97 8.32 21.97M9.38 13.75H13.58C15.77 13.75 17.36 12.34 17.36 10.43C17.36 8.77 16.17 7.88 14.27 7.88H10.08L9.38 13.75Z" />
-                                                    </svg>
+                                                <div class="payment-icon">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/paypal-2.svg"
+                                                        alt="PayPal" width="80" height="20">
                                                 </div>
                                                 <span>PayPal</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="googlepay">
+                                            <div class="method-card">
+                                                <div class="payment-icon">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/google-pay-2.svg"
+                                                        alt="Google Pay" width="60" height="24">
+                                                </div>
+                                                <span>Google Pay</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="applepay">
+                                            <div class="method-card">
+                                                <div class="payment-icon">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/apple-pay-2.svg"
+                                                        alt="Apple Pay" width="60" height="24">
+                                                </div>
+                                                <span>Apple Pay</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="satispay">
+                                            <div class="method-card">
+                                                <div class="payment-icon">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/satispay.svg"
+                                                        alt="Satispay" width="80" height="24">
+                                                </div>
+                                                <span>Satispay</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="postepay">
+                                            <div class="method-card">
+                                                <div class="payment-icon">
+                                                    <img src="https://www.poste.it/resources/jcr:content/contentbody/twocolumnsection_c/left-par/pdfresource_1374846593.img.png/1535527509870.png"
+                                                        alt="PostePay" width="70" height="24">
+                                                </div>
+                                                <span>PostePay</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="klarna">
+                                            <div class="method-card">
+                                                <div class="payment-icon">
+                                                    <img src="https://cdn.worldvectorlogo.com/logos/klarna-2.svg"
+                                                        alt="Klarna" width="60" height="24">
+                                                </div>
+                                                <span>Klarna - Paga dopo</span>
+                                            </div>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="paymentMethod" value="scalapay">
+                                            <div class="method-card">
+                                                <div class="payment-icon">
+                                                    <img src="https://media.scalapay.com/image/upload/v1647429231/logos/scalapay-logo.svg"
+                                                        alt="Scalapay" width="70" height="24">
+                                                </div>
+                                                <span>Scalapay - 3 rate</span>
                                             </div>
                                         </label>
                                     </div>
@@ -288,7 +344,7 @@
                                     <!-- BOTTONE CONFERMA -->
                                     <button class="btn-confirm-payment" id="confirmPayment">
                                         <span class="btn-text">Conferma Prenotazione - </span>
-                                        <span class="btn-price" id="confirmPrice">€70</span>
+                                        <span class="btn-price" id="confirmPrice">€120</span>
                                         <span class="btn-loading" style="display: none;">
                                             <svg width="20" height="20" viewBox="0 0 24 24">
                                                 <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"
@@ -328,11 +384,10 @@
                 </div>
             </main>
 
-            <!-- FOOTER IDENTICO ALLE ALTRE PAGINE -->
+            <!-- FOOTER -->
             <footer class="site-footer">
                 <div class="footer-container">
                     <div class="footer-content">
-                        <!-- Link footer -->
                         <div class="footer-links">
                             <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
                             <a class="footer-link" href="/pages/contatti.html">Contatti</a>
@@ -340,7 +395,6 @@
                             <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
                             <a class="footer-link" href="/pages/faq.html">FAQ</a>
                         </div>
-                        <!-- Copyright -->
                         <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
                     </div>
                 </div>
@@ -387,7 +441,7 @@
     <!-- JAVASCRIPT -->
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/auth.js"></script>
-    <script src="/assets/js/pagamento.js"></script>
+    <script src="/assets/js/pagamento-fixed.js"></script>
 
 </body>
 

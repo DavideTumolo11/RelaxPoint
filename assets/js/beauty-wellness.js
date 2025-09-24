@@ -1,7 +1,7 @@
 // ===== BEAUTY & WELLNESS - JS COMPLETO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('💜 Beauty & Wellness - JavaScript caricato');
+    console.log('[INIT] Beauty & Wellness - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-beauty.jpg';
             this.alt = 'Beauty - Immagine non disponibile';
-            console.log('⚠️ Immagine Beauty sostituita con placeholder');
+            console.log('[WARNING] Immagine Beauty sostituita con placeholder');
         });
     });
 });

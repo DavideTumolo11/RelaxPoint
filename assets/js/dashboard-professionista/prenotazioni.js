@@ -4,7 +4,7 @@
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🔧 Prenotazioni JS - Inizializzazione...');
+    console.log('[SETUP] Prenotazioni JS - Inizializzazione...');
 
     // Inizializzazione sistema prenotazioni
     const prenotazioniManager = new PrenotazioniManager();
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.prenotazioniManager = prenotazioniManager;
 
     console.log('✅ Prenotazioni JS - Caricato con successo');
-    console.log('🔧 Debug disponibile: window.prenotazioniManager');
+    console.log('[SETUP] Debug disponibile: window.prenotazioniManager');
 });
 
 /* ===============================================
@@ -123,7 +123,7 @@ class PrenotazioniManager {
         // Aggiorna conteggi
         this.updateStats();
 
-        console.log(`🔍 Filtro cambiato: ${filter}`);
+        console.log(`[SEARCH] Filtro cambiato: ${filter}`);
     }
 
     showSection(sectionId) {
@@ -166,13 +166,13 @@ class PrenotazioniManager {
     handleSearch(event) {
         this.searchTerm = event.target.value.toLowerCase();
         this.filterBookings();
-        console.log(`🔍 Ricerca: "${this.searchTerm}"`);
+        console.log(`[SEARCH] Ricerca: "${this.searchTerm}"`);
     }
 
     handleDateFilter(event) {
         this.dateFilter = event.target.value;
         this.filterBookings();
-        console.log(`📅 Filtro data: ${this.dateFilter}`);
+        console.log(`[ACTION] Filtro data: ${this.dateFilter}`);
     }
 
     filterBookings() {
@@ -201,7 +201,7 @@ class PrenotazioniManager {
         // Aggiorna ogni secondo
         this.updateInterval = setInterval(this.updateCountdowns, 1000);
 
-        console.log(`⏰ ${this.countdownTimers.size} countdown timer avviati`);
+        console.log(`[TIMER] ${this.countdownTimers.size} countdown timer avviati`);
     }
 
     updateCountdowns() {
@@ -257,7 +257,7 @@ class PrenotazioniManager {
         // Rimuovi dalla lista attiva
         this.countdownTimers.delete(id);
 
-        console.log(`⏰ Timer ${id} scaduto`);
+        console.log(`[TIMER] Timer ${id} scaduto`);
     }
 
     /* ===============================================
@@ -321,7 +321,7 @@ class PrenotazioniManager {
     }
 
     startService(bookingId) {
-        console.log(`🚀 Iniziando servizio: ${bookingId}`);
+        console.log(`[SUCCESS] Iniziando servizio: ${bookingId}`);
 
         // Aggiorna stato
         this.updateBookingStatus(bookingId, 'in-progress');
@@ -348,7 +348,7 @@ class PrenotazioniManager {
     }
 
     viewBookingDetails(bookingId) {
-        console.log(`👁️ Visualizzando dettagli: ${bookingId}`);
+        console.log(`[ACTION] Visualizzando dettagli: ${bookingId}`);
 
         // In produzione aprirebbe un modal con dettagli completi
         this.showNotification(
@@ -359,7 +359,7 @@ class PrenotazioniManager {
     }
 
     openChat(bookingId) {
-        console.log(`💬 Aprendo chat: ${bookingId}`);
+        console.log(`[CHAT] Aprendo chat: ${bookingId}`);
 
         // In produzione aprirebbe la chat
         window.location.href = `chat.html?booking=${bookingId}`;
@@ -469,7 +469,7 @@ class PrenotazioniManager {
 
     startServiceTimer(bookingId) {
         // Avvia timer per servizio in corso
-        console.log(`⏱️ Timer servizio avviato per: ${bookingId}`);
+        console.log(`[TIMER] Timer servizio avviato per: ${bookingId}`);
 
         // In produzione gestirebbe il timer del servizio
     }
@@ -1010,8 +1010,8 @@ window.viewBookingDetails = viewBookingDetails;
 window.openChat = openChat;
 window.refreshBookings = refreshBookings;
 
-console.log('🔧 Prenotazioni JS - Funzioni globali esportate');
-console.log('📋 Funzioni disponibili:', {
+console.log('[SETUP] Prenotazioni JS - Funzioni globali esportate');
+console.log('[BOOKING] Funzioni disponibili:', {
     confirmBooking,
     rejectBooking,
     startService,
@@ -1020,4 +1020,4 @@ console.log('📋 Funzioni disponibili:', {
     openChat,
     refreshBookings
 });
-console.log('🎯 Sistema prenotazioni professionista pronto!');
+console.log('[EVENT] Sistema prenotazioni professionista pronto!');

@@ -757,8 +757,8 @@ if (!document.querySelector('#lastminute-js-styles')) {
     document.head.appendChild(styleSheet);
 }
 
-console.log('⚡ Last Minute JavaScript caricato completamente');
-console.log('🎯 Funzioni Last Minute disponibili:', {
+console.log('[FAST] Last Minute JavaScript caricato completamente');
+console.log('[EVENT] Funzioni Last Minute disponibili:', {
     toggleLastMinuteMode: typeof toggleLastMinuteMode,
     activateLastMinute: typeof activateLastMinute,
     acceptRequest: typeof acceptRequest,

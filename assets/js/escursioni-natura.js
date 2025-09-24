@@ -1,7 +1,7 @@
 // ===== ESCURSIONI & NATURA - JS COMPLETO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🏔️ Escursioni & Natura - JavaScript caricato');
+    console.log('[INIT] Escursioni & Natura - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -429,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-escursioni.jpg';
             this.alt = 'Escursioni - Immagine non disponibile';
-            console.log('⚠️ Immagine Escursioni sostituita con placeholder');
+            console.log('[WARNING] Immagine Escursioni sostituita con placeholder');
         });
     });
 });

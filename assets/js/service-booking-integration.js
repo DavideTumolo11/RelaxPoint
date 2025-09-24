@@ -58,7 +58,7 @@ async function handleLastMinutePaymentComplete(lastMinuteData) {
         // Genera codice accesso con scadenza breve
         const accessCode = await window.RelaxPointAccess.generateAccessCode(paymentData);
 
-        console.log('⚡ Codice accesso Last Minute generato:', accessCode.code);
+        console.log('[FAST] Codice accesso Last Minute generato:', accessCode.code);
 
         return {
             success: true,

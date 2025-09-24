@@ -1,7 +1,7 @@
 // ===== PROFESSIONISTI - JS PULITO COME SERVIZI =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('👨‍⚕️ Professionisti - JavaScript caricato');
+    console.log('[INIT] Professionisti - JavaScript caricato');
 
     // ===============================================
     // ELEMENTI DOM
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // INIZIALIZZAZIONE COMPLETA
     // ===============================================
     console.log('✅ Professionisti - Tutto inizializzato (versione pulita)');
-    console.log(`🎯 ${professionalCards.length} professionisti caricati`);
+    console.log(`[EVENT] ${professionalCards.length} professionisti caricati`);
 
     // Statistiche iniziali
     const premiumCards = document.querySelectorAll('.professional-card.premium').length;

@@ -4,7 +4,7 @@
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🔧 Pagina Manutenzione - JS caricato');
+    console.log('[SETUP] Pagina Manutenzione - JS caricato');
 
     // ===============================================
     // CONFIGURAZIONE GLOBALE
@@ -438,7 +438,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const observer = new PerformanceObserver((list) => {
             list.getEntries().forEach((entry) => {
                 if (entry.entryType === 'navigation') {
-                    console.log('🚀 Page Load Time:', entry.loadEventEnd - entry.loadEventStart, 'ms');
+                    console.log('[SUCCESS] Page Load Time:', entry.loadEventEnd - entry.loadEventStart, 'ms');
                 }
             });
         });
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', function () {
             setInterval(() => {
                 const memory = performance.memory;
                 if (memory.usedJSHeapSize > 50 * 1024 * 1024) { // 50MB
-                    console.warn('⚠️ High memory usage detected');
+                    console.warn('[WARNING] High memory usage detected');
                 }
             }, 60000); // Ogni minuto
         }
@@ -462,7 +462,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // INIZIALIZZAZIONE
     // ===============================================
     function init() {
-        console.log('🔧 Inizializzazione Manutenzione...');
+        console.log('[SETUP] Inizializzazione Manutenzione...');
 
         // Avvia countdown
         updateCountdown(); // Prima esecuzione immediata

@@ -111,7 +111,7 @@ class AuthManager {
     // ===============================================
     initializeAuth() {
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('🔧 Inizializzazione AuthManager...');
+            console.log('[SETUP] Inizializzazione AuthManager...');
 
             this.setupLoginForm();
             this.updateHeaderState();
@@ -332,7 +332,7 @@ class AuthManager {
     setupLanguageSelector() {
         const languageSelector = document.getElementById('languageSelector');
         if (!languageSelector) {
-            console.warn('⚠️ Language selector non trovato');
+            console.warn('[WARNING] Language selector non trovato');
             return;
         }
 
@@ -344,7 +344,7 @@ class AuthManager {
     setupLanguageEvents() {
         const languageSelector = document.getElementById('languageSelector');
         if (!languageSelector) {
-            console.warn('⚠️ Language selector non trovato per events');
+            console.warn('[WARNING] Language selector non trovato per events');
             return;
         }
 

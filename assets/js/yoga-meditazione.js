@@ -1,7 +1,7 @@
 // ===== YOGA & MEDITAZIONE - JS COMPLETO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🧘 Yoga & Meditazione - JavaScript caricato');
+    console.log('[INIT] Yoga & Meditazione - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-yoga.jpg';
             this.alt = 'Yoga - Immagine non disponibile';
-            console.log('⚠️ Immagine Yoga sostituita con placeholder');
+            console.log('[WARNING] Immagine Yoga sostituita con placeholder');
         });
     });
 });
@@ -569,5 +569,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Performance check
     const loadTime = performance.now();
-    console.log(`⚡ Tempo caricamento JavaScript: ${loadTime.toFixed(2)}ms`);
+    console.log(`[FAST] Tempo caricamento JavaScript: ${loadTime.toFixed(2)}ms`);
 });

@@ -1,7 +1,7 @@
 // ===== HAIR & MAKE-UP - JS COMPLETO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('💄 Hair & Make-up - JavaScript caricato');
+    console.log('[INIT] Hair & Make-up - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-hair-makeup.jpg';
             this.alt = 'Hair & Make-up - Immagine non disponibile';
-            console.log('⚠️ Immagine Hair & Make-up sostituita con placeholder');
+            console.log('[WARNING] Immagine Hair & Make-up sostituita con placeholder');
         });
     });
 });

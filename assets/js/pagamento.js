@@ -1,14 +1,17 @@
-// ===== PAGAMENTO - JS COMPLETO CORRETTO =====
-// Gestisce la pagina di pagamento separata con calcolo prezzi corretto
+/* ===============================================
+   PAGAMENTO FIXED - JavaScript Corretto
+   Senza redirect automatico + sistemi pagamento aggiornati
+   =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('Pagamento JS caricato');
+    console.log('Pagamento Fixed JS caricato');
 
     // STATO PAGAMENTO
     const paymentState = {
         bookingData: null,
         paymentMethod: 'card',
-        isProcessing: false
+        isProcessing: false,
+        demoMode: true // Modalità demo per test senza sessionStorage
     };
 
     // INIZIALIZZAZIONE
@@ -24,29 +27,68 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log('Pagamento inizializzato');
     }
 
-    // ===== CARICA DATI PRENOTAZIONE =====
+    // ===== CARICA DATI PRENOTAZIONE (VERSIONE FIXED) =====
     function loadBookingData() {
         try {
-            // Recupera dati da sessionStorage
+            // Prova a recuperare dati reali
             const directBooking = sessionStorage.getItem('directBooking');
 
-            if (!directBooking) {
-                console.error('Nessun dato di prenotazione trovato');
-                showError('Errore: nessun dato di prenotazione trovato');
-                setTimeout(() => {
-                    window.location.href = '/index.html';
-                }, 3000);
-                return;
+            if (directBooking) {
+                // Dati reali da sessionStorage
+                paymentState.bookingData = JSON.parse(directBooking);
+                paymentState.demoMode = false;
+                console.log('Dati reali caricati:', paymentState.bookingData);
+            } else {
+                // DATI DEMO per permettere di testare la pagina
+                paymentState.bookingData = {
+                    professional: {
+                        name: 'Giulia Rossi',
+                        title: 'Massaggiatrice Specializzata',
+                        rating: 4.9,
+                        reviews: 127
+                    },
+                    service: {
+                        name: 'Massaggio Svedese',
+                        duration: 60,
+                        mode: 'domicilio',
+                        package: 'Premium',
+                        price: 85,
+                        extras: ['oils', 'candles'],
+                        totalPrice: 120
+                    }
+                };
+                console.log('Modalità DEMO attiva - dati di esempio caricati');
             }
 
-            paymentState.bookingData = JSON.parse(directBooking);
             populateBookingSummary();
 
-            console.log('Dati prenotazione caricati:', paymentState.bookingData);
         } catch (error) {
             console.error('Errore caricamento dati:', error);
-            showError('Errore nel caricamento dei dati');
+            // Carica dati demo di fallback
+            loadDemoData();
         }
+    }
+
+    function loadDemoData() {
+        paymentState.bookingData = {
+            professional: {
+                name: 'Professionista Demo',
+                title: 'Specializzazione',
+                rating: 4.8,
+                reviews: 50
+            },
+            service: {
+                name: 'Servizio Demo',
+                duration: 60,
+                mode: 'domicilio',
+                package: 'Standard',
+                price: 70,
+                extras: [],
+                totalPrice: 80
+            }
+        };
+        populateBookingSummary();
+        console.log('Dati demo di fallback caricati');
     }
 
     // ===== POPOLA RIEPILOGO PRENOTAZIONE =====
@@ -55,55 +97,47 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!data) return;
 
         // Info professionista
-        const professionalName = document.getElementById('summaryProfessionalName');
-        const professionalTitle = document.getElementById('summaryProfessionalTitle');
-        const professionalRating = document.getElementById('summaryProfessionalRating');
-        const professionalReviews = document.getElementById('summaryProfessionalReviews');
-
-        if (professionalName) professionalName.textContent = data.professional?.name || 'Professionista';
-        if (professionalTitle) professionalTitle.textContent = data.professional?.title || 'Specializzazione';
-        if (professionalRating) professionalRating.textContent = data.professional?.rating || '4.9';
-        if (professionalReviews) professionalReviews.textContent = data.professional?.reviews || '127';
+        updateElement('summaryProfessionalName', data.professional?.name || 'Professionista');
+        updateElement('summaryProfessionalTitle', data.professional?.title || 'Specializzazione');
+        updateElement('summaryProfessionalRating', data.professional?.rating || '4.9');
+        updateElement('summaryProfessionalReviews', data.professional?.reviews || '127');
 
         // Info servizio
-        const serviceName = document.getElementById('summaryServiceName');
-        const serviceDuration = document.getElementById('summaryServiceDuration');
-        const serviceMode = document.getElementById('summaryServiceMode');
-        const servicePackage = document.getElementById('summaryServicePackage');
-
-        if (serviceName) serviceName.textContent = data.service?.name || 'Servizio';
-        if (serviceDuration) serviceDuration.textContent = (data.service?.duration || 60) + ' minuti';
-        if (servicePackage) servicePackage.textContent = data.service?.package || 'Standard';
+        updateElement('summaryServiceName', data.service?.name || 'Servizio');
+        updateElement('summaryServiceDuration', (data.service?.duration || 60) + ' minuti');
+        updateElement('summaryServicePackage', data.service?.package || 'Standard');
 
         // Modalità
-        if (serviceMode) {
-            const modeLabels = {
-                'domicilio': 'A domicilio',
-                'studio': 'Presso studio',
-                'online': 'Online'
-            };
-            serviceMode.textContent = modeLabels[data.service?.mode] || 'A domicilio';
-        }
+        const modeLabels = {
+            'domicilio': 'A domicilio',
+            'studio': 'Presso studio',
+            'online': 'Online'
+        };
+        updateElement('summaryServiceMode', modeLabels[data.service?.mode] || 'A domicilio');
 
         // Extra servizi
         if (data.service?.extras && data.service.extras.length > 0) {
             populateExtras(data.service.extras);
+        } else {
+            // Nasconde sezione extra se vuota
+            const extrasSection = document.getElementById('extrasSummary');
+            if (extrasSection) extrasSection.style.display = 'none';
         }
 
-        // Prezzi - CORRETTO
+        // Prezzi
         updatePriceSummary();
+    }
+
+    function updateElement(id, value) {
+        const element = document.getElementById(id);
+        if (element) element.textContent = value;
     }
 
     // ===== POPOLA EXTRA =====
     function populateExtras(extras) {
-        const extrasSummary = document.getElementById('extrasSummary');
         const extrasList = document.getElementById('extrasList');
+        if (!extrasList || !extras.length) return;
 
-        if (!extrasSummary || !extrasList || !extras.length) return;
-
-        let extrasHTML = '';
-
-        // Mappa prezzi extra
         const extraPrices = {
             'music': 5,
             'candles': 10,
@@ -120,84 +154,58 @@ document.addEventListener('DOMContentLoaded', function () {
             'hot-stones': 'Pietre calde'
         };
 
-        for (let i = 0; i < extras.length; i++) {
-            const extra = extras[i];
+        let extrasHTML = '';
+        extras.forEach(extra => {
             const price = extraPrices[extra] || 0;
-            const extraName = extraNames[extra] || extra;
-            extrasHTML += `<div class="extra-item"><span>${extraName}</span><span>+€${price}</span></div>`;
-        }
+            const name = extraNames[extra] || extra;
+            extrasHTML += `
+                <div class="extra-item">
+                    <span>${name}</span>
+                    <span>+€${price}</span>
+                </div>
+            `;
+        });
 
         extrasList.innerHTML = extrasHTML;
-        extrasSummary.style.display = 'block';
+        document.getElementById('extrasSummary').style.display = 'block';
     }
 
-    // ===== AGGIORNA RIEPILOGO PREZZI - CORRETTO =====
+    // ===== AGGIORNA RIEPILOGO PREZZI =====
     function updatePriceSummary() {
         const data = paymentState.bookingData;
         if (!data?.service) return;
 
-        // USA IL PREZZO TOTALE GIÀ CALCOLATO DAL TEMPLATE SERVIZIO
-        let finalTotal = data.service.totalPrice || data.service.price || 70;
+        const finalTotal = data.service.totalPrice || data.service.price || 70;
         const basePrice = data.service.price || 70;
 
-        console.log('Calcolo prezzi:', {
-            basePrice: basePrice,
-            totalPrice: data.service.totalPrice,
-            finalTotal: finalTotal,
-            mode: data.service.mode,
-            extras: data.service.extras
-        });
-
-        // Prezzo base
-        const basePriceEl = document.getElementById('basePrice');
-        if (basePriceEl) basePriceEl.textContent = `€${basePrice}`;
+        // Prezzi
+        updateElement('basePrice', `€${basePrice}`);
+        updateElement('totalPrice', `€${finalTotal}`);
+        updateElement('confirmPrice', `€${finalTotal}`);
 
         // Costo domicilio
         const modePrice = document.getElementById('modePrice');
-        if (data.service.mode === 'domicilio') {
-            if (modePrice) modePrice.style.display = 'flex';
-        } else {
-            if (modePrice) modePrice.style.display = 'none';
+        if (data.service.mode === 'domicilio' && modePrice) {
+            modePrice.style.display = 'flex';
         }
 
         // Extra
         let extrasTotal = 0;
         if (data.service.extras && data.service.extras.length > 0) {
-            const extraPrices = {
-                'music': 5,
-                'candles': 10,
-                'oils': 15,
-                'aromatherapy': 15,
-                'hot-stones': 25
-            };
-
-            for (let i = 0; i < data.service.extras.length; i++) {
-                extrasTotal += extraPrices[data.service.extras[i]] || 0;
-            }
+            const extraPrices = { 'music': 5, 'candles': 10, 'oils': 15, 'aromatherapy': 15, 'hot-stones': 25 };
+            extrasTotal = data.service.extras.reduce((sum, extra) => sum + (extraPrices[extra] || 0), 0);
         }
 
-        // Mostra/nascondi sezione extra
         const extrasPrice = document.getElementById('extrasPrice');
         const extrasPriceAmount = document.getElementById('extrasPriceAmount');
 
         if (extrasTotal > 0) {
             if (extrasPrice) extrasPrice.style.display = 'flex';
             if (extrasPriceAmount) extrasPriceAmount.textContent = `+€${extrasTotal}`;
-        } else {
-            if (extrasPrice) extrasPrice.style.display = 'none';
         }
 
-        // Aggiorna totali con il prezzo finale corretto
-        const totalPrice = document.getElementById('totalPrice');
-        const confirmPrice = document.getElementById('confirmPrice');
-
-        if (totalPrice) totalPrice.textContent = `€${finalTotal}`;
-        if (confirmPrice) confirmPrice.textContent = `€${finalTotal}`;
-
-        // Aggiorna stato
         paymentState.bookingData.finalPrice = finalTotal;
-
-        console.log('Prezzo finale aggiornato:', finalTotal);
+        console.log('Prezzi aggiornati - Totale:', finalTotal);
     }
 
     // ===== GESTIONE METODI PAGAMENTO =====
@@ -208,10 +216,10 @@ document.addEventListener('DOMContentLoaded', function () {
             radio.addEventListener('change', function () {
                 paymentState.paymentMethod = this.value;
                 togglePaymentForm();
+                console.log('Metodo pagamento selezionato:', this.value);
             });
         });
 
-        // Inizializza form card
         togglePaymentForm();
     }
 
@@ -219,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const cardForm = document.getElementById('cardForm');
         if (!cardForm) return;
 
+        // Mostra form carta solo per pagamento con carta
         if (paymentState.paymentMethod === 'card') {
             cardForm.style.display = 'flex';
         } else {
@@ -228,26 +237,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ===== FORMATTAZIONE CARTA =====
     function initializeCardFormatting() {
-        // Numero carta
+        // Numero carta con spazi
         const cardNumber = document.getElementById('cardNumber');
         if (cardNumber) {
             cardNumber.addEventListener('input', function (e) {
                 let value = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
-                let formattedValue = '';
-
-                for (let i = 0; i < value.length; i += 4) {
-                    if (i > 0) formattedValue += ' ';
-                    formattedValue += value.substr(i, 4);
-                }
+                let formattedValue = value.match(/.{1,4}/g)?.join(' ') || value;
 
                 if (formattedValue.length > 19) formattedValue = formattedValue.substring(0, 19);
                 this.value = formattedValue;
-
                 clearFieldError(this);
             });
         }
 
-        // Scadenza
+        // Scadenza MM/AA
         const cardExpiry = document.getElementById('cardExpiry');
         if (cardExpiry) {
             cardExpiry.addEventListener('input', function (e) {
@@ -260,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }
 
-        // CVC
+        // CVC solo numeri
         const cardCvc = document.getElementById('cardCvc');
         if (cardCvc) {
             cardCvc.addEventListener('input', function (e) {
@@ -310,8 +313,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
                     const [month, year] = value.split('/');
                     const expiry = new Date(2000 + parseInt(year), parseInt(month) - 1);
-                    const now = new Date();
-                    if (expiry < now) {
+                    if (expiry < new Date()) {
                         isValid = false;
                         errorMessage = 'La carta è scaduta';
                     }
@@ -348,9 +350,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
         formGroup.classList.add('error');
 
+        // Remove existing error
         const existingError = formGroup.querySelector('.field-error');
         if (existingError) existingError.remove();
 
+        // Add new error
         const errorDiv = document.createElement('div');
         errorDiv.className = 'field-error';
         errorDiv.style.cssText = 'color: #ef4444; font-size: 12px; margin-top: 4px;';
@@ -369,7 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function validateForm() {
         if (paymentState.paymentMethod !== 'card') {
-            return true;
+            return true; // Altri metodi non richiedono validazione form carta
         }
 
         const fields = ['cardNumber', 'cardExpiry', 'cardCvc', 'cardName'];
@@ -399,6 +403,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ===== ELABORA PAGAMENTO =====
     function processPayment() {
+        // Validazione
         if (!validateForm()) {
             showError('Correggi gli errori nel form di pagamento');
             return;
@@ -409,15 +414,25 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+        console.log('Elaborazione pagamento iniziata:', {
+            method: paymentState.paymentMethod,
+            amount: paymentState.bookingData.finalPrice,
+            demo: paymentState.demoMode
+        });
+
         startPaymentProcessing();
 
+        // Simula elaborazione pagamento
         setTimeout(() => {
             try {
                 const bookingCode = generateBookingCode();
                 finishPaymentProcessing();
                 showBookingConfirmation(bookingCode);
 
-                sessionStorage.removeItem('directBooking');
+                // Pulisci sessionStorage solo se non in demo
+                if (!paymentState.demoMode) {
+                    sessionStorage.removeItem('directBooking');
+                }
 
                 console.log('Pagamento completato:', {
                     bookingCode,
@@ -435,13 +450,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function startPaymentProcessing() {
         paymentState.isProcessing = true;
-
         const confirmBtn = document.getElementById('confirmPayment');
         if (!confirmBtn) return;
 
         confirmBtn.disabled = true;
         confirmBtn.classList.add('loading');
 
+        // Mostra spinner
         const btnText = confirmBtn.querySelector('.btn-text');
         const btnPrice = confirmBtn.querySelector('.btn-price');
         const btnLoading = confirmBtn.querySelector('.btn-loading');
@@ -453,13 +468,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function finishPaymentProcessing() {
         paymentState.isProcessing = false;
-
         const confirmBtn = document.getElementById('confirmPayment');
         if (!confirmBtn) return;
 
         confirmBtn.disabled = false;
         confirmBtn.classList.remove('loading');
 
+        // Ripristina pulsante
         const btnText = confirmBtn.querySelector('.btn-text');
         const btnPrice = confirmBtn.querySelector('.btn-price');
         const btnLoading = confirmBtn.querySelector('.btn-loading');
@@ -481,9 +496,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const codeElement = document.getElementById('bookingCode');
 
         if (codeElement) codeElement.textContent = bookingCode;
-
         if (modal) {
             modal.classList.add('show');
+            modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
@@ -493,7 +508,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function setupModalEvents() {
         const viewBookingsBtn = document.getElementById('viewBookings');
         const closeModalBtn = document.getElementById('closeModal');
-        const modal = document.getElementById('confirmationModal');
 
         if (viewBookingsBtn) {
             viewBookingsBtn.onclick = function () {
@@ -510,6 +524,8 @@ document.addEventListener('DOMContentLoaded', function () {
             };
         }
 
+        // Click overlay per chiudere
+        const modal = document.getElementById('confirmationModal');
         if (modal) {
             modal.onclick = function (e) {
                 if (e.target === modal) {
@@ -526,26 +542,39 @@ document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById('confirmationModal');
         if (modal) {
             modal.classList.remove('show');
+            modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
     }
 
     // ===== GESTIONE ERRORI =====
     function showError(message) {
+        // Rimuovi errore esistente
         const existingError = document.querySelector('.error-message');
         if (existingError) existingError.remove();
 
+        // Crea nuovo errore
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
+        errorDiv.style.cssText = `
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            border-left: 4px solid #ef4444;
+            font-size: 14px;
+        `;
         errorDiv.textContent = message;
 
+        // Inserisci all'inizio della card pagamento
         const paymentCard = document.querySelector('.payment-card');
         if (paymentCard) {
             paymentCard.insertBefore(errorDiv, paymentCard.firstChild);
+            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
+        // Auto rimozione dopo 5 secondi
         setTimeout(() => {
             if (errorDiv.parentNode) {
                 errorDiv.remove();
@@ -553,7 +582,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
-    // ===== GESTIONE ESCAPE E BACK BUTTON =====
+    // ===== EVENT LISTENERS GLOBALI =====
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {
             const modal = document.getElementById('confirmationModal');
@@ -563,6 +592,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Previeni chiusura durante elaborazione
     window.addEventListener('beforeunload', function (e) {
         if (paymentState.isProcessing) {
             e.preventDefault();
@@ -571,23 +601,59 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    window.addEventListener('load', function () {
-        if (!paymentState.bookingData) {
-            console.warn('Nessun dato di prenotazione trovato, reindirizzamento...');
-            setTimeout(() => {
-                window.location.href = '/index.html';
-            }, 2000);
-        }
-    });
-
-    // ===== DEBUG =====
+    // ===== DEBUG & TESTING =====
     window.paymentDebug = {
         state: paymentState,
+        loadDemoData: loadDemoData,
         validateForm: validateForm,
         processPayment: processPayment,
         showError: showError,
         updatePriceSummary: updatePriceSummary
     };
 
-    console.log('Pagamento JS inizializzato - Debug: window.paymentDebug');
+    console.log('Pagamento Fixed JS inizializzato');
+    console.log('Debug disponibile: window.paymentDebug');
+    console.log('Modalità DEMO:', paymentState.demoMode);
 });
+
+/* ===============================================
+   CSS INLINE PER PAYMENT ICONS (se necessario)
+   =============================================== */
+
+// Aggiunge stili per le icone dei metodi di pagamento se non presenti nel CSS
+function addPaymentIconStyles() {
+    if (document.getElementById('payment-icons-styles')) return;
+
+    const style = document.createElement('style');
+    style.id = 'payment-icons-styles';
+    style.textContent = `
+        .payment-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 80px;
+            height: 32px;
+        }
+        .payment-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            filter: grayscale(20%);
+            transition: filter 0.3s ease;
+        }
+        .payment-method input[type="radio"]:checked + .method-card .payment-icon img {
+            filter: grayscale(0%);
+        }
+        .card-icons {
+            display: flex;
+            gap: 4px;
+        }
+        .card-icons img {
+            width: 32px;
+            height: 20px;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+document.addEventListener('DOMContentLoaded', addPaymentIconStyles);

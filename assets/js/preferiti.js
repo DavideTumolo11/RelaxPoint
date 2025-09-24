@@ -4,7 +4,7 @@
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('❤️ Preferiti Cliente - JS caricato');
+    console.log('[INIT] Preferiti Cliente - JS caricato');
 
     // ===============================================
     // STATO GLOBALE APPLICAZIONE
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================================
     function handleCategoryFilter(e) {
         appState.filters.category = e.target.value;
-        console.log(`🔍 Filtro categoria: ${appState.filters.category}`);
+        console.log(`[SEARCH] Filtro categoria: ${appState.filters.category}`);
         applyFilters();
     }
 
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function handleSearch(e) {
         appState.filters.search = e.target.value.toLowerCase().trim();
-        console.log(`🔍 Ricerca: "${appState.filters.search}"`);
+        console.log(`[SEARCH] Ricerca: "${appState.filters.search}"`);
         applyFilters();
     }
 
@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleViewProfile(professionalSlug) {
-        console.log(`👁️ Visualizza profilo: ${professionalSlug}`);
+        console.log(`[ACTION] Visualizza profilo: ${professionalSlug}`);
         showToast('Apertura profilo professionista...', 'info');
 
         // In implementazione reale: redirect al profilo
@@ -678,7 +678,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Adatta layout se necessario
             if (isMobile) {
-                console.log('📱 Layout mobile attivo');
+                console.log('[MOBILE] Layout mobile attivo');
             }
         }, 250));
     }
@@ -755,7 +755,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initAdvancedFeatures();
         cleanup();
 
-        console.log('🚀 Dashboard Preferiti completamente inizializzata');
+        console.log('[SUCCESS] Dashboard Preferiti completamente inizializzata');
 
         // Mostra messaggio di benvenuto
         setTimeout(() => {

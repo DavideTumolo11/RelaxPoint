@@ -20,6 +20,58 @@
 }
 
 /* ===============================================
+   ICONE SVG UNIFICATE - Stili Globali
+   =============================================== */
+.icon-svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-svg-small {
+    width: 16px;
+    height: 16px;
+}
+
+.icon-svg-medium {
+    width: 24px;
+    height: 24px;
+}
+
+.icon-svg-large {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-svg-xl {
+    width: 40px;
+    height: 40px;
+}
+
+.icon-svg:hover {
+    color: var(--color-light);
+    transform: scale(1.1);
+}
+
+.icon-svg-white {
+    color: white;
+}
+
+.icon-svg-white:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.icon-svg-secondary {
+    color: var(--color-secondary);
+}
+
+.icon-svg-light {
+    color: var(--color-light);
+}
+
+/* ===============================================
    RESET E FONT BASE
    =============================================== */
 * {
@@ -133,7 +185,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
     color: var(--color-primary);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 /* CONTROLLI HEADER DESTRA */
@@ -573,12 +625,12 @@ body {
    =============================================== */
 .section-title {
     font-size: 24px;
-    line-height: 1.33;
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.015em;
     padding: 8px 16px 20px 16px;
     color: var(--color-text);
+    text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -587,6 +639,7 @@ body {
         line-height: 1.2;
     }
 }
+
 
 /* ===============================================
    CARD SERVIZI - Per pannello admin
@@ -622,6 +675,7 @@ body {
     gap: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .service-card:hover {
@@ -650,6 +704,7 @@ body {
     font-weight: 600;
     line-height: 1.4;
     padding: 0 4px;
+    text-decoration: none;
 }
 
 /* ===============================================

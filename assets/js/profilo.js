@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // GESTIONE AVATAR
     // ===============================================
     function setupAvatarManagement() {
-        console.log('🖼️ Setup gestione avatar...');
+        console.log('[SETUP] Setup gestione avatar...');
 
         // Pulsante Cambia Foto
         if (elements.changePhotoBtn) {
             elements.changePhotoBtn.addEventListener('click', function (e) {
                 e.preventDefault();
-                console.log('📸 Cambia foto cliccato');
+                console.log('[PHOTO] Cambia foto cliccato');
                 if (elements.avatarInput) {
                     elements.avatarInput.click();
                 }
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (elements.removeAvatarBtn) {
             elements.removeAvatarBtn.addEventListener('click', function (e) {
                 e.preventDefault();
-                console.log('🗑️ Rimuovi foto cliccato');
+                console.log('[ACTION] Rimuovi foto cliccato');
                 showRemovePhotoModal();
             });
         }
@@ -272,7 +272,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function confirmRemovePhoto(modal) {
-        console.log('🗑️ Confermando rimozione foto...');
+        console.log('[ACTION] Confermando rimozione foto...');
 
         const defaultAvatar = '/assets/images/users/default-avatar.jpg';
 

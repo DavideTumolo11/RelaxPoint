@@ -428,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-fisioterapia.jpg';
             this.alt = 'Fisioterapia - Immagine non disponibile';
-            console.log('⚠️ Immagine Fisioterapia sostituita con placeholder');
+            console.log('[WARNING] Immagine Fisioterapia sostituita con placeholder');
         });
     });
 });

@@ -1,7 +1,7 @@
 // ===== CHEF & CUCINA - JS COMPLETO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('👨‍🍳 Chef & Cucina - JavaScript caricato');
+    console.log('[INIT] Chef & Cucina - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -427,7 +427,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-chef-cucina.jpg';
             this.alt = 'Chef & Cucina - Immagine non disponibile';
-            console.log('⚠️ Immagine Chef & Cucina sostituita con placeholder');
+            console.log('[WARNING] Immagine Chef & Cucina sostituita con placeholder');
         });
     });
 });
@@ -521,5 +521,5 @@ function initializeSmartFilters() {
         if (cardText.includes('vegana') || cardText.includes('plant-based')) filterCounts.cucina.vegana = (filterCounts.cucina.vegana || 0) + 1;
     });
 
-    console.log('🔍 Conteggi smart filters:', filterCounts);
+    console.log('[SEARCH] Conteggi smart filters:', filterCounts);
 }

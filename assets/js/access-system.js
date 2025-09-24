@@ -310,7 +310,7 @@ class RelaxPointAccessSystem {
         }, 2000);
 
         // Log per debug
-        console.log('📱 Codice inviato via chat:', accessData.code);
+        console.log('[MOBILE] Codice inviato via chat:', accessData.code);
     }
 
     /**
@@ -459,7 +459,7 @@ class RelaxPointAccessSystem {
 
         // Policy flessibile: permetti cambio device ma log per sicurezza
         if (currentFingerprint !== accessData.deviceFingerprint) {
-            console.warn('⚠️ Device fingerprint changed for access code:', accessData.code);
+            console.warn('[WARNING] Device fingerprint changed for access code:', accessData.code);
             // In produzione: invia alert a admin/professionista
         }
 

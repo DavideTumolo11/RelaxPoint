@@ -4,7 +4,7 @@
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('📅 Prenotazioni Cliente - JS caricato');
+    console.log('[BOOKING] Prenotazioni Cliente - JS caricato');
 
     // ===============================================
     // STATO GLOBALE APPLICAZIONE
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
         appState.filters[filterType] = filterValue;
         appState.currentPage = 1;
 
-        console.log(`🔍 Filtro ${filterType}: ${filterValue}`);
+        console.log(`[SEARCH] Filtro ${filterType}: ${filterValue}`);
         applyFilters();
     }
 
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function () {
         appState.searchTerm = e.target.value.toLowerCase().trim();
         appState.currentPage = 1;
 
-        console.log(`🔍 Ricerca: "${appState.searchTerm}"`);
+        console.log(`[SEARCH] Ricerca: "${appState.searchTerm}"`);
         applyFilters();
     }
 
@@ -1056,7 +1056,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initAdvancedFeatures();
         cleanup();
 
-        console.log('🚀 Dashboard Prenotazioni completamente inizializzata');
+        console.log('[SUCCESS] Dashboard Prenotazioni completamente inizializzata');
 
         // Mostra messaggio di benvenuto
         setTimeout(() => {

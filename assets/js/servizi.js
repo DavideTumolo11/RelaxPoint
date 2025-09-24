@@ -112,33 +112,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ===============================================
-    // GEOLOCALIZZAZIONE AUTOMATICA SARDEGNA
+    // GEOLOCALIZZAZIONE AUTOMATICA ITALIA
     // ===============================================
-    function detectSardinianCity() {
+    function detectItalianCity() {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 function (position) {
                     const lat = position.coords.latitude;
                     const lng = position.coords.longitude;
 
-                    // Coordinate approssimative città Sardegna
-                    let detectedCity = 'cagliari'; // default
+                    // Coordinate approssimative principali città Italia
+                    let detectedCity = 'roma'; // default
 
-                    // Sassari area (Nord Sardegna)
-                    if (lat > 40.5 && lat < 41.0 && lng > 8.0 && lng < 9.0) {
-                        detectedCity = 'sassari';
+                    // Milano area (Nord Italia)
+                    if (lat > 45.3 && lat < 45.6 && lng > 9.0 && lng < 9.4) {
+                        detectedCity = 'milano';
                     }
-                    // Olbia area (Nord-Est)
-                    else if (lat > 40.8 && lat < 41.2 && lng > 9.2 && lng < 9.8) {
-                        detectedCity = 'olbia';
+                    // Roma area (Centro)
+                    else if (lat > 41.7 && lat < 42.0 && lng > 12.3 && lng < 12.7) {
+                        detectedCity = 'roma';
                     }
-                    // Nuoro area (Centro)
-                    else if (lat > 39.8 && lat < 40.5 && lng > 9.0 && lng < 9.5) {
-                        detectedCity = 'nuoro';
+                    // Napoli area (Sud)
+                    else if (lat > 40.7 && lat < 41.0 && lng > 14.1 && lng < 14.5) {
+                        detectedCity = 'napoli';
                     }
-                    // Oristano area (Ovest)
-                    else if (lat > 39.5 && lat < 40.2 && lng > 8.3 && lng < 8.9) {
-                        detectedCity = 'oristano';
+                    // Torino area (Nord-Ovest)
+                    else if (lat > 45.0 && lat < 45.2 && lng > 7.5 && lng < 7.8) {
+                        detectedCity = 'torino';
+                    }
+                    // Bologna area (Centro-Nord)
+                    else if (lat > 44.4 && lat < 44.6 && lng > 11.2 && lng < 11.5) {
+                        detectedCity = 'bologna';
+                    }
+                    // Firenze area (Centro)
+                    else if (lat > 43.6 && lat < 43.9 && lng > 11.1 && lng < 11.4) {
+                        detectedCity = 'firenze';
                     }
 
                     if (citySelector && citySelector.value !== detectedCity) {
@@ -161,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Auto-rileva città (opzionale - decommentare se necessario)
-    // detectSardinianCity();
+    // detectItalianCity();
 
     // ===============================================
     // ANIMAZIONI STAGGERED AL CARICAMENTO

@@ -1,7 +1,7 @@
 // ===== MASSAGGI E TRATTAMENTI - JS SEMPLIFICATO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🌿 Massaggi e Trattamenti - JavaScript caricato');
+    console.log('[INIT] Massaggi e Trattamenti - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-professional.jpg';
             this.alt = 'Immagine non disponibile';
-            console.log('⚠️ Immagine sostituita con placeholder');
+            console.log('[WARNING] Immagine sostituita con placeholder');
         });
     });
 });

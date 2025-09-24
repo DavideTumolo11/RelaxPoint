@@ -378,7 +378,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Info professionista
         professionalName: 'Giulia Rossi',
         professionalTitle: 'Massaggiatrice Certificata - 10 anni di esperienza',
-        professionalLocation: 'Cagliari, Sardegna',
+        professionalLocation: 'Roma, Italia',
         professionalAvatar: '/assets/images/Professionisti/pr1.png',
 
         // Info trattamento

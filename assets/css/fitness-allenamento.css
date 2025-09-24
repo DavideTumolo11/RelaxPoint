@@ -1,191 +1,4 @@
-/* TABLET LANDSCAPE - 2 colonne */
-@media (max-width: 1199px) and (min-width: 969px) {
-    .fitness-layout {
-        grid-template-columns: 280px 1fr;
-        gap: 24px;
-    }
-
-    .fitness-professionals-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .fitness-card-image {
-        width: 110px;
-        height: 110px;
-    }
-
-    .fitness-hero-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        text-align: center;
-    }
-
-    .fitness-hero h1 {
-        font-size: 40px;
-    }
-}
-
-/* TABLET PORTRAIT - Layout sidebar sopra + 2 colonne */
-@media (max-width: 968px) {
-    .fitness-layout {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-
-    .fitness-sidebar {
-        order: -1;
-    }
-
-    .fitness-professionals-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .fitness-card-image {
-        width: 100px;
-        height: 100px;
-    }
-
-    .fitness-header-info h3 {
-        font-size: 18px;
-    }
-
-    .fitness-hero {
-        padding: 32px 24px;
-    }
-
-    .fitness-hero h1 {
-        font-size: 32px;
-    }
-
-    .fitness-stats {
-        justify-content: center;
-        gap: 24px;
-    }
-
-    .fitness-results-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
-}
-
-/* MOBILE LARGE - 1 colonna + layout verticale */
-@media (max-width: 640px) {
-    .fitness-professionals-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    /* TRANSIZIONE A LAYOUT VERTICALE MOBILE */
-    .fitness-card-header {
-        flex-direction: column;
-        gap: 16px;
-        padding: 20px 20px 0 20px;
-        text-align: center;
-        align-items: center;
-    }
-
-    .fitness-card-image {
-        width: 140px;
-        height: 140px;
-        border-radius: 20px;
-    }
-
-    .fitness-header-info {
-        text-align: center;
-        align-items: center;
-    }
-
-    .fitness-header-info h3 {
-        font-size: 20px;
-    }
-
-    .fitness-rating {
-        justify-content: center;
-    }
-
-    .fitness-favorite-btn {
-        top: 16px;
-        right: 16px;
-        bottom: auto;
-    }
-
-    .fitness-card-content {
-        padding: 0 16px 16px 16px;
-        gap: 14px;
-    }
-
-    .fitness-specializations {
-        justify-content: center;
-        gap: 6px;
-    }
-
-    .fitness-card-actions {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .fitness-hero {
-        padding: 24px 16px;
-    }
-
-    .fitness-hero h1 {
-        font-size: 28px;
-    }
-
-    .fitness-stats {
-        gap: 16px;
-    }
-
-    .fitness-stat-number {
-        font-size: 24px;
-    }
-
-    .fitness-filters {
-        padding: 16px;
-    }
-
-    .fitness-main {
-        padding: 16px;
-    }
-}
-
-/* MOBILE SMALL - Ottimizzazioni finali */
-@media (max-width: 480px) {
-    .fitness-stats {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .fitness-filter-actions {
-        flex-direction: column;
-    }
-
-    .fitness-price-range {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .fitness-availability {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .fitness-card-image {
-        width: 120px;
-        height: 120px;
-    }
-
-    .fitness-tag {
-        font-size: 10px;
-        padding: 4px 10px;
-    }
-}
-
-=====FITNESS & ALLENAMENTO - CSS LAYOUT OTTIMIZZATO=====*/
+/* ===== FITNESS & ALLENAMENTO - CSS LAYOUT OTTIMIZZATO ===== */
 /* Desktop: Foto grande sinistra + Info destra + Cuore basso | Mobile: Verticale */
 
 /* BREADCRUMB FITNESS */
@@ -874,4 +687,189 @@
     }
 }
 
-/*
+/* TABLET LANDSCAPE - 2 colonne */
+@media (max-width: 1199px) and (min-width: 969px) {
+    .fitness-layout {
+        grid-template-columns: 280px 1fr;
+        gap: 24px;
+    }
+
+    .fitness-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .fitness-card-image {
+        width: 110px;
+        height: 110px;
+    }
+
+    .fitness-hero-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+    }
+
+    .fitness-hero h1 {
+        font-size: 40px;
+    }
+}
+
+/* TABLET PORTRAIT - Layout sidebar sopra + 2 colonne */
+@media (max-width: 968px) {
+    .fitness-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .fitness-sidebar {
+        order: -1;
+    }
+
+    .fitness-professionals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .fitness-card-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .fitness-header-info h3 {
+        font-size: 18px;
+    }
+
+    .fitness-hero {
+        padding: 32px 24px;
+    }
+
+    .fitness-hero h1 {
+        font-size: 32px;
+    }
+
+    .fitness-stats {
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .fitness-results-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
+
+/* MOBILE LARGE - 1 colonna + layout verticale */
+@media (max-width: 640px) {
+    .fitness-professionals-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* TRANSIZIONE A LAYOUT VERTICALE MOBILE */
+    .fitness-card-header {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 20px 0 20px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .fitness-card-image {
+        width: 140px;
+        height: 140px;
+        border-radius: 20px;
+    }
+
+    .fitness-header-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    .fitness-header-info h3 {
+        font-size: 20px;
+    }
+
+    .fitness-rating {
+        justify-content: center;
+    }
+
+    .fitness-favorite-btn {
+        top: 16px;
+        right: 16px;
+        bottom: auto;
+    }
+
+    .fitness-card-content {
+        padding: 0 16px 16px 16px;
+        gap: 14px;
+    }
+
+    .fitness-specializations {
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .fitness-card-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .fitness-hero {
+        padding: 24px 16px;
+    }
+
+    .fitness-hero h1 {
+        font-size: 28px;
+    }
+
+    .fitness-stats {
+        gap: 16px;
+    }
+
+    .fitness-stat-number {
+        font-size: 24px;
+    }
+
+    .fitness-filters {
+        padding: 16px;
+    }
+
+    .fitness-main {
+        padding: 16px;
+    }
+}
+
+/* MOBILE SMALL - Ottimizzazioni finali */
+@media (max-width: 480px) {
+    .fitness-stats {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .fitness-filter-actions {
+        flex-direction: column;
+    }
+
+    .fitness-price-range {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .fitness-availability {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .fitness-card-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .fitness-tag {
+        font-size: 10px;
+        padding: 4px 10px;
+    }
+}

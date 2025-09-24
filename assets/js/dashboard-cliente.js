@@ -4,7 +4,7 @@
    =============================================== */
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🏠 Dashboard Cliente RelaxPoint inizializzata');
+    console.log('[INIT] Dashboard Cliente RelaxPoint inizializzata');
 
     // ===============================================
     // STATO GLOBALE DASHBOARD
@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (elements.exploreBtn) {
             elements.exploreBtn.addEventListener('click', function (e) {
                 e.preventDefault();
-                console.log('📅 Esplora servizi cliccato');
+                console.log('[ACTION] Esplora servizi cliccato');
                 showNotification('Reindirizzamento a servizi...', 'info');
                 setTimeout(() => {
                     window.location.href = '/pages/servizi/servizi.html';
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();
                     const action = this.textContent.toLowerCase().trim();
-                    console.log(`📋 Azione prenotazione: ${action}`);
+                    console.log(`[BOOKING] Azione prenotazione: ${action}`);
 
                     if (action.includes('contatta')) {
                         showNotification('Apertura chat con il professionista...', 'info');
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
             elements.viewBtns.forEach(btn => {
                 btn.addEventListener('click', function (e) {
                     e.preventDefault();
-                    console.log('👁️ Visualizza prenotazione');
+                    console.log('[ACTION] Visualizza prenotazione');
                     showNotification('Apertura dettagli prenotazione...', 'info');
                 });
             });
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
         updateCountdown();
         dashboardState.nextBooking.timer = setInterval(updateCountdown, 1000);
 
-        console.log('⏰ Countdown impostato per:', targetDate.toLocaleString('it-IT'));
+        console.log('[TIMER] Countdown impostato per:', targetDate.toLocaleString('it-IT'));
     }
 
     function updateCountdown() {
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================================
     function setupResponsive() {
         if (window.innerWidth <= 1024) {
-            console.log('📱 Layout responsive attivo');
+            console.log('[RESPONSIVE] Layout responsive attivo');
         }
 
         window.addEventListener('resize', adaptMobileLayout);
@@ -342,9 +342,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function adaptMobileLayout() {
         if (window.innerWidth <= 768) {
-            console.log('📱 Adattamento layout mobile per <= 768px');
+            console.log('[MOBILE] Adattamento layout mobile per <= 768px');
         } else {
-            console.log('🖥️ Layout desktop o tablet > 768px');
+            console.log('[DEVICE] Layout desktop o tablet > 768px');
         }
     }
 
@@ -580,7 +580,7 @@ document.addEventListener('DOMContentLoaded', function () {
     setupAdvancedInteractions();
     setupErrorHandling();
 
-    console.log('🚀 RelaxPoint Dashboard pronta!');
+    console.log('[SUCCESS] RelaxPoint Dashboard pronta!');
 
     // Debug
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {

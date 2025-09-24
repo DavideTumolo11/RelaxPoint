@@ -1,7 +1,22 @@
-/* ===== PAGAMENTO - CSS LAYOUT COMPLETO ===== */
-/* Colori standard RelaxPoint: #2E7D32 (verde principale) */
+/* ===============================================
+   PAGAMENTO CSS - RelaxPoint
+   Layout completo senza errori - Versione pulita
+   =============================================== */
 
-/* BREADCRUMB */
+/* VARIABILI CSS */
+:root {
+    --color-primary: #2E7D32;
+    --color-dark: #1B5E20;
+    --color-light: #A5D6A7;
+    --color-gray-light: #F5F5F5;
+    --color-border: #E0E0E0;
+    --color-text: #212121;
+    --color-secondary: #757575;
+    --color-red: #dc2626;
+    --color-red-dark: #b91c1c;
+}
+
+/* LAYOUT BASE */
 .payment-breadcrumb {
     display: flex;
     align-items: center;
@@ -11,26 +26,25 @@
 }
 
 .payment-breadcrumb a {
-    color: #666;
+    color: var(--color-secondary);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .payment-breadcrumb a:hover {
-    color: #2E7D32;
+    color: var(--color-primary);
 }
 
 .payment-breadcrumb span {
     color: #999;
 }
 
-/* CONTAINER PAGAMENTO */
 .payment-container {
     max-width: 1200px;
     margin: 0 auto;
+    animation: fadeIn 0.5s ease-out;
 }
 
-/* HEADER PAGAMENTO */
 .payment-header {
     text-align: center;
     margin-bottom: 48px;
@@ -39,16 +53,15 @@
 .payment-header h1 {
     font-size: 32px;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 8px;
 }
 
 .payment-header p {
     font-size: 16px;
-    color: #64748b;
+    color: var(--color-secondary);
 }
 
-/* GRID PRINCIPALE */
 .payment-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -56,7 +69,7 @@
     align-items: start;
 }
 
-/* ===== COLONNA SINISTRA: RIEPILOGO ===== */
+/* COLONNA SINISTRA - RIEPILOGO */
 .booking-summary-section {
     position: sticky;
     top: 100px;
@@ -67,21 +80,20 @@
     border-radius: 16px;
     padding: 32px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
 }
 
 .summary-card h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 24px;
     text-align: center;
 }
 
-/* PROFESSIONISTA SUMMARY */
 .professional-summary {
     padding: 20px;
-    background: #f8fafc;
+    background: var(--color-gray-light);
     border-radius: 12px;
     margin-bottom: 24px;
     text-align: center;
@@ -90,13 +102,13 @@
 .professional-info h3 {
     font-size: 20px;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 4px;
 }
 
 .professional-info p {
     font-size: 14px;
-    color: #64748b;
+    color: var(--color-secondary);
     margin-bottom: 8px;
 }
 
@@ -112,7 +124,6 @@
     color: #fbbf24;
 }
 
-/* SERVIZIO SUMMARY */
 .service-summary {
     margin-bottom: 24px;
 }
@@ -120,7 +131,7 @@
 .service-summary h4 {
     font-size: 16px;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 12px;
 }
 
@@ -139,16 +150,15 @@
 
 .service-item .label {
     font-size: 14px;
-    color: #64748b;
+    color: var(--color-secondary);
 }
 
 .service-item .value {
     font-size: 14px;
     font-weight: 500;
-    color: #1e293b;
+    color: var(--color-text);
 }
 
-/* EXTRA SUMMARY */
 .extras-summary {
     margin-bottom: 24px;
 }
@@ -156,7 +166,7 @@
 .extras-summary h4 {
     font-size: 16px;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 12px;
 }
 
@@ -170,12 +180,11 @@
     display: flex;
     justify-content: space-between;
     font-size: 13px;
-    color: #64748b;
+    color: var(--color-secondary);
 }
 
-/* PREZZO SUMMARY */
 .price-summary {
-    border-top: 2px solid #e2e8f0;
+    border-top: 2px solid var(--color-border);
     padding-top: 20px;
 }
 
@@ -191,7 +200,7 @@
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
-    color: #64748b;
+    color: var(--color-secondary);
 }
 
 .total-price {
@@ -200,38 +209,34 @@
     align-items: center;
     font-size: 20px;
     font-weight: 700;
-    color: #2E7D32;
+    color: var(--color-primary);
     padding: 16px 20px;
-    background: #f0fdf4;
+    background: var(--color-gray-light);
     border-radius: 8px;
-    border: 2px solid #2E7D32;
+    border: 2px solid var(--color-primary);
 }
 
-/* ===== COLONNA DESTRA: FORM PAGAMENTO ===== */
-.payment-form-section {
-    /* Nessun sticky qui per permettere lo scroll del form */
-}
-
+/* COLONNA DESTRA - PAGAMENTO */
 .payment-card {
     background: white;
     border-radius: 16px;
     padding: 32px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--color-border);
 }
 
 .payment-card h2 {
     font-size: 24px;
     font-weight: 700;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 24px;
 }
 
-/* METODI PAGAMENTO */
+/* METODI PAGAMENTO AGGIORNATI */
 .payment-methods {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
     margin-bottom: 24px;
 }
 
@@ -248,30 +253,62 @@
     align-items: center;
     gap: 12px;
     padding: 16px;
-    border: 2px solid #e2e8f0;
+    border: 2px solid var(--color-border);
     border-radius: 12px;
     transition: all 0.2s ease;
     background: white;
+    width: 100%;
 }
 
 .payment-method input[type="radio"]:checked+.method-card {
-    border-color: #2E7D32;
-    background: #f0fdf4;
+    border-color: var(--color-primary);
+    background: rgba(45, 90, 61, 0.05);
 }
 
-.method-icon {
+.method-card:hover {
+    border-color: var(--color-primary);
+    background: rgba(45, 90, 61, 0.02);
+}
+
+.payment-icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
+    min-width: 80px;
     height: 32px;
-    color: #2E7D32;
+}
+
+.payment-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s ease;
+}
+
+.payment-method input[type="radio"]:checked+.method-card .payment-icon img {
+    filter: grayscale(0%);
+}
+
+.card-icons {
+    display: flex;
+    gap: 4px;
+}
+
+.card-icons img {
+    width: 32px;
+    height: 20px;
 }
 
 .method-card span {
     font-size: 15px;
     font-weight: 500;
-    color: #1e293b;
+    color: var(--color-text);
+}
+
+.payment-method input[type="radio"]:checked+.method-card span {
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 /* FORM CARTA */
@@ -291,32 +328,48 @@
 .form-group label {
     font-size: 14px;
     font-weight: 500;
-    color: #374151;
+    color: var(--color-text);
 }
 
 .form-group input {
     padding: 12px 16px;
-    border: 1px solid #d1d5db;
+    border: 2px solid var(--color-border);
     border-radius: 8px;
     font-size: 15px;
     background: white;
+    color: var(--color-text);
     transition: border-color 0.2s ease;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #2E7D32;
-    box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.1);
 }
 
 .form-group input::placeholder {
-    color: #9ca3af;
+    color: var(--color-secondary);
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+}
+
+.form-group.error input {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.form-group.error label {
+    color: #ef4444;
+}
+
+.field-error {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
 }
 
 /* NOTICE AUTORIZZAZIONE */
@@ -358,7 +411,7 @@
 .btn-confirm-payment {
     width: 100%;
     padding: 16px 24px;
-    background: #2E7D32;
+    background: var(--color-primary);
     color: white;
     border: none;
     border-radius: 12px;
@@ -371,13 +424,12 @@
     justify-content: center;
     gap: 4px;
     margin-bottom: 20px;
-    position: relative;
 }
 
 .btn-confirm-payment:hover {
-    background: #1b5e20;
+    background: var(--color-dark);
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(46, 125, 50, 0.3);
+    box-shadow: 0 4px 16px rgba(45, 90, 61, 0.3);
 }
 
 .btn-confirm-payment:disabled {
@@ -402,7 +454,6 @@
     display: flex;
 }
 
-/* SECURITY BADGES */
 .security-badges {
     display: flex;
     justify-content: center;
@@ -415,14 +466,14 @@
     align-items: center;
     gap: 6px;
     font-size: 12px;
-    color: #64748b;
+    color: var(--color-secondary);
 }
 
 .security-item svg {
-    color: #2E7D32;
+    color: var(--color-primary);
 }
 
-/* ===== MODAL CONFERMA ===== */
+/* MODAL CONFERMA */
 .modal {
     position: fixed;
     top: 0;
@@ -472,13 +523,13 @@
 .modal-header h3 {
     font-size: 24px;
     font-weight: 700;
-    color: #2E7D32;
+    color: var(--color-primary);
     margin: 0;
 }
 
 .modal-body p {
     font-size: 16px;
-    color: #64748b;
+    color: var(--color-secondary);
     margin-bottom: 12px;
 }
 
@@ -488,21 +539,21 @@
     align-items: center;
     gap: 4px;
     padding: 16px;
-    background: #f0fdf4;
+    background: var(--color-gray-light);
     border-radius: 8px;
     margin: 20px 0;
-    border: 1px solid #2E7D32;
+    border: 1px solid var(--color-primary);
 }
 
 .booking-code span {
     font-size: 14px;
-    color: #64748b;
+    color: var(--color-secondary);
 }
 
 .booking-code strong {
     font-size: 18px;
     font-weight: 700;
-    color: #2E7D32;
+    color: var(--color-primary);
     font-family: monospace;
 }
 
@@ -510,14 +561,14 @@
     text-align: left;
     margin: 20px 0;
     padding: 16px;
-    background: #f8fafc;
+    background: var(--color-gray-light);
     border-radius: 8px;
 }
 
 .next-steps h4 {
     font-size: 16px;
     font-weight: 600;
-    color: #1e293b;
+    color: var(--color-text);
     margin-bottom: 8px;
 }
 
@@ -528,7 +579,7 @@
 
 .next-steps li {
     font-size: 14px;
-    color: #64748b;
+    color: var(--color-secondary);
     margin-bottom: 4px;
 }
 
@@ -550,25 +601,46 @@
 }
 
 .modal-actions .btn-primary {
-    background: #2E7D32;
+    background: var(--color-primary);
     color: white;
 }
 
 .modal-actions .btn-primary:hover {
-    background: #1b5e20;
+    background: var(--color-dark);
 }
 
 .modal-actions .btn-secondary {
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #e2e8f0;
+    background: var(--color-gray-light);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-border);
 }
 
 .modal-actions .btn-secondary:hover {
-    background: #e2e8f0;
+    background: var(--color-border);
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
+/* MESSAGGI */
+.error-message {
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid #ef4444;
+    font-size: 14px;
+}
+
+.success-message {
+    background: var(--color-gray-light);
+    color: var(--color-primary);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+    border-left: 4px solid var(--color-primary);
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
 @media (max-width: 1024px) {
     .payment-grid {
         grid-template-columns: 1fr;
@@ -577,6 +649,11 @@
 
     .booking-summary-section {
         position: static;
+        order: 2;
+    }
+
+    .payment-form-section {
+        order: 1;
     }
 
     .summary-card,
@@ -616,6 +693,19 @@
     .modal-actions {
         flex-direction: column;
     }
+
+    .payment-methods {
+        gap: 6px;
+    }
+
+    .method-card {
+        padding: 12px;
+    }
+
+    .payment-icon {
+        min-width: 60px;
+        height: 28px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -653,9 +743,25 @@
     .professional-summary {
         padding: 16px;
     }
+
+    .method-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .payment-icon {
+        min-width: auto;
+        height: 24px;
+    }
+
+    .card-icons img {
+        width: 28px;
+        height: 18px;
+    }
 }
 
-/* ===== ANIMAZIONI ===== */
+/* ANIMAZIONI */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -680,51 +786,17 @@
     }
 }
 
-.payment-container {
-    animation: fadeIn 0.5s ease-out;
-}
-
 .btn-confirm-payment.loading .btn-loading svg {
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-/* ===== STATI SPECIALI ===== */
-.form-group.error input {
-    border-color: #ef4444;
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
-}
-
-.form-group.error label {
-    color: #ef4444;
-}
-
-.error-message {
-    background: #fef2f2;
-    color: #dc2626;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin: 16px 0;
-    border-left: 4px solid #ef4444;
-    font-size: 14px;
-}
-
-.success-message {
-    background: #f0fdf4;
-    color: #166534;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin: 16px 0;
-    border-left: 4px solid #22c55e;
-    font-size: 14px;
-}
-
-/* ===== FOCUS ACCESSIBILITY ===== */
+/* ACCESSIBILITY */
 .payment-method:focus-within .method-card {
-    outline: 2px solid #2E7D32;
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
 .btn-confirm-payment:focus {
-    outline: 2px solid #2E7D32;
+    outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }

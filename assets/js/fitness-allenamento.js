@@ -1,7 +1,7 @@
 // ===== FITNESS & ALLENAMENTO - JS COMPLETO =====
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🏋️ Fitness & Allenamento - JavaScript caricato');
+    console.log('[INIT] Fitness & Allenamento - JavaScript caricato');
 
     // INIZIALIZZAZIONE
     initializeFilters();
@@ -520,7 +520,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-fitness.jpg';
             this.alt = 'Fitness - Immagine non disponibile';
-            console.log('⚠️ Immagine Fitness sostituita con placeholder');
+            console.log('[WARNING] Immagine Fitness sostituita con placeholder');
         });
     });
 });

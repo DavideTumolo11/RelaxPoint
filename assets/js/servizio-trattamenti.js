@@ -59,7 +59,7 @@ function initializePage() {
     const serviceType = urlParams.get('servizio') || 'wellness-coaching';
     const professionalId = urlParams.get('prof') || 'sophia-rossi';
 
-    console.log(`📋 Caricamento servizio: ${serviceType} per ${professionalId}`);
+    console.log(`[BOOKING] Caricamento servizio: ${serviceType} per ${professionalId}`);
 
     updatePageContent(serviceType, professionalId);
     updateBreadcrumb(serviceType, professionalId);
@@ -70,7 +70,7 @@ function updatePageContent(serviceType, professionalId) {
     const professional = PROFESSIONALS_DATA[professionalId];
 
     if (!service || !professional) {
-        console.error('⚠️ Servizio o professionista non trovato');
+        console.error('[WARNING] Servizio o professionista non trovato');
         return;
     }
 
@@ -277,7 +277,7 @@ function applyFilters() {
         }
     });
 
-    console.log(`🔍 Filtri applicati: ${visibleCount} trattamenti visibili`);
+    console.log(`[SEARCH] Filtri applicati: ${visibleCount} trattamenti visibili`);
 }
 
 // ===============================================
@@ -330,7 +330,7 @@ function setupBookingButtons() {
             const treatmentId = treatmentCard.dataset.treatment;
             const treatmentName = treatmentCard.querySelector('.treatment-name').textContent;
 
-            console.log(`📅 Prenotazione trattamento: ${treatmentName} (ID: ${treatmentId})`);
+            console.log(`[ACTION] Prenotazione trattamento: ${treatmentName} (ID: ${treatmentId})`);
 
             // Animazione click
             this.style.transform = 'scale(0.95)';
@@ -446,6 +446,6 @@ window.showToast = showToast;
 // DEBUG E LOGGING
 // ===============================================
 console.log('✅ Servizio Trattamenti - JavaScript inizializzato correttamente');
-console.log('🔧 Funzioni disponibili: bookTreatment(), showToast()');
+console.log('[SETUP] Funzioni disponibili: bookTreatment(), showToast()');
 console.log('📊 Servizi configurati:', Object.keys(SERVICES_DATA).length);
 console.log('👥 Professionisti configurati:', Object.keys(PROFESSIONALS_DATA).length);

@@ -4,7 +4,7 @@
 // ===============================================
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('🌿 RelaxPoint JavaScript caricato correttamente!');
+    console.log('[INIT] RelaxPoint JavaScript caricato correttamente!');
 
     // ===============================================
     // GESTIONE LAST MINUTE - Lampeggia quando disponibile
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function controllaDisponibilitaLastMinute() {
         if (!lastMinuteLink) {
-            console.warn('⚠️ Elemento lastMinuteLink non trovato nel DOM');
+            console.warn('[WARNING] Elemento lastMinuteLink non trovato nel DOM');
             return;
         }
 
@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Aggiungi listener per tastiera
             document.addEventListener('keydown', handleModalKeyboard);
 
-            console.log('✨ Sezione Ispirazioni inizializzata correttamente');
+            console.log('[EFFECT] Sezione Ispirazioni inizializzata correttamente');
         }
     });
 
@@ -478,14 +478,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function eseguiRicerca() {
         if (!inputRicerca) {
-            console.warn('⚠️ Input ricerca non trovato');
+            console.warn('[WARNING] Input ricerca non trovato');
             return;
         }
 
         const termineRicerca = inputRicerca.value.trim();
 
         if (termineRicerca) {
-            console.log(`🔍 Ricerca eseguita: "${termineRicerca}"`);
+            console.log(`[SEARCH] Ricerca eseguita: "${termineRicerca}"`);
             // Reindirizza alla pagina servizi con query
             window.location.href = `/pages/servizi/servizi.html?q=${encodeURIComponent(termineRicerca)}`;
         } else {
@@ -528,12 +528,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // ===============================================
     // CONSOLE MESSAGES PER DEBUG
     // ===============================================
-    console.log('📱 Dispositivo:', window.innerWidth <= 768 ? 'Mobile' : 'Desktop');
-    console.log('🌐 User Agent:', navigator.userAgent);
-    console.log('🚀 RelaxPoint ready!');
+    console.log('[DEVICE] Dispositivo:', window.innerWidth <= 768 ? 'Mobile' : 'Desktop');
+    console.log('[BROWSER] User Agent:', navigator.userAgent);
+    console.log('[SUCCESS] RelaxPoint ready!');
 
     console.log(`
-    🌿 ===============================================
+    ===============================================
        RELAXPOINT - Marketplace Benessere
        Versione: 1.0.0 | Build: ${new Date().toISOString().split('T')[0]}
     ===============================================

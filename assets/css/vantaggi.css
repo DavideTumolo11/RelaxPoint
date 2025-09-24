@@ -1,0 +1,332 @@
+/* ==============================
+   VANTAGGI PAGE - STYLES
+   ============================== */
+
+/* HERO SECTION */
+.vantaggi-hero {
+    padding: 80px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #2d5a3d 0%, #1e3a2e 100%);
+    color: white;
+    margin-bottom: 60px;
+}
+
+.vantaggi-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vantaggi-hero .hero-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.vantaggi-hero .hero-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+
+/* LIVE STATISTICS */
+.live-statistics {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    margin-bottom: 60px;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    border-color: #2d5a3d;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #2d5a3d;
+    margin-bottom: 10px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.live-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.live-dot {
+    width: 8px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* VANTAGGI SECTIONS */
+.vantaggi-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #2d5a3d 0%, #52a373 100%);
+    border-radius: 2px;
+}
+
+.vantaggi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.vantaggio-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid #f8f9fa;
+}
+
+.vantaggio-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    border-color: #2d5a3d;
+}
+
+.vantaggio-card.professional {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    border-color: #52a373;
+}
+
+.vantaggio-icon {
+    margin-bottom: 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2d5a3d;
+    transition: color 0.3s ease;
+}
+
+.vantaggio-card:hover .vantaggio-icon {
+    color: #52a373;
+}
+
+.vantaggio-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.vantaggio-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* TRUST SECTION */
+.trust-section {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #2d5a3d 0%, #1e3a2e 100%);
+    color: white;
+    margin-top: 60px;
+}
+
+.trust-section .section-title {
+    color: white;
+}
+
+.trust-section .section-title::after {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.trust-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px 25px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.trust-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.trust-icon {
+    margin-bottom: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    transition: color 0.3s ease;
+}
+
+.trust-card:hover .trust-icon {
+    color: white;
+}
+
+.trust-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.trust-description {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .vantaggi-hero {
+        padding: 60px 20px;
+    }
+
+    .vantaggi-hero .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .vantaggi-hero .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .vantaggi-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vantaggio-card {
+        padding: 30px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vantaggi-hero .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 25px 15px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .vantaggio-card {
+        padding: 25px 20px;
+    }
+
+    .vantaggio-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* ANIMATION CLASSES FOR NUMBERS */
+.stat-number.updating {
+    animation: numberUpdate 0.5s ease-in-out;
+}
+
+@keyframes numberUpdate {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); color: #4CAF50; }
+    100% { transform: scale(1); }
+}

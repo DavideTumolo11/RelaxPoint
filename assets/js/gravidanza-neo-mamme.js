@@ -457,7 +457,7 @@ document.addEventListener('DOMContentLoaded', function () {
         img.addEventListener('error', function () {
             this.src = '/assets/images/placeholder-gravidanza.jpg';
             this.alt = 'Gravidanza - Immagine non disponibile';
-            console.log('⚠️ Immagine Gravidanza sostituita con placeholder');
+            console.log('[WARNING] Immagine Gravidanza sostituita con placeholder');
         });
     });
 });
