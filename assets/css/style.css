@@ -132,7 +132,7 @@ body {
     justify-content: space-between;
     white-space: nowrap;
     border-bottom: 1px solid var(--color-light);
-    padding: 16px 40px;
+    padding: 5px 25px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -141,21 +141,17 @@ body {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 10px;
 }
 
 .site-logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    color: var(--color-primary);
-    text-decoration: none;
 }
 
 .logo-icon {
-    width: 24px;
-    height: 24px;
-    color: var(--color-primary);
+    width: 220px;
+    height: 120px;
 }
 
 .logo-text {
@@ -164,6 +160,20 @@ body {
     font-weight: 700;
     line-height: 1.25;
     letter-spacing: -0.015em;
+}
+
+@media (max-width: 1300px) {
+    .logo-icon {
+        width: 100px;
+        height: 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo-icon {
+        width: 60px;
+        height: 38px;
+    }
 }
 
 /* NAVIGAZIONE PRINCIPALE */
@@ -176,7 +186,7 @@ body {
 .nav-link {
     color: var(--color-secondary);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 500;
     line-height: 1.4;
     transition: color 0.3s ease;

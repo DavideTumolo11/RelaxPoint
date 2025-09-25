@@ -79,24 +79,7 @@
     padding: 20px 0;
 }
 
-.maintenance-logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: var(--color-primary);
-}
 
-.maintenance-logo .logo-icon {
-    width: 40px;
-    height: 40px;
-}
-
-.maintenance-logo .logo-text {
-    font-size: 28px;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: -0.02em;
-}
 
 /* ===============================================
    MAIN CONTENT

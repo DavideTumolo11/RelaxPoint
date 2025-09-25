@@ -28,18 +28,14 @@
 
             <!-- HEADER -->
             <header class="site-header">
+                <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
+                <a class="site-logo" href="./index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
                 <div class="header-left">
-                    <a class="site-logo" href="/index.html">
-                        <div class="logo-icon">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </div>
-                        <h2 class="logo-text">RelaxPoint</h2>
-                    </a>
-
                     <nav class="main-nav">
                         <a href="/index.html" class="nav-link">Home</a>
                         <a href="/pages/servizi/servizi.html" class="nav-link active">Servizi</a>
@@ -410,9 +406,20 @@
 
                                         <div class="fitness-service-details">
                                             <div class="fitness-location">
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Studio: Via Dante 123</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg> Domicilio: raggio 20km</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2Z"/></svg> Outdoor training disponibile</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                                    </svg> Studio: Via Dante 123</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                    </svg> Domicilio: raggio 20km</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2Z" />
+                                                    </svg> Outdoor training disponibile</span>
                                             </div>
                                             <div class="fitness-pricing">
                                                 <span>Sessione individuale: da €45</span>
@@ -420,7 +427,10 @@
                                                 <span>Pacchetto 10 sessioni: da €400</span>
                                             </div>
                                             <div class="fitness-packages">
-                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 8 anni esperienza + certificazioni
+                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700">
+                                                    <path
+                                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg> 8 anni esperienza + certificazioni
                                             </div>
                                         </div>
 
@@ -466,8 +476,16 @@
 
                                         <div class="fitness-service-details">
                                             <div class="fitness-location">
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg> Solo domicilio con attrezzature</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M12.5,1.5C10.73,1.5 9.17,2.67 8.5,4.37C8.5,4.37 8.13,5.42 8.13,6.15C8.13,7.7 9.38,9 10.88,9H14.13C15.63,9 16.88,7.7 16.88,6.15C16.88,5.42 16.5,4.37 16.5,4.37C15.83,2.67 14.27,1.5 12.5,1.5Z"/></svg> Specializzata core stability</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                    </svg> Solo domicilio con attrezzature</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12.5,1.5C10.73,1.5 9.17,2.67 8.5,4.37C8.5,4.37 8.13,5.42 8.13,6.15C8.13,7.7 9.38,9 10.88,9H14.13C15.63,9 16.88,7.7 16.88,6.15C16.88,5.42 16.5,4.37 16.5,4.37C15.83,2.67 14.27,1.5 12.5,1.5Z" />
+                                                    </svg> Specializzata core stability</span>
                                             </div>
                                             <div class="fitness-pricing">
                                                 <span>Pilates matwork: da €50</span>
@@ -475,7 +493,10 @@
                                                 <span>Corso posturale: da €45</span>
                                             </div>
                                             <div class="fitness-packages">
-                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 6 anni esperienza + reformer portatile
+                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700">
+                                                    <path
+                                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg> 6 anni esperienza + reformer portatile
                                             </div>
                                         </div>
 
@@ -520,9 +541,20 @@
 
                                         <div class="fitness-service-details">
                                             <div class="fitness-location">
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Box: Via Sassari 67</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg> Domicilio: raggio 15km</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2Z"/></svg> Preferenza outdoor training</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                                    </svg> Box: Via Sassari 67</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                    </svg> Domicilio: raggio 15km</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2Z" />
+                                                    </svg> Preferenza outdoor training</span>
                                             </div>
                                             <div class="fitness-pricing">
                                                 <span>HIIT individuale: da €40</span>
@@ -530,7 +562,10 @@
                                                 <span>Outdoor group: da €25/pers</span>
                                             </div>
                                             <div class="fitness-packages">
-                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5 anni esperienza + risultati garantiti
+                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700">
+                                                    <path
+                                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg> 5 anni esperienza + risultati garantiti
                                             </div>
                                         </div>
 
@@ -576,9 +611,19 @@
 
                                         <div class="fitness-service-details">
                                             <div class="fitness-location">
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Studio: Corso Vittorio 89</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M7,2V13H10V22L17,10H13L17,2H7Z"/></svg> Consulenze online disponibili</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg> Visite domicilio su richiesta</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                                    </svg> Studio: Corso Vittorio 89</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M7,2V13H10V22L17,10H13L17,2H7Z" />
+                                                    </svg> Consulenze online disponibili</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                    </svg> Visite domicilio su richiesta</span>
                                             </div>
                                             <div class="fitness-pricing">
                                                 <span>Prima visita + piano: da €80</span>
@@ -586,7 +631,10 @@
                                                 <span>Consulenza online: da €60</span>
                                             </div>
                                             <div class="fitness-packages">
-                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Biologa nutrizionista + specializzazione sport
+                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700">
+                                                    <path
+                                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg> Biologa nutrizionista + specializzazione sport
                                             </div>
                                         </div>
 
@@ -631,8 +679,16 @@
 
                                         <div class="fitness-service-details">
                                             <div class="fitness-location">
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg> Solo domicilio: approccio graduale</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M12.5,1.5C10.73,1.5 9.17,2.67 8.5,4.37C8.5,4.37 8.13,5.42 8.13,6.15C8.13,7.7 9.38,9 10.88,9H14.13C15.63,9 16.88,7.7 16.88,6.15C16.88,5.42 16.5,4.37 16.5,4.37C15.83,2.67 14.27,1.5 12.5,1.5Z"/></svg> Specializzato età senior</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                    </svg> Solo domicilio: approccio graduale</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12.5,1.5C10.73,1.5 9.17,2.67 8.5,4.37C8.5,4.37 8.13,5.42 8.13,6.15C8.13,7.7 9.38,9 10.88,9H14.13C15.63,9 16.88,7.7 16.88,6.15C16.88,5.42 16.5,4.37 16.5,4.37C15.83,2.67 14.27,1.5 12.5,1.5Z" />
+                                                    </svg> Specializzato età senior</span>
                                             </div>
                                             <div class="fitness-pricing">
                                                 <span>Ginnastica dolce: da €35</span>
@@ -640,7 +696,10 @@
                                                 <span>Pacchetto benessere: da €300</span>
                                             </div>
                                             <div class="fitness-packages">
-                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 10 anni esperienza geriatrica
+                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700">
+                                                    <path
+                                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg> 10 anni esperienza geriatrica
                                             </div>
                                         </div>
 
@@ -686,9 +745,20 @@
 
                                         <div class="fitness-service-details">
                                             <div class="fitness-location">
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg> Studio: Via Roma 245 (400mq)</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg> Servizio domicilio disponibile</span>
-                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="currentColor"><path d="M16,4C18.11,4 19.85,5.74 19.85,7.85C19.85,9.96 18.11,11.7 16,11.7C13.89,11.7 12.15,9.96 12.15,7.85C12.15,5.74 13.89,4 16,4M16,12.4C18.96,12.4 22,13.88 22,16.85V20H10V16.85C10,13.88 13.04,12.4 16,12.4M8,6C10.11,6 11.85,7.74 11.85,9.85C11.85,11.96 10.11,13.7 8,13.7C5.89,13.7 4.15,11.96 4.15,9.85C4.15,7.74 5.89,6 8,6M8,14.4C10.96,14.4 14,15.88 14,18.85V22H2V18.85C2,15.88 5.04,14.4 8,14.4Z"/></svg> Corsi di gruppo + individuali</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                                    </svg> Studio: Via Roma 245 (400mq)</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11C5.84 5 5.28 5.42 5.08 6.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z" />
+                                                    </svg> Servizio domicilio disponibile</span>
+                                                <span><svg class="icon-svg icon-svg-small" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M16,4C18.11,4 19.85,5.74 19.85,7.85C19.85,9.96 18.11,11.7 16,11.7C13.89,11.7 12.15,9.96 12.15,7.85C12.15,5.74 13.89,4 16,4M16,12.4C18.96,12.4 22,13.88 22,16.85V20H10V16.85C10,13.88 13.04,12.4 16,12.4M8,6C10.11,6 11.85,7.74 11.85,9.85C11.85,11.96 10.11,13.7 8,13.7C5.89,13.7 4.15,11.96 4.15,9.85C4.15,7.74 5.89,6 8,6M8,14.4C10.96,14.4 14,15.88 14,18.85V22H2V18.85C2,15.88 5.04,14.4 8,14.4Z" />
+                                                    </svg> Corsi di gruppo + individuali</span>
                                             </div>
                                             <div class="fitness-pricing">
                                                 <span>Personal training: da €50</span>
@@ -697,7 +767,10 @@
                                                 <span class="fitness-transport-included">Prima prova gratuita</span>
                                             </div>
                                             <div class="fitness-packages">
-                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 15 discipline + attrezzature professionali
+                                                <svg class="icon-svg icon-svg-small" viewBox="0 0 24 24" fill="#FFD700">
+                                                    <path
+                                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                                </svg> 15 discipline + attrezzature professionali
                                             </div>
                                         </div>
 

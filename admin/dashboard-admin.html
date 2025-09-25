@@ -15,599 +15,621 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/style.css">
-
-    <style>
-        .admin-header {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
-            color: white;
-            padding: 20px;
-            margin: -20px -20px 30px -20px;
-            border-radius: 0 0 16px 16px;
-        }
-
-        .admin-nav {
-            display: flex;
-            gap: 20px;
-            margin: 20px 0;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 15px;
-        }
-
-        .admin-nav-item {
-            padding: 10px 20px;
-            background: #f8f9fa;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 500;
-        }
-
-        .admin-nav-item.active {
-            background: var(--color-primary);
-            color: white;
-        }
-
-        .admin-section {
-            display: none;
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin: 20px 0;
-        }
-
-        .admin-section.active {
-            display: block;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .stat-card {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            padding: 20px;
-            border-radius: 12px;
-            border-left: 4px solid var(--color-primary);
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: 700;
-            color: var(--color-primary);
-        }
-
-        .admin-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-
-        .admin-table th, .admin-table td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-
-        .admin-table th {
-            background: #f8f9fa;
-            font-weight: 600;
-        }
-
-        .btn-admin {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-
-        .btn-edit {
-            background: #3b82f6;
-            color: white;
-        }
-
-        .btn-delete {
-            background: #ef4444;
-            color: white;
-        }
-
-        .btn-approve {
-            background: #10b981;
-            color: white;
-        }
-
-        .form-group {
-            margin: 15px 0;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-
-        .alert {
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .alert-success {
-            background: #d1fae5;
-            color: #065f46;
-            border: 1px solid #a7f3d0;
-        }
-
-        .alert-warning {
-            background: #fef3c7;
-            color: #92400e;
-            border: 1px solid #fcd34d;
-        }
-
-        .alert-danger {
-            background: #fee2e2;
-            color: #991b1b;
-            border: 1px solid #fca5a5;
-        }
-
-        .log-entry {
-            padding: 10px;
-            margin: 8px 0;
-            background: #f8f9fa;
-            border-radius: 6px;
-            border-left: 3px solid #6b7280;
-            font-family: monospace;
-            font-size: 13px;
-        }
-
-        .log-error { border-left-color: #ef4444; }
-        .log-warning { border-left-color: #f59e0b; }
-        .log-info { border-left-color: #3b82f6; }
-        .log-success { border-left-color: #10b981; }
-    </style>
+    <link rel="stylesheet" href="../assets/css/admin/dashboard-admin.css">
 </head>
 
-<body style="background: #f3f4f6; padding: 20px;">
-    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+<body class="admin-body">
+    <div class="admin-container">
 
         <!-- HEADER ADMIN -->
         <div class="admin-header">
-            <h1><i class="fas fa-shield-alt"></i> RelaxPoint - Admin Dashboard</h1>
-            <p>Pannello di controllo completo per la gestione della piattaforma</p>
-            <div style="margin-top: 15px;">
-                <span class="badge" style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px;">
+            <h1 class="admin-title">
+                <i class="fas fa-shield-alt"></i> RelaxPoint Admin
+            </h1>
+            <p class="admin-subtitle">Pannello di controllo completo per la gestione della piattaforma</p>
+            <div class="admin-user-info">
+                <span class="admin-badge">
                     <i class="fas fa-user"></i> Admin: Amministratore
                 </span>
-                <span class="badge" style="background: rgba(255,255,255,0.2); padding: 5px 10px; border-radius: 20px; margin-left: 10px;">
+                <span class="admin-badge">
                     <i class="fas fa-clock"></i> Ultimo accesso: Oggi, 14:30
+                </span>
+                <span class="admin-badge">
+                    <i class="fas fa-server"></i> Server: Online
                 </span>
             </div>
         </div>
 
         <!-- NAVIGAZIONE ADMIN -->
         <div class="admin-nav">
-            <button class="admin-nav-item active" onclick="showSection('dashboard')">
+            <button class="admin-nav-item active" data-section="dashboard">
                 <i class="fas fa-tachometer-alt"></i> Dashboard
             </button>
-            <button class="admin-nav-item" onclick="showSection('users')">
+            <button class="admin-nav-item" data-section="users">
                 <i class="fas fa-users"></i> Utenti
             </button>
-            <button class="admin-nav-item" onclick="showSection('professionals')">
+            <button class="admin-nav-item" data-section="professionals">
                 <i class="fas fa-user-tie"></i> Professionisti
             </button>
-            <button class="admin-nav-item" onclick="showSection('bookings')">
+            <button class="admin-nav-item" data-section="bookings">
                 <i class="fas fa-calendar"></i> Prenotazioni
             </button>
-            <button class="admin-nav-item" onclick="showSection('content')">
+            <button class="admin-nav-item" data-section="verification">
+                <i class="fas fa-clipboard-check"></i> Verifiche
+            </button>
+            <button class="admin-nav-item" data-section="reports">
+                <i class="fas fa-exclamation-triangle"></i> Segnalazioni
+            </button>
+            <button class="admin-nav-item" data-section="content">
                 <i class="fas fa-edit"></i> Contenuti
             </button>
-            <button class="admin-nav-item" onclick="showSection('system')">
+            <button class="admin-nav-item" data-section="system">
                 <i class="fas fa-cogs"></i> Sistema
             </button>
-            <button class="admin-nav-item" onclick="showSection('logs')">
+            <button class="admin-nav-item" data-section="logs">
                 <i class="fas fa-list-alt"></i> Log
             </button>
         </div>
 
         <!-- SEZIONE DASHBOARD -->
         <div id="dashboard-section" class="admin-section active">
-            <h2><i class="fas fa-chart-line"></i> Panoramica Sistema</h2>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i> Panoramica Sistema
+                </h2>
+                <p class="section-description">
+                    Vista generale delle statistiche e attività della piattaforma RelaxPoint
+                </p>
+            </div>
+
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Dashboard</h4>
+                <ul>
+                    <li><strong>Statistiche principali:</strong> Mostra i KPI più importanti aggiornati in tempo reale</li>
+                    <li><strong>Attività recenti:</strong> Ultimi eventi e azioni sulla piattaforma</li>
+                    <li><strong>Aggiornamento automatico:</strong> I dati si aggiornano ogni 30 secondi</li>
+                    <li><strong>Azioni rapide:</strong> Accesso veloce alle sezioni più utilizzate</li>
+                </ul>
+            </div>
 
             <!-- STATISTICHE PRINCIPALI -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">1,247</div>
+                    <div class="stat-number" id="total-users">1,247</div>
                     <div class="stat-label">Utenti Registrati</div>
-                    <div class="stat-change" style="color: #10b981; font-size: 14px;">
+                    <div class="stat-change positive">
                         <i class="fas fa-arrow-up"></i> +12% da ieri
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">89</div>
+                    <div class="stat-number" id="total-professionals">156</div>
                     <div class="stat-label">Professionisti Attivi</div>
-                    <div class="stat-change" style="color: #10b981; font-size: 14px;">
-                        <i class="fas fa-arrow-up"></i> +5% da ieri
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> +8% da ieri
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">342</div>
+                    <div class="stat-number" id="today-bookings">47</div>
                     <div class="stat-label">Prenotazioni Oggi</div>
-                    <div class="stat-change" style="color: #f59e0b; font-size: 14px;">
-                        <i class="fas fa-arrow-down"></i> -2% da ieri
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-down"></i> -5% da ieri
                     </div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-number">€15,670</div>
-                    <div class="stat-label">Fatturato Settimana</div>
-                    <div class="stat-change" style="color: #10b981; font-size: 14px;">
-                        <i class="fas fa-arrow-up"></i> +18% da settimana scorsa
+                    <div class="stat-number" id="monthly-revenue">€125,420</div>
+                    <div class="stat-label">Entrate Mensili</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-arrow-up"></i> +23% dal mese scorso
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="pending-verifications">12</div>
+                    <div class="stat-label">Verifiche in Attesa</div>
+                    <div class="stat-change neutral">
+                        <i class="fas fa-minus"></i> Invariato
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="active-reports">5</div>
+                    <div class="stat-label">Segnalazioni Aperte</div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-arrow-up"></i> +2 da ieri
                     </div>
                 </div>
             </div>
 
             <!-- ATTIVITÀ RECENTI -->
-            <h3>Attività Recenti</h3>
-            <div class="alert alert-success">
-                <i class="fas fa-check"></i> 15 nuovi professionisti approvati oggi
-            </div>
-            <div class="alert alert-warning">
-                <i class="fas fa-exclamation-triangle"></i> 3 segnalazioni utenti in attesa di revisione
-            </div>
-            <div class="alert alert-danger">
-                <i class="fas fa-times"></i> 2 pagamenti falliti da verificare
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Attività Recenti</h3>
+                </div>
+                <div id="recent-activities" class="log-container" style="max-height: 300px;">
+                    <!-- Caricate dinamicamente da JavaScript -->
+                </div>
             </div>
         </div>
 
         <!-- SEZIONE UTENTI -->
         <div id="users-section" class="admin-section">
-            <h2><i class="fas fa-users"></i> Gestione Utenti</h2>
-
-            <div style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0;">
-                <div>
-                    <input type="text" placeholder="Cerca utente..." style="padding: 10px; width: 300px; border: 1px solid #d1d5db; border-radius: 6px;">
-                    <button class="btn-primary" style="margin-left: 10px; padding: 10px 20px;">
-                        <i class="fas fa-search"></i> Cerca
-                    </button>
-                </div>
-                <button class="btn-primary" onclick="showAddUser()">
-                    <i class="fas fa-plus"></i> Aggiungi Utente
-                </button>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i> Gestione Utenti
+                </h2>
+                <p class="section-description">
+                    Amministra tutti gli utenti registrati sulla piattaforma
+                </p>
             </div>
 
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Registrazione</th>
-                        <th>Stato</th>
-                        <th>Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#1001</td>
-                        <td>Mario Rossi</td>
-                        <td>mario.rossi@email.com</td>
-                        <td>15/03/2024</td>
-                        <td><span style="background: #10b981; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Attivo</span></td>
-                        <td>
-                            <button class="btn-admin btn-edit"><i class="fas fa-edit"></i></button>
-                            <button class="btn-admin btn-delete"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>#1002</td>
-                        <td>Elena Bianchi</td>
-                        <td>elena.bianchi@email.com</td>
-                        <td>14/03/2024</td>
-                        <td><span style="background: #f59e0b; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Sospeso</span></td>
-                        <td>
-                            <button class="btn-admin btn-edit"><i class="fas fa-edit"></i></button>
-                            <button class="btn-admin btn-approve"><i class="fas fa-check"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Gestione Utenti</h4>
+                <ul>
+                    <li><strong>Stati utente:</strong> Attivo (può usare servizi), In attesa (email non confermata), Inattivo (account disabilitato), Bloccato (sospeso per violazioni)</li>
+                    <li><strong>Approvazione:</strong> Gli utenti "In attesa" richiedono approvazione manuale se segnalati</li>
+                    <li><strong>Modifica:</strong> Puoi modificare informazioni, stato account e permessi</li>
+                    <li><strong>Eliminazione:</strong> L'eliminazione è permanente - usa con cautela</li>
+                </ul>
+            </div>
+
+            <!-- FILTRI E RICERCA -->
+            <div class="filters-container">
+                <div class="filters-row">
+                    <div class="form-group">
+                        <label>Stato Utente</label>
+                        <select class="filter-select">
+                            <option value="">Tutti gli stati</option>
+                            <option value="active">Attivo</option>
+                            <option value="pending">In attesa</option>
+                            <option value="inactive">Inattivo</option>
+                            <option value="blocked">Bloccato</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Data Registrazione</label>
+                        <select>
+                            <option value="">Tutte le date</option>
+                            <option value="today">Oggi</option>
+                            <option value="week">Ultima settimana</option>
+                            <option value="month">Ultimo mese</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button class="btn-primary" onclick="applyFilters('users')">
+                            <i class="fas fa-filter"></i> Applica Filtri
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Cerca per nome, email o ID..." data-table="users">
+            </div>
+
+            <!-- TABELLA UTENTI -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Tutti gli Utenti</h3>
+                    <div class="table-actions">
+                        <button class="btn-primary" onclick="addNewUser()">
+                            <i class="fas fa-plus"></i> Nuovo Utente
+                        </button>
+                        <button class="btn-secondary" onclick="exportCSV('users')">
+                            <i class="fas fa-download"></i> Esporta CSV
+                        </button>
+                    </div>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Registrazione</th>
+                            <th>Stato</th>
+                            <th>Prenotazioni</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-tbody">
+                        <!-- Caricati dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- SEZIONE PROFESSIONISTI -->
         <div id="professionals-section" class="admin-section">
-            <h2><i class="fas fa-user-tie"></i> Gestione Professionisti</h2>
-
-            <div class="alert alert-warning">
-                <i class="fas fa-clock"></i> 5 richieste di approvazione professionisti in attesa
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-user-tie"></i> Gestione Professionisti
+                </h2>
+                <p class="section-description">
+                    Amministra tutti i professionisti e i loro servizi
+                </p>
             </div>
 
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>Professionista</th>
-                        <th>Categoria</th>
-                        <th>Valutazione</th>
-                        <th>Prenotazioni</th>
-                        <th>Stato</th>
-                        <th>Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <img src="../assets/images/Professionisti/pr1.png" style="width: 40px; height: 40px; border-radius: 50%;">
-                                <div>
-                                    <div>Sofia Rossi</div>
-                                    <div style="font-size: 12px; color: #6b7280;">Massage Therapist</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td>Massaggi</td>
-                        <td>★★★★★ 4.9</td>
-                        <td>127 completate</td>
-                        <td><span style="background: #10b981; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Attivo</span></td>
-                        <td>
-                            <button class="btn-admin btn-edit"><i class="fas fa-edit"></i></button>
-                            <button class="btn-admin" style="background: #6366f1; color: white;"><i class="fas fa-eye"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Professionisti</h4>
+                <ul>
+                    <li><strong>Stati:</strong> Attivo (può ricevere prenotazioni), In attesa (documentazione incompleta), Sospeso (violazioni), Verifica (documenti in controllo)</li>
+                    <li><strong>Verifica documenti:</strong> Controlla certificazioni, assicurazione e documenti di identità</li>
+                    <li><strong>Guadagni:</strong> Monitora le entrate mensili e commissioni</li>
+                    <li><strong>Rating:</strong> Controlla recensioni e valutazioni clienti</li>
+                </ul>
+            </div>
+
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Cerca professionisti..." data-table="professionals">
+            </div>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Professionisti Registrati</h3>
+                    <div class="table-actions">
+                        <button class="btn-primary" onclick="addNewProfessional()">
+                            <i class="fas fa-plus"></i> Nuovo Professionista
+                        </button>
+                        <button class="btn-warning" onclick="showSection('verification')">
+                            <i class="fas fa-clipboard-check"></i> Verifiche Pendenti
+                        </button>
+                    </div>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Servizio</th>
+                            <th>Stato</th>
+                            <th>Rating</th>
+                            <th>Guadagno Mensile</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="professionals-tbody">
+                        <!-- Caricati dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- SEZIONE PRENOTAZIONI -->
         <div id="bookings-section" class="admin-section">
-            <h2><i class="fas fa-calendar"></i> Gestione Prenotazioni</h2>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">28</div>
-                    <div class="stat-label">Prenotazioni Oggi</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5</div>
-                    <div class="stat-label">In Attesa Conferma</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">12</div>
-                    <div class="stat-label">In Corso</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">89%</div>
-                    <div class="stat-label">Tasso Completamento</div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-calendar"></i> Gestione Prenotazioni
+                </h2>
+                <p class="section-description">
+                    Monitora e gestisci tutte le prenotazioni della piattaforma
+                </p>
             </div>
 
-            <h3>Prenotazioni Recenti</h3>
-            <table class="admin-table">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Cliente</th>
-                        <th>Professionista</th>
-                        <th>Servizio</th>
-                        <th>Data/Ora</th>
-                        <th>Stato</th>
-                        <th>Azioni</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>#B001</td>
-                        <td>Marco Verdi</td>
-                        <td>Sofia Rossi</td>
-                        <td>Massaggio Rilassante</td>
-                        <td>Oggi, 15:00</td>
-                        <td><span style="background: #3b82f6; color: white; padding: 4px 8px; border-radius: 12px; font-size: 12px;">Confermata</span></td>
-                        <td>
-                            <button class="btn-admin" style="background: #6366f1; color: white;"><i class="fas fa-eye"></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Prenotazioni</h4>
+                <ul>
+                    <li><strong>Stati prenotazione:</strong> Confermata (pagata), In attesa (da confermare), Completata (servizio erogato), Annullata</li>
+                    <li><strong>Pagamenti:</strong> Controlla stato pagamenti e rimborsi</li>
+                    <li><strong>Conflitti:</strong> Risolvi problemi tra clienti e professionisti</li>
+                    <li><strong>Statistiche:</strong> Monitora trend prenotazioni e incassi</li>
+                </ul>
+            </div>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Prenotazioni Recenti</h3>
+                    <div class="table-actions">
+                        <button class="btn-warning" onclick="filterBookingsByStatus('problems')">
+                            <i class="fas fa-exclamation-triangle"></i> Problemi (3)
+                        </button>
+                        <button class="btn-success" onclick="filterBookingsByStatus('pending')">
+                            <i class="fas fa-check"></i> Da Confermare (12)
+                        </button>
+                    </div>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Cliente</th>
+                            <th>Professionista</th>
+                            <th>Servizio</th>
+                            <th>Data/Ora</th>
+                            <th>Stato</th>
+                            <th>Importo</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookings-tbody">
+                        <!-- Caricati dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SEZIONE VERIFICHE -->
+        <div id="verification-section" class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-clipboard-check"></i> Coda Verifiche
+                </h2>
+                <p class="section-description">
+                    Verifica documenti e certificazioni dei professionisti
+                </p>
+            </div>
+
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Verifiche</h4>
+                <ul>
+                    <li><strong>Documenti richiesti:</strong> Carta identità, certificazioni professionali, assicurazione professionale, partita IVA</li>
+                    <li><strong>Approvazione:</strong> Verifica autenticità e validità di tutti i documenti</li>
+                    <li><strong>Richiesta info:</strong> Se documenti incompleti, specifica cosa manca</li>
+                    <li><strong>Rifiuto:</strong> Solo per documenti falsi o non conformi - fornisci sempre motivo dettagliato</li>
+                </ul>
+            </div>
+
+            <div class="alert alert-warning">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Attenzione:</strong> Controlla sempre l'autenticità dei documenti. In caso di dubbi, richiedi documentazione aggiuntiva.
+            </div>
+
+            <div id="verification-queue">
+                <!-- Caricato dinamicamente -->
+            </div>
+        </div>
+
+        <!-- SEZIONE SEGNALAZIONI -->
+        <div id="reports-section" class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-exclamation-triangle"></i> Gestione Segnalazioni
+                </h2>
+                <p class="section-description">
+                    Gestisci bug, problemi utenti e segnalazioni di contenuti
+                </p>
+            </div>
+
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Segnalazioni</h4>
+                <ul>
+                    <li><strong>Tipi:</strong> Bug (errori sistema), Contenuto (segnalazioni abusi), Utente (comportamenti scorretti), Pagamento (problemi transazioni), Tecnico (server/prestazioni)</li>
+                    <li><strong>Priorità:</strong> Critica (sistema down), Alta (funzioni importanti), Media (miglioramenti), Bassa (cosmetici)</li>
+                    <li><strong>Workflow:</strong> Nuova → Investigazione → Risolta → Chiusa</li>
+                    <li><strong>Risposta:</strong> Rispondi sempre entro 24h per segnalazioni critiche/alte</li>
+                </ul>
+            </div>
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Segnalazioni Aperte</h3>
+                    <div class="table-actions">
+                        <button class="btn-danger" onclick="filterReportsByPriority('critical')">
+                            <i class="fas fa-fire"></i> Critiche (2)
+                        </button>
+                        <button class="btn-warning" onclick="filterReportsByPriority('high')">
+                            <i class="fas fa-exclamation"></i> Alte (3)
+                        </button>
+                    </div>
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Titolo</th>
+                            <th>Tipo</th>
+                            <th>Priorità</th>
+                            <th>Segnalato da</th>
+                            <th>Data</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reports-tbody">
+                        <!-- Caricati dinamicamente -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- SEZIONE CONTENUTI -->
         <div id="content-section" class="admin-section">
-            <h2><i class="fas fa-edit"></i> Gestione Contenuti</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                <div class="stat-card">
-                    <h3>Servizi</h3>
-                    <p>Gestisci le categorie di servizio e i professionisti associati</p>
-                    <button class="btn-primary">
-                        <i class="fas fa-cogs"></i> Gestisci Servizi
-                    </button>
-                </div>
-                <div class="stat-card">
-                    <h3>Ispirazioni</h3>
-                    <p>Aggiungi, modifica o rimuovi contenuti dalla sezione ispirazioni</p>
-                    <button class="btn-primary">
-                        <i class="fas fa-images"></i> Gestisci Ispirazioni
-                    </button>
-                </div>
-                <div class="stat-card">
-                    <h3>Pagine</h3>
-                    <p>Modifica contenuti delle pagine statiche del sito</p>
-                    <button class="btn-primary">
-                        <i class="fas fa-file-alt"></i> Gestisci Pagine
-                    </button>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-edit"></i> Gestione Contenuti
+                </h2>
+                <p class="section-description">
+                    Modifica testi, immagini e contenuti del sito web
+                </p>
             </div>
 
-            <!-- EDITOR RAPIDO -->
-            <h3 style="margin-top: 30px;">Editor Rapido</h3>
-            <div class="form-group">
-                <label>Seleziona Pagina da Modificare</label>
-                <select>
-                    <option>index.html - Home Page</option>
-                    <option>manutenzione.html - Pagina Manutenzione</option>
-                    <option>errore-404-500.html - Pagina Errori</option>
-                </select>
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Contenuti</h4>
+                <ul>
+                    <li><strong>Homepage:</strong> Modifica hero section, servizi in evidenza, testimonial</li>
+                    <li><strong>Pagine servizi:</strong> Aggiorna descrizioni, prezzi, categorie</li>
+                    <li><strong>Legal:</strong> Mantieni aggiornati termini, privacy, cookie policy</li>
+                    <li><strong>SEO:</strong> Ottimizza meta tag, description, keywords per ogni pagina</li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label>Contenuto HTML</label>
-                <textarea rows="6" placeholder="Inserisci qui il codice HTML da modificare..."></textarea>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label>Sezione da Modificare</label>
+                    <select>
+                        <option>Homepage - Hero Section</option>
+                        <option>Homepage - Servizi</option>
+                        <option>Chi Siamo</option>
+                        <option>Servizi - Yoga</option>
+                        <option>Servizi - Massaggi</option>
+                        <option>Termini e Condizioni</option>
+                        <option>Privacy Policy</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>&nbsp;</label>
+                    <button class="btn-primary" onclick="editContent()">
+                        <i class="fas fa-edit"></i> Modifica Contenuto
+                    </button>
+                </div>
             </div>
-            <button class="btn-primary">
-                <i class="fas fa-save"></i> Salva Modifiche
-            </button>
+
+            <div class="alert alert-info">
+                <i class="fas fa-info-circle"></i>
+                <strong>Nota:</strong> Le modifiche ai contenuti richiedono l'integrazione con il sistema di gestione contenuti (CMS).
+            </div>
         </div>
 
         <!-- SEZIONE SISTEMA -->
         <div id="system-section" class="admin-section">
-            <h2><i class="fas fa-cogs"></i> Impostazioni Sistema</h2>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                <div class="stat-card">
-                    <h3>Database</h3>
-                    <div class="stat-number" style="font-size: 1.2em; color: #10b981;">Online</div>
-                    <p>Connessioni attive: 45</p>
-                    <button class="btn-primary">Backup Now</button>
-                </div>
-                <div class="stat-card">
-                    <h3>Server</h3>
-                    <div class="stat-number" style="font-size: 1.2em; color: #10b981;">Operativo</div>
-                    <p>Uptime: 99.9%</p>
-                    <button class="btn-primary">Monitor</button>
-                </div>
-                <div class="stat-card">
-                    <h3>Cache</h3>
-                    <div class="stat-number" style="font-size: 1.2em; color: #f59e0b;">75%</div>
-                    <p>Memoria utilizzata</p>
-                    <button class="btn-primary">Pulisci Cache</button>
-                </div>
-                <div class="stat-card">
-                    <h3>Email</h3>
-                    <div class="stat-number" style="font-size: 1.2em; color: #10b981;">Attivo</div>
-                    <p>Email inviate: 247 oggi</p>
-                    <button class="btn-primary">Test Email</button>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i> Impostazioni Sistema
+                </h2>
+                <p class="section-description">
+                    Configurazioni generali, backup e manutenzione sistema
+                </p>
             </div>
 
-            <!-- CONFIGURAZIONI -->
-            <h3 style="margin-top: 30px;">Configurazioni Globali</h3>
-            <div class="form-group">
-                <label>Nome Piattaforma</label>
-                <input type="text" value="RelaxPoint">
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Sistema</h4>
+                <ul>
+                    <li><strong>Backup:</strong> Esegui backup quotidiani del database - conserva copie per 30 giorni</li>
+                    <li><strong>Performance:</strong> Monitora CPU, RAM, storage - ottimizza se necessario</li>
+                    <li><strong>Sicurezza:</strong> Aggiorna password, certificati SSL, firewall</li>
+                    <li><strong>Manutenzione:</strong> Pianifica downtime per aggiornamenti importanti</li>
+                </ul>
             </div>
-            <div class="form-group">
-                <label>Email Supporto</label>
-                <input type="email" value="supporto@relaxpoint.it">
+
+            <!-- STATUS SISTEMA -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #10b981;">99.9%</div>
+                    <div class="stat-label">Uptime Sistema</div>
+                    <div class="stat-change positive">
+                        <i class="fas fa-check-circle"></i> Operativo
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #3b82f6;">2.1 GB</div>
+                    <div class="stat-label">Uso Database</div>
+                    <div class="stat-change neutral">
+                        <i class="fas fa-database"></i> 65% capacità
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #f59e0b;">156</div>
+                    <div class="stat-label">Email in Coda</div>
+                    <div class="stat-change warning">
+                        <i class="fas fa-envelope"></i> Processing...
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" style="color: #ef4444;">2</div>
+                    <div class="stat-label">Errori Critici</div>
+                    <div class="stat-change negative">
+                        <i class="fas fa-exclamation-triangle"></i> Richiede attenzione
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Commissioni Piattaforma (%)</label>
-                <input type="number" value="8" min="0" max="30">
+
+            <!-- AZIONI SISTEMA -->
+            <div class="table-container">
+                <div class="table-header">
+                    <h3 class="table-title">Azioni Sistema</h3>
+                </div>
+                <div style="padding: 20px;">
+                    <div class="d-flex gap-15" style="flex-wrap: wrap;">
+                        <button class="btn-primary" onclick="backupDatabase()">
+                            <i class="fas fa-save"></i> Backup Database
+                        </button>
+                        <button class="btn-warning" onclick="restartServices()">
+                            <i class="fas fa-sync"></i> Riavvia Servizi
+                        </button>
+                        <button class="btn-secondary" onclick="generatePerformanceReport()">
+                            <i class="fas fa-chart-bar"></i> Report Performance
+                        </button>
+                        <button class="btn-danger" onclick="enableMaintenanceMode()">
+                            <i class="fas fa-exclamation-triangle"></i> Modalità Manutenzione
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Modalità Manutenzione</label>
-                <select>
-                    <option>Disattivata</option>
-                    <option>Attivata</option>
-                </select>
-            </div>
-            <button class="btn-primary">
-                <i class="fas fa-save"></i> Salva Configurazioni
-            </button>
         </div>
 
         <!-- SEZIONE LOG -->
         <div id="logs-section" class="admin-section">
-            <h2><i class="fas fa-list-alt"></i> Log Sistema</h2>
-
-            <div style="display: flex; gap: 10px; margin: 20px 0;">
-                <button class="btn-admin" style="background: #3b82f6; color: white;">Tutti</button>
-                <button class="btn-admin" style="background: #ef4444; color: white;">Errori</button>
-                <button class="btn-admin" style="background: #f59e0b; color: white;">Avvisi</button>
-                <button class="btn-admin" style="background: #10b981; color: white;">Successi</button>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-list-alt"></i> Log di Sistema
+                </h2>
+                <p class="section-description">
+                    Monitora tutti gli eventi e attività del sistema in tempo reale
+                </p>
             </div>
 
-            <div id="logContainer">
-                <div class="log-entry log-success">
-                    [2024-03-15 14:45:32] [SUCCESS] Utente Mario Rossi registrato con successo
-                </div>
-                <div class="log-entry log-info">
-                    [2024-03-15 14:44:18] [INFO] Prenotazione #B001 creata per servizio Massaggio
-                </div>
-                <div class="log-entry log-warning">
-                    [2024-03-15 14:42:55] [WARNING] Tentativo di accesso fallito per user@test.com
-                </div>
-                <div class="log-entry log-error">
-                    [2024-03-15 14:40:12] [ERROR] Database connection timeout - reconnecting...
-                </div>
-                <div class="log-entry log-info">
-                    [2024-03-15 14:39:45] [INFO] Backup automatico completato con successo
+            <div class="section-instructions">
+                <h4><i class="fas fa-info-circle"></i> Istruzioni Log</h4>
+                <ul>
+                    <li><strong>Colori:</strong> Rosso (errori), Giallo (warning), Blu (info), Verde (successo)</li>
+                    <li><strong>Filtri:</strong> Filtra per tipo, data, utente per trovare eventi specifici</li>
+                    <li><strong>Export:</strong> Esporta log per analisi esterne o reportistica</li>
+                    <li><strong>Retention:</strong> I log vengono conservati per 90 giorni, poi archiviati</li>
+                </ul>
+            </div>
+
+            <div class="filters-container">
+                <div class="filters-row">
+                    <div class="form-group">
+                        <label>Tipo Log</label>
+                        <select>
+                            <option value="">Tutti i tipi</option>
+                            <option value="error">Errori</option>
+                            <option value="warning">Warning</option>
+                            <option value="info">Info</option>
+                            <option value="success">Successo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Periodo</label>
+                        <select>
+                            <option value="1h">Ultima ora</option>
+                            <option value="24h">Ultime 24 ore</option>
+                            <option value="7d">Ultima settimana</option>
+                            <option value="30d">Ultimo mese</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>&nbsp;</label>
+                        <button class="btn-secondary" onclick="exportLogs()">
+                            <i class="fas fa-download"></i> Esporta Log
+                        </button>
+                    </div>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 20px;">
-                <button class="btn-secondary">
-                    <i class="fas fa-download"></i> Scarica Log Completo
-                </button>
+            <div id="logs-container" class="log-container">
+                <!-- Caricati dinamicamente -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODAL GENERICO -->
+    <div id="generic-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Titolo Modal</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div id="modal-body">
+                <!-- Contenuto dinamico -->
             </div>
         </div>
     </div>
 
-    <script>
-        // NAVIGATION FUNCTIONS
-        function showSection(sectionName) {
-            // Hide all sections
-            document.querySelectorAll('.admin-section').forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // Remove active from nav items
-            document.querySelectorAll('.admin-nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-
-            // Show selected section
-            document.getElementById(sectionName + '-section').classList.add('active');
-
-            // Add active to clicked nav item
-            event.target.classList.add('active');
-
-            console.log('[ADMIN] Switched to section:', sectionName);
-        }
-
-        // MODAL FUNCTIONS
-        function showAddUser() {
-            alert('Funzione Aggiungi Utente - Da implementare con modal');
-        }
-
-        // AUTO-REFRESH STATS (simulazione)
-        setInterval(() => {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            // Simula piccole variazioni nelle statistiche
-            statNumbers.forEach(stat => {
-                if (stat.textContent.includes('€')) return; // Skip currency
-                if (stat.textContent.includes('%')) return; // Skip percentages
-
-                const current = parseInt(stat.textContent.replace(',', ''));
-                if (current && Math.random() > 0.7) {
-                    const variation = Math.floor(Math.random() * 3) - 1; // -1, 0, +1
-                    const newValue = Math.max(0, current + variation);
-                    stat.textContent = newValue.toLocaleString();
-                }
-            });
-        }, 30000); // Update every 30 seconds
-
-        console.log('[ADMIN] Dashboard loaded successfully');
-    </script>
+    <!-- JAVASCRIPT -->
+    <script src="../assets/js/admin/dashboard-admin.js"></script>
 </body>
 
 </html>

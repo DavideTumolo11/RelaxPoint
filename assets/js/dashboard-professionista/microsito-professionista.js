@@ -1202,10 +1202,28 @@ function uploadHeroImage() {
 }
 
 function previewMicrosito() {
+    // Raccogli i dati attuali dalla dashboard
+    const heroName = document.getElementById('heroName')?.value || 'Sophia Rossi';
+    const heroRole = document.getElementById('heroRole')?.value || 'Wellness Coach certificata';
+    const videoDescription = document.getElementById('videoDescription')?.value || '';
+
+    // Mostra notifica
     window.micrositoProfessionista.showNotification('Apertura anteprima microsito...', 'info');
+
+    // Per ora apre il microsito statico (in futuro ci sarà il backend)
     setTimeout(() => {
-        window.open('/pages/professionisti/microsito.html', '_blank');
-    }, 1000);
+        // Percorso corretto al microsito
+        const micrositeUrl = '/microsito.html';
+
+        // Apri in nuova finestra con parametri (quando ci sarà il backend)
+        const previewWindow = window.open(micrositeUrl + `?preview=true&name=${encodeURIComponent(heroName)}&role=${encodeURIComponent(heroRole)}`, '_blank');
+
+        if (previewWindow) {
+            window.micrositoProfessionista.showNotification('Anteprima aperta in nuova scheda', 'success');
+        } else {
+            window.micrositoProfessionista.showNotification('Blocco popup attivo. Consenti i popup per l\'anteprima', 'warning');
+        }
+    }, 500);
 }
 
 function publishChanges() {

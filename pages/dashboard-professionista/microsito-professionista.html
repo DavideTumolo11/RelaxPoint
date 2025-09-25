@@ -30,18 +30,14 @@
 
             <!-- HEADER IDENTICO AL SITO -->
             <header class="site-header">
+                <!-- Logo RelaxPoint - ADMIN può cambiare logo e testo -->
+                <a class="site-logo" href="./index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
                 <div class="header-left">
-                    <a class="site-logo" href="/index.html">
-                        <div class="logo-icon">
-                            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M36.7273 44C33.9891 44 31.6043 39.8386 30.3636 33.69C29.123 39.8386 26.7382 44 24 44C21.2618 44 18.877 39.8386 17.6364 33.69C16.3957 39.8386 14.0109 44 11.2727 44C7.25611 44 4 35.0457 4 24C4 12.9543 7.25611 4 11.2727 4C14.0109 4 16.3957 8.16144 17.6364 14.31C18.877 8.16144 21.2618 4 24 4C26.7382 4 29.123 8.16144 30.3636 14.31C31.6043 8.16144 33.9891 4 36.7273 4C40.7439 4 44 12.9543 44 24C44 35.0457 40.7439 44 36.7273 44Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                        </div>
-                        <h2 class="logo-text">RelaxPoint</h2>
-                    </a>
-
                     <nav class="main-nav">
                         <a class="nav-link" href="/index.html">Home</a>
                         <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
@@ -283,63 +279,108 @@
                                                 <label for="heroName">Nome Professionista</label>
                                                 <input type="text" id="heroName" value="Sophia Rossi" maxlength="50">
                                             </div>
+                                            <div class="form-group">
+                                                <label for="heroRole">Ruolo/Specializzazione</label>
+                                                <input type="text" id="heroRole" value="Wellness Coach certificata" maxlength="100">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Immagine Hero</label>
+                                            <div class="upload-area" onclick="uploadHeroImage()">
+                                                <div class="upload-preview">
+                                                    <img src="/assets/images/vecteezy_girl-on-the-beach-in-yoga-asana_2153866.jpg" alt="Hero image"
+                                                        id="heroImagePreview">
+                                                </div>
+                                                <div class="upload-overlay">
+                                                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                                                    </svg>
+                                                    <p>Clicca per cambiare immagine</p>
+                                                </div>
+                                                <input type="file" id="heroImageInput" accept="image/*" style="display: none;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- SEZIONE CHI SONO - COLLEGATA AD ABOUT.HTML -->
+                                <div class="content-card microsito-section">
+                                    <div class="section-header">
+                                        <h2>Chi Sono</h2>
+                                        <button class="btn-edit" onclick="editSection('chi-sono')">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                <path
+                                                    d="M17.66 7.93L12 2.27 6.34 7.93c-.78.78-.78 2.05 0 2.83L12 16.42l5.66-5.66c.78-.78.78-2.05 0-2.83zM12 13.54L7.76 9.3c-.39-.39-.39-1.02 0-1.41L12 3.65l4.24 4.24c.39.39.39 1.02 0 1.41L12 13.54z" />
+                                            </svg>
+                                            Salva Modifiche
+                                        </button>
+                                    </div>
+
+                                    <div class="chi-sono-editor" id="chiSonoEditor">
+                                        <div class="form-group">
+                                            <label for="chiSonoTitolo">Titolo Sezione</label>
+                                            <input type="text" id="chiSonoTitolo" value="Chi Sono" maxlength="50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="chiSonoSottotitolo">Sottotitolo</label>
+                                            <input type="text" id="chiSonoSottotitolo"
+                                                value="La mia storia, i miei valori e il percorso che mi ha portato a diventare Wellness Coach"
+                                                maxlength="150">
+                                        </div>
+
+                                        <div class="storia-section">
+                                            <h3>La Mia Storia</h3>
+                                            <div class="storia-content">
+                                                <div class="storia-text-container">
+                                                    <div class="form-group">
+                                                        <label for="storiaText">Testo Storia</label>
+                                                        <textarea id="storiaText" maxlength="2000" rows="12"
+                                                            placeholder="Racconta la tua storia professionale...">Sono Sophia Rossi, una Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che desiderano trasformare la propria vita attraverso un approccio olistico al benessere...</textarea>
+                                                        <div class="char-count">
+                                                            <span id="storiaCharCount">0</span>/2000 caratteri
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="storia-image-container">
+                                                    <img src="/assets/images/Professionisti/pr1.png" alt="La mia storia" id="storiaImagePreview">
+                                                    <button class="btn-change-image" onclick="changeStoriaImage()">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                            <path
+                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        </svg>
+                                                    </button>
+                                                    <input type="file" id="storiaImageInput" accept="image/*" style="display: none;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="filosofia-section">
+                                            <h3>La Mia Filosofia</h3>
+                                            <div class="filosofia-content">
+                                                <div class="filosofia-image-container">
+                                                    <img src="/assets/images/Professionisti/pr3.png" alt="La mia filosofia" id="filosofiaImagePreview">
+                                                    <button class="btn-change-image" onclick="changeFilosofiaImage()">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                            <path
+                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        </svg>
+                                                    </button>
+                                                    <input type="file" id="filosofiaImageInput" accept="image/*" style="display: none;">
+                                                </div>
+                                                <div class="filosofia-text-container">
+                                                    <div class="form-group">
+                                                        <label for="filosofiaText">Testo Filosofia</label>
+                                                        <textarea id="filosofiaText" maxlength="1500" rows="10"
+                                                            placeholder="Descrivi la tua filosofia lavorativa...">La mia filosofia si basa sulla convinzione che il benessere autentico nasca dall'armonia tra corpo, mente e spirito...</textarea>
+                                                        <div class="char-count">
+                                                            <span id="filosofiaCharCount">0</span>/1500 caratteri
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <!-- SEZIONE SERVIZI (AUTO-GENERATA) -->
-                                    <div class="content-card microsito-section">
-                                        <div class="section-header">
-                                            <h2>I Miei Servizi</h2>
-                                            <div class="section-note">
-                                                <span>Collegati automaticamente dai tuoi servizi attivi</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="servizi-preview-grid">
-                                            <div class="servizio-preview-card">
-                                                <div class="servizio-preview-image"
-                                                    style="background-image: url('/assets/images/Servizi/neoMamma.jpg');">
-                                                </div>
-                                                <div class="servizio-preview-content">
-                                                    <h3>Wellness Coaching</h3>
-                                                    <p>3 trattamenti disponibili</p>
-                                                    <div class="servizio-status active">Attivo</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="servizio-preview-card">
-                                                <div class="servizio-preview-image"
-                                                    style="background-image: url('/assets/images/Servizi/YogaEndMeditazione.jpeg');">
-                                                </div>
-                                                <div class="servizio-preview-content">
-                                                    <h3>Mindfulness & Meditazione</h3>
-                                                    <p>2 trattamenti disponibili</p>
-                                                    <div class="servizio-status active">Attivo</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="servizio-preview-card">
-                                                <div class="servizio-preview-image"
-                                                    style="background-image: url('/assets/images/Servizi/Salute.jpg');">
-                                                </div>
-                                                <div class="servizio-preview-content">
-                                                    <h3>Coaching Nutrizionale</h3>
-                                                    <p>1 trattamento disponibile</p>
-                                                    <div class="servizio-status active">Attivo</div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="manage-servizi-link">
-                                            <a href="servizi-professionista.html" class="btn-manage">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                </svg>
-                                                Gestisci Servizi
-                                            </a>
-                                        </div>
-                                    </div>
 
                                     <!-- SEZIONE VIDEO PRESENTAZIONE -->
                                     <div class="content-card microsito-section">
@@ -432,23 +473,78 @@
                                         </div>
                                     </div>
 
-                                    <!-- SEZIONE CORSI -->
+                                    <!-- SEZIONE SERVIZI (AUTO-GENERATA) -->
                                     <div class="content-card microsito-section">
                                         <div class="section-header">
-                                            <h2>I Miei Corsi</h2>
-                                            <div class="section-actions">
-                                                <button class="btn-add" onclick="addCorso()">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                    </svg>
-                                                    Aggiungi Serie
-                                                </button>
-                                                <span class="count-limit" data-type="corsi">0/8</span>
+                                            <h2>I Miei Servizi</h2>
+                                            <div class="section-note">
+                                                <span>Collegati automaticamente dai tuoi servizi attivi</span>
                                             </div>
                                         </div>
 
-                                        <div class="corsi-grid" id="corsiGrid">
-                                            <!-- I corsi saranno aggiunti dinamicamente -->
+                                        <div class="servizi-preview-grid">
+                                            <div class="servizio-preview-card">
+                                                <div class="servizio-preview-image"
+                                                    style="background-image: url('/assets/images/Servizi/neoMamma.jpg');">
+                                                </div>
+                                                <div class="servizio-preview-content">
+                                                    <h3>Wellness Coaching</h3>
+                                                    <p>3 trattamenti disponibili</p>
+                                                    <div class="servizio-status active">Attivo</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="servizio-preview-card">
+                                                <div class="servizio-preview-image"
+                                                    style="background-image: url('/assets/images/Servizi/YogaEndMeditazione.jpeg');">
+                                                </div>
+                                                <div class="servizio-preview-content">
+                                                    <h3>Mindfulness & Meditazione</h3>
+                                                    <p>2 trattamenti disponibili</p>
+                                                    <div class="servizio-status active">Attivo</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="servizio-preview-card">
+                                                <div class="servizio-preview-image"
+                                                    style="background-image: url('/assets/images/Servizi/Salute.jpg');">
+                                                </div>
+                                                <div class="servizio-preview-content">
+                                                    <h3>Coaching Nutrizionale</h3>
+                                                    <p>1 trattamento disponibile</p>
+                                                    <div class="servizio-status active">Attivo</div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="manage-servizi-link">
+                                            <a href="i-miei-servizi.html" class="btn-manage">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                </svg>
+                                                Gestisci Servizi
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <!-- SEZIONE ISPIRAZIONI/GALLERY -->
+                                    <div class="content-card microsito-section">
+                                        <div class="section-header">
+                                            <h2>Ispirazioni & Gallery</h2>
+                                            <div class="section-actions">
+                                                <button class="btn-add" onclick="addIspirazione()">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                    </svg>
+                                                    Aggiungi Album
+                                                </button>
+                                                <span class="count-limit" data-type="gallery">0/15</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="gallery-grid" id="galleryGrid">
+                                            <!-- Le ispirazioni saranno aggiunte dinamicamente -->
                                         </div>
                                     </div>
 
@@ -472,25 +568,26 @@
                                         </div>
                                     </div>
 
-                                    <!-- SEZIONE ISPIRAZIONI/GALLERY -->
+                                    <!-- SEZIONE CORSI -->
                                     <div class="content-card microsito-section">
                                         <div class="section-header">
-                                            <h2>Ispirazioni & Gallery</h2>
+                                            <h2>I Miei Corsi</h2>
                                             <div class="section-actions">
-                                                <button class="btn-add" onclick="addIspirazione()">
+                                                <button class="btn-add" onclick="addCorso()">
                                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                                         <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                                     </svg>
-                                                    Aggiungi Album
+                                                    Aggiungi Serie
                                                 </button>
-                                                <span class="count-limit" data-type="gallery">0/15</span>
+                                                <span class="count-limit" data-type="corsi">0/8</span>
                                             </div>
                                         </div>
 
-                                        <div class="gallery-grid" id="galleryGrid">
-                                            <!-- Le ispirazioni saranno aggiunte dinamicamente -->
+                                        <div class="corsi-grid" id="corsiGrid">
+                                            <!-- I corsi saranno aggiunti dinamicamente -->
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -565,103 +662,3 @@
 </body>
 
 </html>
-<div class="form-group">
-    <label for="heroRole">Ruolo/Specializzazione</label>
-    <input type="text" id="heroRole" value="Wellness Coach certificata" maxlength="100">
-</div>
-</div>
-<div class="form-group">
-    <label>Immagine Hero</label>
-    <div class="upload-area" onclick="uploadHeroImage()">
-        <div class="upload-preview">
-            <img src="/assets/images/vecteezy_girl-on-the-beach-in-yoga-asana_2153866.jpg" alt="Hero image"
-                id="heroImagePreview">
-        </div>
-        <div class="upload-overlay">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-            </svg>
-            <p>Clicca per cambiare immagine</p>
-        </div>
-        <input type="file" id="heroImageInput" accept="image/*" style="display: none;">
-    </div>
-</div>
-</div>
-</div>
-
-<!-- SEZIONE CHI SONO - COLLEGATA AD ABOUT.HTML -->
-<div class="content-card microsito-section">
-    <div class="section-header">
-        <h2>Chi Sono</h2>
-        <button class="btn-edit" onclick="editSection('chi-sono')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                    d="M17.66 7.93L12 2.27 6.34 7.93c-.78.78-.78 2.05 0 2.83L12 16.42l5.66-5.66c.78-.78.78-2.05 0-2.83zM12 13.54L7.76 9.3c-.39-.39-.39-1.02 0-1.41L12 3.65l4.24 4.24c.39.39.39 1.02 0 1.41L12 13.54z" />
-            </svg>
-            Salva Modifiche
-        </button>
-    </div>
-
-    <div class="chi-sono-editor" id="chiSonoEditor">
-        <div class="form-group">
-            <label for="chiSonoTitolo">Titolo Sezione</label>
-            <input type="text" id="chiSonoTitolo" value="Chi Sono" maxlength="50">
-        </div>
-        <div class="form-group">
-            <label for="chiSonoSottotitolo">Sottotitolo</label>
-            <input type="text" id="chiSonoSottotitolo"
-                value="La mia storia, i miei valori e il percorso che mi ha portato a diventare Wellness Coach"
-                maxlength="150">
-        </div>
-
-        <div class="storia-section">
-            <h3>La Mia Storia</h3>
-            <div class="storia-content">
-                <div class="storia-text-container">
-                    <div class="form-group">
-                        <label for="storiaText">Testo Storia</label>
-                        <textarea id="storiaText" maxlength="2000" rows="12"
-                            placeholder="Racconta la tua storia professionale...">Sono Sophia Rossi, una Wellness Coach certificata con oltre 8 anni di esperienza nel supportare persone che desiderano trasformare la propria vita attraverso un approccio olistico al benessere...</textarea>
-                        <div class="char-count">
-                            <span id="storiaCharCount">0</span>/2000 caratteri
-                        </div>
-                    </div>
-                </div>
-                <div class="storia-image-container">
-                    <img src="/assets/images/Professionisti/pr1.png" alt="La mia storia" id="storiaImagePreview">
-                    <button class="btn-change-image" onclick="changeStoriaImage()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                        </svg>
-                    </button>
-                    <input type="file" id="storiaImageInput" accept="image/*" style="display: none;">
-                </div>
-            </div>
-        </div>
-
-        <div class="filosofia-section">
-            <h3>La Mia Filosofia</h3>
-            <div class="filosofia-content">
-                <div class="filosofia-image-container">
-                    <img src="/assets/images/Professionisti/pr3.png" alt="La mia filosofia" id="filosofiaImagePreview">
-                    <button class="btn-change-image" onclick="changeFilosofiaImage()">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path
-                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                        </svg>
-                    </button>
-                    <input type="file" id="filosofiaImageInput" accept="image/*" style="display: none;">
-                </div>
-                <div class="filosofia-text-container">
-                    <div class="form-group">
-                        <label for="filosofiaText">Testo Filosofia</label>
-                        <textarea id="filosofiaText" maxlength="1500" rows="10"
-                            placeholder="Descrivi la tua filosofia lavorativa...">La mia filosofia si basa sulla convinzione che il benessere autentico nasca dall'armonia tra corpo, mente e spirito...</textarea>
-                        <div class="char-count">
-                            <span id="filosofiaCharCount">0</span>/1500 caratteri
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
