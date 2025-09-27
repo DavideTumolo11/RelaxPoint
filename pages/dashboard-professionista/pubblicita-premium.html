@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Sistema Pubblicità Premium - RelaxPoint</title>
+    <meta content="Gestisci le tue campagne pubblicitarie con il sistema Premium di RelaxPoint" name="description" />
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/ads-system.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="layout-container">
+            <!-- HEADER -->
+            <header class="site-header">
+                <a class="site-logo" href="/index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+                <div class="header-left">
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+                <div class="header-right">
+                    <div class="auth-buttons">
+                        <a class="btn-login" href="/index.html">Esci</a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- DASHBOARD CONTAINER -->
+            <div class="dashboard-container">
+                <!-- SIDEBAR -->
+                <aside class="dashboard-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Business</h3>
+                    </div>
+                    <nav class="sidebar-menu">
+                        <a href="dashboard-professionista.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="i-miei-servizi.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <span>I Miei Servizi</span>
+                        </a>
+
+                        <!-- PREMIUM SECTION -->
+                        <div class="menu-section premium-section">
+                            <div class="section-header">
+                                <span class="section-title">Premium Exclusive</span>
+                            </div>
+
+                            <a href="crm-clienti.html" class="menu-item premium-feature" data-premium-required="CRM Clienti">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg>
+                                <span>CRM Clienti</span>
+                            </a>
+
+                            <a href="multi-location.html" class="menu-item premium-feature" data-premium-required="Gestione Multi-Location">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                <span>Multi-Location</span>
+                            </a>
+
+                            <a href="pubblicita-premium.html" class="menu-item active premium-feature" data-premium-required="Sistema Pubblicità">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                                </svg>
+                                <span>Pubblicità</span>
+                            </a>
+
+                            <a href="stories-premium.html" class="menu-item premium-feature" data-premium-required="Stories Premium">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>Stories Premium</span>
+                            </a>
+                        </div>
+
+                        <a href="impostazioni.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                            </svg>
+                            <span>Impostazioni</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- MAIN CONTENT -->
+                <main class="dashboard-main">
+                    <div class="page-header">
+                        <div class="header-content">
+                            <div class="header-info">
+                                <h1 class="page-title">Sistema Pubblicità Premium</h1>
+                                <p class="page-subtitle">Gestisci e promuovi i tuoi servizi con campagne targeted</p>
+                            </div>
+                            <div class="premium-badge-header">
+                                <span class="premium-status">PREMIUM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ADS DASHBOARD -->
+                    <div class="ads-dashboard">
+                        <!-- QUICK STATS -->
+                        <div class="ads-stats-grid">
+                            <div class="ads-stat-card">
+                                <div class="stat-icon campaigns">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" id="activeCampaigns">5</div>
+                                    <div class="stat-label">Campagne Attive</div>
+                                </div>
+                            </div>
+
+                            <div class="ads-stat-card">
+                                <div class="stat-icon impressions">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" id="totalImpressions">24.8K</div>
+                                    <div class="stat-label">Impression Totali</div>
+                                </div>
+                            </div>
+
+                            <div class="ads-stat-card">
+                                <div class="stat-icon clicks">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M7 4V2C7 1.45 7.45 1 8 1S9 1.45 9 2V4H15V2C15 1.45 15.45 1 16 1S17 1.45 17 2V4H18C19.1 4 20 4.9 20 6V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V6C4 4.9 4.9 4 6 4H7ZM18 8H6V20H18V8ZM8 12H16V10H8V12Z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" id="totalClicks">1.2K</div>
+                                    <div class="stat-label">Click Totali</div>
+                                </div>
+                            </div>
+
+                            <div class="ads-stat-card">
+                                <div class="stat-icon budget">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number" id="monthlyBudget">€890</div>
+                                    <div class="stat-label">Budget Mensile</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ADS MANAGEMENT TABS -->
+                        <div class="ads-tabs">
+                            <div class="tab-headers">
+                                <button class="tab-header active" data-tab="campaigns">Campagne</button>
+                                <button class="tab-header" data-tab="analytics">Analytics</button>
+                                <button class="tab-header" data-tab="audience">Audience</button>
+                                <button class="tab-header" data-tab="budget">Budget</button>
+                            </div>
+
+                            <!-- CAMPAIGNS TAB -->
+                            <div class="tab-content active" id="campaigns">
+                                <div class="campaigns-header">
+                                    <h3>Le Tue Campagne Pubblicitarie</h3>
+                                    <button class="btn-create-campaign" onclick="openCreateCampaignModal()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                        Nuova Campagna
+                                    </button>
+                                </div>
+
+                                <div class="campaigns-list" id="campaignsList">
+                                    <!-- Dynamic campaigns will be loaded here -->
+                                </div>
+                            </div>
+
+                            <!-- ANALYTICS TAB -->
+                            <div class="tab-content" id="analytics">
+                                <div class="analytics-section">
+                                    <h3>Performance Analytics</h3>
+
+                                    <div class="analytics-filters">
+                                        <select id="analyticsTimeframe">
+                                            <option value="7">Ultimi 7 giorni</option>
+                                            <option value="30" selected>Ultimi 30 giorni</option>
+                                            <option value="90">Ultimi 90 giorni</option>
+                                        </select>
+                                        <select id="analyticsMetric">
+                                            <option value="impressions">Impressions</option>
+                                            <option value="clicks">Click</option>
+                                            <option value="conversions">Conversioni</option>
+                                            <option value="ctr">CTR</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="analytics-chart-container">
+                                        <div class="chart-placeholder" id="analyticsChart">
+                                            <p>Grafico Performance - Dati simulati per demo</p>
+                                            <div class="demo-chart-bars">
+                                                <div class="chart-bar" style="height: 60%"></div>
+                                                <div class="chart-bar" style="height: 80%"></div>
+                                                <div class="chart-bar" style="height: 45%"></div>
+                                                <div class="chart-bar" style="height: 90%"></div>
+                                                <div class="chart-bar" style="height: 70%"></div>
+                                                <div class="chart-bar" style="height: 85%"></div>
+                                                <div class="chart-bar" style="height: 65%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="analytics-summary">
+                                        <div class="summary-card">
+                                            <h4>Performance Medio</h4>
+                                            <div class="metric-item">
+                                                <span class="metric-label">CTR (Click-Through Rate)</span>
+                                                <span class="metric-value">4.8%</span>
+                                            </div>
+                                            <div class="metric-item">
+                                                <span class="metric-label">Costo per Click (CPC)</span>
+                                                <span class="metric-value">€0.74</span>
+                                            </div>
+                                            <div class="metric-item">
+                                                <span class="metric-label">Conversioni</span>
+                                                <span class="metric-value">89</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AUDIENCE TAB -->
+                            <div class="tab-content" id="audience">
+                                <div class="audience-section">
+                                    <h3>Targeting Audience</h3>
+
+                                    <div class="audience-builder">
+                                        <div class="audience-form">
+                                            <div class="form-group">
+                                                <label>Fascia di Età</label>
+                                                <div class="age-range">
+                                                    <input type="range" id="ageMin" min="18" max="65" value="25">
+                                                    <input type="range" id="ageMax" min="18" max="65" value="55">
+                                                    <div class="age-display">
+                                                        <span id="ageMinValue">25</span> - <span id="ageMaxValue">55</span> anni
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Genere</label>
+                                                <div class="gender-options">
+                                                    <label class="radio-option">
+                                                        <input type="radio" name="gender" value="all" checked>
+                                                        <span>Tutti</span>
+                                                    </label>
+                                                    <label class="radio-option">
+                                                        <input type="radio" name="gender" value="female">
+                                                        <span>Femminile</span>
+                                                    </label>
+                                                    <label class="radio-option">
+                                                        <input type="radio" name="gender" value="male">
+                                                        <span>Maschile</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Raggio Geografico</label>
+                                                <div class="location-selector">
+                                                    <input type="text" placeholder="Inserisci città..." id="locationInput">
+                                                    <select id="radiusSelect">
+                                                        <option value="5">5 km</option>
+                                                        <option value="10" selected>10 km</option>
+                                                        <option value="25">25 km</option>
+                                                        <option value="50">50 km</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label>Interessi</label>
+                                                <div class="interests-tags">
+                                                    <span class="interest-tag active">Benessere</span>
+                                                    <span class="interest-tag active">Massaggi</span>
+                                                    <span class="interest-tag">Fitness</span>
+                                                    <span class="interest-tag">Spa</span>
+                                                    <span class="interest-tag">Relax</span>
+                                                    <span class="interest-tag">Wellness</span>
+                                                    <span class="interest-tag">Bellezza</span>
+                                                </div>
+                                            </div>
+
+                                            <div class="estimated-reach">
+                                                <h4>Reach Stimato: <span id="estimatedReach">12,400</span> persone</h4>
+                                                <p>nella tua area con questi interessi</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- BUDGET TAB -->
+                            <div class="tab-content" id="budget">
+                                <div class="budget-section">
+                                    <h3>Gestione Budget</h3>
+
+                                    <div class="budget-overview">
+                                        <div class="budget-card">
+                                            <h4>Budget Mensile</h4>
+                                            <div class="budget-amount">€890</div>
+                                            <div class="budget-used">€670 spesi (75%)</div>
+                                            <div class="budget-bar">
+                                                <div class="budget-progress" style="width: 75%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="budget-distribution">
+                                            <h4>Distribuzione per Campagna</h4>
+                                            <div class="campaign-budget-list">
+                                                <div class="campaign-budget-item">
+                                                    <span class="campaign-name">Massaggi Rilassanti</span>
+                                                    <span class="budget-amount">€320</span>
+                                                    <div class="budget-bar-small">
+                                                        <div class="budget-progress" style="width: 80%"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="campaign-budget-item">
+                                                    <span class="campaign-name">Trattamenti Viso</span>
+                                                    <span class="budget-amount">€250</span>
+                                                    <div class="budget-bar-small">
+                                                        <div class="budget-progress" style="width: 65%"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="campaign-budget-item">
+                                                    <span class="campaign-name">Pacchetti Wellness</span>
+                                                    <span class="budget-amount">€100</span>
+                                                    <div class="budget-bar-small">
+                                                        <div class="budget-progress" style="width: 40%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="budget-settings">
+                                        <h4>Impostazioni Budget</h4>
+                                        <div class="setting-item">
+                                            <label>Budget Giornaliero Massimo</label>
+                                            <input type="number" value="30" id="dailyBudget">
+                                            <span>€/giorno</span>
+                                        </div>
+                                        <div class="setting-item">
+                                            <label>Alert Budget</label>
+                                            <select id="budgetAlert">
+                                                <option value="70">70% speso</option>
+                                                <option value="80" selected>80% speso</option>
+                                                <option value="90">90% speso</option>
+                                            </select>
+                                        </div>
+                                        <button class="btn-save-budget">Salva Impostazioni</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="container">
+                    <p>&copy; 2024 RelaxPoint. Tutti i diritti riservati.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- CREATE CAMPAIGN MODAL -->
+    <div id="createCampaignModal" class="modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Crea Nuova Campagna Pubblicitaria</h3>
+                <span class="close" onclick="closeCreateCampaignModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="createCampaignForm">
+                    <div class="form-step active" id="step1">
+                        <h4>Step 1: Informazioni Base</h4>
+                        <div class="form-group">
+                            <label>Nome Campagna *</label>
+                            <input type="text" id="campaignName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Obiettivo Campagna</label>
+                            <select id="campaignObjective">
+                                <option value="awareness">Awareness - Aumenta la visibilità</option>
+                                <option value="traffic">Traffic - Porta visite al sito</option>
+                                <option value="conversions">Conversioni - Aumenta le prenotazioni</option>
+                                <option value="engagement">Engagement - Aumenta l'interazione</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Servizio da Promuovere</label>
+                            <select id="serviceToPromote">
+                                <option value="">Seleziona servizio...</option>
+                                <option value="massaggi">Massaggi Rilassanti</option>
+                                <option value="trattamenti-viso">Trattamenti Viso</option>
+                                <option value="wellness">Pacchetti Wellness</option>
+                                <option value="spa">Trattamenti Spa</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-step" id="step2">
+                        <h4>Step 2: Creatività e Messaggio</h4>
+                        <div class="form-group">
+                            <label>Titolo Annuncio *</label>
+                            <input type="text" id="adTitle" placeholder="Es: Rilassati con i nostri massaggi premium">
+                        </div>
+                        <div class="form-group">
+                            <label>Descrizione</label>
+                            <textarea id="adDescription" rows="3" placeholder="Descrivi i benefici del tuo servizio..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Call-to-Action</label>
+                            <select id="callToAction">
+                                <option value="book">Prenota Ora</option>
+                                <option value="learn">Scopri di Più</option>
+                                <option value="call">Chiama Ora</option>
+                                <option value="visit">Visita il Sito</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Immagine Campagna</label>
+                            <div class="image-upload">
+                                <button type="button" class="btn-upload">Carica Immagine</button>
+                                <span class="upload-info">JPG, PNG max 2MB</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-step" id="step3">
+                        <h4>Step 3: Budget e Durata</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Budget Giornaliero</label>
+                                <input type="number" id="dailyBudgetCampaign" value="20" min="5">
+                                <span>€/giorno</span>
+                            </div>
+                            <div class="form-group">
+                                <label>Durata Campagna</label>
+                                <select id="campaignDuration">
+                                    <option value="7">1 settimana</option>
+                                    <option value="14">2 settimane</option>
+                                    <option value="30" selected>1 mese</option>
+                                    <option value="60">2 mesi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="budget-estimate">
+                            <div class="estimate-item">
+                                <span>Budget Totale Stimato:</span>
+                                <strong id="totalBudgetEstimate">€600</strong>
+                            </div>
+                            <div class="estimate-item">
+                                <span>Reach Stimato:</span>
+                                <strong id="reachEstimate">15,000-18,000 persone</strong>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-back" id="stepBackBtn" onclick="previousStep()" style="display: none;">Indietro</button>
+                <button class="btn-cancel" onclick="closeCreateCampaignModal()">Annulla</button>
+                <button class="btn-next" id="stepNextBtn" onclick="nextStep()">Avanti</button>
+                <button class="btn-create" id="createCampaignBtn" onclick="createCampaign()" style="display: none;">Crea Campagna</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/premium-protection.js"></script>
+    <script src="/assets/js/ads-system.js"></script>
+</body>
+</html>

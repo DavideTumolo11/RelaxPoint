@@ -1,0 +1,123 @@
+# RelaxPoint Admin Security Protection
+# ATTENZIONE: File di sicurezza critico - NON modificare senza autorizzazione
+
+# Nega accesso diretto a file sensibili
+<Files "*.log">
+    Deny from all
+</Files>
+
+<Files "*.bak">
+    Deny from all
+</Files>
+
+<Files "*.config">
+    Deny from all
+</Files>
+
+# Protegge file di configurazione
+<Files ".htaccess">
+    order allow,deny
+    deny from all
+</Files>
+
+# Headers di sicurezza
+<IfModule mod_headers.c>
+    # Impedisce attacchi XSS
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Content Security Policy (CSP) per admin
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self';"
+</IfModule>
+
+# Forza HTTPS in produzione (decommentare in produzione)
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# Rate limiting per IP (se disponibile mod_evasive)
+<IfModule mod_evasive24.c>
+    DOSHashTableSize    3097
+    DOSPageCount        2
+    DOSSiteCount        50
+    DOSPageInterval     1
+    DOSSiteInterval     1
+    DOSBlockingPeriod   600
+</IfModule>
+
+# Blocca scanner automatici e bot maliciosi
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Blocca user agents sospetti
+    RewriteCond %{HTTP_USER_AGENT} (Nmap|nikto|sqlmap|fimap|nessus|openvas|w3af) [NC]
+    RewriteRule .* - [F,L]
+
+    # Blocca tentativi di SQL injection negli URL
+    RewriteCond %{QUERY_STRING} (union.*select|insert.*into|delete.*from|drop.*table) [NC]
+    RewriteRule .* - [F,L]
+
+    # Blocca tentativi di path traversal
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\\) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# Limita dimensioni dei file upload
+LimitRequestBody 10485760
+
+# Timeout ottimizzato
+Timeout 300
+
+# Nasconde informazioni server
+ServerTokens Prod
+ServerSignature Off
+
+# Log degli accessi admin (importante per audit)
+<IfModule mod_log_config.c>
+    LogFormat "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\" %D" admin_combined
+    CustomLog logs/admin_access.log admin_combined
+</IfModule>
+
+# Impedisce hotlinking di assets
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?relaxpoint\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?localhost [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|css|js)$ - [F]
+</IfModule>
+
+# Cache ottimizzata per assets admin
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Compressione per performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# IMPORTANTE: In produzione, considera l'aggiunta di:
+# 1. Whitelist IP per accessi admin
+# 2. Autenticazione HTTP aggiuntiva
+# 3. Certificati SSL/TLS dedicati
+# 4. Monitoraggio accessi in tempo reale

@@ -1,11 +1,319 @@
 /**
- * ISPIRAZIONI PAGE JAVASCRIPT - ALBUM SYSTEM
- * Gestisce album foto con carousel interno
+ * ISPIRAZIONI PAGE JAVASCRIPT - ALBUM SYSTEM & PREMIUM CAROUSELS
+ * Gestisce album foto con carousel interno + vetrine premium professionisti
  */
 
 document.addEventListener('DOMContentLoaded', function () {
     window.ispirazioniManager = new IspirazioniAlbumManager();
+    window.premiumCarouselsManager = new PremiumCarouselsManager();
 });
+
+/**
+ * GESTIONE CAROSELLI PREMIUM PROFESSIONISTI
+ * Automatici con intervallo 5 secondi (configurabile)
+ */
+class PremiumCarouselsManager {
+    constructor() {
+        this.carousels = [];
+        this.interval = 5000; // 5 secondi - configurabile da dashboard admin
+        this.init();
+    }
+
+    init() {
+        // Inizializza tutti i caroselli presenti
+        this.initWorkCarousels();
+        this.initOfferCarousels();
+        this.startAllCarousels();
+    }
+
+    initWorkCarousels() {
+        // Caroselli lavori (card grandi)
+        const workCarouselLeft = document.getElementById('workCarouselLeft');
+        const workCarouselRight = document.getElementById('workCarouselRight');
+
+        if (workCarouselLeft) {
+            this.carousels.push({
+                element: workCarouselLeft,
+                type: 'work',
+                currentSlide: 0,
+                slides: workCarouselLeft.querySelectorAll('.work-slide'),
+                intervalId: null
+            });
+        }
+
+        if (workCarouselRight) {
+            this.carousels.push({
+                element: workCarouselRight,
+                type: 'work',
+                currentSlide: 0,
+                slides: workCarouselRight.querySelectorAll('.work-slide'),
+                intervalId: null
+            });
+        }
+    }
+
+    initOfferCarousels() {
+        // Caroselli offerte (card piccole)
+        const offerCarouselLeft = document.getElementById('offerCarouselLeft');
+        const offerCarouselRight = document.getElementById('offerCarouselRight');
+
+        if (offerCarouselLeft) {
+            this.carousels.push({
+                element: offerCarouselLeft,
+                type: 'offer',
+                currentSlide: 0,
+                slides: offerCarouselLeft.querySelectorAll('.offer-slide'),
+                intervalId: null
+            });
+        }
+
+        if (offerCarouselRight) {
+            this.carousels.push({
+                element: offerCarouselRight,
+                type: 'offer',
+                currentSlide: 0,
+                slides: offerCarouselRight.querySelectorAll('.offer-slide'),
+                intervalId: null
+            });
+        }
+    }
+
+    startAllCarousels() {
+        this.carousels.forEach(carousel => {
+            if (carousel.slides.length > 1) {
+                this.startCarousel(carousel);
+            }
+        });
+    }
+
+    startCarousel(carousel) {
+        carousel.intervalId = setInterval(() => {
+            this.nextSlide(carousel);
+        }, this.interval);
+
+        // Pausa su hover
+        carousel.element.addEventListener('mouseenter', () => {
+            this.pauseCarousel(carousel);
+        });
+
+        carousel.element.addEventListener('mouseleave', () => {
+            this.resumeCarousel(carousel);
+        });
+
+        // Click sugli indicatori (solo per caroselli lavori)
+        if (carousel.type === 'work') {
+            this.initIndicatorClicks(carousel);
+        }
+    }
+
+    nextSlide(carousel) {
+        // Nasconde slide corrente
+        carousel.slides[carousel.currentSlide].classList.remove('active');
+
+        // Aggiorna indicatori se presenti
+        if (carousel.type === 'work') {
+            this.updateIndicators(carousel);
+        }
+
+        // Passa alla slide successiva
+        carousel.currentSlide = (carousel.currentSlide + 1) % carousel.slides.length;
+
+        // Mostra nuova slide
+        carousel.slides[carousel.currentSlide].classList.add('active');
+
+        // Aggiorna indicatori
+        if (carousel.type === 'work') {
+            this.updateIndicators(carousel);
+        }
+    }
+
+    updateIndicators(carousel) {
+        const indicators = carousel.slides[carousel.currentSlide].querySelectorAll('.indicator');
+
+        // Reset tutti gli indicatori
+        carousel.element.querySelectorAll('.indicator').forEach(indicator => {
+            indicator.classList.remove('active');
+        });
+
+        // Attiva indicatore corrente
+        indicators.forEach((indicator, index) => {
+            if (index === carousel.currentSlide) {
+                indicator.classList.add('active');
+            }
+        });
+    }
+
+    initIndicatorClicks(carousel) {
+        carousel.slides.forEach((slide, slideIndex) => {
+            const indicators = slide.querySelectorAll('.indicator');
+            indicators.forEach((indicator, indicatorIndex) => {
+                indicator.addEventListener('click', () => {
+                    this.goToSlide(carousel, indicatorIndex);
+                });
+            });
+        });
+    }
+
+    goToSlide(carousel, targetIndex) {
+        if (targetIndex === carousel.currentSlide) return;
+
+        // Pausa temporaneamente il carosello
+        this.pauseCarousel(carousel);
+
+        // Cambia slide
+        carousel.slides[carousel.currentSlide].classList.remove('active');
+        carousel.currentSlide = targetIndex;
+        carousel.slides[carousel.currentSlide].classList.add('active');
+
+        this.updateIndicators(carousel);
+
+        // Riprende il carosello dopo 3 secondi
+        setTimeout(() => {
+            this.resumeCarousel(carousel);
+        }, 3000);
+    }
+
+    pauseCarousel(carousel) {
+        if (carousel.intervalId) {
+            clearInterval(carousel.intervalId);
+            carousel.intervalId = null;
+        }
+    }
+
+    resumeCarousel(carousel) {
+        if (!carousel.intervalId && carousel.slides.length > 1) {
+            this.startCarousel(carousel);
+        }
+    }
+
+    // Metodo per aggiornare intervallo da dashboard admin
+    updateInterval(newInterval) {
+        this.interval = newInterval;
+
+        // Riavvia tutti i caroselli con nuovo intervallo
+        this.carousels.forEach(carousel => {
+            this.pauseCarousel(carousel);
+            this.startCarousel(carousel);
+        });
+    }
+
+    // Metodo per aggiungere nuovi caroselli dinamicamente (da dashboard)
+    addWorkCarousel(containerId, slides) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // Aggiunge slides HTML
+        container.innerHTML = slides;
+
+        // Inizializza nuovo carosello
+        const newCarousel = {
+            element: container,
+            type: 'work',
+            currentSlide: 0,
+            slides: container.querySelectorAll('.work-slide'),
+            intervalId: null
+        };
+
+        this.carousels.push(newCarousel);
+        this.startCarousel(newCarousel);
+    }
+
+    addOfferCarousel(containerId, slides) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        container.innerHTML = slides;
+
+        const newCarousel = {
+            element: container,
+            type: 'offer',
+            currentSlide: 0,
+            slides: container.querySelectorAll('.offer-slide'),
+            intervalId: null
+        };
+
+        this.carousels.push(newCarousel);
+        this.startCarousel(newCarousel);
+    }
+}
+
+/**
+ * GESTIONE POSIZIONE ANNUNCI LATERALI
+ * Li ferma prima del footer per evitare sovrapposizioni
+ */
+class SideAdsManager {
+    constructor() {
+        this.ads = document.querySelectorAll('.ispirazioni-ad-left-large, .ispirazioni-ad-right-large, .ispirazioni-ad-left-small, .ispirazioni-ad-right-small');
+        this.footer = document.querySelector('.site-footer');
+        this.originalPositions = new Map();
+
+        if (this.ads.length > 0 && this.footer) {
+            this.init();
+        }
+    }
+
+    init() {
+        // Salva le posizioni originali
+        this.ads.forEach(ad => {
+            const computedStyle = window.getComputedStyle(ad);
+            this.originalPositions.set(ad, {
+                top: parseInt(computedStyle.top),
+                position: computedStyle.position
+            });
+        });
+
+        // Ascolta lo scroll
+        window.addEventListener('scroll', () => {
+            this.handleScroll();
+        });
+
+        // Ascolta il resize
+        window.addEventListener('resize', () => {
+            this.handleScroll();
+        });
+    }
+
+    handleScroll() {
+        const footerRect = this.footer.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Calcola quando il footer inizia ad apparire nel viewport
+        const footerTop = footerRect.top;
+
+        this.ads.forEach(ad => {
+            const originalData = this.originalPositions.get(ad);
+            const adRect = ad.getBoundingClientRect();
+            const adHeight = adRect.height;
+
+            // Calcola la posizione limite (footer - altezza card - margine)
+            const maxPosition = footerTop - adHeight - 20; // 20px di margine
+
+            // Se l'annuncio si sovrapporrebbe al footer
+            if (originalData.top + adHeight > viewportHeight && footerTop < viewportHeight) {
+                // Calcola nuova posizione
+                const newTop = Math.min(originalData.top, maxPosition);
+
+                if (newTop !== originalData.top && newTop > 0) {
+                    ad.style.top = newTop + 'px';
+                } else {
+                    ad.style.top = originalData.top + 'px';
+                }
+            } else {
+                // Ripristina posizione originale
+                ad.style.top = originalData.top + 'px';
+            }
+        });
+    }
+
+    // Metodo per aggiornare posizioni quando cambiano dal CSS
+    updateOriginalPositions() {
+        this.ads.forEach(ad => {
+            const computedStyle = window.getComputedStyle(ad);
+            const currentData = this.originalPositions.get(ad);
+            currentData.top = parseInt(computedStyle.top);
+        });
+    }
+}
 
 class IspirazioniAlbumManager {
     constructor() {
@@ -380,7 +688,7 @@ class IspirazioniAlbumManager {
         const ispirazioniGrid = document.getElementById('ispirazioniGrid');
 
         if (this.filteredAlbums.length === 0) {
-            ispirazioniGrid.innerHTML = '<div class="loading-placeholder"><p>Nessun album disponibile</p></div>';
+            ispirazioniGrid.innerHTML = '';
             return;
         }
 
@@ -677,6 +985,7 @@ class IspirazioniAlbumManager {
         if (diffDays < 30) return `${Math.floor(diffDays / 7)} settimane fa`;
         return `${Math.floor(diffDays / 30)} mesi fa`;
     }
+
 }
 
 // ===============================================

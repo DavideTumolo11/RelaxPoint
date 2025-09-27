@@ -114,205 +114,1045 @@
             <!-- MAIN CONTENT -->
             <main class="main-content">
                 <div class="content-wrapper">
-                    <div class="ispirazioni-content">
+                    <div class="ispirazioni-content" style="position: relative;">
 
-                        <!-- HEADER ISPIRAZIONI -->
-                        <div class="ispirazioni-header">
-                            <div class="ispirazioni-title-section">
-                                <h1 class="ispirazioni-title">Ispirazioni</h1>
-                                <p class="ispirazioni-subtitle">Lasciati ispirare dai lavori dei nostri professionisti
-                                    del benessere</p>
-                            </div>
-
-                            <div class="ispirazioni-stats">
-                                <div class="stat-item">
-                                    <span class="stat-number" id="totalItems">1.247</span>
-                                    <span class="stat-label">Ispirazioni</span>
-                                </div>
-                                <div class="stat-item">
-                                    <span class="stat-number">156</span>
-                                    <span class="stat-label">Professionisti</span>
+                        <!-- VETRINE PREMIUM LAVORI (CARD GRANDI) -->
+                        <div class="ispirazioni-ad-left-large">
+                            <div class="work-showcase">
+                                <div class="work-carousel" id="workCarouselLeft">
+                                    <!-- Slide 1 -->
+                                    <div class="work-slide active">
+                                        <div class="work-badge">PREMIUM</div>
+                                        <img src="/assets/images/placeholder-work-1.jpg" alt="Lavoro Professionista"
+                                            class="work-image">
+                                        <div class="work-info">
+                                            <div class="professional-name">Marco Rossi - Massoterapista</div>
+                                            <div class="work-description">Trattamento rilassante con tecniche orientali
+                                                presso villa privata.</div>
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <div class="indicator active"></div>
+                                            <div class="indicator"></div>
+                                            <div class="indicator"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Slide 2 -->
+                                    <div class="work-slide">
+                                        <div class="work-badge">PREMIUM</div>
+                                        <img src="/assets/images/placeholder-work-2.jpg" alt="Lavoro Professionista"
+                                            class="work-image">
+                                        <div class="work-info">
+                                            <div class="professional-name">Laura Bianchi - Estetista</div>
+                                            <div class="work-description">Trattamento viso anti-age con prodotti
+                                                biologici certificati.</div>
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <div class="indicator"></div>
+                                            <div class="indicator active"></div>
+                                            <div class="indicator"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Slide 3 -->
+                                    <div class="work-slide">
+                                        <div class="work-badge">PREMIUM</div>
+                                        <img src="/assets/images/placeholder-work-3.jpg" alt="Lavoro Professionista"
+                                            class="work-image">
+                                        <div class="work-info">
+                                            <div class="professional-name">Andrea Verdi - Personal Trainer</div>
+                                            <div class="work-description">Sessione di allenamento funzionale in giardino
+                                                privato.</div>
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <div class="indicator"></div>
+                                            <div class="indicator"></div>
+                                            <div class="indicator active"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- FILTRI HEADER -->
-                        <div class="ispirazioni-filters">
-                            <!-- FILTRI CATEGORIA -->
-                            <div class="filters-categories">
-                                <button class="filter-btn active" data-filter="all">
-                                    <span>Tutti</span>
-                                    <span class="filter-count">1247</span>
-                                </button>
-                                <button class="filter-btn" data-filter="hair-makeup">
-                                    <span>Hair & Make-up</span>
-                                    <span class="filter-count">234</span>
-                                </button>
-                                <button class="filter-btn" data-filter="massaggi">
-                                    <span>Massaggi</span>
-                                    <span class="filter-count">189</span>
-                                </button>
-                                <button class="filter-btn" data-filter="fitness">
-                                    <span>Fitness</span>
-                                    <span class="filter-count">156</span>
-                                </button>
-                                <button class="filter-btn" data-filter="beauty">
-                                    <span>Beauty</span>
-                                    <span class="filter-count">143</span>
-                                </button>
-                                <button class="filter-btn" data-filter="fisioterapia">
-                                    <span>Fisioterapia</span>
-                                    <span class="filter-count">98</span>
-                                </button>
-                                <button class="filter-btn" data-filter="yoga">
-                                    <span>Yoga</span>
-                                    <span class="filter-count">87</span>
-                                </button>
-                                <button class="filter-btn" data-filter="chef">
-                                    <span>Chef</span>
-                                    <span class="filter-count">65</span>
-                                </button>
-                            </div>
-
-                            <!-- FILTRI SECONDARI -->
-                            <div class="filters-secondary">
-                                <select class="filter-select" id="orderFilter">
-                                    <option value="recent">Più Recenti</option>
-                                    <option value="popular">Più Popolari</option>
-                                    <option value="liked">Più Piaciuti</option>
-                                </select>
-
-                                <select class="filter-select" id="typeFilter">
-                                    <option value="all">Foto e Video</option>
-                                    <option value="photo">Solo Foto</option>
-                                    <option value="video">Solo Video</option>
-                                </select>
-
-                                <select class="filter-select" id="locationFilter">
-                                    <option value="all">Tutte le Città</option>
-                                    <option value="cagliari">Cagliari</option>
-                                    <option value="sassari">Sassari</option>
-                                    <option value="olbia">Olbia</option>
-                                    <option value="nuoro">Nuoro</option>
-                                    <option value="oristano">Oristano</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- GRIGLIA ISPIRAZIONI -->
-                        <div class="ispirazioni-grid" id="inspirationGrid">
-                            <!-- ITEM FOTO -->
-                            <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
-                                data-location="cagliari">
-                                <div class="inspiration-card">
-                                    <div class="inspiration-media">
-                                        <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
-                                            loading="lazy">
-                                        <div class="media-overlay">
-                                            <div class="media-type">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
-                                                </svg>
+                        <div class="ispirazioni-ad-right-large">
+                            <div class="work-showcase">
+                                <div class="work-carousel" id="workCarouselRight">
+                                    <!-- Slide 1 -->
+                                    <div class="work-slide active">
+                                        <div class="work-badge">PREMIUM</div>
+                                        <img src="/assets/images/placeholder-work-4.jpg" alt="Lavoro Professionista"
+                                            class="work-image">
+                                        <div class="work-info">
+                                            <div class="professional-name">Sofia Neri - Yoga Instructor</div>
+                                            <div class="work-description">Lezione di Hatha Yoga in terrazza con vista
+                                                panoramica.</div>
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <div class="indicator active"></div>
+                                            <div class="indicator"></div>
+                                            <div class="indicator"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Slide 2 -->
+                                    <div class="work-slide">
+                                        <div class="work-badge">PREMIUM</div>
+                                        <img src="/assets/images/placeholder-work-5.jpg" alt="Lavoro Professionista"
+                                            class="work-image">
+                                        <div class="work-info">
+                                            <div class="professional-name">Giulia Rossi - Hair Stylist</div>
+                                            <div class="work-description">Acconciatura per evento speciale a domicilio.
                                             </div>
-                                            <div class="inspiration-likes">
-                                                <button class="like-btn" data-liked="false">
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <div class="indicator"></div>
+                                            <div class="indicator active"></div>
+                                            <div class="indicator"></div>
+                                        </div>
+                                    </div>
+                                    <!-- Slide 3 -->
+                                    <div class="work-slide">
+                                        <div class="work-badge">PREMIUM</div>
+                                        <img src="/assets/images/placeholder-work-6.jpg" alt="Lavoro Professionista"
+                                            class="work-image">
+                                        <div class="work-info">
+                                            <div class="professional-name">Alessandro Blu - Fisioterapista</div>
+                                            <div class="work-description">Seduta riabilitativa post-infortunio sportivo.
+                                            </div>
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <div class="indicator"></div>
+                                            <div class="indicator"></div>
+                                            <div class="indicator active"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- OFFERTE SPONSORIZZATE (CARD PICCOLE) -->
+                        <div class="ispirazioni-ad-left-small">
+                            <div class="sponsored-offer">
+                                <div class="offer-carousel" id="offerCarouselLeft">
+                                    <div class="offer-slide active">
+                                        <div class="offer-badge">OFFERTA</div>
+                                        <img src="/assets/images/placeholder-offer-1.jpg" alt="Offerta Speciale"
+                                            class="offer-image">
+                                        <div class="offer-content">
+                                            <div class="offer-title">Sconto 30% Primo Massaggio</div>
+                                            <div class="offer-subtitle">Valido solo per nuovi clienti - Prenota ora
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ispirazioni-ad-right-small">
+                            <div class="sponsored-offer">
+                                <div class="offer-carousel" id="offerCarouselRight">
+                                    <div class="offer-slide active">
+                                        <div class="offer-badge">PROMO</div>
+                                        <img src="/assets/images/placeholder-offer-2.jpg" alt="Offerta Speciale"
+                                            class="offer-image">
+                                        <div class="offer-content">
+                                            <div class="offer-title">Pacchetto Beauty Completo</div>
+                                            <div class="offer-subtitle">3 trattamenti viso + manicure - Solo 99€</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ispirazioni-content">
+
+                            <!-- HEADER ISPIRAZIONI -->
+                            <div class="ispirazioni-header">
+                                <div class="ispirazioni-title-section">
+                                    <h1 class="ispirazioni-title">Ispirazioni</h1>
+                                    <p class="ispirazioni-subtitle">Lasciati ispirare dai lavori dei nostri
+                                        professionisti
+                                        del benessere</p>
+                                </div>
+
+                                <div class="ispirazioni-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number" id="totalItems">1.247</span>
+                                        <span class="stat-label">Ispirazioni</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">156</span>
+                                        <span class="stat-label">Professionisti</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- FILTRI HEADER -->
+                            <div class="ispirazioni-filters">
+                                <!-- FILTRI CATEGORIA -->
+                                <div class="filters-categories">
+                                    <button class="filter-btn active" data-filter="all">
+                                        <span>Tutti</span>
+                                        <span class="filter-count">1247</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="hair-makeup">
+                                        <span>Hair & Make-up</span>
+                                        <span class="filter-count">234</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="massaggi">
+                                        <span>Massaggi</span>
+                                        <span class="filter-count">189</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="fitness">
+                                        <span>Fitness</span>
+                                        <span class="filter-count">156</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="beauty">
+                                        <span>Beauty</span>
+                                        <span class="filter-count">143</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="fisioterapia">
+                                        <span>Fisioterapia</span>
+                                        <span class="filter-count">98</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="yoga">
+                                        <span>Yoga</span>
+                                        <span class="filter-count">87</span>
+                                    </button>
+                                    <button class="filter-btn" data-filter="chef">
+                                        <span>Chef</span>
+                                        <span class="filter-count">65</span>
+                                    </button>
+                                </div>
+
+                                <!-- FILTRI SECONDARI -->
+                                <div class="filters-secondary">
+                                    <select class="filter-select" id="orderFilter">
+                                        <option value="recent">Più Recenti</option>
+                                        <option value="popular">Più Popolari</option>
+                                        <option value="liked">Più Piaciuti</option>
+                                    </select>
+
+                                    <select class="filter-select" id="typeFilter">
+                                        <option value="all">Foto e Video</option>
+                                        <option value="photo">Solo Foto</option>
+                                        <option value="video">Solo Video</option>
+                                    </select>
+
+                                    <select class="filter-select" id="locationFilter">
+                                        <option value="all">Tutte le Città</option>
+                                        <option value="cagliari">Cagliari</option>
+                                        <option value="sassari">Sassari</option>
+                                        <option value="olbia">Olbia</option>
+                                        <option value="nuoro">Nuoro</option>
+                                        <option value="oristano">Oristano</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- GRIGLIA ISPIRAZIONI -->
+                            <div class="ispirazioni-grid" id="inspirationGrid">
+                                <!-- ITEM FOTO -->
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
                                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                                         <path
-                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
                                                     </svg>
-                                                </button>
-                                                <span class="like-count">24</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="inspiration-info">
-                                        <div class="professional-info">
-                                            <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
-                                                class="professional-avatar">
-                                            <div class="professional-details">
-                                                <span class="professional-name">Giulia Rossi</span>
-                                                <span class="professional-location">Cagliari</span>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="inspiration-tags">
-                                            <span class="tag">Hair Styling</span>
-                                            <span class="tag">Sposa</span>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!-- ITEM VIDEO -->
-                            <div class="inspiration-item" data-category="massaggi" data-type="video"
-                                data-location="sassari">
-                                <div class="inspiration-card">
-                                    <div class="inspiration-media">
-                                        <video poster="/assets/images/Professionisti/pr2.png" preload="none">
-                                            <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
-                                        </video>
-                                        <div class="media-overlay">
-                                            <div class="media-type video">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
-                                                </svg>
-                                                <span class="video-duration">0:28</span>
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
                                             </div>
-                                            <div class="inspiration-likes">
-                                                <button class="like-btn" data-liked="false">
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
                                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                                         <path
-                                                            d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
                                                     </svg>
-                                                </button>
-                                                <span class="like-count">18</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="inspiration-info">
-                                        <div class="professional-info">
-                                            <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
-                                                class="professional-avatar">
-                                            <div class="professional-details">
-                                                <span class="professional-name">Marco Bianchi</span>
-                                                <span class="professional-location">Sassari</span>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="inspiration-tags">
-                                            <span class="tag">Massaggio</span>
-                                            <span class="tag">Rilassante</span>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ispirazioni-grid" id="inspirationGrid">
+                                    <!-- ITEM FOTO -->
+                                    <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                        data-location="cagliari">
+                                        <div class="inspiration-card">
+                                            <div class="inspiration-media">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                    loading="lazy">
+                                                <div class="media-overlay">
+                                                    <div class="media-type">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="inspiration-likes">
+                                                        <button class="like-btn" data-liked="false">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                            </svg>
+                                                        </button>
+                                                        <span class="like-count">24</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-info">
+                                                <div class="professional-info">
+                                                    <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                        class="professional-avatar">
+                                                    <div class="professional-details">
+                                                        <span class="professional-name">Giulia Rossi</span>
+                                                        <span class="professional-location">Cagliari</span>
+                                                    </div>
+                                                </div>
+                                                <div class="inspiration-tags">
+                                                    <span class="tag">Hair Styling</span>
+                                                    <span class="tag">Sposa</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BANNER INLINE OGNI 9 ISPIRAZIONI -->
+
+                                    <!-- PIÙ ITEM VERRANNO AGGIUNTI DINAMICAMENTE -->
+                                </div>
+
+                                <!-- ITEM FOTO -->
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                    data-location="cagliari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                loading="lazy">
+                                            <div class="media-overlay">
+                                                <div class="media-type">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                    </svg>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">24</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Giulia Rossi</span>
+                                                    <span class="professional-location">Cagliari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Hair Styling</span>
+                                                <span class="tag">Sposa</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- ITEM VIDEO -->
+                                <div class="inspiration-item" data-category="massaggi" data-type="video"
+                                    data-location="sassari">
+                                    <div class="inspiration-card">
+                                        <div class="inspiration-media">
+                                            <video poster="/assets/images/Professionisti/pr2.png" preload="none">
+                                                <source src="/assets/videos/massaggio-demo.mp4" type="video/mp4">
+                                            </video>
+                                            <div class="media-overlay">
+                                                <div class="media-type video">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                                                    </svg>
+                                                    <span class="video-duration">0:28</span>
+                                                </div>
+                                                <div class="inspiration-likes">
+                                                    <button class="like-btn" data-liked="false">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                        </svg>
+                                                    </button>
+                                                    <span class="like-count">18</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="inspiration-info">
+                                            <div class="professional-info">
+                                                <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                    class="professional-avatar">
+                                                <div class="professional-details">
+                                                    <span class="professional-name">Marco Bianchi</span>
+                                                    <span class="professional-location">Sassari</span>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-tags">
+                                                <span class="tag">Massaggio</span>
+                                                <span class="tag">Rilassante</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="ispirazioni-grid" id="inspirationGrid">
+                                    <!-- ITEM FOTO -->
+                                    <div class="inspiration-item" data-category="hair-makeup" data-type="photo"
+                                        data-location="cagliari">
+                                        <div class="inspiration-card">
+                                            <div class="inspiration-media">
+                                                <img src="/assets/images/Professionisti/pr1.png" alt="Hair styling"
+                                                    loading="lazy">
+                                                <div class="media-overlay">
+                                                    <div class="media-type">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M8.5,13.5L11,16.5L14.5,12L19,18H5M21,19V5C21,3.89 20.1,3 19,3H5A2,2 0 0,0 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19Z" />
+                                                        </svg>
+                                                    </div>
+                                                    <div class="inspiration-likes">
+                                                        <button class="like-btn" data-liked="false">
+                                                            <svg width="16" height="16" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path
+                                                                    d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5 2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z" />
+                                                            </svg>
+                                                        </button>
+                                                        <span class="like-count">24</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="inspiration-info">
+                                                <div class="professional-info">
+                                                    <img src="/assets/images/Professionisti/pr1.png" alt="Giulia Rossi"
+                                                        class="professional-avatar">
+                                                    <div class="professional-details">
+                                                        <span class="professional-name">Giulia Rossi</span>
+                                                        <span class="professional-location">Cagliari</span>
+                                                    </div>
+                                                </div>
+                                                <div class="inspiration-tags">
+                                                    <span class="tag">Hair Styling</span>
+                                                    <span class="tag">Sposa</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- BANNER INLINE OGNI 9 ISPIRAZIONI -->
+
+                                    <!-- PIÙ ITEM VERRANNO AGGIUNTI DINAMICAMENTE -->
+                                </div>
+
+                                <!-- LOADING SPINNER -->
+                                <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+                                    <div class="spinner"></div>
+                                    <p>Caricamento ispirazioni...</p>
+                                </div>
+
+
                             </div>
-
-                            <!-- PIÙ ITEM VERRANNO AGGIUNTI DINAMICAMENTE -->
                         </div>
-
-                        <!-- LOADING SPINNER -->
-                        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
-                            <div class="spinner"></div>
-                            <p>Caricamento ispirazioni...</p>
-                        </div>
-
-                        <!-- EMPTY STATE -->
-                        <div class="empty-state" id="emptyState" style="display: none;">
-                            <div class="empty-icon">
-                                <svg width="64" height="64" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
-                                </svg>
-                            </div>
-                            <h3>Nessuna ispirazione trovata</h3>
-                            <p>Prova a modificare i filtri o cerca qualcos'altro</p>
-                        </div>
-
-                    </div>
-                </div>
             </main>
 
+
             <!-- FOOTER -->
-            <footer class="site-footer">
+            <footer class="site-footer ispirazioni-footer">
                 <div class="footer-container">
                     <div class="footer-content">
                         <div class="footer-links">

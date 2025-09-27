@@ -3,6 +3,155 @@
    Layout urgenza con palette verde pino
    =============================================== */
 
+/* === BANNER FULL WIDTH LAST MINUTE === */
+.last-minute-full-width-ad-section {
+    width: calc(100vw - 40px);
+    margin: 20px 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: calc(-50vw + 20px);
+    margin-right: calc(-50vw + 20px);
+}
+
+.last-minute-full-width-ad-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+    position: relative;
+}
+
+.last-minute-full-width-ad-content {
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    position: relative;
+    padding: 0;
+}
+
+.last-minute-full-width-ad-image {
+    flex: 1;
+    max-width: 50%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.last-minute-ad-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.last-minute-full-width-ad-container:hover .last-minute-ad-bg-image {
+    transform: scale(1.05);
+}
+
+.last-minute-full-width-ad-text {
+    flex: 1;
+    padding: 40px 50px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.last-minute-ad-badge-full {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.last-minute-full-width-ad-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.last-minute-full-width-ad-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+.last-minute-full-width-ad-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 0 32px 0;
+}
+
+.last-minute-ad-feature {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.last-minute-ad-feature:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.last-minute-full-width-ad-cta {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    color: #667eea;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.last-minute-full-width-ad-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.last-minute-full-width-ad-cta:hover::before {
+    left: 100%;
+}
+
+.last-minute-full-width-ad-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    color: #5a67d8;
+}
+
 /* ===============================================
    VARIABILI SPECIFICHE LAST MINUTE
    =============================================== */

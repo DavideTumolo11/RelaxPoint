@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.onload=null;this.rel='stylesheet'" rel="preload" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Passa a Premium - RelaxPoint</title>
+    <meta content="Sblocca tutte le funzionalità premium di RelaxPoint per far crescere il tuo business" name="description" />
+    <link href="../assets/css/style.css" rel="stylesheet" />
+    <link href="../assets/css/premium-upgrade.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="premium-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="../pages/dashboard-professionista/dashboard-professionista.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                    Torna alla Dashboard
+                </a>
+                <div class="header-badge">
+                    <span class="badge-text">Upgrade Premium</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="premium-hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-pattern"></div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="trust-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        <span>Scelto da oltre 5.000+ professionisti</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        Porta la tua attività al <span class="highlight-gradient">livello successivo</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Gestisci clienti illimitati, più sedi, pubblicità professionale e storie coinvolgenti.
+                        Tutto quello che serve per far crescere il tuo business nel benessere.
+                    </p>
+
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="85">0</div>
+                            <div class="stat-label">% più prenotazioni</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-label">x fatturato medio</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="72">0</div>
+                            <div class="stat-label">% tempo risparmiato</div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <button class="btn-cta-primary" onclick="openPaymentModal()">
+                            <span class="btn-main">Prova 30 giorni gratis</span>
+                            <span class="btn-sub">Nessun impegno, cancella quando vuoi</span>
+                        </button>
+                        <button class="btn-cta-secondary" onclick="scrollToFeatures()">
+                            <span>Scopri le funzionalità</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="feature-preview-grid">
+                        <div class="preview-card crm">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>CRM Clienti</h4>
+                                <p>Gestione completa</p>
+                            </div>
+                        </div>
+
+                        <div class="preview-card ads">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>Pubblicità</h4>
+                                <p>Campagne avanzate</p>
+                            </div>
+                        </div>
+
+                        <div class="preview-card stories">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>Stories</h4>
+                                <p>Templates esclusivi</p>
+                            </div>
+                        </div>
+
+                        <div class="preview-card locations">
+                            <div class="card-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                            </div>
+                            <div class="card-content">
+                                <h4>Multi-Sede</h4>
+                                <p>Gestione completa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREMIUM FEATURES -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Funzionalità Premium che sbloccherai</h2>
+                <p class="section-subtitle">Strumenti professionali per far crescere il tuo business</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card featured">
+                    <div class="feature-visual">
+                        <div class="feature-mockup crm-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-title">CRM Clienti</div>
+                                <div class="mockup-stats">
+                                    <span class="stat">156 Clienti</span>
+                                    <span class="stat">€12,450 Fatturato</span>
+                                </div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="client-row">
+                                    <div class="client-avatar"></div>
+                                    <div class="client-info">
+                                        <div class="client-name">Maria Rossi</div>
+                                        <div class="client-detail">Ultima visita: 2 giorni fa</div>
+                                    </div>
+                                    <div class="client-status vip">VIP</div>
+                                </div>
+                                <div class="client-row">
+                                    <div class="client-avatar"></div>
+                                    <div class="client-info">
+                                        <div class="client-name">Luca Bianchi</div>
+                                        <div class="client-detail">Prossimo: Domani 15:30</div>
+                                    </div>
+                                    <div class="client-status active">Attivo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">CRM Clienti Completo</h3>
+                        <p class="feature-description">Gestisci tutti i tuoi clienti in un unico posto con storico appuntamenti, note personali e sistema di classificazione VIP.</p>
+                        <ul class="feature-benefits">
+                            <li>Database clienti illimitato</li>
+                            <li>Storico completo appuntamenti</li>
+                            <li>Sistema tag e classificazioni</li>
+                            <li>Export dati CSV e PDF</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-mockup ads-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-title">Campagne Pubblicitarie</div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="campaign-item active">
+                                    <div class="campaign-name">Massaggi Rilassanti</div>
+                                    <div class="campaign-metrics">
+                                        <span class="metric">1.2K visualizzazioni</span>
+                                        <span class="metric success">+23% click</span>
+                                    </div>
+                                </div>
+                                <div class="campaign-item">
+                                    <div class="campaign-name">Trattamenti Viso</div>
+                                    <div class="campaign-metrics">
+                                        <span class="metric">890 visualizzazioni</span>
+                                        <span class="metric">€45 spesi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Sistema Pubblicitario</h3>
+                        <p class="feature-description">Crea e gestisci campagne pubblicitarie professionali per aumentare le prenotazioni.</p>
+                        <ul class="feature-benefits">
+                            <li>Targeting demografico avanzato</li>
+                            <li>Controllo budget in tempo reale</li>
+                            <li>Analytics dettagliate performance</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-mockup stories-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-title">Stories Premium</div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="template-grid">
+                                    <div class="template-item wellness">Wellness</div>
+                                    <div class="template-item beauty">Beauty</div>
+                                    <div class="template-item luxury">Luxury</div>
+                                    <div class="template-item fitness">Fitness</div>
+                                </div>
+                                <div class="story-preview">
+                                    <div class="story-text">Rilassati con i nostri massaggi</div>
+                                    <div class="story-cta">Prenota Ora</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Stories Premium</h3>
+                        <p class="feature-description">Crea storie professionali con template esclusivi per coinvolgere i tuoi clienti.</p>
+                        <ul class="feature-benefits">
+                            <li>6+ template professionali</li>
+                            <li>Programmazione automatica</li>
+                            <li>Analytics engagement</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-visual">
+                        <div class="feature-mockup locations-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-title">Gestione Sedi</div>
+                            </div>
+                            <div class="mockup-content">
+                                <div class="location-item">
+                                    <div class="location-name">Sede Centro</div>
+                                    <div class="location-status active">Attiva</div>
+                                    <div class="location-stats">
+                                        <span>45 prenotazioni</span>
+                                        <span>Rating 4.8</span>
+                                    </div>
+                                </div>
+                                <div class="location-item">
+                                    <div class="location-name">Sede Nord</div>
+                                    <div class="location-status active">Attiva</div>
+                                    <div class="location-stats">
+                                        <span>32 prenotazioni</span>
+                                        <span>Rating 4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">Multi-Location</h3>
+                        <p class="feature-description">Gestisci più sedi con una dashboard centralizzata e analytics separate.</p>
+                        <ul class="feature-benefits">
+                            <li>Sedi illimitate</li>
+                            <li>Orari personalizzati per sede</li>
+                            <li>Staff assignment avanzato</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Confronto Piani</h2>
+                <p class="section-subtitle">Scopri tutto quello che puoi ottenere con Premium</p>
+            </div>
+
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div class="feature-column">Funzionalità</div>
+                    <div class="plan-column basic">
+                        <div class="plan-info">
+                            <h4>Piano Basic</h4>
+                            <div class="plan-price">
+                                <span class="price">Gratuito</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="plan-column premium">
+                        <div class="plan-badge">PIU SCELTO</div>
+                        <div class="plan-info">
+                            <h4>Piano Premium</h4>
+                            <div class="plan-price">
+                                <span class="price">€49,99</span>
+                                <span class="period">/mese</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-body">
+                    <div class="feature-row">
+                        <div class="feature-name">Numero servizi</div>
+                        <div class="feature-value basic">Massimo 10</div>
+                        <div class="feature-value premium">Illimitati</div>
+                    </div>
+                    <div class="feature-row">
+                        <div class="feature-name">Gallery foto</div>
+                        <div class="feature-value basic">Massimo 10</div>
+                        <div class="feature-value premium">Illimitate</div>
+                    </div>
+                    <div class="feature-row">
+                        <div class="feature-name">Durata video</div>
+                        <div class="feature-value basic">30 secondi</div>
+                        <div class="feature-value premium">60 secondi</div>
+                    </div>
+                    <div class="feature-row highlight">
+                        <div class="feature-name">CRM Clienti</div>
+                        <div class="feature-value basic not-available">Non incluso</div>
+                        <div class="feature-value premium available">Completo</div>
+                    </div>
+                    <div class="feature-row highlight">
+                        <div class="feature-name">Sistema Pubblicità</div>
+                        <div class="feature-value basic not-available">Non incluso</div>
+                        <div class="feature-value premium available">Avanzato</div>
+                    </div>
+                    <div class="feature-row highlight">
+                        <div class="feature-name">Stories Premium</div>
+                        <div class="feature-value basic not-available">Non incluso</div>
+                        <div class="feature-value premium available">6+ Templates</div>
+                    </div>
+                    <div class="feature-row highlight">
+                        <div class="feature-name">Multi-Location</div>
+                        <div class="feature-value basic not-available">Non incluso</div>
+                        <div class="feature-value premium available">Sedi illimitate</div>
+                    </div>
+                </div>
+
+                <div class="table-actions">
+                    <div class="action-column basic"></div>
+                    <div class="action-column premium">
+                        <button class="btn-select-premium" onclick="openPaymentModal()">
+                            Inizia Prova Gratuita
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Cosa dicono i professionisti</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Con il CRM Premium ho aumentato la fidelizzazione clienti del 40%. Ora so esattamente quando contattare ogni cliente per un follow-up."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Elena Marchetti</div>
+                            <div class="author-role">Fisioterapista, Milano</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Le Stories Premium hanno trasformato la mia comunicazione. I template sono bellissimi e i clienti interagiscono molto di più."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Marco Santini</div>
+                            <div class="author-role">Massoterapista, Roma</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Gestisco 3 centri benessere e con Multi-Location ho tutto sotto controllo. Dashboard centralizzata fantastica!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar"></div>
+                        <div class="author-info">
+                            <div class="author-name">Giulia Romano</div>
+                            <div class="author-role">Spa Manager, Firenze</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto a far crescere il tuo business?</h2>
+                <p class="cta-subtitle">Inizia la tua prova gratuita di 30 giorni. Nessun impegno, cancella quando vuoi.</p>
+
+                <div class="cta-offer">
+                    <div class="offer-badge">OFFERTA LIMITATA</div>
+                    <div class="offer-details">
+                        <span class="offer-text">30 giorni gratis, poi solo €49,99/mese</span>
+                        <span class="offer-save">Risparmi €240/anno vs competitors</span>
+                    </div>
+                </div>
+
+                <button class="btn-cta-final" onclick="openPaymentModal()">
+                    <span class="btn-main">Inizia Prova Gratuita</span>
+                    <span class="btn-sub">Attiva tutte le funzionalità in 30 secondi</span>
+                </button>
+
+                <div class="cta-guarantee">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Garanzia soddisfatti o rimborsati 100%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT MODAL -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-backdrop" onclick="closePaymentModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Attiva la tua prova gratuita</h3>
+                <button class="modal-close" onclick="closePaymentModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <div class="plan-summary">
+                    <div class="summary-header">
+                        <h4>Piano Premium</h4>
+                        <div class="summary-price">
+                            <span class="trial-text">30 giorni gratuiti</span>
+                            <span class="then-text">poi €49,99/mese</span>
+                        </div>
+                    </div>
+                    <div class="summary-features">
+                        <div class="summary-feature">✓ CRM Clienti completo</div>
+                        <div class="summary-feature">✓ Sistema Pubblicità</div>
+                        <div class="summary-feature">✓ Stories Premium</div>
+                        <div class="summary-feature">✓ Multi-Location</div>
+                    </div>
+                </div>
+
+                <form class="payment-form">
+                    <div class="form-section">
+                        <h5>Metodo di pagamento</h5>
+                        <div class="payment-methods">
+                            <label class="payment-method active">
+                                <input type="radio" name="payment" value="card" checked>
+                                <div class="method-info">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                                    </svg>
+                                    <span>Carta di credito</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <div class="form-group">
+                            <label>Numero carta</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="cardNumber">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Scadenza</label>
+                                <input type="text" placeholder="MM/YY" maxlength="5" id="cardExpiry">
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" placeholder="123" maxlength="3" id="cardCVV">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nome sulla carta</label>
+                            <input type="text" placeholder="Mario Rossi" id="cardName">
+                        </div>
+                    </div>
+
+                    <div class="form-security">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                        </svg>
+                        <span>I tuoi dati sono protetti con crittografia SSL</span>
+                    </div>
+
+                    <button type="button" class="btn-start-trial" onclick="processPayment()">
+                        <span class="btn-main">Inizia Prova Gratuita</span>
+                        <span class="btn-sub">Nessun addebito per 30 giorni</span>
+                    </button>
+
+                    <div class="form-terms">
+                        Cliccando "Inizia Prova Gratuita" accetti i nostri
+                        <a href="#">Termini di Servizio</a> e
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/premium-upgrade.js"></script>
+</body>
+</html>

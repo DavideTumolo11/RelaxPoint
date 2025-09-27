@@ -397,7 +397,7 @@ window.ImpostazioniProfessionista = {
         console.log('Visualizzazione cronologia fatturazione...');
 
         setTimeout(() => {
-            alert('Cronologia Pagamenti\n\n• Dic 2024 - Piano Premium - €29.99\n• Nov 2024 - Piano Premium - €29.99\n• Ott 2024 - Upgrade Premium - €29.99\n• Set 2024 - Piano Basic - €0.00');
+            alert('Cronologia Pagamenti\n\n• Dic 2024 - Piano Premium - €49.99\n• Nov 2024 - Piano Premium - €49.99\n• Ott 2024 - Upgrade Premium - €49.99\n• Set 2024 - Piano Basic - €0.00');
         }, 500);
     },
 

@@ -1,0 +1,605 @@
+/*
+=== SPAZI PUBBLICITARI HERO LATERALI ===
+CSS per annunci ai lati della hero section - POSIZIONAMENTO ASSOLUTO
+*/
+
+/* === HERO SECTION ORIGINALE (non toccare) === */
+.hero-section {
+    position: relative;
+    /* Aggiungo solo questo per il posizionamento assoluto degli annunci */
+}
+
+/* === SPAZI PUBBLICITARI LATERALI === */
+.hero-ad-left {
+    position: absolute;
+    top: 15%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 350px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    left: -280px;
+}
+
+.hero-ad-right {
+    position: absolute;
+    top: 15%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 350px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    right: -280px;
+}
+
+/* === SECONDO ANNUNCIO SINISTRO (SOTTO) === */
+.hero-ad-left-bottom {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 460px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    left: -280px;
+}
+
+/* === SECONDO ANNUNCIO DESTRO (SOPRA) === */
+.hero-ad-right-top {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    width: 250px;
+    height: 460px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    right: -280px;
+}
+
+
+.hero-ad:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-50%) scale(1.02);
+}
+
+/* === CONTENUTO ANNUNCIO === */
+.ad-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.ad-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.ad-image {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: #f3f4f6;
+}
+
+.ad-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.ad-text h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+}
+
+.ad-text p {
+    font-size: 11px;
+    color: #6b7280;
+    margin: 0 0 8px 0;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.ad-cta {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    transition: background 0.3s;
+    text-decoration: none;
+    align-self: flex-start;
+}
+
+.ad-cta:hover {
+    background: #1d4ed8;
+}
+
+/* === BADGE SPONSORIZZATO === */
+.ad-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .hero-container {
+        max-width: 1200px;
+        gap: 15px;
+    }
+
+    .hero-ad {
+        width: 180px;
+        height: 280px;
+    }
+
+    .ad-content {
+        padding: 12px;
+    }
+
+    .ad-image {
+        height: 100px;
+    }
+
+    .ad-text h4 {
+        font-size: 15px;
+    }
+
+    .ad-text p {
+        font-size: 12px;
+    }
+}
+
+/* Tablet piccoli */
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-ad {
+        width: 100%;
+        max-width: 400px;
+        height: 120px;
+        flex-direction: row;
+    }
+
+    .ad-placeholder {
+        flex-direction: row;
+    }
+
+    .ad-content {
+        flex-direction: row;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .ad-image {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 0;
+        margin-right: 12px;
+        flex-shrink: 0;
+    }
+
+    .ad-text {
+        flex: 1;
+    }
+
+    .ad-text h4 {
+        font-size: 14px;
+        margin-bottom: 6px;
+    }
+
+    .ad-text p {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .ad-cta {
+        padding: 6px 10px;
+        font-size: 11px;
+        align-self: flex-start;
+    }
+
+    /* Riordina: prima la hero, poi gli annunci sotto */
+    .hero-ad-left {
+        order: 2;
+    }
+
+    .hero-section {
+        order: 1;
+    }
+
+    .hero-ad-right {
+        order: 3;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .hero-container {
+        gap: 15px;
+        padding: 0 15px;
+    }
+
+    .hero-ad {
+        height: 100px;
+    }
+
+    .ad-content {
+        padding: 10px;
+    }
+
+    .ad-image {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+    }
+
+    .ad-text h4 {
+        font-size: 13px;
+    }
+
+    .ad-text p {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+
+    .ad-cta {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+
+    .ad-badge {
+        top: 5px;
+        right: 5px;
+        padding: 2px 4px;
+        font-size: 8px;
+    }
+}
+
+/* === VARIANTI COLORE === */
+.hero-ad.premium {
+    border-color: #f59e0b;
+    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+}
+
+.hero-ad.premium .ad-cta {
+    background: #f59e0b;
+}
+
+.hero-ad.premium .ad-cta:hover {
+    background: #d97706;
+}
+
+.hero-ad.exclusive {
+    border-color: #dc2626;
+    background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+}
+
+.hero-ad.exclusive .ad-cta {
+    background: #dc2626;
+}
+
+.hero-ad.exclusive .ad-cta:hover {
+    background: #b91c1c;
+}
+
+/* === ANIMAZIONI === */
+@keyframes fadeInSide {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hero-ad-left {
+    animation: fadeInSide 0.6s ease-out 0.2s both;
+    transform: translateX(-20px);
+}
+
+.hero-ad-right {
+    animation: fadeInSide 0.6s ease-out 0.4s both;
+}
+
+/* === STATO VUOTO/PLACEHOLDER === */
+.hero-ad.empty .ad-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #9ca3af;
+    background: #f9fafb;
+    border: 2px dashed #d1d5db;
+    border-radius: 8px;
+    margin: 10px;
+}
+
+.hero-ad.empty .ad-content::before {
+    content: "Spazio Pubblicitario\nDisponibile";
+    white-space: pre-line;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* === BANNER PUBBLICITARIO FULL WIDTH === */
+.full-width-ad-section {
+    width: calc(100vw - 40px);
+    margin: 20px 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: calc(-50vw + 20px);
+    margin-right: calc(-50vw + 20px);
+}
+
+.full-width-ad-container {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2);
+    position: relative;
+}
+
+.full-width-ad-content {
+    display: flex;
+    align-items: center;
+    min-height: 400px;
+    position: relative;
+    padding: 0;
+}
+
+.full-width-ad-image {
+    flex: 1;
+    max-width: 50%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ad-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.full-width-ad-container:hover .ad-bg-image {
+    transform: scale(1.05);
+}
+
+.full-width-ad-text {
+    flex: 1;
+    padding: 40px 50px;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.ad-badge-full {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.full-width-ad-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 16px 0;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.full-width-ad-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 24px 0;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+.full-width-ad-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0 0 32px 0;
+}
+
+.ad-feature {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ad-feature:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.full-width-ad-cta {
+    display: inline-flex;
+    align-items: center;
+    background: white;
+    color: #667eea;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.full-width-ad-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.full-width-ad-cta:hover::before {
+    left: 100%;
+}
+
+.full-width-ad-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    color: #5a67d8;
+}
+
+/* === RESPONSIVE FULL WIDTH === */
+@media (max-width: 768px) {
+    .full-width-ad-content {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .full-width-ad-image {
+        max-width: 100%;
+        height: 200px;
+        order: 1;
+    }
+
+    .full-width-ad-text {
+        padding: 30px 20px;
+        text-align: center;
+        order: 2;
+    }
+
+    .full-width-ad-title {
+        font-size: 24px;
+    }
+
+    .full-width-ad-description {
+        font-size: 16px;
+    }
+
+    .full-width-ad-features {
+        justify-content: center;
+        margin: 0 0 24px 0;
+    }
+
+    .ad-badge-full {
+        top: 10px;
+        right: 15px;
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .full-width-ad-container {
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .full-width-ad-section {
+        width: calc(100vw - 30px);
+        margin: 15px 0;
+        margin-left: calc(-50vw + 15px);
+        margin-right: calc(-50vw + 15px);
+    }
+
+    .full-width-ad-text {
+        padding: 25px 15px;
+    }
+
+    .full-width-ad-title {
+        font-size: 20px;
+    }
+
+    .full-width-ad-description {
+        font-size: 14px;
+    }
+
+    .full-width-ad-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ad-feature {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .full-width-ad-cta {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}

@@ -3,6 +3,270 @@
    Layout griglia Instagram per foto/video professionisti
    =============================================== */
 
+
+/* === ANNUNCI LATERALI ISPIRAZIONI (VETRINE PREMIUM) === */
+.ispirazioni-ad-left-large {
+    position: fixed;
+    top: 250px;
+    width: 400px;
+    height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    left: 20px;
+}
+
+.ispirazioni-ad-right-large {
+    position: fixed;
+    top: 730px;
+    width: 400px;
+    height: 500px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    right: 20px;
+}
+
+.ispirazioni-ad-left-small {
+    position: fixed;
+    top: 780px;
+    width: 400px;
+    height: 450px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    left: 20px;
+}
+
+.ispirazioni-ad-right-small {
+    position: fixed;
+    top: 250px;
+    width: 400px;
+    height: 450px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 10;
+    right: 20px;
+}
+
+/* Hover effects rimossi - le card rimangono statiche */
+
+/* Nasconde le card quando il footer è visibile */
+body {
+    --footer-height: 300px;
+    /* Altezza approssimativa del footer */
+}
+
+.ispirazioni-ad-left-large,
+.ispirazioni-ad-right-large,
+.ispirazioni-ad-left-small,
+.ispirazioni-ad-right-small {
+    bottom: var(--footer-height);
+    /* Si fermano prima del footer */
+}
+
+/* Responsive - nasconde le card su tablet e mobile */
+@media (max-width: 1400px) {
+
+    .ispirazioni-ad-left-large,
+    .ispirazioni-ad-right-large,
+    .ispirazioni-ad-left-small,
+    .ispirazioni-ad-right-small {
+        display: none;
+    }
+}
+
+/* === CONTENUTO VETRINE LAVORI (CARD GRANDI) === */
+.work-showcase {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.work-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.work-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.work-slide.active {
+    opacity: 1;
+}
+
+.work-image {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+}
+
+.work-info {
+    padding: 15px;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+}
+
+.professional-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 5px 0;
+}
+
+.work-description {
+    font-size: 12px;
+    color: #6b7280;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.work-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+/* === CONTENUTO OFFERTE SPONSORIZZATE (CARD PICCOLE) === */
+.sponsored-offer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.offer-carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.offer-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    cursor: pointer;
+}
+
+.offer-slide.active {
+    opacity: 1;
+}
+
+.offer-image {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.offer-content {
+    padding: 12px;
+    height: 40%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.offer-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 4px 0;
+    line-height: 1.2;
+}
+
+.offer-subtitle {
+    font-size: 11px;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.offer-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(220, 38, 38, 0.9);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+/* === INDICATORI CAROSELLO === */
+.carousel-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+    z-index: 3;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: rgba(102, 126, 234, 0.9);
+    transform: scale(1.2);
+}
+
+
 /* LAYOUT GENERALE */
 .ispirazioni-content {
     display: flex;
@@ -141,26 +405,7 @@
     border-color: var(--color-primary);
 }
 
-/* GRIGLIA ISPIRAZIONI */
-.ispirazioni-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
-    padding: 20px 0;
-}
-
-@media (min-width: 640px) {
-    .ispirazioni-grid {
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-}
-
-@media (min-width: 1024px) {
-    .ispirazioni-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-    }
-}
+/* GRIGLIA ISPIRAZIONI - RESET COMPLETO */
 
 /* CARD ISPIRAZIONE */
 .inspiration-item {
@@ -508,6 +753,72 @@
     color: white;
 }
 
+/* === FOOTER SPECIFICO PER ISPIRAZIONI === */
+body footer.site-footer.ispirazioni-footer .footer-container {
+    max-width: 900px !important;
+}
+
+/* FORCE RESET GRIGLIA - REGOLE ASSOLUTE */
+.ispirazioni-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    gap: 24px !important;
+    padding: 20px 0 !important;
+    align-items: start !important;
+}
+
+.ispirazioni-grid > * {
+    display: block !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Force reset di qualsiasi regola nth-child che potrebbe esistere */
+.ispirazioni-grid > *:nth-child(n) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Specific reset per 9n+1 elements se ci sono regole nascoste */
+.ispirazioni-grid > *:nth-child(9n+1) {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+}
+
+@media (min-width: 640px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+        gap: 16px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .ispirazioni-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+        gap: 12px !important;
+    }
+}
+
 /* RESPONSIVE MOBILE */
 @media (max-width: 768px) {
     .ispirazioni-content {
@@ -551,10 +862,6 @@
         padding: 6px 12px;
     }
 
-    .ispirazioni-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 16px;
-    }
 
     .inspiration-info {
         padding: 12px;
@@ -596,10 +903,6 @@
 }
 
 @media (max-width: 480px) {
-    .ispirazioni-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 12px;
-    }
 
     .filters-categories {
         overflow-x: auto;
@@ -698,10 +1001,6 @@
         display: none;
     }
 
-    .ispirazioni-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
 
     .inspiration-card {
         break-inside: avoid;

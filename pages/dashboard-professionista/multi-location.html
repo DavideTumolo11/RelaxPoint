@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Multi-Location - Dashboard Professionista | RelaxPoint</title>
+    <meta name="description" content="Gestisci le tue sedi multiple dalla dashboard Premium.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/multi-location.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER IDENTICO AL SITO -->
+            <header class="site-header">
+                <!-- Logo RelaxPoint -->
+                <a class="site-logo" href="/index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+                <div class="header-left">
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary" id="loginBtn">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- DASHBOARD LAYOUT A DUE COLONNE -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU PROFESSIONISTA -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Business</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                                <a href="dashboard-professionista.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+
+                                <a href="lastminute.html" class="menu-item lastminute-highlight">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                    </svg>
+                                    <span>Last Minute</span>
+                                </a>
+
+                                <a href="prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+
+                                <a href="chat.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v3c0 .6.4 1 1 1h.5c.2 0 .5-.1.7-.3L14.6 18H20c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                                    </svg>
+                                    <span>Chat</span>
+                                </a>
+
+                                <a href="i-miei-servizi.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                    </svg>
+                                    <span>I Miei Servizi</span>
+                                </a>
+
+                                <a href="microsito-professionista.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>Microsito</span>
+                                </a>
+
+                                <a href="recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+
+                                <a href="calendario.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM4 7h16v2H4V7z" />
+                                    </svg>
+                                    <span>Calendario</span>
+                                </a>
+
+                                <a href="multi-location.html" class="menu-item active premium-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <span>Multi-Location</span>
+                                    <span class="premium-badge">⚡</span>
+                                </a>
+
+                                <a href="fatturazione.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" />
+                                    </svg>
+                                    <span>Fatturazione</span>
+                                </a>
+
+                                <a href="impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENT AREA -->
+                        <div class="dashboard-content">
+
+                            <!-- HEADER SEZIONE -->
+                            <div class="content-header">
+                                <div class="header-content">
+                                    <div class="title-section">
+                                        <h1>Multi-Location</h1>
+                                        <span class="premium-badge-header">⚡ Premium</span>
+                                    </div>
+                                    <p>Gestisci le tue sedi multiple con RelaxPoint Premium</p>
+                                </div>
+
+                                <div class="header-actions">
+                                    <button class="btn-add-location" onclick="addNewLocation()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                        </svg>
+                                        Aggiungi Sede
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- PREMIUM STATUS CHECK -->
+                            <div id="premiumCheck" class="premium-check-section" style="display: none;">
+                                <div class="premium-upgrade-notice">
+                                    <div class="upgrade-icon">⚡</div>
+                                    <div class="upgrade-content">
+                                        <h3>Gestione Multi-Location disponibile solo con Premium</h3>
+                                        <p>Upgrade a RelaxPoint Premium per gestire più sedi e massimizzare la tua presenza sul territorio</p>
+                                        <div class="premium-benefits-mini">
+                                            <span>✅ Sedi illimitate</span>
+                                            <span>✅ Gestione centralizzata</span>
+                                            <span>✅ Analytics per sede</span>
+                                        </div>
+                                        <button class="btn-upgrade-premium" onclick="upgradeToPremium()">
+                                            ⚡ Passa a Premium
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- LOCATIONS OVERVIEW -->
+                            <div id="locationsContent" class="locations-content">
+
+                                <!-- STATISTICHE OVERVIEW -->
+                                <div class="locations-stats">
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="stat-info">
+                                            <span class="stat-number" id="totalLocations">3</span>
+                                            <span class="stat-label">Sedi Totali</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M9 11H7v6h2v-6zm4 0h-2v6h2v-6zm4 0h-2v6h2v-6zM4 3v2h16V3H4zm0 18h16v-2H4v2z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="stat-info">
+                                            <span class="stat-number" id="totalServices">24</span>
+                                            <span class="stat-label">Servizi Attivi</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="stat-info">
+                                            <span class="stat-number" id="avgRating">4.8</span>
+                                            <span class="stat-label">Rating Medio</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="stat-card">
+                                        <div class="stat-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M7 10l5 5 5-5z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="stat-info">
+                                            <span class="stat-number" id="monthlyBookings">127</span>
+                                            <span class="stat-label">Prenotazioni/Mese</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LOCATIONS LIST -->
+                                <div class="locations-section">
+                                    <div class="section-header">
+                                        <h2>Le Tue Sedi</h2>
+                                        <div class="view-toggle">
+                                            <button class="toggle-btn active" onclick="switchView('grid')">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M4 11h5V5H4v6zM4 18h5v-6H4v6zM10 18h5v-6h-5v6zM15 5v6h5V5h-5z"/>
+                                                </svg>
+                                            </button>
+                                            <button class="toggle-btn" onclick="switchView('list')">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="locations-grid" id="locationsGrid">
+                                        <!-- Location cards will be generated by JavaScript -->
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <!-- ADD/EDIT LOCATION MODAL -->
+    <div class="modal-overlay" id="locationModal" style="display: none;">
+        <div class="modal-content location-modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Aggiungi Nuova Sede</h3>
+                <button class="btn-close" onclick="closeLocationModal()">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form id="locationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="locationName">Nome Sede *</label>
+                            <input type="text" id="locationName" name="locationName" required
+                                placeholder="Es: RelaxPoint Centro">
+                        </div>
+                        <div class="form-group">
+                            <label for="locationStatus">Status</label>
+                            <select id="locationStatus" name="locationStatus">
+                                <option value="active">Attiva</option>
+                                <option value="inactive">Non Attiva</option>
+                                <option value="maintenance">Manutenzione</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locationAddress">Indirizzo Completo *</label>
+                        <input type="text" id="locationAddress" name="locationAddress" required
+                            placeholder="Via Roma 123, 00100 Roma RM">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="locationCity">Città *</label>
+                            <input type="text" id="locationCity" name="locationCity" required placeholder="Roma">
+                        </div>
+                        <div class="form-group">
+                            <label for="locationZip">CAP *</label>
+                            <input type="text" id="locationZip" name="locationZip" required placeholder="00100">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="locationPhone">Telefono</label>
+                            <input type="tel" id="locationPhone" name="locationPhone" placeholder="+39 06 1234567">
+                        </div>
+                        <div class="form-group">
+                            <label for="locationEmail">Email</label>
+                            <input type="email" id="locationEmail" name="locationEmail" placeholder="centro@relaxpoint.com">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="locationDescription">Descrizione</label>
+                        <textarea id="locationDescription" name="locationDescription" rows="3"
+                            placeholder="Descrizione della sede, caratteristiche distintive..."></textarea>
+                    </div>
+
+                    <div class="form-section">
+                        <h4>Orari di Apertura</h4>
+                        <div class="schedule-grid">
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="lunedi" checked> Lunedì
+                                </label>
+                                <input type="time" name="lunedi_open" value="09:00">
+                                <span>-</span>
+                                <input type="time" name="lunedi_close" value="18:00">
+                            </div>
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="martedi" checked> Martedì
+                                </label>
+                                <input type="time" name="martedi_open" value="09:00">
+                                <span>-</span>
+                                <input type="time" name="martedi_close" value="18:00">
+                            </div>
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="mercoledi" checked> Mercoledì
+                                </label>
+                                <input type="time" name="mercoledi_open" value="09:00">
+                                <span>-</span>
+                                <input type="time" name="mercoledi_close" value="18:00">
+                            </div>
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="giovedi" checked> Giovedì
+                                </label>
+                                <input type="time" name="giovedi_open" value="09:00">
+                                <span>-</span>
+                                <input type="time" name="giovedi_close" value="18:00">
+                            </div>
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="venerdi" checked> Venerdì
+                                </label>
+                                <input type="time" name="venerdi_open" value="09:00">
+                                <span>-</span>
+                                <input type="time" name="venerdi_close" value="18:00">
+                            </div>
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="sabato"> Sabato
+                                </label>
+                                <input type="time" name="sabato_open" value="09:00" disabled>
+                                <span>-</span>
+                                <input type="time" name="sabato_close" value="13:00" disabled>
+                            </div>
+                            <div class="schedule-day">
+                                <label>
+                                    <input type="checkbox" name="days" value="domenica"> Domenica
+                                </label>
+                                <input type="time" name="domenica_open" value="09:00" disabled>
+                                <span>-</span>
+                                <input type="time" name="domenica_close" value="13:00" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-cancel" onclick="closeLocationModal()">Annulla</button>
+                <button type="button" class="btn-save" onclick="saveLocation()">Salva Sede</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="/assets/js/dashboard-professionista/multi-location.js"></script>
+
+</body>
+
+</html>

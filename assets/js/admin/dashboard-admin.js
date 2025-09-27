@@ -6,23 +6,159 @@
 class AdminDashboard {
     constructor() {
         this.currentSection = 'dashboard';
-        this.currentUser = {
-            name: 'Amministratore',
-            email: 'admin@relaxpoint.it',
-            lastLogin: new Date().toLocaleString('it-IT'),
-            permissions: ['all']
-        };
+        this.sessionTimeout = 8 * 60 * 60 * 1000; // 8 ore
+        this.sessionCheckInterval = 5 * 60 * 1000; // 5 minuti
+        this.currentUser = null;
         this.mockData = this.generateMockData();
+        this.sessionTimer = null;
         this.init();
     }
 
-    init() {
+    async init() {
+        // Prima controlla l'autenticazione
+        if (!(await this.checkAuthentication())) {
+            return;
+        }
+
         this.setupEventListeners();
         this.updateStatistics();
         this.loadInitialData();
         this.setupAutoRefresh();
+        this.setupSessionMonitoring();
         this.showSection(this.currentSection);
+        this.updateUserInfo();
         console.log('Admin Dashboard inizializzata');
+    }
+
+    async checkAuthentication() {
+        this.showSessionLoader(true);
+
+        try {
+            const session = this.getSession();
+
+            if (!session || !this.isValidSession(session)) {
+                this.redirectToLogin();
+                return false;
+            }
+
+            this.currentUser = {
+                name: 'Amministratore',
+                email: session.email,
+                lastLogin: new Date(session.timestamp).toLocaleString('it-IT'),
+                permissions: ['all']
+            };
+
+            // Aggiorna timestamp di ultima attività
+            this.updateSessionActivity();
+            this.showSessionLoader(false);
+            return true;
+
+        } catch (error) {
+            console.error('Authentication error:', error);
+            this.redirectToLogin();
+            return false;
+        }
+    }
+
+    getSession() {
+        const sessionData = localStorage.getItem('adminSession') ||
+                           sessionStorage.getItem('adminSession');
+        return sessionData ? JSON.parse(sessionData) : null;
+    }
+
+    isValidSession(session) {
+        if (!session || !session.timestamp || !session.token) {
+            return false;
+        }
+
+        // Controlla scadenza
+        const sessionAge = Date.now() - session.timestamp;
+        if (sessionAge > this.sessionTimeout) {
+            this.clearSession();
+            return false;
+        }
+
+        return true;
+    }
+
+    updateSessionActivity() {
+        const session = this.getSession();
+        if (session) {
+            session.lastActivity = Date.now();
+
+            if (session.rememberMe) {
+                localStorage.setItem('adminSession', JSON.stringify(session));
+            } else {
+                sessionStorage.setItem('adminSession', JSON.stringify(session));
+            }
+        }
+    }
+
+    setupSessionMonitoring() {
+        // Controlla sessione ogni 5 minuti
+        this.sessionTimer = setInterval(() => {
+            if (!this.isValidSession(this.getSession())) {
+                this.handleSessionExpired();
+            }
+        }, this.sessionCheckInterval);
+
+        // Aggiorna attività su interazioni utente
+        const events = ['click', 'keypress', 'mousemove', 'scroll'];
+        events.forEach(event => {
+            document.addEventListener(event, () => {
+                this.updateSessionActivity();
+            }, { passive: true });
+        });
+    }
+
+    handleSessionExpired() {
+        this.clearSessionTimer();
+        this.showNotification('Sessione scaduta. Reindirizzamento al login...', 'warning');
+
+        setTimeout(() => {
+            this.redirectToLogin();
+        }, 2000);
+    }
+
+    clearSession() {
+        localStorage.removeItem('adminSession');
+        sessionStorage.removeItem('adminSession');
+    }
+
+    clearSessionTimer() {
+        if (this.sessionTimer) {
+            clearInterval(this.sessionTimer);
+            this.sessionTimer = null;
+        }
+    }
+
+    redirectToLogin() {
+        this.clearSession();
+        this.clearSessionTimer();
+        window.location.href = 'login.html';
+    }
+
+    updateUserInfo() {
+        if (this.currentUser) {
+            const emailElement = document.getElementById('adminEmail');
+            const lastLoginElement = document.getElementById('lastLogin');
+
+            if (emailElement) emailElement.textContent = this.currentUser.email;
+            if (lastLoginElement) lastLoginElement.textContent = this.currentUser.lastLogin;
+        }
+    }
+
+    showSessionLoader(show) {
+        const loader = document.getElementById('sessionLoader');
+        const content = document.getElementById('adminContent');
+
+        if (show) {
+            loader.style.display = 'flex';
+            content.style.display = 'none';
+        } else {
+            loader.style.display = 'none';
+            content.style.display = 'block';
+        }
     }
 
     generateMockData() {
@@ -1254,9 +1390,379 @@ function saveContent() {
     window.adminDashboard.closeModal();
 }
 
+// Global logout function
+function logoutAdmin() {
+    if (confirm('Sei sicuro di voler effettuare il logout?')) {
+        // Mostra notifica
+        if (window.adminDashboard) {
+            window.adminDashboard.showNotification('Logout in corso...', 'info');
+        }
+
+        // Clear session e redirect
+        setTimeout(() => {
+            if (window.adminDashboard) {
+                window.adminDashboard.redirectToLogin();
+            } else {
+                // Fallback se dashboard non disponibile
+                localStorage.removeItem('adminSession');
+                sessionStorage.removeItem('adminSession');
+                window.location.href = 'login.html';
+            }
+        }, 1000);
+    }
+}
+
+
+// ===============================================
+// SISTEMA COMPLETO GESTIONE PUBBLICITÀ
+// ===============================================
+
+// === GESTIONE RICHIESTE PENDING ===
+function approveAd(adId) {
+    if (confirm('Approvare questa pubblicità? Verrà pubblicata immediatamente nel sito.')) {
+        window.adminDashboard.showNotification('📤 Invio approvazione al backend...', 'info');
+
+        // SIMULAZIONE CHIAMATA BACKEND
+        setTimeout(() => {
+            // TODO: Backend call
+            // POST /api/ads/approve { adId: adId, status: 'approved', adminId: currentAdmin }
+
+            window.adminDashboard.showNotification('✅ Pubblicità approvata e pubblicata!', 'success');
+            updateNotificationCount(-1);
+            removePendingAd(adId);
+        }, 1500);
+    }
+}
+
+function rejectAd(adId) {
+    const reason = prompt('Motivo del rifiuto (verrà inviato al professionista):');
+    if (reason && reason.trim()) {
+        window.adminDashboard.showNotification('📤 Invio rifiuto al backend...', 'warning');
+
+        setTimeout(() => {
+            // TODO: Backend call
+            // POST /api/ads/reject { adId: adId, reason: reason, adminId: currentAdmin }
+
+            window.adminDashboard.showNotification('❌ Pubblicità rifiutata. Email inviata al professionista.', 'success');
+            updateNotificationCount(-1);
+            removePendingAd(adId);
+        }, 1500);
+    }
+}
+
+function reviewAd(adId) {
+    const modal = document.getElementById('generic-modal');
+    const title = document.getElementById('modal-title');
+    const body = document.getElementById('modal-body');
+
+    title.textContent = 'Revisione Pubblicità Dettagliata';
+    body.innerHTML = `
+        <div class="ad-review-detail">
+            <div class="review-header">
+                <h4>🔍 Controllo Contenuti - ID: ${adId}</h4>
+            </div>
+
+            <div class="review-content">
+                <div class="review-section">
+                    <h5><i class="fas fa-user"></i> Informazioni Professionista</h5>
+                    <p><strong>Nome:</strong> Sara Wellness Coach</p>
+                    <p><strong>Email:</strong> sara@wellness.it</p>
+                    <p><strong>Verificato:</strong> ✅ Sì</p>
+                    <p><strong>Precedenti pubblicità:</strong> 3 (tutte approvate)</p>
+                </div>
+
+                <div class="review-section">
+                    <h5><i class="fas fa-image"></i> Contenuto Pubblicità</h5>
+                    <img src="../assets/images/temp-ad1.jpg" style="width: 100%; max-width: 300px; border-radius: 8px; margin: 10px 0;">
+                    <p><strong>Titolo:</strong> "Yoga Weekend Intensive"</p>
+                    <p><strong>Descrizione:</strong> Weekend di yoga e meditazione in location esclusiva</p>
+                    <p><strong>Prezzo:</strong> €89</p>
+                </div>
+
+                <div class="review-section">
+                    <h5><i class="fas fa-cog"></i> Impostazioni Pubblicità</h5>
+                    <p><strong>Zona richiesta:</strong> Ispirazioni Premium</p>
+                    <p><strong>Durata:</strong> 7 giorni</p>
+                    <p><strong>Budget:</strong> €50</p>
+                    <p><strong>Targeting:</strong> Donne 25-45, interessate a yoga</p>
+                </div>
+
+                <div class="review-checklist">
+                    <h5><i class="fas fa-check-double"></i> Checklist di Controllo</h5>
+                    <label><input type="checkbox" checked disabled> Immagine appropriata</label><br>
+                    <label><input type="checkbox" checked disabled> Testo senza errori</label><br>
+                    <label><input type="checkbox" checked disabled> Prezzo corretto</label><br>
+                    <label><input type="checkbox" checked disabled> Link funzionante</label><br>
+                    <label><input type="checkbox" checked disabled> Conforme alle policy</label><br>
+                </div>
+            </div>
+
+            <div class="review-actions">
+                <button class="btn-success" onclick="approveAd(${adId}); closeModal();">
+                    <i class="fas fa-check"></i> Approva Tutto OK
+                </button>
+                <button class="btn-warning" onclick="requestChanges(${adId})">
+                    <i class="fas fa-edit"></i> Richiedi Modifiche
+                </button>
+                <button class="btn-danger" onclick="rejectAd(${adId}); closeModal();">
+                    <i class="fas fa-times"></i> Rifiuta Contenuto
+                </button>
+                <button class="btn-secondary" onclick="closeModal()">Chiudi</button>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+}
+
+function requestChanges(adId) {
+    const changes = prompt('Specifica le modifiche richieste:');
+    if (changes && changes.trim()) {
+        window.adminDashboard.showNotification('📤 Richiesta modifiche inviata...', 'info');
+
+        setTimeout(() => {
+            // TODO: Backend call
+            // POST /api/ads/request-changes { adId: adId, changes: changes }
+
+            window.adminDashboard.showNotification('📝 Richiesta di modifiche inviata al professionista', 'success');
+            closeModal();
+        }, 1000);
+    }
+}
+
+// === CONTROLLI GLOBALI ===
+function emergencyStop() {
+    if (confirm('⚠️ ATTENZIONE: Stai per disattivare TUTTE le pubblicità del sito immediatamente. Confermi?')) {
+        window.adminDashboard.showNotification('🚨 STOP DI EMERGENZA ATTIVATO', 'error');
+
+        // Disattiva il toggle master
+        const masterToggle = document.getElementById('master-ads-toggle');
+        if (masterToggle) masterToggle.checked = false;
+
+        // Aggiorna stato visivo
+        updateSiteStatus(false, 'Emergenza - Tutte le pubblicità disattivate');
+
+        setTimeout(() => {
+            // TODO: Backend call
+            // POST /api/ads/emergency-stop { adminId: currentAdmin, reason: 'emergency' }
+
+            window.adminDashboard.showNotification('✅ Tutte le pubblicità sono state disattivate', 'success');
+        }, 1000);
+    }
+}
+
+// === GESTIONE ZONE ===
+function configureZone(zoneId) {
+    const modal = document.getElementById('generic-modal');
+    const title = document.getElementById('modal-title');
+    const body = document.getElementById('modal-body');
+
+    title.textContent = `Configurazione Zona: ${zoneId.toUpperCase()}`;
+    body.innerHTML = `
+        <div class="zone-config">
+            <div class="config-section">
+                <h4><i class="fas fa-cog"></i> Impostazioni Zona</h4>
+
+                <div class="form-group">
+                    <label>Numero massimo annunci contemporanei</label>
+                    <input type="number" id="max-ads" value="3" min="1" max="10">
+                </div>
+
+                <div class="form-group">
+                    <label>Durata minima per annuncio (giorni)</label>
+                    <input type="number" id="min-duration" value="7" min="1" max="30">
+                </div>
+
+                <div class="form-group">
+                    <label>Prezzo per giorno (€)</label>
+                    <input type="number" id="price-per-day" value="15" min="5" max="100">
+                </div>
+
+                <div class="form-group">
+                    <label>Modalità rotazione</label>
+                    <select id="rotation-mode">
+                        <option value="random">Casuale</option>
+                        <option value="priority">Per priorità pagamento</option>
+                        <option value="date">Per data inserimento</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="auto-approve" ${zoneId === 'ispirazioni' ? 'checked' : ''}>
+                        Auto-approvazione per utenti verificati
+                    </label>
+                </div>
+            </div>
+
+            <div class="config-actions">
+                <button class="btn-primary" onclick="saveZoneConfig('${zoneId}')">
+                    <i class="fas fa-save"></i> Salva Configurazione
+                </button>
+                <button class="btn-secondary" onclick="closeModal()">Annulla</button>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+}
+
+function saveZoneConfig(zoneId) {
+    const config = {
+        maxAds: document.getElementById('max-ads').value,
+        minDuration: document.getElementById('min-duration').value,
+        pricePerDay: document.getElementById('price-per-day').value,
+        rotationMode: document.getElementById('rotation-mode').value,
+        autoApprove: document.getElementById('auto-approve').checked
+    };
+
+    window.adminDashboard.showNotification('📤 Salvataggio configurazione...', 'info');
+
+    setTimeout(() => {
+        // TODO: Backend call
+        // POST /api/zones/configure { zoneId: zoneId, config: config }
+
+        window.adminDashboard.showNotification('✅ Configurazione zona salvata!', 'success');
+        closeModal();
+    }, 1000);
+}
+
+function manageZoneContent(zoneId) {
+    const modal = document.getElementById('generic-modal');
+    const title = document.getElementById('modal-title');
+    const body = document.getElementById('modal-body');
+
+    title.textContent = `Gestione Contenuti: ${zoneId.toUpperCase()}`;
+    body.innerHTML = `
+        <div class="zone-content-management">
+            <div class="content-header">
+                <h4><i class="fas fa-list"></i> Annunci Attivi in questa Zona</h4>
+                <button class="btn-primary btn-small" onclick="addAdToZone('${zoneId}')">
+                    <i class="fas fa-plus"></i> Aggiungi Annuncio
+                </button>
+            </div>
+
+            <div class="active-ads-list">
+                ${generateZoneAds(zoneId)}
+            </div>
+
+            <div class="zone-actions">
+                <button class="btn-warning" onclick="reorderZoneAds('${zoneId}')">
+                    <i class="fas fa-sort"></i> Riordina Annunci
+                </button>
+                <button class="btn-info" onclick="previewZone('${zoneId}')">
+                    <i class="fas fa-eye"></i> Preview Zona
+                </button>
+                <button class="btn-secondary" onclick="closeModal()">Chiudi</button>
+            </div>
+        </div>
+    `;
+
+    modal.classList.add('active');
+}
+
+// === FUNZIONI DI SUPPORTO ===
+function updateNotificationCount(change) {
+    const countEl = document.querySelector('.notification-count');
+    if (countEl) {
+        let current = parseInt(countEl.textContent);
+        current += change;
+        countEl.textContent = current;
+
+        if (current === 0) {
+            countEl.style.display = 'none';
+        }
+    }
+}
+
+function removePendingAd(adId) {
+    const adElement = document.querySelector(`[data-ad-id="${adId}"]`);
+    if (adElement) {
+        adElement.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => adElement.remove(), 300);
+    }
+}
+
+function updateSiteStatus(isActive, customMessage = null) {
+    const statusValue = document.querySelector('.status-value.active, .status-value.inactive');
+    if (statusValue) {
+        if (customMessage) {
+            statusValue.textContent = `🔴 ${customMessage}`;
+            statusValue.className = 'status-value inactive';
+        } else {
+            statusValue.textContent = isActive ? '🟢 Pubblicità Attive' : '🔴 Pubblicità Disattivate';
+            statusValue.className = `status-value ${isActive ? 'active' : 'inactive'}`;
+        }
+    }
+}
+
+function generateZoneAds(zoneId) {
+    const mockAds = {
+        'ispirazioni': [
+            { id: 1, title: 'Yoga Premium', author: 'Sara W.', status: 'active', priority: 'high' },
+            { id: 2, title: 'Meditazione Zen', author: 'Marco B.', status: 'active', priority: 'medium' }
+        ],
+        'homepage': [
+            { id: 3, title: 'Massaggi 50% OFF', author: 'Elena R.', status: 'active', priority: 'high' },
+            { id: 4, title: 'Weekend Wellness', author: 'Luca F.', status: 'paused', priority: 'low' }
+        ]
+    };
+
+    const ads = mockAds[zoneId] || [];
+
+    return ads.map(ad => `
+        <div class="ad-item ${ad.status}">
+            <div class="ad-info">
+                <h5>${ad.title}</h5>
+                <p>Di: ${ad.author}</p>
+            </div>
+            <div class="ad-controls">
+                <span class="priority-badge ${ad.priority}">${ad.priority}</span>
+                <button class="btn-small primary" onclick="editZoneAd(${ad.id})">Modifica</button>
+                <button class="btn-small danger" onclick="removeFromZone(${ad.id}, '${zoneId}')">Rimuovi</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// === FUNZIONI LEGACY (mantenute per compatibilità) ===
+function addNewAd() {
+    const modal = document.getElementById('create-ad-modal');
+    modal.classList.add('active');
+    window.adminDashboard.showNotification('Modulo creazione annuncio aperto', 'info');
+}
+
+function viewAnalytics() {
+    window.adminDashboard.showNotification('📊 Analytics dettagliati in sviluppo - verranno collegati al backend', 'info');
+}
+
+function exportData() {
+    window.adminDashboard.showNotification('📤 Esportazione dati in corso...', 'info');
+    setTimeout(() => {
+        window.adminDashboard.showNotification('✅ Dati esportati con successo!', 'success');
+    }, 2000);
+}
+
+function editAd(adId) {
+    window.adminDashboard.showNotification(`📝 Editor annuncio #${adId} - Sarà collegato al CMS`, 'info');
+}
+
+function deleteAd(adId) {
+    if (confirm('Sei sicuro di voler eliminare questo annuncio?')) {
+        window.adminDashboard.showNotification(`🗑️ Annuncio #${adId} eliminato`, 'success');
+    }
+}
+
+function closeModal() {
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+        modal.classList.remove('active');
+    });
+}
+
 // Initialize dashboard when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     window.adminDashboard = new AdminDashboard();
+
 
     // Add CSS animations
     const style = document.createElement('style');
@@ -1268,6 +1774,48 @@ document.addEventListener('DOMContentLoaded', function() {
         @keyframes slideOut {
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
+        }
+
+        /* CSS per nascondere ads quando disabilitate */
+        .relaxpoint-ads-disabled .header-ads,
+        .relaxpoint-ads-disabled .banner-ads,
+        .relaxpoint-ads-disabled .sidebar-ads,
+        .relaxpoint-ads-disabled .premium-cards,
+        .relaxpoint-ads-disabled .content-ads,
+        .relaxpoint-ads-disabled .inline-ads,
+        .relaxpoint-ads-disabled .footer-ads,
+        .relaxpoint-ads-disabled .work-card.premium-card,
+        .relaxpoint-ads-disabled .work-badge,
+        .relaxpoint-ads-disabled .offer-badge {
+            display: none !important;
+        }
+
+        /* Stili per log attività */
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            font-size: 13px;
+        }
+
+        .activity-time {
+            color: #666;
+            min-width: 120px;
+        }
+
+        .activity-message {
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .activity-type {
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #555;
         }
     `;
     document.head.appendChild(style);

@@ -25,6 +25,15 @@ function initializeServices() {
 // GESTIONE SERVIZI - CRUD
 // ===============================================
 function aggiungiNuovoServizio() {
+    // Check service limits for Basic vs Premium users
+    const currentServices = document.querySelectorAll('.service-group').length;
+    const isPremium = checkUserPremiumStatus(); // TODO: Connect to backend user data
+
+    if (!isPremium && currentServices >= 3) {
+        showPremiumLimitModal('servizi', currentServices, 3);
+        return;
+    }
+
     const modal = document.getElementById('modalNuovoServizio');
     if (modal) {
         document.getElementById('formNuovoServizio').reset();
@@ -1144,5 +1153,73 @@ if (!document.querySelector('#services-dynamic-styles')) {
     styleSheet.textContent = dynamicStyles;
     document.head.appendChild(styleSheet);
 }
+
+// ===============================================
+// PREMIUM LIMITS SYSTEM
+// ===============================================
+function checkUserPremiumStatus() {
+    // TODO: Connect to backend API to get real user premium status
+    // For now, check localStorage or a global variable
+    return localStorage.getItem('userPremium') === 'true' || window.userProfile?.premium === true;
+}
+
+function showPremiumLimitModal(type, current, limit) {
+    const modal = document.createElement('div');
+    modal.className = 'modal premium-limit-modal show';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>⚡ Limite ${type} raggiunto</h3>
+                <button class="modal-close" onclick="this.closest('.modal').remove()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="premium-limit-content">
+                    <div class="limit-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="#f59e0b">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <p>Hai raggiunto il limite di <strong>${limit} ${type}</strong> per gli utenti Basic.</p>
+                    <p>Attualmente hai <strong>${current} ${type}</strong> attivi.</p>
+                    <div class="premium-benefits">
+                        <h4>🎯 Con RelaxPoint Premium ottieni:</h4>
+                        <ul>
+                            <li>✅ ${type} illimitati</li>
+                            <li>✅ Foto illimitate</li>
+                            <li>✅ Video fino a 60 secondi</li>
+                            <li>✅ Priority nei risultati di ricerca</li>
+                            <li>✅ Analytics avanzati</li>
+                            <li>✅ CRM integrato</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="this.closest('.modal').remove()">
+                    Chiudi
+                </button>
+                <button class="btn btn-premium" onclick="upgradeToPremium()">
+                    ⚡ Passa a Premium
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+}
+
+function upgradeToPremium() {
+    // TODO: Connect to premium upgrade flow
+    showNotification('Reindirizzamento a pagina Premium...', 'success');
+    setTimeout(() => {
+        window.location.href = '/pages/premium-upgrade.html';
+    }, 1500);
+}
+
+window.upgradeToPremium = upgradeToPremium;
 
 console.log('I Miei Servizi JS - Inizializzazione completata');

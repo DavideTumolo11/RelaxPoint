@@ -20,11 +20,13 @@ class MicrositoEditor {
             podcast: [],
             gallery: []
         };
+        // Dynamic limits based on Premium status
+        this.isPremium = this.checkUserPremiumStatus();
         this.limits = {
             certificazioni: 10,
             corsi: 8,
             podcast: 6,
-            gallery: 15
+            gallery: this.isPremium ? 999 : 10 // Unlimited for Premium, 10 for Basic
         };
         this.init();
     }
@@ -33,10 +35,31 @@ class MicrositoEditor {
         this.setupEventListeners();
         this.setupAutoSave();
         this.setupDragAndDrop();
+        this.setupVideoInput();
         this.loadData();
         this.updateCounters();
         this.addImageSuggestions();
         console.log('Microsito Editor inizializzato');
+    }
+
+    checkUserPremiumStatus() {
+        // TODO: Connect to backend API to get real user premium status
+        // For now, check localStorage or a global variable
+        return localStorage.getItem('userPremium') === 'true' || window.userProfile?.premium === true;
+    }
+
+    setupVideoInput() {
+        const videoInput = document.getElementById('videoInput');
+        if (videoInput) {
+            videoInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    this.handleVideoUpload(file);
+                }
+                // Clear input so same file can be selected again
+                e.target.value = '';
+            });
+        }
     }
 
     addImageSuggestions() {
@@ -801,7 +824,11 @@ class MicrositoEditor {
 
     addIspirazione() {
         if (this.sections.gallery.length >= this.limits.gallery) {
-            this.showNotification('Limite massimo ispirazioni raggiunto (15)', 'warning');
+            if (!this.isPremium) {
+                this.showPremiumLimitModal('foto', this.sections.gallery.length, 10);
+                return;
+            }
+            this.showNotification('Limite massimo ispirazioni raggiunto', 'warning');
             return;
         }
         this.openGalleryAlbumModal();
@@ -1162,6 +1189,145 @@ class MicrositoEditor {
             }, 300);
         }, 4000);
     }
+
+    // ===============================================
+    // PREMIUM LIMITS SYSTEM
+    // ===============================================
+    showPremiumLimitModal(type, current, limit) {
+        const modal = document.createElement('div');
+        modal.className = 'modal-overlay premium-limit-modal show';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>⚡ Limite ${type} raggiunto</h3>
+                    <button class="btn-close" onclick="this.closest('.modal-overlay').remove()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="premium-limit-content">
+                        <div class="limit-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="#f59e0b">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <p>Hai raggiunto il limite di <strong>${limit} ${type}</strong> per gli utenti Basic.</p>
+                        <p>Attualmente hai <strong>${current} ${type}</strong> attive.</p>
+                        <div class="premium-benefits">
+                            <h4>🎯 Con RelaxPoint Premium ottieni:</h4>
+                            <ul>
+                                <li>✅ Foto illimitate</li>
+                                <li>✅ Video fino a 60 secondi</li>
+                                <li>✅ Servizi illimitati</li>
+                                <li>✅ Priority nei risultati di ricerca</li>
+                                <li>✅ Analytics avanzati</li>
+                                <li>✅ CRM integrato</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-cancel" onclick="this.closest('.modal-overlay').remove()">
+                        Chiudi
+                    </button>
+                    <button class="btn-premium" onclick="upgradeToPremium()">
+                        ⚡ Passa a Premium
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+    }
+
+    // ===============================================
+    // GESTIONE VIDEO PRESENTAZIONE
+    // ===============================================
+    uploadVideo() {
+        document.getElementById('videoInput').click();
+    }
+
+    handleVideoUpload(file) {
+        if (!file) return;
+
+        // Check file type
+        if (!file.type.startsWith('video/')) {
+            this.showNotification('Seleziona un file video valido', 'error');
+            return;
+        }
+
+        // Check file size (max 100MB)
+        const maxSize = 100 * 1024 * 1024;
+        if (file.size > maxSize) {
+            this.showNotification('Il video deve essere inferiore a 100MB', 'error');
+            return;
+        }
+
+        // Check video duration based on Premium status
+        const video = document.createElement('video');
+        video.preload = 'metadata';
+
+        video.onloadedmetadata = () => {
+            const duration = video.duration;
+            const maxDuration = this.isPremium ? 60 : 30; // Premium: 60s, Basic: 30s
+
+            if (duration > maxDuration) {
+                if (!this.isPremium) {
+                    this.showPremiumLimitModal('video', `${Math.round(duration)}s`, '30s');
+                } else {
+                    this.showNotification('Video troppo lungo. Massimo 60 secondi per Premium', 'error');
+                }
+                return;
+            }
+
+            // Process video upload
+            this.processVideoUpload(file, duration);
+        };
+
+        video.onerror = () => {
+            this.showNotification('Errore nel caricamento del video', 'error');
+        };
+
+        video.src = URL.createObjectURL(file);
+    }
+
+    processVideoUpload(file, duration) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            const videoPreview = document.querySelector('.video-preview .video-thumbnail');
+            const durationSpan = document.querySelector('.video-duration');
+
+            // Update preview
+            videoPreview.style.backgroundImage = `url(${e.target.result})`;
+            durationSpan.textContent = `${Math.floor(duration / 60)}:${Math.floor(duration % 60).toString().padStart(2, '0')}`;
+
+            // Store video data
+            this.sections.video = {
+                file: file,
+                duration: duration,
+                description: document.getElementById('videoDescription')?.value || ''
+            };
+
+            this.markAsChanged();
+            this.showNotification('Video caricato correttamente', 'success');
+        };
+
+        reader.readAsDataURL(file);
+    }
+
+    removeVideo() {
+        const videoPreview = document.querySelector('.video-preview .video-thumbnail');
+        const durationSpan = document.querySelector('.video-duration');
+
+        // Reset preview
+        videoPreview.style.backgroundImage = "url('/assets/images/Gemini_Generated_Image_1521g81521g81521.png')";
+        durationSpan.textContent = "0:00";
+
+        // Clear video data
+        this.sections.video = {};
+
+        this.markAsChanged();
+        this.showNotification('Video rimosso', 'success');
+    }
 }
 
 // ===============================================
@@ -1262,6 +1428,22 @@ function addIspirazione() {
 
 function closeModal(modalId) {
     window.micrositoProfessionista.closeModal(modalId);
+}
+
+function uploadVideo() {
+    window.micrositoProfessionista.uploadVideo();
+}
+
+function removeVideo() {
+    window.micrositoProfessionista.removeVideo();
+}
+
+function upgradeToPremium() {
+    // TODO: Connect to premium upgrade flow
+    window.micrositoProfessionista.showNotification('Reindirizzamento a pagina Premium...', 'success');
+    setTimeout(() => {
+        window.location.href = '/pages/premium-upgrade.html';
+    }, 1500);
 }
 
 console.log('Microsito Professionista JS caricato completamente');

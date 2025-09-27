@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="utf-8" />
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>CRM Clienti Premium - RelaxPoint</title>
+    <meta content="Gestisci i tuoi clienti con il CRM Premium di RelaxPoint" name="description" />
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/crm-clienti.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="layout-container">
+            <!-- HEADER DASHBOARD -->
+            <header class="site-header">
+                <a class="site-logo" href="/index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+
+                <div class="header-left">
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <!-- LAST MINUTE -->
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <!-- CONTROLLI DESTRA -->
+                <div class="header-right">
+                    <!-- PODCAST -->
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <!-- Ricerca -->
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <!-- Pulsanti -->
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <!-- AVATAR UTENTE -->
+                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                            <img src="" alt="Avatar utente">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- DASHBOARD LAYOUT A DUE COLONNE -->
+                    <div class="dashboard-layout">
+                <!-- SIDEBAR -->
+                <aside class="dashboard-sidebar">
+                    <div class="sidebar-header">
+                        <h3>Business</h3>
+                    </div>
+                    <nav class="sidebar-menu">
+                        <a href="dashboard-professionista.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+
+                        <a href="lastminute.html" class="menu-item lastminute-highlight">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                            </svg>
+                            <span>Last Minute</span>
+                        </a>
+
+                        <a href="prenotazioni.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                            </svg>
+                            <span>Prenotazioni</span>
+                        </a>
+
+                        <a href="chat.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                            </svg>
+                            <span>Chat</span>
+                        </a>
+
+                        <a href="i-miei-servizi.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <span>I Miei Servizi</span>
+                        </a>
+
+                        <a href="microsito-professionista.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                            </svg>
+                            <span>Microsito</span>
+                        </a>
+
+                        <a href="recensioni.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                            </svg>
+                            <span>Recensioni</span>
+                        </a>
+
+                        <a href="calendario.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            </svg>
+                            <span>Calendario</span>
+                        </a>
+
+                        <a href="fatturazione.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path
+                                    d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                            </svg>
+                            <span>Fatturazione</span>
+                        </a>
+
+                        <a href="statistiche.html" class="menu-item premium-feature">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                            </svg>
+                            <span>Statistiche</span>
+                            <span class="premium-badge">PRO</span>
+                        </a>
+
+                        <!-- PREMIUM SECTION -->
+                        <div class="menu-section premium-section">
+                            <div class="section-header">
+                                <span class="section-title">Premium Exclusive</span>
+                            </div>
+
+                            <a href="crm-clienti.html" class="menu-item active premium-feature" data-premium-required="CRM Clienti">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.01 2.01 0 0 0 18 7a2.01 2.01 0 0 0-1.96 1.37L13.5 16H16v6h4z"/>
+                                </svg>
+                                <span>CRM Clienti</span>
+                            </a>
+
+                            <a href="multi-location.html" class="menu-item premium-feature" data-premium-required="Gestione Multi-Location">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                </svg>
+                                <span>Multi-Location</span>
+                            </a>
+
+                            <a href="pubblicita-premium.html" class="menu-item premium-feature" data-premium-required="Sistema Pubblicità">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                                </svg>
+                                <span>Pubblicità</span>
+                            </a>
+
+                            <a href="stories-premium.html" class="menu-item premium-feature" data-premium-required="Stories Premium">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                <span>Stories Premium</span>
+                            </a>
+                        </div>
+
+                        <a href="impostazioni.html" class="menu-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                <path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                            </svg>
+                            <span>Impostazioni</span>
+                        </a>
+                    </nav>
+                </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <main class="dashboard-main">
+                    <div class="crm-premium-container">
+                        <!-- HEADER -->
+                        <div class="crm-premium-header">
+                            <h1>CRM Clienti Premium</h1>
+                            <p>Gestisci i tuoi clienti in modo professionale con strumenti avanzati</p>
+                        </div>
+
+                        <!-- STATS OVERVIEW -->
+                        <div class="crm-stats-grid">
+                            <div class="crm-stat-card">
+                                <div class="crm-stat-icon clients">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.01 2.01 0 0 0 18 7a2.01 2.01 0 0 0-1.96 1.37L13.5 16H16v6h4zM12.5 11.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5S11 9.17 11 10s.67 1.5 1.5 1.5zm1.5 1h-2C10.35 12.5 9 13.85 9 15.5V22h2v-6.5h2V22h2v-6.5c0-1.65-1.35-3-3-3zM7.5 6c1.11 0 2-.89 2-2s-.89-2-2-2-2 .89-2 2 .89 2 2 2zm1.5 1H6c-.83 0-1.5.67-1.5 1.5S5.17 10 6 10h3c.83 0 1.5-.67 1.5-1.5S9.83 7 9 7z"/>
+                                    </svg>
+                                </div>
+                                <div class="crm-stat-content">
+                                    <div class="crm-stat-number">247</div>
+                                    <div class="crm-stat-label">Clienti Totali</div>
+                                    <div class="crm-stat-change positive">+8% vs mese scorso</div>
+                                </div>
+                            </div>
+
+                            <div class="crm-stat-card">
+                                <div class="crm-stat-icon revenue">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                                    </svg>
+                                </div>
+                                <div class="crm-stat-content">
+                                    <div class="crm-stat-number">€4,890</div>
+                                    <div class="crm-stat-label">Ricavi Mensili</div>
+                                    <div class="crm-stat-change positive">+12% vs mese scorso</div>
+                                </div>
+                            </div>
+
+                            <div class="crm-stat-card">
+                                <div class="crm-stat-icon retention">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <div class="crm-stat-content">
+                                    <div class="crm-stat-number">94%</div>
+                                    <div class="crm-stat-label">Retention Rate</div>
+                                    <div class="crm-stat-change positive">+3% vs mese scorso</div>
+                                </div>
+                            </div>
+
+                            <div class="crm-stat-card">
+                                <div class="crm-stat-icon sessions">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                                    </svg>
+                                </div>
+                                <div class="crm-stat-content">
+                                    <div class="crm-stat-number">1,340</div>
+                                    <div class="crm-stat-label">Sessioni Totali</div>
+                                    <div class="crm-stat-change positive">+15% vs mese scorso</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- MAIN CRM CONTENT -->
+                        <div class="crm-main-content">
+                            <!-- TOOLBAR -->
+                            <div class="crm-toolbar">
+                                <div class="crm-toolbar-left">
+                                    <h2 class="crm-title">Gestione Clienti</h2>
+                                    <div class="crm-search">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class="crm-search-icon">
+                                            <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                                        </svg>
+                                        <input type="text" class="crm-search-input" placeholder="Cerca clienti per nome..." id="clientSearch">
+                                    </div>
+                                </div>
+                                <div class="crm-toolbar-right">
+                                    <button class="btn-crm-action secondary" onclick="exportClients()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                        </svg>
+                                        Esporta
+                                    </button>
+                                    <button class="btn-crm-action primary" onclick="openAddClientModal()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                                        </svg>
+                                        Aggiungi Cliente
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- FILTERS -->
+                            <div class="crm-filters">
+                                <div class="filter-group">
+                                    <span class="filter-label">Status:</span>
+                                    <select class="filter-select" id="statusFilter">
+                                        <option value="">Tutti</option>
+                                        <option value="active">Attivi</option>
+                                        <option value="inactive">Inattivi</option>
+                                        <option value="vip">VIP</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <span class="filter-label">Data:</span>
+                                    <select class="filter-select" id="dateFilter">
+                                        <option value="">Tutti</option>
+                                        <option value="week">Ultimi 7 giorni</option>
+                                        <option value="month">Ultimo mese</option>
+                                        <option value="quarter">Ultimi 3 mesi</option>
+                                    </select>
+                                </div>
+                                <div class="filter-group">
+                                    <span class="filter-label">Ordina per:</span>
+                                    <select class="filter-select" id="sortFilter">
+                                        <option value="name">Nome</option>
+                                        <option value="lastVisit">Ultima visita</option>
+                                        <option value="totalSpent">Spesa totale</option>
+                                        <option value="totalSessions">Sessioni totali</option>
+                                    </select>
+                                </div>
+                                <div id="activeFilters"></div>
+                            </div>
+
+                            <!-- CLIENTS TABLE -->
+                            <div class="clients-table-container">
+                                <table class="clients-table" id="clientsTable">
+                                    <thead>
+                                        <tr>
+                                            <th>Cliente</th>
+                                            <th>Status</th>
+                                            <th>Ultima Visita</th>
+                                            <th>Visite</th>
+                                            <th>Azioni</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="clientsTableBody">
+                                        <!-- I clienti verranno inseriti dinamicamente via JavaScript -->
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- PAGINATION -->
+                            <div class="crm-pagination">
+                                <div class="pagination-info">
+                                    Mostrando <span id="showingCount">1-10</span> di <span id="totalCount">247</span> clienti
+                                </div>
+                                <div class="pagination-controls">
+                                    <button class="pagination-btn" id="prevBtn" onclick="previousPage()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                                        </svg>
+                                    </button>
+                                    <span id="pageNumbers"></span>
+                                    <button class="pagination-btn" id="nextBtn" onclick="nextPage()">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        </main>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- ADD/EDIT CLIENT MODAL -->
+    <div id="clientModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Aggiungi Nuovo Cliente</h3>
+                <p class="modal-subtitle">Inserisci i dettagli del cliente</p>
+            </div>
+            <button class="modal-close" onclick="closeClientModal()">&times;</button>
+
+            <form id="clientForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Nome Completo</label>
+                        <input type="text" class="form-input" id="clientName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="clientEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Telefono</label>
+                        <input type="tel" class="form-input" id="clientPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="clientStatus" required>
+                            <option value="active">Attivo</option>
+                            <option value="inactive">Inattivo</option>
+                            <option value="vip">VIP</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label class="form-label">Note</label>
+                        <textarea class="form-textarea" id="clientNotes" placeholder="Inserisci note o preferenze del cliente..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-form-action secondary" onclick="closeClientModal()">Annulla</button>
+                    <button type="submit" class="btn-form-action primary">Salva Cliente</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CLIENT DETAIL MODAL -->
+    <div id="clientDetailModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeClientDetailModal()">&times;</button>
+
+            <div class="client-detail-header">
+                <div class="client-detail-avatar" id="detailAvatar">MR</div>
+                <div class="client-detail-info">
+                    <h2 id="detailName">Marco Rossi</h2>
+                    <div class="client-detail-meta">
+                        <span id="detailEmail">marco.rossi@email.it</span>
+                        <span id="detailPhone">+39 123 456 7890</span>
+                        <span id="detailStatus" class="client-status active">Attivo</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="client-detail-stats">
+                <div class="client-detail-stat">
+                    <div class="client-detail-stat-value" id="detailSessions">23</div>
+                    <div class="client-detail-stat-label">Sessioni Totali</div>
+                </div>
+                <div class="client-detail-stat">
+                    <div class="client-detail-stat-value" id="detailSpent">€1,450</div>
+                    <div class="client-detail-stat-label">Spesa Totale</div>
+                </div>
+                <div class="client-detail-stat">
+                    <div class="client-detail-stat-value" id="detailLastVisit">15 Gen 2024</div>
+                    <div class="client-detail-stat-label">Ultima Visita</div>
+                </div>
+                <div class="client-detail-stat">
+                    <div class="client-detail-stat-value" id="detailRating">4.8</div>
+                    <div class="client-detail-stat-label">Rating Medio</div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn-form-action secondary" onclick="editClient()">Modifica</button>
+                <button class="btn-form-action primary" onclick="closeClientDetailModal()">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/js/dashboard-professionista/crm-clienti.js"></script>
+    <script src="/assets/js/premium-protection.js"></script>
+</body>
+</html>

@@ -19,7 +19,15 @@
 </head>
 
 <body class="admin-body">
-    <div class="admin-container">
+    <!-- SESSION PROTECTION -->
+    <div id="sessionLoader" class="session-loader" style="display: none;">
+        <div class="loader-content">
+            <i class="fas fa-shield-alt fa-spin"></i>
+            <p>Verifica autorizzazioni...</p>
+        </div>
+    </div>
+
+    <div class="admin-container" id="adminContent" style="display: none;">
 
         <!-- HEADER ADMIN -->
         <div class="admin-header">
@@ -29,14 +37,17 @@
             <p class="admin-subtitle">Pannello di controllo completo per la gestione della piattaforma</p>
             <div class="admin-user-info">
                 <span class="admin-badge">
-                    <i class="fas fa-user"></i> Admin: Amministratore
+                    <i class="fas fa-user"></i> Admin: <span id="adminEmail">Amministratore</span>
                 </span>
                 <span class="admin-badge">
-                    <i class="fas fa-clock"></i> Ultimo accesso: Oggi, 14:30
+                    <i class="fas fa-clock"></i> Ultimo accesso: <span id="lastLogin">Oggi, 14:30</span>
                 </span>
                 <span class="admin-badge">
                     <i class="fas fa-server"></i> Server: Online
                 </span>
+                <button class="logout-btn" onclick="logoutAdmin()" title="Logout sicuro">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
             </div>
         </div>
 
@@ -62,6 +73,9 @@
             </button>
             <button class="admin-nav-item" data-section="content">
                 <i class="fas fa-edit"></i> Contenuti
+            </button>
+            <button class="admin-nav-item" data-section="ads">
+                <i class="fas fa-ad"></i> Pubblicità
             </button>
             <button class="admin-nav-item" data-section="system">
                 <i class="fas fa-cogs"></i> Sistema
@@ -613,16 +627,472 @@
             </div>
         </div>
 
+        <!-- SEZIONE PUBBLICITÀ -->
+        <div id="ads-section" class="admin-section">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <i class="fas fa-ad"></i> Gestione Pubblicità
+                </h2>
+                <p class="section-description">
+                    Sistema completo per gestire annunci pubblicitari, zone premium e analytics
+                </p>
+            </div>
+
+            <!-- GESTIONE PUBBLICITÀ COMPLETA -->
+            <div class="ads-management-complete">
+                <div class="section-header">
+                    <h2><i class="fas fa-bullhorn"></i> Gestione Pubblicità & Sponsorizzazioni RelaxPoint</h2>
+                    <p>Sistema completo per gestire sponsorizzazioni premium, approvare contenuti e controllare la pubblicazione su tutto il sito.</p>
+                </div>
+
+                <!-- NOTIFICHE PENDING -->
+                <div class="pending-notifications">
+                    <div class="notification-header">
+                        <h3><i class="fas fa-bell"></i> Richieste in Attesa</h3>
+                        <span class="notification-count">3</span>
+                    </div>
+
+                    <div class="pending-ads-list">
+                        <div class="pending-ad-item urgent">
+                            <div class="ad-preview">
+                                <img src="../assets/images/temp-ad1.jpg" alt="Preview" class="preview-img">
+                            </div>
+                            <div class="ad-info">
+                                <h4>Yoga Weekend Intensive</h4>
+                                <p><strong>Da:</strong> Sara Wellness Coach</p>
+                                <p><strong>Zona richiesta:</strong> Ispirazioni Premium</p>
+                                <p><strong>Durata:</strong> 7 giorni</p>
+                                <span class="time-pending">In attesa da 2 ore</span>
+                            </div>
+                            <div class="ad-actions">
+                                <button class="btn-success" onclick="approveAd(1)">
+                                    <i class="fas fa-check"></i> Approva
+                                </button>
+                                <button class="btn-warning" onclick="reviewAd(1)">
+                                    <i class="fas fa-eye"></i> Controlla
+                                </button>
+                                <button class="btn-danger" onclick="rejectAd(1)">
+                                    <i class="fas fa-times"></i> Rifiuta
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pending-ad-item">
+                            <div class="ad-preview">
+                                <img src="../assets/images/temp-ad2.jpg" alt="Preview" class="preview-img">
+                            </div>
+                            <div class="ad-info">
+                                <h4>Massaggio Rilassante 30% OFF</h4>
+                                <p><strong>Da:</strong> Marco Benessere</p>
+                                <p><strong>Zona richiesta:</strong> Homepage Banner</p>
+                                <p><strong>Durata:</strong> 14 giorni</p>
+                                <span class="time-pending">In attesa da 5 ore</span>
+                            </div>
+                            <div class="ad-actions">
+                                <button class="btn-success" onclick="approveAd(2)">
+                                    <i class="fas fa-check"></i> Approva
+                                </button>
+                                <button class="btn-warning" onclick="reviewAd(2)">
+                                    <i class="fas fa-eye"></i> Controlla
+                                </button>
+                                <button class="btn-danger" onclick="rejectAd(2)">
+                                    <i class="fas fa-times"></i> Rifiuta
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="pending-ad-item">
+                            <div class="ad-preview">
+                                <img src="../assets/images/temp-ad3.jpg" alt="Preview" class="preview-img">
+                            </div>
+                            <div class="ad-info">
+                                <h4>Corso Online Meditazione</h4>
+                                <p><strong>Da:</strong> Elena Mindfulness</p>
+                                <p><strong>Zona richiesta:</strong> Sidebar Servizi</p>
+                                <p><strong>Durata:</strong> 30 giorni</p>
+                                <span class="time-pending">In attesa da 1 giorno</span>
+                            </div>
+                            <div class="ad-actions">
+                                <button class="btn-success" onclick="approveAd(3)">
+                                    <i class="fas fa-check"></i> Approva
+                                </button>
+                                <button class="btn-warning" onclick="reviewAd(3)">
+                                    <i class="fas fa-eye"></i> Controlla
+                                </button>
+                                <button class="btn-danger" onclick="rejectAd(3)">
+                                    <i class="fas fa-times"></i> Rifiuta
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- STATISTICHE PUBBLICITÀ -->
+                <div class="ads-stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-bullhorn"></i></div>
+                        <div class="stat-info">
+                            <h3>24</h3>
+                            <p>Annunci Attivi</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-eye"></i></div>
+                        <div class="stat-info">
+                            <h3>12.5K</h3>
+                            <p>Visualizzazioni</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-mouse-pointer"></i></div>
+                        <div class="stat-info">
+                            <h3>287</h3>
+                            <p>Click Totali</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-euro-sign"></i></div>
+                        <div class="stat-info">
+                            <h3>€1,240</h3>
+                            <p>Guadagni</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONTROLLO GLOBALE -->
+                <div class="global-control-section">
+                    <div class="control-header">
+                        <h3><i class="fas fa-power-off"></i> Controllo Globale Sito</h3>
+                        <div class="master-controls">
+                            <div class="master-switch">
+                                <label class="switch">
+                                    <input type="checkbox" id="master-ads-toggle" checked>
+                                    <span class="slider"></span>
+                                </label>
+                                <span class="switch-label">Tutte le Pubblicità</span>
+                            </div>
+                            <button class="btn-emergency" onclick="emergencyStop()" title="Stop di emergenza per problemi urgenti">
+                                <i class="fas fa-exclamation-triangle"></i> STOP Emergenza
+                            </button>
+                        </div>
+                    </div>
+                    <p class="control-description">
+                        <i class="fas fa-info-circle"></i>
+                        Disattiva immediatamente TUTTE le pubblicità del sito. Utile quando non hai contenuti da mostrare o per manutenzione.
+                    </p>
+
+                    <div class="site-status">
+                        <div class="status-item">
+                            <span class="status-label">Stato Sito:</span>
+                            <span class="status-value active">🟢 Pubblicità Attive</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Ultimo Aggiornamento:</span>
+                            <span class="status-value">Oggi alle 14:32</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GESTIONE ZONE AVANZATA -->
+                <div class="zones-management">
+                    <div class="zones-header">
+                        <h3><i class="fas fa-map-marked-alt"></i> Gestione Zone Pubblicitarie</h3>
+                        <div class="zones-actions">
+                            <button class="btn-secondary" onclick="previewAllZones()">
+                                <i class="fas fa-eye"></i> Preview Sito
+                            </button>
+                            <button class="btn-primary" onclick="addNewZone()">
+                                <i class="fas fa-plus"></i> Nuova Zona
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="zones-grid">
+                        <div class="zone-card premium">
+                            <div class="zone-header">
+                                <h4><i class="fas fa-images"></i> Ispirazioni Premium</h4>
+                                <div class="zone-controls">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider small"></span>
+                                    </label>
+                                    <button class="btn-zone-settings" onclick="configureZone('ispirazioni')">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p>Badge "Premium" sulle card, annunci laterali, offerte speciali</p>
+                            <div class="zone-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">8</span>
+                                    <span class="stat-label">Attivi</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">2.4%</span>
+                                    <span class="stat-label">CTR</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">€340</span>
+                                    <span class="stat-label">Ricavi</span>
+                                </div>
+                            </div>
+                            <div class="zone-actions">
+                                <button class="btn-small primary" onclick="manageZoneContent('ispirazioni')">
+                                    <i class="fas fa-edit"></i> Gestisci (8)
+                                </button>
+                                <button class="btn-small info" onclick="viewZoneAnalytics('ispirazioni')">
+                                    <i class="fas fa-chart-line"></i> Analytics
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="zone-card">
+                            <div class="zone-header">
+                                <h4><i class="fas fa-home"></i> Homepage Hero</h4>
+                                <div class="zone-controls">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider small"></span>
+                                    </label>
+                                    <button class="btn-zone-settings" onclick="configureZone('homepage')">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p>Banner principale, card promozionali, carousel hero</p>
+                            <div class="zone-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Attivi</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">3.1%</span>
+                                    <span class="stat-label">CTR</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">€520</span>
+                                    <span class="stat-label">Ricavi</span>
+                                </div>
+                            </div>
+                            <div class="zone-actions">
+                                <button class="btn-small primary" onclick="manageZoneContent('homepage')">
+                                    <i class="fas fa-edit"></i> Gestisci (5)
+                                </button>
+                                <button class="btn-small info" onclick="viewZoneAnalytics('homepage')">
+                                    <i class="fas fa-chart-line"></i> Analytics
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="zone-card">
+                            <div class="zone-header">
+                                <h4><i class="fas fa-th-list"></i> Sidebar Servizi</h4>
+                                <div class="zone-controls">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider small"></span>
+                                    </label>
+                                    <button class="btn-zone-settings" onclick="configureZone('servizi')">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p>Sidebar promozionali, banner laterali, call-to-action</p>
+                            <div class="zone-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">11</span>
+                                    <span class="stat-label">Attivi</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">1.8%</span>
+                                    <span class="stat-label">CTR</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">€280</span>
+                                    <span class="stat-label">Ricavi</span>
+                                </div>
+                            </div>
+                            <div class="zone-actions">
+                                <button class="btn-small primary" onclick="manageZoneContent('servizi')">
+                                    <i class="fas fa-edit"></i> Gestisci (11)
+                                </button>
+                                <button class="btn-small info" onclick="viewZoneAnalytics('servizi')">
+                                    <i class="fas fa-chart-line"></i> Analytics
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="zone-card disabled">
+                            <div class="zone-header">
+                                <h4><i class="fas fa-mobile-alt"></i> Mobile Footer</h4>
+                                <div class="zone-controls">
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider small"></span>
+                                    </label>
+                                    <button class="btn-zone-settings" onclick="configureZone('mobile-footer')">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p>Banner mobile, popup promozioni, sticky footer</p>
+                            <div class="zone-stats">
+                                <div class="stat-item">
+                                    <span class="stat-number">0</span>
+                                    <span class="stat-label">Attivi</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">-</span>
+                                    <span class="stat-label">CTR</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number">€0</span>
+                                    <span class="stat-label">Ricavi</span>
+                                </div>
+                            </div>
+                            <div class="zone-actions">
+                                <button class="btn-small primary" onclick="manageZoneContent('mobile-footer')">
+                                    <i class="fas fa-edit"></i> Gestisci (0)
+                                </button>
+                                <button class="btn-small secondary" onclick="enableZone('mobile-footer')">
+                                    <i class="fas fa-play"></i> Attiva Zona
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AZIONI RAPIDE -->
+                <div class="quick-actions">
+                    <h3><i class="fas fa-bolt"></i> Azioni Rapide</h3>
+                    <div class="actions-grid">
+                        <button class="action-btn primary" onclick="addNewAd()">
+                            <i class="fas fa-plus"></i>
+                            Crea Nuovo Annuncio
+                        </button>
+                        <button class="action-btn secondary" onclick="viewAnalytics()">
+                            <i class="fas fa-chart-line"></i>
+                            Visualizza Analytics
+                        </button>
+                        <button class="action-btn warning" onclick="manageZones()">
+                            <i class="fas fa-cog"></i>
+                            Gestisci Zone
+                        </button>
+                        <button class="action-btn info" onclick="exportData()">
+                            <i class="fas fa-download"></i>
+                            Esporta Dati
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ANNUNCI RECENTI -->
+                <div class="recent-ads-table">
+                    <h3><i class="fas fa-clock"></i> Annunci Recenti</h3>
+                    <table class="simple-table">
+                        <thead>
+                            <tr>
+                                <th>Annuncio</th>
+                                <th>Zona</th>
+                                <th>Stato</th>
+                                <th>Visualizzazioni</th>
+                                <th>CTR</th>
+                                <th>Azioni</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <strong>Yoga Premium Weekend</strong><br>
+                                    <small>Banner promozionale</small>
+                                </td>
+                                <td>Ispirazioni</td>
+                                <td><span class="status-badge active">Attivo</span></td>
+                                <td>1,234</td>
+                                <td>2.8%</td>
+                                <td>
+                                    <button class="btn-small primary" onclick="editAd(1)">Modifica</button>
+                                    <button class="btn-small danger" onclick="deleteAd(1)">Elimina</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Massaggi Rilassanti 20% Off</strong><br>
+                                    <small>Card nativa</small>
+                                </td>
+                                <td>Homepage</td>
+                                <td><span class="status-badge active">Attivo</span></td>
+                                <td>892</td>
+                                <td>4.1%</td>
+                                <td>
+                                    <button class="btn-small primary" onclick="editAd(2)">Modifica</button>
+                                    <button class="btn-small danger" onclick="deleteAd(2)">Elimina</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Corso Meditazione Online</strong><br>
+                                    <small>Sidebar banner</small>
+                                </td>
+                                <td>Servizi</td>
+                                <td><span class="status-badge paused">In pausa</span></td>
+                                <td>567</td>
+                                <td>1.2%</td>
+                                <td>
+                                    <button class="btn-small primary" onclick="editAd(3)">Modifica</button>
+                                    <button class="btn-small danger" onclick="deleteAd(3)">Elimina</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+
+    <!-- MODAL NUOVO ANNUNCIO -->
+    <div id="create-ad-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Crea Nuovo Annuncio</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>Titolo Annuncio</label>
+                        <input type="text" placeholder="Inserisci il titolo dell'annuncio">
+                    </div>
+                    <div class="form-group">
+                        <label>Zona di Pubblicazione</label>
+                        <select>
+                            <option>Homepage</option>
+                            <option>Ispirazioni</option>
+                            <option>Servizi</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo Annuncio</label>
+                        <select>
+                            <option>Banner Orizzontale</option>
+                            <option>Card Premium</option>
+                            <option>Badge</option>
+                        </select>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn-secondary" onclick="closeModal()">Annulla</button>
+                        <button type="submit" class="btn-primary">Crea Annuncio</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 
     <!-- MODAL GENERICO -->
     <div id="generic-modal" class="modal-overlay">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title" id="modal-title">Titolo Modal</h3>
+                <h3 id="modal-title">Titolo</h3>
                 <button class="modal-close">&times;</button>
             </div>
-            <div id="modal-body">
+            <div class="modal-body" id="modal-body">
                 <!-- Contenuto dinamico -->
             </div>
         </div>
