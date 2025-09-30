@@ -1,11 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "Bash(rm:*)",
-      "Read(//d/Archivio/Desktop/**)",
-      "Bash(grep:*)"
+      "Bash(find:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "model": "claude-sonnet-4-5-20250929"
 }

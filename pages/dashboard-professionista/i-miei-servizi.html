@@ -97,7 +97,7 @@
                             <span class="text-truncate">Accedi</span>
                         </a>
 
-                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                        <a href="#" class="user-avatar-header" id="userAvatar">
                             <img src="" alt="Avatar utente">
                         </a>
                     </div>
@@ -107,6 +107,13 @@
             <!-- MAIN CONTENT -->
             <main class="main-content">
                 <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-professionista.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">I Miei Servizi</span>
+                    </nav>
 
                     <!-- DASHBOARD LAYOUT A DUE COLONNE -->
                     <div class="dashboard-layout">
@@ -198,13 +205,56 @@
                                     <span>Fatturazione</span>
                                 </a>
 
-                                <a href="statistiche.html" class="menu-item">
+                                <a href="statistiche.html" class="menu-item premium-feature"
+                                    data-premium-required="Statistiche Business">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
                                     </svg>
                                     <span>Statistiche</span>
+                                    <span class="premium-badge">PRO</span>
                                 </a>
+
+                                <!-- SEZIONE PREMIUM ESCLUSIVA -->
+                                <div class="menu-section premium-section">
+                                    <div class="section-header">
+                                        <span class="section-title">Premium Exclusive</span>
+                                    </div>
+
+                                    <a href="crm-clienti.html" class="menu-item premium-feature"
+                                        data-premium-required="CRM Clienti">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                        </svg>
+                                        <span>CRM Clienti</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="multi-location.html" class="menu-item premium-feature"
+                                        data-premium-required="Gestione Multi-Location">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Multi-Location</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="pubblicita-premium.html" class="menu-item premium-feature"
+                                        data-premium-required="Sistema Pubblicità">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                                        </svg>
+                                        <span>Pubblicità</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                </div>
 
                                 <a href="impostazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
@@ -226,876 +276,925 @@
                             </nav>
                         </aside>
 
-                        <!-- CONTENUTO PRINCIPALE -->
                         <div class="dashboard-main">
 
-                            <!-- HEADER SEZIONE -->
-                            <div class="page-header">
-                                <h1>I Miei Servizi</h1>
-                                <p class="page-subtitle">Gestisci i tuoi servizi e trattamenti</p>
+                            <!-- HEADER PROFESSIONISTA -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                            id="professionalAvatar">
+                                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                                    </div>
+                                    <div class="user-details">
+                                        <h1>Ciao, <span id="professionalName">Marco</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Gestione dei servizi</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!-- CONTENUTO DASHBOARD -->
-                            <div class="dashboard-content">
+                            <!-- CONTENUTO PRINCIPALE -->
+                            <div class="dashboard-main">
 
-                                <!-- STATISTICHE RAPIDE -->
-                                <div class="content-card stats-overview">
-                                    <div class="stat-item">
-                                        <div class="stat-number" id="totalServices">4</div>
-                                        <div class="stat-label">Servizi Attivi</div>
-                                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-number" id="totalTreatments">12</div>
-                                        <div class="stat-label">Trattamenti</div>
-                                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-number">68</div>
-                                        <div class="stat-label">Prenotazioni Mese</div>
-                                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-number">4.8</div>
-                                        <div class="stat-label">Rating Medio</div>
-                                    </div>
+                                <!-- HEADER SEZIONE -->
+                                <div class="page-header">
+                                    <h1>I Miei Servizi</h1>
+                                    <p class="page-subtitle">Gestisci i tuoi servizi e trattamenti</p>
                                 </div>
 
-                                <!-- AZIONI PRINCIPALI -->
-                                <div class="content-card">
-                                    <div class="actions-header">
-                                        <h2>Gestione Servizi</h2>
-                                        <button class="btn btn-primary" onclick="aggiungiNuovoServizio()">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                            </svg>
-                                            Aggiungi Servizio
-                                        </button>
-                                    </div>
-                                </div>
+                                <!-- CONTENUTO DASHBOARD -->
+                                <div class="dashboard-content">
 
-                                <!-- LISTA SERVIZI -->
-                                <div class="services-container" id="servicesContainer">
-
-                                    <!-- SERVIZIO 1: WELLNESS COACHING -->
-                                    <div class="service-group" data-service-id="wellness-coaching">
-                                        <div class="service-header">
-                                            <div class="service-info">
-                                                <img src="/assets/images/servizi/coaching.jpg" alt="Wellness Coaching"
-                                                    class="service-image">
-                                                <div class="service-details">
-                                                    <h3 class="service-title">Wellness Coaching</h3>
-                                                    <p class="service-description">Coaching personalizzato per il
-                                                        benessere psico-fisico</p>
-                                                    <div class="service-meta">
-                                                        <span class="treatment-count">3 trattamenti</span>
-                                                        <span class="service-status active">Attivo</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="service-actions">
-                                                <button class="btn-edit"
-                                                    onclick="modificaServizio('wellness-coaching')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                    Modifica
-                                                </button>
-                                                <button class="btn-delete"
-                                                    onclick="eliminaServizio('wellness-coaching')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                                                    </svg>
-                                                    Elimina
-                                                </button>
-                                            </div>
+                                    <!-- STATISTICHE RAPIDE -->
+                                    <div class="content-card stats-overview">
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="totalServices">4</div>
+                                            <div class="stat-label">Servizi Attivi</div>
                                         </div>
-
-                                        <!-- TRATTAMENTI DEL SERVIZIO -->
-                                        <div class="treatments-list">
-                                            <div class="treatment-item" data-treatment-id="coaching-trasformativo">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/coaching-trasformativo.jpg"
-                                                        alt="Coaching Trasformativo" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Coaching Trasformativo</h4>
-                                                        <p class="treatment-price">da 80 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60-90 min</span>
-                                                            <span class="treatment-bookings">23 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('coaching-trasformativo')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('coaching-trasformativo')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="sessione-benessere">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/sessione-benessere.jpg"
-                                                        alt="Sessione Benessere" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Sessione Benessere</h4>
-                                                        <p class="treatment-price">da 60 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">45-60 min</span>
-                                                            <span class="treatment-bookings">41 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('sessione-benessere')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('sessione-benessere')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="coaching-nutrizionale">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/coaching-nutrizionale.jpg"
-                                                        alt="Coaching Nutrizionale" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Coaching Nutrizionale</h4>
-                                                        <p class="treatment-price">da 70 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60 min</span>
-                                                            <span class="treatment-bookings">15 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('coaching-nutrizionale')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('coaching-nutrizionale')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <!-- BOTTONE AGGIUNGI TRATTAMENTO -->
-                                            <div class="add-treatment">
-                                                <button class="btn-add-treatment"
-                                                    onclick="aggiungiTrattamento('wellness-coaching')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                    </svg>
-                                                    Aggiungi Trattamento
-                                                </button>
-                                            </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number" id="totalTreatments">12</div>
+                                            <div class="stat-label">Trattamenti</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">68</div>
+                                            <div class="stat-label">Prenotazioni Mese</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">4.8</div>
+                                            <div class="stat-label">Rating Medio</div>
                                         </div>
                                     </div>
 
-                                    <!-- SERVIZIO 2: MASSAGGI -->
-                                    <div class="service-group" data-service-id="massaggi">
-                                        <div class="service-header">
-                                            <div class="service-info">
-                                                <img src="/assets/images/servizi/massaggi.jpg" alt="Massaggi"
-                                                    class="service-image">
-                                                <div class="service-details">
-                                                    <h3 class="service-title">Massaggi</h3>
-                                                    <p class="service-description">Massaggi terapeutici e rilassanti</p>
-                                                    <div class="service-meta">
-                                                        <span class="treatment-count">4 trattamenti</span>
-                                                        <span class="service-status active">Attivo</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="service-actions">
-                                                <button class="btn-edit" onclick="modificaServizio('massaggi')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                    Modifica
-                                                </button>
-                                                <button class="btn-delete" onclick="eliminaServizio('massaggi')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                                                    </svg>
-                                                    Elimina
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="treatments-list">
-                                            <div class="treatment-item" data-treatment-id="massaggio-svedese">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/massaggio-svedese.jpg"
-                                                        alt="Massaggio Svedese" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Massaggio Svedese</h4>
-                                                        <p class="treatment-price">da 70 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60-90 min</span>
-                                                            <span class="treatment-bookings">89 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('massaggio-svedese')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('massaggio-svedese')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="hot-stone">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/hot-stone.jpg"
-                                                        alt="Hot Stone Massage" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Hot Stone Massage</h4>
-                                                        <p class="treatment-price">da 85 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">75-90 min</span>
-                                                            <span class="treatment-bookings">52 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('hot-stone')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('hot-stone')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="massaggio-decontratturante">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/decontratturante.jpg"
-                                                        alt="Massaggio Decontratturante" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Massaggio Decontratturante</h4>
-                                                        <p class="treatment-price">da 75 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60-75 min</span>
-                                                            <span class="treatment-bookings">67 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('massaggio-decontratturante')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('massaggio-decontratturante')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="massaggio-rilassante">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/massaggio-rilassante.jpg"
-                                                        alt="Massaggio Rilassante" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Massaggio Rilassante</h4>
-                                                        <p class="treatment-price">da 65 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60 min</span>
-                                                            <span class="treatment-bookings">94 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('massaggio-rilassante')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('massaggio-rilassante')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="add-treatment">
-                                                <button class="btn-add-treatment"
-                                                    onclick="aggiungiTrattamento('massaggi')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                    </svg>
-                                                    Aggiungi Trattamento
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- SERVIZIO 3: FISIOTERAPIA -->
-                                    <div class="service-group" data-service-id="fisioterapia">
-                                        <div class="service-header">
-                                            <div class="service-info">
-                                                <img src="/assets/images/servizi/fisioterapia.jpg" alt="Fisioterapia"
-                                                    class="service-image">
-                                                <div class="service-details">
-                                                    <h3 class="service-title">Fisioterapia</h3>
-                                                    <p class="service-description">Trattamenti riabilitativi e
-                                                        terapeutici</p>
-                                                    <div class="service-meta">
-                                                        <span class="treatment-count">3 trattamenti</span>
-                                                        <span class="service-status active">Attivo</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="service-actions">
-                                                <button class="btn-edit" onclick="modificaServizio('fisioterapia')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                    Modifica
-                                                </button>
-                                                <button class="btn-delete" onclick="eliminaServizio('fisioterapia')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                                                    </svg>
-                                                    Elimina
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="treatments-list">
-                                            <div class="treatment-item" data-treatment-id="riabilitazione-posturale">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/riabilitazione.jpg"
-                                                        alt="Riabilitazione Posturale" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Riabilitazione Posturale</h4>
-                                                        <p class="treatment-price">da 80 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60 min</span>
-                                                            <span class="treatment-bookings">34 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('riabilitazione-posturale')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('riabilitazione-posturale')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="terapia-manuale">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/terapia-manuale.jpg"
-                                                        alt="Terapia Manuale" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Terapia Manuale</h4>
-                                                        <p class="treatment-price">da 75 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">45-60 min</span>
-                                                            <span class="treatment-bookings">28 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('terapia-manuale')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('terapia-manuale')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="stretching-posturale">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/stretching.jpg"
-                                                        alt="Stretching Posturale" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Stretching Posturale</h4>
-                                                        <p class="treatment-price">da 55 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">45 min</span>
-                                                            <span class="treatment-bookings">19 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('stretching-posturale')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('stretching-posturale')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="add-treatment">
-                                                <button class="btn-add-treatment"
-                                                    onclick="aggiungiTrattamento('fisioterapia')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                    </svg>
-                                                    Aggiungi Trattamento
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- SERVIZIO 4: BEAUTY WELLNESS -->
-                                    <div class="service-group" data-service-id="beauty-wellness">
-                                        <div class="service-header">
-                                            <div class="service-info">
-                                                <img src="/assets/images/servizi/beauty.jpg" alt="Beauty Wellness"
-                                                    class="service-image">
-                                                <div class="service-details">
-                                                    <h3 class="service-title">Beauty Wellness</h3>
-                                                    <p class="service-description">Trattamenti estetici e benessere</p>
-                                                    <div class="service-meta">
-                                                        <span class="treatment-count">2 trattamenti</span>
-                                                        <span class="service-status active">Attivo</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="service-actions">
-                                                <button class="btn-edit" onclick="modificaServizio('beauty-wellness')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
-                                                    </svg>
-                                                    Modifica
-                                                </button>
-                                                <button class="btn-delete" onclick="eliminaServizio('beauty-wellness')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path
-                                                            d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
-                                                    </svg>
-                                                    Elimina
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div class="treatments-list">
-                                            <div class="treatment-item" data-treatment-id="trattamento-viso">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/trattamento-viso.jpg"
-                                                        alt="Trattamento Viso" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Trattamento Viso Purificante</h4>
-                                                        <p class="treatment-price">da 60 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">60 min</span>
-                                                            <span class="treatment-bookings">45 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('trattamento-viso')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('trattamento-viso')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="treatment-item" data-treatment-id="manicure-pedicure">
-                                                <div class="treatment-info">
-                                                    <img src="/assets/images/servizi/manicure.jpg"
-                                                        alt="Manicure Pedicure" class="treatment-image">
-                                                    <div class="treatment-details">
-                                                        <h4 class="treatment-title">Manicure e Pedicure</h4>
-                                                        <p class="treatment-price">da 45 euro</p>
-                                                        <div class="treatment-meta">
-                                                            <span class="treatment-duration">90 min</span>
-                                                            <span class="treatment-bookings">62 prenotazioni</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="treatment-actions">
-                                                    <button class="btn-edit-small"
-                                                        onclick="modificaTrattamento('manicure-pedicure')">
-                                                        Modifica
-                                                    </button>
-                                                    <button class="btn-delete-small"
-                                                        onclick="eliminaTrattamento('manicure-pedicure')">
-                                                        Elimina
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="add-treatment">
-                                                <button class="btn-add-treatment"
-                                                    onclick="aggiungiTrattamento('beauty-wellness')">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                    </svg>
-                                                    Aggiungi Trattamento
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <!-- MODAL MODIFICA SERVIZIO -->
-                                <div class="modal" id="modalModificaServizio">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h3>Modifica Servizio</h3>
-                                            <button class="modal-close" onclick="chiudiModal('modalModificaServizio')">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                    <!-- AZIONI PRINCIPALI -->
+                                    <div class="content-card">
+                                        <div class="actions-header">
+                                            <h2>Gestione Servizi</h2>
+                                            <button class="btn btn-primary" onclick="aggiungiNuovoServizio()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                                                 </svg>
+                                                Aggiungi Servizio
                                             </button>
                                         </div>
-                                        <div class="modal-body">
-                                            <form id="formModificaServizio">
-                                                <div class="form-group">
-                                                    <label for="nomeServizio">Nome Servizio</label>
-                                                    <input type="text" id="nomeServizio" maxlength="50" required>
+                                    </div>
+
+                                    <!-- LISTA SERVIZI -->
+                                    <div class="services-container" id="servicesContainer">
+
+                                        <!-- SERVIZIO 1: WELLNESS COACHING -->
+                                        <div class="service-group" data-service-id="wellness-coaching">
+                                            <div class="service-header">
+                                                <div class="service-info">
+                                                    <img src="/assets/images/servizi/coaching.jpg"
+                                                        alt="Wellness Coaching" class="service-image">
+                                                    <div class="service-details">
+                                                        <h3 class="service-title">Wellness Coaching</h3>
+                                                        <p class="service-description">Coaching personalizzato per il
+                                                            benessere psico-fisico</p>
+                                                        <div class="service-meta">
+                                                            <span class="treatment-count">3 trattamenti</span>
+                                                            <span class="service-status active">Attivo</span>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="descrizioneServizio">Descrizione</label>
-                                                    <textarea id="descrizioneServizio" maxlength="200"
-                                                        rows="3"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="fotoServizio">Foto Servizio</label>
-                                                    <div class="upload-area"
-                                                        onclick="document.getElementById('fotoServizio').click()">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
+                                                <div class="service-actions">
+                                                    <button class="btn-edit"
+                                                        onclick="modificaServizio('wellness-coaching')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
                                                             fill="currentColor">
-                                                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                                                            <path
+                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
                                                         </svg>
-                                                        <p>Clicca per caricare foto</p>
-                                                        <input type="file" id="fotoServizio" accept="image/*"
-                                                            style="display: none;">
+                                                        Modifica
+                                                    </button>
+                                                    <button class="btn-delete"
+                                                        onclick="eliminaServizio('wellness-coaching')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                                                        </svg>
+                                                        Elimina
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <!-- TRATTAMENTI DEL SERVIZIO -->
+                                            <div class="treatments-list">
+                                                <div class="treatment-item" data-treatment-id="coaching-trasformativo">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/coaching-trasformativo.jpg"
+                                                            alt="Coaching Trasformativo" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Coaching Trasformativo</h4>
+                                                            <p class="treatment-price">da 80 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60-90 min</span>
+                                                                <span class="treatment-bookings">23 prenotazioni</span>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="image-preview" id="previewServizio"
-                                                        style="display: none;">
-                                                        <img src="" alt="Preview" id="imgPreviewServizio">
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('coaching-trasformativo')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('coaching-trasformativo')">
+                                                            Elimina
+                                                        </button>
                                                     </div>
                                                 </div>
-                                            </form>
+
+                                                <div class="treatment-item" data-treatment-id="sessione-benessere">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/sessione-benessere.jpg"
+                                                            alt="Sessione Benessere" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Sessione Benessere</h4>
+                                                            <p class="treatment-price">da 60 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">45-60 min</span>
+                                                                <span class="treatment-bookings">41 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('sessione-benessere')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('sessione-benessere')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item" data-treatment-id="coaching-nutrizionale">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/coaching-nutrizionale.jpg"
+                                                            alt="Coaching Nutrizionale" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Coaching Nutrizionale</h4>
+                                                            <p class="treatment-price">da 70 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60 min</span>
+                                                                <span class="treatment-bookings">15 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('coaching-nutrizionale')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('coaching-nutrizionale')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- BOTTONE AGGIUNGI TRATTAMENTO -->
+                                                <div class="add-treatment">
+                                                    <button class="btn-add-treatment"
+                                                        onclick="aggiungiTrattamento('wellness-coaching')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                        </svg>
+                                                        Aggiungi Trattamento
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-secondary"
-                                                onclick="chiudiModal('modalModificaServizio')">Annulla</button>
-                                            <button class="btn btn-primary" onclick="salvaModificheServizio()">Salva
-                                                Modifiche</button>
+
+                                        <!-- SERVIZIO 2: MASSAGGI -->
+                                        <div class="service-group" data-service-id="massaggi">
+                                            <div class="service-header">
+                                                <div class="service-info">
+                                                    <img src="/assets/images/servizi/massaggi.jpg" alt="Massaggi"
+                                                        class="service-image">
+                                                    <div class="service-details">
+                                                        <h3 class="service-title">Massaggi</h3>
+                                                        <p class="service-description">Massaggi terapeutici e rilassanti
+                                                        </p>
+                                                        <div class="service-meta">
+                                                            <span class="treatment-count">4 trattamenti</span>
+                                                            <span class="service-status active">Attivo</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="service-actions">
+                                                    <button class="btn-edit" onclick="modificaServizio('massaggi')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        </svg>
+                                                        Modifica
+                                                    </button>
+                                                    <button class="btn-delete" onclick="eliminaServizio('massaggi')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                                                        </svg>
+                                                        Elimina
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="treatments-list">
+                                                <div class="treatment-item" data-treatment-id="massaggio-svedese">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/massaggio-svedese.jpg"
+                                                            alt="Massaggio Svedese" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Massaggio Svedese</h4>
+                                                            <p class="treatment-price">da 70 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60-90 min</span>
+                                                                <span class="treatment-bookings">89 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('massaggio-svedese')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('massaggio-svedese')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item" data-treatment-id="hot-stone">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/hot-stone.jpg"
+                                                            alt="Hot Stone Massage" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Hot Stone Massage</h4>
+                                                            <p class="treatment-price">da 85 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">75-90 min</span>
+                                                                <span class="treatment-bookings">52 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('hot-stone')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('hot-stone')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item"
+                                                    data-treatment-id="massaggio-decontratturante">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/decontratturante.jpg"
+                                                            alt="Massaggio Decontratturante" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Massaggio Decontratturante</h4>
+                                                            <p class="treatment-price">da 75 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60-75 min</span>
+                                                                <span class="treatment-bookings">67 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('massaggio-decontratturante')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('massaggio-decontratturante')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item" data-treatment-id="massaggio-rilassante">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/massaggio-rilassante.jpg"
+                                                            alt="Massaggio Rilassante" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Massaggio Rilassante</h4>
+                                                            <p class="treatment-price">da 65 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60 min</span>
+                                                                <span class="treatment-bookings">94 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('massaggio-rilassante')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('massaggio-rilassante')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-treatment">
+                                                    <button class="btn-add-treatment"
+                                                        onclick="aggiungiTrattamento('massaggi')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                        </svg>
+                                                        Aggiungi Trattamento
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- SERVIZIO 3: FISIOTERAPIA -->
+                                        <div class="service-group" data-service-id="fisioterapia">
+                                            <div class="service-header">
+                                                <div class="service-info">
+                                                    <img src="/assets/images/servizi/fisioterapia.jpg"
+                                                        alt="Fisioterapia" class="service-image">
+                                                    <div class="service-details">
+                                                        <h3 class="service-title">Fisioterapia</h3>
+                                                        <p class="service-description">Trattamenti riabilitativi e
+                                                            terapeutici</p>
+                                                        <div class="service-meta">
+                                                            <span class="treatment-count">3 trattamenti</span>
+                                                            <span class="service-status active">Attivo</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="service-actions">
+                                                    <button class="btn-edit" onclick="modificaServizio('fisioterapia')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        </svg>
+                                                        Modifica
+                                                    </button>
+                                                    <button class="btn-delete"
+                                                        onclick="eliminaServizio('fisioterapia')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                                                        </svg>
+                                                        Elimina
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="treatments-list">
+                                                <div class="treatment-item"
+                                                    data-treatment-id="riabilitazione-posturale">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/riabilitazione.jpg"
+                                                            alt="Riabilitazione Posturale" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Riabilitazione Posturale</h4>
+                                                            <p class="treatment-price">da 80 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60 min</span>
+                                                                <span class="treatment-bookings">34 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('riabilitazione-posturale')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('riabilitazione-posturale')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item" data-treatment-id="terapia-manuale">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/terapia-manuale.jpg"
+                                                            alt="Terapia Manuale" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Terapia Manuale</h4>
+                                                            <p class="treatment-price">da 75 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">45-60 min</span>
+                                                                <span class="treatment-bookings">28 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('terapia-manuale')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('terapia-manuale')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item" data-treatment-id="stretching-posturale">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/stretching.jpg"
+                                                            alt="Stretching Posturale" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Stretching Posturale</h4>
+                                                            <p class="treatment-price">da 55 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">45 min</span>
+                                                                <span class="treatment-bookings">19 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('stretching-posturale')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('stretching-posturale')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-treatment">
+                                                    <button class="btn-add-treatment"
+                                                        onclick="aggiungiTrattamento('fisioterapia')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                        </svg>
+                                                        Aggiungi Trattamento
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- SERVIZIO 4: BEAUTY WELLNESS -->
+                                        <div class="service-group" data-service-id="beauty-wellness">
+                                            <div class="service-header">
+                                                <div class="service-info">
+                                                    <img src="/assets/images/servizi/beauty.jpg" alt="Beauty Wellness"
+                                                        class="service-image">
+                                                    <div class="service-details">
+                                                        <h3 class="service-title">Beauty Wellness</h3>
+                                                        <p class="service-description">Trattamenti estetici e benessere
+                                                        </p>
+                                                        <div class="service-meta">
+                                                            <span class="treatment-count">2 trattamenti</span>
+                                                            <span class="service-status active">Attivo</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="service-actions">
+                                                    <button class="btn-edit"
+                                                        onclick="modificaServizio('beauty-wellness')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                                                        </svg>
+                                                        Modifica
+                                                    </button>
+                                                    <button class="btn-delete"
+                                                        onclick="eliminaServizio('beauty-wellness')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path
+                                                                d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                                                        </svg>
+                                                        Elimina
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="treatments-list">
+                                                <div class="treatment-item" data-treatment-id="trattamento-viso">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/trattamento-viso.jpg"
+                                                            alt="Trattamento Viso" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Trattamento Viso Purificante
+                                                            </h4>
+                                                            <p class="treatment-price">da 60 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">60 min</span>
+                                                                <span class="treatment-bookings">45 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('trattamento-viso')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('trattamento-viso')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="treatment-item" data-treatment-id="manicure-pedicure">
+                                                    <div class="treatment-info">
+                                                        <img src="/assets/images/servizi/manicure.jpg"
+                                                            alt="Manicure Pedicure" class="treatment-image">
+                                                        <div class="treatment-details">
+                                                            <h4 class="treatment-title">Manicure e Pedicure</h4>
+                                                            <p class="treatment-price">da 45 euro</p>
+                                                            <div class="treatment-meta">
+                                                                <span class="treatment-duration">90 min</span>
+                                                                <span class="treatment-bookings">62 prenotazioni</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="treatment-actions">
+                                                        <button class="btn-edit-small"
+                                                            onclick="modificaTrattamento('manicure-pedicure')">
+                                                            Modifica
+                                                        </button>
+                                                        <button class="btn-delete-small"
+                                                            onclick="eliminaTrattamento('manicure-pedicure')">
+                                                            Elimina
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="add-treatment">
+                                                    <button class="btn-add-treatment"
+                                                        onclick="aggiungiTrattamento('beauty-wellness')">
+                                                        <svg width="16" height="16" viewBox="0 0 24 24"
+                                                            fill="currentColor">
+                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                        </svg>
+                                                        Aggiungi Trattamento
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- MODAL MODIFICA SERVIZIO -->
+                                    <div class="modal" id="modalModificaServizio">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3>Modifica Servizio</h3>
+                                                <button class="modal-close"
+                                                    onclick="chiudiModal('modalModificaServizio')">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="formModificaServizio">
+                                                    <div class="form-group">
+                                                        <label for="nomeServizio">Nome Servizio</label>
+                                                        <input type="text" id="nomeServizio" maxlength="50" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="descrizioneServizio">Descrizione</label>
+                                                        <textarea id="descrizioneServizio" maxlength="200"
+                                                            rows="3"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="fotoServizio">Foto Servizio</label>
+                                                        <div class="upload-area"
+                                                            onclick="document.getElementById('fotoServizio').click()">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                                                            </svg>
+                                                            <p>Clicca per caricare foto</p>
+                                                            <input type="file" id="fotoServizio" accept="image/*"
+                                                                style="display: none;">
+                                                        </div>
+                                                        <div class="image-preview" id="previewServizio"
+                                                            style="display: none;">
+                                                            <img src="" alt="Preview" id="imgPreviewServizio">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary"
+                                                    onclick="chiudiModal('modalModificaServizio')">Annulla</button>
+                                                <button class="btn btn-primary" onclick="salvaModificheServizio()">Salva
+                                                    Modifiche</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- MODAL MODIFICA TRATTAMENTO -->
-                                <div class="modal" id="modalModificaTrattamento">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h3>Modifica Trattamento</h3>
-                                            <button class="modal-close"
-                                                onclick="chiudiModal('modalModificaTrattamento')">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form id="formModificaTrattamento">
-                                                <div class="form-row">
-                                                    <div class="form-group">
-                                                        <label for="nomeTrattamento">Nome Trattamento</label>
-                                                        <input type="text" id="nomeTrattamento" maxlength="50" required>
+                                    <!-- MODAL MODIFICA TRATTAMENTO -->
+                                    <div class="modal" id="modalModificaTrattamento">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3>Modifica Trattamento</h3>
+                                                <button class="modal-close"
+                                                    onclick="chiudiModal('modalModificaTrattamento')">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="formModificaTrattamento">
+                                                    <div class="form-row">
+                                                        <div class="form-group">
+                                                            <label for="nomeTrattamento">Nome Trattamento</label>
+                                                            <input type="text" id="nomeTrattamento" maxlength="50"
+                                                                required>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="servizioAppartenenza">Servizio di
+                                                                Appartenenza</label>
+                                                            <select id="servizioAppartenenza" required>
+                                                                <option value="">Seleziona servizio</option>
+                                                                <option value="wellness-coaching">Wellness Coaching
+                                                                </option>
+                                                                <option value="massaggi">Massaggi</option>
+                                                                <option value="fisioterapia">Fisioterapia</option>
+                                                                <option value="beauty-wellness">Beauty Wellness</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
+
                                                     <div class="form-group">
-                                                        <label for="servizioAppartenenza">Servizio di
-                                                            Appartenenza</label>
-                                                        <select id="servizioAppartenenza" required>
-                                                            <option value="">Seleziona servizio</option>
-                                                            <option value="wellness-coaching">Wellness Coaching</option>
-                                                            <option value="massaggi">Massaggi</option>
-                                                            <option value="fisioterapia">Fisioterapia</option>
-                                                            <option value="beauty-wellness">Beauty Wellness</option>
-                                                        </select>
+                                                        <label for="descrizioneTrattamento">Descrizione</label>
+                                                        <textarea id="descrizioneTrattamento" maxlength="200"
+                                                            rows="3"></textarea>
                                                     </div>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label for="descrizioneTrattamento">Descrizione</label>
-                                                    <textarea id="descrizioneTrattamento" maxlength="200"
-                                                        rows="3"></textarea>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="fotoTrattamento">Foto Trattamento</label>
-                                                    <div class="upload-area"
-                                                        onclick="document.getElementById('fotoTrattamento').click()">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                            fill="currentColor">
-                                                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-                                                        </svg>
-                                                        <p>Clicca per caricare foto</p>
-                                                        <input type="file" id="fotoTrattamento" accept="image/*"
+                                                    <div class="form-group">
+                                                        <label for="fotoTrattamento">Foto Trattamento</label>
+                                                        <div class="upload-area"
+                                                            onclick="document.getElementById('fotoTrattamento').click()">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                                                            </svg>
+                                                            <p>Clicca per caricare foto</p>
+                                                            <input type="file" id="fotoTrattamento" accept="image/*"
+                                                                style="display: none;">
+                                                        </div>
+                                                        <div class="image-preview" id="previewTrattamento"
                                                             style="display: none;">
+                                                            <img src="" alt="Preview" id="imgPreviewTrattamento">
+                                                        </div>
                                                     </div>
-                                                    <div class="image-preview" id="previewTrattamento"
-                                                        style="display: none;">
-                                                        <img src="" alt="Preview" id="imgPreviewTrattamento">
-                                                    </div>
-                                                </div>
 
-                                                <div class="form-row">
-                                                    <div class="form-group">
-                                                        <label for="durataMinima">Durata Minima (min)</label>
-                                                        <select id="durataMinima" required>
-                                                            <option value="30">30 minuti</option>
-                                                            <option value="45">45 minuti</option>
-                                                            <option value="60">60 minuti</option>
-                                                            <option value="75">75 minuti</option>
-                                                            <option value="90">90 minuti</option>
-                                                            <option value="120">120 minuti</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="prezzoBase">Prezzo Base (€)</label>
-                                                        <input type="number" id="prezzoBase" min="20" max="500"
-                                                            required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Modalità Servizio</label>
-                                                    <div class="checkbox-group">
-                                                        <label class="checkbox-item">
-                                                            <input type="checkbox" id="modalitaDomicilio" checked>
-                                                            <span class="checkbox-custom"></span>
-                                                            A domicilio
-                                                        </label>
-                                                        <label class="checkbox-item">
-                                                            <input type="checkbox" id="modalitaStudio">
-                                                            <span class="checkbox-custom"></span>
-                                                            Nel mio studio
-                                                        </label>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label>Durate e Prezzi (max 6 slot)</label>
-                                                    <div class="duration-editor" id="durationEditor">
-                                                        <div class="duration-item">
-                                                            <select class="duration-select">
+                                                    <div class="form-row">
+                                                        <div class="form-group">
+                                                            <label for="durataMinima">Durata Minima (min)</label>
+                                                            <select id="durataMinima" required>
                                                                 <option value="30">30 minuti</option>
                                                                 <option value="45">45 minuti</option>
-                                                                <option value="60" selected>60 minuti</option>
+                                                                <option value="60">60 minuti</option>
                                                                 <option value="75">75 minuti</option>
                                                                 <option value="90">90 minuti</option>
                                                                 <option value="120">120 minuti</option>
-                                                                <option value="180">180 minuti</option>
-                                                                <option value="240">240 minuti</option>
                                                             </select>
-                                                            <input type="number" class="price-input"
-                                                                placeholder="Prezzo €" min="20" max="500" value="70">
-                                                            <button type="button" class="btn-remove-duration"
-                                                                onclick="rimuoviDurata(this)">
-                                                                <svg width="14" height="14" viewBox="0 0 24 24"
-                                                                    fill="currentColor">
-                                                                    <path
-                                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                                </svg>
-                                                            </button>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="prezzoBase">Prezzo Base (€)</label>
+                                                            <input type="number" id="prezzoBase" min="20" max="500"
+                                                                required>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn-add-duration"
-                                                        onclick="aggiungiDurata()">
-                                                        <svg width="14" height="14" viewBox="0 0 24 24"
-                                                            fill="currentColor">
-                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                        </svg>
-                                                        Aggiungi Durata
-                                                    </button>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label>Pacchetti Combo (max 5)</label>
-                                                    <div class="packages-editor" id="packagesEditor">
-                                                        <div class="package-item">
-                                                            <input type="text" class="package-name"
-                                                                placeholder="Nome pacchetto" maxlength="50"
-                                                                value="Trattamento Singolo">
-                                                            <input type="text" class="package-description"
-                                                                placeholder="Descrizione" maxlength="100"
-                                                                value="Massaggio standard">
-                                                            <input type="number" class="package-price"
-                                                                placeholder="Prezzo €" min="20" max="500" value="70">
-                                                            <button type="button" class="btn-remove-package"
-                                                                onclick="rimuoviPacchetto(this)">
-                                                                <svg width="14" height="14" viewBox="0 0 24 24"
-                                                                    fill="currentColor">
-                                                                    <path
-                                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                                </svg>
-                                                            </button>
+                                                    <div class="form-group">
+                                                        <label>Modalità Servizio</label>
+                                                        <div class="checkbox-group">
+                                                            <label class="checkbox-item">
+                                                                <input type="checkbox" id="modalitaDomicilio" checked>
+                                                                <span class="checkbox-custom"></span>
+                                                                A domicilio
+                                                            </label>
+                                                            <label class="checkbox-item">
+                                                                <input type="checkbox" id="modalitaStudio">
+                                                                <span class="checkbox-custom"></span>
+                                                                Nel mio studio
+                                                            </label>
                                                         </div>
                                                     </div>
-                                                    <button type="button" class="btn-add-package"
-                                                        onclick="aggiungiPacchetto()">
-                                                        <svg width="14" height="14" viewBox="0 0 24 24"
-                                                            fill="currentColor">
-                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                        </svg>
-                                                        Aggiungi Pacchetto
-                                                    </button>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label>Servizi Aggiuntivi (max 10)</label>
-                                                    <div class="extras-editor" id="extrasEditor">
-                                                        <div class="extra-item">
-                                                            <input type="text" class="extra-name"
-                                                                placeholder="Nome servizio" maxlength="50"
-                                                                value="Musica personalizzata">
-                                                            <input type="number" class="extra-price"
-                                                                placeholder="Prezzo +€" min="1" max="100" value="5">
-                                                            <button type="button" class="btn-remove-extra"
-                                                                onclick="rimuoviExtra(this)">
-                                                                <svg width="14" height="14" viewBox="0 0 24 24"
-                                                                    fill="currentColor">
-                                                                    <path
-                                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                                </svg>
-                                                            </button>
+                                                    <div class="form-group">
+                                                        <label>Durate e Prezzi (max 6 slot)</label>
+                                                        <div class="duration-editor" id="durationEditor">
+                                                            <div class="duration-item">
+                                                                <select class="duration-select">
+                                                                    <option value="30">30 minuti</option>
+                                                                    <option value="45">45 minuti</option>
+                                                                    <option value="60" selected>60 minuti</option>
+                                                                    <option value="75">75 minuti</option>
+                                                                    <option value="90">90 minuti</option>
+                                                                    <option value="120">120 minuti</option>
+                                                                    <option value="180">180 minuti</option>
+                                                                    <option value="240">240 minuti</option>
+                                                                </select>
+                                                                <input type="number" class="price-input"
+                                                                    placeholder="Prezzo €" min="20" max="500"
+                                                                    value="70">
+                                                                <button type="button" class="btn-remove-duration"
+                                                                    onclick="rimuoviDurata(this)">
+                                                                    <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                        fill="currentColor">
+                                                                        <path
+                                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
                                                         </div>
+                                                        <button type="button" class="btn-add-duration"
+                                                            onclick="aggiungiDurata()">
+                                                            <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                            </svg>
+                                                            Aggiungi Durata
+                                                        </button>
                                                     </div>
-                                                    <button type="button" class="btn-add-extra"
-                                                        onclick="aggiungiExtra()">
-                                                        <svg width="14" height="14" viewBox="0 0 24 24"
-                                                            fill="currentColor">
-                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                        </svg>
-                                                        Aggiungi Servizio
-                                                    </button>
-                                                </div>
 
-                                                <div class="form-group">
-                                                    <label>Benefici (max 8 punti)</label>
-                                                    <div class="benefits-editor" id="benefitsEditor">
-                                                        <div class="benefit-item">
-                                                            <input type="text" placeholder="Inserisci beneficio"
-                                                                maxlength="100">
-                                                            <button type="button" class="btn-remove-benefit"
-                                                                onclick="rimuoviBeneficio(this)">
-                                                                <svg width="14" height="14" viewBox="0 0 24 24"
-                                                                    fill="currentColor">
-                                                                    <path
-                                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                                </svg>
-                                                            </button>
+                                                    <div class="form-group">
+                                                        <label>Pacchetti Combo (max 5)</label>
+                                                        <div class="packages-editor" id="packagesEditor">
+                                                            <div class="package-item">
+                                                                <input type="text" class="package-name"
+                                                                    placeholder="Nome pacchetto" maxlength="50"
+                                                                    value="Trattamento Singolo">
+                                                                <input type="text" class="package-description"
+                                                                    placeholder="Descrizione" maxlength="100"
+                                                                    value="Massaggio standard">
+                                                                <input type="number" class="package-price"
+                                                                    placeholder="Prezzo €" min="20" max="500"
+                                                                    value="70">
+                                                                <button type="button" class="btn-remove-package"
+                                                                    onclick="rimuoviPacchetto(this)">
+                                                                    <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                        fill="currentColor">
+                                                                        <path
+                                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
                                                         </div>
+                                                        <button type="button" class="btn-add-package"
+                                                            onclick="aggiungiPacchetto()">
+                                                            <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                            </svg>
+                                                            Aggiungi Pacchetto
+                                                        </button>
                                                     </div>
-                                                    <button type="button" class="btn-add-benefit"
-                                                        onclick="aggiungiBeneficio()">
-                                                        <svg width="14" height="14" viewBox="0 0 24 24"
-                                                            fill="currentColor">
-                                                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                                        </svg>
-                                                        Aggiungi Beneficio
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-secondary"
-                                                onclick="chiudiModal('modalModificaTrattamento')">Annulla</button>
-                                            <button class="btn btn-primary" onclick="salvaModificheTrattamento()">Salva
-                                                Modifiche</button>
+
+                                                    <div class="form-group">
+                                                        <label>Servizi Aggiuntivi (max 10)</label>
+                                                        <div class="extras-editor" id="extrasEditor">
+                                                            <div class="extra-item">
+                                                                <input type="text" class="extra-name"
+                                                                    placeholder="Nome servizio" maxlength="50"
+                                                                    value="Musica personalizzata">
+                                                                <input type="number" class="extra-price"
+                                                                    placeholder="Prezzo +€" min="1" max="100" value="5">
+                                                                <button type="button" class="btn-remove-extra"
+                                                                    onclick="rimuoviExtra(this)">
+                                                                    <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                        fill="currentColor">
+                                                                        <path
+                                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn-add-extra"
+                                                            onclick="aggiungiExtra()">
+                                                            <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                            </svg>
+                                                            Aggiungi Servizio
+                                                        </button>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Benefici (max 8 punti)</label>
+                                                        <div class="benefits-editor" id="benefitsEditor">
+                                                            <div class="benefit-item">
+                                                                <input type="text" placeholder="Inserisci beneficio"
+                                                                    maxlength="100">
+                                                                <button type="button" class="btn-remove-benefit"
+                                                                    onclick="rimuoviBeneficio(this)">
+                                                                    <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                        fill="currentColor">
+                                                                        <path
+                                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                                    </svg>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                        <button type="button" class="btn-add-benefit"
+                                                            onclick="aggiungiBeneficio()">
+                                                            <svg width="14" height="14" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                            </svg>
+                                                            Aggiungi Beneficio
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary"
+                                                    onclick="chiudiModal('modalModificaTrattamento')">Annulla</button>
+                                                <button class="btn btn-primary"
+                                                    onclick="salvaModificheTrattamento()">Salva
+                                                    Modifiche</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- MODAL NUOVO SERVIZIO -->
-                                <div class="modal" id="modalNuovoServizio">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h3>Nuovo Servizio</h3>
-                                            <button class="modal-close" onclick="chiudiModal('modalNuovoServizio')">
-                                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                                    <path
-                                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form id="formNuovoServizio">
-                                                <div class="form-group">
-                                                    <label for="nuovoNomeServizio">Nome Servizio</label>
-                                                    <input type="text" id="nuovoNomeServizio" maxlength="50"
-                                                        placeholder="es. Aromaterapia" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="nuovaDescrizioneServizio">Descrizione</label>
-                                                    <textarea id="nuovaDescrizioneServizio" maxlength="200" rows="3"
-                                                        placeholder="Descrivi brevemente il servizio"></textarea>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="nuovaFotoServizio">Foto Servizio</label>
-                                                    <div class="upload-area"
-                                                        onclick="document.getElementById('nuovaFotoServizio').click()">
-                                                        <svg width="24" height="24" viewBox="0 0 24 24"
-                                                            fill="currentColor">
-                                                            <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
-                                                        </svg>
-                                                        <p>Clicca per caricare foto</p>
-                                                        <input type="file" id="nuovaFotoServizio" accept="image/*"
+                                    <!-- MODAL NUOVO SERVIZIO -->
+                                    <div class="modal" id="modalNuovoServizio">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h3>Nuovo Servizio</h3>
+                                                <button class="modal-close" onclick="chiudiModal('modalNuovoServizio')">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path
+                                                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="formNuovoServizio">
+                                                    <div class="form-group">
+                                                        <label for="nuovoNomeServizio">Nome Servizio</label>
+                                                        <input type="text" id="nuovoNomeServizio" maxlength="50"
+                                                            placeholder="es. Aromaterapia" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nuovaDescrizioneServizio">Descrizione</label>
+                                                        <textarea id="nuovaDescrizioneServizio" maxlength="200" rows="3"
+                                                            placeholder="Descrivi brevemente il servizio"></textarea>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="nuovaFotoServizio">Foto Servizio</label>
+                                                        <div class="upload-area"
+                                                            onclick="document.getElementById('nuovaFotoServizio').click()">
+                                                            <svg width="24" height="24" viewBox="0 0 24 24"
+                                                                fill="currentColor">
+                                                                <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z" />
+                                                            </svg>
+                                                            <p>Clicca per caricare foto</p>
+                                                            <input type="file" id="nuovaFotoServizio" accept="image/*"
+                                                                style="display: none;">
+                                                        </div>
+                                                        <div class="image-preview" id="previewNuovoServizio"
                                                             style="display: none;">
+                                                            <img src="" alt="Preview" id="imgPreviewNuovoServizio">
+                                                        </div>
                                                     </div>
-                                                    <div class="image-preview" id="previewNuovoServizio"
-                                                        style="display: none;">
-                                                        <img src="" alt="Preview" id="imgPreviewNuovoServizio">
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-secondary"
-                                                onclick="chiudiModal('modalNuovoServizio')">Annulla</button>
-                                            <button class="btn btn-primary" onclick="creaNuovoServizio()">Crea
-                                                Servizio</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-secondary"
+                                                    onclick="chiudiModal('modalNuovoServizio')">Annulla</button>
+                                                <button class="btn btn-primary" onclick="creaNuovoServizio()">Crea
+                                                    Servizio</button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
+                                </div>
                             </div>
+
                         </div>
+
+
                     </div>
                 </div>
             </main>

@@ -104,7 +104,7 @@
                         </a>
 
                         <!-- AVATAR UTENTE -->
-                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                        <a href="#" class="user-avatar-header" id="userAvatar">
                             <img src="" alt="Avatar utente">
                         </a>
                     </div>
@@ -114,6 +114,13 @@
             <!-- MAIN CONTENT -->
             <main class="main-content">
                 <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-professionista.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Calendario</span>
+                    </nav>
 
                     <!-- DASHBOARD LAYOUT A DUE COLONNE -->
                     <div class="dashboard-layout">
@@ -205,13 +212,55 @@
                                     <span>Fatturazione</span>
                                 </a>
 
-                                <a href="statistiche.html" class="menu-item">
+                                <a href="statistiche.html" class="menu-item premium-feature">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
                                     </svg>
                                     <span>Statistiche</span>
+                                    <span class="premium-badge">PRO</span>
                                 </a>
+
+                                <!-- SEZIONE PREMIUM ESCLUSIVA -->
+                                <div class="menu-section premium-section">
+                                    <div class="section-header">
+                                        <span class="section-title">Premium Exclusive</span>
+                                    </div>
+
+                                    <a href="crm-clienti.html" class="menu-item premium-feature"
+                                        data-premium-required="CRM Clienti">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                        </svg>
+                                        <span>CRM Clienti</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="multi-location.html" class="menu-item premium-feature"
+                                        data-premium-required="Gestione Multi-Location">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Multi-Location</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="pubblicita-premium.html" class="menu-item premium-feature"
+                                        data-premium-required="Sistema Pubblicità">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                                        </svg>
+                                        <span>Pubblicità</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                </div>
 
                                 <a href="impostazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
@@ -233,14 +282,26 @@
                             </nav>
                         </aside>
 
+
                         <!-- CONTENUTO PRINCIPALE -->
                         <div class="dashboard-main">
                             <div class="calendar-section">
-                                <!-- BREADCRUMB -->
-                                <div class="breadcrumb">
-                                    <a href="dashboard-professionista.html">Dashboard</a>
-                                    <span class="breadcrumb-separator">/</span>
-                                    <span class="breadcrumb-current">Calendario</span>
+
+                                <!-- HEADER PROFESSIONISTA -->
+                                <div class="user-header">
+                                    <div class="user-info">
+                                        <div class="user-avatar">
+                                            <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                                id="professionalAvatar">
+                                            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                                        </div>
+                                        <div class="user-details">
+                                            <h1>Ciao, <span id="professionalName">Marco</span></h1>
+                                            <div class="user-status">
+                                                <span class="status-badge premium">Calendario</span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- HEADER SEZIONE -->
@@ -589,98 +650,6 @@
                     </div>
             </main>
 
-            <!-- MODAL AGGIUNGI EVENTO -->
-            <div id="addEventModal" class="modal" style="display: none;">
-                <div class="modal-overlay" onclick="closeModal('addEventModal')"></div>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Aggiungi Evento</h3>
-                        <button class="modal-close" onclick="closeModal('addEventModal')">×</button>
-                    </div>
-
-                    <form class="modal-body" id="addEventForm">
-                        <div class="form-group">
-                            <label for="eventTitle">Titolo Evento</label>
-                            <input type="text" id="eventTitle" name="eventTitle" placeholder="es. Appuntamento medico"
-                                required>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="eventDate">Data</label>
-                                <input type="date" id="eventDate" name="eventDate" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="eventTime">Ora</label>
-                                <input type="time" id="eventTime" name="eventTime" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="eventType">Tipo Evento</label>
-                            <select id="eventType" name="eventType" required>
-                                <option value="">Seleziona tipo</option>
-                                <option value="personal">Impegno Personale</option>
-                                <option value="unavailable">Non Disponibile</option>
-                                <option value="break">Pausa</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="eventNotes">Note (opzionale)</label>
-                            <textarea id="eventNotes" name="eventNotes" rows="3"
-                                placeholder="Aggiungi dettagli..."></textarea>
-                        </div>
-                    </form>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn-secondary"
-                            onclick="closeModal('addEventModal')">Annulla</button>
-                        <button type="submit" class="btn-primary" onclick="saveEvent()">Salva Evento</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MODAL MODIFICA SLOT -->
-            <div id="editSlotModal" class="modal" style="display: none;">
-                <div class="modal-overlay" onclick="closeModal('editSlotModal')"></div>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Modifica Disponibilità</h3>
-                        <button class="modal-close" onclick="closeModal('editSlotModal')">×</button>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="slot-info">
-                            <h4 id="slotDateTime">Mercoledì 18 Settembre - 14:00</h4>
-                        </div>
-
-                        <div class="availability-options">
-                            <button class="availability-btn available" onclick="setSlotStatus('available')">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
-                                </svg>
-                                Disponibile
-                            </button>
-
-                            <button class="availability-btn unavailable" onclick="setSlotStatus('unavailable')">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                                </svg>
-                                Non Disponibile
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn-secondary"
-                            onclick="closeModal('editSlotModal')">Annulla</button>
-                        <button type="button" class="btn-primary" onclick="saveSlotChanges()">Salva</button>
-                    </div>
-                </div>
-            </div>
-
             <!-- FOOTER -->
             <footer class="site-footer">
                 <div class="footer-container">
@@ -696,6 +665,98 @@
                     </div>
                 </div>
             </footer>
+        </div>
+    </div>
+
+    <!-- MODAL AGGIUNGI EVENTO -->
+    <div id="addEventModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('addEventModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Aggiungi Evento</h3>
+                <button class="modal-close" onclick="closeModal('addEventModal')">×</button>
+            </div>
+
+            <form class="modal-body" id="addEventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Titolo Evento</label>
+                    <input type="text" id="eventTitle" name="eventTitle" placeholder="es. Appuntamento medico"
+                        required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="eventDate">Data</label>
+                        <input type="date" id="eventDate" name="eventDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventTime">Ora</label>
+                        <input type="time" id="eventTime" name="eventTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventType">Tipo Evento</label>
+                    <select id="eventType" name="eventType" required>
+                        <option value="">Seleziona tipo</option>
+                        <option value="personal">Impegno Personale</option>
+                        <option value="unavailable">Non Disponibile</option>
+                        <option value="break">Pausa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventNotes">Note (opzionale)</label>
+                    <textarea id="eventNotes" name="eventNotes" rows="3"
+                        placeholder="Aggiungi dettagli..."></textarea>
+                </div>
+            </form>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary"
+                    onclick="closeModal('addEventModal')">Annulla</button>
+                <button type="submit" class="btn-primary" onclick="saveEvent()">Salva Evento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL MODIFICA SLOT -->
+    <div id="editSlotModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('editSlotModal')"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Modifica Disponibilità</h3>
+                <button class="modal-close" onclick="closeModal('editSlotModal')">×</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="slot-info">
+                    <h4 id="slotDateTime">Mercoledì 18 Settembre - 14:00</h4>
+                </div>
+
+                <div class="availability-options">
+                    <button class="availability-btn available" onclick="setSlotStatus('available')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                        </svg>
+                        Disponibile
+                    </button>
+
+                    <button class="availability-btn unavailable" onclick="setSlotStatus('unavailable')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                        Non Disponibile
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary"
+                    onclick="closeModal('editSlotModal')">Annulla</button>
+                <button type="button" class="btn-primary" onclick="saveSlotChanges()">Salva</button>
+            </div>
         </div>
     </div>
 

@@ -104,7 +104,7 @@
                         </a>
 
                         <!-- AVATAR UTENTE -->
-                        <a href="#" class="user-avatar-header" id="userAvatar" style="display: none;">
+                        <a href="#" class="user-avatar-header" id="userAvatar">
                             <img src="" alt="Avatar utente">
                         </a>
                     </div>
@@ -212,13 +212,56 @@
                                     <span>Fatturazione</span>
                                 </a>
 
-                                <a href="statistiche.html" class="menu-item">
+                                <a href="statistiche.html" class="menu-item premium-feature"
+                                    data-premium-required="Statistiche Business">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                         class="menu-icon">
                                         <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z" />
                                     </svg>
                                     <span>Statistiche</span>
+                                    <span class="premium-badge">PRO</span>
                                 </a>
+
+                                <!-- SEZIONE PREMIUM ESCLUSIVA -->
+                                <div class="menu-section premium-section">
+                                    <div class="section-header">
+                                        <span class="section-title">Premium Exclusive</span>
+                                    </div>
+
+                                    <a href="crm-clienti.html" class="menu-item premium-feature"
+                                        data-premium-required="CRM Clienti">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                        </svg>
+                                        <span>CRM Clienti</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="multi-location.html" class="menu-item premium-feature"
+                                        data-premium-required="Gestione Multi-Location">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Multi-Location</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="pubblicita-premium.html" class="menu-item premium-feature"
+                                        data-premium-required="Sistema Pubblicità">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                                        </svg>
+                                        <span>Pubblicità</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                </div>
 
                                 <a href="impostazioni.html" class="menu-item">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
@@ -240,372 +283,406 @@
                             </nav>
                         </aside>
 
-                        <!-- CONTENUTO PRINCIPALE -->
                         <div class="dashboard-main">
 
-                            <!-- HEADER SEZIONE -->
-                            <div class="section-header">
-                                <div class="header-content">
-                                    <h1>Le Mie Recensioni</h1>
-                                    <p>Gestisci e rispondi alle recensioni ricevute dai clienti</p>
-                                </div>
-                            </div>
-
-                            <!-- STATISTICHE RECENSIONI -->
-                            <div class="content-card">
-                                <div class="stats-row">
-                                    <div class="stat-item">
-                                        <div class="stat-number">4.8</div>
-                                        <div class="stat-label">Rating Medio</div>
-                                        <div class="stat-stars">★★★★★</div>
+                            <!-- HEADER PROFESSIONISTA -->
+                            <div class="user-header">
+                                <div class="user-info">
+                                    <div class="user-avatar">
+                                        <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
+                                            id="professionalAvatar">
+                                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
                                     </div>
-
-                                    <div class="stat-item">
-                                        <div class="stat-number">127</div>
-                                        <div class="stat-label">Recensioni Totali</div>
-                                        <div class="stat-trend">+12%</div>
-                                    </div>
-
-                                    <div class="stat-item">
-                                        <div class="stat-number">3</div>
-                                        <div class="stat-label">Da Rispondere</div>
-                                        <div class="stat-trend urgent">URGENTE</div>
-                                    </div>
-
-                                    <div class="stat-item">
-                                        <div class="stat-number">15</div>
-                                        <div class="stat-label">Questo Mese</div>
-                                        <div class="stat-trend">+5</div>
+                                    <div class="user-details">
+                                        <h1>Ciao, <span id="professionalName">Marco</span></h1>
+                                        <div class="user-status">
+                                            <span class="status-badge premium">Gestione dei servizi</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- FILTRI -->
-                            <div class="filters-panel">
-                                <div class="filters-content">
-                                    <div class="filter-group">
-                                        <label>Rating</label>
-                                        <select class="filter-select" id="ratingFilter">
-                                            <option value="">Tutti</option>
-                                            <option value="5">5 stelle</option>
-                                            <option value="4">4 stelle</option>
-                                            <option value="3">3 stelle</option>
-                                            <option value="2">2 stelle</option>
-                                            <option value="1">1 stella</option>
-                                        </select>
-                                    </div>
-                                    <div class="filter-group">
-                                        <label>Periodo</label>
-                                        <select class="filter-select" id="periodFilter">
-                                            <option value="">Tutto</option>
-                                            <option value="week">Ultima settimana</option>
-                                            <option value="month">Ultimo mese</option>
-                                            <option value="quarter">Ultimo trimestre</option>
-                                        </select>
-                                    </div>
-                                    <div class="filter-group">
-                                        <label>Stato</label>
-                                        <select class="filter-select" id="statusFilter">
-                                            <option value="">Tutte</option>
-                                            <option value="pending">Da rispondere</option>
-                                            <option value="replied">Risposta inviata</option>
-                                        </select>
-                                    </div>
-                                    <div class="filter-actions">
-                                        <button class="btn-secondary" id="clearFilters">Pulisci</button>
+                            <!-- CONTENUTO PRINCIPALE -->
+                            <div class="dashboard-main">
+
+                                <!-- HEADER SEZIONE -->
+                                <div class="section-header">
+                                    <div class="header-content">
+                                        <h1>Le Mie Recensioni</h1>
+                                        <p>Gestisci e rispondi alle recensioni ricevute dai clienti</p>
                                     </div>
                                 </div>
+
+                                <!-- STATISTICHE RECENSIONI -->
+                                <div class="content-card">
+                                    <div class="stats-row">
+                                        <div class="stat-item">
+                                            <div class="stat-number">4.8</div>
+                                            <div class="stat-label">Rating Medio</div>
+                                            <div class="stat-stars">★★★★★</div>
+                                        </div>
+
+                                        <div class="stat-item">
+                                            <div class="stat-number">127</div>
+                                            <div class="stat-label">Recensioni Totali</div>
+                                            <div class="stat-trend">+12%</div>
+                                        </div>
+
+                                        <div class="stat-item">
+                                            <div class="stat-number">3</div>
+                                            <div class="stat-label">Da Rispondere</div>
+                                            <div class="stat-trend urgent">URGENTE</div>
+                                        </div>
+
+                                        <div class="stat-item">
+                                            <div class="stat-number">15</div>
+                                            <div class="stat-label">Questo Mese</div>
+                                            <div class="stat-trend">+5</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- FILTRI -->
+                                <div class="filters-panel">
+                                    <div class="filters-content">
+                                        <div class="filter-group">
+                                            <label>Rating</label>
+                                            <select class="filter-select" id="ratingFilter">
+                                                <option value="">Tutti</option>
+                                                <option value="5">5 stelle</option>
+                                                <option value="4">4 stelle</option>
+                                                <option value="3">3 stelle</option>
+                                                <option value="2">2 stelle</option>
+                                                <option value="1">1 stella</option>
+                                            </select>
+                                        </div>
+                                        <div class="filter-group">
+                                            <label>Periodo</label>
+                                            <select class="filter-select" id="periodFilter">
+                                                <option value="">Tutto</option>
+                                                <option value="week">Ultima settimana</option>
+                                                <option value="month">Ultimo mese</option>
+                                                <option value="quarter">Ultimo trimestre</option>
+                                            </select>
+                                        </div>
+                                        <div class="filter-group">
+                                            <label>Stato</label>
+                                            <select class="filter-select" id="statusFilter">
+                                                <option value="">Tutte</option>
+                                                <option value="pending">Da rispondere</option>
+                                                <option value="replied">Risposta inviata</option>
+                                            </select>
+                                        </div>
+                                        <div class="filter-actions">
+                                            <button class="btn-secondary" id="clearFilters">Pulisci</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- LISTA RECENSIONI -->
+                                <div class="reviews-list">
+
+                                    <!-- Recensione 1 - Da rispondere -->
+                                    <div class="review-card pending" data-rating="5" data-status="pending"
+                                        data-period="week">
+                                        <div class="review-header">
+                                            <div class="client-info">
+                                                <div class="client-avatar">
+                                                    <img src="/assets/images/avatar-placeholder.jpg" alt="Laura M.">
+                                                </div>
+                                                <div class="client-details">
+                                                    <h4>Laura M.</h4>
+                                                    <div class="review-meta">
+                                                        <div class="rating">
+                                                            <span class="stars">★★★★★</span>
+                                                            <span class="rating-value">5.0</span>
+                                                        </div>
+                                                        <span class="review-date">2 giorni fa</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-status">
+                                                <span class="status-badge pending">Da Rispondere</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-content">
+                                            <div class="service-info">
+                                                <span class="service-name">Massaggio Rilassante Hot Stone</span>
+                                                <span class="service-date">12 gennaio 2025</span>
+                                            </div>
+                                            <p class="review-text">
+                                                Esperienza fantastica! Marco è davvero professionale e il massaggio hot
+                                                stone è stato incredibilmente rilassante. Lo studio è pulito e
+                                                l'atmosfera
+                                                molto accogliente. Consigliatissimo!
+                                            </p>
+                                        </div>
+
+                                        <div class="review-actions">
+                                            <button class="btn-primary" onclick="replyToReview(1)">Rispondi</button>
+                                            <button class="btn-secondary" onclick="reportReview(1)">Segnala</button>
+                                        </div>
+
+                                        <!-- Form risposta (nascosto) -->
+                                        <div class="reply-form" id="replyForm1" style="display: none;">
+                                            <textarea placeholder="Scrivi la tua risposta..." class="reply-textarea"
+                                                maxlength="300"></textarea>
+                                            <div class="char-count">
+                                                <span id="charCount1">0</span>/300 caratteri
+                                            </div>
+                                            <div class="reply-actions">
+                                                <button class="btn-secondary" onclick="cancelReply(1)">Annulla</button>
+                                                <button class="btn-primary" onclick="sendReply(1)">Invia
+                                                    Risposta</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recensione 2 - Con risposta -->
+                                    <div class="review-card replied" data-rating="4" data-status="replied"
+                                        data-period="week">
+                                        <div class="review-header">
+                                            <div class="client-info">
+                                                <div class="client-avatar">
+                                                    <img src="/assets/images/avatar-placeholder.jpg"
+                                                        alt="Alessandro R.">
+                                                </div>
+                                                <div class="client-details">
+                                                    <h4>Alessandro R.</h4>
+                                                    <div class="review-meta">
+                                                        <div class="rating">
+                                                            <span class="stars">★★★★☆</span>
+                                                            <span class="rating-value">4.0</span>
+                                                        </div>
+                                                        <span class="review-date">5 giorni fa</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-status">
+                                                <span class="status-badge replied">Risposta Inviata</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-content">
+                                            <div class="service-info">
+                                                <span class="service-name">Massaggio Decontratturante</span>
+                                                <span class="service-date">8 gennaio 2025</span>
+                                            </div>
+                                            <p class="review-text">
+                                                Buon massaggio, Marco è competente e professionale. Ho sentito
+                                                miglioramento
+                                                per i dolori alla schiena. Unico neo: avrei preferito un ambiente più
+                                                silenzioso.
+                                            </p>
+                                        </div>
+
+                                        <!-- Risposta del professionista -->
+                                        <div class="professional-reply">
+                                            <div class="reply-header">
+                                                <strong>La tua risposta:</strong>
+                                                <span class="reply-date">4 giorni fa</span>
+                                            </div>
+                                            <p class="reply-text">
+                                                Grazie Alessandro per la recensione! Sono felice che il massaggio ti
+                                                abbia
+                                                aiutato con i dolori alla schiena. Prendo nota del feedback
+                                                sull'ambiente e
+                                                migliorerò l'isolamento acustico dello studio. Ti aspetto per il
+                                                prossimo
+                                                appuntamento!
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recensione 3 - Da rispondere -->
+                                    <div class="review-card pending" data-rating="5" data-status="pending"
+                                        data-period="week">
+                                        <div class="review-header">
+                                            <div class="client-info">
+                                                <div class="client-avatar">
+                                                    <img src="/assets/images/avatar-placeholder.jpg" alt="Francesca L.">
+                                                </div>
+                                                <div class="client-details">
+                                                    <h4>Francesca L.</h4>
+                                                    <div class="review-meta">
+                                                        <div class="rating">
+                                                            <span class="stars">★★★★★</span>
+                                                            <span class="rating-value">5.0</span>
+                                                        </div>
+                                                        <span class="review-date">1 settimana fa</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-status">
+                                                <span class="status-badge pending">Da Rispondere</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-content">
+                                            <div class="service-info">
+                                                <span class="service-name">Riflessologia Plantare</span>
+                                                <span class="service-date">4 gennaio 2025</span>
+                                            </div>
+                                            <p class="review-text">
+                                                Prima volta che provo la riflessologia e sono rimasta colpita dai
+                                                risultati!
+                                                Marco è molto preparato e mi ha spiegato tutto il processo. Servizio a
+                                                domicilio perfetto, puntuale e professionale.
+                                            </p>
+                                        </div>
+
+                                        <div class="review-actions">
+                                            <button class="btn-primary" onclick="replyToReview(3)">Rispondi</button>
+                                            <button class="btn-secondary" onclick="reportReview(3)">Segnala</button>
+                                        </div>
+
+                                        <!-- Form risposta (nascosto) -->
+                                        <div class="reply-form" id="replyForm3" style="display: none;">
+                                            <textarea placeholder="Scrivi la tua risposta..." class="reply-textarea"
+                                                maxlength="300"></textarea>
+                                            <div class="char-count">
+                                                <span id="charCount3">0</span>/300 caratteri
+                                            </div>
+                                            <div class="reply-actions">
+                                                <button class="btn-secondary" onclick="cancelReply(3)">Annulla</button>
+                                                <button class="btn-primary" onclick="sendReply(3)">Invia
+                                                    Risposta</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recensione 4 - Negativa da gestire -->
+                                    <div class="review-card negative" data-rating="2" data-status="pending"
+                                        data-period="month">
+                                        <div class="review-header">
+                                            <div class="client-info">
+                                                <div class="client-avatar">
+                                                    <img src="/assets/images/avatar-placeholder.jpg" alt="Roberto C.">
+                                                </div>
+                                                <div class="client-details">
+                                                    <h4>Roberto C.</h4>
+                                                    <div class="review-meta">
+                                                        <div class="rating">
+                                                            <span class="stars">★★☆☆☆</span>
+                                                            <span class="rating-value">2.0</span>
+                                                        </div>
+                                                        <span class="review-date">2 settimane fa</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-status">
+                                                <span class="status-badge pending">Da Rispondere</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-content">
+                                            <div class="service-info">
+                                                <span class="service-name">Massaggio Sportivo</span>
+                                                <span class="service-date">25 dicembre 2024</span>
+                                            </div>
+                                            <p class="review-text">
+                                                Il massaggio non è stato all'altezza delle aspettative. Troppo leggero
+                                                per
+                                                un massaggio sportivo e il professionista sembrava frettoloso. Il prezzo
+                                                non
+                                                è giustificato dalla qualità del servizio.
+                                            </p>
+                                        </div>
+
+                                        <div class="review-actions">
+                                            <button class="btn-primary" onclick="replyToReview(4)">Rispondi</button>
+                                            <button class="btn-secondary" onclick="reportReview(4)">Segnala</button>
+                                        </div>
+
+                                        <!-- Form risposta (nascosto) -->
+                                        <div class="reply-form" id="replyForm4" style="display: none;">
+                                            <textarea placeholder="Scrivi la tua risposta..." class="reply-textarea"
+                                                maxlength="300"></textarea>
+                                            <div class="char-count">
+                                                <span id="charCount4">0</span>/300 caratteri
+                                            </div>
+                                            <div class="reply-actions">
+                                                <button class="btn-secondary" onclick="cancelReply(4)">Annulla</button>
+                                                <button class="btn-primary" onclick="sendReply(4)">Invia
+                                                    Risposta</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recensione 5 - Positiva con risposta -->
+                                    <div class="review-card replied" data-rating="5" data-status="replied"
+                                        data-period="month">
+                                        <div class="review-header">
+                                            <div class="client-info">
+                                                <div class="client-avatar">
+                                                    <img src="/assets/images/avatar-placeholder.jpg" alt="Elena T.">
+                                                </div>
+                                                <div class="client-details">
+                                                    <h4>Elena T.</h4>
+                                                    <div class="review-meta">
+                                                        <div class="rating">
+                                                            <span class="stars">★★★★★</span>
+                                                            <span class="rating-value">5.0</span>
+                                                        </div>
+                                                        <span class="review-date">3 settimane fa</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="review-status">
+                                                <span class="status-badge replied">Risposta Inviata</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="review-content">
+                                            <div class="service-info">
+                                                <span class="service-name">Massaggio Svedese</span>
+                                                <span class="service-date">18 dicembre 2024</span>
+                                            </div>
+                                            <p class="review-text">
+                                                Marco è un professionista eccezionale! Il massaggio è stato perfetto e
+                                                sono
+                                                uscita completamente rilassata. L'ambiente è molto curato e la musica
+                                                rilassante. Sicuramente tornerò presto!
+                                            </p>
+                                        </div>
+
+                                        <!-- Risposta del professionista -->
+                                        <div class="professional-reply">
+                                            <div class="reply-header">
+                                                <strong>La tua risposta:</strong>
+                                                <span class="reply-date">3 settimane fa</span>
+                                            </div>
+                                            <p class="reply-text">
+                                                Grazie Elena per le tue parole così gentili! È sempre un piacere
+                                                lavorare
+                                                con
+                                                clienti che apprezzano il relax e il benessere. Ti aspetto per il
+                                                prossimo
+                                                trattamento!
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- PAGINAZIONE -->
+                                <div class="pagination">
+                                    <button class="pagination-btn" id="prevBtn" disabled>Precedente</button>
+                                    <div class="pagination-numbers">
+                                        <button class="pagination-number active" data-page="1">1</button>
+                                        <button class="pagination-number" data-page="2">2</button>
+                                        <button class="pagination-number" data-page="3">3</button>
+                                        <span class="pagination-dots">...</span>
+                                        <button class="pagination-number" data-page="12">12</button>
+                                    </div>
+                                    <button class="pagination-btn" id="nextBtn">Successivo</button>
+                                </div>
+
                             </div>
-
-                            <!-- LISTA RECENSIONI -->
-                            <div class="reviews-list">
-
-                                <!-- Recensione 1 - Da rispondere -->
-                                <div class="review-card pending" data-rating="5" data-status="pending"
-                                    data-period="week">
-                                    <div class="review-header">
-                                        <div class="client-info">
-                                            <div class="client-avatar">
-                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Laura M.">
-                                            </div>
-                                            <div class="client-details">
-                                                <h4>Laura M.</h4>
-                                                <div class="review-meta">
-                                                    <div class="rating">
-                                                        <span class="stars">★★★★★</span>
-                                                        <span class="rating-value">5.0</span>
-                                                    </div>
-                                                    <span class="review-date">2 giorni fa</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="review-status">
-                                            <span class="status-badge pending">Da Rispondere</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="review-content">
-                                        <div class="service-info">
-                                            <span class="service-name">Massaggio Rilassante Hot Stone</span>
-                                            <span class="service-date">12 gennaio 2025</span>
-                                        </div>
-                                        <p class="review-text">
-                                            Esperienza fantastica! Marco è davvero professionale e il massaggio hot
-                                            stone è stato incredibilmente rilassante. Lo studio è pulito e l'atmosfera
-                                            molto accogliente. Consigliatissimo!
-                                        </p>
-                                    </div>
-
-                                    <div class="review-actions">
-                                        <button class="btn-primary" onclick="replyToReview(1)">Rispondi</button>
-                                        <button class="btn-secondary" onclick="reportReview(1)">Segnala</button>
-                                    </div>
-
-                                    <!-- Form risposta (nascosto) -->
-                                    <div class="reply-form" id="replyForm1" style="display: none;">
-                                        <textarea placeholder="Scrivi la tua risposta..." class="reply-textarea"
-                                            maxlength="300"></textarea>
-                                        <div class="char-count">
-                                            <span id="charCount1">0</span>/300 caratteri
-                                        </div>
-                                        <div class="reply-actions">
-                                            <button class="btn-secondary" onclick="cancelReply(1)">Annulla</button>
-                                            <button class="btn-primary" onclick="sendReply(1)">Invia
-                                                Risposta</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Recensione 2 - Con risposta -->
-                                <div class="review-card replied" data-rating="4" data-status="replied"
-                                    data-period="week">
-                                    <div class="review-header">
-                                        <div class="client-info">
-                                            <div class="client-avatar">
-                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Alessandro R.">
-                                            </div>
-                                            <div class="client-details">
-                                                <h4>Alessandro R.</h4>
-                                                <div class="review-meta">
-                                                    <div class="rating">
-                                                        <span class="stars">★★★★☆</span>
-                                                        <span class="rating-value">4.0</span>
-                                                    </div>
-                                                    <span class="review-date">5 giorni fa</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="review-status">
-                                            <span class="status-badge replied">Risposta Inviata</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="review-content">
-                                        <div class="service-info">
-                                            <span class="service-name">Massaggio Decontratturante</span>
-                                            <span class="service-date">8 gennaio 2025</span>
-                                        </div>
-                                        <p class="review-text">
-                                            Buon massaggio, Marco è competente e professionale. Ho sentito miglioramento
-                                            per i dolori alla schiena. Unico neo: avrei preferito un ambiente più
-                                            silenzioso.
-                                        </p>
-                                    </div>
-
-                                    <!-- Risposta del professionista -->
-                                    <div class="professional-reply">
-                                        <div class="reply-header">
-                                            <strong>La tua risposta:</strong>
-                                            <span class="reply-date">4 giorni fa</span>
-                                        </div>
-                                        <p class="reply-text">
-                                            Grazie Alessandro per la recensione! Sono felice che il massaggio ti abbia
-                                            aiutato con i dolori alla schiena. Prendo nota del feedback sull'ambiente e
-                                            migliorerò l'isolamento acustico dello studio. Ti aspetto per il prossimo
-                                            appuntamento!
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <!-- Recensione 3 - Da rispondere -->
-                                <div class="review-card pending" data-rating="5" data-status="pending"
-                                    data-period="week">
-                                    <div class="review-header">
-                                        <div class="client-info">
-                                            <div class="client-avatar">
-                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Francesca L.">
-                                            </div>
-                                            <div class="client-details">
-                                                <h4>Francesca L.</h4>
-                                                <div class="review-meta">
-                                                    <div class="rating">
-                                                        <span class="stars">★★★★★</span>
-                                                        <span class="rating-value">5.0</span>
-                                                    </div>
-                                                    <span class="review-date">1 settimana fa</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="review-status">
-                                            <span class="status-badge pending">Da Rispondere</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="review-content">
-                                        <div class="service-info">
-                                            <span class="service-name">Riflessologia Plantare</span>
-                                            <span class="service-date">4 gennaio 2025</span>
-                                        </div>
-                                        <p class="review-text">
-                                            Prima volta che provo la riflessologia e sono rimasta colpita dai risultati!
-                                            Marco è molto preparato e mi ha spiegato tutto il processo. Servizio a
-                                            domicilio perfetto, puntuale e professionale.
-                                        </p>
-                                    </div>
-
-                                    <div class="review-actions">
-                                        <button class="btn-primary" onclick="replyToReview(3)">Rispondi</button>
-                                        <button class="btn-secondary" onclick="reportReview(3)">Segnala</button>
-                                    </div>
-
-                                    <!-- Form risposta (nascosto) -->
-                                    <div class="reply-form" id="replyForm3" style="display: none;">
-                                        <textarea placeholder="Scrivi la tua risposta..." class="reply-textarea"
-                                            maxlength="300"></textarea>
-                                        <div class="char-count">
-                                            <span id="charCount3">0</span>/300 caratteri
-                                        </div>
-                                        <div class="reply-actions">
-                                            <button class="btn-secondary" onclick="cancelReply(3)">Annulla</button>
-                                            <button class="btn-primary" onclick="sendReply(3)">Invia
-                                                Risposta</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Recensione 4 - Negativa da gestire -->
-                                <div class="review-card negative" data-rating="2" data-status="pending"
-                                    data-period="month">
-                                    <div class="review-header">
-                                        <div class="client-info">
-                                            <div class="client-avatar">
-                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Roberto C.">
-                                            </div>
-                                            <div class="client-details">
-                                                <h4>Roberto C.</h4>
-                                                <div class="review-meta">
-                                                    <div class="rating">
-                                                        <span class="stars">★★☆☆☆</span>
-                                                        <span class="rating-value">2.0</span>
-                                                    </div>
-                                                    <span class="review-date">2 settimane fa</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="review-status">
-                                            <span class="status-badge pending">Da Rispondere</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="review-content">
-                                        <div class="service-info">
-                                            <span class="service-name">Massaggio Sportivo</span>
-                                            <span class="service-date">25 dicembre 2024</span>
-                                        </div>
-                                        <p class="review-text">
-                                            Il massaggio non è stato all'altezza delle aspettative. Troppo leggero per
-                                            un massaggio sportivo e il professionista sembrava frettoloso. Il prezzo non
-                                            è giustificato dalla qualità del servizio.
-                                        </p>
-                                    </div>
-
-                                    <div class="review-actions">
-                                        <button class="btn-primary" onclick="replyToReview(4)">Rispondi</button>
-                                        <button class="btn-secondary" onclick="reportReview(4)">Segnala</button>
-                                    </div>
-
-                                    <!-- Form risposta (nascosto) -->
-                                    <div class="reply-form" id="replyForm4" style="display: none;">
-                                        <textarea placeholder="Scrivi la tua risposta..." class="reply-textarea"
-                                            maxlength="300"></textarea>
-                                        <div class="char-count">
-                                            <span id="charCount4">0</span>/300 caratteri
-                                        </div>
-                                        <div class="reply-actions">
-                                            <button class="btn-secondary" onclick="cancelReply(4)">Annulla</button>
-                                            <button class="btn-primary" onclick="sendReply(4)">Invia
-                                                Risposta</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Recensione 5 - Positiva con risposta -->
-                                <div class="review-card replied" data-rating="5" data-status="replied"
-                                    data-period="month">
-                                    <div class="review-header">
-                                        <div class="client-info">
-                                            <div class="client-avatar">
-                                                <img src="/assets/images/avatar-placeholder.jpg" alt="Elena T.">
-                                            </div>
-                                            <div class="client-details">
-                                                <h4>Elena T.</h4>
-                                                <div class="review-meta">
-                                                    <div class="rating">
-                                                        <span class="stars">★★★★★</span>
-                                                        <span class="rating-value">5.0</span>
-                                                    </div>
-                                                    <span class="review-date">3 settimane fa</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="review-status">
-                                            <span class="status-badge replied">Risposta Inviata</span>
-                                        </div>
-                                    </div>
-
-                                    <div class="review-content">
-                                        <div class="service-info">
-                                            <span class="service-name">Massaggio Svedese</span>
-                                            <span class="service-date">18 dicembre 2024</span>
-                                        </div>
-                                        <p class="review-text">
-                                            Marco è un professionista eccezionale! Il massaggio è stato perfetto e sono
-                                            uscita completamente rilassata. L'ambiente è molto curato e la musica
-                                            rilassante. Sicuramente tornerò presto!
-                                        </p>
-                                    </div>
-
-                                    <!-- Risposta del professionista -->
-                                    <div class="professional-reply">
-                                        <div class="reply-header">
-                                            <strong>La tua risposta:</strong>
-                                            <span class="reply-date">3 settimane fa</span>
-                                        </div>
-                                        <p class="reply-text">
-                                            Grazie Elena per le tue parole così gentili! È sempre un piacere lavorare
-                                            con
-                                            clienti che apprezzano il relax e il benessere. Ti aspetto per il prossimo
-                                            trattamento!
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <!-- PAGINAZIONE -->
-                            <div class="pagination">
-                                <button class="pagination-btn" id="prevBtn" disabled>Precedente</button>
-                                <div class="pagination-numbers">
-                                    <button class="pagination-number active" data-page="1">1</button>
-                                    <button class="pagination-number" data-page="2">2</button>
-                                    <button class="pagination-number" data-page="3">3</button>
-                                    <span class="pagination-dots">...</span>
-                                    <button class="pagination-number" data-page="12">12</button>
-                                </div>
-                                <button class="pagination-btn" id="nextBtn">Successivo</button>
-                            </div>
-
                         </div>
+
+
                     </div>
                 </div>
             </main>

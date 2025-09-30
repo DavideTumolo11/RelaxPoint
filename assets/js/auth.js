@@ -259,7 +259,7 @@ class AuthManager {
                 const avatarImg = userAvatar.querySelector('img');
                 if (avatarImg) {
                     const basePath = window.location.pathname.includes('/pages/') ?
-                        (window.location.pathname.includes('/dashboard/') ? '../../' : '../') : '';
+                        (window.location.pathname.includes('/dashboard') ? '../../' : '../') : '';
                     avatarImg.src = basePath + this.currentUser.avatar;
                     avatarImg.alt = `${this.currentUser.nome} ${this.currentUser.cognome}`;
                 }
