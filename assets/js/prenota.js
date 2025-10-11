@@ -51,6 +51,12 @@ document.addEventListener('DOMContentLoaded', function () {
             { id: 'hatha-yoga', name: 'Hatha Yoga', price: 40, duration: 75, description: 'Yoga tradizionale e rilassante' },
             { id: 'vinyasa', name: 'Vinyasa Flow', price: 45, duration: 60, description: 'Yoga dinamico e fluido' },
             { id: 'meditation', name: 'Meditazione', price: 35, duration: 45, description: 'Sessioni di meditazione guidata' }
+        ],
+        consulenze: [
+            { id: 'nutrition-basic', name: 'Consulenza Nutrizionale Base', price: 60, duration: 45, description: 'Prima valutazione nutrizionale' },
+            { id: 'nutrition-advanced', name: 'Consulenza Nutrizionale Approfondita', price: 120, duration: 105, description: 'Analisi completa e piano personalizzato' },
+            { id: 'psychology', name: 'Consulenza Psicologica', price: 80, duration: 60, description: 'Supporto psicologico individuale' },
+            { id: 'wellness-coach', name: 'Wellness Coaching', price: 70, duration: 60, description: 'Coaching per il benessere personale' }
         ]
     };
 
@@ -163,7 +169,8 @@ document.addEventListener('DOMContentLoaded', function () {
             beauty: 'Scegli il servizio beauty',
             fisioterapia: 'Scegli il tipo di terapia',
             chef: 'Scegli il servizio culinario',
-            yoga: 'Scegli il tipo di pratica'
+            yoga: 'Scegli il tipo di pratica',
+            consulenze: 'Scegli il tipo di consulenza'
         };
         title.textContent = categoryNames[categoryId] || 'Scegli il servizio';
 
@@ -219,7 +226,11 @@ document.addEventListener('DOMContentLoaded', function () {
             'meal-prep': 'chef-cucina.png',
             'hatha-yoga': 'YogaEndMeditazione.jpeg',
             'vinyasa': 'YogaEndMeditazione.jpeg',
-            'meditation': 'YogaEndMeditazione.jpeg'
+            'meditation': 'YogaEndMeditazione.jpeg',
+            'nutrition-basic': 'consulenze.jpg',
+            'nutrition-advanced': 'consulenze.jpg',
+            'psychology': 'consulenze.jpg',
+            'wellness-coach': 'consulenze.jpg'
         };
         return images[serviceId] || 'default.jpg';
     }
@@ -587,7 +598,8 @@ document.addEventListener('DOMContentLoaded', function () {
             beauty: ['Make-up Artist', 'Hair Stylist', 'Estetista'],
             fisioterapia: ['Fisioterapista', 'Osteopata', 'Terapista'],
             chef: ['Chef Privato', 'Cuoco Specializzato', 'Chef Stellato'],
-            yoga: ['Istruttore Yoga', 'Maestro Meditazione', 'Yoga Teacher']
+            yoga: ['Istruttore Yoga', 'Maestro Meditazione', 'Yoga Teacher'],
+            consulenze: ['Nutrizionista', 'Psicologo', 'Wellness Coach', 'Life Coach', 'Consulente']
         };
 
         if (!bookingState.selectedService) {
@@ -626,7 +638,8 @@ document.addEventListener('DOMContentLoaded', function () {
             beauty: ['Make-up', 'Acconciature', 'Manicure', 'Extension', 'Colorimetria'],
             fisioterapia: ['Cervicale', 'Lombare', 'Riabilitazione', 'Posturale', 'Sportiva'],
             chef: ['Italiana', 'Mediterranea', 'Vegana', 'Gluten-free', 'Gourmet'],
-            yoga: ['Hatha', 'Vinyasa', 'Ashtanga', 'Yin', 'Meditazione']
+            yoga: ['Hatha', 'Vinyasa', 'Ashtanga', 'Yin', 'Meditazione'],
+            consulenze: ['Nutrizione', 'Psicologia', 'Benessere', 'Coaching', 'Sviluppo personale']
         };
 
         const categorySpecs = specs[category] || ['Generico'];

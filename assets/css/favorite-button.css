@@ -1,0 +1,209 @@
+/* ================================================
+   FAVORITE BUTTON - Sistema Cuore Unificato
+   ================================================ */
+
+/* Pulsante Base Cuore */
+.favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-btn:hover {
+    transform: scale(1.1);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.favorite-btn:active {
+    transform: scale(0.95);
+}
+
+/* Icona SVG Cuore */
+.favorite-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Stato Non Attivo (outline) */
+.favorite-btn:not(.active) svg {
+    fill: none;
+    stroke: #ff6b6b;
+    stroke-width: 2;
+}
+
+.favorite-btn:not(.active):hover svg {
+    stroke: #ff5252;
+    transform: scale(1.1);
+}
+
+/* Stato Attivo (pieno) */
+.favorite-btn.active svg {
+    fill: #ff6b6b;
+    stroke: none;
+    animation: heartbeat 0.3s ease;
+}
+
+.favorite-btn.active:hover svg {
+    fill: #ff5252;
+}
+
+/* Animazione Heartbeat */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    75% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Varianti per classi legacy (retrocompatibilità) */
+.massaggi-favorite-btn,
+.yoga-favorite-btn,
+.fitness-favorite-btn,
+.beauty-favorite-btn,
+.chef-favorite-btn,
+.fisio-favorite-btn,
+.escursioni-favorite-btn,
+.gravidanza-favorite-btn,
+.hair-favorite-btn {
+    /* Eredita tutti gli stili da .favorite-btn */
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    color: #ff6b6b;
+}
+
+.massaggi-favorite-btn:hover,
+.yoga-favorite-btn:hover,
+.fitness-favorite-btn:hover,
+.beauty-favorite-btn:hover,
+.chef-favorite-btn:hover,
+.fisio-favorite-btn:hover,
+.escursioni-favorite-btn:hover,
+.gravidanza-favorite-btn:hover,
+.hair-favorite-btn:hover {
+    transform: scale(1.1);
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* SVG in classi legacy */
+.massaggi-favorite-btn svg {
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+.massaggi-favorite-btn:not(.active) svg {
+    fill: none;
+    stroke: #ff6b6b;
+    stroke-width: 2;
+}
+
+.massaggi-favorite-btn.active svg {
+    fill: #ff6b6b;
+    stroke: none;
+    animation: heartbeat 0.3s ease;
+}
+
+/* Unicode hearts per classi legacy */
+.yoga-favorite-btn:not(.active)::before,
+.fitness-favorite-btn:not(.active)::before,
+.beauty-favorite-btn:not(.active)::before,
+.chef-favorite-btn:not(.active)::before,
+.fisio-favorite-btn:not(.active)::before,
+.escursioni-favorite-btn:not(.active)::before,
+.gravidanza-favorite-btn:not(.active)::before,
+.hair-favorite-btn:not(.active)::before {
+    content: '♡';
+    font-size: 22px;
+    color: #ff6b6b;
+}
+
+.yoga-favorite-btn.active::before,
+.fitness-favorite-btn.active::before,
+.beauty-favorite-btn.active::before,
+.chef-favorite-btn.active::before,
+.fisio-favorite-btn.active::before,
+.escursioni-favorite-btn.active::before,
+.gravidanza-favorite-btn.active::before,
+.hair-favorite-btn.active::before {
+    content: '♥';
+    font-size: 22px;
+    color: #ff6b6b;
+    animation: heartbeat 0.3s ease;
+}
+
+/* Override per unicode esistenti */
+.yoga-favorite-btn,
+.fitness-favorite-btn,
+.beauty-favorite-btn,
+.chef-favorite-btn,
+.fisio-favorite-btn,
+.escursioni-favorite-btn,
+.gravidanza-favorite-btn,
+.hair-favorite-btn {
+    font-size: 0; /* Nascondi testo esistente */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .favorite-btn,
+    .massaggi-favorite-btn,
+    .yoga-favorite-btn,
+    .fitness-favorite-btn,
+    .beauty-favorite-btn,
+    .chef-favorite-btn,
+    .fisio-favorite-btn,
+    .escursioni-favorite-btn,
+    .gravidanza-favorite-btn,
+    .hair-favorite-btn {
+        width: 36px;
+        height: 36px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .favorite-btn svg,
+    .massaggi-favorite-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+}

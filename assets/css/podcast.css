@@ -8,14 +8,14 @@
     margin: 20px 0;
     padding: 0;
     position: relative;
-    left: 50%;
-    right: 50%;
+    left: 63%;
+    right: 67%;
     margin-left: calc(-50vw + 20px);
     margin-right: calc(-50vw + 20px);
 }
 
 .podcast-full-width-ad-container {
-    width: 100%;
+    width: 75%;
     max-width: none;
     margin: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

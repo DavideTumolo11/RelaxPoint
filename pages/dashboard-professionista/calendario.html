@@ -212,20 +212,32 @@
                                     <span>Fatturazione</span>
                                 </a>
 
-                                <a href="statistiche.html" class="menu-item premium-feature">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                                        class="menu-icon">
-                                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
-                                    </svg>
-                                    <span>Statistiche</span>
-                                    <span class="premium-badge">PRO</span>
-                                </a>
-
                                 <!-- SEZIONE PREMIUM ESCLUSIVA -->
                                 <div class="menu-section premium-section">
                                     <div class="section-header">
                                         <span class="section-title">Premium Exclusive</span>
                                     </div>
+
+                                    <a href="consulenze.html" class="menu-item premium-feature"
+                                        data-premium-required="Consulenze">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                                        </svg>
+                                        <span>Consulenze</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="statistiche.html" class="menu-item premium-feature"
+                                        data-premium-required="Statistiche Business">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                        </svg>
+                                        <span>Statistiche</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
 
                                     <a href="crm-clienti.html" class="menu-item premium-feature"
                                         data-premium-required="CRM Clienti">
@@ -259,7 +271,6 @@
                                         <span>Pubblicità</span>
                                         <span class="premium-badge">PRO</span>
                                     </a>
-
                                 </div>
 
                                 <a href="impostazioni.html" class="menu-item">
@@ -287,93 +298,108 @@
                         <div class="dashboard-main">
                             <div class="calendar-section">
 
-                                <!-- HEADER PROFESSIONISTA -->
-                                <div class="user-header">
-                                    <div class="user-info">
-                                        <div class="user-avatar">
-                                            <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
-                                                id="professionalAvatar">
-                                            <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+                                <!-- FILTRI TIPO EVENTO -->
+                                <div class="calendar-filters">
+                                    <button class="filter-btn active" data-filter="all" onclick="filterEvents('all')">
+                                        Tutti
+                                    </button>
+                                    <button class="filter-btn" data-filter="classi" onclick="filterEvents('classi')">
+                                        Classi
+                                    </button>
+                                    <button class="filter-btn" data-filter="eventi" onclick="filterEvents('eventi')">
+                                        Eventi
+                                    </button>
+                                    <button class="filter-btn" data-filter="corsi" onclick="filterEvents('corsi')">
+                                        Corsi
+                                    </button>
+                                    <button class="filter-btn" data-filter="onetoone"
+                                        onclick="filterEvents('onetoone')">
+                                        1-to-1
+                                    </button>
+                                </div>
+
+                                <!-- WRAPPER LEGENDA + GOOGLE CALENDAR -->
+                                <div class="calendar-top-section">
+                                    <!-- LEGENDA E CONTROLLI -->
+                                    <div class="calendar-legend-controls">
+                                        <!-- Leggenda -->
+                                        <div class="legend-items">
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background: #10b981;"></div>
+                                                <span>Disponibile</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background: #fbbf24;"></div>
+                                                <span>Quasi Pieno</span>
+                                            </div>
+                                            <div class="legend-item">
+                                                <div class="legend-color" style="background: #ef4444;"></div>
+                                                <span>Pieno</span>
+                                            </div>
                                         </div>
-                                        <div class="user-details">
-                                            <h1>Ciao, <span id="professionalName">Marco</span></h1>
-                                            <div class="user-status">
-                                                <span class="status-badge premium">Calendario</span>
+
+                                        <!-- Controlli -->
+                                        <div class="calendar-controls-inline">
+                                            <button class="btn-secondary btn-compact" onclick="syncCalendar()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                                                </svg>
+                                                Sincronizza
+                                            </button>
+
+                                            <button class="btn-secondary btn-compact" onclick="showBlockPeriodModal()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path
+                                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8 0-1.85.63-3.55 1.69-4.9L16.9 18.31C15.55 19.37 13.85 20 12 20zm6.31-3.1L7.1 5.69C8.45 4.63 10.15 4 12 4c4.42 0 8 3.58 8 8 0 1.85-.63 3.55-1.69 4.9z" />
+                                                </svg>
+                                                Blocca Periodo
+                                            </button>
+
+                                            <button class="btn-primary btn-compact" onclick="showAddEventModal()">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                                                </svg>
+                                                Aggiungi Evento
+                                            </button>
+
+                                            <div class="calendar-navigation">
+                                                <button class="nav-btn" onclick="navigateCalendar('prev')">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                                                    </svg>
+                                                </button>
+                                                <h2 id="currentPeriod">Settimana 38 - Ottobre 2025</h2>
+                                                <button class="nav-btn" onclick="navigateCalendar('next')">
+                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+
+                                            <div class="view-switcher">
+                                                <button class="view-btn" data-view="month"
+                                                    onclick="switchView('month')">Mese</button>
+                                                <button class="view-btn active" data-view="week"
+                                                    onclick="switchView('week')">Settimana</button>
+                                                <button class="view-btn" data-view="day"
+                                                    onclick="switchView('day')">Giorno</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <!-- HEADER SEZIONE -->
-                                <div class="section-header">
-                                    <div class="header-content">
-                                        <h1>Calendario</h1>
-                                        <p>Gestisci disponibilità, prenotazioni e impegni personali</p>
-                                    </div>
-                                    <div class="header-actions">
-                                        <button class="btn-secondary" onclick="syncCalendar()">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path
-                                                    d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-                                            </svg>
-                                            Sincronizza
-                                        </button>
-                                        <button class="btn-primary" onclick="showAddEventModal()">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
-                                            </svg>
-                                            Aggiungi Evento
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <!-- CONTROLLI CALENDARIO -->
-                                <div class="calendar-controls">
-                                    <div class="view-switcher">
-                                        <button class="view-btn" data-view="month"
-                                            onclick="switchView('month')">Mese</button>
-                                        <button class="view-btn active" data-view="week"
-                                            onclick="switchView('week')">Settimana</button>
-                                        <button class="view-btn" data-view="day"
-                                            onclick="switchView('day')">Giorno</button>
-                                    </div>
-
-                                    <div class="calendar-navigation">
-                                        <button class="nav-btn" onclick="navigateCalendar('prev')">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-                                            </svg>
-                                        </button>
-                                        <h2 id="currentPeriod">Settimana 38 - Settembre 2024</h2>
-                                        <button class="nav-btn" onclick="navigateCalendar('next')">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <div class="today-btn">
-                                        <button class="btn-secondary" onclick="goToToday()">Oggi</button>
-                                    </div>
-                                </div>
-
-                                <!-- LEGENDA COLORI -->
-                                <div class="calendar-legend">
-                                    <div class="legend-item">
-                                        <div class="legend-color available"></div>
-                                        <span>Disponibile</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <div class="legend-color booking"></div>
-                                        <span>Prenotazione</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <div class="legend-color lastminute"></div>
-                                        <span>Last Minute</span>
-                                    </div>
-                                    <div class="legend-item">
-                                        <div class="legend-color unavailable"></div>
-                                        <span>Non Disponibile</span>
+                                    <!-- INTEGRAZIONE CALENDARIO -->
+                                    <div class="google-calendar-integration" onclick="openGoogleCalendarModal()">
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"
+                                            style="color: #696DD8;">
+                                            <path
+                                                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z" />
+                                        </svg>
+                                        <div class="gc-content">
+                                            <span class="gc-text">Connetti il tuo calendario</span>
+                                            <span id="googleCalendarBadge" class="connection-badge disconnected">Non
+                                                connesso</span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -606,43 +632,26 @@
                                                 onclick="editSlot(this)"></div>
                                             <div class="calendar-cell unavailable" data-day="sun" data-time="18:00"
                                                 onclick="editSlot(this)"></div>
+
+                                            <!-- 19:00 -->
+                                            <div class="time-slot">19:00</div>
+                                            <div class="calendar-cell available" data-day="mon" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
+                                            <div class="calendar-cell available" data-day="tue" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
+                                            <div class="calendar-cell available" data-day="wed" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
+                                            <div class="calendar-cell available" data-day="thu" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
+                                            <div class="calendar-cell available" data-day="fri" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
+                                            <div class="calendar-cell unavailable" data-day="sat" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
+                                            <div class="calendar-cell unavailable" data-day="sun" data-time="19:00"
+                                                onclick="editSlot(this)"></div>
                                         </div>
                                     </div>
 
-                                </div>
-
-                                <!-- AGENDA GIORNALIERA SIDEBAR -->
-                                <div class="daily-agenda">
-                                    <div class="agenda-header">
-                                        <h3>Oggi - Mercoledì 18 Settembre</h3>
-                                    </div>
-
-                                    <div class="agenda-content">
-                                        <div class="agenda-item booking">
-                                            <div class="agenda-time">10:00</div>
-                                            <div class="agenda-details">
-                                                <div class="agenda-title">Coaching Trasformativo</div>
-                                                <div class="agenda-client">con Laura V.</div>
-                                                <div class="agenda-location">Domicilio - Via Roma 15</div>
-                                            </div>
-                                            <div class="agenda-actions">
-                                                <button class="btn-small"
-                                                    onclick="contactClient('laura_v')">Contatta</button>
-                                            </div>
-                                        </div>
-
-                                        <div class="agenda-item available">
-                                            <div class="agenda-time">14:00</div>
-                                            <div class="agenda-details">
-                                                <div class="agenda-title">Slot Libero</div>
-                                                <div class="agenda-note">Disponibile per prenotazioni</div>
-                                            </div>
-                                            <div class="agenda-actions">
-                                                <button class="btn-small secondary"
-                                                    onclick="blockSlot('14:00')">Blocca</button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                             </div>
@@ -657,8 +666,8 @@
                         <div class="footer-links">
                             <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
                             <a class="footer-link" href="/pages/contatti.html">Contatti</a>
-                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
-                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/termini-condizioni.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy-policy.html">Privacy Policy</a>
                             <a class="footer-link" href="/pages/faq.html">FAQ</a>
                         </div>
                         <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
@@ -668,54 +677,252 @@
         </div>
     </div>
 
-    <!-- MODAL AGGIUNGI EVENTO -->
+    <!-- MODAL AGGIUNGI EVENTO RICORRENTE -->
     <div id="addEventModal" class="modal" style="display: none;">
         <div class="modal-overlay" onclick="closeModal('addEventModal')"></div>
-        <div class="modal-content">
+        <div class="modal-content modal-large">
             <div class="modal-header">
-                <h3>Aggiungi Evento</h3>
+                <h3>Crea Nuovo Evento</h3>
                 <button class="modal-close" onclick="closeModal('addEventModal')">×</button>
             </div>
 
             <form class="modal-body" id="addEventForm">
+                <!-- TIPO EVENTO -->
                 <div class="form-group">
-                    <label for="eventTitle">Titolo Evento</label>
-                    <input type="text" id="eventTitle" name="eventTitle" placeholder="es. Appuntamento medico"
-                        required>
+                    <label>Tipo Evento</label>
+                    <div class="event-type-selector">
+                        <button type="button" class="event-type-btn active" data-type="live"
+                            onclick="selectEventType('live')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                            Live
+                        </button>
+                        <button type="button" class="event-type-btn" data-type="corso"
+                            onclick="selectEventType('corso')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                            </svg>
+                            Corso
+                        </button>
+                    </div>
                 </div>
 
+                <!-- NOME EVENTO -->
+                <div class="form-group">
+                    <label for="eventTitle">Nome Evento *</label>
+                    <input type="text" id="eventTitle" placeholder="es. Yoga Hatha, Massaggio Svedese..." required>
+                </div>
+
+                <!-- MODALITÀ (per Live: Singolo/Ricorrente) -->
+                <div class="form-row" id="liveRecurrenceRow">
+                    <div class="form-group">
+                        <label>Modalità</label>
+                        <div class="recurrence-mode">
+                            <label class="radio-label">
+                                <input type="radio" name="recurrenceMode" value="single" checked
+                                    onchange="toggleRecurrence()">
+                                <span>Singolo</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="recurrenceMode" value="recurring" onchange="toggleRecurrence()">
+                                <span>Ricorrente</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIPO CORSO + MODALITÀ (per Corso: Singolo/Multi + Live/Registrato) -->
+                <div class="form-row" id="corsoConfigRow" style="display: none;">
+                    <div class="form-group">
+                        <label>Tipo Corso</label>
+                        <div class="recurrence-mode">
+                            <label class="radio-label">
+                                <input type="radio" name="corsoType" value="single" checked onchange="toggleCorsoMulti()">
+                                <span>Singolo</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="corsoType" value="multi" onchange="toggleCorsoMulti()">
+                                <span>Multi-Lezione</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Modalità</label>
+                        <div class="recurrence-mode">
+                            <label class="radio-label">
+                                <input type="radio" name="corsoModalita" value="live" checked>
+                                <span>Live</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="corsoModalita" value="recorded">
+                                <span>Registrato</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DATA/ORA SINGOLO -->
+                <div id="singleEventFields">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventDate">Data *</label>
+                            <input type="date" id="eventDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTime">Ora Inizio *</label>
+                            <input type="time" id="eventTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDuration">Durata (min) *</label>
+                            <input type="number" id="eventDuration" value="60" min="15" step="15">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RICORRENZA -->
+                <div id="recurringEventFields" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recurringStart">Data Inizio *</label>
+                            <input type="date" id="recurringStart">
+                        </div>
+                        <div class="form-group">
+                            <label for="recurringEnd">Data Fine *</label>
+                            <input type="date" id="recurringEnd">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Giorni Settimana *</label>
+                        <div class="weekday-selector">
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="1">
+                                <span>Lun</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="2">
+                                <span>Mar</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="3">
+                                <span>Mer</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="4">
+                                <span>Gio</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="5">
+                                <span>Ven</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="6">
+                                <span>Sab</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="weekdays" value="0">
+                                <span>Dom</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recurringTime">Ora Inizio *</label>
+                            <input type="time" id="recurringTime">
+                        </div>
+                        <div class="form-group">
+                            <label for="recurringDuration">Durata (min) *</label>
+                            <input type="number" id="recurringDuration" value="60" min="15" step="15">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- POSTI E PREZZO -->
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="eventDate">Data</label>
-                        <input type="date" id="eventDate" name="eventDate" required>
+                        <label for="eventCapacity">Posti Disponibili (Classe) *</label>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <input type="number" id="eventCapacity" value="10" min="1" style="flex: 1;">
+                            <label class="checkbox-inline-item" style="margin: 0;">
+                                <input type="checkbox" id="unlimitedCapacity" onchange="toggleUnlimitedCapacity()">
+                                <span>Illimitati</span>
+                            </label>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="eventTime">Ora</label>
-                        <input type="time" id="eventTime" name="eventTime" required>
+                        <label for="eventPrice">Prezzo (€) *</label>
+                        <input type="number" id="eventPrice" value="20" min="0" step="0.50">
                     </div>
                 </div>
 
+                <!-- COLORE CATEGORIA -->
                 <div class="form-group">
-                    <label for="eventType">Tipo Evento</label>
-                    <select id="eventType" name="eventType" required>
-                        <option value="">Seleziona tipo</option>
-                        <option value="personal">Impegno Personale</option>
-                        <option value="unavailable">Non Disponibile</option>
-                        <option value="break">Pausa</option>
-                    </select>
+                    <label>Colore Categoria</label>
+                    <div class="color-picker">
+                        <label class="color-option">
+                            <input type="radio" name="eventColor" value="#3b82f6" checked>
+                            <span class="color-circle" style="background: #3b82f6;"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="eventColor" value="#10b981">
+                            <span class="color-circle" style="background: #10b981;"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="eventColor" value="#f59e0b">
+                            <span class="color-circle" style="background: #f59e0b;"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="eventColor" value="#ef4444">
+                            <span class="color-circle" style="background: #ef4444;"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="eventColor" value="#8b5cf6">
+                            <span class="color-circle" style="background: #8b5cf6;"></span>
+                        </label>
+                        <label class="color-option">
+                            <input type="radio" name="eventColor" value="#ec4899">
+                            <span class="color-circle" style="background: #ec4899;"></span>
+                        </label>
+                    </div>
                 </div>
 
+                <!-- CERTIFICATO (solo per Corso) -->
+                <div class="form-group" id="certificateSection" style="display: none;">
+                    <label>Certificato di Completamento</label>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <label class="checkbox-inline-item" style="margin: 0;">
+                            <input type="checkbox" id="corsoCertificateEnabled" onchange="toggleCertificate()">
+                            <span>Abilita certificato</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="certificateMinPresence" style="display: none;">
+                    <label for="corsoMinPresence">% Minima Presenze per Certificato</label>
+                    <input type="number" id="corsoMinPresence" value="80" min="1" max="100">
+                    <small style="color: var(--color-secondary); font-size: 12px;">Es: 80% = almeno 4 su 5 lezioni completate</small>
+                </div>
+
+                <!-- LINK STREAMING (opzionale) -->
                 <div class="form-group">
-                    <label for="eventNotes">Note (opzionale)</label>
-                    <textarea id="eventNotes" name="eventNotes" rows="3"
-                        placeholder="Aggiungi dettagli..."></textarea>
+                    <label for="streamLink">Link Streaming (opzionale)</label>
+                    <input type="url" id="streamLink" placeholder="https://zoom.us/j/... o YouTube/Twitch/ecc.">
+                    <small style="color: var(--color-secondary); font-size: 12px;">Per live online. Puoi aggiungerlo anche dopo.</small>
+                </div>
+
+                <!-- DESCRIZIONE -->
+                <div class="form-group">
+                    <label for="eventDescription">Descrizione (opzionale)</label>
+                    <textarea id="eventDescription" rows="3" placeholder="Aggiungi dettagli sull'evento..."></textarea>
                 </div>
             </form>
 
             <div class="modal-footer">
-                <button type="button" class="btn-secondary"
-                    onclick="closeModal('addEventModal')">Annulla</button>
-                <button type="submit" class="btn-primary" onclick="saveEvent()">Salva Evento</button>
+                <button type="button" class="btn-secondary" onclick="closeModal('addEventModal')">Annulla</button>
+                <button type="button" class="btn-primary" onclick="saveEvent()">Crea Evento</button>
             </div>
         </div>
     </div>
@@ -753,9 +960,629 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn-secondary"
-                    onclick="closeModal('editSlotModal')">Annulla</button>
+                <button type="button" class="btn-secondary" onclick="closeModal('editSlotModal')">Annulla</button>
                 <button type="button" class="btn-primary" onclick="saveSlotChanges()">Salva</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DETTAGLI EVENTO -->
+    <div id="eventDetailsModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('eventDetailsModal')"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <h3 id="eventDetailsTitle">Dettagli Evento</h3>
+                    <span id="recurringBadge" class="recurring-badge" style="display: none;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0 8-3.58 8-8 0-1.57-.46-3.03-1.24-4.26z" />
+                        </svg>
+                        Ricorrente
+                    </span>
+                </div>
+                <button class="modal-close" onclick="closeModal('eventDetailsModal')">×</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- INFO EVENTO -->
+                <div class="event-details-section">
+                    <div class="event-detail-row">
+                        <div class="event-detail-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                            </svg>
+                            Orario
+                        </div>
+                        <div class="event-detail-value" id="eventDetailsTime">09:15 - 10:15</div>
+                    </div>
+
+                    <div class="event-detail-row">
+                        <div class="event-detail-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                            </svg>
+                            Data
+                        </div>
+                        <div class="event-detail-value" id="eventDetailsDate">Lunedì, 15 Ottobre 2025</div>
+                    </div>
+
+                    <div class="event-detail-row">
+                        <div class="event-detail-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                            </svg>
+                            Partecipanti
+                        </div>
+                        <div class="event-detail-value">
+                            <span id="eventDetailsCapacity">6/15 posti</span>
+                            <div class="event-progress" style="margin-top: 8px;">
+                                <div class="event-progress-bar green" id="eventDetailsProgressBar" style="width: 40%">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-detail-row">
+                        <div class="event-detail-label">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z" />
+                            </svg>
+                            Prezzo
+                        </div>
+                        <div class="event-detail-value" id="eventDetailsPrice">€25</div>
+                    </div>
+                </div>
+
+                <!-- LISTA PARTECIPANTI -->
+                <div class="event-details-section">
+                    <h4 style="margin-bottom: 12px; color: var(--color-text);">Partecipanti Iscritti</h4>
+                    <div class="participants-list" id="participantsList">
+                        <!-- Lista dinamica partecipanti -->
+                        <div class="participant-item">
+                            <div class="participant-avatar">MB</div>
+                            <div class="participant-info">
+                                <div class="participant-name">Mario Bianchi</div>
+                                <div class="participant-email">mario.bianchi@email.com</div>
+                            </div>
+                            <button class="btn-icon" title="Contatta">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('eventDetailsModal')">Chiudi</button>
+
+                <!-- PULSANTI PER EVENTI SINGOLI -->
+                <div id="singleEventActions" style="display: none;">
+                    <button type="button" class="btn-danger" onclick="cancelEvent()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                        </svg>
+                        Cancella Evento
+                    </button>
+                    <button type="button" class="btn-primary" onclick="editEvent()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                        </svg>
+                        Modifica Evento
+                    </button>
+                </div>
+
+                <!-- PULSANTI PER EVENTI RICORRENTI -->
+                <div id="recurringEventActions" style="display: none;">
+                    <div class="recurring-actions-group">
+                        <button type="button" class="btn-danger-outline" onclick="showCancelOptions()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+                            </svg>
+                            Cancella
+                        </button>
+                        <button type="button" class="btn-primary" onclick="showEditOptions()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                            </svg>
+                            Modifica
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL BLOCCA PERIODO AVANZATO -->
+    <div id="blockPeriodModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('blockPeriodModal')"></div>
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Blocca Disponibilità</h3>
+                <button class="modal-close" onclick="closeModal('blockPeriodModal')">×</button>
+            </div>
+
+            <div class="modal-body">
+                <p style="font-size: 14px; color: var(--color-secondary); margin-bottom: 20px;">
+                    Configura periodi e orari non disponibili per le prenotazioni.
+                </p>
+
+                <!-- TIPO BLOCCO -->
+                <div class="form-group">
+                    <label>Cosa vuoi bloccare?</label>
+                    <div class="block-type-selector">
+                        <label class="radio-label-block">
+                            <input type="radio" name="blockType" value="date_range" checked
+                                onchange="toggleBlockType()">
+                            <span>📅 Periodo Specifico</span>
+                        </label>
+                        <label class="radio-label-block">
+                            <input type="radio" name="blockType" value="recurring_hours" onchange="toggleBlockType()">
+                            <span>🕐 Orari Ricorrenti</span>
+                        </label>
+                        <label class="radio-label-block">
+                            <input type="radio" name="blockType" value="recurring_days" onchange="toggleBlockType()">
+                            <span>📆 Giorni Ricorrenti</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- BLOCCO PERIODO SPECIFICO -->
+                <div id="blockDateRange" class="block-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="blockStartDate">Data Inizio *</label>
+                            <input type="date" id="blockStartDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="blockEndDate">Data Fine *</label>
+                            <input type="date" id="blockEndDate">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="blockDateFullDay" checked onchange="toggleDateTimeFields()">
+                            Giornata intera
+                        </label>
+                    </div>
+
+                    <div id="blockDateTimeFields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="blockDateStartTime">Ora Inizio</label>
+                                <input type="time" id="blockDateStartTime" value="09:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="blockDateEndTime">Ora Fine</label>
+                                <input type="time" id="blockDateEndTime" value="18:00">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOCCO ORARI RICORRENTI -->
+                <div id="blockRecurringHours" class="block-section" style="display: none;">
+                    <p class="help-text">Esempio: "Tutti i giorni dalle 20:00 alle 05:00"</p>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recurringStartTime">Dalle *</label>
+                            <input type="time" id="recurringStartTime" value="20:00">
+                        </div>
+                        <div class="form-group">
+                            <label for="recurringEndTime">Alle *</label>
+                            <input type="time" id="recurringEndTime" value="05:00">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Applica a:</label>
+                        <div class="weekday-selector">
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="1" checked>
+                                <span>Lun</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="2" checked>
+                                <span>Mar</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="3" checked>
+                                <span>Mer</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="4" checked>
+                                <span>Gio</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="5" checked>
+                                <span>Ven</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="6" checked>
+                                <span>Sab</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="recurringDays" value="0" checked>
+                                <span>Dom</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="recurringValidFrom">Valido da</label>
+                            <input type="date" id="recurringValidFrom">
+                        </div>
+                        <div class="form-group">
+                            <label for="recurringValidTo">Valido fino a</label>
+                            <input type="date" id="recurringValidTo">
+                            <small style="color: var(--color-secondary);">Lascia vuoto per sempre</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOCCO GIORNI RICORRENTI -->
+                <div id="blockRecurringDays" class="block-section" style="display: none;">
+                    <p class="help-text">Esempio: "Tutti i martedì dalle 14:00 alle 18:00"</p>
+
+                    <div class="form-group">
+                        <label>Seleziona giorni *</label>
+                        <div class="weekday-selector">
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="1">
+                                <span>Lun</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="2">
+                                <span>Mar</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="3">
+                                <span>Mer</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="4">
+                                <span>Gio</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="5">
+                                <span>Ven</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="6">
+                                <span>Sab</span>
+                            </label>
+                            <label class="weekday-btn">
+                                <input type="checkbox" name="blockWeekdays" value="0">
+                                <span>Dom</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="blockDayFullDay" checked onchange="toggleDayTimeFields()">
+                            Giornata intera
+                        </label>
+                    </div>
+
+                    <div id="blockDayTimeFields" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="blockDayStartTime">Dalle</label>
+                                <input type="time" id="blockDayStartTime" value="09:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="blockDayEndTime">Alle</label>
+                                <input type="time" id="blockDayEndTime" value="18:00">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="blockDayValidFrom">Valido da</label>
+                            <input type="date" id="blockDayValidFrom">
+                        </div>
+                        <div class="form-group">
+                            <label for="blockDayValidTo">Valido fino a</label>
+                            <input type="date" id="blockDayValidTo">
+                            <small style="color: var(--color-secondary);">Lascia vuoto per sempre</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOTIVO -->
+                <div class="form-group">
+                    <label for="blockReason">Motivo (opzionale)</label>
+                    <input type="text" id="blockReason" placeholder="es. Orario chiusura, Giorno riposo, Vacanze...">
+                </div>
+
+                <!-- ANTEPRIMA -->
+                <div class="block-preview" id="blockPreview" style="display: none;">
+                    <div class="preview-header">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                        </svg>
+                        Riepilogo
+                    </div>
+                    <p id="blockPreviewText"></p>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('blockPeriodModal')">Annulla</button>
+                <button type="button" class="btn-primary" onclick="confirmBlockPeriod()">Salva Blocco</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL OPZIONI MODIFICA EVENTO RICORRENTE -->
+    <div id="editOptionsModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('editOptionsModal')"></div>
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Modifica Evento Ricorrente</h3>
+                <button class="modal-close" onclick="closeModal('editOptionsModal')">×</button>
+            </div>
+
+            <div class="modal-body">
+                <p style="font-size: 14px; color: var(--color-secondary); margin-bottom: 20px;">
+                    Questo evento fa parte di una serie ricorrente. Come vuoi modificarlo?
+                </p>
+
+                <div class="recurring-option-list">
+                    <button class="recurring-option-btn" onclick="editEventInstance()">
+                        <div class="option-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
+                            </svg>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-title">Solo questo evento</div>
+                            <div class="option-description" id="editSingleEventDate">15 Ottobre 2025</div>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="option-arrow">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </button>
+
+                    <button class="recurring-option-btn" onclick="editEventSeries()">
+                        <div class="option-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            </svg>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-title">Tutta la serie</div>
+                            <div class="option-description">Modifica tutti gli eventi ricorrenti</div>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="option-arrow">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('editOptionsModal')">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL OPZIONI CANCELLAZIONE EVENTO RICORRENTE -->
+    <div id="cancelOptionsModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('cancelOptionsModal')"></div>
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h3>Cancella Evento Ricorrente</h3>
+                <button class="modal-close" onclick="closeModal('cancelOptionsModal')">×</button>
+            </div>
+
+            <div class="modal-body">
+                <p style="font-size: 14px; color: var(--color-secondary); margin-bottom: 20px;">
+                    Questo evento fa parte di una serie ricorrente. Come vuoi cancellarlo?
+                </p>
+
+                <div class="recurring-option-list">
+                    <button class="recurring-option-btn danger" onclick="cancelEventInstance()">
+                        <div class="option-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
+                            </svg>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-title">Solo questo evento</div>
+                            <div class="option-description" id="cancelSingleEventDate">15 Ottobre 2025</div>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="option-arrow">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </button>
+
+                    <button class="recurring-option-btn danger" onclick="cancelEventSeries()">
+                        <div class="option-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                            </svg>
+                        </div>
+                        <div class="option-content">
+                            <div class="option-title">Tutta la serie</div>
+                            <div class="option-description">Cancella tutti gli eventi ricorrenti</div>
+                        </div>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="option-arrow">
+                            <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeModal('cancelOptionsModal')">Annulla</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CONNESSIONE CALENDARIO -->
+    <div id="googleCalendarModal" class="modal" style="display: none;">
+        <div class="modal-overlay" onclick="closeModal('googleCalendarModal')"></div>
+        <div class="modal-content modal-medium">
+            <div class="modal-header">
+                <h3>Connetti il tuo Calendario</h3>
+                <button class="modal-close" onclick="closeModal('googleCalendarModal')">×</button>
+            </div>
+
+            <div class="modal-body" id="googleCalendarContent">
+                <!-- STATO: NON CONNESSO -->
+                <div id="gcNotConnected">
+                    <div class="integration-hero">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none"
+                            style="color: var(--color-primary);">
+                            <path
+                                d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"
+                                fill="currentColor" />
+                        </svg>
+                        <h4 style="margin: 16px 0 8px; font-size: 18px; color: var(--color-text);">Sincronizza il tuo
+                            Calendario</h4>
+                        <p style="color: var(--color-secondary); margin-bottom: 24px;">
+                            Scegli quale calendario connettere per sincronizzare automaticamente i tuoi eventi con
+                            RelaxPoint.
+                        </p>
+                    </div>
+
+                    <!-- SCELTA CALENDARIO -->
+                    <div class="calendar-choice-section" style="margin-bottom: 24px;">
+                        <h5 style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--color-text);">
+                            Scegli il tuo calendario:</h5>
+                        <div style="display: flex; gap: 12px;">
+                            <button class="calendar-provider-btn" onclick="selectCalendarProvider('google')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"
+                                        fill="#4285F4" />
+                                </svg>
+                                <span>Google Calendar</span>
+                            </button>
+                            <button class="calendar-provider-btn" onclick="selectCalendarProvider('apple')">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path
+                                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"
+                                        fill="#000000" />
+                                </svg>
+                                <span>Apple Calendar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="integration-benefits">
+                        <h5 style="font-size: 14px; font-weight: 600; margin-bottom: 12px; color: var(--color-text);">
+                            Vantaggi:</h5>
+                        <ul style="list-style: none; padding: 0; margin: 0;">
+                            <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                    style="color: #10b981; flex-shrink: 0; margin-top: 2px;">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                <span style="color: var(--color-text); font-size: 14px;">Sincronizzazione bidirezionale
+                                    in tempo reale</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                    style="color: #10b981; flex-shrink: 0; margin-top: 2px;">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                <span style="color: var(--color-text); font-size: 14px;">Promemoria e notifiche
+                                    automatiche</span>
+                            </li>
+                            <li style="display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px;">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+                                    style="color: #10b981; flex-shrink: 0; margin-top: 2px;">
+                                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                                </svg>
+                                <span style="color: var(--color-text); font-size: 14px;">Gestisci tutto da un unico
+                                    calendario</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="integration-steps"
+                        style="margin-top: 24px; padding: 16px; background: rgba(105, 109, 216, 0.05); border-radius: 8px; border-left: 3px solid var(--color-primary);">
+                        <h5 style="font-size: 13px; font-weight: 600; margin-bottom: 8px; color: var(--color-text);">
+                            Come funziona:</h5>
+                        <ol
+                            style="margin: 0; padding-left: 20px; color: var(--color-secondary); font-size: 13px; line-height: 1.6;">
+                            <li>Scegli il provider del calendario (Google o Apple)</li>
+                            <li>Accedi al tuo account</li>
+                            <li>Autorizza RelaxPoint ad accedere al tuo calendario</li>
+                            <li>I tuoi eventi saranno sincronizzati automaticamente</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- STATO: CONNESSO -->
+                <div id="gcConnected" style="display: none;">
+                    <div class="integration-success">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style="color: #10b981;">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor" />
+                        </svg>
+                        <h4 style="margin: 16px 0 8px; font-size: 18px; color: var(--color-text);">Account Connesso</h4>
+                        <p style="color: var(--color-secondary); margin-bottom: 24px;" id="gcConnectedEmail">
+                            professionista@example.com
+                        </p>
+                    </div>
+
+                    <div class="integration-status"
+                        style="background: #f9fafb; padding: 16px; border-radius: 8px; margin-bottom: 20px;">
+                        <div
+                            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: var(--color-secondary);">Ultima
+                                sincronizzazione:</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--color-text);"
+                                id="gcLastSync">Adesso</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-size: 13px; color: var(--color-secondary);">Eventi sincronizzati:</span>
+                            <span style="font-size: 13px; font-weight: 600; color: var(--color-text);"
+                                id="gcSyncedEvents">24</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-danger" onclick="disconnectGoogleCalendar()" style="width: 100%;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                        </svg>
+                        Disconnetti Account
+                    </button>
+                </div>
+            </div>
+
+            <div class="modal-footer" id="gcNotConnectedFooter">
+                <button type="button" class="btn-secondary" onclick="closeModal('googleCalendarModal')">Annulla</button>
+                <button type="button" class="btn-primary" style="display: none;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z" />
+                    </svg>
+                    Connetti Account
+                </button>
             </div>
         </div>
     </div>

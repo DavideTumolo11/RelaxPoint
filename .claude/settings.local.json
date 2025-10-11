@@ -1,8 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(find:*)",
-      "Bash(python:*)"
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(git restore:*)"
     ],
     "deny": [],
     "ask": []

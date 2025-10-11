@@ -161,6 +161,36 @@ class CRMClients {
             });
         });
 
+        // Filter selects
+        const statusFilter = document.getElementById('statusFilter');
+        if (statusFilter) {
+            statusFilter.addEventListener('change', (e) => {
+                this.currentFilter = e.target.value;
+                this.applyFilters();
+                this.renderClients();
+            });
+        }
+
+        const dateFilter = document.getElementById('dateFilter');
+        if (dateFilter) {
+            dateFilter.addEventListener('change', (e) => {
+                // Implementa filtro per data se necessario
+                this.applyFilters();
+                this.renderClients();
+            });
+        }
+
+        const sortFilterSelect = document.getElementById('sortFilter');
+        if (sortFilterSelect) {
+            sortFilterSelect.addEventListener('change', (e) => {
+                const [field, direction] = e.target.value.split('-');
+                this.sortField = field;
+                this.sortDirection = direction;
+                this.sortClients();
+                this.renderClients();
+            });
+        }
+
         // Sort headers
         document.querySelectorAll('.sortable').forEach(header => {
             header.addEventListener('click', (e) => {
@@ -215,6 +245,52 @@ class CRMClients {
                 e.preventDefault();
                 this.saveClient();
             });
+        }
+
+        // Modal handling
+        const addClientBtn = document.getElementById('addClientBtn');
+        if (addClientBtn) {
+            addClientBtn.addEventListener('click', () => this.openModal());
+        }
+
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', () => this.closeModal());
+        }
+
+        const modalOverlay = document.getElementById('clientModal');
+        if (modalOverlay) {
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    this.closeModal();
+                }
+            });
+        }
+
+        // Close detail modal
+        const detailModal = document.getElementById('clientDetailModal');
+        if (detailModal) {
+            detailModal.addEventListener('click', (e) => {
+                if (e.target === detailModal) {
+                    detailModal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+    }
+
+    openModal() {
+        const modal = document.getElementById('clientModal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            document.getElementById('addClientForm').reset();
+        }
+    }
+
+    closeModal() {
+        const modal = document.getElementById('clientModal');
+        if (modal) {
+            modal.classList.add('hidden');
         }
     }
 
@@ -402,82 +478,37 @@ class CRMClients {
         if (!client) return;
 
         const modal = document.getElementById('clientDetailModal');
-        const title = document.getElementById('clientDetailTitle');
-        const personalInfo = document.getElementById('clientPersonalInfo');
-        const history = document.getElementById('clientHistory');
 
-        title.textContent = `${client.name} ${client.surname}`;
+        // Update client info
+        const detailName = document.getElementById('detailName');
+        const detailEmail = document.getElementById('detailEmail');
+        const detailPhone = document.getElementById('detailPhone');
+        const detailStatus = document.getElementById('detailStatus');
+        const detailAvatar = document.getElementById('detailAvatar');
 
-        personalInfo.innerHTML = `
-            <div class="client-details-grid">
-                <div class="detail-item">
-                    <label>Email:</label>
-                    <span>${client.email}</span>
-                </div>
-                <div class="detail-item">
-                    <label>Telefono:</label>
-                    <span>${client.phone || 'N/A'}</span>
-                </div>
-                <div class="detail-item">
-                    <label>Data di Nascita:</label>
-                    <span>${this.formatDate(client.birthdate)}</span>
-                </div>
-                <div class="detail-item">
-                    <label>Sesso:</label>
-                    <span>${client.gender || 'N/A'}</span>
-                </div>
-                <div class="detail-item">
-                    <label>Indirizzo:</label>
-                    <span>${client.address || 'N/A'}</span>
-                </div>
-                <div class="detail-item">
-                    <label>Cliente dal:</label>
-                    <span>${this.formatDate(client.registrationDate)}</span>
-                </div>
-                <div class="detail-item">
-                    <label>Status:</label>
-                    <span class="status-badge ${client.status}">
-                        ${client.status === 'active' ? 'Attivo' : 'Inattivo'}
-                        ${client.isVip ? ' VIP' : ''}
-                    </span>
-                </div>
-                <div class="detail-item full-width">
-                    <label>Note:</label>
-                    <span>${client.notes || 'Nessuna nota'}</span>
-                </div>
-            </div>
-        `;
+        if (detailName) detailName.textContent = `${client.name} ${client.surname}`;
+        if (detailEmail) detailEmail.textContent = client.email;
+        if (detailPhone) detailPhone.textContent = client.phone || 'N/A';
+        if (detailStatus) {
+            detailStatus.textContent = client.status === 'active' ? 'Attivo' : 'Inattivo';
+            detailStatus.className = `client-status ${client.status}`;
+        }
+        if (detailAvatar) {
+            detailAvatar.textContent = `${client.name.charAt(0)}${client.surname.charAt(0)}`;
+        }
 
-        history.innerHTML = `
-            <div class="client-history">
-                <div class="history-summary">
-                    <div class="summary-item">
-                        <strong>${client.visits}</strong>
-                        <span>Visite Totali</span>
-                    </div>
-                    <div class="summary-item">
-                        <strong>€${client.totalSpent}</strong>
-                        <span>Spesa Totale</span>
-                    </div>
-                    <div class="summary-item">
-                        <strong>${this.formatDate(client.lastVisit)}</strong>
-                        <span>Ultima Visita</span>
-                    </div>
-                </div>
-                <div class="history-list">
-                    <h5>Storico Appuntamenti:</h5>
-                    ${client.history.map(h => `
-                        <div class="history-item">
-                            <div class="history-date">${this.formatDate(h.date)}</div>
-                            <div class="history-service">${h.service}</div>
-                            <div class="history-price">€${h.price}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-        `;
+        // Update stats
+        const detailSessions = document.getElementById('detailSessions');
+        const detailSpent = document.getElementById('detailSpent');
+        const detailLastVisit = document.getElementById('detailLastVisit');
+        const detailRating = document.getElementById('detailRating');
 
-        modal.style.display = 'flex';
+        if (detailSessions) detailSessions.textContent = client.visits;
+        if (detailSpent) detailSpent.textContent = `€${client.totalSpent}`;
+        if (detailLastVisit) detailLastVisit.textContent = this.formatDate(client.lastVisit);
+        if (detailRating) detailRating.textContent = client.rating || 'N/A';
+
+        modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     }
 
@@ -486,15 +517,17 @@ class CRMClients {
         if (!client) return;
 
         // Populate form with client data
-        document.getElementById('clientName').value = client.name;
-        document.getElementById('clientSurname').value = client.surname;
-        document.getElementById('clientEmail').value = client.email;
-        document.getElementById('clientPhone').value = client.phone || '';
-        document.getElementById('clientBirthdate').value = client.birthdate || '';
-        document.getElementById('clientGender').value = client.gender || '';
-        document.getElementById('clientAddress').value = client.address || '';
-        document.getElementById('clientNotes').value = client.notes || '';
-        document.getElementById('clientVip').checked = client.isVip;
+        const nameField = document.getElementById('clientName');
+        const emailField = document.getElementById('clientEmail');
+        const phoneField = document.getElementById('clientPhone');
+        const statusField = document.getElementById('clientStatus');
+        const notesField = document.getElementById('clientNotes');
+
+        if (nameField) nameField.value = `${client.name} ${client.surname}`;
+        if (emailField) emailField.value = client.email;
+        if (phoneField) phoneField.value = client.phone || '';
+        if (statusField) statusField.value = client.status;
+        if (notesField) notesField.value = client.notes || '';
 
         // Store editing client ID
         this.editingClientId = clientId;
@@ -522,18 +555,24 @@ class CRMClients {
 
     saveClient() {
         const form = document.getElementById('addClientForm');
-        const formData = new FormData(form);
+        if (!form) return;
+
+        const fullName = document.getElementById('clientName').value.trim();
+        const nameParts = fullName.split(' ');
+        const name = nameParts[0] || '';
+        const surname = nameParts.slice(1).join(' ') || '';
 
         const clientData = {
-            name: document.getElementById('clientName').value.trim(),
-            surname: document.getElementById('clientSurname').value.trim(),
+            name: name,
+            surname: surname,
             email: document.getElementById('clientEmail').value.trim(),
             phone: document.getElementById('clientPhone').value.trim(),
-            birthdate: document.getElementById('clientBirthdate').value,
-            gender: document.getElementById('clientGender').value,
-            address: document.getElementById('clientAddress').value.trim(),
-            notes: document.getElementById('clientNotes').value.trim(),
-            isVip: document.getElementById('clientVip').checked
+            status: document.getElementById('clientStatus')?.value || 'active',
+            notes: document.getElementById('clientNotes')?.value.trim() || '',
+            isVip: false,
+            birthdate: '',
+            gender: '',
+            address: ''
         };
 
         // Validation

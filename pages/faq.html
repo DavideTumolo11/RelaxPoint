@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>FAQ - Domande Frequenti | RelaxPoint</title>
+    <meta name="description"
+        content="Domande frequenti su RelaxPoint. Scopri come funziona la piattaforma, come prenotare, pagamenti e altro.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <style>
+        /* FAQ Specific Styles */
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .faq-hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .faq-hero p {
+            font-size: 18px;
+            color: var(--color-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .faq-search {
+            max-width: 600px;
+            margin: 40px auto;
+        }
+
+        .faq-search input {
+            width: 100%;
+            padding: 16px 24px;
+            font-size: 16px;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-search input:focus {
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.1);
+        }
+
+        .faq-categories {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-category-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--color-border);
+            background: white;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-category-btn:hover,
+        .faq-category-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .faq-section {
+            margin-bottom: 48px;
+        }
+
+        .faq-section-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .faq-section-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--color-text);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--color-primary);
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--color-gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.active .faq-toggle {
+            background: var(--color-primary);
+            color: white;
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+        }
+
+        .faq-answer-content {
+            padding: 0 24px 24px;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--color-secondary);
+        }
+
+        .faq-answer-content p {
+            margin-bottom: 12px;
+        }
+
+        .faq-answer-content ul {
+            margin: 12px 0;
+            padding-left: 24px;
+        }
+
+        .faq-answer-content li {
+            margin-bottom: 8px;
+        }
+
+        .faq-cta {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-light));
+            color: white;
+            padding: 48px 32px;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .faq-cta h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .faq-cta p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            opacity: 0.9;
+        }
+
+        .faq-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .faq-cta-btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .faq-cta-btn-primary {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        .faq-cta-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .faq-cta-btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .faq-cta-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 32px;
+            }
+
+            .faq-section-title {
+                font-size: 22px;
+            }
+
+            .faq-question {
+                font-size: 16px;
+                padding: 16px 20px;
+            }
+
+            .faq-answer-content {
+                padding: 0 20px 20px;
+                font-size: 14px;
+            }
+
+            .faq-cta h2 {
+                font-size: 24px;
+            }
+
+            .faq-cta-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <a class="site-logo" href="/index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+                <div class="header-left">
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+                        <a href="/login.html" class="btn-secondary">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="faq-container">
+
+                    <!-- Hero Section -->
+                    <div class="faq-hero">
+                        <h1>Domande Frequenti</h1>
+                        <p>Trova rapidamente le risposte alle domande più comuni su RelaxPoint</p>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="faq-search">
+                        <input type="text" id="faqSearch" placeholder="🔍 Cerca nella FAQ...">
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="faq-categories">
+                        <button class="faq-category-btn active" data-category="all">Tutte</button>
+                        <button class="faq-category-btn" data-category="generale">Generale</button>
+                        <button class="faq-category-btn" data-category="prenotazioni">Prenotazioni</button>
+                        <button class="faq-category-btn" data-category="pagamenti">Pagamenti</button>
+                        <button class="faq-category-btn" data-category="professionisti">Professionisti</button>
+                        <button class="faq-category-btn" data-category="account">Account</button>
+                    </div>
+
+                    <!-- FAQ Generale -->
+                    <div class="faq-section" data-category="generale">
+                        <h2 class="faq-section-title">
+                            <span class="faq-section-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                </svg>
+                            </span>
+                            Generale
+                        </h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Cos'è RelaxPoint?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>RelaxPoint è una piattaforma innovativa che connette professionisti del benessere con clienti in cerca di servizi di qualità.</p>
+                                    <p>Offriamo un'ampia gamma di servizi tra cui:</p>
+                                    <ul>
+                                        <li>Massaggi e trattamenti olistici</li>
+                                        <li>Yoga e meditazione</li>
+                                        <li>Fitness e allenamento personale</li>
+                                        <li>Beauty e wellness</li>
+                                        <li>Fisioterapia e osteopatia</li>
+                                        <li>E molto altro...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come funziona RelaxPoint?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>È semplicissimo:</p>
+                                    <ul>
+                                        <li><strong>1. Cerca</strong> - Esplora i servizi e i professionisti nella tua zona</li>
+                                        <li><strong>2. Prenota</strong> - Scegli data, ora e modalità (domicilio o studio)</li>
+                                        <li><strong>3. Paga</strong> - Pagamento sicuro con carta, PayPal o bonifico</li>
+                                        <li><strong>4. Rilassati</strong> - Goditi il tuo servizio di benessere</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>RelaxPoint è disponibile nella mia città?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>RelaxPoint è attivo in tutta Italia e in continua espansione!</p>
+                                    <p>Puoi utilizzare i filtri di ricerca per trovare professionisti nella tua zona. Se non trovi servizi nella tua città, contattaci e ti aggiorneremo non appena saremo presenti.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Prenotazioni -->
+                    <div class="faq-section" data-category="prenotazioni">
+                        <h2 class="faq-section-title">
+                            <span class="faq-section-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                                </svg>
+                            </span>
+                            Prenotazioni
+                        </h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come posso prenotare un servizio?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Prenotare è facilissimo:</p>
+                                    <ul>
+                                        <li>Naviga nella sezione "Servizi" o cerca un professionista</li>
+                                        <li>Clicca sul servizio che ti interessa</li>
+                                        <li>Seleziona data e ora disponibile</li>
+                                        <li>Scegli se preferisci il servizio a domicilio o in studio</li>
+                                        <li>Completa il pagamento</li>
+                                        <li>Ricevi conferma via email</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Posso modificare o cancellare una prenotazione?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Sì! Puoi modificare o cancellare la tua prenotazione accedendo alla tua Dashboard Cliente.</p>
+                                    <p><strong>Policy di cancellazione:</strong></p>
+                                    <ul>
+                                        <li>Cancellazione gratuita fino a 24 ore prima</li>
+                                        <li>Cancellazione entro 24 ore: penale del 50%</li>
+                                        <li>No-show: nessun rimborso</li>
+                                    </ul>
+                                    <p>Alcune attività potrebbero avere policy diverse, controlla sempre i dettagli prima di prenotare.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Posso prenotare per qualcun altro?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Assolutamente sì! Durante la prenotazione puoi indicare il nome della persona che usufruirà del servizio.</p>
+                                    <p>È un'ottima idea regalo per compleanni, anniversari o semplicemente per far stare bene le persone che ami!</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come funzionano le offerte Last Minute?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Le offerte Last Minute sono sconti speciali su slot disponibili entro le prossime 48 ore.</p>
+                                    <p>I professionisti offrono sconti fino al 50% per riempire slot liberi e tu puoi approfittarne per servizi di qualità a prezzi ridotti!</p>
+                                    <p>Controlla la sezione "Last Minute" per le offerte del momento.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Pagamenti -->
+                    <div class="faq-section" data-category="pagamenti">
+                        <h2 class="faq-section-title">
+                            <span class="faq-section-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                                </svg>
+                            </span>
+                            Pagamenti
+                        </h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Quali metodi di pagamento accettate?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Accettiamo tutti i principali metodi di pagamento:</p>
+                                    <ul>
+                                        <li>Carte di credito e debito (Visa, Mastercard, American Express)</li>
+                                        <li>PayPal</li>
+                                        <li>Bonifico bancario</li>
+                                        <li>Apple Pay e Google Pay</li>
+                                    </ul>
+                                    <p>Tutti i pagamenti sono elaborati in modo sicuro attraverso gateway certificati.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>È sicuro pagare su RelaxPoint?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Assolutamente sì! La sicurezza è la nostra priorità.</p>
+                                    <p>Utilizziamo:</p>
+                                    <ul>
+                                        <li>Crittografia SSL a 256 bit</li>
+                                        <li>Gateway di pagamento certificati PCI-DSS</li>
+                                        <li>Autenticazione 3D Secure</li>
+                                        <li>Non memorizziamo mai i dati completi della carta</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Quando viene addebitato il pagamento?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Il pagamento viene addebitato immediatamente al momento della conferma della prenotazione.</p>
+                                    <p>In caso di cancellazione nei termini previsti, il rimborso verrà elaborato entro 5-7 giorni lavorativi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Posso richiedere fattura?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Sì! Puoi richiedere fattura per ogni prenotazione.</p>
+                                    <p>Inserisci i tuoi dati fiscali (Partita IVA, Codice Fiscale, indirizzo) nel tuo profilo o durante il checkout.</p>
+                                    <p>La fattura elettronica verrà inviata automaticamente al Sistema di Interscambio (SDI).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Professionisti -->
+                    <div class="faq-section" data-category="professionisti">
+                        <h2 class="faq-section-title">
+                            <span class="faq-section-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                                </svg>
+                            </span>
+                            Per Professionisti
+                        </h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come posso diventare un professionista su RelaxPoint?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>È semplice!</p>
+                                    <ul>
+                                        <li>Clicca su "Registrati come Professionista"</li>
+                                        <li>Compila il form con i tuoi dati aziendali</li>
+                                        <li>Carica i documenti richiesti (P.IVA, certificazioni)</li>
+                                        <li>Il nostro team verificherà il tuo profilo entro 24-48 ore</li>
+                                        <li>Una volta approvato, puoi iniziare a ricevere prenotazioni!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Quanto costa iscriversi?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Offriamo diversi piani:</p>
+                                    <ul>
+                                        <li><strong>Piano Base</strong> - Gratuito (commissione 15% per prenotazione)</li>
+                                        <li><strong>Piano PRO</strong> - €49/mese (commissione 10%)</li>
+                                        <li><strong>Piano ENTERPRISE</strong> - €149/mese (commissione 5%)</li>
+                                    </ul>
+                                    <p>I piani superiori includono funzionalità avanzate come CRM, statistiche, pubblicità e molto altro.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come ricevo i pagamenti?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>I pagamenti vengono trasferiti sul tuo conto bancario ogni settimana.</p>
+                                    <p>Dopo che il servizio è stato erogato, il cliente ha 24 ore per eventuali contestazioni. Trascorso questo periodo, il pagamento viene elaborato e trasferito sul tuo conto entro 2-3 giorni lavorativi.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Posso scegliere i miei orari e prezzi?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Assolutamente! Hai il pieno controllo su:</p>
+                                    <ul>
+                                        <li>Orari di disponibilità</li>
+                                        <li>Prezzi dei servizi</li>
+                                        <li>Durata delle sessioni</li>
+                                        <li>Zone di copertura (per servizi a domicilio)</li>
+                                        <li>Policy di cancellazione</li>
+                                    </ul>
+                                    <p>Puoi modificare tutto in qualsiasi momento dalla tua Dashboard Professionista.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Account -->
+                    <div class="faq-section" data-category="account">
+                        <h2 class="faq-section-title">
+                            <span class="faq-section-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                            </span>
+                            Account e Privacy
+                        </h2>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come posso modificare i miei dati personali?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Accedi alla tua dashboard e vai su "Impostazioni" o "Profilo".</p>
+                                    <p>Puoi modificare:</p>
+                                    <ul>
+                                        <li>Nome e cognome</li>
+                                        <li>Email e telefono</li>
+                                        <li>Indirizzo</li>
+                                        <li>Foto profilo</li>
+                                        <li>Password</li>
+                                        <li>Preferenze notifiche</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Come vengono gestiti i miei dati personali?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Prendiamo molto sul serio la tua privacy.</p>
+                                    <p>I tuoi dati sono protetti secondo il GDPR e vengono utilizzati esclusivamente per:</p>
+                                    <ul>
+                                        <li>Gestire le tue prenotazioni</li>
+                                        <li>Inviarti conferme e aggiornamenti</li>
+                                        <li>Migliorare il servizio</li>
+                                    </ul>
+                                    <p>Non condividiamo mai i tuoi dati con terze parti senza il tuo consenso.</p>
+                                    <p>Leggi la nostra <a href="/pages/privacy-policy.html">Privacy Policy</a> completa per maggiori dettagli.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <span>Posso eliminare il mio account?</span>
+                                <span class="faq-toggle">▼</span>
+                            </div>
+                            <div class="faq-answer">
+                                <div class="faq-answer-content">
+                                    <p>Sì, puoi eliminare il tuo account in qualsiasi momento.</p>
+                                    <p>Vai su Impostazioni > Privacy > "Elimina Account".</p>
+                                    <p><strong>Attenzione:</strong> L'eliminazione è permanente e comporta la perdita di:</p>
+                                    <ul>
+                                        <li>Storico prenotazioni</li>
+                                        <li>Recensioni scritte</li>
+                                        <li>Preferiti salvati</li>
+                                        <li>Crediti o abbonamenti attivi</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="faq-cta">
+                        <h2>Non hai trovato la risposta?</h2>
+                        <p>Il nostro team di supporto è sempre pronto ad aiutarti</p>
+                        <div class="faq-cta-buttons">
+                            <a href="mailto:supporto@relaxpoint.it" class="faq-cta-btn faq-cta-btn-primary">Contattaci</a>
+                            <a href="/index.html" class="faq-cta-btn faq-cta-btn-secondary">Torna alla Home</a>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini-condizioni.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy-policy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">© 2025 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all other items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Category Filter
+        document.querySelectorAll('.faq-category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const category = this.dataset.category;
+
+                // Update active button
+                document.querySelectorAll('.faq-category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter sections
+                document.querySelectorAll('.faq-section').forEach(section => {
+                    if (category === 'all' || section.dataset.category === category) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Search
+        const searchInput = document.getElementById('faqSearch');
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase();
+
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer-content').textContent.toLowerCase();
+
+                if (question.includes(query) || answer.includes(query)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Show all sections if searching
+            if (query.length > 0) {
+                document.querySelectorAll('.faq-section').forEach(section => {
+                    section.style.display = 'block';
+                });
+            }
+        });
+    </script>
+
+</body>
+
+</html>

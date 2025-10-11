@@ -1820,3 +1820,119 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// ===============================================
+// GRAPHIC SERVICE MANAGEMENT FUNCTIONS
+// ===============================================
+
+function switchGraphicTab(tabName) {
+    // Remove active class from all tabs
+    document.querySelectorAll('.service-tabs .tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Remove active class from all tab contents
+    document.querySelectorAll('.graphic-service-section .tab-content').forEach(content => {
+        content.classList.remove('active');
+    });
+
+    // Add active class to clicked tab
+    event.target.closest('.tab-btn').classList.add('active');
+
+    // Show corresponding content
+    const contentId = `graphic-${tabName}`;
+    const content = document.getElementById(contentId);
+    if (content) {
+        content.classList.add('active');
+    }
+
+    console.log(`Switched to graphic service tab: ${tabName}`);
+}
+
+function assignGraphicRequest(requestId) {
+    if (confirm('Vuoi assegnarti questa richiesta? Dovrai completarla entro 48 ore.')) {
+        console.log(`Assigning graphic request ${requestId} to current admin`);
+        showNotification('Richiesta assegnata! Hai 48 ore per completarla.', 'success');
+
+        // TODO: Backend call to assign request
+        // In a real implementation, this would update the database
+
+        // Refresh the UI
+        setTimeout(() => {
+            // Move request to "In Progress" tab
+            console.log('Moving request to In Progress tab');
+        }, 1000);
+    }
+}
+
+function viewGraphicDetails(requestId) {
+    console.log(`Viewing details for graphic request ${requestId}`);
+    showNotification('Caricamento dettagli completi...', 'info');
+
+    // TODO: Open modal with full request details
+    // Including all assets, full brief, client contact info, etc.
+}
+
+function contactClient(clientId) {
+    console.log(`Opening chat with client ${clientId}`);
+    showNotification('Apertura chat con il cliente...', 'info');
+
+    // TODO: Open chat/messaging system
+}
+
+function rejectGraphicRequest(requestId) {
+    const reason = prompt('Perché vuoi rifiutare questa richiesta?\n(La motivazione verrà inviata al cliente)');
+
+    if (reason && reason.trim() !== '') {
+        console.log(`Rejecting graphic request ${requestId} with reason: ${reason}`);
+        showNotification('Richiesta rifiutata. Il cliente riceverà una notifica.', 'info');
+
+        // TODO: Backend call to reject request
+    } else if (reason !== null) {
+        showNotification('Devi fornire una motivazione per il rifiuto', 'error');
+    }
+}
+
+function submitGraphicWork(requestId) {
+    const fileInput = document.getElementById(`graphicUpload${requestId}`);
+
+    if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+        showNotification('Devi caricare il file completato prima di inviare!', 'error');
+        return;
+    }
+
+    if (confirm('Sei sicuro di voler inviare questo lavoro al cliente?')) {
+        console.log(`Submitting completed work for request ${requestId}`);
+        showNotification('Invio in corso... Il cliente riceverà una notifica.', 'info');
+
+        // TODO: Upload file to server and notify client
+
+        setTimeout(() => {
+            showNotification('Lavoro inviato con successo! Attendi feedback del cliente.', 'success');
+        }, 2000);
+    }
+}
+
+function requestMoreTime(requestId) {
+    const hours = prompt('Quante ore extra ti servono? (max 24h)');
+
+    if (hours && !isNaN(hours) && hours > 0 && hours <= 24) {
+        console.log(`Requesting ${hours} more hours for request ${requestId}`);
+        showNotification(`Richiesta inviata. In attesa di approvazione per +${hours}h`, 'info');
+
+        // TODO: Send time extension request to system/admin
+    } else if (hours !== null) {
+        showNotification('Inserisci un numero valido di ore (1-24)', 'error');
+    }
+}
+
+// Expose functions globally
+window.switchGraphicTab = switchGraphicTab;
+window.assignGraphicRequest = assignGraphicRequest;
+window.viewGraphicDetails = viewGraphicDetails;
+window.contactClient = contactClient;
+window.rejectGraphicRequest = rejectGraphicRequest;
+window.submitGraphicWork = submitGraphicWork;
+window.requestMoreTime = requestMoreTime;
+
+console.log('Graphic Service Management functions loaded');

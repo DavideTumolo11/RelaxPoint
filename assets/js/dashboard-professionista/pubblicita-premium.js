@@ -579,14 +579,95 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
 }
 
 // ===============================================
-// GESTIONE MODALE CREAZIONE CAMPAGNA
+// GESTIONE WIZARD CREAZIONE CAMPAGNA - 4 STEP
 // ===============================================
+
+// Wizard state
+const wizardState = {
+    currentStep: 1,
+    placement: null,
+    contentType: null,
+    uploadMethod: null,
+    uploadedFile: null,
+    graphicServiceData: null
+};
+
+// Placement data with pricing and restrictions
+const placementData = {
+    'homepage-hero': {
+        name: 'Homepage Hero',
+        price: 150,
+        format: '1200x400px',
+        contentTypes: ['all'],
+        description: 'Massima visibilità in homepage'
+    },
+    'homepage-banner': {
+        name: 'Homepage Banner',
+        price: 100,
+        format: '1000x300px',
+        contentTypes: ['professionista', 'servizio'],
+        description: 'Banner centrale homepage'
+    },
+    'ispirazioni-lateral': {
+        name: 'Ispirazioni Lateral',
+        price: 80,
+        format: '400x500px',
+        contentTypes: ['foto', 'offerta'],
+        description: 'Ads laterali ispirazioni'
+    },
+    'services-hero': {
+        name: 'Servizi Hero',
+        price: 70,
+        format: '1000x350px',
+        contentTypes: ['categoria-specifica'],
+        description: 'Hero pagine servizi',
+        requiresCategory: true
+    },
+    'services-banner': {
+        name: 'Servizi Banner',
+        price: 90,
+        format: '900x280px',
+        contentTypes: ['professionista', 'servizio'],
+        description: 'Banner pagine servizi',
+        requiresCategory: true
+    },
+    'services-lateral': {
+        name: 'Servizi Lateral',
+        price: 50,
+        format: '200x300px',
+        contentTypes: ['all'],
+        description: 'Ads laterali servizi',
+        requiresCategory: true
+    }
+};
+
+// Content types
+const contentTypes = {
+    'all': {
+        'professionista': { label: 'Promuovi te stesso o la tua attività', description: 'Presenta la tua professionalità' },
+        'servizio': { label: 'Servizio/Trattamento', description: 'Promuovi un servizio specifico' },
+        'foto': { label: 'Foto', description: 'Contenuto fotografico professionale' },
+        'offerta': { label: 'Offerta', description: 'Locandine con promozioni e sconti' }
+    },
+    'professionista-servizio': {
+        'professionista': { label: 'Promuovi te stesso o la tua attività', description: 'Presenta la tua professionalità' },
+        'servizio': { label: 'Servizio/Trattamento', description: 'Promuovi un servizio specifico' }
+    },
+    'foto-offerta': {
+        'foto': { label: 'Foto', description: 'Contenuto fotografico professionale' },
+        'offerta': { label: 'Offerta', description: 'Locandine con promozioni e sconti' }
+    },
+    'categoria-specifica': {
+        'servizio-categoria': { label: 'Servizio di Categoria', description: 'Servizio specifico della categoria' }
+    }
+};
 
 function openCreateCampaignModal() {
     const modal = document.getElementById('createCampaignModal');
     if (modal) {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
+        resetWizard();
     }
 }
 
@@ -595,103 +676,524 @@ function closeCreateCampaignModal() {
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
+        resetWizard();
     }
+}
+
+function resetWizard() {
+    wizardState.currentStep = 1;
+    wizardState.placement = null;
+    wizardState.contentType = null;
+    wizardState.uploadMethod = null;
+    wizardState.uploadedFile = null;
+    wizardState.graphicServiceData = null;
+
     // Reset form
-    const form = document.querySelector('#createCampaignModal form');
+    const form = document.getElementById('createCampaignForm');
     if (form) form.reset();
-    // Reset to first step
+
+    // Reset steps
     document.querySelectorAll('.form-step').forEach((step, index) => {
         step.classList.toggle('active', index === 0);
     });
+
+    // Reset progress bar
+    document.querySelectorAll('.progress-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index === 0) step.classList.add('active');
+    });
+
+    // Reset buttons
+    updateWizardButtons();
+}
+
+function updateWizardButtons() {
     const stepBackBtn = document.getElementById('stepBackBtn');
     const stepNextBtn = document.getElementById('stepNextBtn');
     const createCampaignBtn = document.getElementById('createCampaignBtn');
-    if (stepBackBtn) stepBackBtn.style.display = 'none';
-    if (stepNextBtn) stepNextBtn.style.display = 'inline-block';
-    if (createCampaignBtn) createCampaignBtn.style.display = 'none';
-}
 
-function nextStep() {
-    const currentStep = document.querySelector('.form-step.active');
-    if (!currentStep) return;
+    if (stepBackBtn) {
+        stepBackBtn.style.display = wizardState.currentStep > 1 ? 'inline-block' : 'none';
+    }
 
-    const currentStepNum = parseInt(currentStep.id.replace('step', ''));
-    const nextStepNum = currentStepNum + 1;
-    const nextStep = document.getElementById(`step${nextStepNum}`);
-
-    if (nextStep) {
-        currentStep.classList.remove('active');
-        nextStep.classList.add('active');
-
-        // Update buttons
-        const stepBackBtn = document.getElementById('stepBackBtn');
-        const stepNextBtn = document.getElementById('stepNextBtn');
-        const createCampaignBtn = document.getElementById('createCampaignBtn');
-
-        if (stepBackBtn) stepBackBtn.style.display = 'inline-block';
-
-        if (nextStepNum === 3) {
-            if (stepNextBtn) stepNextBtn.style.display = 'none';
-            if (createCampaignBtn) createCampaignBtn.style.display = 'inline-block';
+    if (stepNextBtn && createCampaignBtn) {
+        if (wizardState.currentStep < 4) {
+            stepNextBtn.style.display = 'inline-block';
+            createCampaignBtn.style.display = 'none';
+        } else {
+            stepNextBtn.style.display = 'none';
+            createCampaignBtn.style.display = 'inline-block';
         }
     }
+}
+
+function updateProgressBar() {
+    document.querySelectorAll('.progress-step').forEach((step, index) => {
+        const stepNum = index + 1;
+        step.classList.remove('active', 'completed');
+
+        if (stepNum < wizardState.currentStep) {
+            step.classList.add('completed');
+        } else if (stepNum === wizardState.currentStep) {
+            step.classList.add('active');
+        }
+    });
+}
+
+// STEP 1: Select Placement
+function selectPlacement(placementId) {
+    wizardState.placement = placementId;
+
+    // Update UI
+    document.querySelectorAll('.placement-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+
+    const selectedCard = document.querySelector(`[data-placement="${placementId}"]`);
+    if (selectedCard) {
+        selectedCard.classList.add('selected');
+    }
+
+    document.getElementById('selectedPlacement').value = placementId;
+}
+
+// STEP 2: Select Content Type
+function nextStep() {
+    const currentStepEl = document.querySelector('.form-step.active');
+    if (!currentStepEl) return;
+
+    // Validate current step
+    if (!validateCurrentStep()) {
+        return;
+    }
+
+    // Move to next step
+    wizardState.currentStep++;
+
+    // Hide current step
+    currentStepEl.classList.remove('active');
+
+    // Show next step
+    const nextStepEl = document.getElementById(`step${wizardState.currentStep}`);
+    if (nextStepEl) {
+        nextStepEl.classList.add('active');
+    }
+
+    // Populate step content if needed
+    if (wizardState.currentStep === 2) {
+        populateContentTypes();
+    } else if (wizardState.currentStep === 3) {
+        populateUploadRequirements();
+    } else if (wizardState.currentStep === 4) {
+        populateCampaignSummary();
+        calculateBudget();
+    }
+
+    updateProgressBar();
+    updateWizardButtons();
+
+    // Scroll to top of modal
+    const modalBody = document.querySelector('.modal-body');
+    if (modalBody) modalBody.scrollTop = 0;
 }
 
 function previousStep() {
-    const currentStep = document.querySelector('.form-step.active');
-    if (!currentStep) return;
+    if (wizardState.currentStep <= 1) return;
 
-    const currentStepNum = parseInt(currentStep.id.replace('step', ''));
-    const prevStepNum = currentStepNum - 1;
-    const prevStep = document.getElementById(`step${prevStepNum}`);
+    const currentStepEl = document.querySelector('.form-step.active');
 
-    if (prevStep) {
-        currentStep.classList.remove('active');
-        prevStep.classList.add('active');
+    // Move to previous step
+    wizardState.currentStep--;
 
-        // Update buttons
-        const stepBackBtn = document.getElementById('stepBackBtn');
-        const stepNextBtn = document.getElementById('stepNextBtn');
-        const createCampaignBtn = document.getElementById('createCampaignBtn');
+    // Hide current step
+    if (currentStepEl) currentStepEl.classList.remove('active');
 
-        if (prevStepNum === 1) {
-            if (stepBackBtn) stepBackBtn.style.display = 'none';
-        }
+    // Show previous step
+    const prevStepEl = document.getElementById(`step${wizardState.currentStep}`);
+    if (prevStepEl) {
+        prevStepEl.classList.add('active');
+    }
 
-        if (stepNextBtn) stepNextBtn.style.display = 'inline-block';
-        if (createCampaignBtn) createCampaignBtn.style.display = 'none';
+    updateProgressBar();
+    updateWizardButtons();
+
+    // Scroll to top of modal
+    const modalBody = document.querySelector('.modal-body');
+    if (modalBody) modalBody.scrollTop = 0;
+}
+
+function validateCurrentStep() {
+    switch (wizardState.currentStep) {
+        case 1:
+            if (!wizardState.placement) {
+                showNotification('Seleziona un posizionamento per continuare', 'error');
+                return false;
+            }
+            return true;
+
+        case 2:
+            if (!wizardState.contentType) {
+                showNotification('Seleziona un tipo di contenuto per continuare', 'error');
+                return false;
+            }
+            return true;
+
+        case 3:
+            if (!wizardState.uploadMethod) {
+                showNotification('Scegli un metodo di caricamento per continuare', 'error');
+                return false;
+            }
+
+            if (wizardState.uploadMethod === 'upload' && !wizardState.uploadedFile) {
+                showNotification('Carica un file per continuare', 'error');
+                return false;
+            }
+
+            if (wizardState.uploadMethod === 'service') {
+                const brief = document.getElementById('graphicBrief')?.value;
+                if (!brief || brief.trim() === '') {
+                    showNotification('Descrivi il contenuto che desideri per continuare', 'error');
+                    return false;
+                }
+            }
+            return true;
+
+        default:
+            return true;
     }
 }
 
-function createCampaign() {
-    // Get form data
+function populateContentTypes() {
+    const placement = placementData[wizardState.placement];
+    if (!placement) return;
+
+    const grid = document.getElementById('contentTypeGrid');
+    const infoEl = document.getElementById('placementRestrictionInfo');
+
+    let contentTypesSet;
+    if (placement.contentTypes.includes('all')) {
+        contentTypesSet = contentTypes.all;
+        infoEl.textContent = 'Questo posizionamento accetta qualsiasi tipo di contenuto.';
+    } else if (placement.contentTypes.includes('professionista') || placement.contentTypes.includes('servizio')) {
+        contentTypesSet = contentTypes['professionista-servizio'];
+        infoEl.textContent = 'Promuovi te stesso come professionista o un servizio/trattamento specifico.';
+    } else if (placement.contentTypes.includes('foto') || placement.contentTypes.includes('offerta')) {
+        contentTypesSet = contentTypes['foto-offerta'];
+        infoEl.textContent = 'Contenuti fotografici professionali o locandine con offerte e promozioni.';
+    } else if (placement.contentTypes.includes('categoria-specifica')) {
+        contentTypesSet = contentTypes['categoria-specifica'];
+        infoEl.textContent = 'Solo servizi della categoria specifica selezionata possono essere promossi.';
+    }
+
+    grid.innerHTML = Object.entries(contentTypesSet).map(([key, data]) => `
+        <div class="content-type-card" data-content-type="${key}" onclick="selectContentType('${key}')">
+            <h5>${data.label}</h5>
+            <p>${data.description}</p>
+        </div>
+    `).join('');
+}
+
+function selectContentType(contentType) {
+    wizardState.contentType = contentType;
+
+    // Update UI
+    document.querySelectorAll('.content-type-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+
+    const selectedCard = document.querySelector(`[data-content-type="${contentType}"]`);
+    if (selectedCard) {
+        selectedCard.classList.add('selected');
+    }
+
+    document.getElementById('selectedContentType').value = contentType;
+}
+
+function populateUploadRequirements() {
+    const placement = placementData[wizardState.placement];
+    if (!placement) return;
+
+    const requirementsEl = document.getElementById('formatRequirements');
+    const uploadFormatInfo = document.getElementById('uploadFormatInfo');
+
+    const formatInfo = `
+        <strong>Requisiti:</strong>
+        <ul>
+            <li>Dimensioni: ${placement.format}</li>
+            <li>Formato: JPG, PNG</li>
+            <li>Dimensione max: 2MB</li>
+            <li>Risoluzione: 72-150 DPI</li>
+        </ul>
+    `;
+
+    requirementsEl.innerHTML = formatInfo;
+    uploadFormatInfo.textContent = `${placement.format} - JPG, PNG max 2MB`;
+}
+
+function selectUploadOption(method) {
+    wizardState.uploadMethod = method;
+
+    // Update UI
+    document.querySelectorAll('.upload-option').forEach(option => {
+        option.classList.remove('selected');
+    });
+
+    if (method === 'upload') {
+        document.getElementById('uploadOptionCard').classList.add('selected');
+        document.getElementById('uploadArea').style.display = 'block';
+        document.getElementById('graphicServiceForm').style.display = 'none';
+        setupFileUpload();
+    } else {
+        document.getElementById('graphicServiceCard').classList.add('selected');
+        document.getElementById('uploadArea').style.display = 'none';
+        document.getElementById('graphicServiceForm').style.display = 'block';
+    }
+
+    document.getElementById('uploadMethod').value = method;
+}
+
+function setupFileUpload() {
+    const dropzone = document.getElementById('uploadDropzone');
+    const fileInput = document.getElementById('adFileInput');
+
+    if (!dropzone || !fileInput) return;
+
+    // Click to upload
+    dropzone.addEventListener('click', () => fileInput.click());
+
+    // File input change
+    fileInput.addEventListener('change', function(e) {
+        if (e.target.files && e.target.files[0]) {
+            handleFileUpload(e.target.files[0]);
+        }
+    });
+
+    // Drag and drop
+    dropzone.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('dragover');
+    });
+
+    dropzone.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('dragover');
+    });
+
+    dropzone.addEventListener('drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('dragover');
+
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleFileUpload(e.dataTransfer.files[0]);
+        }
+    });
+}
+
+function handleFileUpload(file) {
+    // Validate file
+    if (!file.type.startsWith('image/')) {
+        showNotification('Carica solo file immagine (JPG, PNG)', 'error');
+        return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+        showNotification('File troppo grande. Dimensione massima: 2MB', 'error');
+        return;
+    }
+
+    wizardState.uploadedFile = file;
+
+    // Show preview
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('uploadDropzone').style.display = 'none';
+        document.getElementById('uploadPreview').style.display = 'block';
+        document.getElementById('previewImage').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    showNotification('File caricato con successo!', 'success');
+}
+
+function removeUpload() {
+    wizardState.uploadedFile = null;
+    document.getElementById('uploadDropzone').style.display = 'block';
+    document.getElementById('uploadPreview').style.display = 'none';
+    document.getElementById('previewImage').src = '';
+    document.getElementById('adFileInput').value = '';
+}
+
+function calculateBudget() {
+    const placement = placementData[wizardState.placement];
+    if (!placement) return;
+
+    const startDate = document.getElementById('campaignStartDate')?.value;
+    const endDate = document.getElementById('campaignEndDate')?.value;
+
+    let days = 30; // default
+    if (startDate && endDate) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        days = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+    }
+
+    const dailyPrice = placement.price;
+    let totalBudget = dailyPrice * days;
+
+    // Add graphic service cost if selected
+    if (wizardState.uploadMethod === 'service') {
+        totalBudget += 20;
+    }
+
+    document.getElementById('totalBudget').value = totalBudget;
+
+    // Update breakdown
+    const breakdownEl = document.getElementById('budgetBreakdown');
+    let breakdownHTML = `
+        <div class="breakdown-item">
+            <span>Costo giornaliero:</span>
+            <span>€${dailyPrice}</span>
+        </div>
+        <div class="breakdown-item">
+            <span>Durata:</span>
+            <span>${days} giorni</span>
+        </div>
+        <div class="breakdown-item">
+            <span>Costo pubblicità:</span>
+            <span>€${dailyPrice * days}</span>
+        </div>
+    `;
+
+    if (wizardState.uploadMethod === 'service') {
+        breakdownHTML += `
+            <div class="breakdown-item">
+                <span>Servizio grafico:</span>
+                <span>€20</span>
+            </div>
+        `;
+    }
+
+    breakdownHTML += `
+        <div class="breakdown-item" style="border-top: 2px solid #dee2e6; margin-top: 0.5rem; padding-top: 0.5rem; font-weight: 700;">
+            <span>Totale:</span>
+            <span>€${totalBudget}</span>
+        </div>
+    `;
+
+    breakdownEl.innerHTML = breakdownHTML;
+}
+
+function populateCampaignSummary() {
+    const placement = placementData[wizardState.placement];
+    if (!placement) return;
+
+    const summaryGrid = document.getElementById('campaignSummary');
+
+    // Show category selection if required
+    if (placement.requiresCategory) {
+        document.getElementById('categorySelectionGroup').style.display = 'block';
+    }
+
+    let summaryHTML = `
+        <div class="summary-item">
+            <div class="summary-label">Posizionamento</div>
+            <div class="summary-value">${placement.name}</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">Formato</div>
+            <div class="summary-value">${placement.format}</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">Tipo Contenuto</div>
+            <div class="summary-value">${getContentTypeLabel()}</div>
+        </div>
+        <div class="summary-item">
+            <div class="summary-label">Metodo Upload</div>
+            <div class="summary-value">${wizardState.uploadMethod === 'upload' ? 'Caricamento diretto' : 'Servizio grafico (+€20)'}</div>
+        </div>
+    `;
+
+    summaryGrid.innerHTML = summaryHTML;
+
+    // Add event listeners for date change to recalculate budget
+    const startDateInput = document.getElementById('campaignStartDate');
+    const endDateInput = document.getElementById('campaignEndDate');
+
+    if (startDateInput && endDateInput) {
+        startDateInput.addEventListener('change', calculateBudget);
+        endDateInput.addEventListener('change', calculateBudget);
+    }
+}
+
+function getContentTypeLabel() {
+    const allContentTypes = { ...contentTypes.all, ...contentTypes['professionista-servizio'], ...contentTypes['foto-offerta'], ...contentTypes['categoria-specifica'] };
+    const contentType = allContentTypes[wizardState.contentType];
+    return contentType ? contentType.label : wizardState.contentType;
+}
+
+function submitCampaign() {
+    // Validate final step
+    const title = document.getElementById('campaignTitle')?.value;
+    const link = document.getElementById('campaignLink')?.value;
+    const startDate = document.getElementById('campaignStartDate')?.value;
+    const endDate = document.getElementById('campaignEndDate')?.value;
+
+    if (!title || !link || !startDate || !endDate) {
+        showNotification('Compila tutti i campi obbligatori', 'error');
+        return;
+    }
+
+    const placement = placementData[wizardState.placement];
+    if (placement.requiresCategory) {
+        const category = document.getElementById('serviceCategory')?.value;
+        if (!category) {
+            showNotification('Seleziona una categoria servizio', 'error');
+            return;
+        }
+    }
+
+    // Collect campaign data
     const campaignData = {
-        name: document.getElementById('campaignName')?.value || '',
-        objective: document.getElementById('campaignObjective')?.value || '',
-        service: document.getElementById('serviceToPromote')?.value || '',
-        title: document.getElementById('adTitle')?.value || '',
-        description: document.getElementById('adDescription')?.value || '',
-        cta: document.getElementById('callToAction')?.value || '',
-        dailyBudget: document.getElementById('dailyBudgetCampaign')?.value || '',
-        duration: document.getElementById('campaignDuration')?.value || ''
+        placement: wizardState.placement,
+        contentType: wizardState.contentType,
+        uploadMethod: wizardState.uploadMethod,
+        title: title,
+        description: document.getElementById('campaignDescription')?.value || '',
+        link: link,
+        startDate: startDate,
+        endDate: endDate,
+        budget: parseFloat(document.getElementById('totalBudget')?.value) || 0,
+        category: document.getElementById('serviceCategory')?.value || null
     };
 
-    console.log('Creazione campagna:', campaignData);
+    if (wizardState.uploadMethod === 'service') {
+        campaignData.graphicService = {
+            brief: document.getElementById('graphicBrief')?.value || '',
+            text: document.getElementById('graphicText')?.value || '',
+            colors: document.getElementById('graphicColors')?.value || ''
+        };
+    }
 
-    // Add to campaigns array
+    console.log('Invio campagna:', campaignData);
+
+    // Create new campaign
     const newCampaign = {
         id: Date.now(),
-        title: campaignData.name,
-        status: 'active',
+        title: campaignData.title,
+        status: 'pending', // Pending approval
         impressions: 0,
         clicks: 0,
         conversions: 0,
-        budget: parseFloat(campaignData.dailyBudget) * parseInt(campaignData.duration) || 0,
+        budget: campaignData.budget,
         spent: 0,
-        startDate: new Date().toISOString().split('T')[0],
-        endDate: new Date(Date.now() + parseInt(campaignData.duration) * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        startDate: campaignData.startDate,
+        endDate: campaignData.endDate,
         type: 'sponsored',
-        target: 'local'
+        target: 'local',
+        placement: campaignData.placement
     };
 
     campaignsData.unshift(newCampaign);
@@ -699,7 +1201,7 @@ function createCampaign() {
     renderCampaigns(getFilteredCampaigns());
 
     // Show success message
-    showNotification('Campagna creata con successo! La revisione richiederà 2-4 ore.', 'success', 5000);
+    showNotification('Richiesta inviata! Il team admin la revisionerà entro 24-48h. Riceverai una notifica quando sarà approvata.', 'success', 5000);
 
     closeCreateCampaignModal();
 }
@@ -720,6 +1222,10 @@ window.openCreateCampaignModal = openCreateCampaignModal;
 window.closeCreateCampaignModal = closeCreateCampaignModal;
 window.nextStep = nextStep;
 window.previousStep = previousStep;
-window.createCampaign = createCampaign;
+window.selectPlacement = selectPlacement;
+window.selectContentType = selectContentType;
+window.selectUploadOption = selectUploadOption;
+window.removeUpload = removeUpload;
+window.submitCampaign = submitCampaign;
 
 console.log('Pubblicità Premium script caricato');

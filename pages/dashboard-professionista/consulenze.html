@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>Consulenze - Dashboard Professionista | RelaxPoint</title>
+    <meta name="description" content="Gestisci le tue consulenze dalla dashboard professionista.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/dashboard-professionista.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-professionista/consulenze.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER (copiato da i-miei-servizi.html, identico) -->
+            <header class="site-header">
+                <a class="site-logo" href="/index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+                <div class="header-left">
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary" id="loginBtn">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+
+                        <a href="#" class="user-avatar-header" id="userAvatar">
+                            <img src="/assets/images/Professionisti/pr1.png" alt="User Avatar">
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-professionista.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">Consulenze</span>
+                    </nav>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+                            <div class="sidebar-header">
+                                <h3>Business</h3>
+                            </div>
+
+                            <nav class="sidebar-menu">
+                            <a href="dashboard-professionista.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                </svg>
+                                <span>Dashboard</span>
+                            </a>
+
+                            <a href="lastminute.html" class="menu-item lastminute-highlight">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                </svg>
+                                <span>Last Minute</span>
+                            </a>
+
+                            <a href="prenotazioni.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                </svg>
+                                <span>Prenotazioni</span>
+                            </a>
+
+                            <a href="chat.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z" />
+                                </svg>
+                                <span>Chat</span>
+                            </a>
+
+                            <a href="i-miei-servizi.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                                </svg>
+                                <span>I Miei Servizi</span>
+                            </a>
+
+                            <a href="microsito-professionista.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                </svg>
+                                <span>Microsito</span>
+                            </a>
+
+                            <a href="recensioni.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                                <span>Recensioni</span>
+                            </a>
+
+                            <a href="calendario.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                                </svg>
+                                <span>Calendario</span>
+                            </a>
+
+                            <a href="fatturazione.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h8c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                                </svg>
+                                <span>Fatturazione</span>
+                            </a>
+
+<!-- SEZIONE PREMIUM ESCLUSIVA -->
+                            <div class="menu-section premium-section">
+                                <div class="section-header">
+                                    <span class="section-title">Premium Exclusive</span>
+                                </div>
+
+                                <a href="consulenze.html" class="menu-item active premium-feature"
+                                    data-premium-required="Consulenze">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                                    </svg>
+                                    <span>Consulenze</span>
+                                    <span class="premium-badge">PRO</span>
+                                </a>
+
+                                <a href="statistiche.html" class="menu-item premium-feature"
+                                    data-premium-required="Statistiche Business">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                    </svg>
+                                    <span>Statistiche</span>
+                                    <span class="premium-badge">PRO</span>
+                                </a>
+
+                                <a href="crm-clienti.html" class="menu-item premium-feature"
+                                    data-premium-required="CRM Clienti">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                                    </svg>
+                                    <span>CRM Clienti</span>
+                                    <span class="premium-badge">PRO</span>
+                                </a>
+
+                                <a href="multi-location.html" class="menu-item premium-feature"
+                                    data-premium-required="Gestione Multi-Location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                    </svg>
+                                    <span>Multi-Location</span>
+                                    <span class="premium-badge">PRO</span>
+                                </a>
+
+                                <a href="pubblicita-premium.html" class="menu-item premium-feature"
+                                    data-premium-required="Sistema Pubblicità">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
+                                    </svg>
+                                    <span>Pubblicità</span>
+                                    <span class="premium-badge">PRO</span>
+                                </a>
+                            </div>
+
+                            <a href="impostazioni.html" class="menu-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                </svg>
+                                <span>Impostazioni</span>
+                            </a>
+
+                            <a href="/index.html" class="menu-item logout">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                    <path
+                                        d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                </svg>
+                                <span>Logout</span>
+                            </a>
+                        </nav>
+                    </aside>
+
+                    <!-- CONTENUTO PRINCIPALE -->
+                    <div class="dashboard-main">
+
+                        <!-- HEADER SEZIONE -->
+                        <div class="page-header">
+                            <h1>Consulenze</h1>
+                            <p class="page-subtitle">Gestisci le tue consulenze online</p>
+                        </div>
+
+                        <!-- TAB NAVIGATION -->
+                        <div class="tabs-navigation">
+                            <button class="tab-btn active" data-tab="prossime">Prossime</button>
+                            <button class="tab-btn" data-tab="storico">Storico</button>
+                            <button class="tab-btn" data-tab="statistiche">Statistiche</button>
+                        </div>
+
+                        <!-- TAB CONTENT -->
+                        <div class="tabs-content">
+
+                            <!-- TAB 1: PROSSIME CONSULENZE -->
+                            <div class="tab-pane active" id="prossime">
+                                <div class="content-card">
+                                    <div class="card-header-action">
+                                        <div>
+                                            <h2>Prossime Consulenze</h2>
+                                            <p style="color: var(--color-secondary); margin-top: 8px;">Consulenze prenotate dai tuoi clienti</p>
+                                        </div>
+                                        <button class="btn-secondary" onclick="window.location.href='i-miei-servizi.html#consulenze'">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 8px;">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                            Configura Tipi di Consulenza
+                                        </button>
+                                    </div>
+
+                                    <!-- Lista Consulenze -->
+                                    <div class="consulenze-list" id="consulenzeList">
+                                        <!-- Popolato via JS -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 2: STORICO -->
+                            <div class="tab-pane" id="storico">
+                                <div class="content-card">
+                                    <div class="card-header-action">
+                                        <div>
+                                            <h2>Storico</h2>
+                                            <p style="color: var(--color-secondary); margin-top: 8px;">Consulenze completate</p>
+                                        </div>
+                                        <div style="display: flex; gap: 12px;">
+                                            <select class="form-select" id="storicoFilter" style="width: auto;" onchange="filterStorico()">
+                                                <option value="all">Tutti</option>
+                                                <option value="videocall">Videocall</option>
+                                                <option value="studio">In studio</option>
+                                                <option value="domicilio">A domicilio</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <!-- Lista Storico -->
+                                    <div class="storico-list" id="storicoList">
+                                        <!-- Popolato via JS -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- TAB 3: STATISTICHE -->
+                            <div class="tab-pane" id="statistiche">
+                                <div class="content-card">
+                                    <h2>Statistiche Consulenze</h2>
+                                    <p style="color: var(--color-secondary); margin-top: 8px;">Panoramica completa delle tue consulenze</p>
+
+                                    <!-- Stats Grid -->
+                                    <div class="stats-grid" style="margin-top: 32px;">
+                                        <div class="stat-card">
+                                            <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="stat-number" id="statConsulenzeTotal">0</div>
+                                            <div class="stat-label">Consulenze Totali</div>
+                                            <div style="font-size: 12px; color: #10b981; margin-top: 8px; font-weight: 600;">+18% vs mese scorso</div>
+                                        </div>
+
+                                        <div class="stat-card">
+                                            <div class="stat-icon" style="background: rgba(59, 130, 246, 0.1); color: #3b82f6;">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="stat-number" id="statClientiUnici">0</div>
+                                            <div class="stat-label">Clienti Unici</div>
+                                            <div style="font-size: 12px; color: #10b981; margin-top: 8px; font-weight: 600;">+7 questo mese</div>
+                                        </div>
+
+                                        <div class="stat-card">
+                                            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="stat-number" id="statFatturato">€0</div>
+                                            <div class="stat-label">Fatturato Totale</div>
+                                            <div style="font-size: 12px; color: #10b981; margin-top: 8px; font-weight: 600;">Media: €85/consulenza</div>
+                                        </div>
+
+                                        <div class="stat-card">
+                                            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.1); color: #f59e0b;">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                                </svg>
+                                            </div>
+                                            <div class="stat-number" id="statRating">0.0</div>
+                                            <div class="stat-label">Rating Medio</div>
+                                            <div style="font-size: 12px; color: #f59e0b; margin-top: 8px; font-weight: 600;">★★★★★</div>
+                                        </div>
+
+                                        <div class="stat-card">
+                                            <div class="stat-icon" style="background: rgba(139, 92, 246, 0.1); color: #8b5cf6;">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="stat-number" id="statCompletionRate">0%</div>
+                                            <div class="stat-label">Tasso Completamento</div>
+                                            <div style="font-size: 12px; color: #10b981; margin-top: 8px; font-weight: 600;">Ottimo!</div>
+                                        </div>
+
+                                        <div class="stat-card">
+                                            <div class="stat-icon" style="background: rgba(236, 72, 153, 0.1); color: #ec4899;">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="stat-number" id="statOreMedie">0h</div>
+                                            <div class="stat-label">Ore Totali Erogate</div>
+                                            <div style="font-size: 12px; color: var(--color-secondary); margin-top: 8px; font-weight: 600;">~48h questo mese</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Performance Chart Placeholder -->
+                                    <div style="margin-top: 40px; padding: 32px; background: #f9fafb; border-radius: 12px; text-align: center;">
+                                        <h3 style="margin: 0 0 16px 0; font-size: 18px;">Grafico Prestazioni</h3>
+                                        <p style="color: var(--color-secondary); margin: 0 0 24px 0;">Visualizzazione trend partecipanti nel tempo</p>
+                                        <div style="height: 200px; display: flex; align-items: center; justify-content: center; color: var(--color-secondary);">
+                                            📊 Grafici disponibili con integrazione Chart.js
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+
+            <!-- MODAL DETTAGLI CONSULENZA -->
+            <div class="modal" id="modalDettagliConsulenza">
+                <div class="modal-content modal-large">
+                    <div class="modal-header">
+                        <h3 id="modalDettagliTitolo">Dettagli Consulenza</h3>
+                        <button class="modal-close" onclick="chiudiModalDettagli()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- SEZIONE 1: INFO CONSULENZA -->
+                        <div class="dettagli-section">
+                            <h4>📋 Informazioni Consulenza</h4>
+                            <div class="dettagli-grid">
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Data e Ora:</span>
+                                    <span class="dettaglio-value" id="dettaglioDataOra">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Durata:</span>
+                                    <span class="dettaglio-value" id="dettaglioDurata">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Prezzo:</span>
+                                    <span class="dettaglio-value" id="dettaglioPrezzo">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Modalità:</span>
+                                    <span class="dettaglio-value" id="dettaglioModalita">-</span>
+                                </div>
+                            </div>
+
+                            <!-- Campi condizionali -->
+                            <div id="dettaglioVideocallLink" style="display: none; margin-top: 16px;">
+                                <span class="dettaglio-label">🔗 Link Videocall:</span>
+                                <div style="display: flex; gap: 8px; margin-top: 8px;">
+                                    <input type="text" id="dettaglioLinkValue" readonly style="flex: 1; padding: 8px; border: 1px solid #e5e7eb; border-radius: 6px;">
+                                    <button class="btn btn-secondary" onclick="copiaLinkVideocall()">Copia Link</button>
+                                </div>
+                            </div>
+
+                            <div id="dettaglioIndirizzo" style="display: none; margin-top: 16px;">
+                                <span class="dettaglio-label">🏠 Indirizzo:</span>
+                                <p id="dettaglioIndirizzoValue" style="margin-top: 8px; padding: 8px; background: #f9fafb; border-radius: 6px;">-</p>
+                            </div>
+                        </div>
+
+                        <!-- SEZIONE 2: INFO CLIENTE -->
+                        <div class="dettagli-section">
+                            <h4>👤 Cliente</h4>
+                            <div class="dettagli-grid">
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Nome:</span>
+                                    <span class="dettaglio-value" id="dettaglioCliente">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Storico:</span>
+                                    <span class="dettaglio-value" id="dettaglioStorico">Prima consulenza</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary" onclick="apriChat()" style="margin-top: 12px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                                </svg>
+                                Apri Chat con Cliente
+                            </button>
+                        </div>
+
+                        <!-- SEZIONE 3: DOCUMENTI -->
+                        <div class="dettagli-section">
+                            <h4>📎 Documenti</h4>
+
+                            <!-- Documenti Cliente -->
+                            <div style="margin-bottom: 20px;">
+                                <h5 style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">Documenti Cliente (Pre-consulenza)</h5>
+                                <div id="dettaglioDocumentiCliente" class="documenti-list">
+                                    <p style="color: var(--color-secondary); font-size: 14px;">Nessun documento caricato</p>
+                                </div>
+                            </div>
+
+                            <!-- Documenti Professionista -->
+                            <div>
+                                <h5 style="font-size: 14px; font-weight: 600; margin-bottom: 8px;">I Tuoi Documenti (Post-consulenza)</h5>
+                                <div id="dettaglioDocumentiProfessionista" class="documenti-list">
+                                    <p style="color: var(--color-secondary); font-size: 14px;">Nessun documento caricato</p>
+                                </div>
+                                <button class="btn btn-secondary" onclick="caricaDocumento()" style="margin-top: 8px;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                                    </svg>
+                                    Carica Documento
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- SEZIONE 4: NOTE -->
+                        <div class="dettagli-section">
+                            <h4>📝 Note Professionista</h4>
+                            <textarea id="dettaglioNote" rows="5" placeholder="Inserisci note private sulla consulenza..." style="width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 6px; font-family: inherit; resize: vertical;"></textarea>
+                            <button class="btn btn-secondary" onclick="salvaNoteConsulenza()" style="margin-top: 8px;">Salva Note</button>
+                        </div>
+
+                        <!-- SEZIONE 5: AZIONI -->
+                        <div class="dettagli-section">
+                            <h4>⚙️ Azioni</h4>
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-primary" id="btnEntraVideocall" onclick="entraInVideocall()" style="display: none;">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                                    </svg>
+                                    Entra in Videocall
+                                </button>
+                                <button class="btn btn-success" onclick="segnaCompletata()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                                    </svg>
+                                    Segna Completata
+                                </button>
+                                <button class="btn btn-secondary" onclick="inviaPromemoria()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                    </svg>
+                                    Invia Promemoria
+                                </button>
+                                <button class="btn btn-danger" onclick="annullaConsulenza()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                                    </svg>
+                                    Annulla Consulenza
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini-condizioni.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy-policy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">&copy; 2025 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- MODALI -->
+    <!-- Modal Gestione Iscritti -->
+    <div id="modalIscritti" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3>Gestione Iscritti</h3>
+                <button class="modal-close" onclick="closeModal('modalIscritti')">&times;</button>
+            </div>
+            <div class="modal-body" id="iscrittiContent">
+                <!-- Popolato via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Upload Materiali -->
+    <div id="modalMateriali" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Carica Materiali Corso</h3>
+                <button class="modal-close" onclick="closeModal('modalMateriali')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-area" id="uploadArea">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" style="color: var(--color-primary); margin-bottom: 16px;">
+                        <path d="M9 16h6v-6h4l-7-7-7 7h4zm-4 2h14v2H5z"/>
+                    </svg>
+                    <p style="font-weight: 600; margin-bottom: 8px;">Carica file</p>
+                    <p style="font-size: 14px; color: var(--color-secondary); margin-bottom: 16px;">PDF, Video, Documenti (max 100MB)</p>
+                    <input type="file" id="fileInput" style="display: none;" multiple>
+                    <button class="btn-primary" onclick="document.getElementById('fileInput').click()">Scegli File</button>
+                </div>
+                <div id="filesList" style="margin-top: 24px;"></div>
+                <div style="margin-top: 24px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Condizioni di sblocco:</label>
+                    <select class="form-select" id="unlockCondition">
+                        <option value="immediate">Disponibile Immediatamente</option>
+                        <option value="after-1">Dopo 1 lezione</option>
+                        <option value="after-3">Dopo 3 lezioni</option>
+                        <option value="after-5">Dopo 5 lezioni</option>
+                        <option value="completion">A completamento corso</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('modalMateriali')">Annulla</button>
+                <button class="btn-primary" onclick="uploadMateriali()">Carica</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Broadcast Messaggio -->
+    <div id="modalBroadcast" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Invia Messaggio agli Iscritti</h3>
+                <button class="modal-close" onclick="closeModal('modalBroadcast')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Oggetto</label>
+                    <input type="text" id="messageSubject" class="form-input" placeholder="Oggetto del messaggio">
+                </div>
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600;">Messaggio</label>
+                    <textarea id="messageBody" class="form-textarea" rows="6" placeholder="Scrivi il tuo messaggio..."></textarea>
+                </div>
+                <div style="background: #f3f4f6; padding: 12px; border-radius: 8px; font-size: 14px;">
+                    <strong>Destinatari:</strong> <span id="recipientsCount">0</span> iscritti
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeModal('modalBroadcast')">Annulla</button>
+                <button class="btn-primary" onclick="sendBroadcast()">Invia</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/premium-protection.js"></script>
+    <script src="/assets/js/dashboard-professionista/consulenze.js?v=1.3"></script>
+
+</body>
+
+</html>

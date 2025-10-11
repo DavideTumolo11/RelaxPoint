@@ -9,9 +9,9 @@ CSS per annunci ai lati della hero section - POSIZIONAMENTO ASSOLUTO
     /* Aggiungo solo questo per il posizionamento assoluto degli annunci */
 }
 
-/* === SPAZI PUBBLICITARI LATERALI === */
+/* === SPAZI PUBBLICITARI LATERALI - CON STICKY === */
 .hero-ad-left {
-    position: absolute;
+    position: fixed;
     top: 15%;
     transform: translateY(-50%);
     width: 250px;
@@ -20,14 +20,18 @@ CSS per annunci ai lati della hero section - POSIZIONAMENTO ASSOLUTO
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
     overflow: hidden;
-    z-index: 10;
-    left: -280px;
+    z-index: 100;
+    left: calc(35% - 600px - 270px);
+    pointer-events: none;
+}
+
+.hero-ad-left * {
+    pointer-events: auto;
 }
 
 .hero-ad-right {
-    position: absolute;
+    position: fixed;
     top: 15%;
     transform: translateY(-50%);
     width: 250px;
@@ -36,44 +40,56 @@ CSS per annunci ai lati della hero section - POSIZIONAMENTO ASSOLUTO
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
     overflow: hidden;
-    z-index: 10;
-    right: -280px;
+    z-index: 100;
+    right: calc(35% - 600px - 270px);
+    pointer-events: none;
+}
+
+.hero-ad-right * {
+    pointer-events: auto;
 }
 
 /* === SECONDO ANNUNCIO SINISTRO (SOTTO) === */
 .hero-ad-left-bottom {
-    position: absolute;
-    top: 90%;
+    position: fixed;
+    top: 65%;
     transform: translateY(-50%);
     width: 250px;
-    height: 460px;
+    height: 440px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
     overflow: hidden;
-    z-index: 10;
-    left: -280px;
+    z-index: 100;
+    left: calc(35% - 600px - 270px);
+    pointer-events: none;
+}
+
+.hero-ad-left-bottom * {
+    pointer-events: auto;
 }
 
 /* === SECONDO ANNUNCIO DESTRO (SOPRA) === */
 .hero-ad-right-top {
-    position: absolute;
-    top: 90%;
+    position: fixed;
+    top: 65%;
     transform: translateY(-50%);
     width: 250px;
-    height: 460px;
+    height: 440px;
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
     overflow: hidden;
-    z-index: 10;
-    right: -280px;
+    z-index: 100;
+    right: calc(35% - 600px - 270px);
+    pointer-events: none;
+}
+
+.hero-ad-right-top * {
+    pointer-events: auto;
 }
 
 
@@ -379,14 +395,14 @@ CSS per annunci ai lati della hero section - POSIZIONAMENTO ASSOLUTO
     margin: 20px 0;
     padding: 0;
     position: relative;
-    left: 50%;
-    right: 50%;
+    left: 65%;
+    right: 65%;
     margin-left: calc(-50vw + 20px);
     margin-right: calc(-50vw + 20px);
 }
 
 .full-width-ad-container {
-    width: 100%;
+    width: 77%;
     max-width: none;
     margin: 0;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -601,5 +617,98 @@ CSS per annunci ai lati della hero section - POSIZIONAMENTO ASSOLUTO
     .full-width-ad-cta {
         padding: 12px 24px;
         font-size: 14px;
+    }
+}
+
+/* === OVERRIDE PER PAGINE SERVIZI === */
+/* Gli hero delle pagine servizi hanno strutture diverse, quindi aggiustiamo il posizionamento */
+
+.hair-hero .hero-ad,
+.beauty-hero .hero-ad,
+.chef-hero .hero-ad,
+.escursioni-hero .hero-ad,
+.fisioterapia-hero .hero-ad,
+.fitness-hero .hero-ad,
+.gravidanza-hero .hero-ad,
+.massaggi-hero .hero-ad,
+.yoga-hero .hero-ad,
+.service-hero .hero-ad {
+    /* Riduci dimensioni per evitare sovrapposizioni */
+    width: 200px;
+    height: 280px;
+}
+
+.hair-hero .hero-ad-left,
+.beauty-hero .hero-ad-left,
+.chef-hero .hero-ad-left,
+.escursioni-hero .hero-ad-left,
+.fisioterapia-hero .hero-ad-left,
+.fitness-hero .hero-ad-left,
+.gravidanza-hero .hero-ad-left,
+.massaggi-hero .hero-ad-left,
+.yoga-hero .hero-ad-left,
+.service-hero .hero-ad-left {
+    left: -230px;
+    top: 20%;
+}
+
+.hair-hero .hero-ad-right,
+.beauty-hero .hero-ad-right,
+.chef-hero .hero-ad-right,
+.escursioni-hero .hero-ad-right,
+.fisioterapia-hero .hero-ad-right,
+.fitness-hero .hero-ad-right,
+.gravidanza-hero .hero-ad-right,
+.massaggi-hero .hero-ad-right,
+.yoga-hero .hero-ad-right,
+.service-hero .hero-ad-right {
+    right: -230px;
+    top: 20%;
+}
+
+.hair-hero .hero-ad-left-bottom,
+.beauty-hero .hero-ad-left-bottom,
+.chef-hero .hero-ad-left-bottom,
+.escursioni-hero .hero-ad-left-bottom,
+.fisioterapia-hero .hero-ad-left-bottom,
+.fitness-hero .hero-ad-left-bottom,
+.gravidanza-hero .hero-ad-left-bottom,
+.massaggi-hero .hero-ad-left-bottom,
+.yoga-hero .hero-ad-left-bottom,
+.service-hero .hero-ad-left-bottom {
+    left: -230px;
+    top: 70%;
+    height: 280px;
+}
+
+.hair-hero .hero-ad-right-top,
+.beauty-hero .hero-ad-right-top,
+.chef-hero .hero-ad-right-top,
+.escursioni-hero .hero-ad-right-top,
+.fisioterapia-hero .hero-ad-right-top,
+.fitness-hero .hero-ad-right-top,
+.gravidanza-hero .hero-ad-right-top,
+.massaggi-hero .hero-ad-right-top,
+.yoga-hero .hero-ad-right-top,
+.service-hero .hero-ad-right-top {
+    right: -230px;
+    top: 70%;
+    height: 280px;
+}
+
+/* Mobile - nascondi ads laterali nelle pagine servizi su mobile */
+@media (max-width: 1400px) {
+
+    .hair-hero .hero-ad,
+    .beauty-hero .hero-ad,
+    .chef-hero .hero-ad,
+    .escursioni-hero .hero-ad,
+    .fisioterapia-hero .hero-ad,
+    .fitness-hero .hero-ad,
+    .gravidanza-hero .hero-ad,
+    .massaggi-hero .hero-ad,
+    .yoga-hero .hero-ad,
+    .service-hero .hero-ad {
+        display: none;
     }
 }

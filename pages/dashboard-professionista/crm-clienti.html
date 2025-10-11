@@ -106,6 +106,13 @@
             <main class="main-content">
                 <div class="content-wrapper">
 
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="dashboard-professionista.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        <span class="breadcrumb-current">CRM Clienti</span>
+                    </nav>
+
                     <!-- DASHBOARD LAYOUT A DUE COLONNE -->
                     <div class="dashboard-layout">
                         <!-- SIDEBAR -->
@@ -194,29 +201,42 @@
                                     <span>Fatturazione</span>
                                 </a>
 
-                                <a href="statistiche.html" class="menu-item premium-feature">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                                        class="menu-icon">
-                                        <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
-                                    </svg>
-                                    <span>Statistiche</span>
-                                    <span class="premium-badge">PRO</span>
-                                </a>
-
-                                <!-- PREMIUM SECTION -->
+                                <!-- SEZIONE PREMIUM ESCLUSIVA -->
                                 <div class="menu-section premium-section">
                                     <div class="section-header">
                                         <span class="section-title">Premium Exclusive</span>
                                     </div>
+
+                                    <a href="consulenze.html" class="menu-item premium-feature"
+                                        data-premium-required="Consulenze">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                                        </svg>
+                                        <span>Consulenze</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="statistiche.html" class="menu-item premium-feature"
+                                        data-premium-required="Statistiche Business">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                        </svg>
+                                        <span>Statistiche</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
 
                                     <a href="crm-clienti.html" class="menu-item active premium-feature"
                                         data-premium-required="CRM Clienti">
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
                                             class="menu-icon">
                                             <path
-                                                d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.01 2.01 0 0 0 18 7a2.01 2.01 0 0 0-1.96 1.37L13.5 16H16v6h4z" />
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
                                         </svg>
                                         <span>CRM Clienti</span>
+                                        <span class="premium-badge">PRO</span>
                                     </a>
 
                                     <a href="multi-location.html" class="menu-item premium-feature"
@@ -227,6 +247,7 @@
                                                 d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                         </svg>
                                         <span>Multi-Location</span>
+                                        <span class="premium-badge">PRO</span>
                                     </a>
 
                                     <a href="pubblicita-premium.html" class="menu-item premium-feature"
@@ -237,8 +258,8 @@
                                                 d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.50-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z" />
                                         </svg>
                                         <span>Pubblicità</span>
+                                        <span class="premium-badge">PRO</span>
                                     </a>
-
                                 </div>
 
                                 <a href="impostazioni.html" class="menu-item">
@@ -249,12 +270,21 @@
                                     </svg>
                                     <span>Impostazioni</span>
                                 </a>
+
+                                <a href="/index.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
                             </nav>
                         </aside>
 
                         <!-- CONTENUTO PRINCIPALE -->
                         <main class="dashboard-main">
-                            <div class="crm-premium-container">
+                            <div class="crm-premium-container" style="margin-top: 20px;">
                                 <!-- HEADER -->
                                 <div class="crm-premium-header">
                                     <h1>CRM Clienti Premium</h1>
@@ -487,8 +517,8 @@
                 <div class="footer-links">
                     <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
                     <a class="footer-link" href="/pages/contatti.html">Contatti</a>
-                    <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
-                    <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                    <a class="footer-link" href="/pages/termini-condizioni.html">Termini e condizioni</a>
+                    <a class="footer-link" href="/pages/privacy-policy.html">Privacy Policy</a>
                     <a class="footer-link" href="/pages/faq.html">FAQ</a>
                 </div>
                 <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>

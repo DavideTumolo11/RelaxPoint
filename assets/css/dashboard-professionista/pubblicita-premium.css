@@ -125,7 +125,7 @@
 .stat-number {
     font-size: 1.875rem;
     font-weight: 700;
-    color: #1a1a1a;
+    color: #ffffff;
     line-height: 1.2;
 }
 
@@ -311,7 +311,6 @@
 
 .campaign-stats-grid .stat-label {
     font-size: 0.75rem;
-    color: #999;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -319,7 +318,7 @@
 .campaign-stats-grid .stat-value {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #1a1a1a;
+
 }
 
 .campaign-budget {
@@ -798,8 +797,13 @@
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .empty-state svg {
@@ -850,6 +854,7 @@
         transform: translateX(100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
@@ -861,6 +866,7 @@
         transform: translateX(0);
         opacity: 1;
     }
+
     to {
         transform: translateX(100%);
         opacity: 0;
@@ -922,5 +928,530 @@
 
     .stat-number {
         font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   WIZARD STYLES - 4 STEP CAMPAIGN CREATION
+   ======================================== */
+
+/* Progress Bar */
+.wizard-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem;
+    position: relative;
+}
+
+.wizard-progress::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: #e9ecef;
+    z-index: 0;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e9ecef;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.progress-step.completed .step-number {
+    background: #52A373;
+    color: white;
+}
+
+.step-label {
+    font-size: 0.75rem;
+    color: #999;
+    font-weight: 600;
+    text-align: center;
+}
+
+.progress-step.active .step-label {
+    color: #667eea;
+}
+
+.progress-step.completed .step-label {
+    color: #52A373;
+}
+
+/* Step Description */
+.step-description {
+    color: #666;
+    font-size: 0.938rem;
+    margin-bottom: 2rem;
+}
+
+/* STEP 1: PLACEMENT GRID */
+.placement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.placement-card {
+    position: relative;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.placement-card:hover {
+    border-color: #667eea;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.placement-card.selected {
+    border-color: #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.placement-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.688rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.placement-badge.premium {
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    color: #856404;
+}
+
+.placement-badge.high {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    color: white;
+}
+
+.placement-badge.medium {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+}
+
+.placement-badge.low {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+
+.placement-card h5 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+}
+
+.placement-desc {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.placement-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.813rem;
+}
+
+.info-item .label {
+    color: #999;
+    font-weight: 600;
+}
+
+.info-item .value {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.placement-price {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #667eea;
+    padding-top: 1rem;
+    border-top: 2px solid #e9ecef;
+}
+
+/* STEP 2: CONTENT TYPE GRID */
+.content-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.content-type-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.content-type-card:hover {
+    border-color: #667eea;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.content-type-card.selected {
+    border-color: #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+
+.content-type-card h5 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+}
+
+.content-type-card p {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+}
+
+/* STEP 3: UPLOAD OPTIONS */
+.upload-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.upload-option {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.upload-option:hover {
+    border-color: #667eea;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.upload-option.selected {
+    border-color: #667eea;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+
+.service-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+}
+
+.upload-option h5 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+}
+
+.upload-option p {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.format-requirements {
+    text-align: left;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.813rem;
+    color: #666;
+}
+
+.format-requirements ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.25rem;
+}
+
+.service-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.service-details li {
+    font-size: 0.875rem;
+    color: #666;
+    padding: 0.25rem 0;
+}
+
+/* Upload Area */
+.upload-area {
+    margin-top: 2rem;
+}
+
+.upload-dropzone {
+    border: 3px dashed #dee2e6;
+    border-radius: 12px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-dropzone:hover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.02);
+}
+
+.upload-dropzone.dragover {
+    border-color: #667eea;
+    background: rgba(102, 126, 234, 0.05);
+}
+
+
+.upload-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 0.5rem 0;
+}
+
+.upload-subtext {
+    font-size: 0.875rem;
+    color: #999;
+    margin: 0;
+}
+
+.upload-preview {
+    text-align: center;
+    padding: 2rem;
+}
+
+.upload-preview img {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-remove {
+    padding: 0.5rem 1.5rem;
+    background: #ef4444;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-remove:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
+
+/* Graphic Service Form */
+.graphic-service-form {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.graphic-service-form h5 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 1.5rem 0;
+}
+
+/* STEP 4: CAMPAIGN DETAILS */
+.field-hint {
+    display: block;
+    font-size: 0.813rem;
+    color: #999;
+    margin-top: 0.25rem;
+}
+
+.form-group input[type="url"],
+.form-group input[type="date"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 0.938rem;
+    transition: all 0.2s ease;
+}
+
+.budget-calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.budget-input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.currency {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #43e97b;
+}
+
+.budget-input-group input {
+    flex: 1;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    background: transparent;
+    border: none;
+}
+
+.budget-breakdown {
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.budget-breakdown .breakdown-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+}
+
+.campaign-summary {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    border-radius: 12px;
+}
+
+.campaign-summary h5 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #667eea;
+    margin: 0 0 1rem 0;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.summary-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.summary-label {
+    font-size: 0.75rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.summary-value {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Responsive Adjustments for Wizard */
+@media (max-width: 768px) {
+
+    .placement-grid,
+    .content-type-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-options {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wizard-progress {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .step-label {
+        font-size: 0.688rem;
     }
 }

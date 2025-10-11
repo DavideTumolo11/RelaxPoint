@@ -32,6 +32,7 @@
     border-radius: 16px;
     padding: 48px 32px;
     margin: 32px 0;
+    position: relative;
 }
 
 .fitness-hero-content {
@@ -872,4 +873,111 @@
         font-size: 10px;
         padding: 4px 10px;
     }
+}
+
+/* ===============================================
+   HERO ADS SPECIFICI PER FITNESS ALLENAMENTO - CON STICKY
+   =============================================== */
+
+.hero-ad-fitness {
+    position: fixed;
+    width: 200px;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.hero-ad-fitness:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.fitness-ad-left {
+    top: 35%;
+    transform: translateY(-50%);
+    left: calc(35% - 600px - 270px);
+}
+
+.fitness-ad-right {
+    top: 35%;
+    transform: translateY(-50%);
+    right: calc(35% - 600px - 270px);
+}
+
+.fitness-ad-left-bottom {
+    top: 65%;
+    transform: translateY(-50%);
+    left: calc(35% - 600px - 270px);
+    height: 360px;
+}
+
+.fitness-ad-right-top {
+    top: 65%;
+    transform: translateY(-50%);
+    right: calc(35% - 600px - 270px);
+    height: 360px;
+}
+
+@media (max-width: 1400px) {
+    .hero-ad-fitness {
+        display: none;
+    }
+}
+
+
+
+/* ===============================================
+   FULL WIDTH AD - RESTRIZIONE PER EVITARE SOVRAPPOSIZIONI
+   =============================================== */
+
+.fitness-full-width-ad {
+    width: calc(100vw - 40px) !important;
+    margin: 20px 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    left: 60% !important;
+    right: 67% !important;
+    margin-left: calc(-50vw + 20px) !important;
+    margin-right: calc(-50vw + 20px) !important;
+}
+
+.fitness-full-width-ad .full-width-ad-container {
+    width: 80% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2) !important;
+    position: relative !important;
+}
+
+@media (max-width: 1400px) {
+    .fitness-full-width-ad {
+    width: calc(100vw - 40px) !important;
+    margin: 20px 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    left: 60% !important;
+    right: 67% !important;
+    margin-left: calc(-50vw + 20px) !important;
+    margin-right: calc(-50vw + 20px) !important;
+}
+
+.fitness-full-width-ad .full-width-ad-container {
+    width: 80% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2) !important;
+    position: relative !important;
+}
+}
 }

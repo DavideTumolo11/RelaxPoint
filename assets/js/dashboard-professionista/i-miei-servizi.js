@@ -29,10 +29,11 @@ function aggiungiNuovoServizio() {
     const currentServices = document.querySelectorAll('.service-group').length;
     const isPremium = checkUserPremiumStatus(); // TODO: Connect to backend user data
 
-    if (!isPremium && currentServices >= 3) {
-        showPremiumLimitModal('servizi', currentServices, 3);
-        return;
-    }
+    // TEMPORANEO: Limite rimosso per testing
+    // if (!isPremium && currentServices >= 3) {
+    //     showPremiumLimitModal('servizi', currentServices, 3);
+    //     return;
+    // }
 
     const modal = document.getElementById('modalNuovoServizio');
     if (modal) {
@@ -113,9 +114,15 @@ function salvaModificheServizio() {
 }
 
 function creaNuovoServizio() {
+    const categoria = document.getElementById('categoriaServizio').value;
     const nome = document.getElementById('nuovoNomeServizio').value;
     const descrizione = document.getElementById('nuovaDescrizioneServizio').value;
     const fileInput = document.getElementById('nuovaFotoServizio');
+
+    if (!categoria) {
+        showNotification('Seleziona una categoria servizio', 'error');
+        return;
+    }
 
     if (!nome.trim()) {
         showNotification('Nome servizio obbligatorio', 'error');
@@ -123,9 +130,15 @@ function creaNuovoServizio() {
     }
 
     const serviceId = nome.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-');
+    const isConsulenza = categoria === 'consulenza';
+
+    // Testo e funzione bottone in base alla categoria
+    const btnText = isConsulenza ? 'Aggiungi Consulenza' : 'Aggiungi Trattamento';
+    const btnFunction = isConsulenza ? 'apriModalConsulenza()' : `aggiungiTrattamento('${serviceId}')`;
+    const countLabel = isConsulenza ? 'consulenze' : 'trattamenti';
 
     const newServiceHTML = `
-        <div class="service-group" data-service-id="${serviceId}">
+        <div class="service-group" data-service-id="${serviceId}" data-service-category="${categoria}">
             <div class="service-header">
                 <div class="service-info">
                     <img src="/assets/images/servizi/default.jpg" alt="${nome}" class="service-image">
@@ -133,8 +146,9 @@ function creaNuovoServizio() {
                         <h3 class="service-title">${nome}</h3>
                         <p class="service-description">${descrizione}</p>
                         <div class="service-meta">
-                            <span class="treatment-count">0 trattamenti</span>
+                            <span class="treatment-count">0 ${countLabel}</span>
                             <span class="service-status active">Attivo</span>
+                            ${isConsulenza ? '<span class="service-badge" style="background: #8b5cf6; color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; margin-left: 8px;">CONSULENZA</span>' : ''}
                         </div>
                     </div>
                 </div>
@@ -155,11 +169,11 @@ function creaNuovoServizio() {
             </div>
             <div class="treatments-list">
                 <div class="add-treatment">
-                    <button class="btn-add-treatment" onclick="aggiungiTrattamento('${serviceId}')">
+                    <button class="btn-add-treatment" onclick="${btnFunction}">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                         </svg>
-                        Aggiungi Trattamento
+                        ${btnText}
                     </button>
                 </div>
             </div>
@@ -645,6 +659,7 @@ function salvaModificheTrattamento() {
     const extraData = collectExtraData();
     const benefitsData = collectBenefitsData();
     const modalityData = collectModalityData();
+    const selectedTags = window.tagSystem.getSelectedTags();
 
     if (!validateAdvancedData(durationData, packageData, extraData)) {
         return;
@@ -656,6 +671,7 @@ function salvaModificheTrattamento() {
         durata: durata,
         servizioId: servizioId,
         durate: durationData,
+        tags: selectedTags,
         pacchetti: packageData,
         extra: extraData,
         benefici: benefitsData,
@@ -1221,5 +1237,87 @@ function upgradeToPremium() {
 }
 
 window.upgradeToPremium = upgradeToPremium;
+
+// ===============================================
+// TAG SYSTEM INTEGRATION
+// ===============================================
+document.addEventListener('DOMContentLoaded', function() {
+    setupTagSystem();
+});
+
+function setupTagSystem() {
+    // Listener per cambio categoria nel modal trattamento
+    const servizioAppartenenza = document.getElementById('servizioAppartenenza');
+    if (servizioAppartenenza) {
+        servizioAppartenenza.addEventListener('change', function() {
+            updateTagsForCategory(this.value);
+        });
+    }
+}
+
+function updateTagsForCategory(serviceId) {
+    const tagContainer = document.getElementById('tagSelectionContainer');
+    if (!tagContainer) return;
+
+    // Ottieni la categoria del servizio selezionato
+    const serviceGroup = document.querySelector(`[data-service-id="${serviceId}"]`);
+    if (!serviceGroup) {
+        tagContainer.innerHTML = '<p class="no-category-message">Seleziona prima una categoria di servizio per visualizzare i tag disponibili</p>';
+        return;
+    }
+
+    // Estrai la categoria dal data-attribute del servizio
+    const category = serviceGroup.dataset.category;
+
+    if (!category) {
+        tagContainer.innerHTML = '<p class="no-category-message">Categoria non riconosciuta per questo servizio</p>';
+        return;
+    }
+
+    // Usa il tag system per generare l'HTML dei tag
+    const tagHTML = window.tagSystem.renderTagSelection(category);
+    tagContainer.innerHTML = tagHTML;
+
+    // Aggiungi validazione max 5 tag
+    const checkboxes = tagContainer.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const checkedCount = tagContainer.querySelectorAll('input[type="checkbox"]:checked').length;
+            if (checkedCount > 5) {
+                this.checked = false;
+                showNotification('Puoi selezionare massimo 5 tag', 'warning');
+            }
+        });
+    });
+}
+
+// Funzione per salvare i tag insieme al trattamento
+function saveServiceTags(treatmentId) {
+    const selectedTags = window.tagSystem.getSelectedTags();
+
+    // Salva in localStorage o invia al backend
+    const treatmentData = {
+        id: treatmentId,
+        tags: selectedTags,
+        // ... altri dati del trattamento
+    };
+
+    // TODO: Implementare salvataggio
+    console.log('Salvataggio tag per trattamento:', treatmentData);
+
+    return selectedTags;
+}
+
+// Funzione per caricare i tag di un trattamento esistente
+function loadServiceTags(treatmentId) {
+    // TODO: Recuperare dal localStorage o backend
+    const savedTags = []; // Array di tag salvati
+
+    // Seleziona i checkbox corrispondenti
+    const checkboxes = document.querySelectorAll('input[name="serviceTags"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = savedTags.includes(checkbox.value);
+    });
+}
 
 console.log('I Miei Servizi JS - Inizializzazione completata');

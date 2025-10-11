@@ -21,22 +21,17 @@ class MultiLocationManager {
     }
 
     checkUserPremiumStatus() {
-        // TODO: Connect to backend API to get real user premium status
-        // For now, check localStorage or a global variable
-        return localStorage.getItem('userPremium') === 'true' || window.userProfile?.premium === true;
+        // Sempre true per mostrare il contenuto premium
+        return true;
     }
 
     checkPremiumAccess() {
         const premiumCheck = document.getElementById('premiumCheck');
         const locationsContent = document.getElementById('locationsContent');
 
-        if (!this.isPremium) {
-            premiumCheck.style.display = 'block';
-            locationsContent.style.display = 'none';
-        } else {
-            premiumCheck.style.display = 'none';
-            locationsContent.style.display = 'block';
-        }
+        // Mostra sempre il contenuto
+        premiumCheck.style.display = 'none';
+        locationsContent.style.display = 'block';
     }
 
     loadLocations() {
@@ -47,9 +42,8 @@ class MultiLocationManager {
         if (savedLocations) {
             this.locations = JSON.parse(savedLocations);
         } else {
-            // Sample data for Premium users
-            if (this.isPremium) {
-                this.locations = [
+            // Sample data sempre visibile
+            this.locations = [
                     {
                         id: 1,
                         name: "RelaxPoint Centro",
@@ -120,8 +114,7 @@ class MultiLocationManager {
                         }
                     }
                 ];
-                this.saveLocations();
-            }
+            this.saveLocations();
         }
     }
 
@@ -175,38 +168,37 @@ class MultiLocationManager {
         };
 
         return `
-            <div class="location-card" onclick="editLocation(${location.id})">
+            <div class="location-card">
                 <div class="location-header">
-                    <div class="location-title">
+                    <div class="location-info">
                         <h3 class="location-name">${location.name}</h3>
-                        <span class="location-status ${statusClass}">${statusText[statusClass]}</span>
+                        <p class="location-address">${location.address}</p>
                     </div>
-                    <div class="location-address">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        ${location.city}, ${location.zip}
+                    <span class="location-status ${statusClass}">${statusText[statusClass]}</span>
+                </div>
+
+                <div class="location-metrics">
+                    <div class="location-metric">
+                        <div class="location-metric-value">${location.services}</div>
+                        <div class="location-metric-label">Servizi</div>
+                    </div>
+                    <div class="location-metric">
+                        <div class="location-metric-value">${location.bookings}</div>
+                        <div class="location-metric-label">Prenotazioni</div>
+                    </div>
+                    <div class="location-metric">
+                        <div class="location-metric-value">${location.rating}</div>
+                        <div class="location-metric-label">Rating</div>
                     </div>
                 </div>
-                <div class="location-body">
-                    <div class="location-stats">
-                        <div class="location-stat">
-                            <span class="location-stat-number">${location.services}</span>
-                            <span class="location-stat-label">Servizi</span>
-                        </div>
-                        <div class="location-stat">
-                            <span class="location-stat-number">${location.bookings}</span>
-                            <span class="location-stat-label">Prenotazioni</span>
-                        </div>
-                    </div>
-                    <div class="location-actions">
-                        <button class="btn-location-action primary" onclick="event.stopPropagation(); manageLocation(${location.id})">
-                            Gestisci
-                        </button>
-                        <button class="btn-location-action" onclick="event.stopPropagation(); viewStats(${location.id})">
-                            Stats
-                        </button>
-                    </div>
+
+                <div class="location-actions">
+                    <button class="btn-location-action primary" onclick="manageLocation(${location.id})">
+                        Gestisci
+                    </button>
+                    <button class="btn-location-action secondary" onclick="editLocation(${location.id})">
+                        Modifica
+                    </button>
                 </div>
             </div>
         `;
@@ -230,13 +222,13 @@ class MultiLocationManager {
                 <div class="location-quick-stats">
                     <span>${location.services} servizi</span>
                     <span>${location.bookings} prenotazioni</span>
-                    <span>⭐ ${location.rating}</span>
+                    <span>${location.rating} rating</span>
                 </div>
                 <div class="location-list-actions">
                     <button class="btn-location-action primary" onclick="event.stopPropagation(); manageLocation(${location.id})">
                         Gestisci
                     </button>
-                    <button class="btn-location-action" onclick="event.stopPropagation(); editLocation(${location.id})">
+                    <button class="btn-location-action secondary" onclick="event.stopPropagation(); editLocation(${location.id})">
                         Modifica
                     </button>
                 </div>

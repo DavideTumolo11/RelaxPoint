@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="utf-8" />
+
+    <!-- FONTS GOOGLE -->
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect" />
+    <link as="style"
+        href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&amp;family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B600%3B700%3B800"
+        onload="this.rel='stylesheet'" rel="stylesheet" />
+
+    <!-- META -->
+    <title>I Miei Corsi - RelaxPoint | Gestisci i tuoi corsi</title>
+    <meta name="description"
+        content="Visualizza i tuoi corsi iscritti, calendario lezioni, materiali e presenze su RelaxPoint.">
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon" />
+
+    <!-- CSS PERSONALIZZATO -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/dashboard-cliente.css">
+    <link rel="stylesheet" href="/assets/css/i-miei-corsi.css">
+</head>
+
+<body>
+    <!-- CONTAINER PRINCIPALE -->
+    <div class="main-container">
+        <div class="layout-container">
+
+            <!-- HEADER -->
+            <header class="site-header">
+                <a class="site-logo" href="/index.html">
+                    <div class="logo-icon">
+                        <img src="/assets/images/Logo trasparente bianco.svg" alt="RelaxPoint Logo"
+                            style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                </a>
+                <div class="header-left">
+                    <nav class="main-nav">
+                        <a class="nav-link" href="/index.html">Home</a>
+                        <a class="nav-link" href="/pages/servizi/servizi.html">Servizi</a>
+                        <a class="nav-link" href="/pages/professionisti/professionisti.html">Professionisti</a>
+                        <a class="nav-link" href="/pages/ispirazioni/ispirazioni.html">Ispirazioni</a>
+                    </nav>
+                </div>
+
+                <a class="last-minute-link" href="/pages/last-minute.html">Last Minute</a>
+
+                <div class="header-right">
+                    <div class="podcast-header-section">
+                        <a href="/pages/podcast/podcast.html" class="podcast-link">
+                            <div class="podcast-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+                                </svg>
+                            </div>
+                            <span class="podcast-text">Podcast</span>
+                        </a>
+                    </div>
+
+                    <div class="language-selector">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="language-icon">
+                            <path
+                                d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z" />
+                        </svg>
+                        <select id="languageSelector" class="language-dropdown">
+                            <option value="it">IT</option>
+                            <option value="en">EN</option>
+                            <option value="fr">FR</option>
+                            <option value="es">ES</option>
+                        </select>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-wrapper">
+                            <div class="search-icon">
+                                <svg fill="currentColor" height="20px" viewBox="0 0 256 256" width="20px"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <input class="search-input" placeholder="Cerca servizi..." />
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <a href="/pages/prenotazione/prenota.html" class="btn-primary">
+                            <span class="text-truncate">Prenota</span>
+                        </a>
+
+                        <a href="#" class="user-avatar-header" id="userAvatar">
+                            <img src="/assets/images/users/Leonardo_Lightning_XL_A_hyperrealistic_frontfacing_portrait_of_0.jpg" alt="Avatar utente">
+                        </a>
+
+                        <a href="/login.html" class="btn-secondary" id="loginBtn">
+                            <span class="text-truncate">Accedi</span>
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <main class="main-content">
+                <div class="content-wrapper">
+
+                    <!-- BREADCRUMB -->
+                    <nav class="breadcrumb">
+                        <a href="/pages/dashboard/dashboard-cliente.html" class="breadcrumb-link">Dashboard</a>
+                        <span class="breadcrumb-separator">›</span>
+                        </nav>
+
+                    <!-- PAGE TITLE -->
+                    <div class="page-title-section">
+                        <h1 class="page-title">I Miei Corsi</h1>
+                    </div>
+
+                    <!-- DASHBOARD LAYOUT -->
+                    <div class="dashboard-layout">
+
+                        <!-- SIDEBAR MENU -->
+                        <aside class="dashboard-sidebar">
+<nav class="sidebar-menu">
+                                <a href="/pages/dashboard/dashboard-cliente.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                                    </svg>
+                                    <span>Dashboard</span>
+                                </a>
+                                <a href="/pages/dashboard/prenotazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                                    </svg>
+                                    <span>Prenotazioni</span>
+                                </a>
+                                <a href="/pages/dashboard/i-miei-corsi.html" class="menu-item active">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                                    </svg>
+                                    <span>I Miei Corsi</span>
+                                </a>
+                                <a href="/pages/dashboard/le-mie-consulenze.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                    </svg>
+                                    <span>Le Mie Consulenze</span>
+                                </a>
+                                <a href="/pages/dashboard/pagamenti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z" />
+                                    </svg>
+                                    <span>Pagamenti</span>
+                                </a>
+                                <a href="/pages/dashboard/recensioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                    </svg>
+                                    <span>Recensioni</span>
+                                </a>
+                                <a href="/pages/dashboard/preferiti.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                                    </svg>
+                                    <span>Preferiti</span>
+                                </a>
+                                <a href="/pages/dashboard/profilo.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                    </svg>
+                                    <span>Profilo</span>
+                                </a>
+                                <a href="/pages/dashboard/notifiche.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+                                    </svg>
+                                    <span>Notifiche</span>
+                                </a>
+                                <a href="/pages/dashboard/impostazioni.html" class="menu-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.82,11.69,4.82,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                                    </svg>
+                                    <span>Impostazioni</span>
+                                </a>
+                                <a href="/login.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
+                            </nav>
+                        </aside>
+
+                        <!-- CONTENUTO PRINCIPALE -->
+                        <div class="dashboard-main">
+</div>
+                            </div>
+
+                            <!-- CONTENUTO CORSI -->
+                            <div class="dashboard-content">
+
+                                <!-- HEADER SEZIONE -->
+                                <div class="section-header">
+                                    <h2>I Miei Corsi</h2>
+                                    <p class="section-subtitle">Visualizza corsi iscritti, calendario lezioni e materiali</p>
+                                </div>
+
+                                <!-- TAB NAVIGATION -->
+                                <div class="tabs-navigation">
+                                    <button class="tab-btn active" data-tab="attivi">Corsi Attivi</button>
+                                    <button class="tab-btn" data-tab="completati">Completati</button>
+                                </div>
+
+                                <!-- TAB CONTENT -->
+                                <div class="tabs-content">
+
+                                    <!-- TAB 1: CORSI ATTIVI -->
+                                    <div class="tab-pane active" id="attivi">
+                                        <div class="corsi-list" id="corsiAttiviList">
+                                            <!-- Popolato via JS -->
+                                        </div>
+                                    </div>
+
+                                    <!-- TAB 2: CORSI COMPLETATI -->
+                                    <div class="tab-pane" id="completati">
+                                        <div class="corsi-list" id="corsiCompletatiList">
+                                            <!-- Popolato via JS -->
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- MODAL DETTAGLI CORSO -->
+            <div class="modal" id="modalDettagliCorso">
+                <div class="modal-content modal-large">
+                    <div class="modal-header">
+                        <h3 id="modalCorsoTitolo">Dettagli Corso</h3>
+                        <button class="modal-close" onclick="window.chiudiModalCorso()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+
+                        <!-- INFO CORSO -->
+                        <div class="dettagli-section">
+                            <h4>📚 Informazioni Corso</h4>
+                            <div class="dettagli-grid">
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Professionista:</span>
+                                    <span class="dettaglio-value" id="dettaglioProfessionista">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Lezioni Totali:</span>
+                                    <span class="dettaglio-value" id="dettaglioLezioni">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Presenze:</span>
+                                    <span class="dettaglio-value" id="dettaglioPresenze">-</span>
+                                </div>
+                                <div class="dettaglio-item">
+                                    <span class="dettaglio-label">Progresso:</span>
+                                    <span class="dettaglio-value" id="dettaglioProgresso">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PROSSIME LEZIONI -->
+                        <div class="dettagli-section">
+                            <h4>📅 Prossime Lezioni</h4>
+                            <div id="dettaglioCalendario" class="calendario-list">
+                                <!-- Popolato via JS -->
+                            </div>
+                        </div>
+
+                        <!-- MATERIALI -->
+                        <div class="dettagli-section">
+                            <h4>📎 Materiali del Corso</h4>
+                            <div id="dettaglioMateriali" class="materiali-list">
+                                <!-- Popolato via JS -->
+                            </div>
+                        </div>
+
+                        <!-- AZIONI -->
+                        <div class="dettagli-section">
+                            <h4>⚙️ Azioni</h4>
+                            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-primary" onclick="window.apriChatProfessionista()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                                    </svg>
+                                    Contatta Professionista
+                                </button>
+                                <button class="btn btn-secondary" onclick="window.lasciaRecensione()">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    </svg>
+                                    Lascia Recensione
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="site-footer">
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="footer-links">
+                            <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
+                            <a class="footer-link" href="/pages/contatti.html">Contatti</a>
+                            <a class="footer-link" href="/pages/termini-condizioni.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy-policy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/faq.html">FAQ</a>
+                        </div>
+                        <p class="footer-copyright">&copy; 2025 RelaxPoint. Tutti i diritti riservati.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="/assets/js/main.js?v=1.2"></script>
+    <script src="/assets/js/auth.js?v=1.2"></script>
+    <script src="/assets/js/i-miei-corsi.js?v=1.0"></script>
+
+</body>
+
+</html>

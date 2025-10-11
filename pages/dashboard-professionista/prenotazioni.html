@@ -103,8 +103,8 @@
                         </a>
 
                         <!-- AVATAR UTENTE -->
-                        <a href="#" class="user-avatar-header" id="userAvatar">
-                            <img src="" alt="Avatar utente">
+                        <a href="impostazioni.html" class="user-avatar-header" id="userAvatar">
+                            <img src="/assets/images/Professionisti/pr2.png" alt="Professionista">
                         </a>
                     </div>
                 </div>
@@ -211,22 +211,32 @@
                                     <span>Fatturazione</span>
                                 </a>
 
-                                <a href="statistiche.html" class="menu-item premium-feature"
-                                    data-premium-required="Statistiche Business">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
-                                        class="menu-icon">
-                                        <path
-                                            d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
-                                    </svg>
-                                    <span>Statistiche</span>
-                                    <span class="premium-badge">PRO</span>
-                                </a>
-
                                 <!-- SEZIONE PREMIUM ESCLUSIVA -->
                                 <div class="menu-section premium-section">
                                     <div class="section-header">
                                         <span class="section-title">Premium Exclusive</span>
                                     </div>
+
+                                    <a href="consulenze.html" class="menu-item premium-feature"
+                                        data-premium-required="Consulenze">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                                        </svg>
+                                        <span>Consulenze</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
+
+                                    <a href="statistiche.html" class="menu-item premium-feature"
+                                        data-premium-required="Statistiche Business">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                            class="menu-icon">
+                                            <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z" />
+                                        </svg>
+                                        <span>Statistiche</span>
+                                        <span class="premium-badge">PRO</span>
+                                    </a>
 
                                     <a href="crm-clienti.html" class="menu-item premium-feature"
                                         data-premium-required="CRM Clienti">
@@ -260,7 +270,6 @@
                                         <span>Pubblicità</span>
                                         <span class="premium-badge">PRO</span>
                                     </a>
-
                                 </div>
 
                                 <a href="impostazioni.html" class="menu-item">
@@ -271,28 +280,20 @@
                                     </svg>
                                     <span>Impostazioni</span>
                                 </a>
+
+                                <a href="/index.html" class="menu-item logout">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                                        class="menu-icon">
+                                        <path
+                                            d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+                                    </svg>
+                                    <span>Logout</span>
+                                </a>
                             </nav>
                         </aside>
 
                         <!-- CONTENUTO PRINCIPALE -->
                         <div class="dashboard-main">
-
-                            <!-- HEADER PROFESSIONISTA -->
-                            <div class="user-header">
-                                <div class="user-info">
-                                    <div class="user-avatar">
-                                        <img src="/assets/images/Professionisti/pr2.png" alt="Marco Bianchi"
-                                            id="professionalAvatar">
-                                        <input type="file" id="avatarInput" accept="image/*" style="display: none;">
-                                    </div>
-                                    <div class="user-details">
-                                        <h1>Ciao, <span id="professionalName">Marco</span></h1>
-                                        <div class="user-status">
-                                            <span class="status-badge premium">Gestione Prenotazioni</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                             <!-- MAIN CONTENT AREA -->
                             <div class="dashboard-content">
@@ -530,8 +531,8 @@
                         <div class="footer-links">
                             <a class="footer-link" href="/pages/chi-siamo.html">Chi siamo</a>
                             <a class="footer-link" href="/pages/contatti.html">Contatti</a>
-                            <a class="footer-link" href="/pages/termini.html">Termini e condizioni</a>
-                            <a class="footer-link" href="/pages/privacy.html">Privacy Policy</a>
+                            <a class="footer-link" href="/pages/termini-condizioni.html">Termini e condizioni</a>
+                            <a class="footer-link" href="/pages/privacy-policy.html">Privacy Policy</a>
                             <a class="footer-link" href="/pages/faq.html">FAQ</a>
                         </div>
                         <p class="footer-copyright">© 2024 RelaxPoint. Tutti i diritti riservati.</p>
@@ -546,20 +547,6 @@
     <script src="/assets/js/auth.js?v=1.2"></script>
     <script src="/assets/js/dashboard-professionista/dashboard-professionista.js?v=1.2"></script>
     <script src="/assets/js/dashboard-professionista/prenotazioni.js?v=1.2"></script>
-    <script>
-        // Forza visualizzazione avatar per dashboard professionista
-        document.addEventListener('DOMContentLoaded', function () {
-            const userAvatar = document.getElementById('userAvatar');
-            if (userAvatar) {
-                userAvatar.style.display = 'block';
-                const avatarImg = userAvatar.querySelector('img');
-                if (avatarImg && !avatarImg.src) {
-                    avatarImg.src = '../../assets/images/Professionisti/pr2.png';
-                    avatarImg.alt = 'Professionista';
-                }
-            }
-        });
-    </script>
 
 </body>
 

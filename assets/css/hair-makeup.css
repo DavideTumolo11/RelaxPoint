@@ -32,6 +32,7 @@
     border-radius: 16px;
     padding: 48px 32px;
     margin: 32px 0;
+    position: relative;
 }
 
 .hair-hero-content {
@@ -871,5 +872,92 @@
     .hair-tag {
         font-size: 10px;
         padding: 4px 10px;
+    }
+}
+
+
+/* ===============================================
+   HERO ADS SPECIFICI PER HAIR MAKEUP - CON STICKY
+   =============================================== */
+
+.hero-ad-hair {
+    position: fixed;
+    width: 200px;
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.hero-ad-hair * {
+    pointer-events: auto;
+}
+
+/* Posizionamento fisso laterale che segue scroll */
+.hair-ad-left {
+    top: 35%;
+    transform: translateY(-50%);
+    left: calc(35% - 600px - 270px);
+}
+
+.hair-ad-right {
+    top: 35%;
+    transform: translateY(-50%);
+    right: calc(35% - 600px - 270px);
+}
+
+.hair-ad-left-bottom {
+    top: 65%;
+    transform: translateY(-50%);
+    left: calc(35% - 600px - 270px);
+    height: 360px;
+}
+
+.hair-ad-right-top {
+    top: 65%;
+    transform: translateY(-50%);
+    right: calc(35% - 600px - 270px);
+    height: 360px;
+}
+
+@media (max-width: 1400px) {
+    .hero-ad-hair {
+        display: none;
+    }
+}
+
+/* ===============================================
+   FULL WIDTH AD - RESTRIZIONE PER EVITARE SOVRAPPOSIZIONI
+   =============================================== */
+
+.hair-full-width-ad {
+    width: calc(100vw - 40px) !important;
+    margin: 20px 0 !important;
+    padding: 0 !important;
+    position: relative !important;
+    left: 60% !important;
+    right: 67% !important;
+    margin-left: calc(-50vw + 20px) !important;
+    margin-right: calc(-50vw + 20px) !important;
+}
+
+.hair-full-width-ad .full-width-ad-container {
+    width: 80% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border-radius: 12px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.2) !important;
+    position: relative !important;
+}
+
+@media (max-width: 1400px) {
+    .hair-full-width-ad {
+        padding: 0 20px;
     }
 }
